@@ -19,14 +19,14 @@ import java.util.LinkedList;
 import java.util.List;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
-    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_5 = null;
     protected int algorithmId;
     List<CencSampleAuxiliaryDataFormat> entries;
     protected int ivSize;

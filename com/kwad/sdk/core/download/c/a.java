@@ -32,18 +32,18 @@ import java.io.File;
 public class a implements f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Handler f9119a = new HandlerC1095a();
+    private static final Handler f6065a = new HandlerC1112a();
 
     /* renamed from: com.kwad.sdk.core.download.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private static class HandlerC1095a extends Handler {
+    private static class HandlerC1112a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        private final SparseArray<Long> f9120a;
+        private final SparseArray<Long> f6066a;
 
-        HandlerC1095a() {
+        HandlerC1112a() {
             super(Looper.getMainLooper());
-            this.f9120a = new SparseArray<>();
+            this.f6066a = new SparseArray<>();
         }
 
         @Override // android.os.Handler
@@ -51,7 +51,7 @@ public class a implements f {
             boolean z = message.arg1 == 1;
             boolean z2 = message.arg2 == 1;
             boolean z3 = message.arg2 == 2;
-            Long l = this.f9120a.get(message.what);
+            Long l = this.f6066a.get(message.what);
             NotificationManager notificationManager = (NotificationManager) b.a().getSystemService(ActionJsonData.TAG_NOTIFICATION);
             if (notificationManager == null) {
                 return;
@@ -66,7 +66,7 @@ public class a implements f {
                     notificationManager.cancel(message.what);
                 }
                 a.b(message.what, (Notification) message.obj);
-                this.f9120a.put(message.what, Long.valueOf(System.currentTimeMillis()));
+                this.f6066a.put(message.what, Long.valueOf(System.currentTimeMillis()));
             }
         }
     }
@@ -159,8 +159,8 @@ public class a implements f {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            File b2 = com.kwad.sdk.core.diskcache.b.a.a().b(str);
-            if (b2 == null || !b2.exists()) {
+            File b = com.kwad.sdk.core.diskcache.b.a.a().b(str);
+            if (b == null || !b.exists()) {
                 com.kwad.sdk.core.diskcache.b.a.a().a(str);
             }
         }
@@ -177,8 +177,8 @@ public class a implements f {
         Object tag = downloadTask.getTag();
         if (tag instanceof DownloadParams) {
             DownloadParams downloadParams = (DownloadParams) tag;
-            File b2 = com.kwad.sdk.core.diskcache.b.a.a().b(downloadParams.mAppIcon);
-            a2 = (b2 == null || !b2.exists()) ? a(context, createProgressView, "ksad_notification_default_icon") : a(createProgressView, b2);
+            File b = com.kwad.sdk.core.diskcache.b.a.a().b(downloadParams.mAppIcon);
+            a2 = (b == null || !b.exists()) ? a(context, createProgressView, "ksad_notification_default_icon") : a(createProgressView, b);
             createProgressView.setName(downloadParams.mAppName);
         } else {
             a2 = a(context, createProgressView, "ksad_notification_default_icon");
@@ -194,8 +194,8 @@ public class a implements f {
         createProgressView.setProgress(100, smallFileSoFarBytes, false);
         KsNotificationCompat.Builder builder = new KsNotificationCompat.Builder(context, "download_channel");
         builder.setContent(createProgressView.build()).setWhen(System.currentTimeMillis()).setOngoing(true).setOnlyAlertOnce(true).setPriority(-1).setSmallIcon(ab.a(context, "ksad_notification_small_icon"));
-        f9119a.removeMessages(downloadTask.getId());
-        f9119a.obtainMessage(downloadTask.getId(), z ? 1 : 0, downloadTask.isCompleted() ? 1 : 0, builder.build()).sendToTarget();
+        f6065a.removeMessages(downloadTask.getId());
+        f6065a.obtainMessage(downloadTask.getId(), z ? 1 : 0, downloadTask.isCompleted() ? 1 : 0, builder.build()).sendToTarget();
     }
 
     @Override // com.ksad.download.f
@@ -216,8 +216,8 @@ public class a implements f {
         if (TextUtils.isEmpty(a3.mAppIcon)) {
             a2 = a(context, createCompletedView, "ksad_notification_default_icon");
         } else {
-            File b2 = com.kwad.sdk.core.diskcache.b.a.a().b(a3.mAppIcon);
-            a2 = (b2 == null || !b2.exists()) ? a(context, createCompletedView, "ksad_notification_default_icon") : a(createCompletedView, b2);
+            File b = com.kwad.sdk.core.diskcache.b.a.a().b(a3.mAppIcon);
+            a2 = (b == null || !b.exists()) ? a(context, createCompletedView, "ksad_notification_default_icon") : a(createCompletedView, b);
             createCompletedView.setName(a3.mAppName);
         }
         if (!a2) {
@@ -229,8 +229,8 @@ public class a implements f {
         createCompletedView.setInstallText("立即安装");
         KsNotificationCompat.Builder builder = new KsNotificationCompat.Builder(context, "download_channel");
         builder.setContent(createCompletedView.build()).setWhen(System.currentTimeMillis()).setOngoing(false).setAutoCancel(false).setOnlyAlertOnce(true).setPriority(-1).setContentIntent(g.a(file, a3.mTaskId)).setSmallIcon(ab.a(context, "ksad_notification_small_icon"));
-        f9119a.removeMessages(a3.mTaskId);
-        f9119a.obtainMessage(a3.mTaskId, 1, 2, builder.build()).sendToTarget();
+        f6065a.removeMessages(a3.mTaskId);
+        f6065a.obtainMessage(a3.mTaskId, 1, 2, builder.build()).sendToTarget();
     }
 
     @Override // com.ksad.download.f
@@ -247,8 +247,8 @@ public class a implements f {
         if (TextUtils.isEmpty(a3.mAppIcon)) {
             a2 = a(context, createCompletedView, "ksad_notification_default_icon");
         } else {
-            File b2 = com.kwad.sdk.core.diskcache.b.a.a().b(a3.mAppIcon);
-            a2 = (b2 == null || !b2.exists()) ? a(context, createCompletedView, "ksad_notification_default_icon") : a(createCompletedView, b2);
+            File b = com.kwad.sdk.core.diskcache.b.a.a().b(a3.mAppIcon);
+            a2 = (b == null || !b.exists()) ? a(context, createCompletedView, "ksad_notification_default_icon") : a(createCompletedView, b);
             createCompletedView.setName(a3.mAppName);
         }
         if (!a2) {
@@ -260,8 +260,8 @@ public class a implements f {
         createCompletedView.setInstallText("立刻打开");
         KsNotificationCompat.Builder builder = new KsNotificationCompat.Builder(context, "download_channel");
         builder.setContent(createCompletedView.build()).setWhen(System.currentTimeMillis()).setOngoing(false).setAutoCancel(true).setOnlyAlertOnce(true).setPriority(-1).setContentIntent(g.a(a3.mPkgname, a3.mTaskId)).setSmallIcon(ab.a(context, "ksad_notification_small_icon"));
-        f9119a.removeMessages(a3.mTaskId);
-        f9119a.obtainMessage(a3.mTaskId, 1, 2, builder.build()).sendToTarget();
+        f6065a.removeMessages(a3.mTaskId);
+        f6065a.obtainMessage(a3.mTaskId, 1, 2, builder.build()).sendToTarget();
     }
 
     @Override // com.ksad.download.f
@@ -276,8 +276,8 @@ public class a implements f {
         Object tag = downloadTask.getTag();
         if (tag instanceof DownloadParams) {
             downloadParams = (DownloadParams) tag;
-            File b2 = com.kwad.sdk.core.diskcache.b.a.a().b(downloadParams.mAppIcon);
-            a2 = (b2 == null || !b2.exists()) ? a(context, createCompletedView, "ksad_notification_default_icon") : a(createCompletedView, b2);
+            File b = com.kwad.sdk.core.diskcache.b.a.a().b(downloadParams.mAppIcon);
+            a2 = (b == null || !b.exists()) ? a(context, createCompletedView, "ksad_notification_default_icon") : a(createCompletedView, b);
             createCompletedView.setName(downloadParams.mAppName);
         } else {
             a2 = a(context, createCompletedView, "ksad_notification_default_icon");
@@ -297,7 +297,7 @@ public class a implements f {
         createCompletedView.setInstallText("立即安装");
         KsNotificationCompat.Builder builder = new KsNotificationCompat.Builder(context, "download_channel");
         builder.setContent(createCompletedView.build()).setWhen(System.currentTimeMillis()).setOngoing(false).setAutoCancel(false).setOnlyAlertOnce(true).setPriority(-1).setContentIntent(g.a(downloadTask)).setSmallIcon(ab.a(context, "ksad_notification_small_icon"));
-        f9119a.removeMessages(downloadTask.getId());
-        f9119a.obtainMessage(downloadTask.getId(), 1, 1, builder.build()).sendToTarget();
+        f6065a.removeMessages(downloadTask.getId());
+        f6065a.obtainMessage(downloadTask.getId(), 1, 1, builder.build()).sendToTarget();
     }
 }

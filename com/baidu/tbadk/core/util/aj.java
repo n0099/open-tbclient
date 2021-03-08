@@ -7,7 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aj extends Thread {
-    private boolean fav;
+    private boolean fbU;
     private String mObj;
     private String mObjTp;
     private String mParam;
@@ -18,9 +18,9 @@ public class aj extends Thread {
         this.mParam = null;
         this.mObj = null;
         this.mObjTp = null;
-        this.fav = false;
+        this.fbU = false;
         this.mType = str;
-        this.fav = z;
+        this.fbU = z;
     }
 
     public aj(String str, String str2) {
@@ -28,7 +28,7 @@ public class aj extends Thread {
         this.mParam = null;
         this.mObj = null;
         this.mObjTp = null;
-        this.fav = false;
+        this.fbU = false;
         this.mType = str;
         this.mParam = str2;
     }
@@ -38,7 +38,7 @@ public class aj extends Thread {
         String str;
         super.run();
         if (!TbadkCoreApplication.getInst().checkInterrupt()) {
-            if (this.fav) {
+            if (this.fbU) {
                 str = TbConfig.IN_PV_ADDRESS;
             } else {
                 str = TbConfig.LOAD_REG_PV_ADDRESS;

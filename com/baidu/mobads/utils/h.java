@@ -49,14 +49,12 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @SuppressLint({"NewApi"})
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class h implements IXAdCommonUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f3491a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static String f3492b;
+    private static String f2483a;
+    private static String b;
     private static String c;
     private static String d;
     private static String h = "";
@@ -239,10 +237,10 @@ public class h implements IXAdCommonUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public String getDebugToken(Context context) {
         try {
-            if (f3492b == null) {
-                f3492b = d(context, IXAdCommonUtils.DEBUG_TOKEN);
+            if (b == null) {
+                b = d(context, IXAdCommonUtils.DEBUG_TOKEN);
             }
-            return f3492b;
+            return b;
         } catch (Exception e) {
             return "";
         }
@@ -251,10 +249,10 @@ public class h implements IXAdCommonUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public String getAppId(Context context) {
         try {
-            if (f3491a == null) {
-                f3491a = d(context, IXAdCommonUtils.APPSID);
+            if (f2483a == null) {
+                f2483a = d(context, IXAdCommonUtils.APPSID);
             }
-            return f3491a;
+            return f2483a;
         } catch (Exception e) {
             return "";
         }
@@ -542,7 +540,7 @@ public class h implements IXAdCommonUtils {
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public void setAppId(String str) {
-        f3491a = str;
+        f2483a = str;
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:50:0x00eb -> B:13:0x004f). Please submit an issue!!! */

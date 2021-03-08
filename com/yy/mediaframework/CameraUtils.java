@@ -15,14 +15,14 @@ import com.yy.mediaframework.utils.YMFLog;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class CameraUtils {
     private static final int DEFAULT_PREVIEW_HEIGHT = 720;
     private static final int DEFAULT_PREVIEW_WIDTH = 1280;
     private static final String TAG = "CameraUtils";
     public static ArrayList<Long> mCameraBufferHashCode = new ArrayList<>();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum CameraFacing {
         FacingFront,
         FacingBack
@@ -246,7 +246,7 @@ public class CameraUtils {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class PreviewSize {
         public int height;
         public int width;

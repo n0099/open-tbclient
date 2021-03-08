@@ -9,7 +9,7 @@ import com.baidu.adp.lib.util.r;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e implements CustomMessageTask.CustomRunnable<Object> {
     public static final List<String> eM(List<l.b<String>> list) {
         LinkedList linkedList = new LinkedList();
@@ -33,7 +33,7 @@ public class e implements CustomMessageTask.CustomRunnable<Object> {
         if (currentAccount == null) {
             currentAccount = "";
         }
-        List<String> eM = eM(r.b(com.baidu.tbadk.core.c.a.bqr().dF("tb.searchperson_history", currentAccount)));
+        List<String> eM = eM(r.b(com.baidu.tbadk.core.c.a.bqt().dF("tb.searchperson_history", currentAccount)));
         ResponseSearchPersonHistoryReadMessage responseSearchPersonHistoryReadMessage = new ResponseSearchPersonHistoryReadMessage();
         responseSearchPersonHistoryReadMessage.datas.addAll(eM);
         return responseSearchPersonHistoryReadMessage;

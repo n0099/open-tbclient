@@ -6,7 +6,7 @@ import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.v8engine.JsObject;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SwanApiNetworkV8Module {
     public static final String MODULE_NAME = "_naV8Network";
     private b requestApi;
@@ -20,7 +20,7 @@ public class SwanApiNetworkV8Module {
         if (b.DEBUG) {
             Log.d("Api-Request", "request: jsObject");
         }
-        com.baidu.swan.apps.api.c.b b2 = this.requestApi.b(jsObject);
-        return b2 == null ? "" : b2.toJsonString();
+        com.baidu.swan.apps.api.c.b b = this.requestApi.b(jsObject);
+        return b == null ? "" : b.toJsonString();
     }
 }

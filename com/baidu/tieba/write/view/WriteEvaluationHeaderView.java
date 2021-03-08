@@ -24,27 +24,27 @@ import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class WriteEvaluationHeaderView extends FrameLayout implements View.OnClickListener, RankStarView.a {
     private TbRichTextEvaluateItemInfo mEvaluateItemInfo;
     private int mSkinType;
-    private EMTextView oiA;
-    private EMTextView oiB;
-    private ImageView oiC;
-    private View oiD;
-    private View oiE;
-    private ItemCardView oiF;
-    private RankStarView oiG;
-    private b oiH;
-    private a oiI;
-    private boolean oiJ;
+    private EMTextView okF;
+    private EMTextView okG;
+    private ImageView okH;
+    private View okI;
+    private View okJ;
+    private ItemCardView okK;
+    private RankStarView okL;
+    private b okM;
+    private a okN;
+    private boolean okO;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void aq(float f);
+        void au(float f);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void onClose();
     }
@@ -60,38 +60,38 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
     public WriteEvaluationHeaderView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.oiJ = true;
+        this.okO = true;
         init();
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.write_evaluation_header_view, (ViewGroup) this, true);
-        this.oiB = (EMTextView) findViewById(R.id.item_relevance_desc);
-        this.oiA = (EMTextView) findViewById(R.id.item_relevance_tip);
-        this.oiD = findViewById(R.id.write_select_item_relevance);
-        this.oiC = (ImageView) findViewById(R.id.item_relevance_arrow);
-        this.oiE = findViewById(R.id.item_relevance_line);
-        this.oiF = (ItemCardView) findViewById(R.id.item_star_info);
-        this.oiG = (RankStarView) findViewById(R.id.item_set_new_star);
-        this.oiG.setStarSpacing(l.getDimens(getContext(), R.dimen.tbds30));
-        this.oiG.setClickable(true);
-        this.oiG.setStarChangListener(this);
-        this.oiF.btU();
-        this.oiF.setOnCloseListener(this);
-        this.oiF.setSizeStyle(1);
+        this.okG = (EMTextView) findViewById(R.id.item_relevance_desc);
+        this.okF = (EMTextView) findViewById(R.id.item_relevance_tip);
+        this.okI = findViewById(R.id.write_select_item_relevance);
+        this.okH = (ImageView) findViewById(R.id.item_relevance_arrow);
+        this.okJ = findViewById(R.id.item_relevance_line);
+        this.okK = (ItemCardView) findViewById(R.id.item_star_info);
+        this.okL = (RankStarView) findViewById(R.id.item_set_new_star);
+        this.okL.setStarSpacing(l.getDimens(getContext(), R.dimen.tbds30));
+        this.okL.setClickable(true);
+        this.okL.setStarChangListener(this);
+        this.okK.btX();
+        this.okK.setOnCloseListener(this);
+        this.okK.setSizeStyle(1);
         initListener();
     }
 
     private void initListener() {
-        this.oiD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.view.WriteEvaluationHeaderView.1
+        this.okI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.view.WriteEvaluationHeaderView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                WriteEvaluationHeaderView.this.dXN();
+                WriteEvaluationHeaderView.this.dXV();
             }
         });
     }
 
-    public void dXN() {
+    public void dXV() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new RelevanceItemSearchActivityConfig(getContext(), RequestResponseCode.REQUEST_SDK_WEB_VIEW)));
     }
 
@@ -99,89 +99,89 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            if (this.oiA != null) {
-                ap.setViewTextColor(this.oiA, R.color.CAM_X0109);
-                c.br(this.oiA).og(R.string.J_X06).setBackGroundColor(R.color.CAM_X0206);
+            if (this.okF != null) {
+                ap.setViewTextColor(this.okF, R.color.CAM_X0109);
+                c.br(this.okF).oh(R.string.J_X06).setBackGroundColor(R.color.CAM_X0206);
             }
-            if (this.oiC != null) {
-                SvgManager.bsR().a(this.oiC, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+            if (this.okH != null) {
+                SvgManager.bsU().a(this.okH, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
             }
-            if (this.oiE != null) {
-                ap.setBackgroundColor(this.oiE, R.color.CAM_X0210);
+            if (this.okJ != null) {
+                ap.setBackgroundColor(this.okJ, R.color.CAM_X0210);
             }
-            if (this.oiF != null) {
-                ap.setBackgroundColor(this.oiF, R.color.CAM_X0206);
+            if (this.okK != null) {
+                ap.setBackgroundColor(this.okK, R.color.CAM_X0206);
             }
-            if (this.oiB != null) {
-                ap.setViewTextColor(this.oiB, R.color.CAM_X0105);
+            if (this.okG != null) {
+                ap.setViewTextColor(this.okG, R.color.CAM_X0105);
             }
-            if (this.oiG != null) {
-                this.oiG.onChangeSkinType(skinType);
+            if (this.okL != null) {
+                this.okL.onChangeSkinType(skinType);
             }
-            if (this.oiG != null) {
-                this.oiG.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            if (this.okL != null) {
+                this.okL.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }
 
     public void setItemInfo(TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo) {
         this.mEvaluateItemInfo = tbRichTextEvaluateItemInfo;
-        if (this.oiJ) {
-            this.oiF.setVisibility(0);
-            this.oiE.setVisibility(8);
+        if (this.okO) {
+            this.okK.setVisibility(0);
+            this.okJ.setVisibility(8);
         }
-        this.oiG.setVisibility(0);
-        this.oiG.setStarCount(0.0f);
-        this.oiA.setVisibility(8);
-        this.oiF.setData(tbRichTextEvaluateItemInfo, 10);
+        this.okL.setVisibility(0);
+        this.okL.setStarCount(0.0f);
+        this.okF.setVisibility(8);
+        this.okK.setData(tbRichTextEvaluateItemInfo, 10);
     }
 
     public int getStarCount() {
-        return this.oiG.getStarCount();
+        return this.okL.getStarCount();
     }
 
     public void setStarCount(int i) {
-        this.oiG.setStarCount(i);
+        this.okL.setStarCount(i);
     }
 
-    public boolean dXO() {
-        return this.oiG.bGg();
+    public boolean dXW() {
+        return this.okL.bGk();
     }
 
     @Override // com.baidu.tbadk.widget.RankStarView.a
-    public void aq(float f) {
-        if (this.oiI != null) {
-            this.oiI.aq(f);
+    public void au(float f) {
+        if (this.okN != null) {
+            this.okN.au(f);
         }
     }
 
     public void setShowItemInfo(boolean z) {
-        this.oiJ = z;
-        this.oiF.setVisibility(8);
-        this.oiE.setVisibility(0);
-        this.oiD.setVisibility(8);
+        this.okO = z;
+        this.okK.setVisibility(8);
+        this.okJ.setVisibility(0);
+        this.okI.setVisibility(8);
     }
 
     public void setItemCloseListener(b bVar) {
-        this.oiH = bVar;
+        this.okM = bVar;
     }
 
     public void setStarChangeListener(a aVar) {
-        this.oiI = aVar;
+        this.okN = aVar;
     }
 
     public ItemCardView getItemStarInfo() {
-        return this.oiF;
+        return this.okK;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.oiF.setVisibility(8);
-        this.oiE.setVisibility(0);
-        this.oiG.setVisibility(8);
-        this.oiA.setVisibility(0);
-        if (this.oiH != null) {
-            this.oiH.onClose();
+        this.okK.setVisibility(8);
+        this.okJ.setVisibility(0);
+        this.okL.setVisibility(8);
+        this.okF.setVisibility(0);
+        if (this.okM != null) {
+            this.okM.onClose();
         }
     }
 

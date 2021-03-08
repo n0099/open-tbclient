@@ -1,11 +1,11 @@
 package com.baidu.live.data;
 
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ah {
-    public int aJD;
-    public long aJE;
-    public long aJF;
+    public int aLd;
+    public long aLe;
+    public long aLf;
     public String division;
     public String iconUrl;
     public int maxStar;
@@ -14,10 +14,10 @@ public class ah {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.division = jSONObject.optString("division");
-            this.aJD = jSONObject.optInt("cur_star");
+            this.aLd = jSONObject.optInt("cur_star");
             this.maxStar = jSONObject.optInt("max_star", 5);
-            this.aJE = jSONObject.optInt("min_score");
-            this.aJF = jSONObject.optInt("max_score");
+            this.aLe = jSONObject.optInt("min_score");
+            this.aLf = jSONObject.optInt("max_score");
             this.name = jSONObject.optString("name");
             this.iconUrl = jSONObject.optString("icon_url");
         }

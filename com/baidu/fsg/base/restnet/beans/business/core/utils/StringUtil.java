@@ -3,10 +3,10 @@ package com.baidu.fsg.base.restnet.beans.business.core.utils;
 public class StringUtil {
     private static final char[] sNum = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    private static String memToStr(byte b2) {
+    private static String memToStr(byte b) {
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(sNum[(b2 >> 4) & 15]);
-        stringBuffer.append(sNum[b2 & 15]);
+        stringBuffer.append(sNum[(b >> 4) & 15]);
+        stringBuffer.append(sNum[b & 15]);
         return stringBuffer.toString();
     }
 

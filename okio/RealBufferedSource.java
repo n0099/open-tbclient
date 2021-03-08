@@ -8,7 +8,7 @@ import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import javax.annotation.Nullable;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class RealBufferedSource implements BufferedSource {
     public final Buffer buffer = new Buffer();
     boolean closed;
@@ -264,12 +264,12 @@ public final class RealBufferedSource implements BufferedSource {
     @Override // okio.BufferedSource
     public int readUtf8CodePoint() throws IOException {
         require(1L);
-        byte b2 = this.buffer.getByte(0L);
-        if ((b2 & 224) == 192) {
+        byte b = this.buffer.getByte(0L);
+        if ((b & 224) == 192) {
             require(2L);
-        } else if ((b2 & 240) == 224) {
+        } else if ((b & 240) == 224) {
             require(3L);
-        } else if ((b2 & 248) == 240) {
+        } else if ((b & 248) == 240) {
             require(4L);
         }
         return this.buffer.readUtf8CodePoint();
@@ -315,10 +315,10 @@ public final class RealBufferedSource implements BufferedSource {
     public long readDecimalLong() throws IOException {
         require(1L);
         for (int i = 0; request(i + 1); i++) {
-            byte b2 = this.buffer.getByte(i);
-            if ((b2 < 48 || b2 > 57) && (i != 0 || b2 != 45)) {
+            byte b = this.buffer.getByte(i);
+            if ((b < 48 || b > 57) && (i != 0 || b != 45)) {
                 if (i == 0) {
-                    throw new NumberFormatException(String.format("Expected leading [0-9] or '-' character but was %#x", Byte.valueOf(b2)));
+                    throw new NumberFormatException(String.format("Expected leading [0-9] or '-' character but was %#x", Byte.valueOf(b)));
                 }
                 return this.buffer.readDecimalLong();
             }
@@ -330,10 +330,10 @@ public final class RealBufferedSource implements BufferedSource {
     public long readHexadecimalUnsignedLong() throws IOException {
         require(1L);
         for (int i = 0; request(i + 1); i++) {
-            byte b2 = this.buffer.getByte(i);
-            if ((b2 < 48 || b2 > 57) && ((b2 < 97 || b2 > 102) && (b2 < 65 || b2 > 70))) {
+            byte b = this.buffer.getByte(i);
+            if ((b < 48 || b > 57) && ((b < 97 || b > 102) && (b < 65 || b > 70))) {
                 if (i == 0) {
-                    throw new NumberFormatException(String.format("Expected leading [0-9a-fA-F] character but was %#x", Byte.valueOf(b2)));
+                    throw new NumberFormatException(String.format("Expected leading [0-9a-fA-F] character but was %#x", Byte.valueOf(b)));
                 }
                 return this.buffer.readHexadecimalUnsignedLong();
             }
@@ -357,17 +357,17 @@ public final class RealBufferedSource implements BufferedSource {
     }
 
     @Override // okio.BufferedSource
-    public long indexOf(byte b2) throws IOException {
-        return indexOf(b2, 0L, Long.MAX_VALUE);
+    public long indexOf(byte b) throws IOException {
+        return indexOf(b, 0L, Long.MAX_VALUE);
     }
 
     @Override // okio.BufferedSource
-    public long indexOf(byte b2, long j) throws IOException {
-        return indexOf(b2, j, Long.MAX_VALUE);
+    public long indexOf(byte b, long j) throws IOException {
+        return indexOf(b, j, Long.MAX_VALUE);
     }
 
     @Override // okio.BufferedSource
-    public long indexOf(byte b2, long j, long j2) throws IOException {
+    public long indexOf(byte b, long j, long j2) throws IOException {
         if (this.closed) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
@@ -376,7 +376,7 @@ public final class RealBufferedSource implements BufferedSource {
         }
         long j3 = j;
         while (j3 < j2) {
-            long indexOf = this.buffer.indexOf(b2, j3, j2);
+            long indexOf = this.buffer.indexOf(b, j3, j2);
             if (indexOf == -1) {
                 long j4 = this.buffer.size;
                 if (j4 >= j2 || this.source.read(this.buffer, 8192L) == -1) {

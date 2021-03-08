@@ -13,10 +13,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class a extends View implements ap.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private InterfaceC1105a f9370a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private View f9371b;
+    private InterfaceC1122a f6218a;
+    private View b;
     private boolean c;
     private boolean d;
     private boolean e;
@@ -25,7 +23,7 @@ public class a extends View implements ap.a {
 
     /* renamed from: com.kwad.sdk.core.page.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1105a {
+    public interface InterfaceC1122a {
         void a();
 
         void a(View view);
@@ -39,22 +37,22 @@ public class a extends View implements ap.a {
         super(context);
         this.f = new ap(this);
         this.g = new AtomicBoolean(true);
-        this.f9371b = view;
+        this.b = view;
         setLayoutParams(new ViewGroup.LayoutParams(0, 0));
     }
 
     private void a() {
-        if (!this.g.getAndSet(false) || this.f9370a == null) {
+        if (!this.g.getAndSet(false) || this.f6218a == null) {
             return;
         }
-        this.f9370a.a();
+        this.f6218a.a();
     }
 
     private void b() {
-        if (this.g.getAndSet(true) || this.f9370a == null) {
+        if (this.g.getAndSet(true) || this.f6218a == null) {
             return;
         }
-        this.f9370a.b();
+        this.f6218a.b();
     }
 
     private void c() {
@@ -78,7 +76,7 @@ public class a extends View implements ap.a {
             case 1:
                 com.kwad.sdk.core.d.a.a("EmptyView", "handleMsg MSG_CHECKING");
                 if (this.d) {
-                    if (!ao.a(this.f9371b, 30, false)) {
+                    if (!ao.a(this.b, 30, false)) {
                         this.f.sendEmptyMessageDelayed(1, 500L);
                         return;
                     }
@@ -92,15 +90,15 @@ public class a extends View implements ap.a {
                 return;
             case 2:
                 com.kwad.sdk.core.d.a.a("EmptyView", "handleMsg MSG_SHOWING");
-                if (!ao.a(this.f9371b, 30, false)) {
+                if (!ao.a(this.b, 30, false)) {
                     if (this.c) {
                         return;
                     }
                     setNeedCheckingShow(true);
                     return;
                 }
-                if (message.arg1 == 1000 && this.f9370a != null) {
-                    this.f9370a.a(this.f9371b);
+                if (message.arg1 == 1000 && this.f6218a != null) {
+                    this.f6218a.a(this.b);
                 }
                 this.f.sendEmptyMessageDelayed(2, 500L);
                 return;
@@ -130,14 +128,14 @@ public class a extends View implements ap.a {
     @Override // android.view.View
     public void onFinishTemporaryDetach() {
         super.onFinishTemporaryDetach();
-        com.kwad.sdk.core.d.a.a("EmptyView", "onFinishTemporaryDetach:" + this.f9371b.getParent());
+        com.kwad.sdk.core.d.a.a("EmptyView", "onFinishTemporaryDetach:" + this.b.getParent());
         a();
     }
 
     @Override // android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
-        com.kwad.sdk.core.d.a.a("EmptyView", "onStartTemporaryDetach:" + this.f9371b.getParent());
+        com.kwad.sdk.core.d.a.a("EmptyView", "onStartTemporaryDetach:" + this.b.getParent());
         b();
     }
 
@@ -145,8 +143,8 @@ public class a extends View implements ap.a {
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
         com.kwad.sdk.core.d.a.a("EmptyView", "onWindowFocusChanged hasWindowFocus:" + z);
-        if (this.f9370a != null) {
-            this.f9370a.a(z);
+        if (this.f6218a != null) {
+            this.f6218a.a(z);
         }
     }
 
@@ -166,7 +164,7 @@ public class a extends View implements ap.a {
         }
     }
 
-    public void setViewCallback(InterfaceC1105a interfaceC1105a) {
-        this.f9370a = interfaceC1105a;
+    public void setViewCallback(InterfaceC1122a interfaceC1122a) {
+        this.f6218a = interfaceC1122a;
     }
 }

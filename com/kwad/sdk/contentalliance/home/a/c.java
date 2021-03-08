@@ -45,7 +45,7 @@ public class c extends a {
             }
         }
         com.kwad.sdk.core.d.a.a("DataFetcherContentImpl", "usePreloadContentData cache item list size=" + a2.size());
-        this.f8624a.addAll(a2);
+        this.f5755a.addAll(a2);
         a3.b(posId);
         a(false, this.d);
         return true;
@@ -104,13 +104,13 @@ public class c extends a {
                 @Override // java.lang.Runnable
                 public void run() {
                     if (z) {
-                        c.this.f8624a.clear();
+                        c.this.f5755a.clear();
                         c.this.d = 0;
                     }
-                    if (c.this.f8624a.isEmpty()) {
+                    if (c.this.f5755a.isEmpty()) {
                         m.e();
                     }
-                    c.this.f8624a.addAll(com.kwad.sdk.contentalliance.home.c.b());
+                    c.this.f5755a.addAll(com.kwad.sdk.contentalliance.home.c.b());
                     com.kwad.sdk.contentalliance.home.c.c();
                     c.this.a(z, c.this.d);
                     c.b(c.this);
@@ -119,7 +119,7 @@ public class c extends a {
             });
             return;
         }
-        if (!TextUtils.isEmpty(this.g) || z || z2 || !this.f8624a.isEmpty()) {
+        if (!TextUtils.isEmpty(this.g) || z || z2 || !this.f5755a.isEmpty()) {
             z3 = false;
         } else {
             z3 = a(this.c);
@@ -129,9 +129,9 @@ public class c extends a {
         }
         final h.a aVar = new h.a();
         com.kwad.sdk.core.g.a.f fVar = new com.kwad.sdk.core.g.a.f(this.c);
-        fVar.f9168b = this.c.getPageScene();
+        fVar.b = this.c.getPageScene();
         fVar.c = 100L;
-        aVar.f9263a.add(fVar);
+        aVar.f6152a.add(fVar);
         switch (i) {
             case 0:
                 i2 = 3;
@@ -163,12 +163,12 @@ public class c extends a {
         }
         com.kwad.sdk.core.g.a.c cVar = new com.kwad.sdk.core.g.a.c();
         cVar.c = i2;
-        cVar.f9162b = this.e;
+        cVar.b = this.e;
         cVar.d = this.j;
-        aVar.f9264b = cVar;
+        aVar.b = cVar;
         aVar.c = this.g;
         if (z3) {
-            aVar.d = new com.kwad.sdk.core.g.a.j(this.f8624a);
+            aVar.d = new com.kwad.sdk.core.g.a.j(this.f5755a);
         }
         this.k = new com.kwad.sdk.core.network.i<com.kwad.sdk.core.g.h, AdResultData>() { // from class: com.kwad.sdk.contentalliance.home.a.c.2
             /* JADX DEBUG: Method merged with bridge method */
@@ -187,8 +187,8 @@ public class c extends a {
             public AdResultData b(String str) {
                 JSONObject jSONObject = new JSONObject(str);
                 ArrayList arrayList = new ArrayList();
-                for (com.kwad.sdk.core.g.a.f fVar2 : aVar.f9263a) {
-                    arrayList.add(fVar2.f9167a);
+                for (com.kwad.sdk.core.g.a.f fVar2 : aVar.f6152a) {
+                    arrayList.add(fVar2.f6100a);
                 }
                 AdResultData adResultData = new AdResultData(arrayList);
                 adResultData.parseJson(jSONObject);
@@ -225,14 +225,14 @@ public class c extends a {
                         c.this.h = false;
                         if (z) {
                             c.this.d = 0;
-                            c.this.f8624a.clear();
+                            c.this.f5755a.clear();
                         }
-                        if (c.this.f8624a.isEmpty()) {
+                        if (c.this.f5755a.isEmpty()) {
                             m.e();
                         }
-                        c.this.f8624a.addAll(arrayList);
+                        c.this.f5755a.addAll(arrayList);
                         c.this.a(z, c.this.d);
-                        com.kwad.sdk.core.d.a.a("DataFetcherContentImpl", "onContentAllianceLoad mTemplateList:" + c.this.f8624a.size());
+                        com.kwad.sdk.core.d.a.a("DataFetcherContentImpl", "onContentAllianceLoad mTemplateList:" + c.this.f5755a.size());
                         c.this.f = false;
                         c.b(c.this);
                         c.c(c.this);

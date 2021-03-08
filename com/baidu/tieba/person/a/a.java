@@ -18,7 +18,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.d,
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cN */
+    /* renamed from: cM */
     public PersonCenterIntervalHolder e(ViewGroup viewGroup) {
         return new PersonCenterIntervalHolder(LayoutInflater.from(this.mContext).inflate(R.layout.item_person_center_list_interval, viewGroup, false));
     }
@@ -29,19 +29,19 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.d,
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.d dVar, PersonCenterIntervalHolder personCenterIntervalHolder) {
         if (dVar != null && personCenterIntervalHolder != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (personCenterIntervalHolder.ajU != skinType) {
-                personCenterIntervalHolder.ajU = skinType;
-                ap.setBackgroundResource(personCenterIntervalHolder.msS, dVar.backgroundId);
+            if (personCenterIntervalHolder.aln != skinType) {
+                personCenterIntervalHolder.aln = skinType;
+                ap.setBackgroundResource(personCenterIntervalHolder.muU, dVar.backgroundId);
             }
-            ViewGroup.LayoutParams layoutParams = personCenterIntervalHolder.msS.getLayoutParams();
-            if (dVar.mpq > 0) {
-                layoutParams.height = dVar.mpq;
+            ViewGroup.LayoutParams layoutParams = personCenterIntervalHolder.muU.getLayoutParams();
+            if (dVar.mrs > 0) {
+                layoutParams.height = dVar.mrs;
             }
-            if (dVar.mpp > 0) {
-                layoutParams.width = dVar.mpp;
+            if (dVar.mrr > 0) {
+                layoutParams.width = dVar.mrr;
             }
-            personCenterIntervalHolder.msS.setLayoutParams(layoutParams);
-            personCenterIntervalHolder.msS.setOnClickListener(null);
+            personCenterIntervalHolder.muU.setLayoutParams(layoutParams);
+            personCenterIntervalHolder.muU.setOnClickListener(null);
         }
         return view;
     }

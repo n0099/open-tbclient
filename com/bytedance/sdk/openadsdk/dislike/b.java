@@ -14,10 +14,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class b implements TTAdDislike {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f7035a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private l f7036b;
+    private final Context f4681a;
+    private l b;
     private d c;
     private c d;
     private String e;
@@ -28,14 +26,14 @@ public class b implements TTAdDislike {
 
     public b(Context context, l lVar) {
         z.a(context, "Dislike 初始化必须使用activity,请在TTAdManager.createAdNative(activity)中传入");
-        this.f7035a = context;
-        lVar.b("other");
-        this.f7036b = lVar;
+        this.f4681a = context;
+        lVar.c("other");
+        this.b = lVar;
         a();
     }
 
     private void a() {
-        this.c = new d(this.f7035a, this.f7036b);
+        this.c = new d(this.f4681a, this.b);
         this.c.a(new d.a() { // from class: com.bytedance.sdk.openadsdk.dislike.b.1
             @Override // com.bytedance.sdk.openadsdk.dislike.d.a
             public void a() {
@@ -58,10 +56,10 @@ public class b implements TTAdDislike {
             }
 
             @Override // com.bytedance.sdk.openadsdk.dislike.d.a
-            public void b() {
+            public void a(boolean z) {
                 u.f("TTAdDislikeImpl", "onDislikeCancel: ");
                 try {
-                    if (b.this.i != null) {
+                    if (b.this.i != null && !z) {
                         b.this.i.onCancel();
                     }
                 } catch (Throwable th) {
@@ -70,11 +68,11 @@ public class b implements TTAdDislike {
             }
 
             @Override // com.bytedance.sdk.openadsdk.dislike.d.a
-            public void c() {
+            public void b() {
                 b.this.b();
             }
         });
-        this.d = new c(this.f7035a, this.f7036b);
+        this.d = new c(this.f4681a, this.b);
         this.d.a(new c.a() { // from class: com.bytedance.sdk.openadsdk.dislike.b.2
             @Override // com.bytedance.sdk.openadsdk.dislike.c.a
             public void a() {
@@ -83,9 +81,6 @@ public class b implements TTAdDislike {
             @Override // com.bytedance.sdk.openadsdk.dislike.c.a
             public void b() {
                 try {
-                    if (b.this.i != null) {
-                        b.this.i.onCancel();
-                    }
                     if (!b.this.f.booleanValue()) {
                         b.this.c.show();
                     }
@@ -113,37 +108,39 @@ public class b implements TTAdDislike {
 
     @Override // com.bytedance.sdk.openadsdk.TTAdDislike
     public void sendDislikeSource(String str) {
-        this.f7036b.b(str);
+        this.b.c(str);
         this.e = str;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdDislike
     public void showDislikeDialog() {
-        if (((this.f7035a instanceof Activity) && !((Activity) this.f7035a).isFinishing()) && !this.g.get()) {
+        if (((this.f4681a instanceof Activity) && !((Activity) this.f4681a).isFinishing()) && !this.c.isShowing() && !this.d.isShowing()) {
             this.c.a(this.e);
             this.c.show();
-            return;
+            this.g.set(false);
+        } else if (this.i != null) {
+            this.i.onRefuse();
         }
-        this.i.onRefuse();
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdDislike
     public void showDislikeDialog(int i) {
         if (this.h == 1) {
             showDislikeDialog();
+            return;
         }
-        if ((this.f7035a instanceof Activity) && !((Activity) this.f7035a).isFinishing()) {
+        if (((this.f4681a instanceof Activity) && !((Activity) this.f4681a).isFinishing()) && !this.c.isShowing() && !this.d.isShowing()) {
             this.c.a(this.e);
             this.c.show();
             this.g.set(false);
-            return;
+        } else if (this.i != null) {
+            this.i.onRefuse();
         }
-        this.i.onRefuse();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        if ((this.f7035a instanceof Activity) && !((Activity) this.f7035a).isFinishing()) {
+        if (((this.f4681a instanceof Activity) && !((Activity) this.f4681a).isFinishing()) && !this.c.isShowing() && !this.d.isShowing()) {
             this.d.show();
         }
     }

@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.liveroom.share;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaShareMsgCallHttpResonpnseMessage extends JsonHttpResponsedMessage {
     public AlaShareMsgCallHttpResonpnseMessage() {
         super(1021045);

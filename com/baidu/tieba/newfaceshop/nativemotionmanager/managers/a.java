@@ -13,93 +13,93 @@ import com.baidu.tieba.newfaceshop.nativemotionmanager.view.c;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
-    List<EmotionPackageData> caS;
-    private BdListView lDj;
-    private MyEmotionHorizontalAdater lDk;
-    private final List<C0814a> lDl;
-    private c lDm;
-    private com.baidu.tieba.newfaceshop.nativemotionmanager.a.a lDn;
+    List<EmotionPackageData> ccu;
+    private BdListView lFl;
+    private MyEmotionHorizontalAdater lFm;
+    private final List<C0820a> lFn;
+    private c lFo;
+    private com.baidu.tieba.newfaceshop.nativemotionmanager.a.a lFp;
 
     public a(TbPageContext<?> tbPageContext, BdListView bdListView, com.baidu.tieba.newfaceshop.nativemotionmanager.a.a aVar) {
-        this.lDj = bdListView;
-        this.lDm = new c(tbPageContext);
-        this.lDm.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.lDj.addHeaderView(this.lDm.getView());
-        this.caS = new ArrayList();
-        this.lDl = new ArrayList();
-        this.lDk = new MyEmotionHorizontalAdater(this.caS, this.lDl, tbPageContext);
-        this.lDn = aVar;
-        this.lDj.setAdapter((ListAdapter) this.lDk);
+        this.lFl = bdListView;
+        this.lFo = new c(tbPageContext);
+        this.lFo.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.lFl.addHeaderView(this.lFo.getView());
+        this.ccu = new ArrayList();
+        this.lFn = new ArrayList();
+        this.lFm = new MyEmotionHorizontalAdater(this.ccu, this.lFn, tbPageContext);
+        this.lFp = aVar;
+        this.lFl.setAdapter((ListAdapter) this.lFm);
     }
 
     public void fa(List<EmotionPackageData> list) {
-        if (this.lDj != null && this.lDk != null) {
-            this.caS.clear();
-            this.caS.addAll(list);
-            djc();
-            this.lDk.djf();
-            this.lDm.t(Integer.valueOf(this.lDk.dje()));
-            this.lDn.cW(0, this.lDk.dje());
-            this.lDn.uv(com.baidu.tieba.newfaceshop.nativemotionmanager.a.diY().bLc());
-            this.lDk.notifyDataSetChanged();
+        if (this.lFl != null && this.lFm != null) {
+            this.ccu.clear();
+            this.ccu.addAll(list);
+            djl();
+            this.lFm.djo();
+            this.lFo.t(Integer.valueOf(this.lFm.djn()));
+            this.lFp.cW(0, this.lFm.djn());
+            this.lFp.uv(com.baidu.tieba.newfaceshop.nativemotionmanager.a.djh().bLg());
+            this.lFm.notifyDataSetChanged();
         }
     }
 
-    private void djc() {
-        C0814a c0814a;
-        ArrayList arrayList = new ArrayList(this.lDl);
-        this.lDl.clear();
-        for (EmotionPackageData emotionPackageData : this.caS) {
+    private void djl() {
+        C0820a c0820a;
+        ArrayList arrayList = new ArrayList(this.lFn);
+        this.lFn.clear();
+        for (EmotionPackageData emotionPackageData : this.ccu) {
             Iterator it = arrayList.iterator();
             while (true) {
                 if (!it.hasNext()) {
-                    c0814a = null;
+                    c0820a = null;
                     break;
                 }
-                c0814a = (C0814a) it.next();
-                if (c0814a != null && c0814a.id == emotionPackageData.id) {
+                c0820a = (C0820a) it.next();
+                if (c0820a != null && c0820a.id == emotionPackageData.id) {
                     break;
                 }
             }
-            if (c0814a == null) {
-                c0814a = new C0814a();
-                c0814a.id = emotionPackageData.id;
+            if (c0820a == null) {
+                c0820a = new C0820a();
+                c0820a.id = emotionPackageData.id;
             }
-            this.lDl.add(c0814a);
+            this.lFn.add(c0820a);
         }
     }
 
     public void cY(int i, int i2) {
-        if (i >= 0 && i < this.caS.size() && i2 >= 0 && i2 < this.caS.size()) {
-            this.caS.add(i2, this.caS.remove(i));
-            this.lDl.add(i2, this.lDl.remove(i));
-            this.lDk.notifyDataSetChanged();
+        if (i >= 0 && i < this.ccu.size() && i2 >= 0 && i2 < this.ccu.size()) {
+            this.ccu.add(i2, this.ccu.remove(i));
+            this.lFn.add(i2, this.lFn.remove(i));
+            this.lFm.notifyDataSetChanged();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SWAP_MY_EMOTION_PACKAGE, new Pair(Integer.valueOf(i), Integer.valueOf(i2))));
         }
     }
 
     /* renamed from: com.baidu.tieba.newfaceshop.nativemotionmanager.managers.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0814a {
+    /* loaded from: classes8.dex */
+    public static class C0820a {
         public int id;
-        public int lDo;
-        public int lDp;
+        public int lFq;
+        public int lFr;
 
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            sb.append("id: ").append(this.id).append(", ").append("firstVisibleItem: ").append(this.lDo).append(", ").append("padX: ").append(this.lDp);
+            sb.append("id: ").append(this.id).append(", ").append("firstVisibleItem: ").append(this.lFq).append(", ").append("padX: ").append(this.lFr);
             return sb.toString();
         }
     }
 
     public void update() {
-        if (this.lDk != null && this.lDj != null && this.caS != null && this.lDm != null && this.lDn != null) {
-            this.lDm.dja();
-            this.lDn.cW(0, this.lDk.dje());
-            this.lDn.uv(com.baidu.tieba.newfaceshop.nativemotionmanager.a.diY().bLc());
-            this.lDk.notifyDataSetChanged();
+        if (this.lFm != null && this.lFl != null && this.ccu != null && this.lFo != null && this.lFp != null) {
+            this.lFo.djj();
+            this.lFp.cW(0, this.lFm.djn());
+            this.lFp.uv(com.baidu.tieba.newfaceshop.nativemotionmanager.a.djh().bLg());
+            this.lFm.notifyDataSetChanged();
         }
     }
 }

@@ -8,14 +8,14 @@ import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.holder.CardViewHolder;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForum.recommend.b.d, CardViewHolder<com.baidu.tieba.enterForum.recommend.view.c>> {
-    private ab iMc;
+    private ab iNL;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext tbPageContext, ab abVar) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.enterForum.recommend.b.d.iMt);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.enterForum.recommend.b.d.iOc);
         this.mPageContext = tbPageContext;
-        this.iMc = abVar;
+        this.iNL = abVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,15 +32,15 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForu
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.enterForum.recommend.b.d dVar, CardViewHolder<com.baidu.tieba.enterForum.recommend.view.c> cardViewHolder) {
-        if (dVar == null || cardViewHolder == null || cardViewHolder.cti() == null) {
+        if (dVar == null || cardViewHolder == null || cardViewHolder.cto() == null) {
             return null;
         }
         if (viewGroup instanceof BdTypeRecyclerView) {
-            cardViewHolder.cti().pZ(dVar.needTopMargin);
+            cardViewHolder.cto().pZ(dVar.needTopMargin);
         }
-        cardViewHolder.cti().a(dVar);
-        if (this.iMc != null) {
-            cardViewHolder.cti().c(this.iMc);
+        cardViewHolder.cto().a(dVar);
+        if (this.iNL != null) {
+            cardViewHolder.cto().c(this.iNL);
         }
         return cardViewHolder.getView();
     }

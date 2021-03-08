@@ -22,7 +22,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class aa implements IXAdURIUitls {
     @Override // com.baidu.mobads.interfaces.utils.IXAdURIUitls
     public HashMap<String, String> getAllQueryParameters(String str) {

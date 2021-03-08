@@ -10,29 +10,27 @@ import java.lang.Thread;
 public class b implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f1181a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final Thread.UncaughtExceptionHandler f1182b;
+    private final Context f1082a;
+    private final Thread.UncaughtExceptionHandler b;
 
     public b(Context context, Thread.UncaughtExceptionHandler uncaughtExceptionHandler) {
-        this.f1181a = context;
-        this.f1182b = uncaughtExceptionHandler;
+        this.f1082a = context;
+        this.b = uncaughtExceptionHandler;
     }
 
     private void a(Throwable th) {
         String stackTraceString = Log.getStackTraceString(th);
         if (stackTraceString.contains("com.baidu.android.pushservice")) {
-            m.a("exception " + stackTraceString + " at Time " + System.currentTimeMillis(), this.f1181a.getApplicationContext());
-            new b.c(this.f1181a).a(stackTraceString).a(201002L).a();
+            m.a("exception " + stackTraceString + " at Time " + System.currentTimeMillis(), this.f1082a.getApplicationContext());
+            new b.c(this.f1082a).a(stackTraceString).a(201002L).a();
         }
     }
 
     @Override // java.lang.Thread.UncaughtExceptionHandler
     public void uncaughtException(Thread thread, Throwable th) {
         a(th);
-        if (this.f1182b != null) {
-            this.f1182b.uncaughtException(thread, th);
+        if (this.b != null) {
+            this.b.uncaughtException(thread, th);
         }
     }
 }

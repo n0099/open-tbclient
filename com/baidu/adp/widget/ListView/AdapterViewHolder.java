@@ -4,14 +4,14 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 /* loaded from: classes.dex */
 public class AdapterViewHolder<T extends View> extends TypeAdapter.ViewHolder {
-    protected T Wq;
+    protected T XK;
 
     public AdapterViewHolder(T t) {
         super(t);
-        this.Wq = t;
+        this.XK = t;
     }
 
     public T qr() {
-        return this.Wq;
+        return this.XK;
     }
 }

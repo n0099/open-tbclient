@@ -8,7 +8,7 @@ import java.util.IllegalFormatException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFLog {
     private static ILog mLogger = null;
     private static boolean mIsDebug = false;
@@ -212,7 +212,7 @@ public class YMFLog {
         writeToLog(str);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YMFLogThreadFactory implements ThreadFactory {
         private YMFLogThreadFactory() {
         }

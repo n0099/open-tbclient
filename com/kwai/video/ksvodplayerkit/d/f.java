@@ -15,30 +15,30 @@ public class f extends b {
     }
 
     private void a(List<String> list, String str, int i) {
-        this.f11065a = new com.kwai.video.ksvodplayerkit.HttpDns.d(list);
+        this.f7285a = new com.kwai.video.ksvodplayerkit.HttpDns.d(list);
         this.f = i.a().t();
         this.d = list.get(0);
         this.c = i;
         this.g = str;
-        String b2 = com.kwai.video.ksvodplayerkit.c.a.b(this.d);
-        if (this.f11065a.b() != null && !TextUtils.isEmpty(this.f11065a.b().f11028b)) {
-            this.d = this.f11065a.b().f11028b;
-            b2 = this.f11065a.d();
+        String b = com.kwai.video.ksvodplayerkit.c.a.b(this.d);
+        if (this.f7285a.b() != null && !TextUtils.isEmpty(this.f7285a.b().b)) {
+            this.d = this.f7285a.b().b;
+            b = this.f7285a.d();
         }
         this.c = i;
-        this.e = MediaPreloadPriorityTask.newTaskWithHttpDns(this.d, b2, com.kwai.video.ksvodplayerkit.c.c.c(this.d));
+        this.e = MediaPreloadPriorityTask.newTaskWithHttpDns(this.d, b, com.kwai.video.ksvodplayerkit.c.c.c(this.d));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwai.video.ksvodplayerkit.d.b
     public AbstractHodorPreloadTask a() {
-        this.f11065a.a(false);
-        if (this.f11065a.f() <= 0 || this.f11065a.e() || this.f11066b.get() >= i.a().e() || !this.f11065a.a()) {
+        this.f7285a.a(false);
+        if (this.f7285a.f() <= 0 || this.f7285a.e() || this.b.get() >= i.a().e() || !this.f7285a.a()) {
             return null;
         }
-        if (this.f11065a.b() != null && !TextUtils.isEmpty(this.f11065a.b().f11028b)) {
-            this.d = this.f11065a.b().f11028b;
-            this.e = MediaPreloadPriorityTask.newTaskWithHttpDns(this.d, this.f11065a.d(), com.kwai.video.ksvodplayerkit.c.c.c(this.d));
+        if (this.f7285a.b() != null && !TextUtils.isEmpty(this.f7285a.b().b)) {
+            this.d = this.f7285a.b().b;
+            this.e = MediaPreloadPriorityTask.newTaskWithHttpDns(this.d, this.f7285a.d(), com.kwai.video.ksvodplayerkit.c.c.c(this.d));
         }
         return this.e;
     }
@@ -47,7 +47,7 @@ public class f extends b {
     @Override // com.kwai.video.ksvodplayerkit.d.b
     public AbstractHodorPreloadTask b() {
         if (this.e == null) {
-            this.e = MediaPreloadPriorityTask.newTaskWithHttpDns(this.d, this.f11065a.d() != null ? this.f11065a.d() : com.kwai.video.ksvodplayerkit.c.a.b(this.d), com.kwai.video.ksvodplayerkit.c.c.c(this.d));
+            this.e = MediaPreloadPriorityTask.newTaskWithHttpDns(this.d, this.f7285a.d() != null ? this.f7285a.d() : com.kwai.video.ksvodplayerkit.c.a.b(this.d), com.kwai.video.ksvodplayerkit.c.c.c(this.d));
         }
         return this.e;
     }

@@ -17,10 +17,8 @@ import java.util.Queue;
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final char[] f10031a = "0123456789abcdef".toCharArray();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final char[] f10032b = new char[64];
+    private static final char[] f6637a = "0123456789abcdef".toCharArray();
+    private static final char[] b = new char[64];
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.kwad.sdk.glide.g.k$1  reason: invalid class name */
@@ -28,27 +26,27 @@ public final class k {
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        static final /* synthetic */ int[] f10033a = new int[Bitmap.Config.values().length];
+        static final /* synthetic */ int[] f6638a = new int[Bitmap.Config.values().length];
 
         static {
             try {
-                f10033a[Bitmap.Config.ALPHA_8.ordinal()] = 1;
+                f6638a[Bitmap.Config.ALPHA_8.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                f10033a[Bitmap.Config.RGB_565.ordinal()] = 2;
+                f6638a[Bitmap.Config.RGB_565.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                f10033a[Bitmap.Config.ARGB_4444.ordinal()] = 3;
+                f6638a[Bitmap.Config.ARGB_4444.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
             try {
-                f10033a[Bitmap.Config.RGBA_F16.ordinal()] = 4;
+                f6638a[Bitmap.Config.RGBA_F16.ordinal()] = 4;
             } catch (NoSuchFieldError e4) {
             }
             try {
-                f10033a[Bitmap.Config.ARGB_8888.ordinal()] = 5;
+                f6638a[Bitmap.Config.ARGB_8888.ordinal()] = 5;
             } catch (NoSuchFieldError e5) {
             }
         }
@@ -70,7 +68,7 @@ public final class k {
         if (config == null) {
             config = Bitmap.Config.ARGB_8888;
         }
-        switch (AnonymousClass1.f10033a[config.ordinal()]) {
+        switch (AnonymousClass1.f6638a[config.ordinal()]) {
             case 1:
                 return 1;
             case 2:
@@ -108,8 +106,8 @@ public final class k {
     @NonNull
     public static String a(@NonNull byte[] bArr) {
         String a2;
-        synchronized (f10032b) {
-            a2 = a(bArr, f10032b);
+        synchronized (b) {
+            a2 = a(bArr, b);
         }
         return a2;
     }
@@ -118,8 +116,8 @@ public final class k {
     private static String a(@NonNull byte[] bArr, @NonNull char[] cArr) {
         for (int i = 0; i < bArr.length; i++) {
             int i2 = bArr[i] & 255;
-            cArr[i * 2] = f10031a[i2 >>> 4];
-            cArr[(i * 2) + 1] = f10031a[i2 & 15];
+            cArr[i * 2] = f6637a[i2 >>> 4];
+            cArr[(i * 2) + 1] = f6637a[i2 & 15];
         }
         return new String(cArr);
     }

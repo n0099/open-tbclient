@@ -8,9 +8,7 @@ import com.kwad.sdk.contentalliance.detail.video.f;
 import com.kwad.sdk.draw.view.playend.DrawVideoTailFrame;
 /* loaded from: classes3.dex */
 public class a extends com.kwad.sdk.draw.a.a {
-
-    /* renamed from: b  reason: collision with root package name */
-    private DrawVideoTailFrame f9707b;
+    private DrawVideoTailFrame b;
     @Nullable
     private c c;
     private e d = new f() { // from class: com.kwad.sdk.draw.b.c.a.1
@@ -20,42 +18,42 @@ public class a extends com.kwad.sdk.draw.a.a {
             if (a.this.c == null || !a.this.c.d()) {
                 a.this.e();
             } else {
-                a.this.f9707b.setVisibility(8);
+                a.this.b.setVisibility(8);
             }
         }
     };
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        this.f9707b.a();
-        this.f9707b.setVisibility(0);
+        this.b.a();
+        this.b.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.draw.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.c = this.f9675a.g;
-        this.f9707b.a(this.f9675a.c);
-        this.f9707b.setAdBaseFrameLayout(this.f9675a.f9677b);
-        this.f9707b.setApkDownloadHelper(this.f9675a.d);
-        this.f9707b.setVisibility(8);
-        this.f9707b.setAdInteractionListener(this.f9675a.f9676a);
-        this.f9675a.e.a(this.d);
+        this.c = this.f6403a.g;
+        this.b.a(this.f6403a.c);
+        this.b.setAdBaseFrameLayout(this.f6403a.b);
+        this.b.setApkDownloadHelper(this.f6403a.d);
+        this.b.setVisibility(8);
+        this.b.setAdInteractionListener(this.f6403a.f6404a);
+        this.f6403a.e.a(this.d);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f9675a.e.b(this.d);
-        this.f9707b.b();
+        this.f6403a.e.b(this.d);
+        this.b.b();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f9707b = (DrawVideoTailFrame) b(R.id.ksad_video_tail_frame);
+        this.b = (DrawVideoTailFrame) b(R.id.ksad_video_tail_frame);
     }
 }

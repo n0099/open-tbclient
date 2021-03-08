@@ -14,10 +14,8 @@ import org.json.JSONObject;
 public class b extends AlertDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private SSWebView f6793a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Context f6794b;
+    private SSWebView f4604a;
+    private Context b;
     private TextView c;
     private String d;
     private a e;
@@ -28,22 +26,23 @@ public class b extends AlertDialog {
         void a(Dialog dialog);
     }
 
-    public b(Context context) {
+    public b(Context context, String str) {
         super(context, ac.g(context, "DialogFullscreen"));
-        this.f6794b = context;
+        this.b = context;
+        this.f = str;
     }
 
     @Override // android.app.AlertDialog, android.app.Dialog
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(ac.f(this.f6794b, "tt_app_privacy_dialog"));
+        setContentView(ac.f(this.b, "tt_app_privacy_dialog"));
         b();
         a();
     }
 
     protected void a() {
-        this.f6793a = (SSWebView) findViewById(ac.e(this.f6794b, "tt_privacy_webview"));
-        this.c = (TextView) findViewById(ac.e(this.f6794b, "tt_app_privacy_back_tv"));
+        this.f4604a = (SSWebView) findViewById(ac.e(this.b, "tt_privacy_webview"));
+        this.c = (TextView) findViewById(ac.e(this.b, "tt_app_privacy_back_tv"));
         this.c.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -52,10 +51,10 @@ public class b extends AlertDialog {
                 }
             }
         });
-        this.f6793a.getSettings().setJavaScriptEnabled(true);
-        this.f6793a.getSettings().setDisplayZoomControls(false);
-        this.f6793a.getSettings().setCacheMode(2);
-        this.f6793a.loadUrl(this.d);
+        this.f4604a.getSettings().setJavaScriptEnabled(true);
+        this.f4604a.getSettings().setDisplayZoomControls(false);
+        this.f4604a.getSettings().setCacheMode(2);
+        this.f4604a.loadUrl(this.d);
     }
 
     private void b() {
@@ -64,9 +63,9 @@ public class b extends AlertDialog {
             return;
         }
         try {
-            com.bytedance.sdk.openadsdk.core.d.c b2 = com.bytedance.sdk.openadsdk.core.c.b(new JSONObject(this.f));
-            if (b2 != null) {
-                this.d = b2.d();
+            com.bytedance.sdk.openadsdk.core.d.c b = com.bytedance.sdk.openadsdk.core.c.b(new JSONObject(this.f));
+            if (b != null) {
+                this.d = b.d();
                 if (TextUtils.isEmpty(this.d)) {
                     this.d = "http://sf6-ttcdn-tos.pstatp.com/obj/ad-tetris-site/personal-privacy-page.html";
                 }
@@ -81,11 +80,6 @@ public class b extends AlertDialog {
         if (this.e != null) {
             this.e.a(this);
         }
-    }
-
-    public b a(String str) {
-        this.f = str;
-        return this;
     }
 
     public b a(a aVar) {

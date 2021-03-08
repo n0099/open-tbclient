@@ -14,7 +14,7 @@ import com.baidu.live.tbadk.util.PageDialogHelper;
 import com.baidu.tieba.ala.live.b;
 import com.baidu.tieba.ala.live.c.a;
 import com.baidu.tieba.ala.live.c.c;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaSdkWalletActivity extends BaseActivity<AlaSdkWalletActivity> {
     public static final String TAG = "AlaSdkWalletActivity";
     private AlaSdkWalletActivity mActivity;
@@ -24,19 +24,19 @@ public class AlaSdkWalletActivity extends BaseActivity<AlaSdkWalletActivity> {
     private b mViewController;
     private boolean isPayDialog = false;
     private boolean mIsPaying = false;
-    private b.InterfaceC0646b mCallback = new b.InterfaceC0646b() { // from class: com.baidu.tieba.ala.live.AlaSdkWalletActivity.1
-        @Override // com.baidu.tieba.ala.live.b.InterfaceC0646b
+    private b.InterfaceC0652b mCallback = new b.InterfaceC0652b() { // from class: com.baidu.tieba.ala.live.AlaSdkWalletActivity.1
+        @Override // com.baidu.tieba.ala.live.b.InterfaceC0652b
         public void doFinish() {
             if (AlaSdkWalletActivity.this.mPayController != null) {
-                AlaSdkWalletActivity.this.setResult(-1, AlaSdkWalletActivity.this.mPayController.bYj());
+                AlaSdkWalletActivity.this.setResult(-1, AlaSdkWalletActivity.this.mPayController.bYp());
                 AlaSdkWalletActivity.this.finish();
             }
         }
 
-        @Override // com.baidu.tieba.ala.live.b.InterfaceC0646b
+        @Override // com.baidu.tieba.ala.live.b.InterfaceC0652b
         public void doPay(String str) {
             if (AlaSdkWalletActivity.this.mPayController != null) {
-                AlaSdkWalletActivity.this.mPayController.Hj(str);
+                AlaSdkWalletActivity.this.mPayController.Hs(str);
             }
         }
     };
@@ -45,7 +45,7 @@ public class AlaSdkWalletActivity extends BaseActivity<AlaSdkWalletActivity> {
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view") && AlaSdkWalletActivity.this.mPayController != null) {
-                AlaSdkWalletActivity.this.setResult(-1, AlaSdkWalletActivity.this.mPayController.bYj());
+                AlaSdkWalletActivity.this.setResult(-1, AlaSdkWalletActivity.this.mPayController.bYp());
                 AlaSdkWalletActivity.this.finish();
             }
         }
@@ -75,16 +75,16 @@ public class AlaSdkWalletActivity extends BaseActivity<AlaSdkWalletActivity> {
                 finish();
                 return;
             }
-            this.mPayController.a(new a.InterfaceC0647a() { // from class: com.baidu.tieba.ala.live.AlaSdkWalletActivity.2
-                @Override // com.baidu.tieba.ala.live.c.a.InterfaceC0647a
-                public void Ha(String str) {
+            this.mPayController.a(new a.InterfaceC0653a() { // from class: com.baidu.tieba.ala.live.AlaSdkWalletActivity.2
+                @Override // com.baidu.tieba.ala.live.c.a.InterfaceC0653a
+                public void Hj(String str) {
                     AlaSdkWalletActivity.this.mViewController = new b(AlaSdkWalletActivity.this.mActivity, AlaSdkWalletActivity.this.mCallback, AlaSdkWalletActivity.this.mCurPayConfig);
                     AlaSdkWalletActivity.this.mViewController.isValidData(str);
                     AlaSdkWalletActivity.this.mViewController.hideLoadingView();
                     AlaSdkWalletActivity.this.mViewController.setup();
                 }
 
-                @Override // com.baidu.tieba.ala.live.c.a.InterfaceC0647a
+                @Override // com.baidu.tieba.ala.live.c.a.InterfaceC0653a
                 public void a(boolean z, Intent intent) {
                     if (AlaSdkWalletActivity.this.mViewController != null) {
                         AlaSdkWalletActivity.this.mViewController.payResult(z);

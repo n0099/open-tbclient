@@ -1,7 +1,7 @@
 package com.baidu.live.alablmsdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    public static int q(float f) {
+    public static int u(float f) {
         int ceil = (int) Math.ceil(f);
         if (ceil % 2 == 1) {
             return ceil - 1;

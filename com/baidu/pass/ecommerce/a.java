@@ -8,60 +8,58 @@ import com.baidu.pass.permissions.PermissionsCallback;
 import com.baidu.pass.permissions.PermissionsDTO;
 import com.baidu.sapi2.ecommerce.activity.GetContactActivty;
 import com.baidu.sapi2.utils.SapiUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a {
-
-    /* renamed from: b  reason: collision with root package name */
-    private static a f4062b;
+    private static a b;
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.pass.ecommerce.b.a f4063a;
+    private com.baidu.pass.ecommerce.b.a f2812a;
 
     /* renamed from: com.baidu.pass.ecommerce.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    class C0275a implements com.baidu.pass.ecommerce.b.a {
+    /* loaded from: classes4.dex */
+    class C0281a implements com.baidu.pass.ecommerce.b.a {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ com.baidu.pass.ecommerce.b.a f4064a;
+        final /* synthetic */ com.baidu.pass.ecommerce.b.a f2813a;
 
-        C0275a(com.baidu.pass.ecommerce.b.a aVar) {
-            this.f4064a = aVar;
+        C0281a(com.baidu.pass.ecommerce.b.a aVar) {
+            this.f2813a = aVar;
         }
 
         @Override // com.baidu.pass.ecommerce.b.a
         public void onCall(com.baidu.pass.ecommerce.c.a aVar) {
-            this.f4064a.onCall(aVar);
+            this.f2813a.onCall(aVar);
             a.this.b();
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     class b extends PermissionsCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ Context f4066a;
+        final /* synthetic */ Context f2814a;
 
         b(Context context) {
-            this.f4066a = context;
+            this.f2814a = context;
         }
 
         @Override // com.baidu.pass.permissions.PermissionsCallback
         public void onFailure(int i) {
             com.baidu.pass.ecommerce.c.a aVar = new com.baidu.pass.ecommerce.c.a();
             aVar.setResultCode(-901);
-            a.this.f4063a.onCall(aVar);
+            a.this.f2812a.onCall(aVar);
         }
 
         @Override // com.baidu.pass.permissions.PermissionsCallback
         public void onSuccess() {
-            Intent intent = new Intent(this.f4066a, GetContactActivty.class);
-            Context context = this.f4066a;
+            Intent intent = new Intent(this.f2814a, GetContactActivty.class);
+            Context context = this.f2814a;
             if (context instanceof Activity) {
                 context.startActivity(intent);
                 return;
             }
             intent.setFlags(268435456);
-            this.f4066a.startActivity(intent);
+            this.f2814a.startActivity(intent);
         }
     }
 
@@ -71,21 +69,21 @@ public class a {
     public static synchronized a c() {
         a aVar;
         synchronized (a.class) {
-            if (f4062b == null) {
-                f4062b = new a();
+            if (b == null) {
+                b = new a();
             }
-            aVar = f4062b;
+            aVar = b;
         }
         return aVar;
     }
 
     public void b() {
-        this.f4063a = null;
-        f4062b = null;
+        this.f2812a = null;
+        b = null;
     }
 
     public void a(Context context, com.baidu.pass.ecommerce.b.a aVar) {
-        this.f4063a = new C0275a(aVar);
+        this.f2812a = new C0281a(aVar);
         PermissionsDTO permissionsDTO = new PermissionsDTO();
         permissionsDTO.context = context;
         permissionsDTO.permissions = new String[]{"android.permission.READ_CONTACTS"};
@@ -95,6 +93,6 @@ public class a {
     }
 
     public com.baidu.pass.ecommerce.b.a a() {
-        return this.f4063a;
+        return this.f2812a;
     }
 }

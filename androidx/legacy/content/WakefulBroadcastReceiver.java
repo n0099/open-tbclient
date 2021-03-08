@@ -9,7 +9,7 @@ import android.util.Log;
 import android.util.SparseArray;
 import com.kwad.sdk.collector.AppStatusRules;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public abstract class WakefulBroadcastReceiver extends BroadcastReceiver {
     private static final String EXTRA_WAKE_LOCK_ID = "androidx.contentpager.content.wakelockid";
     private static final SparseArray<PowerManager.WakeLock> sActiveWakeLocks = new SparseArray<>();

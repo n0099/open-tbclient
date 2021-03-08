@@ -36,7 +36,7 @@ public class g {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final h s(Object obj) {
+    public static final h u(Object obj) {
         ObjectOutputStream objectOutputStream;
         if (obj == null) {
             return null;

@@ -9,7 +9,7 @@ import com.yy.mediaframework.utils.YMFLog;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class CameraPreviewCallbackHost implements Camera.PreviewCallback {
     private static final String TAG = "CameraPreviewCallbackHost";
     private int previewHeight;

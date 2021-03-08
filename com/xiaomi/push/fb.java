@@ -7,35 +7,35 @@ import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.xiaomi.clientreport.data.EventClientReport;
 import com.xiaomi.clientreport.data.PerfClientReport;
 import com.xiaomi.clientreport.manager.ClientReportClient;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class fb {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile fb f14007a;
+    private static volatile fb f8359a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f390a;
+    private Context f311a;
 
     private fb(Context context) {
-        this.f390a = context;
+        this.f311a = context;
     }
 
     public static fb a(Context context) {
-        if (f14007a == null) {
+        if (f8359a == null) {
             synchronized (fb.class) {
-                if (f14007a == null) {
-                    f14007a = new fb(context);
+                if (f8359a == null) {
+                    f8359a = new fb(context);
                 }
             }
         }
-        return f14007a;
+        return f8359a;
     }
 
     private void a(com.xiaomi.clientreport.data.a aVar) {
         if (aVar instanceof PerfClientReport) {
-            ClientReportClient.reportPerf(this.f390a, (PerfClientReport) aVar);
+            ClientReportClient.reportPerf(this.f311a, (PerfClientReport) aVar);
         } else if (aVar instanceof EventClientReport) {
-            ClientReportClient.reportEvent(this.f390a, (EventClientReport) aVar);
+            ClientReportClient.reportEvent(this.f311a, (EventClientReport) aVar);
         }
     }
 
@@ -43,7 +43,7 @@ public class fb {
         if (i < 0 || j2 < 0 || j <= 0) {
             return;
         }
-        PerfClientReport a2 = fa.a(this.f390a, i, j, j2);
+        PerfClientReport a2 = fa.a(this.f311a, i, j, j2);
         a2.setAppPackageName(str);
         a2.setSdkVersion("3_7_5");
         a(a2);
@@ -53,21 +53,21 @@ public class fb {
         if (intent == null) {
             return;
         }
-        a(str, fa.m296a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra("messageId"), i, System.currentTimeMillis(), str2);
+        a(str, fa.m275a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra("messageId"), i, System.currentTimeMillis(), str2);
     }
 
     public void a(String str, Intent intent, String str2) {
         if (intent == null) {
             return;
         }
-        a(str, fa.m296a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra("messageId"), ARPMessageType.MSG_TYPE_RES_REQUEST, System.currentTimeMillis(), str2);
+        a(str, fa.m275a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra("messageId"), ARPMessageType.MSG_TYPE_RES_REQUEST, System.currentTimeMillis(), str2);
     }
 
     public void a(String str, String str2, String str3, int i, long j, String str4) {
         if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
             return;
         }
-        EventClientReport a2 = fa.a(this.f390a, str2, str3, i, j, str4);
+        EventClientReport a2 = fa.a(this.f311a, str2, str3, i, j, str4);
         a2.setAppPackageName(str);
         a2.setSdkVersion("3_7_5");
         a(a2);

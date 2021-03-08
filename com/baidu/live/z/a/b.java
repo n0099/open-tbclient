@@ -20,65 +20,65 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private static volatile b byi;
-    private h byf = new h();
-    private boolean byg = false;
-    private boolean byh = false;
+    private static volatile b bzI;
+    private h bzF = new h();
+    private boolean bzG = false;
+    private boolean bzH = false;
 
     public a f(boolean z, boolean z2) {
         if (!z2) {
-            return dR(com.baidu.live.ae.a.Qj().buX.aKR);
+            return dS(com.baidu.live.ae.a.Qm().bwx.aMr);
         }
         if (TbadkCoreApplication.getInst().isOther()) {
             if (z && z2) {
-                return dR(com.baidu.live.ae.a.Qj().buX.aLa);
+                return dS(com.baidu.live.ae.a.Qm().bwx.aMA);
             }
             if (!z && z2) {
-                return dR(com.baidu.live.ae.a.Qj().buX.aLb);
+                return dS(com.baidu.live.ae.a.Qm().bwx.aMB);
             }
-            return a.byl;
+            return a.bzL;
         }
-        return a.byn;
+        return a.bzN;
     }
 
     public a g(boolean z, boolean z2) {
         if (z && z2) {
-            ar arVar = com.baidu.live.ae.a.Qj().buX;
-            if (arVar != null && arVar.aLe > 0 && arVar.aLf > 0) {
-                return new a(100, arVar.aLf, arVar.aLe);
+            ar arVar = com.baidu.live.ae.a.Qm().bwx;
+            if (arVar != null && arVar.aME > 0 && arVar.aMF > 0) {
+                return new a(100, arVar.aMF, arVar.aME);
             }
-            return a.byn;
+            return a.bzN;
         }
         return f(z, z2);
     }
 
-    private a dR(int i) {
+    private a dS(int i) {
         if (i == 1) {
-            return a.byj;
+            return a.bzJ;
         }
         if (i == 2) {
-            return a.byk;
+            return a.bzK;
         }
         if (i == 3) {
-            return a.byl;
+            return a.bzL;
         }
         if (i == 4) {
-            return a.bym;
+            return a.bzM;
         }
-        return a.byl;
+        return a.bzL;
     }
 
-    public static b PF() {
-        if (byi == null) {
+    public static b PI() {
+        if (bzI == null) {
             synchronized (b.class) {
-                if (byi == null) {
-                    byi = new b();
+                if (bzI == null) {
+                    bzI = new b();
                 }
             }
         }
-        return byi;
+        return bzI;
     }
 
     public AlaLiveVideoConfig d(int i, int i2, boolean z) {
@@ -87,13 +87,13 @@ public class b {
             aVar = f(true, false);
         }
         if (aVar == null) {
-            aVar = dR(i);
+            aVar = dS(i);
         }
-        if (i2 == 1 && !com.baidu.live.ae.a.Qj().buX.aKT) {
-            aVar = a.bym;
+        if (i2 == 1 && !com.baidu.live.ae.a.Qm().bwx.aMt) {
+            aVar = a.bzM;
         }
-        AlaLiveVideoConfig isLandscape = new AlaLiveVideoConfig(ht(com.baidu.live.ae.a.Qj().buX.aKV), ht(com.baidu.live.ae.a.Qj().buX.aKW), com.baidu.live.ae.a.Qj().buX.increaseThreshold, com.baidu.live.ae.a.Qj().buX.decreaseThreshold, com.baidu.live.ae.a.Qj().buX.increaseCount, com.baidu.live.ae.a.Qj().buX.aKT, com.baidu.live.ae.a.Qj().buX.aKU, aVar.getWidth(), aVar.getHeight()).setIsLandscape(z);
-        isLandscape.setArReportOriginalValue(com.baidu.live.ae.a.Qj().bAS.aPK.isArReportOriginalValue());
+        AlaLiveVideoConfig isLandscape = new AlaLiveVideoConfig(hz(com.baidu.live.ae.a.Qm().bwx.aMv), hz(com.baidu.live.ae.a.Qm().bwx.aMw), com.baidu.live.ae.a.Qm().bwx.increaseThreshold, com.baidu.live.ae.a.Qm().bwx.decreaseThreshold, com.baidu.live.ae.a.Qm().bwx.increaseCount, com.baidu.live.ae.a.Qm().bwx.aMt, com.baidu.live.ae.a.Qm().bwx.aMu, aVar.getWidth(), aVar.getHeight()).setIsLandscape(z);
+        isLandscape.setArReportOriginalValue(com.baidu.live.ae.a.Qm().bCs.aRk.isArReportOriginalValue());
         if (i2 == 1) {
             isLandscape.setPreviewWidth(720);
             isLandscape.setPreviewHeight(1280);
@@ -111,49 +111,49 @@ public class b {
     public void a(boolean z, AlaLiveVideoConfig alaLiveVideoConfig) {
         if (alaLiveVideoConfig != null) {
             if (z) {
-                alaLiveVideoConfig.getRtcBitRateConfig().resetBitRateItem(ht(com.baidu.live.ae.a.Qj().buX.aKY));
+                alaLiveVideoConfig.getRtcBitRateConfig().resetBitRateItem(hz(com.baidu.live.ae.a.Qm().bwx.aMy));
             } else {
-                alaLiveVideoConfig.getRtcBitRateConfig().resetBitRateItem(ht(com.baidu.live.ae.a.Qj().buX.aKZ));
+                alaLiveVideoConfig.getRtcBitRateConfig().resetBitRateItem(hz(com.baidu.live.ae.a.Qm().bwx.aMz));
             }
         }
     }
 
     public void a(boolean z, AlaLiveVideoConfig alaLiveVideoConfig, boolean z2) {
-        if (alaLiveVideoConfig != null && com.baidu.live.ae.a.Qj().buX != null) {
+        if (alaLiveVideoConfig != null && com.baidu.live.ae.a.Qm().bwx != null) {
             if (z2) {
-                alaLiveVideoConfig.getRtcBitRateConfig().resetBitRateItem(ht(com.baidu.live.ae.a.Qj().buX.aLh));
-                alaLiveVideoConfig.setVideoGOP(com.baidu.live.ae.a.Qj().buX.aLg);
+                alaLiveVideoConfig.getRtcBitRateConfig().resetBitRateItem(hz(com.baidu.live.ae.a.Qm().bwx.aMH));
+                alaLiveVideoConfig.setVideoGOP(com.baidu.live.ae.a.Qm().bwx.aMG);
                 return;
             }
-            alaLiveVideoConfig.setVideoGOP(com.baidu.live.ae.a.Qj().buX.aKS);
+            alaLiveVideoConfig.setVideoGOP(com.baidu.live.ae.a.Qm().bwx.aMs);
         }
     }
 
-    public void PG() {
-        if (!this.byg) {
-            this.byf.fs(com.baidu.live.ae.a.Qj().buX.aKX);
-            AlaNdkAdapter.setDomainConfigEnable(this.byf.aGp ? 1 : 0);
-            if (this.byf.aGo.size() > 0 && this.byf.aGn.length() > 0 && this.byf.aGp) {
-                for (int i = 0; i < this.byf.aGo.size(); i++) {
-                    h.a aVar = this.byf.aGo.get(i);
+    public void PJ() {
+        if (!this.bzG) {
+            this.bzF.fy(com.baidu.live.ae.a.Qm().bwx.aMx);
+            AlaNdkAdapter.setDomainConfigEnable(this.bzF.aHP ? 1 : 0);
+            if (this.bzF.aHO.size() > 0 && this.bzF.aHN.length() > 0 && this.bzF.aHP) {
+                for (int i = 0; i < this.bzF.aHO.size(); i++) {
+                    h.a aVar = this.bzF.aHO.get(i);
                     if (aVar != null && aVar.ip != null && aVar.ip.length() > 0) {
-                        AlaNdkAdapter.setDomainConfig(this.byf.aGn, aVar.ip, aVar.aGr);
+                        AlaNdkAdapter.setDomainConfig(this.bzF.aHN, aVar.ip, aVar.aHR);
                     }
                 }
             }
-            this.byg = true;
+            this.bzG = true;
         }
     }
 
-    public void PH() {
-        if (!this.byh) {
-            AlaNdkAdapter.setHttpDnsEnable(com.baidu.live.ae.a.Qj().buX.aLi ? 1 : 0);
-            AlaNdkAdapter.setPushOptTimestamp(com.baidu.live.ae.a.Qj().buX.aLk ? 1 : 0);
-            this.byh = true;
+    public void PK() {
+        if (!this.bzH) {
+            AlaNdkAdapter.setHttpDnsEnable(com.baidu.live.ae.a.Qm().bwx.aMI ? 1 : 0);
+            AlaNdkAdapter.setPushOptTimestamp(com.baidu.live.ae.a.Qm().bwx.aMK ? 1 : 0);
+            this.bzH = true;
         }
     }
 
-    public static List<DynamicBitRateConfig.DynamicBitRateItem> ht(String str) {
+    public static List<DynamicBitRateConfig.DynamicBitRateItem> hz(String str) {
         JSONArray jSONArray;
         int length;
         int i;
@@ -206,13 +206,13 @@ public class b {
         return arrayList;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        public static final a byj = new a(1, 1280, 720);
-        public static final a byk = new a(2, 1024, 576);
-        public static final a byl = new a(3, 960, VideoEncoderConfig.DEFAULT_ENCODE_HIGH_WIDTH);
-        public static final a bym = new a(4, 640, EncoderTextureDrawer.X264_WIDTH);
-        public static final a byn = new a(0, 480, 270);
+        public static final a bzJ = new a(1, 1280, 720);
+        public static final a bzK = new a(2, 1024, 576);
+        public static final a bzL = new a(3, 960, VideoEncoderConfig.DEFAULT_ENCODE_HIGH_WIDTH);
+        public static final a bzM = new a(4, 640, EncoderTextureDrawer.X264_WIDTH);
+        public static final a bzN = new a(0, 480, 270);
         private int height;
         private int type;
         private int width;
@@ -238,20 +238,20 @@ public class b {
 
     private void a(AlaLiveVideoConfig alaLiveVideoConfig) {
         if (alaLiveVideoConfig != null) {
-            if (com.baidu.live.ae.a.Qj().buX != null) {
-                alaLiveVideoConfig.setSupportFaceStyle(com.baidu.live.ae.a.Qj().buX.aLo);
+            if (com.baidu.live.ae.a.Qm().bwx != null) {
+                alaLiveVideoConfig.setSupportFaceStyle(com.baidu.live.ae.a.Qm().bwx.aMO);
             }
-            if (com.baidu.live.ae.a.Qj().buX != null) {
-                alaLiveVideoConfig.setVideoGOP(com.baidu.live.ae.a.Qj().buX.aKS);
+            if (com.baidu.live.ae.a.Qm().bwx != null) {
+                alaLiveVideoConfig.setVideoGOP(com.baidu.live.ae.a.Qm().bwx.aMs);
             }
             b(alaLiveVideoConfig);
         }
     }
 
     private void b(AlaLiveVideoConfig alaLiveVideoConfig) {
-        if (com.baidu.live.ae.a.Qj().buX != null && com.baidu.live.ae.a.Qj().buX.aLc != null) {
+        if (com.baidu.live.ae.a.Qm().bwx != null && com.baidu.live.ae.a.Qm().bwx.aMC != null) {
             try {
-                JSONObject jSONObject = new JSONObject(com.baidu.live.ae.a.Qj().buX.aLc);
+                JSONObject jSONObject = new JSONObject(com.baidu.live.ae.a.Qm().bwx.aMC);
                 boolean z = jSONObject.optInt("switch", 1) == 1;
                 double optDouble = jSONObject.optDouble("threshold", 0.3d);
                 alaLiveVideoConfig.setHwEncoderReset(z);

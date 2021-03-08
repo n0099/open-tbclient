@@ -34,7 +34,7 @@ public class a extends b<PMSAppInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
     /* renamed from: t */
-    public ContentValues al(PMSAppInfo pMSAppInfo) throws IllegalArgumentException {
+    public ContentValues an(PMSAppInfo pMSAppInfo) throws IllegalArgumentException {
         ContentValues contentValues = new ContentValues();
         if (pMSAppInfo != null) {
             contentValues.put("app_id", pMSAppInfo.appId);
@@ -74,13 +74,13 @@ public class a extends b<PMSAppInfo> {
             if (0 < lastLaunchTime) {
                 contentValues.put("last_launch_time", Long.valueOf(lastLaunchTime));
             }
-            int aOg = pMSAppInfo.aOg();
-            if (aOg > 0) {
-                contentValues.put("launch_count", Integer.valueOf(aOg));
+            int aOj = pMSAppInfo.aOj();
+            if (aOj > 0) {
+                contentValues.put("launch_count", Integer.valueOf(aOj));
             }
-            int aqY = pMSAppInfo.aqY();
-            if (aqY > 0) {
-                contentValues.put("install_src", Integer.valueOf(aqY));
+            int arb = pMSAppInfo.arb();
+            if (arb > 0) {
+                contentValues.put("install_src", Integer.valueOf(arb));
             }
             contentValues.put("web_url", pMSAppInfo.webUrl);
             contentValues.put("cs_protocol_version", Integer.valueOf(pMSAppInfo.csProtocolVersion));
@@ -163,8 +163,8 @@ public class a extends b<PMSAppInfo> {
             pMSAppInfo.brandsInfo = cursor.getString(columnIndex32);
             pMSAppInfo.quickAppKey = cursor.getString(columnIndex36);
             pMSAppInfo.dt(cursor.getLong(columnIndex33));
-            pMSAppInfo.lQ(cursor.getInt(columnIndex34));
-            pMSAppInfo.lR(cursor.getInt(columnIndex35));
+            pMSAppInfo.lR(cursor.getInt(columnIndex34));
+            pMSAppInfo.lS(cursor.getInt(columnIndex35));
             pMSAppInfo.webUrl = cursor.getString(columnIndex37);
             pMSAppInfo.csProtocolVersion = cursor.getInt(columnIndex38);
             return pMSAppInfo;

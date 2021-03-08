@@ -3,14 +3,14 @@ package com.baidu.tieba.person.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.n;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class f implements n {
-    public static final BdUniqueId msB = BdUniqueId.gen();
+    public static final BdUniqueId muD = BdUniqueId.gen();
     private List<n> mPhotoAlbum;
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return msB;
+        return muD;
     }
 
     public List<n> getPhotoAlbum() {

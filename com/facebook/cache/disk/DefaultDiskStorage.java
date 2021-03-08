@@ -15,22 +15,22 @@ import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
 /* loaded from: classes5.dex */
 public class DefaultDiskStorage implements com.facebook.cache.disk.c {
-    private static final Class<?> pyc = DefaultDiskStorage.class;
-    static final long pyd = TimeUnit.MINUTES.toMillis(30);
-    private final File pye;
-    private final boolean pyf;
-    private final File pyg;
-    private final CacheErrorLogger pyh;
-    private final com.facebook.common.time.a pyi;
+    private static final Class<?> pAh = DefaultDiskStorage.class;
+    static final long pAi = TimeUnit.MINUTES.toMillis(30);
+    private final File pAj;
+    private final boolean pAk;
+    private final File pAl;
+    private final CacheErrorLogger pAm;
+    private final com.facebook.common.time.a pAn;
 
     public DefaultDiskStorage(File file, int i, CacheErrorLogger cacheErrorLogger) {
         com.facebook.common.internal.g.checkNotNull(file);
-        this.pye = file;
-        this.pyf = a(file, cacheErrorLogger);
-        this.pyg = new File(this.pye, OT(i));
-        this.pyh = cacheErrorLogger;
-        erX();
-        this.pyi = com.facebook.common.time.c.etc();
+        this.pAj = file;
+        this.pAk = a(file, cacheErrorLogger);
+        this.pAl = new File(this.pAj, OX(i));
+        this.pAm = cacheErrorLogger;
+        esg();
+        this.pAn = com.facebook.common.time.c.etl();
     }
 
     private static boolean a(File file, CacheErrorLogger cacheErrorLogger) {
@@ -48,38 +48,38 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
                 }
                 return true;
             } catch (IOException e2) {
-                cacheErrorLogger.a(CacheErrorLogger.CacheErrorCategory.OTHER, pyc, "failed to read folder to check if external: " + str, e2);
+                cacheErrorLogger.a(CacheErrorLogger.CacheErrorCategory.OTHER, pAh, "failed to read folder to check if external: " + str, e2);
                 return false;
             }
         } catch (Exception e3) {
-            cacheErrorLogger.a(CacheErrorLogger.CacheErrorCategory.OTHER, pyc, "failed to get the external storage directory!", e3);
+            cacheErrorLogger.a(CacheErrorLogger.CacheErrorCategory.OTHER, pAh, "failed to get the external storage directory!", e3);
             return false;
         }
     }
 
-    static String OT(int i) {
+    static String OX(int i) {
         return String.format(null, "%s.ols%d.%d", "v2", 100, Integer.valueOf(i));
     }
 
     @Override // com.facebook.cache.disk.c
     public boolean isExternal() {
-        return this.pyf;
+        return this.pAk;
     }
 
-    private void erX() {
+    private void esg() {
         boolean z = true;
-        if (this.pye.exists()) {
-            if (this.pyg.exists()) {
+        if (this.pAj.exists()) {
+            if (this.pAl.exists()) {
                 z = false;
             } else {
-                com.facebook.common.file.a.aw(this.pye);
+                com.facebook.common.file.a.aw(this.pAj);
             }
         }
         if (z) {
             try {
-                FileUtils.ax(this.pyg);
+                FileUtils.ax(this.pAl);
             } catch (FileUtils.CreateDirectoryException e2) {
-                this.pyh.a(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR, pyc, "version directory could not be created: " + this.pyg, null);
+                this.pAm.a(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR, pAh, "version directory could not be created: " + this.pAl, null);
             }
         }
     }
@@ -96,16 +96,16 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
         }
     }
 
-    File Zm(String str) {
+    File Zs(String str) {
         return new File(getFilename(str));
     }
 
-    private String Zn(String str) {
-        return this.pyg + File.separator + String.valueOf(Math.abs(str.hashCode() % 100));
+    private String Zt(String str) {
+        return this.pAl + File.separator + String.valueOf(Math.abs(str.hashCode() % 100));
     }
 
-    private File Zo(String str) {
-        return new File(Zn(str));
+    private File Zu(String str) {
+        return new File(Zt(str));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -140,32 +140,32 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
 
     /* loaded from: classes5.dex */
     private class e implements com.facebook.common.file.b {
-        private boolean pym;
+        private boolean pAr;
 
         private e() {
         }
 
         @Override // com.facebook.common.file.b
         public void ao(File file) {
-            if (!this.pym && file.equals(DefaultDiskStorage.this.pyg)) {
-                this.pym = true;
+            if (!this.pAr && file.equals(DefaultDiskStorage.this.pAl)) {
+                this.pAr = true;
             }
         }
 
         @Override // com.facebook.common.file.b
         public void ap(File file) {
-            if (!this.pym || !at(file)) {
+            if (!this.pAr || !at(file)) {
                 file.delete();
             }
         }
 
         @Override // com.facebook.common.file.b
         public void aq(File file) {
-            if (!DefaultDiskStorage.this.pye.equals(file) && !this.pym) {
+            if (!DefaultDiskStorage.this.pAj.equals(file) && !this.pAr) {
                 file.delete();
             }
-            if (this.pym && file.equals(DefaultDiskStorage.this.pyg)) {
-                this.pym = false;
+            if (this.pAr && file.equals(DefaultDiskStorage.this.pAl)) {
+                this.pAr = false;
             }
         }
 
@@ -182,76 +182,76 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
         }
 
         private boolean au(File file) {
-            return file.lastModified() > DefaultDiskStorage.this.pyi.now() - DefaultDiskStorage.pyd;
+            return file.lastModified() > DefaultDiskStorage.this.pAn.now() - DefaultDiskStorage.pAi;
         }
     }
 
     @Override // com.facebook.cache.disk.c
-    public void erY() {
-        com.facebook.common.file.a.a(this.pye, new e());
+    public void esh() {
+        com.facebook.common.file.a.a(this.pAj, new e());
     }
 
     private void l(File file, String str) throws IOException {
         try {
             FileUtils.ax(file);
         } catch (FileUtils.CreateDirectoryException e2) {
-            this.pyh.a(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR, pyc, str, e2);
+            this.pAm.a(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR, pAh, str, e2);
             throw e2;
         }
     }
 
     @Override // com.facebook.cache.disk.c
-    public c.b E(String str, Object obj) throws IOException {
+    public c.b D(String str, Object obj) throws IOException {
         c cVar = new c(".tmp", str);
-        File Zo = Zo(cVar.resourceId);
-        if (!Zo.exists()) {
-            l(Zo, "insert");
+        File Zu = Zu(cVar.resourceId);
+        if (!Zu.exists()) {
+            l(Zu, "insert");
         }
         try {
-            return new d(str, cVar.ar(Zo));
+            return new d(str, cVar.ar(Zu));
         } catch (IOException e2) {
-            this.pyh.a(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_TEMPFILE, pyc, "insert", e2);
+            this.pAm.a(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_TEMPFILE, pAh, "insert", e2);
             throw e2;
         }
     }
 
     @Override // com.facebook.cache.disk.c
-    public com.facebook.a.a F(String str, Object obj) {
-        File Zm = Zm(str);
-        if (Zm.exists()) {
-            Zm.setLastModified(this.pyi.now());
-            return com.facebook.a.b.al(Zm);
+    public com.facebook.a.a E(String str, Object obj) {
+        File Zs = Zs(str);
+        if (Zs.exists()) {
+            Zs.setLastModified(this.pAn.now());
+            return com.facebook.a.b.al(Zs);
         }
         return null;
     }
 
     private String getFilename(String str) {
         c cVar = new c(".cnt", str);
-        return cVar.Zs(Zn(cVar.resourceId));
+        return cVar.Zy(Zt(cVar.resourceId));
     }
 
     @Override // com.facebook.cache.disk.c
-    public boolean G(String str, Object obj) {
+    public boolean F(String str, Object obj) {
         return bn(str, false);
     }
 
     private boolean bn(String str, boolean z) {
-        File Zm = Zm(str);
-        boolean exists = Zm.exists();
+        File Zs = Zs(str);
+        boolean exists = Zs.exists();
         if (z && exists) {
-            Zm.setLastModified(this.pyi.now());
+            Zs.setLastModified(this.pAn.now());
         }
         return exists;
     }
 
     @Override // com.facebook.cache.disk.c
     public long a(c.a aVar) {
-        return am(((b) aVar).esb().getFile());
+        return am(((b) aVar).esk().getFile());
     }
 
     @Override // com.facebook.cache.disk.c
-    public long Zp(String str) {
-        return am(Zm(str));
+    public long Zv(String str) {
+        return am(Zs(str));
     }
 
     private long am(File file) {
@@ -268,23 +268,23 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.cache.disk.c
     /* renamed from: getEntries */
-    public List<c.a> erZ() throws IOException {
+    public List<c.a> esi() throws IOException {
         a aVar = new a();
-        com.facebook.common.file.a.a(this.pyg, aVar);
+        com.facebook.common.file.a.a(this.pAl, aVar);
         return aVar.getEntries();
     }
 
     /* loaded from: classes5.dex */
     static class b implements c.a {
         private final String id;
-        private final com.facebook.a.b pyk;
+        private final com.facebook.a.b pAp;
         private long size;
         private long timestamp;
 
         private b(String str, File file) {
             com.facebook.common.internal.g.checkNotNull(file);
             this.id = (String) com.facebook.common.internal.g.checkNotNull(str);
-            this.pyk = com.facebook.a.b.al(file);
+            this.pAp = com.facebook.a.b.al(file);
             this.size = -1L;
             this.timestamp = -1L;
         }
@@ -297,19 +297,19 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
         @Override // com.facebook.cache.disk.c.a
         public long getTimestamp() {
             if (this.timestamp < 0) {
-                this.timestamp = this.pyk.getFile().lastModified();
+                this.timestamp = this.pAp.getFile().lastModified();
             }
             return this.timestamp;
         }
 
-        public com.facebook.a.b esb() {
-            return this.pyk;
+        public com.facebook.a.b esk() {
+            return this.pAp;
         }
 
         @Override // com.facebook.cache.disk.c.a
         public long getSize() {
             if (this.size < 0) {
-                this.size = this.pyk.size();
+                this.size = this.pAp.size();
             }
             return this.size;
         }
@@ -321,7 +321,7 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
         if (as == null) {
             return null;
         }
-        if (!Zo(as.resourceId).equals(file.getParentFile())) {
+        if (!Zu(as.resourceId).equals(file.getParentFile())) {
             as = null;
         }
         return as;
@@ -329,7 +329,7 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
 
     /* JADX INFO: Access modifiers changed from: private */
     @Nullable
-    public static String Zq(String str) {
+    public static String Zw(String str) {
         if (".cnt".equals(str)) {
             return ".cnt";
         }
@@ -354,7 +354,7 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
             return this.type + "(" + this.resourceId + ")";
         }
 
-        public String Zs(String str) {
+        public String Zy(String str) {
             return str + File.separator + this.resourceId + this.type;
         }
 
@@ -364,19 +364,19 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
 
         @Nullable
         public static c as(File file) {
-            String Zq;
+            String Zw;
             String name = file.getName();
             int lastIndexOf = name.lastIndexOf(46);
-            if (lastIndexOf > 0 && (Zq = DefaultDiskStorage.Zq(name.substring(lastIndexOf))) != null) {
+            if (lastIndexOf > 0 && (Zw = DefaultDiskStorage.Zw(name.substring(lastIndexOf))) != null) {
                 String substring = name.substring(0, lastIndexOf);
-                if (Zq.equals(".tmp")) {
+                if (Zw.equals(".tmp")) {
                     int lastIndexOf2 = substring.lastIndexOf(46);
                     if (lastIndexOf2 <= 0) {
                         return null;
                     }
                     substring = substring.substring(0, lastIndexOf2);
                 }
-                return new c(Zq, substring);
+                return new c(Zw, substring);
             }
             return null;
         }
@@ -384,47 +384,47 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
 
     /* loaded from: classes5.dex */
     class d implements c.b {
-        private final String mIE;
-        final File pyl;
+        private final String mKH;
+        final File pAq;
 
         public d(String str, File file) {
-            this.mIE = str;
-            this.pyl = file;
+            this.mKH = str;
+            this.pAq = file;
         }
 
         @Override // com.facebook.cache.disk.c.b
         public void a(com.facebook.cache.common.h hVar, Object obj) throws IOException {
             try {
-                FileOutputStream fileOutputStream = new FileOutputStream(this.pyl);
+                FileOutputStream fileOutputStream = new FileOutputStream(this.pAq);
                 try {
                     com.facebook.common.internal.c cVar = new com.facebook.common.internal.c(fileOutputStream);
                     hVar.write(cVar);
                     cVar.flush();
                     long count = cVar.getCount();
                     fileOutputStream.close();
-                    if (this.pyl.length() != count) {
-                        throw new IncompleteFileException(count, this.pyl.length());
+                    if (this.pAq.length() != count) {
+                        throw new IncompleteFileException(count, this.pAq.length());
                     }
                 } catch (Throwable th) {
                     fileOutputStream.close();
                     throw th;
                 }
             } catch (FileNotFoundException e) {
-                DefaultDiskStorage.this.pyh.a(CacheErrorLogger.CacheErrorCategory.WRITE_UPDATE_FILE_NOT_FOUND, DefaultDiskStorage.pyc, "updateResource", e);
+                DefaultDiskStorage.this.pAm.a(CacheErrorLogger.CacheErrorCategory.WRITE_UPDATE_FILE_NOT_FOUND, DefaultDiskStorage.pAh, "updateResource", e);
                 throw e;
             }
         }
 
         @Override // com.facebook.cache.disk.c.b
-        public com.facebook.a.a aZ(Object obj) throws IOException {
+        public com.facebook.a.a bb(Object obj) throws IOException {
             CacheErrorLogger.CacheErrorCategory cacheErrorCategory;
-            File Zm = DefaultDiskStorage.this.Zm(this.mIE);
+            File Zs = DefaultDiskStorage.this.Zs(this.mKH);
             try {
-                FileUtils.rename(this.pyl, Zm);
-                if (Zm.exists()) {
-                    Zm.setLastModified(DefaultDiskStorage.this.pyi.now());
+                FileUtils.rename(this.pAq, Zs);
+                if (Zs.exists()) {
+                    Zs.setLastModified(DefaultDiskStorage.this.pAn.now());
                 }
-                return com.facebook.a.b.al(Zm);
+                return com.facebook.a.b.al(Zs);
             } catch (FileUtils.RenameException e) {
                 Throwable cause = e.getCause();
                 if (cause == null) {
@@ -436,14 +436,14 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
                 } else {
                     cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.WRITE_RENAME_FILE_OTHER;
                 }
-                DefaultDiskStorage.this.pyh.a(cacheErrorCategory, DefaultDiskStorage.pyc, "commit", e);
+                DefaultDiskStorage.this.pAm.a(cacheErrorCategory, DefaultDiskStorage.pAh, "commit", e);
                 throw e;
             }
         }
 
         @Override // com.facebook.cache.disk.c.b
-        public boolean esc() {
-            return !this.pyl.exists() || this.pyl.delete();
+        public boolean esl() {
+            return !this.pAq.exists() || this.pAq.delete();
         }
     }
 }

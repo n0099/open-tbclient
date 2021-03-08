@@ -13,7 +13,7 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.yuyinala.background.c.b;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends BaseAdapter {
     private List<com.baidu.yuyinala.background.b.a> mBgList;
     private Context mContext;
@@ -34,7 +34,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Nw */
+    /* renamed from: NA */
     public com.baidu.yuyinala.background.b.a getItem(int i) {
         return (com.baidu.yuyinala.background.b.a) ListUtils.getItem(this.mBgList, i);
     }
@@ -46,33 +46,33 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0957a c0957a;
+        C0963a c0963a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.g.item_ala_audio_background, viewGroup, false);
-            c0957a = new C0957a();
-            c0957a.oWa = (TbImageView) view.findViewById(a.f.thumbnail_iv);
-            c0957a.oWb = (ImageView) view.findViewById(a.f.chosen_iv);
-            c0957a.gNc = (TextView) view.findViewById(a.f.bg_name_tv);
-            c0957a.oWc = (ProgressBar) view.findViewById(a.f.loading_pb);
-            c0957a.oWd = (TextView) view.findViewById(a.f.video_tag);
-            c0957a.oWa.setDefaultResource(a.e.loading_ala_audio_bg);
-            c0957a.oWa.setDefaultErrorResource(a.e.loading_ala_audio_bg);
-            c0957a.oWa.setDefaultBgResource(a.e.loading_ala_audio_bg);
-            view.setTag(c0957a);
+            c0963a = new C0963a();
+            c0963a.oYf = (TbImageView) view.findViewById(a.f.thumbnail_iv);
+            c0963a.oYg = (ImageView) view.findViewById(a.f.chosen_iv);
+            c0963a.gOL = (TextView) view.findViewById(a.f.bg_name_tv);
+            c0963a.oYh = (ProgressBar) view.findViewById(a.f.loading_pb);
+            c0963a.oYi = (TextView) view.findViewById(a.f.video_tag);
+            c0963a.oYf.setDefaultResource(a.e.loading_ala_audio_bg);
+            c0963a.oYf.setDefaultErrorResource(a.e.loading_ala_audio_bg);
+            c0963a.oYf.setDefaultBgResource(a.e.loading_ala_audio_bg);
+            view.setTag(c0963a);
         } else {
-            c0957a = (C0957a) view.getTag();
+            c0963a = (C0963a) view.getTag();
         }
         com.baidu.yuyinala.background.b.a aVar = (com.baidu.yuyinala.background.b.a) ListUtils.getItem(this.mBgList, i);
         if (aVar != null) {
             view.setVisibility(0);
-            c0957a.gNc.setText(aVar.getName());
-            c0957a.oWa.startLoad(aVar.getThumbnailUrl(), 10, false);
-            c0957a.oWa.setVisibility(0);
-            c0957a.oWb.setVisibility(aVar.ejb() ? 0 : 8);
-            c0957a.oWc.setVisibility(aVar.isLoading() ? 0 : 8);
-            c0957a.oWd.setVisibility(aVar.getType() != 1 ? 8 : 0);
-            if (aVar.getType() == 1 && !b.Yc(aVar.getMd5())) {
-                b.b(aVar.ejc(), aVar.getMd5(), null);
+            c0963a.gOL.setText(aVar.getName());
+            c0963a.oYf.startLoad(aVar.getThumbnailUrl(), 10, false);
+            c0963a.oYf.setVisibility(0);
+            c0963a.oYg.setVisibility(aVar.ejl() ? 0 : 8);
+            c0963a.oYh.setVisibility(aVar.isLoading() ? 0 : 8);
+            c0963a.oYi.setVisibility(aVar.getType() != 1 ? 8 : 0);
+            if (aVar.getType() == 1 && !b.Yj(aVar.getMd5())) {
+                b.b(aVar.ejm(), aVar.getMd5(), null);
             }
         } else {
             view.setVisibility(8);
@@ -81,15 +81,15 @@ public class a extends BaseAdapter {
     }
 
     /* renamed from: com.baidu.yuyinala.background.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    private class C0957a {
-        private TextView gNc;
-        private TbImageView oWa;
-        private ImageView oWb;
-        private ProgressBar oWc;
-        private TextView oWd;
+    /* loaded from: classes10.dex */
+    private class C0963a {
+        private TextView gOL;
+        private TbImageView oYf;
+        private ImageView oYg;
+        private ProgressBar oYh;
+        private TextView oYi;
 
-        private C0957a() {
+        private C0963a() {
         }
     }
 }

@@ -2,9 +2,9 @@ package io.reactivex.subjects;
 
 import io.reactivex.q;
 import io.reactivex.u;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class b<T> extends q<T> implements u<T> {
-    public final b<T> eKW() {
+    public final b<T> eKE() {
         return this instanceof a ? this : new a(this);
     }
 }

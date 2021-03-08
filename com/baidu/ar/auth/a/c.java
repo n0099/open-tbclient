@@ -3,7 +3,7 @@ package com.baidu.ar.auth.a;
 import android.content.Context;
 import com.baidu.ar.auth.ARAuth;
 import com.baidu.ar.auth.IOfflineAuthenticator;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class c implements IOfflineAuthenticator {
     private static volatile c kp;
 

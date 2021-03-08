@@ -15,19 +15,19 @@ public final class az extends ax<a> {
     }
 
     @Override // com.bytedance.embedapplog.ax, com.bytedance.embedapplog.bi
-    public bi.a hS(Context context) {
+    public bi.a hR(Context context) {
         a(context, context.getPackageName());
-        return super.hS(context);
+        return super.hR(context);
     }
 
     @Override // com.bytedance.embedapplog.ax
-    protected bp.b<a, String> eoa() {
+    protected bp.b<a, String> eol() {
         return new bp.b<a, String>() { // from class: com.bytedance.embedapplog.az.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.embedapplog.bp.b
             /* renamed from: a */
             public a e(IBinder iBinder) {
-                return a.AbstractBinderC0987a.a(iBinder);
+                return a.AbstractBinderC0995a.a(iBinder);
             }
 
             /* JADX DEBUG: Method merged with bridge method */

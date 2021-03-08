@@ -1,7 +1,7 @@
 package com.baidu.ar.objdetect;
 
 import com.baidu.ar.d.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class a extends b {
     float[] tA;
 

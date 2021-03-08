@@ -5,47 +5,47 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import com.baidu.tbadk.core.BaseFragment;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
-    private int[] gWY;
-    private ArrayList<BaseFragment> mvU;
+    private int[] gYH;
+    private ArrayList<BaseFragment> mxW;
 
-    protected abstract BaseFragment dxk();
+    protected abstract BaseFragment dxt();
 
     public BasePersonInfoAdapter(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
         super(basePersonInfoActivity.getSupportFragmentManager());
-        this.mvU = new ArrayList<>();
+        this.mxW = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
-        BaseFragment dxk = dxk();
-        dxk.setArguments(bundle);
-        this.mvU.add(dxk);
+        BaseFragment dxt = dxt();
+        dxt.setArguments(bundle);
+        this.mxW.add(dxt);
         if (!z) {
             Bundle bundle2 = new Bundle();
             bundle2.putInt("page_type", 1);
-            BaseFragment dxk2 = dxk();
-            dxk2.setArguments(bundle2);
-            this.mvU.add(dxk2);
-            this.gWY = new int[]{0, 1};
+            BaseFragment dxt2 = dxt();
+            dxt2.setArguments(bundle2);
+            this.mxW.add(dxt2);
+            this.gYH = new int[]{0, 1};
             return;
         }
-        this.gWY = new int[]{0};
+        this.gYH = new int[]{0};
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        if (i >= this.gWY.length || i < 0) {
+        if (i >= this.gYH.length || i < 0) {
             return null;
         }
-        return this.mvU.get(i);
+        return this.mxW.get(i);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return this.gWY.length;
+        return this.gYH.length;
     }
 
-    public int Dj(int i) {
-        return this.gWY[i];
+    public int Dm(int i) {
+        return this.gYH[i];
     }
 }

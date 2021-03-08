@@ -4,20 +4,18 @@ import android.view.View;
 import com.qq.e.comm.adevent.ADEvent;
 import com.qq.e.comm.adevent.ADEventListener;
 import com.qq.e.comm.adevent.ADListener;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class NativeExpressADDataAdapter implements NativeExpressADData2 {
 
     /* renamed from: a  reason: collision with root package name */
-    private NativeExpressADData2 f11496a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private MediaEventListener f11497b;
+    private NativeExpressADData2 f7532a;
+    private MediaEventListener b;
     private AdEventListener c;
 
     public NativeExpressADDataAdapter(NativeExpressADData2 nativeExpressADData2) {
-        this.f11496a = nativeExpressADData2;
-        if (this.f11496a instanceof ADEventListener) {
-            ((ADEventListener) this.f11496a).setAdListener(new ADListener() { // from class: com.qq.e.ads.nativ.express2.NativeExpressADDataAdapter.1
+        this.f7532a = nativeExpressADData2;
+        if (this.f7532a instanceof ADEventListener) {
+            ((ADEventListener) this.f7532a).setAdListener(new ADListener() { // from class: com.qq.e.ads.nativ.express2.NativeExpressADDataAdapter.1
                 @Override // com.qq.e.comm.adevent.ADListener
                 public void onADEvent(ADEvent aDEvent) {
                     if (aDEvent.getType() < 201) {
@@ -55,26 +53,26 @@ public class NativeExpressADDataAdapter implements NativeExpressADData2 {
     }
 
     static /* synthetic */ void b(NativeExpressADDataAdapter nativeExpressADDataAdapter, ADEvent aDEvent) {
-        if (nativeExpressADDataAdapter.f11497b != null) {
+        if (nativeExpressADDataAdapter.b != null) {
             switch (aDEvent.getType()) {
                 case 201:
-                    nativeExpressADDataAdapter.f11497b.onVideoCache();
+                    nativeExpressADDataAdapter.b.onVideoCache();
                     return;
                 case 202:
-                    nativeExpressADDataAdapter.f11497b.onVideoStart();
+                    nativeExpressADDataAdapter.b.onVideoStart();
                     return;
                 case 203:
-                    nativeExpressADDataAdapter.f11497b.onVideoResume();
+                    nativeExpressADDataAdapter.b.onVideoResume();
                     return;
                 case 204:
                 case 205:
-                    nativeExpressADDataAdapter.f11497b.onVideoPause();
+                    nativeExpressADDataAdapter.b.onVideoPause();
                     return;
                 case 206:
-                    nativeExpressADDataAdapter.f11497b.onVideoComplete();
+                    nativeExpressADDataAdapter.b.onVideoComplete();
                     return;
                 case 207:
-                    nativeExpressADDataAdapter.f11497b.onVideoError();
+                    nativeExpressADDataAdapter.b.onVideoError();
                     return;
                 default:
                     return;
@@ -84,32 +82,32 @@ public class NativeExpressADDataAdapter implements NativeExpressADData2 {
 
     @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
     public void destroy() {
-        this.f11496a.destroy();
+        this.f7532a.destroy();
     }
 
     @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
     public View getAdView() {
-        return this.f11496a.getAdView();
+        return this.f7532a.getAdView();
     }
 
     @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
     public String getECPMLevel() {
-        return this.f11496a.getECPMLevel();
+        return this.f7532a.getECPMLevel();
     }
 
     @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
     public int getVideoDuration() {
-        return this.f11496a.getVideoDuration();
+        return this.f7532a.getVideoDuration();
     }
 
     @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
     public boolean isVideoAd() {
-        return this.f11496a.isVideoAd();
+        return this.f7532a.isVideoAd();
     }
 
     @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
     public void render() {
-        this.f11496a.render();
+        this.f7532a.render();
     }
 
     @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
@@ -119,6 +117,6 @@ public class NativeExpressADDataAdapter implements NativeExpressADData2 {
 
     @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
     public void setMediaListener(MediaEventListener mediaEventListener) {
-        this.f11497b = mediaEventListener;
+        this.b = mediaEventListener;
     }
 }

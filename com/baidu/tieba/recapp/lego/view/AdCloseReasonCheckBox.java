@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AdCloseReasonCheckBox extends CheckBox {
-    private GradientDrawable gds;
-    private GradientDrawable gdt;
-    private StateListDrawable gdv;
+    private GradientDrawable geW;
+    private GradientDrawable geX;
+    private StateListDrawable geZ;
     private Context mContext;
 
     public AdCloseReasonCheckBox(Context context) {
@@ -50,17 +50,17 @@ public class AdCloseReasonCheckBox extends CheckBox {
 
     private void f(int i, int i2, int i3, int i4) {
         int parseInt = Integer.parseInt(TbadkCoreApplication.getInst().getResources().getString(i).split(",")[0]);
-        this.gds = new GradientDrawable();
-        this.gds.setShape(0);
-        this.gds.setCornerRadius(parseInt);
-        this.gds.setStroke(i2, ap.getColor(i3));
-        this.gdt = new GradientDrawable();
-        this.gdt.setShape(0);
-        this.gdt.setCornerRadius(parseInt);
-        this.gdt.setStroke(i2, c.l(ap.getColor(i4), 0.5f));
-        this.gdv = new StateListDrawable();
-        this.gdv.addState(new int[]{-16842912}, this.gds);
-        this.gdv.addState(new int[]{16842912}, this.gdt);
-        setBackgroundDrawable(this.gdv);
+        this.geW = new GradientDrawable();
+        this.geW.setShape(0);
+        this.geW.setCornerRadius(parseInt);
+        this.geW.setStroke(i2, ap.getColor(i3));
+        this.geX = new GradientDrawable();
+        this.geX.setShape(0);
+        this.geX.setCornerRadius(parseInt);
+        this.geX.setStroke(i2, c.l(ap.getColor(i4), 0.5f));
+        this.geZ = new StateListDrawable();
+        this.geZ.addState(new int[]{-16842912}, this.geW);
+        this.geZ.addState(new int[]{16842912}, this.geX);
+        setBackgroundDrawable(this.geZ);
     }
 }

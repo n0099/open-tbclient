@@ -8,7 +8,7 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.logsystem.logsys.CrashUtil;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class LogPipelineSingleton {
     private static final String CRASH_PAD_DIR = "crashpad";
     private static final String TAG = "LogPipelineSingleton";

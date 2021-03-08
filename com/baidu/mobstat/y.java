@@ -5,14 +5,12 @@ import android.text.TextUtils;
 import java.text.SimpleDateFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    private static y f3846a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Context f3847b;
+    private static y f2686a;
+    private Context b;
     private JSONObject c = new JSONObject();
     private long d = 24;
     private long e = 0;
@@ -30,28 +28,28 @@ public class y {
     private String q = "";
 
     public static y a(Context context) {
-        if (f3846a == null) {
+        if (f2686a == null) {
             synchronized (y.class) {
-                if (f3846a == null) {
-                    f3846a = new y(context);
+                if (f2686a == null) {
+                    f2686a = new y(context);
                 }
             }
         }
-        return f3846a;
+        return f2686a;
     }
 
     private y(Context context) {
-        this.f3847b = context;
+        this.b = context;
         m();
         j();
         k();
     }
 
     private void m() {
-        String b2 = bo.b("backups/system/.timestamp");
+        String b = bo.b("backups/system/.timestamp");
         try {
-            if (!TextUtils.isEmpty(b2)) {
-                this.c = new JSONObject(b2);
+            if (!TextUtils.isEmpty(b)) {
+                this.c = new JSONObject(b);
             }
         } catch (Exception e) {
         }
@@ -95,7 +93,7 @@ public class y {
 
     public void j() {
         try {
-            String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f3847b, ".config2").getBytes())));
+            String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.b, ".config2").getBytes())));
             if (!TextUtils.isEmpty(str)) {
                 JSONObject jSONObject = new JSONObject(str);
                 try {
@@ -166,7 +164,7 @@ public class y {
 
     public void k() {
         try {
-            String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f3847b, ".sign").getBytes())));
+            String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.b, ".sign").getBytes())));
             if (!TextUtils.isEmpty(str)) {
                 JSONObject jSONObject = new JSONObject(str);
                 try {
@@ -186,12 +184,12 @@ public class y {
     }
 
     public void a(String str) {
-        bo.a(this.f3847b, ".config2", str, false);
+        bo.a(this.b, ".config2", str, false);
         j();
     }
 
     public void b(String str) {
-        bo.a(this.f3847b, ".sign", str, false);
+        bo.a(this.b, ".sign", str, false);
         k();
     }
 

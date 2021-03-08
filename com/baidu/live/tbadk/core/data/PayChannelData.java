@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.core.data;
 
 import com.baidu.live.tbadk.BaseActivity;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class PayChannelData {
     private BaseActivity baseActivity;
     private String channel;

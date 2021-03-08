@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GetMyGift.GetMyGiftResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class GetPersonalGiftListSocketResponseMessage extends TbSocketReponsedMessage {
     private a giftListData;
 

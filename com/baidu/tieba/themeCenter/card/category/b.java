@@ -10,50 +10,50 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.themeCenter.card.category.PersonalCardItemView;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends BaseAdapter {
-    private TbPageContext<?> eUY;
-    private int jcf;
-    private List<Object> nGQ;
-    private int nIu;
-    private PersonalCardItemView.a nIv;
+    private TbPageContext<?> eWx;
+    private int jdO;
+    private List<Object> nIW;
+    private int nKA;
+    private PersonalCardItemView.a nKB;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a {
-        public PersonalCardItemView nIw;
-        public PersonalCardItemView nIx;
-        public PersonalCardItemView nIy;
-        public View nIz;
+        public PersonalCardItemView nKC;
+        public PersonalCardItemView nKD;
+        public PersonalCardItemView nKE;
+        public View nKF;
     }
 
     /* renamed from: com.baidu.tieba.themeCenter.card.category.b$b  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0884b {
-        public TextView eHx;
+    /* loaded from: classes8.dex */
+    public static class C0890b {
+        public TextView eIY;
     }
 
     public b(TbPageContext<?> tbPageContext) {
-        this.nIu = 0;
-        this.jcf = 0;
-        this.eUY = tbPageContext;
-        this.nIu = l.getDimens(tbPageContext.getPageActivity(), R.dimen.ds28);
-        this.jcf = l.getDimens(tbPageContext.getPageActivity(), R.dimen.ds20);
+        this.nKA = 0;
+        this.jdO = 0;
+        this.eWx = tbPageContext;
+        this.nKA = l.getDimens(tbPageContext.getPageActivity(), R.dimen.ds28);
+        this.jdO = l.getDimens(tbPageContext.getPageActivity(), R.dimen.ds20);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.nGQ != null) {
-            return this.nGQ.size();
+        if (this.nIW != null) {
+            return this.nIW.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.nGQ == null || this.nGQ.size() <= 0 || i < 0 || i >= this.nGQ.size()) {
+        if (this.nIW == null || this.nIW.size() <= 0 || i < 0 || i >= this.nIW.size()) {
             return null;
         }
-        return this.nGQ.get(i);
+        return this.nIW.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -80,82 +80,82 @@ public class b extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
-        C0884b c0884b;
+        C0890b c0890b;
         int itemViewType = getItemViewType(i);
         Object item = getItem(i);
         if (itemViewType == 0) {
-            if (view != null && (view.getTag() instanceof C0884b)) {
-                c0884b = (C0884b) view.getTag();
+            if (view != null && (view.getTag() instanceof C0890b)) {
+                c0890b = (C0890b) view.getTag();
             } else {
-                C0884b c0884b2 = new C0884b();
-                view = LayoutInflater.from(this.eUY.getPageActivity()).inflate(R.layout.background_group_header, viewGroup, false);
-                c0884b2.eHx = (TextView) view.findViewById(R.id.group_name);
-                c0884b2.eHx.setPadding(0, this.nIu, 0, this.jcf);
-                view.setTag(c0884b2);
-                c0884b = c0884b2;
+                C0890b c0890b2 = new C0890b();
+                view = LayoutInflater.from(this.eWx.getPageActivity()).inflate(R.layout.background_group_header, viewGroup, false);
+                c0890b2.eIY = (TextView) view.findViewById(R.id.group_name);
+                c0890b2.eIY.setPadding(0, this.nKA, 0, this.jdO);
+                view.setTag(c0890b2);
+                c0890b = c0890b2;
             }
             if (item != null) {
-                c0884b.eHx.setText(item.toString());
+                c0890b.eIY.setText(item.toString());
             }
         } else if (itemViewType == 1) {
             if (view != null && (view.getTag() instanceof a)) {
                 aVar = (a) view.getTag();
             } else {
                 aVar = new a();
-                view = LayoutInflater.from(this.eUY.getPageActivity()).inflate(R.layout.category_card_list_item, viewGroup, false);
-                aVar.nIw = (PersonalCardItemView) view.findViewById(R.id.card1);
-                aVar.nIx = (PersonalCardItemView) view.findViewById(R.id.card2);
-                aVar.nIy = (PersonalCardItemView) view.findViewById(R.id.card3);
-                aVar.nIz = view.findViewById(R.id.divider_line);
-                aVar.nIw.setCardViewController(this.nIv);
-                aVar.nIx.setCardViewController(this.nIv);
-                aVar.nIy.setCardViewController(this.nIv);
+                view = LayoutInflater.from(this.eWx.getPageActivity()).inflate(R.layout.category_card_list_item, viewGroup, false);
+                aVar.nKC = (PersonalCardItemView) view.findViewById(R.id.card1);
+                aVar.nKD = (PersonalCardItemView) view.findViewById(R.id.card2);
+                aVar.nKE = (PersonalCardItemView) view.findViewById(R.id.card3);
+                aVar.nKF = view.findViewById(R.id.divider_line);
+                aVar.nKC.setCardViewController(this.nKB);
+                aVar.nKD.setCardViewController(this.nKB);
+                aVar.nKE.setCardViewController(this.nKB);
                 view.setTag(aVar);
             }
             if (item != null) {
                 List list = (List) item;
                 switch (list.size()) {
                     case 1:
-                        aVar.nIw.b((com.baidu.tieba.themeCenter.a) list.get(0));
-                        aVar.nIw.setVisibility(0);
-                        aVar.nIx.setVisibility(8);
-                        aVar.nIy.setVisibility(8);
+                        aVar.nKC.b((com.baidu.tieba.themeCenter.a) list.get(0));
+                        aVar.nKC.setVisibility(0);
+                        aVar.nKD.setVisibility(8);
+                        aVar.nKE.setVisibility(8);
                         break;
                     case 2:
-                        aVar.nIw.b((com.baidu.tieba.themeCenter.a) list.get(0));
-                        aVar.nIx.b((com.baidu.tieba.themeCenter.a) list.get(1));
-                        aVar.nIw.setVisibility(0);
-                        aVar.nIx.setVisibility(0);
-                        aVar.nIy.setVisibility(8);
+                        aVar.nKC.b((com.baidu.tieba.themeCenter.a) list.get(0));
+                        aVar.nKD.b((com.baidu.tieba.themeCenter.a) list.get(1));
+                        aVar.nKC.setVisibility(0);
+                        aVar.nKD.setVisibility(0);
+                        aVar.nKE.setVisibility(8);
                         break;
                     case 3:
-                        aVar.nIw.b((com.baidu.tieba.themeCenter.a) list.get(0));
-                        aVar.nIx.b((com.baidu.tieba.themeCenter.a) list.get(1));
-                        aVar.nIy.b((com.baidu.tieba.themeCenter.a) list.get(2));
-                        aVar.nIw.setVisibility(0);
-                        aVar.nIx.setVisibility(0);
-                        aVar.nIy.setVisibility(0);
+                        aVar.nKC.b((com.baidu.tieba.themeCenter.a) list.get(0));
+                        aVar.nKD.b((com.baidu.tieba.themeCenter.a) list.get(1));
+                        aVar.nKE.b((com.baidu.tieba.themeCenter.a) list.get(2));
+                        aVar.nKC.setVisibility(0);
+                        aVar.nKD.setVisibility(0);
+                        aVar.nKE.setVisibility(0);
                         break;
                     default:
                         view.setVisibility(8);
                         break;
                 }
                 if (getItem(i + 1) instanceof List) {
-                    aVar.nIz.setVisibility(8);
+                    aVar.nKF.setVisibility(8);
                 } else {
-                    aVar.nIz.setVisibility(0);
+                    aVar.nKF.setVisibility(0);
                 }
             }
         }
-        this.eUY.getLayoutMode().onModeChanged(view);
+        this.eWx.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     public void setData(List<Object> list) {
-        this.nGQ = list;
+        this.nIW = list;
     }
 
     public void setCardViewController(PersonalCardItemView.a aVar) {
-        this.nIv = aVar;
+        this.nKB = aVar;
     }
 }

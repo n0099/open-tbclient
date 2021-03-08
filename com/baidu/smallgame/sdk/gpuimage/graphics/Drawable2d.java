@@ -1,9 +1,9 @@
 package com.baidu.smallgame.sdk.gpuimage.graphics;
 
 import java.nio.FloatBuffer;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class Drawable2d {
-    private Prefab cAL;
+    private Prefab cCl;
     private static final float[] TRIANGLE_COORDS = {0.0f, 0.57735026f, -0.5f, -0.28867513f, 0.5f, -0.28867513f};
     private static final float[] TRIANGLE_TEX_COORDS = {0.5f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
     private static final FloatBuffer TRIANGLE_BUF = a.createFloatBuffer(TRIANGLE_COORDS);
@@ -13,15 +13,15 @@ public class Drawable2d {
     private static final FloatBuffer RECTANGLE_BUF = a.createFloatBuffer(RECTANGLE_COORDS);
     private static final FloatBuffer RECTANGLE_TEX_BUF = a.createFloatBuffer(RECTANGLE_TEX_COORDS);
     private static final float[] FULL_RECTANGLE_COORDS = {-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
-    private static final float[] cAH = {1.0f, -1.0f, -1.0f, -1.0f, 1.0f, 1.0f, -1.0f, 1.0f};
+    private static final float[] cCh = {1.0f, -1.0f, -1.0f, -1.0f, 1.0f, 1.0f, -1.0f, 1.0f};
     private static final float[] FULL_RECTANGLE_TEX_COORDS = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
-    private static final float[] cAI = {0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f};
+    private static final float[] cCi = {0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f};
     public static final FloatBuffer FULL_RECTANGLE_BUF = a.createFloatBuffer(FULL_RECTANGLE_COORDS);
-    public static final FloatBuffer cAJ = a.createFloatBuffer(cAH);
+    public static final FloatBuffer cCj = a.createFloatBuffer(cCh);
     public static final FloatBuffer FULL_RECTANGLE_TEX_BUF = a.createFloatBuffer(FULL_RECTANGLE_TEX_COORDS);
-    public static final FloatBuffer cAK = a.createFloatBuffer(cAI);
+    public static final FloatBuffer cCk = a.createFloatBuffer(cCi);
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public enum Prefab {
         TRIANGLE,
         RECTANGLE,
@@ -30,6 +30,6 @@ public class Drawable2d {
     }
 
     public String toString() {
-        return this.cAL != null ? "[Drawable2d: " + this.cAL + "]" : "[Drawable2d: ...]";
+        return this.cCl != null ? "[Drawable2d: " + this.cCl + "]" : "[Drawable2d: ...]";
     }
 }

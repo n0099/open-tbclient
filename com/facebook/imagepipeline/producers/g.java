@@ -4,11 +4,11 @@ import android.util.Pair;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes5.dex */
 public class g extends ad<Pair<com.facebook.cache.common.b, ImageRequest.RequestLevel>, com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> {
-    private final com.facebook.imagepipeline.b.f pIP;
+    private final com.facebook.imagepipeline.b.f pKU;
 
     public g(com.facebook.imagepipeline.b.f fVar, aj ajVar) {
         super(ajVar);
-        this.pIP = fVar;
+        this.pKU = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -16,13 +16,13 @@ public class g extends ad<Pair<com.facebook.cache.common.b, ImageRequest.Request
     @Override // com.facebook.imagepipeline.producers.ad
     /* renamed from: a */
     public Pair<com.facebook.cache.common.b, ImageRequest.RequestLevel> b(ak akVar) {
-        return Pair.create(this.pIP.a(akVar.ezp(), akVar.eud()), akVar.ezr());
+        return Pair.create(this.pKU.a(akVar.ezy(), akVar.eum()), akVar.ezA());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.producers.ad
     /* renamed from: b */
-    public com.facebook.common.references.a<com.facebook.imagepipeline.f.c> g(com.facebook.common.references.a<com.facebook.imagepipeline.f.c> aVar) {
+    public com.facebook.common.references.a<com.facebook.imagepipeline.f.c> f(com.facebook.common.references.a<com.facebook.imagepipeline.f.c> aVar) {
         return com.facebook.common.references.a.b(aVar);
     }
 }

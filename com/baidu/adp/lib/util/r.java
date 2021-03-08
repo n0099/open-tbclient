@@ -46,7 +46,7 @@ public class r {
         return null;
     }
 
-    /* JADX WARN: Type inference failed for: r4v11, types: [T, byte[]] */
+    /* JADX WARN: Type inference failed for: r4v11, types: [byte[], T] */
     public static List<l.b<byte[]>> c(com.baidu.adp.lib.cache.l<byte[]> lVar) {
         Cursor cursor;
         LinkedList linkedList = new LinkedList();

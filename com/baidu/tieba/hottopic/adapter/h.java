@@ -17,49 +17,49 @@ import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.tieba.card.v;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 import com.baidu.tieba.hottopic.data.n;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.k, CardViewHolder<v>> {
-    private BdUniqueId fGZ;
-    private ab<cc> iMc;
-    private com.baidu.tieba.card.data.k ixk;
-    private v ksT;
+    private BdUniqueId fIy;
+    private ab<cc> iNL;
+    private com.baidu.tieba.card.data.k iyT;
+    private v kuV;
     private TbPageContext<HotTopicActivity> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public h(TbPageContext<HotTopicActivity> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.iMc = new ab<cc>() { // from class: com.baidu.tieba.hottopic.adapter.h.1
+        this.iNL = new ab<cc>() { // from class: com.baidu.tieba.hottopic.adapter.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, cc ccVar) {
                 int i;
-                com.baidu.tieba.card.data.k kVar = h.this.ixk;
-                if (kVar != null && kVar.eJQ != null && !StringUtils.isNull(kVar.eJQ.getTid())) {
-                    if (h.this.ksT.getHeaderImg() != null && view.getId() == h.this.ksT.getHeaderImg().getId()) {
+                com.baidu.tieba.card.data.k kVar = h.this.iyT;
+                if (kVar != null && kVar.eLr != null && !StringUtils.isNull(kVar.eLr.getTid())) {
+                    if (h.this.kuV.getHeaderImg() != null && view.getId() == h.this.kuV.getHeaderImg().getId()) {
                         i = 1;
-                    } else if (h.this.ksT.csg() != null && view.getId() == h.this.ksT.csg().getId()) {
+                    } else if (h.this.kuV.csm() != null && view.getId() == h.this.kuV.csm().getId()) {
                         i = 1;
-                    } else if (h.this.ksT.iyD != null && view.getId() == h.this.ksT.iyD.getId()) {
+                    } else if (h.this.kuV.iAm != null && view.getId() == h.this.kuV.iAm.getId()) {
                         i = 3;
                     } else {
                         i = 2;
                     }
                     String topicName = ((HotTopicActivity) h.this.mPageContext.getOrignalPage()).getTopicName();
-                    String cSZ = ((HotTopicActivity) h.this.mPageContext.getOrignalPage()).cSZ();
-                    cb bln = kVar.bln();
-                    TiebaStatic.log(new ar("c12941").ap("obj_type", i).dR("tid", bln.getId()));
-                    if ("c10814".equals(kVar.csQ())) {
+                    String cTg = ((HotTopicActivity) h.this.mPageContext.getOrignalPage()).cTg();
+                    cb blp = kVar.blp();
+                    TiebaStatic.log(new ar("c12941").aq("obj_type", i).dR("tid", blp.getId()));
+                    if ("c10814".equals(kVar.csW())) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-                        TiebaStatic.log(new ar("c10814").dR("tid", bln.getId()).dR("obj_name", topicName).dR("topic_id", cSZ));
-                    } else if ("c10816".equals(kVar.csQ())) {
+                        TiebaStatic.log(new ar("c10814").dR("tid", blp.getId()).dR("obj_name", topicName).dR("topic_id", cTg));
+                    } else if ("c10816".equals(kVar.csW())) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-                        TiebaStatic.log(new ar("c10816").dR("post_id", bln.getTid()).dR("obj_name", topicName).dR("topic_id", cSZ));
+                        TiebaStatic.log(new ar("c10816").dR("post_id", blp.getTid()).dR("obj_name", topicName).dR("topic_id", cTg));
                     }
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        this.fGZ = tbPageContext.getUniqueId();
+        this.fIy = tbPageContext.getUniqueId();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -67,30 +67,30 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aX */
     public CardViewHolder<v> e(ViewGroup viewGroup) {
-        this.ksT = new v(this.mPageContext);
-        this.ksT.o(this.fGZ);
-        this.ksT.px(false);
-        this.ksT.currentPageType = 0;
-        if (this.ksT.hnu != null) {
-            this.ksT.hnu.fkw = 0;
+        this.kuV = new v(this.mPageContext);
+        this.kuV.o(this.fIy);
+        this.kuV.px(false);
+        this.kuV.currentPageType = 0;
+        if (this.kuV.hpe != null) {
+            this.kuV.hpe.flV = 0;
         }
-        if (this.ksT.iyD != null) {
-            this.ksT.iyD.izu = 0;
+        if (this.kuV.iAm != null) {
+            this.kuV.iAm.iBd = 0;
         }
-        return new CardViewHolder<>(this.ksT);
+        return new CardViewHolder<>(this.kuV);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.k kVar, CardViewHolder<v> cardViewHolder) {
-        if (kVar == null || cardViewHolder == null || cardViewHolder.cti() == null) {
+        if (kVar == null || cardViewHolder == null || cardViewHolder.cto() == null) {
             return null;
         }
-        this.ixk = kVar;
-        cardViewHolder.cti().a(new cc(kVar.bln()));
-        cardViewHolder.cti().c(this.iMc);
-        ((v) ((CardViewHolder) this.Wo).cti()).pC(!(getItem(i + 1) instanceof n));
+        this.iyT = kVar;
+        cardViewHolder.cto().a(new cc(kVar.blp()));
+        cardViewHolder.cto().c(this.iNL);
+        ((v) ((CardViewHolder) this.XI).cto()).pC(!(getItem(i + 1) instanceof n));
         return cardViewHolder.getView();
     }
 }

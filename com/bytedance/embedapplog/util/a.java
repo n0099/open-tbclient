@@ -3,10 +3,8 @@ package com.bytedance.embedapplog.util;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f5837a = {"https://toblog.ctobsnssdk.com", "https://tobapplog.ctobsnssdk.com"};
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final String[] f5838b = {"https://toblog.tobsnssdk.com", "https://tobapplog.tobsnssdk.com"};
+    private static final String[] f3937a = {"https://toblog.ctobsnssdk.com", "https://tobapplog.ctobsnssdk.com"};
+    private static final String[] b = {"https://toblog.tobsnssdk.com", "https://tobapplog.tobsnssdk.com"};
     private static final String[] c = {"https://toblog.itobsnssdk.com", "https://tobapplog.itobsnssdk.com"};
     private String d;
     private String e;
@@ -20,7 +18,7 @@ public class a {
         this.e = "https://toblog.ctobsnssdk.com/service/2/app_alert_check/";
         this.f = "https://toblog.ctobsnssdk.com/service/2/log_settings/";
         this.g = "https://toblog.ctobsnssdk.com/service/2/abtest_config/";
-        this.h = f5837a;
+        this.h = f3937a;
         this.i = "https://success.ctobsnssdk.com";
     }
 
@@ -29,7 +27,7 @@ public class a {
         this.e = "https://toblog.tobsnssdk.com/service/2/app_alert_check/";
         this.f = "https://toblog.tobsnssdk.com/service/2/log_settings/";
         this.g = "https://toblog.tobsnssdk.com/service/2/abtest_config/";
-        this.h = f5838b;
+        this.h = b;
         this.i = "https://success.tobsnssdk.com";
     }
 
@@ -46,7 +44,7 @@ public class a {
         a();
     }
 
-    public static a Os(int i) {
+    public static a Ow(int i) {
         a aVar = new a();
         switch (i) {
             case 0:
@@ -65,27 +63,23 @@ public class a {
         return aVar;
     }
 
-    public String eoi() {
+    public String eos() {
         return this.d;
     }
 
-    public String eoj() {
+    public String eot() {
         return this.e;
     }
 
-    public String eok() {
+    public String eou() {
         return this.f;
     }
 
-    public String eol() {
+    public String eov() {
         return this.g;
     }
 
-    public String[] eom() {
+    public String[] eow() {
         return this.h;
-    }
-
-    public String eon() {
-        return this.i;
     }
 }

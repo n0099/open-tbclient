@@ -2,7 +2,7 @@ package com.bytedance.sdk.openadsdk.c;
 
 import com.bytedance.sdk.openadsdk.c.g;
 import com.bytedance.sdk.openadsdk.core.q;
-import com.bytedance.sdk.openadsdk.h.b.c;
+import com.bytedance.sdk.openadsdk.g.c.c;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -21,14 +21,14 @@ public class o extends g<c.a> {
         if (this.m == null) {
             this.m = com.bytedance.sdk.openadsdk.core.p.f();
         }
-        if (list == null || list.size() == 0 || !com.bytedance.sdk.openadsdk.core.h.j.a()) {
+        if (list == null || list.size() == 0 || !com.bytedance.sdk.openadsdk.core.h.g.a()) {
             return null;
         }
         JSONObject jSONObject = new JSONObject();
         try {
             JSONArray jSONArray = new JSONArray();
             for (c.a aVar : list) {
-                jSONArray.put(aVar.f7185b);
+                jSONArray.put(aVar.b);
             }
             jSONObject.put("stats_list", jSONArray);
         } catch (Exception e) {

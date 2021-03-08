@@ -11,7 +11,7 @@ import java.text.DecimalFormatSymbols;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class be implements bk.b {
     @Override // com.baidu.mobstat.bk.b
     public void a(View view, boolean z, Activity activity) {
@@ -54,8 +54,8 @@ public class be implements bk.b {
         if (f2 < 0.0f) {
             f2 = 0.0f;
         }
-        float b2 = ah.b(activity, f);
-        float b3 = ah.b(activity, f2);
+        float b = ah.b(activity, f);
+        float b2 = ah.b(activity, f2);
         float a2 = ah.a(activity, bj.o(view));
         float a3 = ah.a(activity, bj.p(view));
         if (a2 == 0.0f || a3 == 0.0f) {
@@ -67,10 +67,10 @@ public class be implements bk.b {
             DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
             decimalFormatSymbols.setDecimalSeparator('.');
             decimalFormat.setDecimalFormatSymbols(decimalFormatSymbols);
-            jSONObject.put(Config.EVENT_HEAT_X, decimalFormat.format(b2));
-            jSONObject.put("y", decimalFormat.format(b3));
-            jSONObject.put(Config.EVENT_HEAT_XP, decimalFormat.format((b2 * 100.0f) / a2));
-            jSONObject.put(Config.EVENT_HEAT_YP, decimalFormat.format((b3 * 100.0f) / a3));
+            jSONObject.put(Config.EVENT_HEAT_X, decimalFormat.format(b));
+            jSONObject.put("y", decimalFormat.format(b2));
+            jSONObject.put(Config.EVENT_HEAT_XP, decimalFormat.format((b * 100.0f) / a2));
+            jSONObject.put(Config.EVENT_HEAT_YP, decimalFormat.format((b2 * 100.0f) / a3));
             return jSONObject;
         } catch (Exception e) {
             return jSONObject;

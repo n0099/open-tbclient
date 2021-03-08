@@ -23,21 +23,21 @@ public class d extends c {
                 String optString = optJSONObject.optString(SharedPrefConfig.CHANNEL_ID);
                 String optString2 = optJSONObject.optString("new_channel_id");
                 String optString3 = com.baidu.android.pushservice.h.f() ? optJSONObject.optString("rsa_channel_token") : optJSONObject.optString("channel_token");
-                this.f1265b.f = optJSONObject.optString("user_id");
-                this.f1265b.e = optJSONObject.optString("appid");
-                com.baidu.android.pushservice.j.a(this.f1264a).a(optString, optString3, optString2, optJSONObject.optString("new_channel_token"));
+                this.b.f = optJSONObject.optString("user_id");
+                this.b.e = optJSONObject.optString("appid");
+                com.baidu.android.pushservice.j.a(this.f1124a).a(optString, optString3, optString2, optJSONObject.optString("new_channel_token"));
             }
         } catch (Exception e) {
-            new b.c(this.f1264a).a(Log.getStackTraceString(e)).a();
+            new b.c(this.f1124a).a(Log.getStackTraceString(e)).a();
         }
-        if (!com.baidu.android.pushservice.b.d.q(this.f1264a) || com.baidu.android.pushservice.b.d.c(this.f1264a)) {
+        if (!com.baidu.android.pushservice.b.d.q(this.f1124a) || com.baidu.android.pushservice.b.d.c(this.f1124a)) {
             com.baidu.android.pushservice.a.e eVar = new com.baidu.android.pushservice.a.e();
-            eVar.b(this.f1265b.d);
-            eVar.a(this.f1265b.e);
-            eVar.d = this.f1265b.f;
-            eVar.a(this.f1265b.h);
+            eVar.b(this.b.d);
+            eVar.a(this.b.e);
+            eVar.d = this.b.f;
+            eVar.a(this.b.h);
             eVar.a(com.baidu.android.pushservice.a.a());
-            com.baidu.android.pushservice.a.b.a(this.f1264a).a("r_v2", com.baidu.android.pushservice.a.b.a(this.f1264a).a(eVar, this.d));
+            com.baidu.android.pushservice.a.b.a(this.f1124a).a("r_v2", com.baidu.android.pushservice.a.b.a(this.f1124a).a(eVar, this.d));
         }
         return str;
     }

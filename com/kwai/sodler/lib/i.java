@@ -62,11 +62,11 @@ public class i extends g {
         File file = new File(str);
         a(file);
         try {
-            this.f10998a = b(file);
+            this.f7247a = b(file);
             try {
-                a(a(context, file, this.f10998a));
+                a(a(context, file, this.f7247a));
                 synchronized (Runtime.getRuntime()) {
-                    com.kwai.sodler.lib.ext.d.a(getClass().getClassLoader(), this.f10998a);
+                    com.kwai.sodler.lib.ext.d.a(getClass().getClassLoader(), this.f7247a);
                 }
                 super.a(context, str);
             } catch (IOException e) {

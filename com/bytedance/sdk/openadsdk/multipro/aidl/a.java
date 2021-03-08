@@ -14,10 +14,8 @@ public class a {
     private static volatile a c;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f7346a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private IBinderPool f7347b;
+    private Context f4881a;
+    private IBinderPool b;
     private CountDownLatch d;
     private final Object e = new Object();
     private long f = 0;
@@ -29,9 +27,9 @@ public class a {
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            a.this.f7347b = IBinderPool.Stub.asInterface(iBinder);
+            a.this.b = IBinderPool.Stub.asInterface(iBinder);
             try {
-                a.this.f7347b.asBinder().linkToDeath(a.this.h, 0);
+                a.this.b.asBinder().linkToDeath(a.this.h, 0);
             } catch (RemoteException e) {
                 u.c("MultiProcess", "onServiceConnected throws :", e);
             }
@@ -43,14 +41,14 @@ public class a {
         @Override // android.os.IBinder.DeathRecipient
         public void binderDied() {
             u.d("MultiProcess", "binder died.");
-            a.this.f7347b.asBinder().unlinkToDeath(a.this.h, 0);
-            a.this.f7347b = null;
+            a.this.b.asBinder().unlinkToDeath(a.this.h, 0);
+            a.this.b = null;
             a.this.a();
         }
     };
 
     private a(Context context) {
-        this.f7346a = context.getApplicationContext();
+        this.f4881a = context.getApplicationContext();
         a();
     }
 
@@ -67,10 +65,10 @@ public class a {
 
     public IBinder a(int i) {
         try {
-            if (this.f7347b == null) {
+            if (this.b == null) {
                 return null;
             }
-            return this.f7347b.queryBinder(i);
+            return this.b.queryBinder(i);
         } catch (RemoteException e) {
             e.printStackTrace();
             return null;
@@ -81,7 +79,7 @@ public class a {
     public synchronized void a() {
         u.c("MultiProcess", "BinderPool......connectBinderPoolService");
         this.d = new CountDownLatch(1);
-        this.f7346a.bindService(new Intent(this.f7346a, BinderPoolService.class), this.g, 1);
+        this.f4881a.bindService(new Intent(this.f4881a, BinderPoolService.class), this.g, 1);
         this.f = System.currentTimeMillis();
         try {
             this.d.await();

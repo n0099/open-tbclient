@@ -15,11 +15,11 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.ab;
 /* loaded from: classes2.dex */
 public class f extends a {
-    private ItemCardView agZ;
+    private ItemCardView ais;
     private LinearLayout mRootView;
-    private com.baidu.tbadk.core.data.a meI;
-    private cb meL;
-    private o meR;
+    private com.baidu.tbadk.core.data.a mgK;
+    private cb mgN;
+    private o mgT;
 
     public f(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -28,7 +28,7 @@ public class f extends a {
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public View getView() {
         if (this.mRootView == null) {
-            this.mRootView = new LinearLayout(this.eUY.getPageActivity());
+            this.mRootView = new LinearLayout(this.eWx.getPageActivity());
             this.mRootView.setClipChildren(false);
             this.mRootView.setClipToPadding(false);
             ap.setBackgroundColor(this.mRootView, R.color.CAM_X0206);
@@ -36,41 +36,41 @@ public class f extends a {
             this.mRootView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         }
         this.mRootView.removeAllViews();
-        if (this.meR == null) {
-            this.meR = new o(this.eUY.getPageActivity());
-            this.meR.c(true);
-            this.meR.setFrom("pb");
-            this.meR.setFromForPb(0);
-            this.meR.e(this.eUY.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), this.eUY.getResources().getDimensionPixelOffset(R.dimen.M_H_X005), this.eUY.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), 0);
-            this.meR.aF(false);
-            this.meR.aG(true);
+        if (this.mgT == null) {
+            this.mgT = new o(this.eWx.getPageActivity());
+            this.mgT.c(true);
+            this.mgT.setFrom("pb");
+            this.mgT.setFromForPb(0);
+            this.mgT.e(this.eWx.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), this.eWx.getResources().getDimensionPixelOffset(R.dimen.M_H_X005), this.eWx.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), 0);
+            this.mgT.aF(false);
+            this.mgT.aG(true);
         }
-        this.mRootView.addView(this.meR.getView());
-        if (this.agZ == null) {
-            this.agZ = new ItemCardView(this.eUY.getPageActivity());
+        this.mRootView.addView(this.mgT.getView());
+        if (this.ais == null) {
+            this.ais = new ItemCardView(this.eWx.getPageActivity());
         }
-        this.agZ.setBackGroundColor(R.color.CAM_X0205);
+        this.ais.setBackGroundColor(R.color.CAM_X0205);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        layoutParams.topMargin = this.eUY.getResources().getDimensionPixelOffset(R.dimen.M_H_X004);
-        layoutParams.leftMargin = this.eUY.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-        layoutParams.rightMargin = this.eUY.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-        layoutParams.bottomMargin = this.eUY.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
-        this.mRootView.addView(this.agZ, layoutParams);
+        layoutParams.topMargin = this.eWx.getResources().getDimensionPixelOffset(R.dimen.M_H_X004);
+        layoutParams.leftMargin = this.eWx.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
+        layoutParams.rightMargin = this.eWx.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
+        layoutParams.bottomMargin = this.eWx.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
+        this.mRootView.addView(this.ais, layoutParams);
         return this.mRootView;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void g(OriginalThreadInfo originalThreadInfo) {
-        this.meH = originalThreadInfo;
-        this.meL = originalThreadInfo == null ? null : originalThreadInfo.bmq();
-        this.meI = new com.baidu.tbadk.core.data.a() { // from class: com.baidu.tieba.pb.pb.main.c.f.1
+        this.mgJ = originalThreadInfo;
+        this.mgN = originalThreadInfo == null ? null : originalThreadInfo.bms();
+        this.mgK = new com.baidu.tbadk.core.data.a() { // from class: com.baidu.tieba.pb.pb.main.c.f.1
             @Override // com.baidu.tbadk.core.data.a
-            public cb bln() {
-                return f.this.meL;
+            public cb blp() {
+                return f.this.mgN;
             }
 
             @Override // com.baidu.tbadk.core.data.a
-            public av blp() {
+            public av blr() {
                 return null;
             }
 
@@ -79,34 +79,34 @@ public class f extends a {
                 return null;
             }
         };
-        if (this.agZ != null && originalThreadInfo != null) {
-            this.agZ.setData(originalThreadInfo.item, 17);
+        if (this.ais != null && originalThreadInfo != null) {
+            this.ais.setData(originalThreadInfo.item, 17);
         }
-        if (this.meR != null) {
-            this.meR.C(this.meI);
+        if (this.mgT != null) {
+            this.mgT.E(this.mgK);
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void a(ab abVar) {
         super.a(abVar);
-        if (this.meR != null) {
-            this.meR.setOnCardSubClickListener(this.meG);
+        if (this.mgT != null) {
+            this.mgT.setOnCardSubClickListener(this.mgI);
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
-    public void a(a.InterfaceC0088a interfaceC0088a) {
-        super.a(interfaceC0088a);
-        if (this.meR != null) {
-            this.meR.a(interfaceC0088a);
+    public void a(a.InterfaceC0094a interfaceC0094a) {
+        super.a(interfaceC0094a);
+        if (this.mgT != null) {
+            this.mgT.a(interfaceC0094a);
         }
         if (this.mRootView != null) {
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.c.f.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (f.this.agh != null) {
-                        f.this.agh.a(f.this.meI);
+                    if (f.this.ahz != null) {
+                        f.this.ahz.a(f.this.mgK);
                     }
                 }
             });
@@ -118,11 +118,11 @@ public class f extends a {
         if (this.mSkinType != i) {
             this.mSkinType = i;
             ap.setBackgroundColor(this.mRootView, R.color.CAM_X0206);
-            if (this.meR != null) {
-                this.meR.onChangeSkinType(tbPageContext, i);
+            if (this.mgT != null) {
+                this.mgT.onChangeSkinType(tbPageContext, i);
             }
-            if (this.agZ != null) {
-                this.agZ.onChangeSkinType();
+            if (this.ais != null) {
+                this.ais.onChangeSkinType();
             }
         }
     }

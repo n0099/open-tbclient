@@ -9,21 +9,19 @@ import android.view.ViewConfiguration;
 public class n extends TouchDelegate {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f7596a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Rect f7597b;
+    private View f5145a;
+    private Rect b;
     private Rect c;
     private boolean d;
     private int e;
 
     public n(Rect rect, View view) {
         super(rect, view);
-        this.f7597b = rect;
+        this.b = rect;
         this.e = ViewConfiguration.get(view.getContext()).getScaledTouchSlop();
         this.c = new Rect(rect);
         this.c.inset(-this.e, -this.e);
-        this.f7596a = view;
+        this.f5145a = view;
     }
 
     @Override // android.view.TouchDelegate
@@ -34,7 +32,7 @@ public class n extends TouchDelegate {
         int y = (int) motionEvent.getY();
         switch (motionEvent.getAction()) {
             case 0:
-                if (this.f7597b.contains(x, y)) {
+                if (this.b.contains(x, y)) {
                     this.d = true;
                     z2 = true;
                     z = true;
@@ -65,7 +63,7 @@ public class n extends TouchDelegate {
                 break;
         }
         if (z) {
-            View view = this.f7596a;
+            View view = this.f5145a;
             if (z2) {
                 motionEvent.setLocation(view.getWidth() / 2, view.getHeight() / 2);
             } else {

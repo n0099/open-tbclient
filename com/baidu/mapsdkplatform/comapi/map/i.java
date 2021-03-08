@@ -18,10 +18,8 @@ import java.util.Arrays;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f3056a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static Context f3057b = BMapManager.getContext();
+    private static int f2224a;
+    private static Context b = BMapManager.getContext();
 
     static {
         if (!com.baidu.mapapi.VersionInfo.getApiVersion().equals(VersionInfo.getApiVersion())) {
@@ -36,16 +34,16 @@ public class i {
     }
 
     public static void a() {
-        if (f3056a == 0) {
-            if (f3057b == null) {
+        if (f2224a == 0) {
+            if (b == null) {
                 throw new IllegalStateException("you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
             }
             VMsg.init();
-            AppEngine.InitEngine(f3057b);
+            AppEngine.InitEngine(b);
             AppEngine.StartSocketProc();
-            NetworkUtil.updateNetworkProxy(f3057b);
+            NetworkUtil.updateNetworkProxy(b);
         }
-        f3056a++;
+        f2224a++;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x015b A[Catch: Exception -> 0x01d2, TryCatch #1 {Exception -> 0x01d2, blocks: (B:10:0x00eb, B:12:0x0114, B:14:0x012b, B:16:0x014e, B:20:0x015b, B:22:0x0161, B:23:0x0164, B:25:0x0195, B:26:0x0198, B:28:0x01bb), top: B:44:0x00eb }] */
@@ -134,8 +132,8 @@ public class i {
     }
 
     public static void b() {
-        f3056a--;
-        if (f3056a == 0) {
+        f2224a--;
+        if (f2224a == 0) {
             AppEngine.UnInitEngine();
             VMsg.destroy();
         }

@@ -13,15 +13,13 @@ import java.util.List;
 public class j implements com.kwad.sdk.glide.load.f<InputStream, c> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<ImageHeaderParser> f10324a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final com.kwad.sdk.glide.load.f<ByteBuffer, c> f10325b;
+    private final List<ImageHeaderParser> f6814a;
+    private final com.kwad.sdk.glide.load.f<ByteBuffer, c> b;
     private final com.kwad.sdk.glide.load.engine.bitmap_recycle.b c;
 
     public j(List<ImageHeaderParser> list, com.kwad.sdk.glide.load.f<ByteBuffer, c> fVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar) {
-        this.f10324a = list;
-        this.f10325b = fVar;
+        this.f6814a = list;
+        this.b = fVar;
         this.c = bVar;
     }
 
@@ -52,12 +50,12 @@ public class j implements com.kwad.sdk.glide.load.f<InputStream, c> {
         if (a2 == null) {
             return null;
         }
-        return this.f10325b.a(ByteBuffer.wrap(a2), i, i2, eVar);
+        return this.b.a(ByteBuffer.wrap(a2), i, i2, eVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.f
     public boolean a(@NonNull InputStream inputStream, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        return !((Boolean) eVar.a(i.f10323b)).booleanValue() && com.kwad.sdk.glide.load.b.a(this.f10324a, inputStream, this.c) == ImageHeaderParser.ImageType.GIF;
+        return !((Boolean) eVar.a(i.b)).booleanValue() && com.kwad.sdk.glide.load.b.a(this.f6814a, inputStream, this.c) == ImageHeaderParser.ImageType.GIF;
     }
 }

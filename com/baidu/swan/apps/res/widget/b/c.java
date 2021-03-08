@@ -15,33 +15,33 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
-    private static String dDn = null;
-    private static String dDo = null;
-    private static String dDp = null;
+    private static String dEO = null;
+    private static String dEP = null;
+    private static String dEQ = null;
     private static boolean sDebug = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean dj(Context context) {
-        return (dk(context) || aIn()) || dl(context);
+    public static boolean di(Context context) {
+        return (dj(context) || aIq()) || dk(context);
     }
 
-    private static boolean dk(Context context) {
-        if (aIo()) {
-            return (aIm() && isFloatWindowOpAllowed(context)) ? false : true;
+    private static boolean dj(Context context) {
+        if (aIr()) {
+            return (aIp() && isFloatWindowOpAllowed(context)) ? false : true;
         }
         return false;
     }
 
-    private static boolean aIm() {
+    private static boolean aIp() {
         String[] split;
-        if (dDo == null) {
-            dDo = getProp(RomUtils.PROP_RO_BUILD_VERSION_INCREMENTAL);
+        if (dEP == null) {
+            dEP = getProp(RomUtils.PROP_RO_BUILD_VERSION_INCREMENTAL);
         }
         if (sDebug) {
-            Log.d("ToastUtils", "sMiuiVersion = " + dDo);
+            Log.d("ToastUtils", "sMiuiVersion = " + dEP);
         }
-        if (!TextUtils.isEmpty(dDo) && (split = dDo.split(".")) != null && split.length >= 1 && split[0].length() >= 2) {
+        if (!TextUtils.isEmpty(dEP) && (split = dEP.split(".")) != null && split.length >= 1 && split[0].length() >= 2) {
             String substring = split[0].substring(1);
             if (TextUtils.isEmpty(substring)) {
                 return false;
@@ -55,51 +55,51 @@ public class c {
         return false;
     }
 
-    private static boolean aIn() {
+    private static boolean aIq() {
         return Build.VERSION.SDK_INT >= 25;
     }
 
-    private static boolean aIo() {
-        if (dDn == null) {
-            dDn = getProp("ro.miui.ui.version.name");
+    private static boolean aIr() {
+        if (dEO == null) {
+            dEO = getProp("ro.miui.ui.version.name");
         }
         if (sDebug) {
-            Log.d("ToastUtils", "OsName = " + dDn);
+            Log.d("ToastUtils", "OsName = " + dEO);
         }
-        return !TextUtils.isEmpty(dDn);
+        return !TextUtils.isEmpty(dEO);
     }
 
-    public static boolean aIp() {
-        if (dDp == null) {
-            dDp = getProp("ro.build.version.opporom");
+    public static boolean aIs() {
+        if (dEQ == null) {
+            dEQ = getProp("ro.build.version.opporom");
         }
         if (sDebug) {
-            Log.d("ToastUtils", "OsName = " + dDp);
+            Log.d("ToastUtils", "OsName = " + dEQ);
         }
-        return !TextUtils.isEmpty(dDp);
+        return !TextUtils.isEmpty(dEQ);
     }
 
-    private static boolean dl(Context context) {
-        return aIq() && !isFloatWindowOpAllowed(context) && Build.VERSION.SDK_INT >= 23;
+    private static boolean dk(Context context) {
+        return aIt() && !isFloatWindowOpAllowed(context) && Build.VERSION.SDK_INT >= 23;
     }
 
-    private static boolean aIq() {
+    private static boolean aIt() {
         return Build.FINGERPRINT.contains("Flyme") || Pattern.compile("Flyme", 2).matcher(Build.DISPLAY).find();
     }
 
     public static void a(Toast toast, @StyleRes int i) {
-        Object f;
+        Object g;
         try {
-            Object f2 = f(toast, "mTN");
-            if (f2 != null && (f = f(f2, "mParams")) != null && (f instanceof WindowManager.LayoutParams)) {
-                ((WindowManager.LayoutParams) f).windowAnimations = i;
+            Object g2 = g(toast, "mTN");
+            if (g2 != null && (g = g(g2, "mParams")) != null && (g instanceof WindowManager.LayoutParams)) {
+                ((WindowManager.LayoutParams) g).windowAnimations = i;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private static Object f(Object obj, String str) throws NoSuchFieldException, IllegalAccessException {
+    private static Object g(Object obj, String str) throws NoSuchFieldException, IllegalAccessException {
         Field declaredField;
         if (obj == null || (declaredField = obj.getClass().getDeclaredField(str)) == null) {
             return null;

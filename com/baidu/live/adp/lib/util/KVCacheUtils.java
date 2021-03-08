@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class KVCacheUtils {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [62=4] */
     /* JADX WARN: Type inference failed for: r4v11, types: [T, java.lang.String] */
@@ -51,7 +51,7 @@ public class KVCacheUtils {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [107=4] */
-    /* JADX WARN: Type inference failed for: r4v11, types: [T, byte[]] */
+    /* JADX WARN: Type inference failed for: r4v11, types: [byte[], T] */
     public static List<BdKVCache.CacheElement<byte[]>> listAllBytesItemsInDBCache(BdKVCache<byte[]> bdKVCache) {
         Cursor cursor;
         LinkedList linkedList = new LinkedList();
@@ -101,7 +101,7 @@ public class KVCacheUtils {
         return null;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     private static class CacheElementComparator implements Comparator<BdKVCache.CacheElement<?>> {
         private CacheElementComparator() {
         }

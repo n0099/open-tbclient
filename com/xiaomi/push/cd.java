@@ -3,19 +3,19 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import com.xiaomi.push.cb;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 class cd implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f13911a;
+    final /* synthetic */ Context f8299a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ cb.a f240a;
+    final /* synthetic */ cb.a f161a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cd(cb.a aVar, Context context) {
-        this.f240a = aVar;
-        this.f13911a = context;
+        this.f161a = aVar;
+        this.f8299a = context;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, IGET, IGET, INVOKE, IGET, IGET, INVOKE, INVOKE, MOVE_EXCEPTION, IGET, IGET, INVOKE, IGET, IGET, INVOKE, IF, IGET, IGET, IGET, IGET, INVOKE, IGET, IGET, INVOKE, INVOKE, MOVE_EXCEPTION, IGET, IGET, INVOKE, IGET, IGET, INVOKE, IF, IGET, IGET, INVOKE, IGET, IGET, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
@@ -24,10 +24,10 @@ class cd implements Runnable {
         SQLiteDatabase sQLiteDatabase = null;
         try {
             try {
-                sQLiteDatabase = this.f240a.a();
+                sQLiteDatabase = this.f161a.a();
                 if (sQLiteDatabase != null && sQLiteDatabase.isOpen()) {
                     sQLiteDatabase.beginTransaction();
-                    this.f240a.a(this.f13911a, sQLiteDatabase);
+                    this.f161a.a(this.f8299a, sQLiteDatabase);
                     sQLiteDatabase.setTransactionSuccessful();
                 }
                 if (sQLiteDatabase != null) {
@@ -37,10 +37,10 @@ class cd implements Runnable {
                         com.xiaomi.channel.commonutils.logger.b.a(e);
                     }
                 }
-                if (this.f240a.f231a != null) {
-                    this.f240a.f231a.close();
+                if (this.f161a.f152a != null) {
+                    this.f161a.f152a.close();
                 }
-                this.f240a.a(this.f13911a);
+                this.f161a.a(this.f8299a);
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);
                 if (sQLiteDatabase != null) {
@@ -48,13 +48,13 @@ class cd implements Runnable {
                         sQLiteDatabase.endTransaction();
                     } catch (Exception e3) {
                         com.xiaomi.channel.commonutils.logger.b.a(e3);
-                        this.f240a.a(this.f13911a);
+                        this.f161a.a(this.f8299a);
                     }
                 }
-                if (this.f240a.f231a != null) {
-                    this.f240a.f231a.close();
+                if (this.f161a.f152a != null) {
+                    this.f161a.f152a.close();
                 }
-                this.f240a.a(this.f13911a);
+                this.f161a.a(this.f8299a);
             }
         } catch (Throwable th) {
             if (sQLiteDatabase != null) {
@@ -62,14 +62,14 @@ class cd implements Runnable {
                     sQLiteDatabase.endTransaction();
                 } catch (Exception e4) {
                     com.xiaomi.channel.commonutils.logger.b.a(e4);
-                    this.f240a.a(this.f13911a);
+                    this.f161a.a(this.f8299a);
                     throw th;
                 }
             }
-            if (this.f240a.f231a != null) {
-                this.f240a.f231a.close();
+            if (this.f161a.f152a != null) {
+                this.f161a.f152a.close();
             }
-            this.f240a.a(this.f13911a);
+            this.f161a.a(this.f8299a);
             throw th;
         }
     }

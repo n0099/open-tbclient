@@ -128,8 +128,8 @@ public class PublicMsg implements Parcelable {
 
     private void sendResult(final Context context, String str, int i) {
         final String a2 = com.baidu.android.pushservice.j.a(context).a();
-        final String b2 = com.baidu.android.pushservice.j.a(context).b();
-        if (TextUtils.isEmpty(a2) || TextUtils.isEmpty(b2)) {
+        final String b = com.baidu.android.pushservice.j.a(context).b();
+        if (TextUtils.isEmpty(a2) || TextUtils.isEmpty(b)) {
             com.baidu.android.pushservice.f.a.b(TAG, "Fail Send Public msg result. Token invalid!", context.getApplicationContext());
             return;
         }
@@ -150,7 +150,7 @@ public class PublicMsg implements Parcelable {
                     HashMap hashMap = new HashMap();
                     com.baidu.android.pushservice.d.b.a(context, hashMap);
                     hashMap.put("method", "linkhit");
-                    hashMap.put("channel_token", b2);
+                    hashMap.put("channel_token", b);
                     hashMap.put("data", jSONObject2);
                     if (com.baidu.android.pushservice.e.b.a(context, com.baidu.android.pushservice.h.e() + a2, "POST", hashMap).b() == 200) {
                         com.baidu.android.pushservice.f.a.c(PublicMsg.TAG, "<<< public msg send result return OK!", context.getApplicationContext());

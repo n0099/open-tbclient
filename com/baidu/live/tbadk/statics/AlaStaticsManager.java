@@ -2,12 +2,12 @@ package com.baidu.live.tbadk.statics;
 
 import com.baidu.live.adp.lib.util.StringUtils;
 import java.util.Collections;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaStaticsManager {
     private IAlaBdStatics mIAlaBdStatics;
     private IAlaBdStaticsBuilder mIAlaBdStaticsBuilder;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class InstanceHolder {
         private static final AlaStaticsManager sInst = new AlaStaticsManager();
     }

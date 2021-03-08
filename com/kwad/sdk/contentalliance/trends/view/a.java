@@ -14,13 +14,11 @@ import com.kwad.sdk.utils.p;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class a extends RecyclerView.Adapter<C1084a> {
+public class a extends RecyclerView.Adapter<C1101a> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final LayoutInflater f8897a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final SceneImpl f8898b;
+    private final LayoutInflater f5931a;
+    private final SceneImpl b;
     private long c;
     private long d;
     private List<TrendInfo> e = new ArrayList();
@@ -29,26 +27,24 @@ public class a extends RecyclerView.Adapter<C1084a> {
 
     /* renamed from: com.kwad.sdk.contentalliance.trends.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1084a extends RecyclerView.ViewHolder {
+    public class C1101a extends RecyclerView.ViewHolder {
+        private TrendListItemView b;
 
-        /* renamed from: b  reason: collision with root package name */
-        private TrendListItemView f8900b;
-
-        public C1084a(TrendListItemView trendListItemView) {
+        public C1101a(TrendListItemView trendListItemView) {
             super(trendListItemView);
-            this.f8900b = trendListItemView;
+            this.b = trendListItemView;
         }
 
         void a(@NonNull final TrendInfo trendInfo, final int i) {
-            if (this.f8900b != null) {
-                this.f8900b.a(trendInfo, a.this.c == trendInfo.trendId);
-                this.f8900b.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.trends.view.a.a.1
+            if (this.b != null) {
+                this.b.a(trendInfo, a.this.c == trendInfo.trendId);
+                this.b.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.trends.view.a.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (trendInfo != null && trendInfo.offlineTime > 0 && trendInfo.offlineTime < System.currentTimeMillis()) {
                             p.a(a.this.f, a.this.f.getString(R.string.ksad_trend_is_no_valid));
                         } else {
-                            a.this.g.a(C1084a.this.f8900b, trendInfo, i);
+                            a.this.g.a(C1101a.this.b, trendInfo, i);
                         }
                     }
                 });
@@ -58,12 +54,12 @@ public class a extends RecyclerView.Adapter<C1084a> {
 
     public a(Context context, @NonNull b bVar, TrendsPanelLayout.b bVar2) {
         this.f = context;
-        this.f8898b = bVar.c;
-        this.f8897a = LayoutInflater.from(context);
-        this.c = bVar.f8904b;
-        if (bVar.f8903a != null) {
+        this.b = bVar.c;
+        this.f5931a = LayoutInflater.from(context);
+        this.c = bVar.b;
+        if (bVar.f5934a != null) {
             this.e.clear();
-            for (TrendInfo trendInfo : bVar.f8903a) {
+            for (TrendInfo trendInfo : bVar.f5934a) {
                 if (trendInfo != null) {
                     this.e.add(trendInfo);
                 }
@@ -81,17 +77,17 @@ public class a extends RecyclerView.Adapter<C1084a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
-    public C1084a onCreateViewHolder(ViewGroup viewGroup, int i) {
-        TrendListItemView trendListItemView = (TrendListItemView) this.f8897a.inflate(R.layout.ksad_trend_panel_list_item_2, viewGroup, false);
-        trendListItemView.setAdScene(this.f8898b);
-        return new C1084a(trendListItemView);
+    public C1101a onCreateViewHolder(ViewGroup viewGroup, int i) {
+        TrendListItemView trendListItemView = (TrendListItemView) this.f5931a.inflate(R.layout.ksad_trend_panel_list_item_2, viewGroup, false);
+        trendListItemView.setAdScene(this.b);
+        return new C1101a(trendListItemView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
-    public void onBindViewHolder(C1084a c1084a, int i) {
-        c1084a.a(this.e.get(i), i);
+    public void onBindViewHolder(C1101a c1101a, int i) {
+        c1101a.a(this.e.get(i), i);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter

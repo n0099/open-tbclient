@@ -10,12 +10,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.view.HeadImageView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f extends a {
-    private HeadImageView aDr;
-    private TextView aYt;
-    private View cBE;
-    private TextView hEU;
+    private HeadImageView aER;
+    private TextView aZT;
+    private View cDe;
+    private TextView hGD;
 
     public f(@NonNull Context context) {
         super(context);
@@ -24,75 +24,75 @@ public class f extends a {
     @Override // com.baidu.tieba.ala.liveroom.l.a
     public void init() {
         super.init();
-        ED();
+        EG();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.l.a
     public void initView() {
         setContentView(a.g.ala_ver_guide_follow_float);
-        this.cBE = findViewById(a.f.layout_root);
-        this.cBE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.l.f.1
+        this.cDe = findViewById(a.f.layout_root);
+        this.cDe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.l.f.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 f.this.dismiss();
             }
         });
-        this.aYt = (TextView) findViewById(a.f.tv_guide_folllow_tip);
-        this.aDr = (HeadImageView) findViewById(a.f.iv_avatar);
-        this.hEU = (TextView) findViewById(a.f.ala_live_name);
-        this.aDr.setDefaultResource(a.e.sdk_icon_default_avatar100);
-        this.aDr.setDefaultErrorResource(a.e.sdk_icon_default_avatar100);
-        this.aDr.setIsRound(true);
-        this.aDr.setAutoChangeStyle(false);
-        this.aDr.setDrawBorder(false);
-        this.aDr.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.aZT = (TextView) findViewById(a.f.tv_guide_folllow_tip);
+        this.aER = (HeadImageView) findViewById(a.f.iv_avatar);
+        this.hGD = (TextView) findViewById(a.f.ala_live_name);
+        this.aER.setDefaultResource(a.e.sdk_icon_default_avatar100);
+        this.aER.setDefaultErrorResource(a.e.sdk_icon_default_avatar100);
+        this.aER.setIsRound(true);
+        this.aER.setAutoChangeStyle(false);
+        this.aER.setDrawBorder(false);
+        this.aER.setScaleType(ImageView.ScaleType.CENTER_CROP);
         TextView textView = (TextView) findViewById(a.f.tv_confirm);
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.l.f.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (f.this.hED != null) {
-                    f.this.hED.onConfirm();
+                if (f.this.hGm != null) {
+                    f.this.hGm.onConfirm();
                 }
             }
         });
-        this.hEE = textView.getText().toString();
-        cgb();
+        this.hGn = textView.getText().toString();
+        cgh();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.l.a
     public void ex(String str, String str2) {
-        cga();
-        this.aDr.startLoad(str, 25, false, false);
-        this.hEU.setText(str2);
-        LN();
+        cgg();
+        this.aER.startLoad(str, 25, false, false);
+        this.hGD.setText(str2);
+        LQ();
         show();
     }
 
-    private void cgb() {
-        if (com.baidu.live.ae.a.Qj().buX != null && com.baidu.live.ae.a.Qj().buX.aMM == null) {
+    private void cgh() {
+        if (com.baidu.live.ae.a.Qm().bwx != null && com.baidu.live.ae.a.Qm().bwx.aOm == null) {
         }
     }
 
-    private void ED() {
+    private void EG() {
         setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.liveroom.l.f.3
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                f.this.cga();
+                f.this.cgg();
             }
         });
     }
 
-    private void LN() {
+    private void LQ() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 1.0f, 1, 0.0f);
         translateAnimation.setDuration(400L);
         translateAnimation.setInterpolator(new LinearInterpolator());
-        this.cBE.startAnimation(translateAnimation);
+        this.cDe.startAnimation(translateAnimation);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cga() {
-        if (this.aDr != null) {
-            this.aDr.stopLoad();
+    public void cgg() {
+        if (this.aER != null) {
+            this.aER.stopLoad();
         }
     }
 }

@@ -3,7 +3,7 @@ package com.facebook.common.internal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ImmutableList<E> extends ArrayList<E> {
     private ImmutableList(int i) {
         super(i);

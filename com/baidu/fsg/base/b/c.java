@@ -6,15 +6,15 @@ import java.util.TimerTask;
 public class c extends TimerTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f1885a;
+    final /* synthetic */ a f1499a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.f1885a = aVar;
+        this.f1499a = aVar;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public void run() {
-        this.f1885a.a();
+        this.f1499a.a();
     }
 }

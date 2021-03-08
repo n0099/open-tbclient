@@ -8,9 +8,9 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import androidx.core.view.ViewCompat;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class n {
-    public static Bitmap c(Bitmap bitmap, int i, int i2) {
+    public static Bitmap b(Bitmap bitmap, int i, int i2) {
         try {
             int width = bitmap.getWidth();
             int height = bitmap.getHeight();

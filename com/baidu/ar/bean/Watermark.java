@@ -2,7 +2,7 @@ package com.baidu.ar.bean;
 
 import android.graphics.Bitmap;
 import android.graphics.Point;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class Watermark {
     private Bitmap mBitmap;
     private String mFilePath;
@@ -13,7 +13,7 @@ public class Watermark {
     private RotationType mRotationType = RotationType.ROTATE_0;
     private float mScale = 1.0f;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public enum CoordinateType {
         LEFT_TOP,
         LEFT_BOTTOM,

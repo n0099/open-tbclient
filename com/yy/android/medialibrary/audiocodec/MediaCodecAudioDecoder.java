@@ -19,7 +19,7 @@ import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.nio.ByteBuffer;
 import org.apache.http.HttpHost;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MediaCodecAudioDecoder {
     private int mAudioTrackCount;
     private final Context mContext;

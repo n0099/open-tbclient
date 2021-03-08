@@ -33,7 +33,7 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
             }
 
             @Override // com.baidu.adp.plugin.install.b
-            public void cn(String str) {
+            public void cr(String str) {
                 final Plugin plugin2 = PluginCenter.getInstance().getPlugin(str);
                 if (plugin2 != null) {
                     plugin2.asyncInit(str, new c() { // from class: com.baidu.adp.plugin.proxy.activity.LoadingActivity.1.1

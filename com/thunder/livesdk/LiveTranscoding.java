@@ -2,7 +2,7 @@ package com.thunder.livesdk;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class LiveTranscoding {
     private TranscodingImage mBackgroundImage;
     private MediaStreamLayout mMediaStreamLayout;
@@ -157,7 +157,7 @@ public class LiveTranscoding {
         return this.mTransCodingMode;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class TranscodingUser {
         public String uid = "";
         public String roomId = "";
@@ -193,7 +193,7 @@ public class LiveTranscoding {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class MediaStreamLayout {
         public int layoutX = 0;
         public int layoutY = 0;

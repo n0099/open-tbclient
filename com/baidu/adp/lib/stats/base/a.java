@@ -8,42 +8,42 @@ import com.baidu.ar.arplay.core.engine.ARPScriptEnvironment;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 /* loaded from: classes.dex */
 public class a {
-    private String OX;
-    protected String Pl;
-    protected String Po;
-    protected j Pq;
-    private StringBuffer OY = new StringBuffer();
-    private StringBuffer OZ = new StringBuffer();
-    private StringBuffer Pa = new StringBuffer();
-    private int Pb = 0;
-    private int Pc = 0;
-    private int Pd = 0;
-    private long OI = 0;
-    private long Pe = 0;
-    private long Pf = 0;
-    protected long Pg = 0;
-    private long Ph = 0;
-    private long Pi = 0;
-    private long Pj = 0;
-    protected int Pk = 50;
-    protected final String Pm = BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
+    protected String QL;
+    protected String QO;
+    protected j QR;
+    private String Qw;
+    private StringBuffer Qx = new StringBuffer();
+    private StringBuffer Qy = new StringBuffer();
+    private StringBuffer Qz = new StringBuffer();
+    private int QB = 0;
+    private int QC = 0;
+    private int QD = 0;
+    private long Qk = 0;
+    private long QE = 0;
+    private long QF = 0;
+    protected long QG = 0;
+    private long QH = 0;
+    private long QI = 0;
+    private long QJ = 0;
+    protected int QK = 50;
+    protected final String QM = BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
     protected boolean mUseSdCard = false;
-    protected boolean Pn = false;
+    protected boolean QN = false;
     protected boolean mMustSuccess = false;
     private boolean isUploading = false;
-    private boolean Pp = false;
+    private boolean QP = false;
 
     public a(j jVar) {
-        this.Pq = jVar;
+        this.QR = jVar;
     }
 
     public synchronized void a(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
             try {
                 try {
-                    this.OY.append(aVar.toString());
-                    this.OY.append("\r\n");
-                    this.Pb++;
+                    this.Qx.append(aVar.toString());
+                    this.Qx.append("\r\n");
+                    this.QB++;
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -51,19 +51,19 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        if (this.Pq != null) {
-            this.Pq.o(this);
+        if (this.QR != null) {
+            this.QR.o(this);
         }
-        this.OI = System.currentTimeMillis();
+        this.Qk = System.currentTimeMillis();
     }
 
     public synchronized void b(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
             try {
                 try {
-                    this.OZ.append(aVar.toString());
-                    this.OZ.append("\r\n");
-                    this.Pc++;
+                    this.Qy.append(aVar.toString());
+                    this.Qy.append("\r\n");
+                    this.QC++;
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -71,19 +71,19 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        if (this.Pq != null) {
-            this.Pq.o(this);
+        if (this.QR != null) {
+            this.QR.o(this);
         }
-        this.Pe = System.currentTimeMillis();
+        this.QE = System.currentTimeMillis();
     }
 
     public synchronized void c(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
             try {
                 if (aVar.mD() != null) {
-                    this.Pa.append(aVar.mD().mP().toString());
-                    this.Pa.append("\r\n");
-                    this.Pd++;
+                    this.Qz.append(aVar.mD().mP().toString());
+                    this.Qz.append("\r\n");
+                    this.QD++;
                 }
             } catch (Exception e) {
                 BdLog.e(e);
@@ -91,59 +91,59 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        if (this.Pq != null) {
-            this.Pq.o(this);
+        if (this.QR != null) {
+            this.QR.o(this);
         }
-        this.Pf = System.currentTimeMillis();
+        this.QF = System.currentTimeMillis();
     }
 
     public int mQ() {
-        return this.Pb;
+        return this.QB;
     }
 
     public int mR() {
-        return this.Pc;
+        return this.QC;
     }
 
     public int mS() {
-        return this.Pd;
+        return this.QD;
     }
 
     public long mT() {
-        return this.Pg;
+        return this.QG;
     }
 
     public void H(long j) {
-        this.Pg = j;
+        this.QG = j;
     }
 
     public long mU() {
-        return this.OI;
+        return this.Qk;
     }
 
     public long mV() {
-        return this.Pe;
+        return this.QE;
     }
 
     public long mW() {
-        return this.Pf;
+        return this.QF;
     }
 
     public String mX() {
-        if (TextUtils.isEmpty(this.Po)) {
+        if (TextUtils.isEmpty(this.QO)) {
             StringBuilder sb = new StringBuilder(30);
-            sb.append(this.Pl);
+            sb.append(this.QL);
             sb.append(BdStatisticsManager.getInstance().getProcessName());
             sb.append("Writing");
             sb.append(BdStatsConstant.StatsFile.LOG_FILE_SUFFIX);
-            this.Po = sb.toString();
+            this.QO = sb.toString();
         }
-        return this.Po;
+        return this.QO;
     }
 
     public String mY() {
         StringBuilder sb = new StringBuilder(40);
-        sb.append(this.Pl);
+        sb.append(this.QL);
         sb.append(System.currentTimeMillis());
         sb.append(BdStatisticsManager.getInstance().getProcessName());
         sb.append("Uploading");
@@ -152,55 +152,55 @@ public class a {
     }
 
     public long mZ() {
-        return this.Ph;
+        return this.QH;
     }
 
     public long na() {
-        return this.Pi;
+        return this.QI;
     }
 
     public long nb() {
-        return this.Pj;
+        return this.QJ;
     }
 
     public void I(long j) {
-        this.Ph = j;
+        this.QH = j;
     }
 
     public void J(long j) {
-        this.Pi = j;
+        this.QI = j;
     }
 
     public void K(long j) {
-        this.Pj = j;
+        this.QJ = j;
     }
 
     public synchronized void nc() {
-        this.OY = new StringBuffer();
-        this.Pb = 0;
-        this.Ph = 0L;
+        this.Qx = new StringBuffer();
+        this.QB = 0;
+        this.QH = 0L;
     }
 
     public synchronized void nd() {
-        this.OZ = new StringBuffer();
-        this.Pc = 0;
-        this.Pi = 0L;
+        this.Qy = new StringBuffer();
+        this.QC = 0;
+        this.QI = 0L;
     }
 
     public synchronized void ne() {
-        this.Pa = new StringBuffer();
-        this.Pd = 0;
-        this.Pj = 0L;
+        this.Qz = new StringBuffer();
+        this.QD = 0;
+        this.QJ = 0L;
     }
 
-    public void bX(String str) {
+    public void cb(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.OX = str;
+            this.Qw = str;
         }
     }
 
     public String nf() {
-        return this.OX;
+        return this.Qw;
     }
 
     public boolean ng() {
@@ -212,11 +212,11 @@ public class a {
     }
 
     public boolean nh() {
-        return this.Pp;
+        return this.QP;
     }
 
     public void aq(boolean z) {
-        this.Pp = z;
+        this.QP = z;
     }
 
     public String ni() {
@@ -228,15 +228,15 @@ public class a {
     }
 
     public StringBuffer nk() {
-        return this.OY;
+        return this.Qx;
     }
 
     public StringBuffer nl() {
-        return this.OZ;
+        return this.Qy;
     }
 
     public StringBuffer nm() {
-        return this.Pa;
+        return this.Qz;
     }
 
     public boolean nn() {
@@ -244,7 +244,7 @@ public class a {
     }
 
     public boolean no() {
-        return this.Pn;
+        return this.QN;
     }
 
     public boolean np() {
@@ -252,10 +252,10 @@ public class a {
     }
 
     public String nq() {
-        return this.Pl;
+        return this.QL;
     }
 
-    public static String bY(String str) {
+    public static String cc(String str) {
         if ("net".equals(str) || "op".equals(str) || "crash".equals(str) || "msg".equals(str)) {
             return BdStatsConstant.StatsType.ERROR;
         }

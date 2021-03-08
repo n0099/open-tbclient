@@ -1,8 +1,8 @@
 package a.a.a.b.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public interface b extends Runnable {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface a {
     }
 }

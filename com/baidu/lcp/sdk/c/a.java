@@ -9,7 +9,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes3.dex */
 public class a {
-    private static a avG;
+    private static a axg;
     private Context context;
     private ThreadPoolExecutor service;
     private ExecutorService singleThreadService;
@@ -26,18 +26,18 @@ public class a {
         this.singleThreadService = Executors.newSingleThreadExecutor();
     }
 
-    public static a aF(Context context) {
+    public static a aE(Context context) {
         if (context == null) {
             return null;
         }
-        if (avG == null) {
+        if (axg == null) {
             synchronized (a.class) {
-                if (avG == null) {
-                    avG = new a(context);
+                if (axg == null) {
+                    axg = new a(context);
                 }
             }
         }
-        return avG;
+        return axg;
     }
 
     public void submitForNetWork(Runnable runnable) {

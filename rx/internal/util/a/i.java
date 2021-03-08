@@ -1,5 +1,5 @@
 package rx.internal.util.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class i<E> extends m<E> {
     public i(int i) {
         super(i);
@@ -10,79 +10,79 @@ public final class i<E> extends m<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.qtz;
-        long j = this.qDR;
-        long eKC = eKC();
-        long jB = jB(eKC);
-        if (b(eArr, jB) != null) {
-            if (eKC - eKD() > j) {
+        E[] eArr = this.qub;
+        long j = this.qEt;
+        long eKk = eKk();
+        long jA = jA(eKk);
+        if (b(eArr, jA) != null) {
+            if (eKk - eKl() > j) {
                 return false;
             }
             do {
-            } while (b(eArr, jB) != null);
-            a(eArr, jB, e);
-            jD(1 + eKC);
+            } while (b(eArr, jA) != null);
+            a(eArr, jA, e);
+            jC(1 + eKk);
             return true;
         }
-        a(eArr, jB, e);
-        jD(1 + eKC);
+        a(eArr, jA, e);
+        jC(1 + eKk);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
-        long eKD;
-        long eNH = eNH();
+        long eKl;
+        long eNp = eNp();
         do {
-            eKD = eKD();
-            if (eKD >= eNH) {
-                long eKC = eKC();
-                if (eKD >= eKC) {
+            eKl = eKl();
+            if (eKl >= eNp) {
+                long eKk = eKk();
+                if (eKl >= eKk) {
                     return null;
                 }
-                jE(eKC);
+                jD(eKk);
             }
-        } while (!ac(eKD, 1 + eKD));
-        long jB = jB(eKD);
-        E[] eArr = this.qtz;
-        E a2 = a(eArr, jB);
-        b(eArr, jB, null);
+        } while (!ac(eKl, 1 + eKl));
+        long jA = jA(eKl);
+        E[] eArr = this.qub;
+        E a2 = a(eArr, jA);
+        b(eArr, jA, null);
         return a2;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        E jC;
-        long eNH = eNH();
+        E jB;
+        long eNp = eNp();
         do {
-            long eKD = eKD();
-            if (eKD >= eNH) {
-                long eKC = eKC();
-                if (eKD >= eKC) {
+            long eKl = eKl();
+            if (eKl >= eNp) {
+                long eKk = eKk();
+                if (eKl >= eKk) {
                     return null;
                 }
-                jE(eKC);
+                jD(eKk);
             }
-            jC = jC(jB(eKD));
-        } while (jC == null);
-        return jC;
+            jB = jB(jA(eKl));
+        } while (jB == null);
+        return jB;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long eKD = eKD();
+        long eKl = eKl();
         while (true) {
-            long eKC = eKC();
-            long eKD2 = eKD();
-            if (eKD == eKD2) {
-                return (int) (eKC - eKD2);
+            long eKk = eKk();
+            long eKl2 = eKl();
+            if (eKl == eKl2) {
+                return (int) (eKk - eKl2);
             }
-            eKD = eKD2;
+            eKl = eKl2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return eKD() == eKC();
+        return eKl() == eKk();
     }
 }

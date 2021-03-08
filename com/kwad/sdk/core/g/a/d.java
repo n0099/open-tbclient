@@ -14,10 +14,8 @@ import org.json.JSONObject;
 public class d implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f9163a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f9164b;
+    public String f6098a;
+    private String b;
     private String c;
     private int d;
     private int e;
@@ -41,14 +39,14 @@ public class d implements com.kwad.sdk.core.b {
 
     public static d a(boolean z) {
         d dVar = new d();
-        dVar.f9164b = ah.d(KsAdSDKImpl.get().getContext());
+        dVar.b = ah.d(KsAdSDKImpl.get().getContext());
         dVar.c = com.kwad.sdk.core.f.a.a();
         dVar.m = ah.e();
         dVar.n = ah.f();
         dVar.d = 1;
         dVar.e = ah.j();
         dVar.f = ah.i();
-        dVar.f9163a = ah.k();
+        dVar.f6098a = ah.k();
         dVar.h = ah.h(KsAdSDKImpl.get().getContext());
         dVar.g = ah.g(KsAdSDKImpl.get().getContext());
         dVar.i = ah.i(KsAdSDKImpl.get().getContext());
@@ -71,14 +69,14 @@ public class d implements com.kwad.sdk.core.b {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, "imei", this.f9164b);
+        o.a(jSONObject, "imei", this.b);
         o.a(jSONObject, "oaid", this.c);
         o.a(jSONObject, "deviceModel", this.m);
         o.a(jSONObject, "deviceBrand", this.n);
         o.a(jSONObject, HttpConstants.HTTP_OS_TYPE_OLD, this.d);
         o.a(jSONObject, "osVersion", this.f);
         o.a(jSONObject, "osApi", this.e);
-        o.a(jSONObject, KsMediaMeta.KSM_KEY_LANGUAGE, this.f9163a);
+        o.a(jSONObject, KsMediaMeta.KSM_KEY_LANGUAGE, this.f6098a);
         o.a(jSONObject, "androidId", this.i);
         o.a(jSONObject, "deviceId", this.j);
         o.a(jSONObject, "deviceVendor", this.k);

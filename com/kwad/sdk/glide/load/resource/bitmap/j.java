@@ -14,19 +14,17 @@ import java.nio.charset.Charset;
 public final class j implements ImageHeaderParser {
 
     /* renamed from: a  reason: collision with root package name */
-    static final byte[] f10280a = "Exif\u0000\u0000".getBytes(Charset.forName("UTF-8"));
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final int[] f10281b = {0, 1, 1, 2, 4, 8, 1, 1, 2, 4, 8, 4, 8};
+    static final byte[] f6788a = "Exif\u0000\u0000".getBytes(Charset.forName("UTF-8"));
+    private static final int[] b = {0, 1, 1, 2, 4, 8, 1, 1, 2, 4, 8, 4, 8};
 
     /* loaded from: classes3.dex */
     private static final class a implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        private final ByteBuffer f10282a;
+        private final ByteBuffer f6789a;
 
         a(ByteBuffer byteBuffer) {
-            this.f10282a = byteBuffer;
+            this.f6789a = byteBuffer;
             byteBuffer.order(ByteOrder.BIG_ENDIAN);
         }
 
@@ -37,18 +35,18 @@ public final class j implements ImageHeaderParser {
 
         @Override // com.kwad.sdk.glide.load.resource.bitmap.j.c
         public int a(byte[] bArr, int i) {
-            int min = Math.min(i, this.f10282a.remaining());
+            int min = Math.min(i, this.f6789a.remaining());
             if (min == 0) {
                 return -1;
             }
-            this.f10282a.get(bArr, 0, min);
+            this.f6789a.get(bArr, 0, min);
             return min;
         }
 
         @Override // com.kwad.sdk.glide.load.resource.bitmap.j.c
         public long a(long j) {
-            int min = (int) Math.min(this.f10282a.remaining(), j);
-            this.f10282a.position(this.f10282a.position() + min);
+            int min = (int) Math.min(this.f6789a.remaining(), j);
+            this.f6789a.position(this.f6789a.position() + min);
             return min;
         }
 
@@ -59,10 +57,10 @@ public final class j implements ImageHeaderParser {
 
         @Override // com.kwad.sdk.glide.load.resource.bitmap.j.c
         public int c() {
-            if (this.f10282a.remaining() < 1) {
+            if (this.f6789a.remaining() < 1) {
                 return -1;
             }
-            return this.f10282a.get();
+            return this.f6789a.get();
         }
     }
 
@@ -71,34 +69,34 @@ public final class j implements ImageHeaderParser {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private final ByteBuffer f10283a;
+        private final ByteBuffer f6790a;
 
         b(byte[] bArr, int i) {
-            this.f10283a = (ByteBuffer) ByteBuffer.wrap(bArr).order(ByteOrder.BIG_ENDIAN).limit(i);
+            this.f6790a = (ByteBuffer) ByteBuffer.wrap(bArr).order(ByteOrder.BIG_ENDIAN).limit(i);
         }
 
         private boolean a(int i, int i2) {
-            return this.f10283a.remaining() - i >= i2;
+            return this.f6790a.remaining() - i >= i2;
         }
 
         int a() {
-            return this.f10283a.remaining();
+            return this.f6790a.remaining();
         }
 
         int a(int i) {
             if (a(i, 4)) {
-                return this.f10283a.getInt(i);
+                return this.f6790a.getInt(i);
             }
             return -1;
         }
 
         void a(ByteOrder byteOrder) {
-            this.f10283a.order(byteOrder);
+            this.f6790a.order(byteOrder);
         }
 
         short b(int i) {
             if (a(i, 2)) {
-                return this.f10283a.getShort(i);
+                return this.f6790a.getShort(i);
             }
             return (short) -1;
         }
@@ -122,22 +120,22 @@ public final class j implements ImageHeaderParser {
     private static final class d implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        private final InputStream f10284a;
+        private final InputStream f6791a;
 
         d(InputStream inputStream) {
-            this.f10284a = inputStream;
+            this.f6791a = inputStream;
         }
 
         @Override // com.kwad.sdk.glide.load.resource.bitmap.j.c
         public int a() {
-            return ((this.f10284a.read() << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | (this.f10284a.read() & 255);
+            return ((this.f6791a.read() << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | (this.f6791a.read() & 255);
         }
 
         @Override // com.kwad.sdk.glide.load.resource.bitmap.j.c
         public int a(byte[] bArr, int i) {
             int i2 = i;
             while (i2 > 0) {
-                int read = this.f10284a.read(bArr, i - i2, i2);
+                int read = this.f6791a.read(bArr, i - i2, i2);
                 if (read == -1) {
                     break;
                 }
@@ -153,10 +151,10 @@ public final class j implements ImageHeaderParser {
             }
             long j2 = j;
             while (j2 > 0) {
-                long skip = this.f10284a.skip(j2);
+                long skip = this.f6791a.skip(j2);
                 if (skip > 0) {
                     j2 -= skip;
-                } else if (this.f10284a.read() == -1) {
+                } else if (this.f6791a.read() == -1) {
                     break;
                 } else {
                     j2--;
@@ -167,12 +165,12 @@ public final class j implements ImageHeaderParser {
 
         @Override // com.kwad.sdk.glide.load.resource.bitmap.j.c
         public short b() {
-            return (short) (this.f10284a.read() & 255);
+            return (short) (this.f6791a.read() & 255);
         }
 
         @Override // com.kwad.sdk.glide.load.resource.bitmap.j.c
         public int c() {
-            return this.f10284a.read();
+            return this.f6791a.read();
         }
     }
 
@@ -212,7 +210,7 @@ public final class j implements ImageHeaderParser {
                         if (Log.isLoggable("DfltImageHeaderParser", 3)) {
                             Log.d("DfltImageHeaderParser", "Got tagIndex=" + i + " tagType=" + ((int) b4) + " formatCode=" + ((int) b5) + " componentCount=" + a4);
                         }
-                        int i2 = a4 + f10281b[b5];
+                        int i2 = a4 + b[b5];
                         if (i2 <= 4) {
                             int i3 = a3 + 8;
                             if (i3 < 0 || i3 > bVar.a()) {
@@ -290,7 +288,7 @@ public final class j implements ImageHeaderParser {
         if (a2 == 65496) {
             return ImageHeaderParser.ImageType.JPEG;
         }
-        int a3 = ((a2 << 16) & SupportMenu.CATEGORY_MASK) | (cVar.a() & SupportMenu.USER_MASK);
+        int a3 = ((a2 << 16) & SupportMenu.CATEGORY_MASK) | (cVar.a() & 65535);
         if (a3 == -1991225785) {
             cVar.a(21L);
             return cVar.c() >= 3 ? ImageHeaderParser.ImageType.PNG_A : ImageHeaderParser.ImageType.PNG;
@@ -301,10 +299,10 @@ public final class j implements ImageHeaderParser {
                 return ImageHeaderParser.ImageType.UNKNOWN;
             }
             cVar.a(4L);
-            if ((((cVar.a() << 16) & SupportMenu.CATEGORY_MASK) | (cVar.a() & SupportMenu.USER_MASK)) != 1464156752) {
+            if ((((cVar.a() << 16) & SupportMenu.CATEGORY_MASK) | (cVar.a() & 65535)) != 1464156752) {
                 return ImageHeaderParser.ImageType.UNKNOWN;
             }
-            int a4 = ((cVar.a() << 16) & SupportMenu.CATEGORY_MASK) | (cVar.a() & SupportMenu.USER_MASK);
+            int a4 = ((cVar.a() << 16) & SupportMenu.CATEGORY_MASK) | (cVar.a() & 65535);
             if ((a4 & InputDeviceCompat.SOURCE_ANY) != 1448097792) {
                 return ImageHeaderParser.ImageType.UNKNOWN;
             }
@@ -325,10 +323,10 @@ public final class j implements ImageHeaderParser {
     }
 
     private boolean a(byte[] bArr, int i) {
-        boolean z = bArr != null && i > f10280a.length;
+        boolean z = bArr != null && i > f6788a.length;
         if (z) {
-            for (int i2 = 0; i2 < f10280a.length; i2++) {
-                if (bArr[i2] != f10280a[i2]) {
+            for (int i2 = 0; i2 < f6788a.length; i2++) {
+                if (bArr[i2] != f6788a[i2]) {
                     return false;
                 }
             }

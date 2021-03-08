@@ -6,10 +6,8 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    String f11315a;
-
-    /* renamed from: b  reason: collision with root package name */
-    String f11316b;
+    String f7430a;
+    String b;
     String c;
     String d;
 
@@ -17,15 +15,13 @@ public class d {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f11317a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private String f11318b;
+        private String f7431a;
+        private String b;
         private String c;
         private String d;
 
         public a a(String str) {
-            this.f11317a = str;
+            this.f7431a = str;
             return this;
         }
 
@@ -34,7 +30,7 @@ public class d {
         }
 
         public a b(String str) {
-            this.f11318b = str;
+            this.b = str;
             return this;
         }
 
@@ -53,8 +49,8 @@ public class d {
     }
 
     public d(a aVar) {
-        this.f11315a = !TextUtils.isEmpty(aVar.f11317a) ? aVar.f11317a : "";
-        this.f11316b = !TextUtils.isEmpty(aVar.f11318b) ? aVar.f11318b : "";
+        this.f7430a = !TextUtils.isEmpty(aVar.f7431a) ? aVar.f7431a : "";
+        this.b = !TextUtils.isEmpty(aVar.b) ? aVar.b : "";
         this.c = !TextUtils.isEmpty(aVar.c) ? aVar.c : "";
         this.d = !TextUtils.isEmpty(aVar.d) ? aVar.d : "";
     }
@@ -65,19 +61,19 @@ public class d {
 
     public String b() {
         com.meizu.cloud.pushsdk.c.a.c cVar = new com.meizu.cloud.pushsdk.c.a.c();
-        cVar.a("task_id", this.f11315a);
-        cVar.a(BdStatsConstant.StatsKey.SEQUENCEID, this.f11316b);
+        cVar.a("task_id", this.f7430a);
+        cVar.a(BdStatsConstant.StatsKey.SEQUENCEID, this.b);
         cVar.a("push_timestamp", this.c);
         cVar.a("device_id", this.d);
         return cVar.toString();
     }
 
     public String c() {
-        return this.f11315a;
+        return this.f7430a;
     }
 
     public String d() {
-        return this.f11316b;
+        return this.b;
     }
 
     public String e() {

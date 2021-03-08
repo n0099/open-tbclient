@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.core.data.AlaUserInfoData;
 import com.baidu.live.tbadk.core.data.BaseData;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaLiveUserInfoData extends BaseData implements Serializable {
     private static final long serialVersionUID = -3860430259513905402L;
     public long alaId;

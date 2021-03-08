@@ -8,7 +8,7 @@ import com.baidu.tbadk.editortools.noConflictPanel.b;
 import com.baidu.tbadk.editortools.noConflictPanel.b.d;
 /* loaded from: classes.dex */
 public class KPSwitchFSPanelFrameLayout extends FrameLayout implements b {
-    private a fDw;
+    private a fEV;
 
     public KPSwitchFSPanelFrameLayout(Context context) {
         super(context);
@@ -26,16 +26,16 @@ public class KPSwitchFSPanelFrameLayout extends FrameLayout implements b {
     }
 
     private void init() {
-        this.fDw = new a(this);
+        this.fEV = new a(this);
     }
 
     @Override // com.baidu.tbadk.editortools.noConflictPanel.b
-    public void ra(int i) {
+    public void rb(int i) {
         d.r(this, i);
     }
 
     @Override // com.baidu.tbadk.editortools.noConflictPanel.b
     public void kT(boolean z) {
-        this.fDw.kT(z);
+        this.fEV.kT(z);
     }
 }

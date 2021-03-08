@@ -12,18 +12,18 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class d extends a {
-    private a.d avF = null;
+    private a.d axf = null;
 
     public d(Context context) {
         this.context = context;
     }
 
-    @Override // com.baidu.lcp.sdk.b.c.InterfaceC0150c
+    @Override // com.baidu.lcp.sdk.b.c.InterfaceC0156c
     public void onSuccess(byte[] bArr) {
         String str = new String(bArr);
-        com.baidu.lcp.sdk.d.d.d("LCPHttpDnsUrlRequest", "onSuccess----ip of " + f.aE(this.context).avm + " is " + str);
+        com.baidu.lcp.sdk.d.d.d("LCPHttpDnsUrlRequest", "onSuccess----ip of " + f.aD(this.context).awM + " is " + str);
         try {
-            JSONObject jSONObject = new JSONObject(str).getJSONObject("data").getJSONObject(f.aE(this.context).avm);
+            JSONObject jSONObject = new JSONObject(str).getJSONObject("data").getJSONObject(f.aD(this.context).awM);
             JSONArray optJSONArray = jSONObject.optJSONArray(TableDefine.UserInfoColumns.COLUMN_IP);
             JSONArray optJSONArray2 = jSONObject.optJSONArray("ipv6");
             int length = optJSONArray2 == null ? 0 : optJSONArray2.length();
@@ -37,10 +37,10 @@ public class d extends a {
                     arrayList.add(optJSONArray2.getString(0));
                 }
                 com.baidu.lcp.sdk.connect.a.s(arrayList);
-                if (this.avF != null && com.baidu.lcp.sdk.connect.a.auy.size() > 0) {
-                    this.avF.c(0, "ok", com.baidu.lcp.sdk.connect.a.auy.get(0));
-                    if (com.baidu.lcp.sdk.connect.a.auy.size() > 1) {
-                        com.baidu.lcp.sdk.connect.a.auz++;
+                if (this.axf != null && com.baidu.lcp.sdk.connect.a.avY.size() > 0) {
+                    this.axf.c(0, "ok", com.baidu.lcp.sdk.connect.a.avY.get(0));
+                    if (com.baidu.lcp.sdk.connect.a.avY.size() > 1) {
+                        com.baidu.lcp.sdk.connect.a.avZ++;
                         return;
                     }
                     return;
@@ -49,19 +49,19 @@ public class d extends a {
             }
             com.baidu.lcp.sdk.d.d.e("LCPHttpDnsUrlRequest", "HttpDnsResponse ips is null ");
             com.baidu.lcp.sdk.connect.a.aS(true);
-            com.baidu.lcp.sdk.connect.a.aB(this.context).a(f.aE(this.context).avm, this.avF);
+            com.baidu.lcp.sdk.connect.a.aA(this.context).a(f.aD(this.context).awM, this.axf);
         } catch (Exception e) {
             com.baidu.lcp.sdk.d.d.e("LCPHttpDnsUrlRequest", "HttpDnsRequester ip parse exception " + e.getMessage());
             com.baidu.lcp.sdk.connect.a.aS(true);
-            com.baidu.lcp.sdk.connect.a.aB(this.context).a(f.aE(this.context).avm, this.avF);
+            com.baidu.lcp.sdk.connect.a.aA(this.context).a(f.aD(this.context).awM, this.axf);
         }
     }
 
-    @Override // com.baidu.lcp.sdk.b.c.InterfaceC0150c
+    @Override // com.baidu.lcp.sdk.b.c.InterfaceC0156c
     public void onFailure(int i, String str) {
         com.baidu.lcp.sdk.d.d.e("LCPHttpDnsUrlRequest", "HttpDns failure errorcode:" + i + ",errormsg:" + str);
         com.baidu.lcp.sdk.connect.a.aS(true);
-        com.baidu.lcp.sdk.connect.a.aB(this.context).a(f.aE(this.context).avm, this.avF);
+        com.baidu.lcp.sdk.connect.a.aA(this.context).a(f.aD(this.context).awM, this.axf);
     }
 
     @Override // com.baidu.lcp.sdk.b.c.a
@@ -71,7 +71,7 @@ public class d extends a {
 
     @Override // com.baidu.lcp.sdk.b.c.a
     public byte[] getRequestParameter() {
-        return ("type=ipv4,ipv6&dn=" + f.aE(this.context).avm).getBytes();
+        return ("type=ipv4,ipv6&dn=" + f.aD(this.context).awM).getBytes();
     }
 
     @Override // com.baidu.lcp.sdk.b.c.a
@@ -87,7 +87,7 @@ public class d extends a {
     }
 
     public void a(a.d dVar) {
-        this.avF = dVar;
+        this.axf = dVar;
     }
 
     @Override // com.baidu.lcp.sdk.b.a, com.baidu.lcp.sdk.b.c.a

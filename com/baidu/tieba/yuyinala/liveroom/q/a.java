@@ -5,13 +5,13 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.yuyinala.liveroom.wheat.c.q;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static int I(boolean z, int i) {
         if (z) {
             return (int) ((BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()) * 0.3f) + TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_tbds64));
         }
-        int wheatHeight = q.edM().getWheatHeight();
+        int wheatHeight = q.edU().getWheatHeight();
         if (wheatHeight <= 0) {
             if (i == 1) {
                 wheatHeight = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds935);

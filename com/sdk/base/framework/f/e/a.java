@@ -13,10 +13,8 @@ import java.net.HttpURLConnection;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f12841a = a.class.getName();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final Boolean f12842b = Boolean.valueOf(f.f12821b);
+    private static final String f7642a = a.class.getName();
+    private static final Boolean b = Boolean.valueOf(f.b);
 
     static {
         c.c.a();
@@ -97,7 +95,7 @@ public class a {
                 }
                 return null;
             } catch (Throwable th) {
-                com.sdk.base.framework.a.a.c.b(f12841a, th.getMessage(), f12842b);
+                com.sdk.base.framework.a.a.c.b(f7642a, th.getMessage(), b);
                 return null;
             }
         }

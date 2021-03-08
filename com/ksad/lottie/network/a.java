@@ -14,24 +14,22 @@ import java.io.InputStream;
 class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f8104a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final String f8105b;
+    private final Context f5406a;
+    private final String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context, String str) {
-        this.f8104a = context.getApplicationContext();
-        this.f8105b = str;
+        this.f5406a = context.getApplicationContext();
+        this.b = str;
     }
 
     @Nullable
     private File a(String str) {
-        File file = new File(this.f8104a.getCacheDir(), a(str, FileExtension.Json, false));
+        File file = new File(this.f5406a.getCacheDir(), a(str, FileExtension.Json, false));
         if (file.exists()) {
             return file;
         }
-        File file2 = new File(this.f8104a.getCacheDir(), a(str, FileExtension.Zip, false));
+        File file2 = new File(this.f5406a.getCacheDir(), a(str, FileExtension.Zip, false));
         if (file2.exists()) {
             return file2;
         }
@@ -47,14 +45,14 @@ class a {
     @WorkerThread
     public Pair<FileExtension, InputStream> a() {
         try {
-            File a2 = a(this.f8105b);
+            File a2 = a(this.b);
             if (a2 == null) {
                 return null;
             }
             try {
                 FileInputStream fileInputStream = new FileInputStream(a2);
                 FileExtension fileExtension = a2.getAbsolutePath().endsWith(".zip") ? FileExtension.Zip : FileExtension.Json;
-                c.a("Cache hit for " + this.f8105b + " at " + a2.getAbsolutePath());
+                c.a("Cache hit for " + this.b + " at " + a2.getAbsolutePath());
                 return new Pair<>(fileExtension, fileInputStream);
             } catch (FileNotFoundException e) {
                 return null;
@@ -66,7 +64,7 @@ class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public File a(InputStream inputStream, FileExtension fileExtension) {
-        File file = new File(this.f8104a.getCacheDir(), a(this.f8105b, fileExtension, true));
+        File file = new File(this.f5406a.getCacheDir(), a(this.b, fileExtension, true));
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(file);
             byte[] bArr = new byte[1024];
@@ -86,7 +84,7 @@ class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(FileExtension fileExtension) {
-        File file = new File(this.f8104a.getCacheDir(), a(this.f8105b, fileExtension, true));
+        File file = new File(this.f5406a.getCacheDir(), a(this.b, fileExtension, true));
         File file2 = new File(file.getAbsolutePath().replace(".temp", ""));
         boolean renameTo = file.renameTo(file2);
         c.a("Copying temp file to real file (" + file2 + ")");

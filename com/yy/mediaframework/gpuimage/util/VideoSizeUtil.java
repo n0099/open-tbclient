@@ -1,8 +1,8 @@
 package com.yy.mediaframework.gpuimage.util;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoSizeUtil {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum ScaleMode {
         CLIP_TO_BOUNDS,
         ASPECTFIT,
@@ -44,7 +44,7 @@ public class VideoSizeUtil {
         return size;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class Size {
         public int height;
         public int width;

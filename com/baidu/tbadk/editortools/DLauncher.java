@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class DLauncher extends RelativeLayout implements h {
-    private m fAZ;
-    private TextView fBb;
-    private int fBc;
+    private TextView fCA;
+    private int fCB;
+    private m fCy;
     private int mId;
     private int mSkinType;
     private String mText;
@@ -25,39 +25,39 @@ public class DLauncher extends RelativeLayout implements h {
         super(context);
         this.mSkinType = 0;
         if (mVar != null) {
-            this.fAZ = mVar;
+            this.fCy = mVar;
             setLayoutParams(new AbsListView.LayoutParams(-1, -2));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.topMargin = getResources().getDimensionPixelOffset(R.dimen.M_H_X008);
             layoutParams.leftMargin = getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
             layoutParams.rightMargin = getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-            this.fBb = new EMTextView(context);
+            this.fCA = new EMTextView(context);
             setName(mVar.name);
             setIcon();
             setToolId(mVar.id);
-            this.fBb.setGravity(17);
-            com.baidu.tbadk.core.elementsMaven.c.br(this.fBb).nZ(R.dimen.T_X09).nY(R.color.CAM_X0106);
-            this.fBc = context.getResources().getDimensionPixelSize(R.dimen.ds12);
-            addView(this.fBb, layoutParams);
+            this.fCA.setGravity(17);
+            com.baidu.tbadk.core.elementsMaven.c.br(this.fCA).oa(R.dimen.T_X09).nZ(R.color.CAM_X0106);
+            this.fCB = context.getResources().getDimensionPixelSize(R.dimen.ds12);
+            addView(this.fCA, layoutParams);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.h
     public void setName(String str) {
-        this.fBb.setText(str);
+        this.fCA.setText(str);
     }
 
     @Override // android.view.View
     public void setEnabled(boolean z) {
         super.setEnabled(z);
         if (z) {
-            this.fBb.setAlpha(1.0f);
-            this.fBb.setEnabled(z);
+            this.fCA.setAlpha(1.0f);
+            this.fCA.setEnabled(z);
             setPressed(true);
             ap.setBackgroundResource(this, R.drawable.btn_editor_selector, TbadkCoreApplication.getInst().getSkinType());
         } else {
-            this.fBb.setAlpha(0.33f);
-            this.fBb.setEnabled(false);
+            this.fCA.setAlpha(0.33f);
+            this.fCA.setEnabled(false);
             setPressed(false);
             setBackground(null);
         }
@@ -66,28 +66,28 @@ public class DLauncher extends RelativeLayout implements h {
 
     public void setIcon() {
         Drawable drawable;
-        int i = this.fAZ.fCd;
+        int i = this.fCy.fDC;
         if (i <= 0) {
-            i = this.fAZ.fCb;
+            i = this.fCy.fDA;
         }
-        if (TextUtils.isEmpty(this.fBb.getText())) {
-            if (this.fAZ.fCe) {
-                this.fBb.setBackgroundDrawable(SvgManager.bsR().z(i, this.fAZ.fCc, this.mSkinType));
+        if (TextUtils.isEmpty(this.fCA.getText())) {
+            if (this.fCy.fDD) {
+                this.fCA.setBackgroundDrawable(SvgManager.bsU().z(i, this.fCy.fDB, this.mSkinType));
                 return;
             } else {
-                ap.setBackgroundResource(this.fBb, i, this.mSkinType);
+                ap.setBackgroundResource(this.fCA, i, this.mSkinType);
                 return;
             }
         }
-        if (this.fAZ.fCe) {
-            drawable = SvgManager.bsR().z(i, this.fAZ.fCc, this.mSkinType);
+        if (this.fCy.fDD) {
+            drawable = SvgManager.bsU().z(i, this.fCy.fDB, this.mSkinType);
         } else {
             drawable = ap.getDrawable(this.mSkinType, i);
         }
         if (drawable != null) {
             drawable.setBounds(0, 0, getResources().getDimensionPixelSize(R.dimen.tbds165), getResources().getDimensionPixelSize(R.dimen.tbds165));
-            this.fBb.setCompoundDrawablePadding(getResources().getDimensionPixelSize(R.dimen.M_H_X002));
-            this.fBb.setCompoundDrawables(null, drawable, null, null);
+            this.fCA.setCompoundDrawablePadding(getResources().getDimensionPixelSize(R.dimen.M_H_X002));
+            this.fCA.setCompoundDrawables(null, drawable, null, null);
         }
     }
 
@@ -106,8 +106,8 @@ public class DLauncher extends RelativeLayout implements h {
         super.onLayout(z, i, i2, i3, i4);
         if (this.mTip != null) {
             if (getVisibility() == 0) {
-                int right = this.fBb.getRight() - (this.mTip.getMeasuredWidth() / 2);
-                int top = this.fBb.getTop() - (this.mTip.getMeasuredHeight() / 2);
+                int right = this.fCA.getRight() - (this.mTip.getMeasuredWidth() / 2);
+                int top = this.fCA.getTop() - (this.mTip.getMeasuredHeight() / 2);
                 this.mTip.layout(right, top, this.mTip.getMeasuredWidth() + right, this.mTip.getMeasuredHeight() + top);
                 return;
             }
@@ -115,12 +115,12 @@ public class DLauncher extends RelativeLayout implements h {
         }
     }
 
-    public void CI(String str) {
-        CJ(str);
+    public void CP(String str) {
+        CQ(str);
         this.mTip.setVisibility(0);
     }
 
-    private void CJ(String str) {
+    private void CQ(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.mText = str;
             if (this.mTip == null) {
@@ -142,7 +142,7 @@ public class DLauncher extends RelativeLayout implements h {
         }
     }
 
-    public void bBf() {
+    public void bBi() {
         this.mText = null;
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
@@ -153,9 +153,9 @@ public class DLauncher extends RelativeLayout implements h {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                bBf();
+                bBi();
             } else if (aVar.data instanceof String) {
-                CI((String) aVar.data);
+                CP((String) aVar.data);
             }
         }
     }
@@ -175,8 +175,8 @@ public class DLauncher extends RelativeLayout implements h {
         if (isEnabled()) {
             ap.setBackgroundResource(this, R.drawable.btn_editor_selector, i);
         }
-        com.baidu.tbadk.core.elementsMaven.c.br(this.fBb).nY(R.color.CAM_X0106);
-        if (this.fAZ != null) {
+        com.baidu.tbadk.core.elementsMaven.c.br(this.fCA).nZ(R.color.CAM_X0106);
+        if (this.fCy != null) {
             setIcon();
             if (this.mTip != null) {
                 ap.setViewTextColor(this.mTip, R.color.common_color_10225, 1, i);
@@ -191,7 +191,7 @@ public class DLauncher extends RelativeLayout implements h {
     }
 
     @Override // com.baidu.tbadk.editortools.h
-    public void bBg() {
+    public void bBj() {
     }
 
     public String getText() {

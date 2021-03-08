@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.util.v;
 import tbclient.LiveSquare.DataReq;
 import tbclient.LiveSquare.LiveSquareReqIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaSquareLiveRequestMessage extends NetMessage {
     private Integer mPn;
 

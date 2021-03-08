@@ -13,16 +13,14 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f9139a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final LinkedBlockingQueue<IBinder> f9140b = new LinkedBlockingQueue<>(1);
+    private Context f6081a;
+    private final LinkedBlockingQueue<IBinder> b = new LinkedBlockingQueue<>(1);
     private ServiceConnection c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.a.f.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             com.kwad.sdk.core.d.a.b("OppoDeviceIDHelper", "onServiceConnected");
             try {
-                f.this.f9140b.put(iBinder);
+                f.this.b.put(iBinder);
             } catch (InterruptedException e) {
                 com.kwad.sdk.core.d.a.a(e);
             }
@@ -34,19 +32,19 @@ public class f {
     };
 
     public f(Context context) {
-        this.f9139a = context;
+        this.f6081a = context;
     }
 
     private String b() {
         try {
-            Signature[] signatureArr = this.f9139a.getPackageManager().getPackageInfo(this.f9139a.getPackageName(), 64).signatures;
+            Signature[] signatureArr = this.f6081a.getPackageManager().getPackageInfo(this.f6081a.getPackageName(), 64).signatures;
             if (signatureArr == null || signatureArr.length <= 0) {
                 return null;
             }
             byte[] digest = MessageDigest.getInstance("SHA1").digest(signatureArr[0].toByteArray());
             StringBuilder sb = new StringBuilder();
-            for (byte b2 : digest) {
-                sb.append(Integer.toHexString((b2 & 255) | 256).substring(1, 3));
+            for (byte b : digest) {
+                sb.append(Integer.toHexString((b & 255) | 256).substring(1, 3));
             }
             return sb.toString();
         } catch (Exception e) {
@@ -70,22 +68,22 @@ public class f {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
             intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-            ?? bindService = this.f9139a.bindService(intent, this.c, 1);
+            ?? bindService = this.f6081a.bindService(intent, this.c, 1);
             com.kwad.sdk.core.d.a.b("OppoDeviceIDHelper", "getOAID isBin=" + ((boolean) bindService));
             try {
                 if (bindService != 0) {
                     try {
-                        String a2 = new d.a(this.f9140b.take()).a(this.f9139a.getPackageName(), b(), "OUID");
+                        String a2 = new d.a(this.b.take()).a(this.f6081a.getPackageName(), b(), "OUID");
                         try {
                             try {
                                 com.kwad.sdk.core.d.a.b("OppoDeviceIDHelper", "getOAID oaid" + a2);
-                                this.f9139a.unbindService(this.c);
+                                this.f6081a.unbindService(this.c);
                                 bindService = a2;
                             } catch (Exception e) {
                                 e = e;
                                 str3 = a2;
                                 com.kwad.sdk.core.d.a.a(e);
-                                this.f9139a.unbindService(this.c);
+                                this.f6081a.unbindService(this.c);
                                 bindService = str3;
                                 return bindService;
                             }
@@ -93,7 +91,7 @@ public class f {
                             th = th2;
                             str2 = str3;
                             try {
-                                this.f9139a.unbindService(this.c);
+                                this.f6081a.unbindService(this.c);
                                 throw th;
                             } catch (Exception e2) {
                                 e = e2;
@@ -109,7 +107,7 @@ public class f {
                     } catch (Throwable th3) {
                         th = th3;
                         str2 = "";
-                        this.f9139a.unbindService(this.c);
+                        this.f6081a.unbindService(this.c);
                         throw th;
                     }
                     return bindService;

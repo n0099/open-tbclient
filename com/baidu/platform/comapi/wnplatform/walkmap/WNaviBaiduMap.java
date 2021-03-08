@@ -13,20 +13,18 @@ import com.baidu.webkit.net.BdNetTask;
 import com.yy.mediaframework.base.VideoEncoderConfig;
 /* loaded from: classes4.dex */
 public class WNaviBaiduMap {
-
-    /* renamed from: b  reason: collision with root package name */
-    private static long f4471b;
+    private static long b;
     private static WNaviBaiduMap c;
 
     /* renamed from: a  reason: collision with root package name */
-    private JNIBaseMap f4472a = new JNIBaseMap();
+    private JNIBaseMap f3091a = new JNIBaseMap();
 
     public void setId(long j) {
-        f4471b = j;
+        b = j;
     }
 
     public static long getId() {
-        return f4471b;
+        return b;
     }
 
     public float getZoomLevel() {
@@ -124,6 +122,6 @@ public class WNaviBaiduMap {
         bundle.putInt("hasHW", 1);
         bundle.putInt("width", i);
         bundle.putInt("height", i2);
-        return this.f4472a.GetZoomToBound(f4471b, bundle);
+        return this.f3091a.GetZoomToBound(b, bundle);
     }
 }

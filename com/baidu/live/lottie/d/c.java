@@ -6,17 +6,17 @@ import androidx.annotation.MainThread;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import com.baidu.mapapi.map.WeightedLatLng;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class c extends a implements Choreographer.FrameCallback {
     @Nullable
     private com.baidu.live.lottie.e composition;
     private float speed = 1.0f;
-    private boolean HC = false;
-    private long HD = 0;
-    private float HE = 0.0f;
+    private boolean Jb = false;
+    private long Jc = 0;
+    private float Jd = 0.0f;
     private int repeatCount = 0;
-    private float HF = -2.1474836E9f;
-    private float HG = 2.1474836E9f;
+    private float Je = -2.1474836E9f;
+    private float Jf = 2.1474836E9f;
     @VisibleForTesting
     protected boolean running = false;
 
@@ -30,7 +30,7 @@ public class c extends a implements Choreographer.FrameCallback {
         if (this.composition == null) {
             return 0.0f;
         }
-        return (this.HE - this.composition.hS()) / (this.composition.hT() - this.composition.hS());
+        return (this.Jd - this.composition.hS()) / (this.composition.hT() - this.composition.hS());
     }
 
     @Override // android.animation.ValueAnimator
@@ -40,9 +40,9 @@ public class c extends a implements Choreographer.FrameCallback {
             return 0.0f;
         }
         if (isReversed()) {
-            return (getMaxFrame() - this.HE) / (getMaxFrame() - getMinFrame());
+            return (getMaxFrame() - this.Jd) / (getMaxFrame() - getMinFrame());
         }
-        return (this.HE - getMinFrame()) / (getMaxFrame() - getMinFrame());
+        return (this.Jd - getMinFrame()) / (getMaxFrame() - getMinFrame());
     }
 
     @Override // android.animation.ValueAnimator, android.animation.Animator
@@ -54,7 +54,7 @@ public class c extends a implements Choreographer.FrameCallback {
     }
 
     public float ku() {
-        return this.HE;
+        return this.Jd;
     }
 
     @Override // android.animation.ValueAnimator, android.animation.Animator
@@ -67,31 +67,31 @@ public class c extends a implements Choreographer.FrameCallback {
         kw();
         if (this.composition != null && isRunning()) {
             long nanoTime = System.nanoTime();
-            float kv = ((float) (nanoTime - this.HD)) / kv();
-            float f = this.HE;
+            float kv = ((float) (nanoTime - this.Jc)) / kv();
+            float f = this.Jd;
             if (isReversed()) {
                 kv = -kv;
             }
-            this.HE = kv + f;
-            boolean z = !e.d(this.HE, getMinFrame(), getMaxFrame());
-            this.HE = e.clamp(this.HE, getMinFrame(), getMaxFrame());
-            this.HD = nanoTime;
+            this.Jd = kv + f;
+            boolean z = !e.d(this.Jd, getMinFrame(), getMaxFrame());
+            this.Jd = e.clamp(this.Jd, getMinFrame(), getMaxFrame());
+            this.Jc = nanoTime;
             ks();
             if (z) {
                 if (getRepeatCount() != -1 && this.repeatCount >= getRepeatCount()) {
-                    this.HE = getMaxFrame();
+                    this.Jd = getMaxFrame();
                     kx();
                     X(isReversed());
                 } else {
                     kq();
                     this.repeatCount++;
                     if (getRepeatMode() == 2) {
-                        this.HC = this.HC ? false : true;
+                        this.Jb = this.Jb ? false : true;
                         reverseAnimationSpeed();
                     } else {
-                        this.HE = isReversed() ? getMaxFrame() : getMinFrame();
+                        this.Jd = isReversed() ? getMaxFrame() : getMinFrame();
                     }
-                    this.HD = nanoTime;
+                    this.Jc = nanoTime;
                 }
             }
             ky();
@@ -107,44 +107,44 @@ public class c extends a implements Choreographer.FrameCallback {
 
     public void clearComposition() {
         this.composition = null;
-        this.HF = -2.1474836E9f;
-        this.HG = 2.1474836E9f;
+        this.Je = -2.1474836E9f;
+        this.Jf = 2.1474836E9f;
     }
 
     public void setComposition(com.baidu.live.lottie.e eVar) {
         boolean z = this.composition == null;
         this.composition = eVar;
         if (z) {
-            l((int) Math.max(this.HF, eVar.hS()), (int) Math.min(this.HG, eVar.hT()));
+            l((int) Math.max(this.Je, eVar.hS()), (int) Math.min(this.Jf, eVar.hT()));
         } else {
             l((int) eVar.hS(), (int) eVar.hT());
         }
-        setFrame((int) this.HE);
-        this.HD = System.nanoTime();
+        setFrame((int) this.Jd);
+        this.Jc = System.nanoTime();
     }
 
     public void setFrame(int i) {
-        if (this.HE != i) {
-            this.HE = e.clamp(i, getMinFrame(), getMaxFrame());
-            this.HD = System.nanoTime();
+        if (this.Jd != i) {
+            this.Jd = e.clamp(i, getMinFrame(), getMaxFrame());
+            this.Jc = System.nanoTime();
             ks();
         }
     }
 
     public void setMinFrame(int i) {
-        l(i, (int) this.HG);
+        l(i, (int) this.Jf);
     }
 
     public void setMaxFrame(int i) {
-        l((int) this.HF, i);
+        l((int) this.Je, i);
     }
 
     public void l(int i, int i2) {
         float hS = this.composition == null ? -3.4028235E38f : this.composition.hS();
         float hT = this.composition == null ? Float.MAX_VALUE : this.composition.hT();
-        this.HF = e.clamp(i, hS, hT);
-        this.HG = e.clamp(i2, hS, hT);
-        setFrame((int) e.clamp(this.HE, i, i2));
+        this.Je = e.clamp(i, hS, hT);
+        this.Jf = e.clamp(i2, hS, hT);
+        setFrame((int) e.clamp(this.Jd, i, i2));
     }
 
     public void reverseAnimationSpeed() {
@@ -162,8 +162,8 @@ public class c extends a implements Choreographer.FrameCallback {
     @Override // android.animation.ValueAnimator
     public void setRepeatMode(int i) {
         super.setRepeatMode(i);
-        if (i != 2 && this.HC) {
-            this.HC = false;
+        if (i != 2 && this.Jb) {
+            this.Jb = false;
             reverseAnimationSpeed();
         }
     }
@@ -173,7 +173,7 @@ public class c extends a implements Choreographer.FrameCallback {
         this.running = true;
         W(isReversed());
         setFrame((int) (isReversed() ? getMaxFrame() : getMinFrame()));
-        this.HD = System.nanoTime();
+        this.Jc = System.nanoTime();
         this.repeatCount = 0;
         kw();
     }
@@ -193,11 +193,11 @@ public class c extends a implements Choreographer.FrameCallback {
     public void resumeAnimation() {
         this.running = true;
         kw();
-        this.HD = System.nanoTime();
+        this.Jc = System.nanoTime();
         if (isReversed() && ku() == getMinFrame()) {
-            this.HE = getMaxFrame();
+            this.Jd = getMaxFrame();
         } else if (!isReversed() && ku() == getMaxFrame()) {
-            this.HE = getMinFrame();
+            this.Jd = getMinFrame();
         }
     }
 
@@ -216,14 +216,14 @@ public class c extends a implements Choreographer.FrameCallback {
         if (this.composition == null) {
             return 0.0f;
         }
-        return this.HF == -2.1474836E9f ? this.composition.hS() : this.HF;
+        return this.Je == -2.1474836E9f ? this.composition.hS() : this.Je;
     }
 
     public float getMaxFrame() {
         if (this.composition == null) {
             return 0.0f;
         }
-        return this.HG == 2.1474836E9f ? this.composition.hT() : this.HG;
+        return this.Jf == 2.1474836E9f ? this.composition.hT() : this.Jf;
     }
 
     protected void kw() {
@@ -248,8 +248,8 @@ public class c extends a implements Choreographer.FrameCallback {
 
     private void ky() {
         if (this.composition != null) {
-            if (this.HE < this.HF || this.HE > this.HG) {
-                throw new IllegalStateException(String.format("Frame must be [%f,%f]. It is %f", Float.valueOf(this.HF), Float.valueOf(this.HG), Float.valueOf(this.HE)));
+            if (this.Jd < this.Je || this.Jd > this.Jf) {
+                throw new IllegalStateException(String.format("Frame must be [%f,%f]. It is %f", Float.valueOf(this.Je), Float.valueOf(this.Jf), Float.valueOf(this.Jd)));
             }
         }
     }

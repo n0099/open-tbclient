@@ -15,30 +15,28 @@ import com.baidu.poly.widget.c;
 import com.baidu.poly.widget.m;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class a {
-    private static volatile a cor;
-    private long cos;
-    private com.baidu.poly.a.l.c cot;
-    private com.baidu.poly.widget.c cou;
-    private com.baidu.poly.widget.c cov;
+    private static volatile a cpT;
+    private long cpU;
+    private com.baidu.poly.a.l.c cpV;
+    private com.baidu.poly.widget.c cpW;
+    private com.baidu.poly.widget.c cpX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.poly.a.j.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C0302a extends com.baidu.poly.a.a.a<JSONObject> {
-        final /* synthetic */ m col;
+    /* loaded from: classes14.dex */
+    public class C0308a extends com.baidu.poly.a.a.a<JSONObject> {
+        final /* synthetic */ m cpO;
+        final /* synthetic */ boolean cpP;
+        final /* synthetic */ Context cpQ;
+        final /* synthetic */ Bundle cpR;
 
-        /* renamed from: com  reason: collision with root package name */
-        final /* synthetic */ boolean f4501com;
-        final /* synthetic */ Context coo;
-        final /* synthetic */ Bundle cop;
-
-        C0302a(m mVar, boolean z, Context context, Bundle bundle) {
-            this.col = mVar;
-            this.f4501com = z;
-            this.coo = context;
-            this.cop = bundle;
+        C0308a(m mVar, boolean z, Context context, Bundle bundle) {
+            this.cpO = mVar;
+            this.cpP = z;
+            this.cpQ = context;
+            this.cpR = bundle;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -47,108 +45,108 @@ public class a {
             int optInt = jSONObject.optInt("payStatus", 3);
             a.this.c("1", String.valueOf(optInt));
             if (optInt == 2) {
-                this.col.a(0, com.baidu.poly.util.b.a(0, jSONObject.optString("payOrderNo"), jSONObject.optString("msg")));
-            } else if (this.f4501com) {
-                a.this.a(this.coo, this.cop, this.col);
+                this.cpO.a(0, com.baidu.poly.util.b.a(0, jSONObject.optString("payOrderNo"), jSONObject.optString("msg")));
+            } else if (this.cpP) {
+                a.this.a(this.cpQ, this.cpR, this.cpO);
             } else {
-                a.this.a(this.coo, this.col);
+                a.this.a(this.cpQ, this.cpO);
             }
         }
 
         @Override // com.baidu.poly.a.a.a
         public void a(Throwable th, String str) {
             a.this.c("2", str);
-            this.col.a("get trade state failed : " + str, (String) null);
+            this.cpO.a("get trade state failed : " + str, (String) null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public class b implements View.OnClickListener {
-        final /* synthetic */ m col;
+        final /* synthetic */ m cpO;
 
         b(m mVar) {
-            this.col = mVar;
+            this.cpO = mVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            a.this.cou.dismiss();
-            com.baidu.poly.a.h.d.a(new com.baidu.poly.a.h.b("103").jr("1"));
-            this.col.a(3, "pay failed , click choose window");
+            a.this.cpW.dismiss();
+            com.baidu.poly.a.h.d.a(new com.baidu.poly.a.h.b("103").jx("1"));
+            this.cpO.a(3, "pay failed , click choose window");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public class c implements View.OnClickListener {
-        final /* synthetic */ m col;
-        final /* synthetic */ Context coo;
-        final /* synthetic */ Bundle cop;
+        final /* synthetic */ m cpO;
+        final /* synthetic */ Context cpQ;
+        final /* synthetic */ Bundle cpR;
 
         c(Context context, Bundle bundle, m mVar) {
-            this.coo = context;
-            this.cop = bundle;
-            this.col = mVar;
+            this.cpQ = context;
+            this.cpR = bundle;
+            this.cpO = mVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            a.this.cou.dismiss();
-            com.baidu.poly.a.h.d.a(new com.baidu.poly.a.h.b("103").jr("2"));
-            a.this.a(this.coo, this.cop, this.col, false);
+            a.this.cpW.dismiss();
+            com.baidu.poly.a.h.d.a(new com.baidu.poly.a.h.b("103").jx("2"));
+            a.this.a(this.cpQ, this.cpR, this.cpO, false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public class d implements View.OnClickListener {
         d() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.cov == null || !a.this.cov.isShowing()) {
+            if (a.this.cpX == null || !a.this.cpX.isShowing()) {
                 return;
             }
-            a.this.cov.dismiss();
+            a.this.cpX.dismiss();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public class e implements c.b {
-        final /* synthetic */ m col;
+        final /* synthetic */ m cpO;
 
         e(m mVar) {
-            this.col = mVar;
+            this.cpO = mVar;
         }
 
         @Override // com.baidu.poly.widget.c.b
         public void onDismiss() {
-            this.col.a(3, "pay failed , click error window");
+            this.cpO.a(3, "pay failed , click error window");
         }
     }
 
     private a() {
     }
 
-    public static a adB() {
-        if (cor == null) {
+    public static a adE() {
+        if (cpT == null) {
             synchronized (a.class) {
-                if (cor == null) {
-                    cor = new a();
+                if (cpT == null) {
+                    cpT = new a();
                 }
             }
         }
-        return cor;
+        return cpT;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(String str, String str2) {
-        com.baidu.poly.a.l.a.a(this.cot);
+        com.baidu.poly.a.l.a.a(this.cpV);
         try {
-            if (this.cos != 0) {
+            if (this.cpU != 0) {
                 JSONObject jSONObject = new JSONObject();
                 if (!TextUtils.isEmpty(str)) {
                     jSONObject.put("rt", str);
@@ -156,18 +154,18 @@ public class a {
                 if (!TextUtils.isEmpty(str2)) {
                     jSONObject.put("msg", str2);
                 }
-                Long valueOf = Long.valueOf(System.currentTimeMillis() - this.cos);
+                Long valueOf = Long.valueOf(System.currentTimeMillis() - this.cpU);
                 if (valueOf.longValue() >= 0) {
                     jSONObject.put("du", String.valueOf(valueOf));
                 }
-                com.baidu.poly.a.h.d.a(new com.baidu.poly.a.h.b(TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN).az(jSONObject));
+                com.baidu.poly.a.h.d.a(new com.baidu.poly.a.h.b(TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN).aB(jSONObject));
             }
         } catch (JSONException e2) {
-            if (com.baidu.poly.util.d.cpa) {
+            if (com.baidu.poly.util.d.cqC) {
                 e2.printStackTrace();
             }
         } finally {
-            this.cos = 0L;
+            this.cpU = 0L;
         }
     }
 
@@ -175,9 +173,9 @@ public class a {
         if (context != null && bundle != null && mVar != null) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            this.cot = com.baidu.poly.a.l.a.a((ViewGroup) a((Activity) context), layoutParams, (String) null, -1L);
-            this.cos = System.currentTimeMillis();
-            com.baidu.poly.a.b.b.adj().c(bundle, new C0302a(mVar, z, context, bundle));
+            this.cpV = com.baidu.poly.a.l.a.a((ViewGroup) a((Activity) context), layoutParams, (String) null, -1L);
+            this.cpU = System.currentTimeMillis();
+            com.baidu.poly.a.b.b.adm().c(bundle, new C0308a(mVar, z, context, bundle));
         }
     }
 
@@ -191,12 +189,12 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, Bundle bundle, m mVar) {
         View inflate = View.inflate(mVar.getContext(), b.f.pay_confirm, null);
-        this.cou = new com.baidu.poly.widget.c(inflate, -1, -1, true);
-        this.cou.eo(false);
-        this.cou.en(false);
+        this.cpW = new com.baidu.poly.widget.c(inflate, -1, -1, true);
+        this.cpW.eo(false);
+        this.cpW.en(false);
         ((TextView) inflate.findViewById(b.e.bt_pay_meet_problems)).setOnClickListener(new b(mVar));
         ((TextView) inflate.findViewById(b.e.bt_pay_already_finish)).setOnClickListener(new c(context, bundle, mVar));
-        this.cou.showAtLocation(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
+        this.cpW.showAtLocation(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
         com.baidu.poly.a.h.d.a(new com.baidu.poly.a.h.b("102"));
     }
 
@@ -205,12 +203,12 @@ public class a {
         View inflate = View.inflate(mVar.getContext(), b.f.default_pop_window, null);
         ((TextView) inflate.findViewById(b.e.pop_title)).setText(b.g.pay_failed);
         ((TextView) inflate.findViewById(b.e.pop_tips)).setText(b.g.pay_failed_sub_text);
-        this.cov = new com.baidu.poly.widget.c(inflate, -1, -1, true);
-        this.cov.eo(false);
-        this.cov.en(false);
-        this.cov.setBackgroundDrawable(new ColorDrawable(0));
+        this.cpX = new com.baidu.poly.widget.c(inflate, -1, -1, true);
+        this.cpX.eo(false);
+        this.cpX.en(false);
+        this.cpX.setBackgroundDrawable(new ColorDrawable(0));
         ((TextView) inflate.findViewById(b.e.pop_button)).setOnClickListener(new d());
-        this.cov.a(new e(mVar));
-        this.cov.showAtLocation(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
+        this.cpX.a(new e(mVar));
+        this.cpX.showAtLocation(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
     }
 }

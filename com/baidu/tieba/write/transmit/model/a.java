@@ -6,10 +6,10 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import java.util.List;
 import tbclient.SimpleForum;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     private String forumId;
-    private List<SimpleForum> jPz;
+    private List<SimpleForum> jRi;
     private BdUniqueId mBdUniqueId;
     private BdUniqueId mRequestId;
     private com.baidu.adp.framework.listener.a netMessageListener = new com.baidu.adp.framework.listener.a(1003323, CmdConfigSocket.CMD_GET_REPOST_RECOMMEND_FORUM) { // from class: com.baidu.tieba.write.transmit.model.a.1
@@ -19,39 +19,39 @@ public class a {
                 if ((responsedMessage instanceof GetRepostForumHttpResMessage) || (responsedMessage instanceof GetRepostForumSocketResMessage)) {
                     if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof GetRepostForumReqMessage) || a.this.mRequestId == ((GetRepostForumReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
                         if (responsedMessage.hasError()) {
-                            if (a.this.ocU != null) {
-                                a.this.ocU.onError();
+                            if (a.this.oeZ != null) {
+                                a.this.oeZ.onError();
                                 return;
                             }
                             return;
                         }
                         if (responsedMessage instanceof GetRepostForumHttpResMessage) {
-                            a.this.jPz = ((GetRepostForumHttpResMessage) responsedMessage).getForumList();
+                            a.this.jRi = ((GetRepostForumHttpResMessage) responsedMessage).getForumList();
                             a.this.recommendExt = ((GetRepostForumHttpResMessage) responsedMessage).getRecommendExtension();
                             a.this.privateThread = ((GetRepostForumHttpResMessage) responsedMessage).getPrivateThread();
                         }
                         if (responsedMessage instanceof GetRepostForumSocketResMessage) {
-                            a.this.jPz = ((GetRepostForumSocketResMessage) responsedMessage).getForumList();
+                            a.this.jRi = ((GetRepostForumSocketResMessage) responsedMessage).getForumList();
                             a.this.recommendExt = ((GetRepostForumSocketResMessage) responsedMessage).getRecommendExtension();
                             a.this.privateThread = ((GetRepostForumSocketResMessage) responsedMessage).getPrivateThread();
                         }
-                        if (a.this.ocU != null) {
-                            a.this.ocU.t(a.this.jPz, a.this.privateThread);
+                        if (a.this.oeZ != null) {
+                            a.this.oeZ.t(a.this.jRi, a.this.privateThread);
                         }
                     }
                 }
             }
         }
     };
-    private InterfaceC0902a ocU;
+    private InterfaceC0908a oeZ;
     private int privateThread;
     private String recommendExt;
     private String threadContent;
     private String threadTitle;
 
     /* renamed from: com.baidu.tieba.write.transmit.model.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC0902a {
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0908a {
         void onError();
 
         void t(List<SimpleForum> list, int i);
@@ -87,7 +87,7 @@ public class a {
         this.threadContent = str;
     }
 
-    public void a(InterfaceC0902a interfaceC0902a) {
-        this.ocU = interfaceC0902a;
+    public void a(InterfaceC0908a interfaceC0908a) {
+        this.oeZ = interfaceC0908a;
     }
 }

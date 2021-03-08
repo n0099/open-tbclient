@@ -3,7 +3,7 @@ package com.yy.mediaframework.gpuimage;
 import android.opengl.GLES20;
 import java.nio.FloatBuffer;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GPUImageSTBeautyFilter3 extends GPUImageFilter implements IFilterParams {
     private float mContrast;
     private int mContrastStrengthLocation;

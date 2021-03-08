@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import tbclient.SendGiftAndroid.DataReq;
 import tbclient.SendGiftAndroid.SendGiftAndroidReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class RequestSendGiftNetMessage extends NetMessage {
     public static final int FROM_PERSON_CENTER = 1;
     public static final int FROM_PERSON_CHAT = 2;

@@ -4,7 +4,7 @@ import android.view.View;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface IBasicCPUData {
     int getActionType();
 

@@ -19,137 +19,137 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.utils.m;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ChallengeJinzhuView extends FrameLayout {
-    private final int gyf;
-    private final int hBc;
-    private final int hBd;
-    private final int hBe;
-    private View hBf;
-    private ImageView hBg;
-    private TextView hBh;
-    private be hBi;
-    private boolean hBj;
-    private boolean hBk;
-    private ImageView hll;
-    private final int hum;
-    public boolean hzG;
-    private HeadImageView hzT;
+    private final int gzO;
+    private HeadImageView hBC;
+    public boolean hBp;
+    private final int hCL;
+    private final int hCM;
+    private final int hCN;
+    private View hCO;
+    private ImageView hCP;
+    private TextView hCQ;
+    private be hCR;
+    private boolean hCS;
+    private boolean hCT;
+    private ImageView hmU;
+    private final int hvV;
 
     public ChallengeJinzhuView(@NonNull Context context) {
         super(context);
-        this.hum = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds8);
-        this.hBc = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds10);
-        this.hBd = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds52);
-        this.gyf = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds20);
-        this.hBe = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds24);
-        this.hBj = false;
-        this.hzG = false;
+        this.hvV = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds8);
+        this.hCL = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds10);
+        this.hCM = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds52);
+        this.gzO = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds20);
+        this.hCN = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds24);
+        this.hCS = false;
+        this.hBp = false;
         initView();
     }
 
     public ChallengeJinzhuView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hum = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds8);
-        this.hBc = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds10);
-        this.hBd = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds52);
-        this.gyf = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds20);
-        this.hBe = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds24);
-        this.hBj = false;
-        this.hzG = false;
+        this.hvV = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds8);
+        this.hCL = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds10);
+        this.hCM = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds52);
+        this.gzO = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds20);
+        this.hCN = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds24);
+        this.hCS = false;
+        this.hBp = false;
         initView();
     }
 
     public ChallengeJinzhuView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hum = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds8);
-        this.hBc = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds10);
-        this.hBd = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds52);
-        this.gyf = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds20);
-        this.hBe = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds24);
-        this.hBj = false;
-        this.hzG = false;
+        this.hvV = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds8);
+        this.hCL = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds10);
+        this.hCM = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds52);
+        this.gzO = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds20);
+        this.hCN = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds24);
+        this.hCS = false;
+        this.hBp = false;
         initView();
     }
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.g.ala_challenge_jinzhu_item, (ViewGroup) this, true);
-        this.hBf = findViewById(a.f.ala_challenge_jinzhu_normal);
-        this.hzT = (HeadImageView) findViewById(a.f.ala_challenge_jinzhu_header);
-        this.hzT.setIsRound(true);
-        this.hzT.setAutoChangeStyle(false);
-        this.hzT.setBorderWidth(BdUtilHelper.getDimens(getContext(), a.d.sdk_ds2));
-        this.hzT.setBorderColor(getContext().getResources().getColor(a.c.sdk_white_alpha20));
-        this.hzT.setDefaultBgResource(a.e.icon_challenge_default_avatar);
-        this.hzT.setDefaultResource(a.e.icon_challenge_default_avatar);
-        this.hBg = (ImageView) findViewById(a.f.ala_challenge_jinzhu_headwear);
-        this.hBh = (TextView) findViewById(a.f.ala_challenge_jinzhu_tv);
-        this.hll = (ImageView) findViewById(a.f.ala_challenge_jinzhu_empty);
+        this.hCO = findViewById(a.f.ala_challenge_jinzhu_normal);
+        this.hBC = (HeadImageView) findViewById(a.f.ala_challenge_jinzhu_header);
+        this.hBC.setIsRound(true);
+        this.hBC.setAutoChangeStyle(false);
+        this.hBC.setBorderWidth(BdUtilHelper.getDimens(getContext(), a.d.sdk_ds2));
+        this.hBC.setBorderColor(getContext().getResources().getColor(a.c.sdk_white_alpha20));
+        this.hBC.setDefaultBgResource(a.e.icon_challenge_default_avatar);
+        this.hBC.setDefaultResource(a.e.icon_challenge_default_avatar);
+        this.hCP = (ImageView) findViewById(a.f.ala_challenge_jinzhu_headwear);
+        this.hCQ = (TextView) findViewById(a.f.ala_challenge_jinzhu_tv);
+        this.hmU = (ImageView) findViewById(a.f.ala_challenge_jinzhu_empty);
     }
 
     public void setNeedCloseRecommendFloat(boolean z) {
-        this.hzG = z;
+        this.hBp = z;
     }
 
     public void a(boolean z, be beVar, String str) {
         if (beVar == null) {
-            if (!this.hBk || this.hBj != z) {
-                this.hBj = z;
-                this.hBk = true;
-                m.a(this.hzT, " ", false, false);
-                this.hBf.setVisibility(4);
-                this.hll.setVisibility(0);
-                this.hll.setImageResource(z ? a.e.icon_challenge_jinzhu_anchor_empty : a.e.icon_challenge_jinzhu_rival_empty);
+            if (!this.hCT || this.hCS != z) {
+                this.hCS = z;
+                this.hCT = true;
+                m.a(this.hBC, " ", false, false);
+                this.hCO.setVisibility(4);
+                this.hmU.setVisibility(0);
+                this.hmU.setImageResource(z ? a.e.icon_challenge_jinzhu_anchor_empty : a.e.icon_challenge_jinzhu_rival_empty);
             }
-        } else if (beVar.aOI != null) {
-            this.hBj = z;
-            if (!z || !beVar.a(this.hBi)) {
-                this.hBf.setVisibility(0);
-                this.hll.setVisibility(4);
-                this.hBk = false;
-                if (beVar.aOI != null) {
-                    m.a(this.hzT, beVar.aOI.portrait, false, false);
+        } else if (beVar.aQi != null) {
+            this.hCS = z;
+            if (!z || !beVar.a(this.hCR)) {
+                this.hCO.setVisibility(0);
+                this.hmU.setVisibility(4);
+                this.hCT = false;
+                if (beVar.aQi != null) {
+                    m.a(this.hBC, beVar.aQi.portrait, false, false);
                 }
-                this.hBi = beVar;
-                this.hBj = z;
-                Drawable background = this.hBg.getBackground();
+                this.hCR = beVar;
+                this.hCS = z;
+                Drawable background = this.hCP.getBackground();
                 if (!(background instanceof GradientDrawable)) {
                     background = new GradientDrawable();
                 }
                 ((GradientDrawable) background).setShape(1);
                 ((GradientDrawable) background).setCornerRadius(getResources().getDimensionPixelOffset(a.d.sdk_ds28));
-                if (beVar.Cw()) {
-                    this.hBh.setText("");
+                if (beVar.Cz()) {
+                    this.hCQ.setText("");
                     Q(z, true);
-                    this.hBg.setVisibility(0);
+                    this.hCP.setVisibility(0);
                     ((GradientDrawable) background).setStroke((int) TypedValue.applyDimension(1, 1.5f, getResources().getDisplayMetrics()), getResources().getColor(a.c.ala_challenge_jinzhu_mvp));
                 } else {
-                    this.hBh.setText("" + beVar.rank);
+                    this.hCQ.setText("" + beVar.rank);
                     Q(z, false);
                     if (beVar.isFirst()) {
-                        this.hBg.setVisibility(0);
+                        this.hCP.setVisibility(0);
                         if (z) {
                             ((GradientDrawable) background).setStroke((int) TypedValue.applyDimension(1, 1.5f, getResources().getDisplayMetrics()), getResources().getColor(a.c.ala_challenge_jinzhu_anchor_primary));
                         } else {
                             ((GradientDrawable) background).setStroke((int) TypedValue.applyDimension(1, 1.5f, getResources().getDisplayMetrics()), getResources().getColor(a.c.ala_challenge_jinzhu_rival_primary));
                         }
                     } else {
-                        this.hBg.setVisibility(8);
+                        this.hCP.setVisibility(8);
                     }
                 }
-                this.hBg.setBackgroundDrawable(background);
+                this.hCP.setBackgroundDrawable(background);
             }
         }
     }
 
     private void Q(boolean z, boolean z2) {
-        if (this.hBh != null) {
-            ViewGroup.LayoutParams layoutParams = this.hBh.getLayoutParams();
+        if (this.hCQ != null) {
+            ViewGroup.LayoutParams layoutParams = this.hCQ.getLayoutParams();
             if (z2) {
-                this.hBh.setBackgroundResource(a.e.icon_challenge_jinzhu_mvp);
+                this.hCQ.setBackgroundResource(a.e.icon_challenge_jinzhu_mvp);
                 layoutParams.width = getResources().getDimensionPixelOffset(a.d.sdk_ds52);
             } else {
-                Drawable background = this.hBh.getBackground();
+                Drawable background = this.hCQ.getBackground();
                 if (!(background instanceof GradientDrawable)) {
                     background = new GradientDrawable();
                 }
@@ -160,10 +160,10 @@ public class ChallengeJinzhuView extends FrameLayout {
                 } else {
                     ((GradientDrawable) background).setColor(getResources().getColor(a.c.ala_challenge_jinzhu_rival_primary));
                 }
-                this.hBh.setBackgroundDrawable(background);
+                this.hCQ.setBackgroundDrawable(background);
                 layoutParams.width = getResources().getDimensionPixelOffset(a.d.sdk_ds20);
             }
-            this.hBh.setLayoutParams(layoutParams);
+            this.hCQ.setLayoutParams(layoutParams);
         }
     }
 }

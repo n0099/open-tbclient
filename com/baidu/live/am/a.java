@@ -1,5 +1,5 @@
 package com.baidu.live.am;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
-    boolean Ro();
+    boolean Rr();
 }

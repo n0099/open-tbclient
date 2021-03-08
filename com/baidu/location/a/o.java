@@ -10,10 +10,8 @@ public class o implements SensorEventListener {
     private static o d;
 
     /* renamed from: a  reason: collision with root package name */
-    private float[] f2574a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private float[] f2575b;
+    private float[] f1931a;
+    private float[] b;
     private SensorManager c;
     private float e;
     private boolean f = false;
@@ -84,17 +82,17 @@ public class o implements SensorEventListener {
     public void onSensorChanged(SensorEvent sensorEvent) {
         switch (sensorEvent.sensor.getType()) {
             case 2:
-                this.f2575b = (float[]) sensorEvent.values.clone();
-                Math.sqrt((this.f2575b[0] * this.f2575b[0]) + (this.f2575b[1] * this.f2575b[1]) + (this.f2575b[2] * this.f2575b[2]));
-                if (this.f2575b != null) {
+                this.b = (float[]) sensorEvent.values.clone();
+                Math.sqrt((this.b[0] * this.b[0]) + (this.b[1] * this.b[1]) + (this.b[2] * this.b[2]));
+                if (this.b != null) {
                 }
                 return;
             case 11:
-                this.f2574a = (float[]) sensorEvent.values.clone();
-                if (this.f2574a != null) {
+                this.f1931a = (float[]) sensorEvent.values.clone();
+                if (this.f1931a != null) {
                     float[] fArr = new float[9];
                     try {
-                        SensorManager.getRotationMatrixFromVector(fArr, this.f2574a);
+                        SensorManager.getRotationMatrixFromVector(fArr, this.f1931a);
                         float[] fArr2 = new float[3];
                         SensorManager.getOrientation(fArr, fArr2);
                         this.e = (float) Math.toDegrees(fArr2[0]);

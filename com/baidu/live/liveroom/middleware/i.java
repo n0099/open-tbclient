@@ -3,7 +3,7 @@ package com.baidu.live.liveroom.middleware;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.KeyEvent;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface i {
     void cF(boolean z);
 

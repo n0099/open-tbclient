@@ -3,15 +3,15 @@ package com.baidu.live.ag;
 import com.baidu.live.data.ab;
 import com.baidu.live.pendantview.PendantChildView;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
-    PendantChildView Tv();
+    void TA();
 
-    void Tw();
+    PendantChildView Ty();
 
-    void Tx();
+    void Tz();
 
-    void ab(JSONObject jSONObject);
+    void ad(JSONObject jSONObject);
 
     void j(ab abVar);
 

@@ -1,7 +1,7 @@
 package com.baidu.live.noble.data;
 
 import java.io.Serializable;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class NobleDetailInfo implements Serializable {
     public String cardId;
     public long expDuration;

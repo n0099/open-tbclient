@@ -3,9 +3,9 @@ package com.baidu.live.lottie;
 import android.graphics.Bitmap;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class i {
-    private final String Cx;
+    private final String DZ;
     @Nullable
     private Bitmap bitmap;
     private final String fileName;
@@ -19,7 +19,7 @@ public class i {
         this.height = i2;
         this.id = str;
         this.fileName = str2;
-        this.Cx = str3;
+        this.DZ = str3;
     }
 
     public int getWidth() {
@@ -39,7 +39,7 @@ public class i {
     }
 
     public String ik() {
-        return this.Cx;
+        return this.DZ;
     }
 
     @Nullable

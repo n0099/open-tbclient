@@ -146,7 +146,7 @@ public class FatalErrorService extends BdBaseService {
                                     fileInputStream.close();
                                     fileInputStream = null;
                                 }
-                                if (this.mNetwork.bsr().btb().isRequestSuccess()) {
+                                if (this.mNetwork.bsu().bte().isRequestSuccess()) {
                                     if (z2) {
                                         ag(file);
                                     }
@@ -354,9 +354,9 @@ public class FatalErrorService extends BdBaseService {
             try {
                 a(o.GetFileByAbsolutePath(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
                 a(o.GetFileByAbsolutePath(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.LOG_ERROR_FILE), Config.ERROR_LOG_SERVER, "0", false, false);
-                dGc();
-                if (!TbConfig.getVersion().equals(b.brQ().getString(SharedPrefConfig.NATIVE_CRASH_DUMP_VERSION, ""))) {
-                    b.brQ().putString(SharedPrefConfig.NATIVE_CRASH_DUMP_VERSION, TbConfig.getVersion());
+                dGk();
+                if (!TbConfig.getVersion().equals(b.brR().getString(SharedPrefConfig.NATIVE_CRASH_DUMP_VERSION, ""))) {
+                    b.brR().putString(SharedPrefConfig.NATIVE_CRASH_DUMP_VERSION, TbConfig.getVersion());
                     z = false;
                 }
                 File GetFile = o.GetFile(TbConfig.FATAL_ERROR_NATIVE_DIR);
@@ -378,7 +378,7 @@ public class FatalErrorService extends BdBaseService {
             }
         }
 
-        private void dGc() {
+        private void dGk() {
             File GetFileByAbsolutePath = o.GetFileByAbsolutePath(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_ALERT_FILE);
             if (GetFileByAbsolutePath != null) {
                 try {

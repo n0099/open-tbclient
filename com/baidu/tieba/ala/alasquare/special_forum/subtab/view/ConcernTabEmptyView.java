@@ -9,20 +9,20 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.special_forum.data.e;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class ConcernTabEmptyView extends com.baidu.tieba.card.b<e> {
-    private ViewHolder gIl;
+    private ViewHolder gJU;
 
     public ConcernTabEmptyView(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.gIl = new ViewHolder(getView());
+        this.gJU = new ViewHolder(getView());
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ap.setViewTextColor(this.gIl.textView, R.color.CAM_X0109);
-        ap.setBackgroundColor(this.gIl.bTo, R.color.CAM_X0204);
+        ap.setViewTextColor(this.gJU.textView, R.color.CAM_X0109);
+        ap.setBackgroundColor(this.gJU.bUO, R.color.CAM_X0204);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -39,17 +39,17 @@ public class ConcernTabEmptyView extends com.baidu.tieba.card.b<e> {
     public void onClick(View view) {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
-        public View bTo;
-        public View eno;
+        public View bUO;
+        public View eoR;
         public TextView textView;
 
         public ViewHolder(View view) {
             super(view);
-            this.eno = view;
-            this.textView = (TextView) this.eno.findViewById(R.id.tv_empty);
-            this.bTo = this.eno.findViewById(R.id.devider_line);
+            this.eoR = view;
+            this.textView = (TextView) this.eoR.findViewById(R.id.tv_empty);
+            this.bUO = this.eoR.findViewById(R.id.devider_line);
         }
     }
 }

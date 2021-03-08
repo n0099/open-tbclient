@@ -1,80 +1,132 @@
 package com.baidu.tieba.advert.sdk.b;
 
-import android.os.Environment;
-import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.network.http.e;
-import com.baidu.adp.lib.util.s;
-import com.baidu.tieba.advert.sdk.data.AdInfo;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-/* loaded from: classes8.dex */
-public class a extends BdAsyncTask<Void, Void, Boolean> {
-    private final String TAG = a.class.getSimpleName();
-    private AdInfo adInfo;
-    public static final String gkY = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
-    public static final String FILE_SEP = File.separator;
+import com.baidu.adp.lib.f.e;
+import com.baidu.adp.lib.util.l;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tieba.advert.sdk.c;
+import com.baidu.tieba.advert.sdk.d;
+import com.baidu.tieba.advert.sdk.data.AdLoadState;
+import java.util.ArrayList;
+import java.util.Iterator;
+/* loaded from: classes7.dex */
+public class a {
+    private static a gmF;
+    private String gmD;
+    private boolean isShow;
+    private ArrayList<b> gmE = new ArrayList<>();
+    private int gmC = com.baidu.tbadk.core.sharedPref.b.brR().getInt("splash_ad_strategy_key", 0);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Boolean doInBackground(Void... voidArr) {
-        String str = gkY + FILE_SEP + "advideo.temp";
-        File file = new File(str);
-        if (file.exists()) {
-            file.delete();
-        }
-        try {
-            new File(gkY).mkdirs();
-            if (!file.createNewFile()) {
-                a(false, null);
-                return false;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        e eVar = new e();
-        eVar.lU().setUrl(this.adInfo.adVideoUrl);
-        boolean a2 = new com.baidu.adp.lib.network.http.c(eVar).a(str, null, 3, 3000, -1, -1, true, true);
-        try {
-        } catch (FileNotFoundException e2) {
-            e2.printStackTrace();
-        }
-        if (TextUtils.isEmpty(this.adInfo.videoMd5)) {
-            a(a2, file);
-            return Boolean.valueOf(a2);
-        }
-        String md5 = s.toMd5(new FileInputStream(str));
-        if (TextUtils.isEmpty(md5)) {
-            a2 = false;
-        }
-        if (!md5.equalsIgnoreCase(this.adInfo.videoMd5)) {
-            a2 = false;
-        }
-        a(a2, file);
-        return Boolean.valueOf(a2);
+    private a() {
     }
 
-    public void b(AdInfo adInfo) {
-        this.adInfo = adInfo;
+    public static a bMI() {
+        if (gmF == null) {
+            gmF = new a();
+        }
+        return gmF;
     }
 
-    private void a(boolean z, File file) {
-        if (z && file != null) {
-            File file2 = new File(gkY + FILE_SEP + (s.toMd5(this.adInfo.adVideoUrl) + ".mp4"));
-            if (file2.exists()) {
-                file2.delete();
-            }
-            if (file.renameTo(file2)) {
-                this.adInfo.videoLocalPath = file2.getAbsolutePath();
+    private synchronized void bMJ() {
+        com.baidu.tieba.advert.sdk.b bVar = new com.baidu.tieba.advert.sdk.b();
+        d dVar = new d();
+        c cVar = new c();
+        this.gmE.clear();
+        this.gmE.add(bVar);
+        if (this.gmC == 101) {
+            this.gmE.add(cVar);
+            this.gmE.add(dVar);
+        } else if (this.gmC == 102) {
+            this.gmE.add(dVar);
+            this.gmE.add(cVar);
+        } else if (this.gmC == 103 || this.gmC == 104) {
+            this.gmD = com.baidu.tbadk.core.sharedPref.b.brR().getString("splash_ad_last_show_key", "");
+            if (au.isEmpty(this.gmD)) {
+                if (this.gmC == 103) {
+                    this.gmE.add(cVar);
+                    this.gmE.add(dVar);
+                } else {
+                    this.gmE.add(dVar);
+                    this.gmE.add(cVar);
+                }
+            } else if (au.equals(this.gmD, cVar.bMA())) {
+                this.gmE.add(dVar);
+                this.gmE.add(cVar);
             } else {
-                this.adInfo.videoLocalPath = "";
+                this.gmE.add(cVar);
+                this.gmE.add(dVar);
             }
         } else {
-            this.adInfo.videoLocalPath = "";
+            this.gmE.add(dVar);
         }
-        com.baidu.tieba.advert.sdk.c.a.c(this.adInfo);
+    }
+
+    public synchronized void b(com.baidu.tbadk.g.c cVar) {
+        this.isShow = false;
+        bMJ();
+        Iterator<b> it = this.gmE.iterator();
+        while (it.hasNext()) {
+            it.next().a(cVar);
+        }
+    }
+
+    public void b(com.baidu.tbadk.g.a aVar) {
+        a(aVar, true);
+    }
+
+    public synchronized void a(com.baidu.tbadk.g.a aVar, boolean z) {
+        if (!this.isShow) {
+            Iterator<b> it = this.gmE.iterator();
+            while (true) {
+                if (it.hasNext()) {
+                    b next = it.next();
+                    if (next != null) {
+                        if (next.bMz() == AdLoadState.SUCCEED) {
+                            this.isShow = true;
+                            next.show();
+                            com.baidu.tbadk.core.d.a.a("homePage", -1L, 0, "logo_splash", 0, "", "splashType", au.isEmpty(next.bMA()) ? "bes" : next.bMA());
+                            Ft(next.bMA());
+                        } else if (next.bMz() != AdLoadState.FAILED && z) {
+                            break;
+                        }
+                    }
+                } else if (aVar != null) {
+                    aVar.zC("");
+                }
+            }
+        }
+    }
+
+    private void Ft(String str) {
+        if (!au.isEmpty(str)) {
+            this.gmD = str;
+            com.baidu.tbadk.core.sharedPref.b.brR().putString("splash_ad_last_show_key", str);
+        }
+    }
+
+    public void Fu(String str) {
+        int i = com.baidu.adp.lib.f.b.toInt(str, 0);
+        if ((i == 103 || i == 104) && i != this.gmC) {
+            this.gmD = "";
+            com.baidu.tbadk.core.sharedPref.b.brR().remove("splash_ad_last_show_key");
+        }
+        com.baidu.tbadk.core.sharedPref.b.brR().putInt("splash_ad_strategy_key", i);
+        if (!bMK() && TbadkCoreApplication.getInst().isNeedBearAd(i)) {
+            if (l.isMainThread()) {
+                com.baidu.tieba.h.a.cNx().cNw();
+            } else {
+                e.mA().post(new Runnable() { // from class: com.baidu.tieba.advert.sdk.b.a.1
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        com.baidu.tieba.h.a.cNx().cNw();
+                    }
+                });
+            }
+        }
+        this.gmC = i;
+    }
+
+    public boolean bMK() {
+        return TbadkCoreApplication.getInst().isNeedBearAd(this.gmC);
     }
 }

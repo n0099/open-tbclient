@@ -1,15 +1,15 @@
 package com.baidu.live.alablmsdk.d.b;
 
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    public int azL;
-    public int azM;
-    public int azN;
-    public int azO;
-    public int azP;
-    public int azQ = -1;
-    public int azR = -1;
+    public int aBl;
+    public int aBm;
+    public int aBn;
+    public int aBo;
+    public int aBp;
+    public int aBq = -1;
+    public int aBr = -1;
     public String mAppId;
     public int mPlayType;
 
@@ -29,36 +29,36 @@ public class b {
                 com.baidu.live.alablmsdk.a.b.a.ag(" yyParamsBean.mAppid " + this.mAppId, "");
             }
             if (hashMap.containsKey("yy_rtc_room_mode_key") && (obj8 = hashMap.get("yy_rtc_room_mode_key")) != null) {
-                this.azL = ((Integer) obj8).intValue();
-                com.baidu.live.alablmsdk.a.b.a.ag(" yyParamsBean.mRoomMode " + this.azL, "");
+                this.aBl = ((Integer) obj8).intValue();
+                com.baidu.live.alablmsdk.a.b.a.ag(" yyParamsBean.mRoomMode " + this.aBl, "");
             }
             if (hashMap.containsKey("yy_rtc_media_mode_key") && (obj7 = hashMap.get("yy_rtc_media_mode_key")) != null) {
-                this.azM = ((Integer) obj7).intValue();
-                com.baidu.live.alablmsdk.a.b.a.ag(" yyParamsBean.mMediaMode " + this.azM, "");
+                this.aBm = ((Integer) obj7).intValue();
+                com.baidu.live.alablmsdk.a.b.a.ag(" yyParamsBean.mMediaMode " + this.aBm, "");
             }
             if (hashMap.containsKey("yy_rtc_audio_config_key") && (obj6 = hashMap.get("yy_rtc_audio_config_key")) != null) {
-                this.azN = ((Integer) obj6).intValue();
-                com.baidu.live.alablmsdk.a.b.a.ag(" yyParamsBean.mAudioConfig " + this.azN, "");
+                this.aBn = ((Integer) obj6).intValue();
+                com.baidu.live.alablmsdk.a.b.a.ag(" yyParamsBean.mAudioConfig " + this.aBn, "");
             }
             if (hashMap.containsKey("yy_rtc_commu_mode_key") && (obj5 = hashMap.get("yy_rtc_commu_mode_key")) != null) {
-                this.azO = ((Integer) obj5).intValue();
-                com.baidu.live.alablmsdk.a.b.a.ag(" yyParamsBean.mCommuMode " + this.azO, "");
+                this.aBo = ((Integer) obj5).intValue();
+                com.baidu.live.alablmsdk.a.b.a.ag(" yyParamsBean.mCommuMode " + this.aBo, "");
             }
             if (hashMap.containsKey("yy_rtc_scenario_mode_key") && (obj4 = hashMap.get("yy_rtc_scenario_mode_key")) != null) {
-                this.azP = ((Integer) obj4).intValue();
-                com.baidu.live.alablmsdk.a.b.a.ag(" yyParamsBean.mScenarioMode " + this.azP, "");
+                this.aBp = ((Integer) obj4).intValue();
+                com.baidu.live.alablmsdk.a.b.a.ag(" yyParamsBean.mScenarioMode " + this.aBp, "");
             }
             if (hashMap.containsKey("yy_rtc_publish_codec_mode") && (obj3 = hashMap.get("yy_rtc_publish_codec_mode")) != null) {
-                this.azQ = ((Integer) obj3).intValue();
-                com.baidu.live.alablmsdk.a.b.a.ag(" yyParamsBean.mPublishMode " + this.azQ, "");
+                this.aBq = ((Integer) obj3).intValue();
+                com.baidu.live.alablmsdk.a.b.a.ag(" yyParamsBean.mPublishMode " + this.aBq, "");
             }
             if (hashMap.containsKey("yy_rtc_publish_play_type_key") && (obj2 = hashMap.get("yy_rtc_publish_play_type_key")) != null) {
                 this.mPlayType = ((Integer) obj2).intValue();
                 com.baidu.live.alablmsdk.a.b.a.ag(" yyParamsBean.mPlayType " + this.mPlayType, "");
             }
             if (hashMap.containsKey("yy_rtc_sound_effect_type_key") && (obj = hashMap.get("yy_rtc_sound_effect_type_key")) != null) {
-                this.azR = ((Integer) obj).intValue();
-                com.baidu.live.alablmsdk.a.b.a.ag(" yyParamsBean.mSoundEffect " + this.azR, "");
+                this.aBr = ((Integer) obj).intValue();
+                com.baidu.live.alablmsdk.a.b.a.ag(" yyParamsBean.mSoundEffect " + this.aBr, "");
             }
         }
     }

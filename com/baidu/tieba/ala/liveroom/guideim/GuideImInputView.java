@@ -8,14 +8,14 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class GuideImInputView extends FrameLayout {
-    private TextView hFg;
-    private a hFh;
+    private TextView hGP;
+    private a hGQ;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void HR(String str);
+        void Ia(String str);
     }
 
     public GuideImInputView(Context context) {
@@ -24,16 +24,16 @@ public class GuideImInputView extends FrameLayout {
     }
 
     public void setCallback(a aVar) {
-        this.hFh = aVar;
+        this.hGQ = aVar;
     }
 
     public void setText(String str) {
-        this.hFg.setText(str);
+        this.hGP.setText(str);
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(a.g.guide_im_input, (ViewGroup) this, true);
-        this.hFg = (TextView) findViewById(a.f.tv_input);
+        this.hGP = (TextView) findViewById(a.f.tv_input);
         TextView textView = (TextView) findViewById(a.f.tv_send);
         if (TbadkCoreApplication.getInst().isHaokan()) {
             textView.setBackgroundResource(a.e.ala_live_follow_btn_radius_20_selector_hk);
@@ -43,8 +43,8 @@ public class GuideImInputView extends FrameLayout {
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.guideim.GuideImInputView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (GuideImInputView.this.hFh != null) {
-                    GuideImInputView.this.hFh.HR(GuideImInputView.this.hFg.getText().toString());
+                if (GuideImInputView.this.hGQ != null) {
+                    GuideImInputView.this.hGQ.Ia(GuideImInputView.this.hGP.getText().toString());
                 }
             }
         });

@@ -7,13 +7,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ala.personcenter.c.n;
 import com.baidu.tieba.card.holder.CardViewHolder;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class k extends com.baidu.adp.widget.ListView.a<n, CardViewHolder<com.baidu.tieba.ala.personcenter.e.c>> {
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public k(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), n.iac);
+        super(tbPageContext.getPageActivity(), n.ibL);
         this.mPageContext = tbPageContext;
     }
 
@@ -29,21 +29,21 @@ public class k extends com.baidu.adp.widget.ListView.a<n, CardViewHolder<com.bai
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, n nVar, CardViewHolder<com.baidu.tieba.ala.personcenter.e.c> cardViewHolder) {
-        if (cardViewHolder.cti() == null) {
+        if (cardViewHolder.cto() == null) {
             return null;
         }
-        a(nVar, cardViewHolder.cti());
-        return cardViewHolder.cti().getView();
+        a(nVar, cardViewHolder.cto());
+        return cardViewHolder.cto().getView();
     }
 
     private void a(n nVar, com.baidu.tieba.ala.personcenter.e.c cVar) {
         com.baidu.tieba.ala.personcenter.c.c personCenterData = nVar.getPersonCenterData();
-        if (personCenterData == null || personCenterData.cmV() == null || TextUtils.isEmpty(personCenterData.cmV().cmU())) {
+        if (personCenterData == null || personCenterData.cnb() == null || TextUtils.isEmpty(personCenterData.cnb().cna())) {
             cVar.setVisibility(8);
             notifyDataSetChanged();
             return;
         }
-        cVar.It(personCenterData.cmV().cmU());
+        cVar.IC(personCenterData.cnb().cna());
         cVar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         notifyDataSetChanged();
     }

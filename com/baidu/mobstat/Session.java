@@ -6,14 +6,12 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class Session {
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile long f3630a = 0;
-
-    /* renamed from: b  reason: collision with root package name */
-    private volatile long f3631b = 0;
+    private volatile long f2563a = 0;
+    private volatile long b = 0;
     private volatile long c = 0;
     private volatile long d = 0;
     private volatile long e = 0;
@@ -22,8 +20,8 @@ public class Session {
     private volatile JSONObject h = null;
 
     public void reset() {
-        this.f3630a = 0L;
-        this.f3631b = 0L;
+        this.f2563a = 0L;
+        this.b = 0L;
         this.c = 0L;
         this.d = 0L;
         this.f = 0;
@@ -60,9 +58,9 @@ public class Session {
                 return;
             }
             a aVar2 = list.get(size - 1);
-            if (TextUtils.isEmpty(aVar2.f3632a) || TextUtils.isEmpty(aVar.f3632a)) {
+            if (TextUtils.isEmpty(aVar2.f2564a) || TextUtils.isEmpty(aVar.f2564a)) {
                 list.add(aVar);
-            } else if (!aVar2.f3632a.equals(aVar.f3632a) || aVar2.f == aVar.f) {
+            } else if (!aVar2.f2564a.equals(aVar.f2564a) || aVar2.f == aVar.f) {
                 list.add(aVar);
             } else if (aVar2.f) {
                 aVar2.a(aVar);
@@ -71,26 +69,26 @@ public class Session {
     }
 
     public void setStartTime(long j) {
-        if (this.f3630a <= 0) {
-            this.f3630a = j;
+        if (this.f2563a <= 0) {
+            this.f2563a = j;
             this.e = j;
         }
     }
 
     public long getStartTime() {
-        return this.f3630a;
+        return this.f2563a;
     }
 
     public boolean hasStart() {
-        return this.f3630a > 0;
+        return this.f2563a > 0;
     }
 
     public boolean hasEnd() {
-        return this.f3631b > 0;
+        return this.b > 0;
     }
 
     public void setEndTime(long j) {
-        this.f3631b = j;
+        this.b = j;
     }
 
     public void setLaunchInfo(JSONObject jSONObject) {
@@ -100,19 +98,19 @@ public class Session {
     public JSONObject constructJSONObject() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("s", this.f3630a);
-            jSONObject.put("e", this.f3631b);
+            jSONObject.put("s", this.f2563a);
+            jSONObject.put("e", this.b);
             jSONObject.put("i", this.e);
             jSONObject.put("c", 1);
-            jSONObject.put(Config.SESSTION_TRACK_START_TIME, this.c == 0 ? this.f3630a : this.c);
-            jSONObject.put(Config.SESSTION_TRACK_END_TIME, this.d == 0 ? this.f3631b : this.d);
+            jSONObject.put(Config.SESSTION_TRACK_START_TIME, this.c == 0 ? this.f2563a : this.c);
+            jSONObject.put(Config.SESSTION_TRACK_END_TIME, this.d == 0 ? this.b : this.d);
             jSONObject.put("pc", this.f);
             if (this.h != null && this.h.length() != 0) {
                 jSONObject.put(Config.LAUNCH, this.h);
             }
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < this.g.size(); i++) {
-                jSONArray.put(getPVJson(this.g.get(i), this.f3630a));
+                jSONArray.put(getPVJson(this.g.get(i), this.f2563a));
             }
             jSONObject.put("p", jSONArray);
         } catch (JSONException e) {
@@ -123,12 +121,12 @@ public class Session {
     public JSONObject getPageSessionHead() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("s", this.f3630a);
-            jSONObject.put("e", this.f3631b);
+            jSONObject.put("s", this.f2563a);
+            jSONObject.put("e", this.b);
             jSONObject.put("i", this.e);
             jSONObject.put("c", 1);
-            jSONObject.put(Config.SESSTION_TRACK_START_TIME, this.c == 0 ? this.f3630a : this.c);
-            jSONObject.put(Config.SESSTION_TRACK_END_TIME, this.d == 0 ? this.f3631b : this.d);
+            jSONObject.put(Config.SESSTION_TRACK_START_TIME, this.c == 0 ? this.f2563a : this.c);
+            jSONObject.put(Config.SESSTION_TRACK_END_TIME, this.d == 0 ? this.b : this.d);
             jSONObject.put("pc", this.f);
         } catch (Exception e) {
         }
@@ -159,14 +157,12 @@ public class Session {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f3632a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private String f3633b;
+        private String f2564a;
+        private String b;
         private String c;
         private long d;
         private long e;
@@ -175,9 +171,9 @@ public class Session {
         private boolean h;
 
         public a(String str, String str2, String str3, long j, long j2, boolean z, ExtraInfo extraInfo, boolean z2) {
-            this.f3633b = str;
+            this.b = str;
             this.c = str2;
-            this.f3632a = str3;
+            this.f2564a = str3;
             this.d = j;
             this.e = j2;
             this.f = z;
@@ -186,7 +182,7 @@ public class Session {
         }
 
         public String a() {
-            return this.f3633b;
+            return this.b;
         }
 
         public String b() {
@@ -210,8 +206,8 @@ public class Session {
         }
 
         public void a(a aVar) {
-            this.f3632a = aVar.f3632a;
-            this.f3633b = aVar.f3633b;
+            this.f2564a = aVar.f2564a;
+            this.b = aVar.b;
             this.c = aVar.c;
             this.d = aVar.d;
             this.e = aVar.e;

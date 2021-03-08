@@ -10,10 +10,8 @@ public final class Arc extends Overlay {
     private static final String f = Arc.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    int f2688a;
-
-    /* renamed from: b  reason: collision with root package name */
-    int f2689b;
+    int f2006a;
+    int b;
     LatLng c;
     LatLng d;
     LatLng e;
@@ -35,14 +33,14 @@ public final class Arc extends Overlay {
         GeoPoint ll2mc = CoordUtil.ll2mc((LatLng) arrayList.get(0));
         bundle.putDouble("location_x", ll2mc.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
-        bundle.putInt("width", this.f2689b);
+        bundle.putInt("width", this.b);
         Overlay.a(arrayList, bundle);
-        Overlay.a(this.f2688a, bundle);
+        Overlay.a(this.f2006a, bundle);
         return bundle;
     }
 
     public int getColor() {
-        return this.f2688a;
+        return this.f2006a;
     }
 
     public LatLng getEndPoint() {
@@ -58,11 +56,11 @@ public final class Arc extends Overlay {
     }
 
     public int getWidth() {
-        return this.f2689b;
+        return this.b;
     }
 
     public void setColor(int i) {
-        this.f2688a = i;
+        this.f2006a = i;
         this.listener.b(this);
     }
 
@@ -81,7 +79,7 @@ public final class Arc extends Overlay {
 
     public void setWidth(int i) {
         if (i > 0) {
-            this.f2689b = i;
+            this.b = i;
             this.listener.b(this);
         }
     }

@@ -14,41 +14,39 @@ import java.util.zip.GZIPOutputStream;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f7681a = "AAA" + System.currentTimeMillis() + "AAA";
-
-    /* renamed from: b  reason: collision with root package name */
-    private HttpURLConnection f7682b;
+    private final String f5197a = "AAA" + System.currentTimeMillis() + "AAA";
     private String c;
     private boolean d;
-    private DataOutputStream pwG;
-    private GZIPOutputStream pwH;
+    private HttpURLConnection pyK;
+    private DataOutputStream pyL;
+    private GZIPOutputStream pyM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(String str, String str2, boolean z) throws IOException {
         this.c = str2;
         this.d = z;
-        this.f7682b = (HttpURLConnection) new URL(str).openConnection();
-        this.f7682b.setUseCaches(false);
-        this.f7682b.setDoOutput(true);
-        this.f7682b.setDoInput(true);
-        this.f7682b.setRequestMethod("POST");
-        this.f7682b.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + this.f7681a);
+        this.pyK = (HttpURLConnection) new URL(str).openConnection();
+        this.pyK.setUseCaches(false);
+        this.pyK.setDoOutput(true);
+        this.pyK.setDoInput(true);
+        this.pyK.setRequestMethod("POST");
+        this.pyK.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + this.f5197a);
         if (z) {
-            this.f7682b.setRequestProperty("Content-Encoding", "gzip");
-            this.pwH = new GZIPOutputStream(this.f7682b.getOutputStream());
+            this.pyK.setRequestProperty("Content-Encoding", "gzip");
+            this.pyM = new GZIPOutputStream(this.pyK.getOutputStream());
             return;
         }
-        this.pwG = new DataOutputStream(this.f7682b.getOutputStream());
+        this.pyL = new DataOutputStream(this.pyK.getOutputStream());
     }
 
     public void a(String str, String str2) {
         StringBuilder sb = new StringBuilder();
-        sb.append("--").append(this.f7681a).append("\r\n").append("Content-Disposition: form-data; name=\"").append(str).append("\"").append("\r\n").append("Content-Type: text/plain; charset=").append(this.c).append("\r\n").append("\r\n").append(str2).append("\r\n");
+        sb.append("--").append(this.f5197a).append("\r\n").append("Content-Disposition: form-data; name=\"").append(str).append("\"").append("\r\n").append("Content-Type: text/plain; charset=").append(this.c).append("\r\n").append("\r\n").append(str2).append("\r\n");
         try {
             if (this.d) {
-                this.pwH.write(sb.toString().getBytes());
+                this.pyM.write(sb.toString().getBytes());
             } else {
-                this.pwG.write(sb.toString().getBytes());
+                this.pyL.write(sb.toString().getBytes());
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -58,11 +56,11 @@ public class e {
     public void a(String str, File file) throws IOException {
         String name = file.getName();
         StringBuilder sb = new StringBuilder();
-        sb.append("--").append(this.f7681a).append("\r\n").append("Content-Disposition: form-data; name=\"").append(str).append("\"; filename=\"").append(name).append("\"").append("\r\n").append("Content-Transfer-Encoding: binary").append("\r\n").append("\r\n");
+        sb.append("--").append(this.f5197a).append("\r\n").append("Content-Disposition: form-data; name=\"").append(str).append("\"; filename=\"").append(name).append("\"").append("\r\n").append("Content-Transfer-Encoding: binary").append("\r\n").append("\r\n");
         if (this.d) {
-            this.pwH.write(sb.toString().getBytes());
+            this.pyM.write(sb.toString().getBytes());
         } else {
-            this.pwG.write(sb.toString().getBytes());
+            this.pyL.write(sb.toString().getBytes());
         }
         FileInputStream fileInputStream = new FileInputStream(file);
         byte[] bArr = new byte[8192];
@@ -71,35 +69,35 @@ public class e {
             if (read == -1) {
                 break;
             } else if (this.d) {
-                this.pwH.write(bArr, 0, read);
+                this.pyM.write(bArr, 0, read);
             } else {
-                this.pwG.write(bArr, 0, read);
+                this.pyL.write(bArr, 0, read);
             }
         }
         fileInputStream.close();
         if (this.d) {
-            this.pwH.write("\r\n".getBytes());
+            this.pyM.write("\r\n".getBytes());
             return;
         }
-        this.pwG.write(sb.toString().getBytes());
-        this.pwG.flush();
+        this.pyL.write(sb.toString().getBytes());
+        this.pyL.flush();
     }
 
     public String a() throws IOException {
         ArrayList<String> arrayList = new ArrayList();
-        byte[] bytes = ("\r\n--" + this.f7681a + "--\r\n").getBytes();
+        byte[] bytes = ("\r\n--" + this.f5197a + "--\r\n").getBytes();
         if (this.d) {
-            this.pwH.write(bytes);
-            this.pwH.finish();
-            this.pwH.close();
+            this.pyM.write(bytes);
+            this.pyM.finish();
+            this.pyM.close();
         } else {
-            this.pwG.write(bytes);
-            this.pwG.flush();
-            this.pwG.close();
+            this.pyL.write(bytes);
+            this.pyL.flush();
+            this.pyL.close();
         }
-        int responseCode = this.f7682b.getResponseCode();
+        int responseCode = this.pyK.getResponseCode();
         if (responseCode == 200) {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f7682b.getInputStream()));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.pyK.getInputStream()));
             while (true) {
                 String readLine = bufferedReader.readLine();
                 if (readLine == null) {
@@ -108,7 +106,7 @@ public class e {
                 arrayList.add(readLine);
             }
             bufferedReader.close();
-            this.f7682b.disconnect();
+            this.pyK.disconnect();
             StringBuilder sb = new StringBuilder();
             for (String str : arrayList) {
                 sb.append(str);

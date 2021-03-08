@@ -8,7 +8,7 @@ public class ParcelItem implements Parcelable {
     public static final Parcelable.Creator<ParcelItem> CREATOR = new c();
 
     /* renamed from: a  reason: collision with root package name */
-    private Bundle f2823a;
+    private Bundle f2088a;
 
     @Override // android.os.Parcelable
     public int describeContents() {
@@ -16,15 +16,15 @@ public class ParcelItem implements Parcelable {
     }
 
     public Bundle getBundle() {
-        return this.f2823a;
+        return this.f2088a;
     }
 
     public void setBundle(Bundle bundle) {
-        this.f2823a = bundle;
+        this.f2088a = bundle;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeBundle(this.f2823a);
+        parcel.writeBundle(this.f2088a);
     }
 }

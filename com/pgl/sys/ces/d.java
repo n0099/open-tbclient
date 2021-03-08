@@ -6,23 +6,21 @@ import com.pgl.a.b.f;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f11408a = 0;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static long f11409b = 3600;
+    public static int f7485a = 0;
+    public static long b = 3600;
     public static long c = 0;
 
     public static synchronized void a(Context context) {
         synchronized (d.class) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (currentTimeMillis - c >= f11409b) {
+            if (currentTimeMillis - c >= b) {
                 b.d = false;
-                f11408a = 0;
+                f7485a = 0;
                 c = currentTimeMillis;
                 for (int i = 0; i < 3; i++) {
-                    if (!b.d && f11408a < 3) {
+                    if (!b.d && f7485a < 3) {
                         b(context);
-                        f11408a++;
+                        f7485a++;
                     }
                     f.a((i + 1) * 5000);
                     if (b.d) {

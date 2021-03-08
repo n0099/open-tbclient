@@ -8,21 +8,21 @@ import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> {
-    private boolean kAL;
+    private boolean kCN;
 
     public MsgRightViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.kAL = false;
+        this.kCN = false;
     }
 
     public void sE(boolean z) {
-        this.kAL = z;
+        this.kCN = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ci */
+    /* renamed from: ch */
     public MsgCommonItemAdapter.MsgViewHolder<MsgrightView> e(ViewGroup viewGroup) {
         MsgrightView msgrightView = new MsgrightView(this.mPageContext);
         return new a(msgrightView.getConvertView(), msgrightView);
@@ -33,17 +33,17 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgrightView> msgViewHolder) {
         super.a(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) msgViewHolder);
-        MsgrightView cUM = msgViewHolder.cUM();
-        cUM.CH(this.kAC);
-        cUM.sE(this.kAL);
+        MsgrightView cUT = msgViewHolder.cUT();
+        cUT.CK(this.kCE);
+        cUT.sE(this.kCN);
         chatMessage.getCacheData().setIs_left(0);
-        cUM.a(this.kAt);
-        cUM.setOnItemViewLongClickListener(this.kAu);
-        cUM.setPosition(i);
-        cUM.gM(this.mCurrentTime);
-        cUM.gL(chatMessage.getCacheData().getLastMsgTime());
-        cUM.a(viewGroup, chatMessage);
-        cUM.b(viewGroup, chatMessage);
+        cUT.a(this.kCv);
+        cUT.setOnItemViewLongClickListener(this.kCw);
+        cUT.setPosition(i);
+        cUT.gM(this.mCurrentTime);
+        cUT.gL(chatMessage.getCacheData().getLastMsgTime());
+        cUT.a(viewGroup, chatMessage);
+        cUT.b(viewGroup, chatMessage);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;

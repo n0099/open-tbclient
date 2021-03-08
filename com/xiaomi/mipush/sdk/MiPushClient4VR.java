@@ -5,12 +5,12 @@ import com.xiaomi.push.hm;
 import com.xiaomi.push.hw;
 import com.xiaomi.push.hz;
 import com.xiaomi.push.il;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MiPushClient4VR {
     public static void uploadData(Context context, String str) {
         il ilVar = new il();
-        ilVar.c(hw.VRUpload.f555a);
-        ilVar.b(b.m119a(context).m120a());
+        ilVar.c(hw.VRUpload.f476a);
+        ilVar.b(b.m98a(context).m99a());
         ilVar.d(context.getPackageName());
         ilVar.a("data", str);
         ilVar.a(com.xiaomi.push.service.an.a());

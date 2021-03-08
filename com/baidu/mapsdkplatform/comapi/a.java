@@ -16,15 +16,13 @@ import com.baidu.mapsdkplatform.comapi.util.f;
 /* loaded from: classes4.dex */
 public class a implements PermissionCheck.c {
     private static a f;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Context f2997b;
+    private Context b;
     private Handler c;
     private e d;
     private int e;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2996a = a.class.getSimpleName();
+    private static final String f2186a = a.class.getSimpleName();
     private static int g = -100;
 
     static {
@@ -54,14 +52,14 @@ public class a implements PermissionCheck.c {
                 intent2.putExtra("error_message", (String) message.obj);
                 intent = intent2;
             }
-            this.f2997b.sendBroadcast(intent);
+            this.b.sendBroadcast(intent);
             return;
         }
         if (message.arg2 == 3) {
-            this.f2997b.sendBroadcast(new Intent(SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR));
+            this.b.sendBroadcast(new Intent(SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR));
         }
         if (message.arg2 == 2 || message.arg2 == 404 || message.arg2 == 5 || message.arg2 == 8) {
-            this.f2997b.sendBroadcast(new Intent(SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR));
+            this.b.sendBroadcast(new Intent(SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR));
         }
     }
 
@@ -69,21 +67,21 @@ public class a implements PermissionCheck.c {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
         intentFilter.addAction(McastConfig.ACTION_WIFI_STATE_CHANGED);
-        if (this.f2997b == null || this.d == null) {
+        if (this.b == null || this.d == null) {
             return;
         }
-        this.f2997b.registerReceiver(this.d, intentFilter);
+        this.b.registerReceiver(this.d, intentFilter);
     }
 
     private void g() {
-        if (this.d == null || this.f2997b == null) {
+        if (this.d == null || this.b == null) {
             return;
         }
-        this.f2997b.unregisterReceiver(this.d);
+        this.b.unregisterReceiver(this.d);
     }
 
     public void a(Context context) {
-        this.f2997b = context;
+        this.b = context;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.util.PermissionCheck.c
@@ -91,43 +89,43 @@ public class a implements PermissionCheck.c {
         if (bVar == null) {
             return;
         }
-        if (bVar.f3152a == 0) {
+        if (bVar.f2281a == 0) {
             f.z = bVar.e;
-            f.a(bVar.f3153b, bVar.c);
+            f.a(bVar.b, bVar.c);
         } else {
             Log.e("baidumapsdk", "Authentication Error\n" + bVar.toString());
         }
-        if (this.c == null || bVar.f3152a == g) {
+        if (this.c == null || bVar.f2281a == g) {
             return;
         }
-        g = bVar.f3152a;
+        g = bVar.f2281a;
         Message obtainMessage = this.c.obtainMessage();
         obtainMessage.what = IMConstants.IM_MSG_TYPE_SHIELD_ME;
-        obtainMessage.arg1 = bVar.f3152a;
+        obtainMessage.arg1 = bVar.f2281a;
         obtainMessage.obj = bVar.d;
         this.c.sendMessage(obtainMessage);
     }
 
     public void b() {
         if (this.e == 0) {
-            if (this.f2997b == null) {
+            if (this.b == null) {
                 throw new IllegalStateException("you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
             }
             this.d = new e();
             f();
-            SysUpdateObservable.getInstance().updateNetworkInfo(this.f2997b);
+            SysUpdateObservable.getInstance().updateNetworkInfo(this.b);
         }
         this.e++;
     }
 
     public boolean c() {
-        if (this.f2997b == null) {
+        if (this.b == null) {
             throw new IllegalStateException("you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
         }
         this.c = new b(this);
-        f.b(this.f2997b);
+        f.b(this.b);
         f.f();
-        PermissionCheck.init(this.f2997b);
+        PermissionCheck.init(this.b);
         PermissionCheck.setPermissionCheckResultListener(this);
         PermissionCheck.permissionCheck();
         return true;
@@ -142,9 +140,9 @@ public class a implements PermissionCheck.c {
     }
 
     public Context e() {
-        if (this.f2997b == null) {
+        if (this.b == null) {
             throw new IllegalStateException("you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
         }
-        return this.f2997b;
+        return this.b;
     }
 }

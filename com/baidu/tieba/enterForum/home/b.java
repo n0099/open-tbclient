@@ -16,79 +16,79 @@ import com.baidu.tieba.enterForum.view.f;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class b {
-    private f iHb;
-    private com.baidu.tieba.enterForum.view.a iJr;
-    private a iJs;
+    private f iIK;
+    private com.baidu.tieba.enterForum.view.a iLa;
+    private a iLb;
     private Context mContext;
     private int mSortType;
     private int mStatusBarHeight;
     private TextView mTitle;
-    private boolean iJt = false;
-    private a.InterfaceC0708a iJu = new a.InterfaceC0708a() { // from class: com.baidu.tieba.enterForum.home.b.1
-        @Override // com.baidu.tieba.enterForum.view.a.InterfaceC0708a
-        public void dV(int i) {
+    private boolean iLc = false;
+    private a.InterfaceC0714a iLd = new a.InterfaceC0714a() { // from class: com.baidu.tieba.enterForum.home.b.1
+        @Override // com.baidu.tieba.enterForum.view.a.InterfaceC0714a
+        public void dW(int i) {
             b.this.mSortType = i;
-            TiebaStatic.log(new ar("c13369").ap("obj_type", i == 1 ? 2 : 1));
-            b.this.cwr();
-            if (b.this.iJs != null) {
-                b.this.iJs.xy(b.this.mSortType);
+            TiebaStatic.log(new ar("c13369").aq("obj_type", i == 1 ? 2 : 1));
+            b.this.cwx();
+            if (b.this.iLb != null) {
+                b.this.iLb.xz(b.this.mSortType);
             }
         }
     };
-    private View.OnClickListener fhT = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.b.2
+    private View.OnClickListener fjv = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!b.this.iHb.cxT()) {
+            if (!b.this.iIK.cxZ()) {
                 if (view == b.this.mTitle) {
-                    if (b.this.iJr == null) {
-                        b.this.iJr = new com.baidu.tieba.enterForum.view.a(b.this.mContext);
-                        b.this.iJr.setOnDismissListener(b.this.mOnDismissListener);
-                        b.this.iJr.a(b.this.iJu);
-                        b.this.iJr.xR(b.this.mStatusBarHeight);
+                    if (b.this.iLa == null) {
+                        b.this.iLa = new com.baidu.tieba.enterForum.view.a(b.this.mContext);
+                        b.this.iLa.setOnDismissListener(b.this.mOnDismissListener);
+                        b.this.iLa.a(b.this.iLd);
+                        b.this.iLa.xS(b.this.mStatusBarHeight);
                     }
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(new h(b.this.mContext.getString(R.string.level_sort), 1));
                     arrayList.add(new h(b.this.mContext.getString(R.string.update_sort), 2));
-                    b.this.iJr.setData(arrayList, b.this.mSortType);
-                    b.this.iJr.O(b.this.mTitle);
+                    b.this.iLa.setData(arrayList, b.this.mSortType);
+                    b.this.iLa.O(b.this.mTitle);
                 }
-                b.this.iJt = true;
-                b.this.pR(b.this.iJt);
+                b.this.iLc = true;
+                b.this.pR(b.this.iLc);
             }
         }
     };
     private PopupWindow.OnDismissListener mOnDismissListener = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.enterForum.home.b.3
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
-            b.this.iJt = false;
-            b.this.pR(b.this.iJt);
+            b.this.iLc = false;
+            b.this.pR(b.this.iLc);
         }
     };
 
     /* loaded from: classes2.dex */
     public interface a {
-        void xy(int i);
+        void xz(int i);
     }
 
     public b(Context context, int i, int i2, f fVar) {
         this.mContext = context;
         this.mSortType = i;
         this.mStatusBarHeight = i2;
-        this.iHb = fVar;
+        this.iIK = fVar;
     }
 
     public void m(TextView textView) {
         this.mTitle = textView;
     }
 
-    public void UU() {
-        if (this.iJr != null) {
-            this.iJr.UU();
+    public void UX() {
+        if (this.iLa != null) {
+            this.iLa.UX();
         }
     }
 
-    public void cwr() {
-        if (cws() && this.mTitle != null) {
+    public void cwx() {
+        if (cwy() && this.mTitle != null) {
             switch (this.mSortType) {
                 case 1:
                     this.mTitle.setText(R.string.level_sort);
@@ -97,53 +97,53 @@ public class b {
                     this.mTitle.setText(R.string.update_sort);
                     break;
             }
-            this.mTitle.setOnClickListener(this.fhT);
-            pR(this.iJt);
+            this.mTitle.setOnClickListener(this.fjv);
+            pR(this.iLc);
         }
     }
 
-    public boolean cws() {
+    public boolean cwy() {
         return this.mSortType == 1 || this.mSortType == 2;
     }
 
     public void setSortType(int i) {
-        if (cws()) {
+        if (cwy()) {
             this.mSortType = i;
-            cwr();
+            cwx();
         }
     }
 
     public void a(a aVar) {
-        this.iJs = aVar;
+        this.iLb = aVar;
     }
 
     public void onChangeSkinType(int i) {
-        if (cws()) {
+        if (cwy()) {
             ap.setViewTextColor(this.mTitle, R.color.CAM_X0105, i);
             if (this.mTitle != null) {
-                pR(this.iJt);
+                pR(this.iLc);
             }
         }
-        if (this.iJr != null && this.iJt) {
-            this.iJr.onChangeSkinType();
+        if (this.iLa != null && this.iLc) {
+            this.iLa.onChangeSkinType();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void pR(boolean z) {
         int i = z ? R.drawable.icon_pure_fold12_svg : R.drawable.icon_pure_unfold12_svg;
-        com.baidu.tieba.enterForum.data.c cxZ = this.iHb != null ? this.iHb.cxZ() : null;
-        if (cxZ != null && cxZ.iHH) {
-            if (this.iHb != null && this.iHb.isShow()) {
+        com.baidu.tieba.enterForum.data.c cyf = this.iIK != null ? this.iIK.cyf() : null;
+        if (cyf != null && cyf.iJq) {
+            if (this.iIK != null && this.iIK.isShow()) {
                 ap.setViewTextColor(this.mTitle, R.color.CAM_X0107);
-                this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.bsR().a(i, R.color.CAM_X0108, (SvgManager.SvgResourceStateType) null), (Drawable) null);
+                this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.bsU().a(i, R.color.CAM_X0108, (SvgManager.SvgResourceStateType) null), (Drawable) null);
                 return;
             }
             ap.setViewTextColor(this.mTitle, R.color.CAM_X0107);
-            this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.bsR().a(i, R.color.CAM_X0108, (SvgManager.SvgResourceStateType) null), (Drawable) null);
+            this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.bsU().a(i, R.color.CAM_X0108, (SvgManager.SvgResourceStateType) null), (Drawable) null);
             return;
         }
         ap.setViewTextColor(this.mTitle, R.color.CAM_X0107);
-        this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.bsR().a(i, R.color.CAM_X0108, (SvgManager.SvgResourceStateType) null), (Drawable) null);
+        this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.bsU().a(i, R.color.CAM_X0108, (SvgManager.SvgResourceStateType) null), (Drawable) null);
     }
 }

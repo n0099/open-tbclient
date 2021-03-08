@@ -7,7 +7,7 @@ import com.yy.videoplayer.Constant;
 import com.yy.videoplayer.decoder.VideoConstant;
 import com.yy.videoplayer.utils.YMFLog;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VP8DecRender extends HardDecRender {
     public static final String crashTsFirst = "VP8DecRenderCrashTsFirst";
     public static final String crashTsSecond = "VP8DecRenderCrashTsSecond";
@@ -21,7 +21,7 @@ public class VP8DecRender extends HardDecRender {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class DecodeInfoThread implements Runnable {
         DecodeInfoThread() {
         }

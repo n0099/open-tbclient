@@ -3,26 +3,24 @@ package com.baidu.mapsdkplatform.comjni.map.commonmemcache;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f3172a = 0;
-
-    /* renamed from: b  reason: collision with root package name */
-    private JNICommonMemCache f3173b;
+    private long f2292a = 0;
+    private JNICommonMemCache b;
 
     public a() {
-        this.f3173b = null;
-        this.f3173b = new JNICommonMemCache();
+        this.b = null;
+        this.b = new JNICommonMemCache();
     }
 
     public long a() {
-        if (this.f3172a == 0) {
-            this.f3172a = this.f3173b.Create();
+        if (this.f2292a == 0) {
+            this.f2292a = this.b.Create();
         }
-        return this.f3172a;
+        return this.f2292a;
     }
 
     public void b() {
-        if (this.f3172a != 0) {
-            this.f3173b.Init(this.f3172a);
+        if (this.f2292a != 0) {
+            this.b.Init(this.f2292a);
         }
     }
 }

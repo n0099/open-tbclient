@@ -9,15 +9,15 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class i extends com.baidu.swan.apps.api.a.d {
-    private int cIj;
+    private int cJJ;
 
     public i(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b lp(String str) {
+    public com.baidu.swan.apps.api.c.b lw(String str) {
         Pair<com.baidu.swan.apps.api.c.b, JSONObject> bh = com.baidu.swan.apps.api.d.b.bh("Api-ShowSMSPanel", str);
         com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bh.first;
         if (!bVar.isSuccess()) {
@@ -39,14 +39,14 @@ public class i extends com.baidu.swan.apps.api.a.d {
         if (TextUtils.isEmpty(optString2)) {
             return new com.baidu.swan.apps.api.c.b(202);
         }
-        com.baidu.swan.apps.runtime.d.aIG().aIC().aIW().b(getContext(), "scope_show_sms_panel", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.api.module.k.i.1
+        com.baidu.swan.apps.runtime.d.aIJ().aIF().aIZ().b(getContext(), "scope_show_sms_panel", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.api.module.k.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
-            public void L(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
+            public void N(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                 if (!com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                     int errorCode = hVar.getErrorCode();
-                    i.this.a(optString2, new com.baidu.swan.apps.api.c.b(errorCode, com.baidu.swan.apps.setting.oauth.c.gn(errorCode)));
+                    i.this.a(optString2, new com.baidu.swan.apps.api.c.b(errorCode, com.baidu.swan.apps.setting.oauth.c.gp(errorCode)));
                     return;
                 }
                 i.this.bg(r, optString);
@@ -62,7 +62,7 @@ public class i extends com.baidu.swan.apps.api.a.d {
         intent.setData(Uri.parse("smsto:" + str));
         intent.putExtra("sms_body", str2);
         getContext().startActivity(intent);
-        akr();
+        aku();
     }
 
     private String r(JSONArray jSONArray) {
@@ -70,25 +70,25 @@ public class i extends com.baidu.swan.apps.api.a.d {
             return null;
         }
         StringBuilder sb = new StringBuilder();
-        this.cIj = jSONArray.length();
-        for (int i = 0; i < this.cIj; i++) {
+        this.cJJ = jSONArray.length();
+        for (int i = 0; i < this.cJJ; i++) {
             String optString = jSONArray.optString(i);
             if (TextUtils.isEmpty(optString)) {
                 return null;
             }
             sb.append(optString);
-            if (i != this.cIj - 1) {
+            if (i != this.cJJ - 1) {
                 sb.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             }
         }
         return sb.toString();
     }
 
-    private void akr() {
+    private void aku() {
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
         fVar.mType = "sms_panel";
-        fVar.mValue = String.valueOf(this.cIj);
-        fVar.r("appid", com.baidu.swan.apps.runtime.d.aIG().getAppId());
+        fVar.mValue = String.valueOf(this.cJJ);
+        fVar.s("appid", com.baidu.swan.apps.runtime.d.aIJ().getAppId());
         com.baidu.swan.apps.statistic.h.a("1639", fVar);
     }
 }

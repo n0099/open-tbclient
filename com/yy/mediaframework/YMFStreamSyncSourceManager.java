@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFStreamSyncSourceManager {
     public static final int SSRC_DISCARD = 1;
     public static final String TAG = "YMFStreamSyncSourceManager";

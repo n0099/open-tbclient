@@ -3,7 +3,7 @@ package com.baidu.live.aj;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static int j(boolean z, boolean z2) {
         if (z) {
@@ -27,7 +27,7 @@ public class c {
         return TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_tbds27);
     }
 
-    public static int Vj() {
+    public static int Vm() {
         return TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds168);
     }
 }

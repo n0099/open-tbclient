@@ -10,39 +10,39 @@ import java.util.Set;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public abstract class g implements d {
-    public c<com.baidu.swan.pms.model.f> aqM() {
+    public c<com.baidu.swan.pms.model.f> aqP() {
         return null;
     }
 
-    public c<com.baidu.swan.pms.model.g> aqJ() {
+    public c<com.baidu.swan.pms.model.g> aqM() {
         return null;
     }
 
-    public c<i> aug() {
+    public c<i> auj() {
         return null;
     }
 
-    public c<com.baidu.swan.pms.model.d> aqN() {
+    public c<com.baidu.swan.pms.model.d> aqQ() {
         return null;
     }
 
-    public c<com.baidu.swan.pms.model.b> aqO() {
+    public c<com.baidu.swan.pms.model.b> aqR() {
         return null;
     }
 
-    public c<com.baidu.swan.pms.model.h> aEM() {
+    public c<com.baidu.swan.pms.model.h> aEP() {
         return null;
     }
 
-    public a<a.C0539a> aqI() {
+    public a<a.C0545a> aqL() {
         return null;
     }
 
-    public f aqP() {
+    public f aqS() {
         return null;
     }
 
-    public com.baidu.swan.pms.node.d.c nG(String str) {
+    public com.baidu.swan.pms.node.d.c nN(String str) {
         return null;
     }
 
@@ -57,26 +57,26 @@ public abstract class g implements d {
         return bundle2;
     }
 
-    public void anI() {
+    public void anL() {
     }
 
-    public void T(String str, int i) {
+    public void U(String str, int i) {
     }
 
-    public void aqH() {
+    public void aqK() {
     }
 
     public void b(com.baidu.swan.pms.model.a aVar) {
     }
 
-    public void anG() {
+    public void anJ() {
     }
 
     public void a(com.baidu.swan.pms.utils.f fVar) {
     }
 
     @Override // com.baidu.swan.pms.a.d
-    public void aqC() {
+    public void aqF() {
     }
 
     @Override // com.baidu.swan.pms.a.d
@@ -86,15 +86,15 @@ public abstract class g implements d {
     public void b(String str, String str2, JSONObject jSONObject) {
     }
 
-    public Map<String, String> bcs() {
-        return null;
-    }
-
-    public Map<String, String> bct() {
-        return null;
-    }
-
     public Map<String, String> bcu() {
+        return null;
+    }
+
+    public Map<String, String> bcv() {
+        return null;
+    }
+
+    public Map<String, String> bcw() {
         return null;
     }
 }

@@ -1,7 +1,7 @@
 package com.googlecode.mp4parser.boxes.mp4.samplegrouping;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class VisualRandomAccessEntry extends GroupEntry {
     public static final String TYPE = "rap ";
     private short numLeadingSamples;
@@ -25,9 +25,9 @@ public class VisualRandomAccessEntry extends GroupEntry {
 
     @Override // com.googlecode.mp4parser.boxes.mp4.samplegrouping.GroupEntry
     public void parse(ByteBuffer byteBuffer) {
-        byte b2 = byteBuffer.get();
-        this.numLeadingSamplesKnown = (b2 & 128) == 128;
-        this.numLeadingSamples = (short) (b2 & Byte.MAX_VALUE);
+        byte b = byteBuffer.get();
+        this.numLeadingSamplesKnown = (b & 128) == 128;
+        this.numLeadingSamples = (short) (b & Byte.MAX_VALUE);
     }
 
     @Override // com.googlecode.mp4parser.boxes.mp4.samplegrouping.GroupEntry

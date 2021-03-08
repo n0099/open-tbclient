@@ -6,15 +6,13 @@ import com.baidu.platform.comapi.walknavi.d.g;
 public class h implements com.baidu.platform.comapi.walknavi.d.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f4260a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ g f4261b;
+    final /* synthetic */ c f2946a;
+    final /* synthetic */ g b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar, c cVar) {
-        this.f4261b = gVar;
-        this.f4260a = cVar;
+        this.b = gVar;
+        this.f2946a = cVar;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.d.a.a
@@ -27,26 +25,26 @@ public class h implements com.baidu.platform.comapi.walknavi.d.a.a {
         g.a aVar2;
         com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", "download onProgress = " + i);
         if (i == 100) {
-            this.f4261b.n = false;
-            this.f4261b.f4257b.c = 0;
-            this.f4261b.f4257b.f4259b = "";
+            this.b.n = false;
+            this.b.b.c = 0;
+            this.b.b.b = "";
         }
-        aVar = this.f4261b.o;
+        aVar = this.b.o;
         if (aVar != null) {
-            this.f4261b.f4257b.c = i;
-            aVar2 = this.f4261b.o;
-            aVar2.a(this.f4261b.f4257b);
+            this.b.b.c = i;
+            aVar2 = this.b.o;
+            aVar2.a(this.b.b);
         }
     }
 
     @Override // com.baidu.platform.comapi.walknavi.d.a.a
     public void a(int i, String str) {
-        com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", "download onResponse = " + this.f4260a);
-        this.f4261b.n = false;
-        this.f4261b.f4257b.c = 0;
-        this.f4261b.f4257b.f4259b = "";
-        if (this.f4260a != null) {
-            this.f4260a.a(i, str);
+        com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", "download onResponse = " + this.f2946a);
+        this.b.n = false;
+        this.b.b.c = 0;
+        this.b.b.b = "";
+        if (this.f2946a != null) {
+            this.f2946a.a(i, str);
         }
     }
 }

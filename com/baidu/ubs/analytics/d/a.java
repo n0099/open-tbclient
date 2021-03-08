@@ -1,34 +1,34 @@
 package com.baidu.ubs.analytics.d;
 
 import android.os.Environment;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class a {
-    private static final String oUP = Environment.getExternalStorageDirectory().getPath();
-    static final String oUQ = oUP + "/baidu/ab/crash/";
-    static final String oUR = oUP + "/baidu/ab/sdklog/";
-    public static final String aS = oUP + "/baidu/ab/sdkupdata/" + eiv() + "/";
-    private static int aoM = EnumC0955a.aV;
+    private static final String oWU = Environment.getExternalStorageDirectory().getPath();
+    static final String oWV = oWU + "/baidu/ab/crash/";
+    static final String oWW = oWU + "/baidu/ab/sdklog/";
+    public static final String aS = oWU + "/baidu/ab/sdkupdata/" + eiF() + "/";
+    private static int aqm = EnumC0961a.aV;
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.ubs.analytics.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
-    public static final class EnumC0955a {
+    /* loaded from: classes14.dex */
+    public static final class EnumC0961a {
         public static final int aV = 1;
         public static final int aW = 2;
         private static final /* synthetic */ int[] aX = {aV, aW};
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean eiu() {
-        return aoM == EnumC0955a.aV;
+    public static boolean eiE() {
+        return aqm == EnumC0961a.aV;
     }
 
     public static String u() {
         return "0.4.0";
     }
 
-    private static int eiv() {
+    private static int eiF() {
         try {
             String[] split = "0.4.0".split("\\.");
             if (split.length > 2) {

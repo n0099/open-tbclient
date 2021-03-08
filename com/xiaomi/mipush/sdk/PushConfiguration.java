@@ -1,7 +1,7 @@
 package com.xiaomi.mipush.sdk;
 
 import com.xiaomi.push.service.module.PushChannelRegion;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PushConfiguration {
     private boolean mGeoEnable;
     private boolean mOpenCOSPush;
@@ -10,7 +10,7 @@ public class PushConfiguration {
     private boolean mOpenHmsPush;
     private PushChannelRegion mRegion;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class PushConfigurationBuilder {
         private boolean mGeoEnable;
         private boolean mOpenCOSPush;

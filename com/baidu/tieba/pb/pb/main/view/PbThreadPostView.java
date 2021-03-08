@@ -13,12 +13,12 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.data.f;
 /* loaded from: classes2.dex */
 public class PbThreadPostView extends LinearLayout {
-    private f lOF;
+    private f lQH;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
-    public View mfQ;
-    public TextView mfR;
-    public TextView mfS;
+    public View mhS;
+    public TextView mhT;
+    public TextView mhU;
 
     public PbThreadPostView(Context context) {
         this(context, null);
@@ -40,26 +40,26 @@ public class PbThreadPostView extends LinearLayout {
     }
 
     private void tz() {
-        this.mfQ = findViewById(R.id.pb_thread_post_container);
-        this.mfR = (TextView) findViewById(R.id.pb_thread_post_content);
-        this.mfS = (TextView) findViewById(R.id.pb_thread_post_button);
+        this.mhS = findViewById(R.id.pb_thread_post_container);
+        this.mhT = (TextView) findViewById(R.id.pb_thread_post_content);
+        this.mhU = (TextView) findViewById(R.id.pb_thread_post_button);
     }
 
     public void setData(f fVar) {
-        this.lOF = fVar;
-        uu(TbadkCoreApplication.getInst().getSkinType());
+        this.lQH = fVar;
+        uw(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setChildOnClickLinstener(View.OnClickListener onClickListener) {
         if (this.mOnClickListener == null) {
             this.mOnClickListener = onClickListener;
-            this.mfS.setOnClickListener(this.mOnClickListener);
+            this.mhU.setOnClickListener(this.mOnClickListener);
         }
     }
 
-    public void uu(int i) {
-        ap.setBackgroundColor(this.mfQ, R.color.CAM_X0205, i);
-        ap.setViewTextColor(this.mfR, R.color.CAM_X0107);
-        ap.setViewTextColor(this.mfS, R.color.CAM_X0302);
+    public void uw(int i) {
+        ap.setBackgroundColor(this.mhS, R.color.CAM_X0205, i);
+        ap.setViewTextColor(this.mhT, R.color.CAM_X0107);
+        ap.setViewTextColor(this.mhU, R.color.CAM_X0302);
     }
 }

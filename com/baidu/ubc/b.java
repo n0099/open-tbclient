@@ -50,19 +50,19 @@ public class b {
             jSONObject.put("type", "0");
             if (!TextUtils.isEmpty(nVar.getContent())) {
                 jSONObject.put("content", nVar.getContent());
-            } else if (nVar.beV() != null) {
-                jSONObject.put("content", nVar.beV().toString());
+            } else if (nVar.beX() != null) {
+                jSONObject.put("content", nVar.beX().toString());
             }
-            if (!TextUtils.isEmpty(nVar.beU())) {
-                jSONObject.put("abtest", nVar.beU());
+            if (!TextUtils.isEmpty(nVar.beW())) {
+                jSONObject.put("abtest", nVar.beW());
             }
             if (!TextUtils.isEmpty(nVar.getCategory())) {
                 jSONObject.put("c", nVar.getCategory());
             }
-            if (nVar.beQ()) {
+            if (nVar.beS()) {
                 jSONObject.put("of", "1");
             }
-            jSONObject.put("idtype", g.ehF().yC(nVar.getId()));
+            jSONObject.put("idtype", g.ehN().yJ(nVar.getId()));
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.d("UBCFileData", e.getMessage());
@@ -128,7 +128,7 @@ public class b {
             file.mkdirs();
         }
         File file2 = new File(file, "filequality");
-        if (file2.length() > g.ehF().ehG()) {
+        if (file2.length() > g.ehN().ehO()) {
             if (file2.delete()) {
                 file2 = new File(file, "filequality");
             } else {
@@ -155,7 +155,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void B(Exception exc) {
-        ac.ehX().XG(Log.getStackTraceString(exc));
+        ac.eif().XN(Log.getStackTraceString(exc));
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [254=4] */
@@ -182,7 +182,7 @@ public class b {
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                             if (jSONObject.has("abtest")) {
-                                ajVar.yN("1");
+                                ajVar.yU("1");
                             }
                             long j3 = jSONObject.getLong("timestamp");
                             if (j3 > 0) {
@@ -193,7 +193,7 @@ public class b {
                                     j2 = j3;
                                 }
                             }
-                            ajVar.dk(jSONObject);
+                            ajVar.dm(jSONObject);
                             a2 = true;
                         } catch (Exception e) {
                             e = e;
@@ -272,7 +272,7 @@ public class b {
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                             if (jSONObject.has("abtest")) {
-                                ajVar.yN("1");
+                                ajVar.yU("1");
                             }
                             long j3 = jSONObject.getLong("timestamp");
                             if (j3 > 0) {
@@ -286,7 +286,7 @@ public class b {
                             if (DEBUG) {
                                 Log.d("UBCFileData", jSONObject.toString());
                             }
-                            ajVar.dk(jSONObject);
+                            ajVar.dm(jSONObject);
                             i++;
                         } catch (Throwable th) {
                             th = th;

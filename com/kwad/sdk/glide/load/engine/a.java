@@ -17,22 +17,20 @@ final class a {
     @VisibleForTesting
 
     /* renamed from: a  reason: collision with root package name */
-    final Map<com.kwad.sdk.glide.load.c, b> f10150a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final boolean f10151b;
+    final Map<com.kwad.sdk.glide.load.c, b> f6717a;
+    private final boolean b;
     private final Executor c;
     private final ReferenceQueue<n<?>> d;
     private n.a e;
     private volatile boolean f;
     @Nullable
-    private volatile InterfaceC1131a g;
+    private volatile InterfaceC1148a g;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
     /* renamed from: com.kwad.sdk.glide.load.engine.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1131a {
+    public interface InterfaceC1148a {
         void a();
     }
 
@@ -42,18 +40,16 @@ final class a {
     public static final class b extends WeakReference<n<?>> {
 
         /* renamed from: a  reason: collision with root package name */
-        final com.kwad.sdk.glide.load.c f10155a;
-
-        /* renamed from: b  reason: collision with root package name */
-        final boolean f10156b;
+        final com.kwad.sdk.glide.load.c f6720a;
+        final boolean b;
         @Nullable
         s<?> c;
 
         b(@NonNull com.kwad.sdk.glide.load.c cVar, @NonNull n<?> nVar, @NonNull ReferenceQueue<? super n<?>> referenceQueue, boolean z) {
             super(nVar, referenceQueue);
-            this.f10155a = (com.kwad.sdk.glide.load.c) com.kwad.sdk.glide.g.j.a(cVar);
+            this.f6720a = (com.kwad.sdk.glide.load.c) com.kwad.sdk.glide.g.j.a(cVar);
             this.c = (nVar.f() && z) ? (s) com.kwad.sdk.glide.g.j.a(nVar.b()) : null;
-            this.f10156b = nVar.f();
+            this.b = nVar.f();
         }
 
         void a() {
@@ -80,9 +76,9 @@ final class a {
 
     @VisibleForTesting
     a(boolean z, Executor executor) {
-        this.f10150a = new HashMap();
+        this.f6717a = new HashMap();
         this.d = new ReferenceQueue<>();
-        this.f10151b = z;
+        this.b = z;
         this.c = executor;
         executor.execute(new Runnable() { // from class: com.kwad.sdk.glide.load.engine.a.2
             @Override // java.lang.Runnable
@@ -96,9 +92,9 @@ final class a {
         while (!this.f) {
             try {
                 a((b) this.d.remove());
-                InterfaceC1131a interfaceC1131a = this.g;
-                if (interfaceC1131a != null) {
-                    interfaceC1131a.a();
+                InterfaceC1148a interfaceC1148a = this.g;
+                if (interfaceC1148a != null) {
+                    interfaceC1148a.a();
                 }
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
@@ -108,7 +104,7 @@ final class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void a(com.kwad.sdk.glide.load.c cVar) {
-        b remove = this.f10150a.remove(cVar);
+        b remove = this.f6717a.remove(cVar);
         if (remove != null) {
             remove.a();
         }
@@ -116,7 +112,7 @@ final class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void a(com.kwad.sdk.glide.load.c cVar, n<?> nVar) {
-        b put = this.f10150a.put(cVar, new b(cVar, nVar, this.d, this.f10151b));
+        b put = this.f6717a.put(cVar, new b(cVar, nVar, this.d, this.b));
         if (put != null) {
             put.a();
         }
@@ -125,13 +121,13 @@ final class a {
     void a(@NonNull b bVar) {
         synchronized (this.e) {
             synchronized (this) {
-                this.f10150a.remove(bVar.f10155a);
-                if (!bVar.f10156b || bVar.c == null) {
+                this.f6717a.remove(bVar.f6720a);
+                if (!bVar.b || bVar.c == null) {
                     return;
                 }
                 n<?> nVar = new n<>(bVar.c, true, false);
-                nVar.a(bVar.f10155a, this.e);
-                this.e.a(bVar.f10155a, nVar);
+                nVar.a(bVar.f6720a, this.e);
+                this.e.a(bVar.f6720a, nVar);
             }
         }
     }
@@ -149,7 +145,7 @@ final class a {
     @Nullable
     public synchronized n<?> b(com.kwad.sdk.glide.load.c cVar) {
         n<?> nVar;
-        b bVar = this.f10150a.get(cVar);
+        b bVar = this.f6717a.get(cVar);
         if (bVar == null) {
             nVar = null;
         } else {

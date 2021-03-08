@@ -3,7 +3,7 @@ package com.baidu.swan.apps.component.components.b;
 import com.baidu.swan.apps.ao.ah;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class c extends com.baidu.swan.apps.component.a.c.b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public c() {
@@ -14,8 +14,8 @@ public final class c extends com.baidu.swan.apps.component.a.c.b {
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             super.parseFromJson(jSONObject);
-            if (this.cLb != null) {
-                this.cKU = ah.P((float) this.cLb.optDouble("lineHeight", 0.0d));
+            if (this.cMB != null) {
+                this.cMu = ah.T((float) this.cMB.optDouble("lineHeight", 0.0d));
             }
         }
     }

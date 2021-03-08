@@ -21,7 +21,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class h extends aa {
     public h(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/downloadPackages");
@@ -30,22 +30,22 @@ public class h extends aa {
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         com.baidu.swan.apps.console.c.i("DownloadPackagesAction", "call DownloadPackagesAction, thread=" + Thread.currentThread().getName());
-        JSONObject b2 = b(unitedSchemeEntity, "params");
-        if (b2 == null) {
+        JSONObject b = b(unitedSchemeEntity, "params");
+        if (b == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "invalid parameter");
             return false;
         }
-        final JSONArray optJSONArray = b2.optJSONArray("appKeys");
-        final JSONObject optJSONObject = b2.optJSONObject("appList");
+        final JSONArray optJSONArray = b.optJSONArray("appKeys");
+        final JSONObject optJSONObject = b.optJSONObject("appList");
         if ((optJSONArray == null || optJSONArray.length() == 0) && optJSONObject == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "appKeys must not empty");
             return false;
         }
-        String optString = b2.optString("netconf");
+        String optString = b.optString("netconf");
         if (TextUtils.isEmpty(optString)) {
             optString = "0";
         }
-        if (!com.baidu.swan.apps.core.a.a.a.mm(optString)) {
+        if (!com.baidu.swan.apps.core.a.a.a.mt(optString)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Network limitation");
             return false;
         }
@@ -67,11 +67,11 @@ public class h extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
             return false;
         } else {
-            eVar.aIW().b(context, "mapp_pre_download", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.h.2
+            eVar.aIZ().b(context, "mapp_pre_download", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.h.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: a */
-                public void L(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
+                public void N(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                     h.this.a(hVar, unitedSchemeEntity, callbackHandler, optJSONArray, a2);
                 }
             });
@@ -138,10 +138,10 @@ public class h extends aa {
                 public void run() {
                     List<String> g = com.baidu.swan.apps.core.pms.d.a.g(arrayList);
                     if (!g.isEmpty()) {
-                        com.baidu.swan.pms.c.d.b bVar = new com.baidu.swan.pms.c.d.b((Collection<String>) g, (com.baidu.swan.pms.utils.a) am.aOu());
-                        bVar.yk(str);
-                        bVar.yj("1");
-                        com.baidu.swan.pms.c.a(bVar, new com.baidu.swan.apps.core.pms.d().gW(5));
+                        com.baidu.swan.pms.c.d.b bVar = new com.baidu.swan.pms.c.d.b((Collection<String>) g, (com.baidu.swan.pms.utils.a) am.aOx());
+                        bVar.yr(str);
+                        bVar.yq("1");
+                        com.baidu.swan.pms.c.a(bVar, new com.baidu.swan.apps.core.pms.d().gX(5));
                     }
                 }
             }, "小程序端能力-批量下载");

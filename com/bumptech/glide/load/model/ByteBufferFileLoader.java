@@ -12,7 +12,7 @@ import com.bumptech.glide.util.ByteBufferUtil;
 import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ByteBufferFileLoader implements ModelLoader<File, ByteBuffer> {
     private static final String TAG = "ByteBufferFileLoader";
 
@@ -28,7 +28,7 @@ public class ByteBufferFileLoader implements ModelLoader<File, ByteBuffer> {
         return true;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class Factory implements ModelLoaderFactory<File, ByteBuffer> {
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
         @NonNull
@@ -42,7 +42,7 @@ public class ByteBufferFileLoader implements ModelLoader<File, ByteBuffer> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class ByteBufferFetcher implements DataFetcher<ByteBuffer> {
         private final File file;
 

@@ -31,7 +31,7 @@ import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFPlayerView extends GLSurfaceView implements GLSurfaceView.Renderer, Choreographer.FrameCallback, SurfaceHolder.Callback {
     private static final int RENDER_DURATION_LIMIT_10 = 100;
     private static final int RENDER_DURATION_LIMIT_15 = 66;
@@ -569,7 +569,7 @@ public class YMFPlayerView extends GLSurfaceView implements GLSurfaceView.Render
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ConfigChooser implements GLSurfaceView.EGLConfigChooser {
         private static final int EGL_OPENGL_ES2_BIT = 4;
         private int mAlphaSize;

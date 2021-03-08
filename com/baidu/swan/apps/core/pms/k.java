@@ -10,14 +10,14 @@ import com.baidu.swan.apps.ao.ae;
 import com.baidu.swan.apps.core.pms.j;
 import java.io.File;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class k<T extends j> extends com.baidu.swan.pms.a.b<com.baidu.swan.pms.model.g> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @NonNull
-    private final T cVm;
+    private final T cWM;
 
     public k(@NonNull T t) {
-        this.cVm = t;
+        this.cWM = t;
     }
 
     public String getAppKey() {
@@ -27,7 +27,7 @@ public class k<T extends j> extends com.baidu.swan.pms.a.b<com.baidu.swan.pms.mo
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.a.c
     /* renamed from: e */
-    public String U(com.baidu.swan.pms.model.g gVar) {
+    public String W(com.baidu.swan.pms.model.g gVar) {
         if (TextUtils.isEmpty(gVar.appId)) {
             gVar.appId = getAppKey();
         }
@@ -45,7 +45,7 @@ public class k<T extends j> extends com.baidu.swan.pms.a.b<com.baidu.swan.pms.mo
     public Bundle a(@NonNull Bundle bundle, Set<String> set) {
         Bundle bundle2 = new Bundle();
         if (set.contains("event_performance_ubc")) {
-            this.cVm.bp(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
+            this.cWM.bp(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
             set.remove("event_performance_ubc");
         }
         return bundle2;
@@ -54,8 +54,8 @@ public class k<T extends j> extends com.baidu.swan.pms.a.b<com.baidu.swan.pms.mo
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
     /* renamed from: c */
-    public void S(com.baidu.swan.pms.model.g gVar) {
-        super.S(gVar);
+    public void U(com.baidu.swan.pms.model.g gVar) {
+        super.U(gVar);
         if (DEBUG) {
             Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadStart " + gVar);
         }
@@ -64,8 +64,8 @@ public class k<T extends j> extends com.baidu.swan.pms.a.b<com.baidu.swan.pms.mo
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
     /* renamed from: f */
-    public final void Q(com.baidu.swan.pms.model.g gVar) {
-        super.Q(gVar);
+    public final void S(com.baidu.swan.pms.model.g gVar) {
+        super.S(gVar);
         a(gVar, g(gVar));
         if (DEBUG) {
             Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadFinish " + gVar);
@@ -82,7 +82,7 @@ public class k<T extends j> extends com.baidu.swan.pms.a.b<com.baidu.swan.pms.mo
     @CallSuper
     public void a(com.baidu.swan.pms.model.g gVar, com.baidu.swan.pms.model.a aVar) {
         super.a((k<T>) gVar, aVar);
-        com.baidu.swan.c.d.yO(gVar.filePath);
+        com.baidu.swan.c.d.yV(gVar.filePath);
         if (DEBUG) {
             Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadError " + gVar + ", error=" + aVar);
         }
@@ -96,10 +96,10 @@ public class k<T extends j> extends com.baidu.swan.pms.a.b<com.baidu.swan.pms.mo
 
     private com.baidu.swan.apps.al.a g(com.baidu.swan.pms.model.g gVar) {
         if (!ae.e(new File(gVar.filePath), gVar.sign)) {
-            return new com.baidu.swan.apps.al.a().db(12L).dd(2300L).tF("分包签名校验失败");
+            return new com.baidu.swan.apps.al.a().db(12L).dd(2300L).tM("分包签名校验失败");
         }
         if (!com.baidu.swan.apps.core.pms.f.b.j(gVar)) {
-            return new com.baidu.swan.apps.al.a().db(12L).dd(2320L).tF("分包解压失败");
+            return new com.baidu.swan.apps.al.a().db(12L).dd(2320L).tM("分包解压失败");
         }
         return null;
     }

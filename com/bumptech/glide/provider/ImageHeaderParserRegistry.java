@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import com.bumptech.glide.load.ImageHeaderParser;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class ImageHeaderParserRegistry {
     private final List<ImageHeaderParser> parsers = new ArrayList();
 

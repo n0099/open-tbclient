@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.message.http;
 
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class TbHttpResponsedMessage extends HttpResponsedMessage {
     public TbHttpResponsedMessage(int i) {
         super(i);

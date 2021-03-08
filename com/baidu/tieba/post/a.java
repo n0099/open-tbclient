@@ -18,57 +18,57 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a implements View.OnClickListener {
-    private static com.baidu.adp.widget.ImageView.a mDm;
-    private static String mDn;
-    public TextView ajY;
-    public TextView fjV;
-    public ImageView fjY;
-    public TextView fkQ;
-    private final LinearLayout kPe;
-    private final LinearLayout lxf;
-    protected final LinearLayout mDj;
-    protected final ColumnLayout mDk;
-    protected final ColumnLayout mDl;
-    private int mDo;
-    public LinearLayout mDp;
-    public HeadImageView mDq;
-    public TextView mDr;
-    private InterfaceC0850a mLI;
+    private static com.baidu.adp.widget.ImageView.a mFq;
+    private static String mFr;
+    public TextView alr;
+    public TextView flu;
+    public ImageView flx;
+    public TextView fmq;
+    private final LinearLayout kRg;
+    private final LinearLayout lzi;
+    protected final LinearLayout mFn;
+    protected final ColumnLayout mFo;
+    protected final ColumnLayout mFp;
+    private int mFs;
+    public LinearLayout mFt;
+    public HeadImageView mFu;
+    public TextView mFv;
+    private InterfaceC0856a mNK;
     private TbPageContext<?> mPageContext;
 
     /* renamed from: com.baidu.tieba.post.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC0850a {
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0856a {
         void dY(View view);
     }
 
     public a(View view, TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.mDp = (LinearLayout) view.findViewById(R.id.top_line);
-        this.mDq = (HeadImageView) view.findViewById(R.id.portrait);
-        this.ajY = (TextView) view.findViewById(R.id.username);
-        this.fjV = (TextView) view.findViewById(R.id.reply_time);
-        this.fkQ = (TextView) view.findViewById(R.id.forum_name);
-        this.mDr = (TextView) view.findViewById(R.id.reply_count);
-        this.lxf = (LinearLayout) view.findViewById(R.id.item_content);
-        this.mDk = (ColumnLayout) view.findViewById(R.id.item_header);
-        this.mDl = (ColumnLayout) view.findViewById(R.id.item_footer);
-        this.kPe = (LinearLayout) view.findViewById(R.id.person_thread);
-        this.mDj = (LinearLayout) view.findViewById(R.id.person_child);
-        this.fjY = (ImageView) view.findViewById(R.id.comment_icon);
-        this.mDo = com.baidu.adp.lib.util.l.dip2px(view.getContext(), 42.0f);
-        if (this.lxf != null) {
-            this.lxf.setOnClickListener(this);
+        this.mFt = (LinearLayout) view.findViewById(R.id.top_line);
+        this.mFu = (HeadImageView) view.findViewById(R.id.portrait);
+        this.alr = (TextView) view.findViewById(R.id.username);
+        this.flu = (TextView) view.findViewById(R.id.reply_time);
+        this.fmq = (TextView) view.findViewById(R.id.forum_name);
+        this.mFv = (TextView) view.findViewById(R.id.reply_count);
+        this.lzi = (LinearLayout) view.findViewById(R.id.item_content);
+        this.mFo = (ColumnLayout) view.findViewById(R.id.item_header);
+        this.mFp = (ColumnLayout) view.findViewById(R.id.item_footer);
+        this.kRg = (LinearLayout) view.findViewById(R.id.person_thread);
+        this.mFn = (LinearLayout) view.findViewById(R.id.person_child);
+        this.flx = (ImageView) view.findViewById(R.id.comment_icon);
+        this.mFs = com.baidu.adp.lib.util.l.dip2px(view.getContext(), 42.0f);
+        if (this.lzi != null) {
+            this.lzi.setOnClickListener(this);
         }
-        this.mDq.setOnClickListener(this);
-        this.ajY.setOnClickListener(this);
-        this.fkQ.setOnClickListener(this);
-        this.mDr.setOnClickListener(this);
-        this.mDk.setOnClickListener(this);
-        this.mDl.setOnClickListener(this);
-        this.mDr.setText(R.string.reply_me);
+        this.mFu.setOnClickListener(this);
+        this.alr.setOnClickListener(this);
+        this.fmq.setOnClickListener(this);
+        this.mFv.setOnClickListener(this);
+        this.mFo.setOnClickListener(this);
+        this.mFp.setOnClickListener(this);
+        this.mFv.setText(R.string.reply_me);
     }
 
     @Override // android.view.View.OnClickListener
@@ -77,13 +77,13 @@ public class a implements View.OnClickListener {
             if (this.mPageContext != null) {
                 this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg((String) view.getTag(), "")));
             }
-        } else if (this.mLI != null) {
-            this.mLI.dY(view);
+        } else if (this.mNK != null) {
+            this.mNK.dY(view);
         }
     }
 
-    public void a(InterfaceC0850a interfaceC0850a) {
-        this.mLI = interfaceC0850a;
+    public void a(InterfaceC0856a interfaceC0856a) {
+        this.mNK = interfaceC0856a;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:15:0x0041 A[ORIG_RETURN, RETURN] */
@@ -146,47 +146,47 @@ public class a implements View.OnClickListener {
             str2 = str6;
         }
         if (str6 == null) {
-            this.ajY.setText(str5);
-            this.fjV.setText(str4);
-            this.fkQ.setText(str3);
-            this.fkQ.setTag(str3);
-            this.mDr.setText(str2);
-            this.mDr.setTag(strArr);
-            this.fkQ.setOnClickListener(this);
+            this.alr.setText(str5);
+            this.flu.setText(str4);
+            this.fmq.setText(str3);
+            this.fmq.setTag(str3);
+            this.mFv.setText(str2);
+            this.mFv.setTag(strArr);
+            this.fmq.setOnClickListener(this);
             if (postInfoList.mBaijiahaoInfo != null && !StringUtils.isNull(postInfoList.mBaijiahaoInfo.avatar)) {
-                QB(postInfoList.mBaijiahaoInfo.avatar);
+                QH(postInfoList.mBaijiahaoInfo.avatar);
             } else {
-                QB(str);
+                QH(str);
             }
-            if (this.lxf != null) {
-                this.lxf.setTag(strArr);
+            if (this.lzi != null) {
+                this.lzi.setTag(strArr);
             }
-            this.mDk.setTag(strArr);
-            this.mDl.setTag(strArr);
+            this.mFo.setTag(strArr);
+            this.mFp.setTag(strArr);
         }
     }
 
-    private void QB(String str) {
-        if (mDn != null && !mDn.equals(str)) {
-            mDm = null;
+    private void QH(String str) {
+        if (mFr != null && !mFr.equals(str)) {
+            mFq = null;
         }
-        if (mDm != null) {
-            this.mDq.setImageBitmap(mDm.getRawBitmap());
-            mDn = str;
+        if (mFq != null) {
+            this.mFu.setImageBitmap(mFq.getRawBitmap());
+            mFr = str;
             return;
         }
-        this.mDq.a(str, 12, this.mDo, this.mDo, false);
+        this.mFu.a(str, 12, this.mFs, this.mFs, false);
     }
 
     public void changeSkin(int i) {
-        ap.setViewTextColor(this.fkQ, R.color.CAM_X0109, 1);
-        ap.setViewTextColor(this.fjV, R.color.CAM_X0109, 1);
-        ap.setViewTextColor(this.ajY, R.color.CAM_X0106, 1);
-        ap.setBackgroundResource(this.kPe, R.color.CAM_X0204);
-        ap.setBackgroundResource(this.mDj, R.color.CAM_X0201);
+        ap.setViewTextColor(this.fmq, R.color.CAM_X0109, 1);
+        ap.setViewTextColor(this.flu, R.color.CAM_X0109, 1);
+        ap.setViewTextColor(this.alr, R.color.CAM_X0106, 1);
+        ap.setBackgroundResource(this.kRg, R.color.CAM_X0204);
+        ap.setBackgroundResource(this.mFn, R.color.CAM_X0201);
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
         }
-        ap.setViewTextColor(this.mDr, R.color.CAM_X0105);
-        WebPManager.a(this.fjY, R.drawable.icon_pure_card_comment22, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+        ap.setViewTextColor(this.mFv, R.color.CAM_X0105);
+        WebPManager.a(this.flx, R.drawable.icon_pure_card_comment22, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
     }
 }

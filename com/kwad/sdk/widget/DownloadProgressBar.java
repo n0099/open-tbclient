@@ -19,10 +19,8 @@ import com.kwad.sdk.utils.ao;
 public class DownloadProgressBar extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    Paint f10840a;
-
-    /* renamed from: b  reason: collision with root package name */
-    Paint f10841b;
+    Paint f7156a;
+    Paint b;
     Paint c;
     private Path d;
     private RectF e;
@@ -55,8 +53,8 @@ public class DownloadProgressBar extends View {
                 }
             }
         };
-        this.f10840a = new Paint(1);
-        this.f10841b = new Paint(1);
+        this.f7156a = new Paint(1);
+        this.b = new Paint(1);
         this.e = new RectF();
         this.c = new Paint(1);
         this.c.setTextSize(ao.a(context, 16.0f));
@@ -77,24 +75,24 @@ public class DownloadProgressBar extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.clipPath(this.d);
-        this.f10840a.setShader(this.i);
-        canvas.drawRect(this.e, this.f10840a);
-        this.f10840a.setShader(this.j);
-        canvas.drawRect(0.0f, 0.0f, (getWidth() * this.g) / 100.0f, getHeight(), this.f10840a);
+        this.f7156a.setShader(this.i);
+        canvas.drawRect(this.e, this.f7156a);
+        this.f7156a.setShader(this.j);
+        canvas.drawRect(0.0f, 0.0f, (getWidth() * this.g) / 100.0f, getHeight(), this.f7156a);
         if (this.g > 0.0f && this.g < 100.0f) {
             long elapsedRealtime = (SystemClock.elapsedRealtime() - this.l) % 2500;
             float f = elapsedRealtime >= 1500 ? 0.0f : ((float) elapsedRealtime) / 1500.0f;
             this.m.reset();
             this.m.setScale(1.0f, f);
             this.k.setLocalMatrix(this.m);
-            this.f10841b.setShader(this.k);
-            canvas.drawRect(0.0f, 0.0f, ((getWidth() * this.g) / 100.0f) * f, getHeight(), this.f10841b);
+            this.b.setShader(this.k);
+            canvas.drawRect(0.0f, 0.0f, ((getWidth() * this.g) / 100.0f) * f, getHeight(), this.b);
             float width = ((getWidth() * this.g) / 100.0f) * ((elapsedRealtime <= 500 || elapsedRealtime > 1500) ? 0.0f : ((float) (elapsedRealtime - 500)) / 1000.0f);
             this.m.reset();
             this.m.setScale(1.0f, f);
             this.k.setLocalMatrix(this.m);
-            this.f10841b.setShader(this.k);
-            canvas.drawRect(0.0f, 0.0f, width, getHeight(), this.f10841b);
+            this.b.setShader(this.k);
+            canvas.drawRect(0.0f, 0.0f, width, getHeight(), this.b);
         }
         if (this.f != null) {
             this.c.getTextBounds(this.f, 0, this.f.length(), this.h);
@@ -107,9 +105,9 @@ public class DownloadProgressBar extends View {
         super.onSizeChanged(i, i2, i3, i4);
         this.i = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{1291525714, 1291569420}, new float[]{0.0f, 1.0f}, Shader.TileMode.CLAMP);
         this.j = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{-319918, -276212}, new float[]{0.0f, 1.0f}, Shader.TileMode.CLAMP);
-        this.f10840a.setShader(this.i);
+        this.f7156a.setShader(this.i);
         this.k = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{16501004, -276212}, new float[]{0.0f, 1.0f}, Shader.TileMode.CLAMP);
-        this.f10841b.setShader(this.k);
+        this.b.setShader(this.k);
         this.e.set(0.0f, 0.0f, i, i2);
         this.d.reset();
         this.d.addRoundRect(this.e, i / 2.0f, i / 2.0f, Path.Direction.CW);

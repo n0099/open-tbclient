@@ -8,24 +8,24 @@ import com.baidu.swan.games.l.a;
 import com.baidu.swan.pms.model.g;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static String mU(String str) {
+    public static String nb(String str) {
         return bC(str, "swan_sub_package_zip");
     }
 
     public static String bA(String str, String str2) {
-        return mU(d.C0446d.bL(str, str2).getPath());
+        return nb(d.C0452d.bL(str, str2).getPath());
     }
 
-    public static String mV(String str) {
+    public static String nc(String str) {
         return bC(str, "swan_sub_package_zip");
     }
 
     public static String bB(String str, String str2) {
-        return mV(a.c.bL(str, str2).getPath());
+        return nc(a.c.bL(str, str2).getPath());
     }
 
     private static String bC(String str, String str2) {
@@ -46,7 +46,7 @@ public class b {
         if (gVar == null || TextUtils.isEmpty(gVar.appId)) {
             return false;
         }
-        return e(new File(gVar.filePath), new File(d.C0446d.bL(gVar.appId, String.valueOf(gVar.versionCode)).getPath(), gVar.pkgName));
+        return e(new File(gVar.filePath), new File(d.C0452d.bL(gVar.appId, String.valueOf(gVar.versionCode)).getPath(), gVar.pkgName));
     }
 
     public static boolean e(File file, File file2) {
@@ -69,7 +69,7 @@ public class b {
         } else {
             a.b y = com.baidu.swan.apps.r.a.a.y(file);
             if (y.type != -1) {
-                unzipFile = com.baidu.swan.apps.r.a.a.a(y.dfc, file2, y.type).isSuccess;
+                unzipFile = com.baidu.swan.apps.r.a.a.a(y.dgD, file2, y.type).isSuccess;
             } else {
                 unzipFile = com.baidu.swan.c.d.unzipFile(file.getAbsolutePath(), file2.getAbsolutePath());
             }
@@ -91,6 +91,6 @@ public class b {
         if (list == null || list.isEmpty()) {
             return false;
         }
-        return list.get(0).euh;
+        return list.get(0).evI;
     }
 }

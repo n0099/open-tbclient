@@ -4,9 +4,7 @@ import android.content.Context;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public class by extends cb {
-
-    /* renamed from: b  reason: collision with root package name */
-    private boolean f5819b;
+    private boolean b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public by(Context context, m mVar, ad adVar) {
@@ -15,13 +13,13 @@ public class by extends cb {
 
     @Override // com.bytedance.embedapplog.cb, com.bytedance.embedapplog.bv
     long b() {
-        return this.f5819b ? Long.MAX_VALUE : 0L;
+        return this.b ? Long.MAX_VALUE : 0L;
     }
 
     @Override // com.bytedance.embedapplog.cb, com.bytedance.embedapplog.bv
     public boolean d() {
         boolean d = super.d();
-        this.f5819b = d;
+        this.b = d;
         return d;
     }
 }

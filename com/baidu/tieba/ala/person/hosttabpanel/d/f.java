@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.live.adp.widget.listview.TypeAdapter;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hosttabpanel.b.e> {
     public f(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -29,13 +29,13 @@ public class f extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
     public void onClick(View view) {
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        public f hWR;
+        public f hYA;
 
         public a(f fVar) {
             super(fVar.getView());
-            this.hWR = fVar;
+            this.hYA = fVar;
         }
     }
 }

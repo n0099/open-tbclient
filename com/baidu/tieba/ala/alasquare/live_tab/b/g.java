@@ -2,19 +2,19 @@ package com.baidu.tieba.ala.alasquare.live_tab.b;
 
 import com.baidu.ala.data.SdkLiveInfoData;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class g {
-    public SdkLiveInfoData gBe;
+    public SdkLiveInfoData gCN;
 
     public void parserJson(JSONObject jSONObject) {
         JSONObject optJSONObject;
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("live_info")) != null) {
-            this.gBe = new SdkLiveInfoData();
-            this.gBe.fromJson(optJSONObject);
+            this.gCN = new SdkLiveInfoData();
+            this.gCN.fromJson(optJSONObject);
         }
     }
 
     public boolean isValid() {
-        return this.gBe != null && ((long) com.baidu.adp.lib.f.b.toInt(this.gBe.liveId, 0)) > 0;
+        return this.gCN != null && ((long) com.baidu.adp.lib.f.b.toInt(this.gCN.liveId, 0)) > 0;
     }
 }

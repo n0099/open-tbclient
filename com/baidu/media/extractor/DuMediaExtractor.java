@@ -15,8 +15,8 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 /* loaded from: classes5.dex */
 public class DuMediaExtractor implements b {
-    private b.a ciA;
-    private a ciB;
+    private b.a cka;
+    private a ckb;
     @Keep
     private long mNativeDuMediaExtractor;
 
@@ -25,16 +25,16 @@ public class DuMediaExtractor implements b {
     public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        private final WeakReference<DuMediaExtractor> f3210a;
+        private final WeakReference<DuMediaExtractor> f2311a;
 
         public a(DuMediaExtractor duMediaExtractor, Looper looper) {
             super(looper);
-            this.f3210a = new WeakReference<>(duMediaExtractor);
+            this.f2311a = new WeakReference<>(duMediaExtractor);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            DuMediaExtractor duMediaExtractor = this.f3210a.get();
+            DuMediaExtractor duMediaExtractor = this.f2311a.get();
             if (duMediaExtractor == null || duMediaExtractor.mNativeDuMediaExtractor == 0) {
                 CyberLog.w("DuMediaExtractor", "IjkMediaPlayer went away with unhandled events");
             } else {
@@ -51,14 +51,14 @@ public class DuMediaExtractor implements b {
     private void c() {
         Looper myLooper = Looper.myLooper();
         if (myLooper != null) {
-            this.ciB = new a(this, myLooper);
+            this.ckb = new a(this, myLooper);
             return;
         }
         Looper mainLooper = Looper.getMainLooper();
         if (mainLooper != null) {
-            this.ciB = new a(this, mainLooper);
+            this.ckb = new a(this, mainLooper);
         } else {
-            this.ciB = null;
+            this.ckb = null;
         }
     }
 
@@ -87,8 +87,8 @@ public class DuMediaExtractor implements b {
     public void a() {
         synchronized (this) {
             nativeRelease();
-            this.ciA = null;
-            this.ciB = null;
+            this.cka = null;
+            this.ckb = null;
             this.mNativeDuMediaExtractor = 0L;
         }
     }

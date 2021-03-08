@@ -15,10 +15,8 @@ import com.kwad.sdk.utils.ag;
 public class g extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f8520a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private TextView f8521b;
+    private ImageView f5684a;
+    private TextView b;
     private View.OnClickListener c;
 
     public g(Context context) {
@@ -27,15 +25,15 @@ public class g extends LinearLayout {
 
     public g(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f8520a = null;
-        this.f8521b = null;
+        this.f5684a = null;
+        this.b = null;
         a();
     }
 
     private void a() {
         LayoutInflater.from(getContext()).inflate(R.layout.ksad_content_alliance_photo_comment_button_2, (ViewGroup) this, true);
-        this.f8520a = (ImageView) findViewById(R.id.ksad_photo_comment_button);
-        b.a(this.f8520a, new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.f.g.1
+        this.f5684a = (ImageView) findViewById(R.id.ksad_photo_comment_button);
+        b.a(this.f5684a, new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.f.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (g.this.c != null) {
@@ -43,11 +41,11 @@ public class g extends LinearLayout {
                 }
             }
         });
-        this.f8521b = (TextView) findViewById(R.id.ksad_photo_comment_count_text);
+        this.b = (TextView) findViewById(R.id.ksad_photo_comment_count_text);
     }
 
     public void setCommentCount(long j) {
-        this.f8521b.setText(ag.a(j, "评论"));
+        this.b.setText(ag.a(j, "评论"));
     }
 
     @Override // android.view.View

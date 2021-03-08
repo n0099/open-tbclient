@@ -10,22 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private a eXI = null;
+    private a eZh = null;
 
     /* loaded from: classes.dex */
     private static final class c {
-        private static final g eXU = new g();
+        private static final g eZt = new g();
     }
 
-    public static g brs() {
-        return c.eXU;
+    public static g brt() {
+        return c.eZt;
     }
 
     public void a(int i, j jVar) {
         if (Build.VERSION.SDK_INT >= 16) {
             try {
-                this.eXI = new a(i, jVar);
-                this.eXI.brt();
+                this.eZh = new a(i, jVar);
+                this.eZh.bru();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -35,12 +35,12 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b implements InvocationHandler {
-        protected a eXI;
-        private final List<Long> eXS = new ArrayList(240);
-        private final List<Integer> eXT = new ArrayList(15);
+        protected a eZh;
+        private final List<Long> eZr = new ArrayList(240);
+        private final List<Integer> eZs = new ArrayList(15);
 
         public b(a aVar) {
-            this.eXI = aVar;
+            this.eZh = aVar;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -63,15 +63,15 @@ public class g {
         }
 
         private void doFrame(long j) {
-            this.eXS.add(Long.valueOf(j));
-            this.eXI.brt();
+            this.eZr.add(Long.valueOf(j));
+            this.eZh.bru();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.eXI = null;
-            this.eXS.clear();
-            this.eXT.clear();
+            this.eZh = null;
+            this.eZr.clear();
+            this.eZs.clear();
         }
     }
 
@@ -79,41 +79,41 @@ public class g {
     /* loaded from: classes.dex */
     public static class a {
         private final int MAX_FRAME_COUNT;
-        private final Class<?> eXJ;
-        private final Object eXK;
-        private final Class<?> eXL;
-        private final Method eXM;
-        private final Object eXN;
-        private final Method eXO;
-        private final b eXP;
-        private final j eXQ;
+        private final Class<?> eZi;
+        private final Object eZj;
+        private final Class<?> eZk;
+        private final Method eZl;
+        private final Object eZm;
+        private final Method eZn;
+        private final b eZo;
+        private final j eZp;
         private int index;
 
         private a(int i, j jVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
             this.index = 0;
-            this.eXL = Class.forName("android.view.Choreographer");
-            this.eXJ = Class.forName("android.view.Choreographer$FrameCallback");
-            this.eXP = new b(this);
-            this.eXK = Proxy.newProxyInstance(this.eXJ.getClassLoader(), new Class[]{this.eXJ}, this.eXP);
-            this.eXM = this.eXL.getMethod("getInstance", new Class[0]);
-            this.eXN = this.eXM.invoke(null, new Object[0]);
-            this.eXO = this.eXL.getMethod("postFrameCallback", this.eXJ);
+            this.eZk = Class.forName("android.view.Choreographer");
+            this.eZi = Class.forName("android.view.Choreographer$FrameCallback");
+            this.eZo = new b(this);
+            this.eZj = Proxy.newProxyInstance(this.eZi.getClassLoader(), new Class[]{this.eZi}, this.eZo);
+            this.eZl = this.eZk.getMethod("getInstance", new Class[0]);
+            this.eZm = this.eZl.invoke(null, new Object[0]);
+            this.eZn = this.eZk.getMethod("postFrameCallback", this.eZi);
             this.MAX_FRAME_COUNT = i <= 0 ? 16 : i;
-            this.eXQ = jVar;
+            this.eZp = jVar;
         }
 
         private void kw() throws InvocationTargetException, IllegalAccessException {
-            this.eXO.invoke(this.eXN, this.eXK);
+            this.eZn.invoke(this.eZm, this.eZj);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void brt() {
+        public void bru() {
             if (this.index >= this.MAX_FRAME_COUNT) {
                 com.baidu.adp.lib.f.e.mA().post(new Runnable() { // from class: com.baidu.tbadk.core.hybrid.g.a.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.eXQ.by(a.this.brv());
-                        a.this.eXP.destroy();
+                        a.this.eZp.by(a.this.brw());
+                        a.this.eZo.destroy();
                         a.this.destroy();
                     }
                 });
@@ -127,25 +127,25 @@ public class g {
             }
         }
 
-        private List<Long> bru() {
-            return this.eXP.eXS;
+        private List<Long> brv() {
+            return this.eZo.eZr;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.eXP.destroy();
+            this.eZo.destroy();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public List<Long> brv() {
+        public List<Long> brw() {
             ArrayList arrayList = new ArrayList(24);
-            List<Long> bru = bru();
-            int size = bru.size();
+            List<Long> brv = brv();
+            int size = brv.size();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < size - 1) {
-                    arrayList.add(Long.valueOf(bru.get(i2 + 1).longValue() - bru.get(i2).longValue()));
+                    arrayList.add(Long.valueOf(brv.get(i2 + 1).longValue() - brv.get(i2).longValue()));
                     i = i2 + 1;
                 } else {
                     return arrayList;

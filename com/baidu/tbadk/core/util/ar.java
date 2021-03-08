@@ -37,7 +37,7 @@ public class ar {
         return this;
     }
 
-    public ar ap(String str, int i) {
+    public ar aq(String str, int i) {
         this.params.add(str);
         this.params.add(Integer.valueOf(i));
         return this;
@@ -67,22 +67,22 @@ public class ar {
         }
     }
 
-    public boolean Bc(String str) {
+    public boolean Bj(String str) {
         int indexOf;
         return !au.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1;
     }
 
-    public ar bsN() {
+    public ar bsQ() {
         ar arVar = new ar(getKey());
         arVar.bz(getParams());
         return arVar;
     }
 
-    public void bsO() {
+    public void bsR() {
         TiebaStatic.log(this);
     }
 
-    public static ar Bd(String str) {
+    public static ar Bk(String str) {
         return new ar(str);
     }
 

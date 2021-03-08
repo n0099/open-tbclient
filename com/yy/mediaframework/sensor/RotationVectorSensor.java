@@ -9,7 +9,7 @@ import android.opengl.Matrix;
 import android.view.WindowManager;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.yy.mediaframework.utils.YMFLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class RotationVectorSensor implements SensorEventListener {
     private static final String RV_SENSOR = "[RotationVectorSensor]";
     private static boolean sIsTruncated = false;

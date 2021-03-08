@@ -1,14 +1,14 @@
 package com.baidu.n.a.c;
 
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class e {
     public static boolean a(String str, File file, boolean z, Object obj) {
-        boolean b2;
+        boolean b;
         synchronized (obj) {
-            b2 = f.b(str, file, z);
+            b = f.b(str, file, z);
         }
-        return b2;
+        return b;
     }
 
     public static String a(File file, Object obj) {

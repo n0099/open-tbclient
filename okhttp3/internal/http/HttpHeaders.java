@@ -21,7 +21,7 @@ import okio.ByteString;
 import org.apache.http.client.methods.HttpHead;
 import org.apache.http.message.BasicHeaderValueFormatter;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class HttpHeaders {
     private static final ByteString QUOTED_STRING_DELIMITERS = ByteString.encodeUtf8(BasicHeaderValueFormatter.UNSAFE_CHARS);
     private static final ByteString TOKEN_DELIMITERS = ByteString.encodeUtf8("\t ,=");
@@ -191,11 +191,11 @@ public final class HttpHeaders {
     private static boolean skipWhitespaceAndCommas(Buffer buffer) {
         boolean z = false;
         while (!buffer.exhausted()) {
-            byte b2 = buffer.getByte(0L);
-            if (b2 == 44) {
+            byte b = buffer.getByte(0L);
+            if (b == 44) {
                 buffer.readByte();
                 z = true;
-            } else if (b2 != 32 && b2 != 9) {
+            } else if (b != 32 && b != 9) {
                 break;
             } else {
                 buffer.readByte();
@@ -204,9 +204,9 @@ public final class HttpHeaders {
         return z;
     }
 
-    private static int skipAll(Buffer buffer, byte b2) {
+    private static int skipAll(Buffer buffer, byte b) {
         int i = 0;
-        while (!buffer.exhausted() && buffer.getByte(0L) == b2) {
+        while (!buffer.exhausted() && buffer.getByte(0L) == b) {
             i++;
             buffer.readByte();
         }

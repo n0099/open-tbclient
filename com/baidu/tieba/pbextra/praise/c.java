@@ -10,11 +10,11 @@ import java.util.List;
 public class c extends BaseAdapter implements AbsListView.OnScrollListener {
     private volatile boolean isScrolling;
     private List<a> mZanItemDataList = null;
-    private PraiseListActivity mrL;
+    private PraiseListActivity mtO;
 
     public c(PraiseListActivity praiseListActivity) {
-        this.mrL = null;
-        this.mrL = praiseListActivity;
+        this.mtO = null;
+        this.mtO = praiseListActivity;
     }
 
     public void fr(List<a> list) {
@@ -31,7 +31,7 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: GH */
+    /* renamed from: GK */
     public a getItem(int i) {
         if (this.mZanItemDataList != null) {
             return this.mZanItemDataList.get(i);
@@ -64,10 +64,10 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
     }
 
     private View g(int i, View view, ViewGroup viewGroup) {
-        b d = b.d(this.mrL.getPageContext().getPageActivity(), view);
+        b c = b.c(this.mtO.getPageContext().getPageActivity(), view);
         a item = getItem(i);
-        d.f(StringUtils.isNull(item.getShowName()) ? item.getUserName() : item.getShowName(), item.getPortrait(), item.dwk(), this.isScrolling);
-        this.mrL.changSkinType(d.getView());
-        return d.getView();
+        c.f(StringUtils.isNull(item.getShowName()) ? item.getUserName() : item.getShowName(), item.getPortrait(), item.dwt(), this.isScrolling);
+        this.mtO.changSkinType(c.getView());
+        return c.getView();
     }
 }

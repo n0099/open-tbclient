@@ -9,10 +9,8 @@ import java.io.File;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f4221a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private C0285b f4222b;
+    private final Context f2921a;
+    private C0291b b;
     private a c;
     private g d;
 
@@ -24,7 +22,7 @@ public class b {
     }
 
     public b(Context context) {
-        this.f4221a = context;
+        this.f2921a = context;
         this.d = new g(context);
     }
 
@@ -39,7 +37,7 @@ public class b {
         }
         String a3 = this.d.a();
         if (!TextUtils.isEmpty(a3)) {
-            File file = new File(b(this.f4221a), a3);
+            File file = new File(b(this.f2921a), a3);
             if (file.exists() && (a2 = a(new File(file, "res"))) != null && a2.length > 0) {
                 return a(a2);
             }
@@ -68,7 +66,7 @@ public class b {
                 String a2 = this.d.a();
                 String e = e(str);
                 if (!TextUtils.isEmpty(a2) && TextUtils.equals(a2, e)) {
-                    File file = new File(b(this.f4221a), a2);
+                    File file = new File(b(this.f2921a), a2);
                     if (file.exists()) {
                         File[] a3 = a(new File(file, "res"));
                         if (a3 != null && a3.length > 0) {
@@ -99,8 +97,8 @@ public class b {
 
     private void d(String str) {
         b();
-        this.f4222b = new C0285b(this.f4221a, str);
-        this.f4222b.start();
+        this.b = new C0291b(this.f2921a, str);
+        this.b.start();
     }
 
     private File[] a(File file) {
@@ -142,9 +140,9 @@ public class b {
     }
 
     public void b() {
-        if (this.f4222b != null) {
-            this.f4222b.a();
-            this.f4222b = null;
+        if (this.b != null) {
+            this.b.a();
+            this.b = null;
         }
     }
 
@@ -158,15 +156,13 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.walknavi.d.a.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0285b extends Thread {
-
-        /* renamed from: b  reason: collision with root package name */
-        private Context f4224b;
+    public class C0291b extends Thread {
+        private Context b;
         private String c;
         private volatile boolean d = false;
 
-        public C0285b(Context context, String str) {
-            this.f4224b = context;
+        public C0291b(Context context, String str) {
+            this.b = context;
             this.c = str;
         }
 
@@ -174,10 +170,10 @@ public class b {
         public void run() {
             super.run();
             h hVar = new h();
-            hVar.f4233b = this.c;
-            hVar.f4232a = b.e(this.c);
-            String str = hVar.f4233b;
-            File file = new File(b.b(this.f4224b), hVar.f4232a);
+            hVar.b = this.c;
+            hVar.f2928a = b.e(this.c);
+            String str = hVar.b;
+            File file = new File(b.b(this.b), hVar.f2928a);
             File file2 = new File(file, "res.zip");
             com.baidu.platform.comapi.walknavi.d.a.d.a.a.a(file2);
             boolean a2 = a(str, file2);

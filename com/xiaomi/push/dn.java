@@ -4,15 +4,15 @@ import android.util.Log;
 import com.xiaomi.push.al;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class dn extends al.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ dm f13952a;
+    final /* synthetic */ dm f8326a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dn(dm dmVar) {
-        this.f13952a = dmVar;
+        this.f8326a = dmVar;
     }
 
     @Override // com.xiaomi.push.al.b
@@ -20,19 +20,19 @@ public class dn extends al.b {
         List list;
         String str;
         String str2;
-        list = dm.f302a;
+        list = dm.f223a;
         if (list.isEmpty()) {
             return;
         }
         try {
             if (aa.d()) {
-                this.f13952a.m255a();
+                this.f8326a.m234a();
             } else {
-                str2 = this.f13952a.f13951b;
+                str2 = this.f8326a.b;
                 Log.w(str2, "SDCard is unavailable.");
             }
         } catch (Exception e) {
-            str = this.f13952a.f13951b;
+            str = this.f8326a.b;
             Log.e(str, "", e);
         }
     }

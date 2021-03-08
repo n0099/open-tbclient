@@ -10,7 +10,7 @@ import com.baidu.tbadk.switchs.IsFullScreenSwitch;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class g {
-    public static boolean brZ() {
+    public static boolean bsa() {
         boolean z = true;
         if (IsFullScreenSwitch.isOn()) {
             String trim = Build.MODEL.trim();
@@ -32,23 +32,23 @@ public class g {
         return false;
     }
 
-    public static boolean bsa() {
+    public static boolean bsb() {
         return au.equals(Build.MODEL.trim(), "ANE-AL00");
     }
 
-    public static boolean bsb() {
+    public static boolean bsc() {
         return au.equals(Build.MODEL.trim(), "vivo X20A");
     }
 
-    public static boolean bsc() {
+    public static boolean bsd() {
         return au.equals(Build.MODEL.trim(), "HMA-AL00");
     }
 
-    public static boolean bsd() {
+    public static boolean bse() {
         return au.equals(Build.MODEL.trim(), "PCLM50");
     }
 
-    public static boolean bse() {
+    public static boolean bsf() {
         return au.equals(Build.MODEL.trim(), "MI 5X");
     }
 
@@ -56,7 +56,7 @@ public class g {
         return RomUtils.MANUFACTURER_XIAOMI.equalsIgnoreCase(Build.MANUFACTURER);
     }
 
-    public static String alG() {
+    public static String alJ() {
         String str = Build.MANUFACTURER;
         if (TextUtils.isEmpty(str)) {
             return "NUL";
@@ -69,7 +69,22 @@ public class g {
         return (!TextUtils.isEmpty(str) && str.contains(RomUtils.MANUFACTURER_HUAWEI)) || RomUtils.MANUFACTURER_HUAWEI.equalsIgnoreCase(Build.MANUFACTURER);
     }
 
-    public static boolean eW(Context context) {
+    public static boolean bsg() {
+        String str = Build.MODEL;
+        return (!TextUtils.isEmpty(str) && str.contains("honor")) || "honor".equalsIgnoreCase(Build.MANUFACTURER);
+    }
+
+    public static int bsh() {
+        if (isHuaWei() || bsg()) {
+            String str = Build.HARDWARE;
+            if (!TextUtils.isEmpty(str) && (str.equalsIgnoreCase("kirin980") || str.equalsIgnoreCase("kirin970") || str.equalsIgnoreCase("kirin960") || str.equalsIgnoreCase("kirin950") || str.equalsIgnoreCase("kirin935") || str.equalsIgnoreCase("kirin930") || str.equalsIgnoreCase("kirin928") || str.equalsIgnoreCase("kirin925") || str.equalsIgnoreCase("kirin920") || str.equalsIgnoreCase("kirin910") || str.equalsIgnoreCase("kirin710") || str.equalsIgnoreCase("kirin659"))) {
+                return 1000;
+            }
+        }
+        return 0;
+    }
+
+    public static boolean eV(Context context) {
         SensorManager sensorManager;
         if (context == null || (sensorManager = (SensorManager) context.getSystemService("sensor")) == null) {
             return false;

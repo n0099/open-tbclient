@@ -9,7 +9,7 @@ import android.util.Log;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     private static final int[] ATTRS = {16843284};
     public static final int HORIZONTAL = 0;

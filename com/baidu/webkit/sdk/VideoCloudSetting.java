@@ -9,7 +9,7 @@ import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class VideoCloudSetting {
     private static final String DEFAULT_ERROR_LOG_CLOSE_ALL = "close_all";
     private static final String DEFAULT_ERROR_LOG_ENABLE_ALL = "enable_all";
@@ -43,7 +43,7 @@ public class VideoCloudSetting {
     public static final String TAG = "VideoCloudSettings";
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public enum MatchedType {
         FAILED,
         AND_NEED_CHECK_NEXT,
@@ -52,7 +52,7 @@ public class VideoCloudSetting {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public static class VideoCloudSettingItem {
         public boolean mIsCloseAll;
         public boolean mIsEnableAll;
@@ -169,7 +169,7 @@ public class VideoCloudSetting {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public static class VideoSettings {
         private SparseArray<VideoCloudSettingItem> mItems = new SparseArray<>();
 

@@ -8,26 +8,20 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class b {
     protected static WeakReference<TbPageContext<?>> mWeakContext = null;
-    protected static boolean eHe = false;
-    protected String eHb = "183322726";
-    protected boolean eHd = true;
-    protected transient List<String> eHc = new ArrayList(5);
+    protected static boolean eIF = false;
+    protected String eIC = "183322726";
+    protected boolean eIE = true;
+    protected transient List<String> eID = new ArrayList(5);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bkf();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bkj();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bkk();
+    public abstract void bkh();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void bkl();
@@ -36,10 +30,16 @@ public abstract class b {
     public abstract void bkm();
 
     /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void bkn();
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void bko();
+
+    /* JADX INFO: Access modifiers changed from: protected */
     public abstract void c(a aVar);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void mK(int i);
+    public abstract void mL(int i);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void removeCallBack();
@@ -64,13 +64,13 @@ public abstract class b {
         mWeakContext = new WeakReference<>(tbPageContext);
     }
 
-    public boolean bki() {
-        return eHe;
+    public boolean bkk() {
+        return eIF;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void jb(boolean z) {
-        this.eHd = z;
+        this.eIE = z;
     }
 
     public void resetContext() {

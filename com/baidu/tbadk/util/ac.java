@@ -19,17 +19,17 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ac {
-    private static Point fNo;
-    private b fNq;
-    private long fNr;
-    private a fNs;
-    private a fNt;
+    private static Point fOO;
+    private b fOQ;
+    private long fOR;
+    private a fOS;
+    private a fOT;
     private Context mContext;
     private final Handler mUiHandler = new Handler(Looper.getMainLooper());
-    private static final String[] fNl = {"_data", "datetaken"};
-    private static final String[] fNm = {"_data", "datetaken", "width", "height"};
-    private static final String[] fNn = {StatisticConstants.SCREENSHOT, "screen_shot", "screen-shot", "screen shot", "screencapture", "screen_capture", "screen-capture", "screen capture", "screencap", "screen_cap", "screen-cap", "screen cap"};
-    private static final List<String> fNp = new ArrayList();
+    private static final String[] fOL = {"_data", "datetaken"};
+    private static final String[] fOM = {"_data", "datetaken", "width", "height"};
+    private static final String[] fON = {StatisticConstants.SCREENSHOT, "screen_shot", "screen-shot", "screen shot", "screencapture", "screen_capture", "screen-capture", "screen capture", "screencap", "screen_cap", "screen-cap", "screen cap"};
+    private static final List<String> fOP = new ArrayList();
 
     /* loaded from: classes.dex */
     public interface b {
@@ -38,10 +38,10 @@ public class ac {
 
     public ac(Context context) {
         this.mContext = context;
-        if (fNo == null) {
-            fNo = bFJ();
-            if (fNo != null) {
-                BdLog.d("ScreenShotListenManager: Screen Real Size: " + fNo.x + " * " + fNo.y);
+        if (fOO == null) {
+            fOO = bFN();
+            if (fOO != null) {
+                BdLog.d("ScreenShotListenManager: Screen Real Size: " + fOO.x + " * " + fOO.y);
             } else {
                 BdLog.d("ScreenShotListenManager: Get screen real size failed.");
             }
@@ -49,62 +49,62 @@ public class ac {
     }
 
     public void startListen() {
-        if (bFK()) {
-            this.fNr = System.currentTimeMillis();
-            this.fNs = new a(MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.mUiHandler);
-            this.fNt = new a(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.mUiHandler);
+        if (bFO()) {
+            this.fOR = System.currentTimeMillis();
+            this.fOS = new a(MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.mUiHandler);
+            this.fOT = new a(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.mUiHandler);
             if (Build.VERSION.SDK_INT >= 29) {
-                this.mContext.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, true, this.fNs);
-                this.mContext.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.fNt);
+                this.mContext.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, true, this.fOS);
+                this.mContext.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.fOT);
                 return;
             }
-            this.mContext.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, false, this.fNs);
-            this.mContext.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, false, this.fNt);
+            this.mContext.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, false, this.fOS);
+            this.mContext.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, false, this.fOT);
         }
     }
 
     public void stopListen() {
-        if (bFK()) {
-            if (this.fNs != null) {
+        if (bFO()) {
+            if (this.fOS != null) {
                 try {
-                    this.mContext.getContentResolver().unregisterContentObserver(this.fNs);
+                    this.mContext.getContentResolver().unregisterContentObserver(this.fOS);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                this.fNs = null;
+                this.fOS = null;
             }
-            if (this.fNt != null) {
+            if (this.fOT != null) {
                 try {
-                    this.mContext.getContentResolver().unregisterContentObserver(this.fNt);
+                    this.mContext.getContentResolver().unregisterContentObserver(this.fOT);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-                this.fNt = null;
+                this.fOT = null;
             }
-            this.fNr = 0L;
-            this.fNq = null;
+            this.fOR = 0L;
+            this.fOQ = null;
         }
     }
 
-    private boolean DP(String str) {
-        if (fNp.contains(str)) {
+    private boolean DW(String str) {
+        if (fOP.contains(str)) {
             BdLog.d("ScreenShotListenManager: ScreenShot: imgPath has done; imagePath = " + str);
             return true;
         }
-        if (fNp.size() >= 20) {
+        if (fOP.size() >= 20) {
             for (int i = 0; i < 5; i++) {
-                fNp.remove(0);
+                fOP.remove(0);
             }
         }
-        fNp.add(str);
+        fOP.add(str);
         return false;
     }
 
-    private Point bFJ() {
+    private Point bFN() {
         Exception e;
         Point point;
         Point point2 = null;
-        if (!bFK() || this.mContext == null) {
+        if (!bFO() || this.mContext == null) {
             return null;
         }
         try {
@@ -144,7 +144,7 @@ public class ac {
         Cursor cursor2 = null;
         try {
             try {
-                Cursor query = this.mContext.getContentResolver().query(uri, Build.VERSION.SDK_INT < 16 ? fNl : fNm, null, null, "date_added desc limit 1");
+                Cursor query = this.mContext.getContentResolver().query(uri, Build.VERSION.SDK_INT < 16 ? fOL : fOM, null, null, "date_added desc limit 1");
                 if (query == null) {
                     if (query == null || query.isClosed()) {
                         return;
@@ -173,9 +173,9 @@ public class ac {
                     String string = query.getString(columnIndex);
                     long j = query.getLong(columnIndex2);
                     if (i2 < 0 || i < 0) {
-                        Point DQ = DQ(string);
-                        i3 = DQ.x;
-                        i4 = DQ.y;
+                        Point DX = DX(string);
+                        i3 = DX.x;
+                        i4 = DX.y;
                     } else {
                         i3 = query.getInt(i2);
                         i4 = query.getInt(i);
@@ -216,7 +216,7 @@ public class ac {
         }
     }
 
-    private Point DQ(String str) {
+    private Point DX(String str) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(str, options);
@@ -226,8 +226,8 @@ public class ac {
     private void a(String str, long j, int i, int i2) {
         if (b(str, j, i, i2)) {
             BdLog.d("ScreenShotListenManager: ScreenShot: path = " + str + "; size = " + i + " * " + i2 + "; date = " + j);
-            if (this.fNq != null && !DP(str)) {
-                this.fNq.onShot(str);
+            if (this.fOQ != null && !DW(str)) {
+                this.fOQ.onShot(str);
                 return;
             }
             return;
@@ -236,12 +236,12 @@ public class ac {
     }
 
     private boolean b(String str, long j, int i, int i2) {
-        if (j < this.fNr || System.currentTimeMillis() - j > 10000) {
+        if (j < this.fOR || System.currentTimeMillis() - j > 10000) {
             return false;
         }
-        if ((fNo == null || ((i <= fNo.x && i2 <= fNo.y) || (i2 <= fNo.x && i <= fNo.y))) && !TextUtils.isEmpty(str)) {
+        if ((fOO == null || ((i <= fOO.x && i2 <= fOO.y) || (i2 <= fOO.x && i <= fOO.y))) && !TextUtils.isEmpty(str)) {
             String lowerCase = str.toLowerCase();
-            for (String str2 : fNn) {
+            for (String str2 : fON) {
                 if (lowerCase.contains(str2)) {
                     return true;
                 }
@@ -251,12 +251,12 @@ public class ac {
         return false;
     }
 
-    private static boolean bFK() {
+    private static boolean bFO() {
         return Looper.myLooper() == Looper.getMainLooper();
     }
 
     public void a(b bVar) {
-        this.fNq = bVar;
+        this.fOQ = bVar;
     }
 
     /* loaded from: classes.dex */

@@ -9,10 +9,8 @@ import org.json.JSONObject;
 public class a implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f9432a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f9433b;
+    public int f6255a;
+    public String b;
     public int d;
     public String e;
     public String f;
@@ -24,8 +22,8 @@ public class a implements com.kwad.sdk.core.b {
     public int j = 1;
 
     public void a(@Nullable JSONObject jSONObject) {
-        this.f9432a = jSONObject.optInt("entryType");
-        this.f9433b = jSONObject.optString("sourceDesc");
+        this.f6255a = jSONObject.optInt("entryType");
+        this.b = jSONObject.optString("sourceDesc");
         this.c = jSONObject.optInt("sourceDescPos", this.c);
         this.e = jSONObject.optString("entryId");
         this.d = jSONObject.optInt("likePos", this.d);
@@ -42,8 +40,8 @@ public class a implements com.kwad.sdk.core.b {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, "entryType", this.f9432a);
-        o.a(jSONObject, "sourceDesc", this.f9433b);
+        o.a(jSONObject, "entryType", this.f6255a);
+        o.a(jSONObject, "sourceDesc", this.b);
         o.a(jSONObject, "sourceDescPos", this.c);
         o.a(jSONObject, "entryId", this.e);
         o.a(jSONObject, "likePos", this.d);

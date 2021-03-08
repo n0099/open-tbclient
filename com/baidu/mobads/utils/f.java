@@ -9,11 +9,11 @@ import android.text.TextUtils;
 import com.baidu.mobads.AppActivity;
 import com.baidu.mobads.interfaces.utils.IXAdActivityUtils;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class f implements IXAdActivityUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Boolean f3490a = null;
+    private static Boolean f2482a = null;
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdActivityUtils
     public Boolean isFullScreen(Activity activity) {
@@ -44,16 +44,16 @@ public class f implements IXAdActivityUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdActivityUtils
     public boolean webviewMultiProcess(Activity activity) {
         List<ResolveInfo> queryIntentActivities;
-        if (f3490a == null && activity != null && (queryIntentActivities = activity.getPackageManager().queryIntentActivities(new Intent(activity, AppActivity.getActivityClass()), 0)) != null && queryIntentActivities.size() > 0) {
+        if (f2482a == null && activity != null && (queryIntentActivities = activity.getPackageManager().queryIntentActivities(new Intent(activity, AppActivity.getActivityClass()), 0)) != null && queryIntentActivities.size() > 0) {
             String str = queryIntentActivities.get(0).activityInfo.processName;
             if (!TextUtils.isEmpty(str) && (str.contains(":") || str.endsWith("webview"))) {
-                f3490a = true;
+                f2482a = true;
             } else {
-                f3490a = false;
+                f2482a = false;
             }
         }
-        if (f3490a != null) {
-            return f3490a.booleanValue();
+        if (f2482a != null) {
+            return f2482a.booleanValue();
         }
         return false;
     }

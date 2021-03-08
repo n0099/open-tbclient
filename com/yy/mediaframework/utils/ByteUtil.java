@@ -1,7 +1,7 @@
 package com.yy.mediaframework.utils;
 
 import java.nio.FloatBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ByteUtil {
     private static final String TAG = "ByteUtil";
 
@@ -11,8 +11,8 @@ public class ByteUtil {
             return "";
         }
         String str = "";
-        for (byte b2 : bArr) {
-            String hexString = Integer.toHexString(b2 & 255);
+        for (byte b : bArr) {
+            String hexString = Integer.toHexString(b & 255);
             if (hexString.length() == 1) {
                 hexString = "0" + hexString;
             }

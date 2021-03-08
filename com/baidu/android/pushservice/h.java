@@ -20,14 +20,12 @@ public final class h {
     private static String[] f = {"sa0.tuisong.baidu.com", "sa1.tuisong.baidu.com", "sa2.tuisong.baidu.com", "sa3.tuisong.baidu.com", "sa4.tuisong.baidu.com", "sa5.tuisong.baidu.com", "sa6.tuisong.baidu.com", "sa7.tuisong.baidu.com", "sa8.tuisong.baidu.com", "sa9.tuisong.baidu.com"};
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1318a = 5287;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static int f1319b = 5288;
+    public static int f1161a = 5287;
+    public static int b = 5288;
     private static boolean g = false;
 
     public static int a(Context context) {
-        return m.o(context) ? f1319b : f1318a;
+        return m.o(context) ? b : f1161a;
     }
 
     public static String a() {
@@ -100,18 +98,18 @@ public final class h {
             if (m.o(context)) {
                 String property3 = properties.getProperty("socket_server_port_v3");
                 if (!TextUtils.isEmpty(property3)) {
-                    f1319b = Integer.parseInt(property3);
+                    b = Integer.parseInt(property3);
                 }
             } else {
                 String property4 = properties.getProperty("socket_server_port");
                 if (!TextUtils.isEmpty(property4)) {
-                    f1318a = Integer.parseInt(property4);
+                    f1161a = Integer.parseInt(property4);
                 }
             }
-            if (f.f1295a == 0) {
+            if (f.f1146a == 0) {
                 String property5 = properties.getProperty(Constants.API_KEY);
                 if (TextUtils.equals(properties.getProperty("pkg_name"), context.getPackageName()) && !TextUtils.isEmpty(property5)) {
-                    f.f1296b = property5;
+                    f.b = property5;
                 }
             }
             g = true;

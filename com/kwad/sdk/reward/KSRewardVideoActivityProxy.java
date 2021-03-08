@@ -90,7 +90,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> {
     };
 
     private boolean initData() {
-        File b2;
+        File b;
         Serializable serializableExtra = this.mContext.getIntent().getSerializableExtra("key_video_play_config");
         if (!(serializableExtra instanceof KsVideoPlayConfig)) {
             com.kwad.sdk.core.d.a.d(TAG, "data is not instanceof VideoPlayConfigImpl:" + serializableExtra);
@@ -104,7 +104,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> {
         this.mAdTemplate = (AdTemplate) serializableExtra2;
         this.mAdInfo = com.kwad.sdk.core.response.b.c.j(this.mAdTemplate);
         String a2 = com.kwad.sdk.core.response.b.a.a(this.mAdInfo);
-        if (com.kwad.sdk.core.config.c.ae() >= 0 || ((b2 = com.kwad.sdk.core.diskcache.b.a.a().b(a2)) != null && b2.exists())) {
+        if (com.kwad.sdk.core.config.c.ae() >= 0 || ((b = com.kwad.sdk.core.diskcache.b.a.a().b(a2)) != null && b.exists())) {
             this.mVideoPlayConfig = (KsVideoPlayConfig) serializableExtra;
             this.mScreenOrientation = this.mVideoPlayConfig.isShowLandscape() ? 1 : 0;
             this.mAdTemplate.mInitVoiceStatus = this.mVideoPlayConfig.isVideoSoundEnable() ? 2 : 1;
@@ -205,7 +205,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> {
     protected a onCreateCallerContext() {
         a aVar = new a();
         aVar.g = this.mContext;
-        aVar.f10527b = this.mAdOpenInteractionListener;
+        aVar.b = this.mAdOpenInteractionListener;
         aVar.e = this.mScreenOrientation;
         aVar.c = this.mVideoPlayConfig;
         aVar.d = this.mReportExtData;
@@ -213,7 +213,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> {
         aVar.f = this.mAdTemplate;
         com.kwad.sdk.reward.c.a aVar2 = new com.kwad.sdk.reward.c.a(this.mAdTemplate, this.mDetailVideoView, this.mVideoPlayConfig);
         aVar.i = aVar2;
-        aVar.f10526a.add(aVar2);
+        aVar.f6935a.add(aVar2);
         if (com.kwad.sdk.core.response.b.a.y(this.mAdInfo)) {
             aVar.j = new com.kwad.sdk.core.download.b.b(this.mAdTemplate, this.mReportExtData);
         }

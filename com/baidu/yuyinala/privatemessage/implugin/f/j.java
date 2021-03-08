@@ -3,26 +3,26 @@ package com.baidu.yuyinala.privatemessage.implugin.f;
 import com.baidu.android.util.io.BaseJsonData;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class j {
     private static JSONObject mData;
     private static String mType;
-    private static String paP;
-    private static int paQ;
-    private static int paR;
-    private static int paS = -1;
+    private static String pcV;
+    private static int pcW;
+    private static int pcX;
+    private static int pcY = -1;
 
-    public static void Yq(String str) {
+    public static void Yx(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            paS = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
-            if (paS == 0) {
+            pcY = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
+            if (pcY == 0) {
                 mData = jSONObject.optJSONObject("data");
                 if (mData != null) {
                     mType = mData.optString("type");
-                    paP = mData.optString("third_id");
-                    paQ = mData.optInt("has_sub");
-                    paR = mData.optInt("notify");
+                    pcV = mData.optString("third_id");
+                    pcW = mData.optInt("has_sub");
+                    pcX = mData.optInt("notify");
                 }
             }
         } catch (JSONException e) {
@@ -30,14 +30,14 @@ public class j {
         }
     }
 
-    private static void Mk() {
+    private static void Mn() {
         if (mData != null) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("type", mType);
-                jSONObject.put("third_id", paP);
-                jSONObject.put("has_sub", "" + paQ);
-                jSONObject.put("notify", "" + paR);
+                jSONObject.put("third_id", pcV);
+                jSONObject.put("has_sub", "" + pcW);
+                jSONObject.put("notify", "" + pcX);
                 mData = jSONObject;
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -46,28 +46,28 @@ public class j {
     }
 
     public static String getType() {
-        return Yr("type") ? mType : "";
+        return Yy("type") ? mType : "";
     }
 
-    public static void AK(boolean z) {
-        paQ = z ? 1 : 0;
-        Mk();
+    public static void AJ(boolean z) {
+        pcW = z ? 1 : 0;
+        Mn();
     }
 
-    public static boolean ejZ() {
-        return Yr("has_sub") && paQ == 1;
+    public static boolean ekj() {
+        return Yy("has_sub") && pcW == 1;
     }
 
-    public static String ejY() {
-        return Yr("third_id") ? paP : "";
+    public static String eki() {
+        return Yy("third_id") ? pcV : "";
     }
 
     public static boolean isNeedNotify() {
-        return Yr("notify") && paR == 1;
+        return Yy("notify") && pcX == 1;
     }
 
     private static boolean isDataValid() {
-        return paS == 0;
+        return pcY == 0;
     }
 
     public static JSONObject getData() {
@@ -77,7 +77,7 @@ public class j {
         return null;
     }
 
-    private static boolean Yr(String str) {
+    private static boolean Yy(String str) {
         return isDataValid() && mData != null && mData.has(str);
     }
 }

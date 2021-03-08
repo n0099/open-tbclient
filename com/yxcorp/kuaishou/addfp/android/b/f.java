@@ -10,19 +10,19 @@ public final class f {
     private final Class c;
     private String[] e;
     private String[] f;
-    public h qmB;
-    public i qmC;
+    public h qnd;
+    public i qne;
 
     private f() {
         this.e = null;
         this.f = null;
         this.c = b();
-        this.qmB = new h(this);
-        this.qmC = new i(this);
+        this.qnd = new h(this);
+        this.qne = new i(this);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ f(byte b2) {
+    public /* synthetic */ f(byte b) {
         this();
     }
 
@@ -93,10 +93,10 @@ public final class f {
         }
     }
 
-    public static f jh(Context context) {
+    public static f jb(Context context) {
         f fVar;
         d = context;
-        fVar = g.qmD;
+        fVar = g.qnf;
         return fVar;
     }
 }

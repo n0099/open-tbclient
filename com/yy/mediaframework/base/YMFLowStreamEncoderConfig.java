@@ -1,5 +1,5 @@
 package com.yy.mediaframework.base;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class YMFLowStreamEncoderConfig {
     public int mCodeRate;
     public int mConfigId;

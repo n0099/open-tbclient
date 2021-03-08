@@ -10,8 +10,8 @@ final class BarcodeRow {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void set(int i, byte b2) {
-        this.row[i] = b2;
+    public void set(int i, byte b) {
+        this.row[i] = b;
     }
 
     private void set(int i, boolean z) {

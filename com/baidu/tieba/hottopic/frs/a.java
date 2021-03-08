@@ -10,15 +10,15 @@ import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.tieba.card.x;
 import com.baidu.tieba.card.y;
 import com.baidu.tieba.frs.k;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends k<cb, CardViewHolder<x>> implements y {
-    private ab<cb> gCz;
+    private ab<cb> gEi;
     private String mFrom;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.gCz = new ab<cb>() { // from class: com.baidu.tieba.hottopic.frs.a.1
+        this.gEi = new ab<cb>() { // from class: com.baidu.tieba.hottopic.frs.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, cb cbVar, Object obj) {
@@ -37,7 +37,7 @@ public class a extends k<cb, CardViewHolder<x>> implements y {
     }
 
     @Override // com.baidu.tieba.card.y
-    public String csD() {
+    public String csJ() {
         return "FrsHottopicVideoDelegateAdapter";
     }
 
@@ -53,11 +53,11 @@ public class a extends k<cb, CardViewHolder<x>> implements y {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, cb cbVar, CardViewHolder<x> cardViewHolder) {
-        if (cardViewHolder == null || cardViewHolder.cti() == null) {
+        if (cardViewHolder == null || cardViewHolder.cto() == null) {
             return null;
         }
-        cardViewHolder.cti().c(this.gCz);
-        cardViewHolder.cti().a(cbVar);
+        cardViewHolder.cto().c(this.gEi);
+        cardViewHolder.cto().a(cbVar);
         return cardViewHolder.getView();
     }
 

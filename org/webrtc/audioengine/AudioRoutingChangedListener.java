@@ -5,7 +5,7 @@ import android.media.AudioDeviceInfo;
 import android.media.AudioRouting;
 import com.baidu.android.util.devices.RomUtils;
 @TargetApi(24)
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AudioRoutingChangedListener implements AudioRouting.OnRoutingChangedListener {
     private static final String TAG = "[AudioRoutingChangedListener]";
 

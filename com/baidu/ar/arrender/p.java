@@ -2,7 +2,7 @@ package com.baidu.ar.arrender;
 
 import android.view.Surface;
 import com.baidu.ar.DuMixOutput;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 class p {
     private DuMixOutput W;
     private Surface gx;

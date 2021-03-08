@@ -47,15 +47,13 @@ import org.json.JSONObject;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final File f9662a = new File("/proc/self/fd");
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final File f9663b = new File("/proc/self/task");
+    private static final File f6396a = new File("/proc/self/fd");
+    private static final File b = new File("/proc/self/task");
 
     private static int a() {
         File[] listFiles;
-        Objects.requireNonNull(f9662a);
-        if (f9662a.exists() && f9662a.isDirectory() && (listFiles = f9662a.listFiles()) != null) {
+        Objects.requireNonNull(f6396a);
+        if (f6396a.exists() && f6396a.isDirectory() && (listFiles = f6396a.listFiles()) != null) {
             return listFiles.length;
         }
         return 0;
@@ -203,12 +201,12 @@ public final class f {
     private static void a(ExceptionMessage exceptionMessage, MemoryInfo memoryInfo, @Nullable Context context) {
         SystemUtil.a c = SystemUtil.c();
         c.e = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-        c.f9658a = SystemUtil.a();
+        c.f6393a = SystemUtil.a();
         c.d = Debug.getPss();
-        memoryInfo.mTotalMB = (int) (c.f9658a / 1048576);
-        memoryInfo.mJavaHeapLimitMB = (int) (com.kwad.sdk.crash.c.f9629a / 1048576.0d);
+        memoryInfo.mTotalMB = (int) (c.f6393a / 1048576);
+        memoryInfo.mJavaHeapLimitMB = (int) (com.kwad.sdk.crash.c.f6375a / 1048576.0d);
         memoryInfo.mJavaHeapMB = (int) (c.e / 1048576);
-        memoryInfo.mVssMB = (int) (c.f9659b / 1024);
+        memoryInfo.mVssMB = (int) (c.b / 1024);
         memoryInfo.mRssMB = (int) (c.c / 1024);
         memoryInfo.mPssMB = (int) (c.d / 1024);
         memoryInfo.mThreadsCount = c.f;
@@ -220,7 +218,7 @@ public final class f {
         if (memoryInfo.mFdCount > 800) {
             exceptionMessage.mCrashType = exceptionMessage.getTypeFdOOM();
             exceptionMessage.mFdOverflow = "True";
-            File[] listFiles = f9662a.listFiles();
+            File[] listFiles = f6396a.listFiles();
             if (listFiles != null && listFiles.length > 0) {
                 for (File file : listFiles) {
                     try {
@@ -254,7 +252,7 @@ public final class f {
     }
 
     private static void a(MemoryInfo memoryInfo) {
-        File[] listFiles = f9663b.listFiles();
+        File[] listFiles = b.listFiles();
         if (listFiles == null) {
             return;
         }
@@ -441,7 +439,7 @@ public final class f {
             com.kwad.sdk.core.d.a.b(e);
             absolutePath = parentFile.getAbsolutePath();
         }
-        if (com.kwad.sdk.crash.c.f9630b.matcher(absolutePath).matches() || com.kwad.sdk.crash.c.c.matcher(absolutePath).matches()) {
+        if (com.kwad.sdk.crash.c.b.matcher(absolutePath).matches() || com.kwad.sdk.crash.c.c.matcher(absolutePath).matches()) {
             exceptionMessage.mVirtualApp = context.getPackageName();
             return;
         }

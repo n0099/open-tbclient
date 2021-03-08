@@ -19,17 +19,17 @@ import java.util.TreeSet;
 public class c implements com.bytedance.sdk.adnet.e.c {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static final boolean f6021a = r.f6048a;
-    protected final com.bytedance.sdk.adnet.e.a pvv;
-    protected final d pvw;
+    protected static final boolean f4035a = q.f4050a;
+    protected final com.bytedance.sdk.adnet.e.a pxA;
+    protected final d pxB;
 
     public c(com.bytedance.sdk.adnet.e.a aVar) {
         this(aVar, new d(4096));
     }
 
     public c(com.bytedance.sdk.adnet.e.a aVar, d dVar) {
-        this.pvv = aVar;
-        this.pvw = dVar;
+        this.pxA = aVar;
+        this.pxB = dVar;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [177=6, 178=6, 179=6, 182=5] */
@@ -38,7 +38,7 @@ public class c implements com.bytedance.sdk.adnet.e.c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public l c(Request<?> request) throws VAdError {
+    public k c(Request<?> request) throws VAdError {
         b bVar;
         byte[] bArr;
         while (true) {
@@ -46,15 +46,15 @@ public class c implements com.bytedance.sdk.adnet.e.c {
             b bVar2 = null;
             List<a> emptyList = Collections.emptyList();
             try {
-                bVar = this.pvv.a(request, a(request.getCacheEntry()));
+                bVar = this.pxA.a(request, a(request.getCacheEntry()));
                 try {
                     try {
                         int statusCode = bVar.getStatusCode();
-                        emptyList = bVar.eqT();
+                        emptyList = bVar.erb();
                         if (statusCode == 304) {
                             b.a cacheEntry = request.getCacheEntry();
                             if (cacheEntry != null) {
-                                l lVar = new l(304, cacheEntry.f6064b, true, SystemClock.elapsedRealtime() - elapsedRealtime, a(emptyList, cacheEntry));
+                                k kVar = new k(304, cacheEntry.b, true, SystemClock.elapsedRealtime() - elapsedRealtime, a(emptyList, cacheEntry));
                                 if (bVar != null) {
                                     try {
                                         if (bVar.getContent() != null) {
@@ -63,21 +63,21 @@ public class c implements com.bytedance.sdk.adnet.e.c {
                                     } catch (Throwable th) {
                                     }
                                 }
-                                return lVar;
+                                return kVar;
                             }
-                            l lVar2 = new l(304, (byte[]) null, true, SystemClock.elapsedRealtime() - elapsedRealtime, emptyList);
+                            k kVar2 = new k(304, (byte[]) null, true, SystemClock.elapsedRealtime() - elapsedRealtime, emptyList);
                             if (bVar != null) {
                                 try {
                                     if (bVar.getContent() != null) {
                                         bVar.getContent().close();
-                                        return lVar2;
+                                        return kVar2;
                                     }
-                                    return lVar2;
+                                    return kVar2;
                                 } catch (Throwable th2) {
-                                    return lVar2;
+                                    return kVar2;
                                 }
                             }
-                            return lVar2;
+                            return kVar2;
                         }
                         byte[] a2 = a(request, bVar);
                         try {
@@ -85,19 +85,19 @@ public class c implements com.bytedance.sdk.adnet.e.c {
                             if (statusCode < 200 || statusCode > 299) {
                                 throw new IOException();
                             }
-                            l lVar3 = new l(statusCode, a2, false, SystemClock.elapsedRealtime() - elapsedRealtime, emptyList);
+                            k kVar3 = new k(statusCode, a2, false, SystemClock.elapsedRealtime() - elapsedRealtime, emptyList);
                             if (bVar != null) {
                                 try {
                                     if (bVar.getContent() != null) {
                                         bVar.getContent().close();
-                                        return lVar3;
+                                        return kVar3;
                                     }
-                                    return lVar3;
+                                    return kVar3;
                                 } catch (Throwable th3) {
-                                    return lVar3;
+                                    return kVar3;
                                 }
                             }
-                            return lVar3;
+                            return kVar3;
                         } catch (IOException e) {
                             e = e;
                             bArr = a2;
@@ -106,21 +106,21 @@ public class c implements com.bytedance.sdk.adnet.e.c {
                             }
                             try {
                                 int statusCode2 = bVar.getStatusCode();
-                                r.c("Unexpected response code %d for %s", Integer.valueOf(statusCode2), request.getUrl());
+                                q.c("Unexpected response code %d for %s", Integer.valueOf(statusCode2), request.getUrl());
                                 if (bArr != null) {
-                                    l lVar4 = new l(statusCode2, bArr, false, SystemClock.elapsedRealtime() - elapsedRealtime, emptyList);
+                                    k kVar4 = new k(statusCode2, bArr, false, SystemClock.elapsedRealtime() - elapsedRealtime, emptyList);
                                     if (statusCode2 == 401 || statusCode2 == 403) {
-                                        a(AuthorBox.TYPE, request, new com.bytedance.sdk.adnet.err.a(lVar4));
+                                        a(AuthorBox.TYPE, request, new com.bytedance.sdk.adnet.err.a(kVar4));
                                     } else if (statusCode2 >= 400 && statusCode2 <= 499) {
-                                        throw new com.bytedance.sdk.adnet.err.b(lVar4);
+                                        throw new com.bytedance.sdk.adnet.err.b(kVar4);
                                     } else {
                                         if (statusCode2 < 500 || statusCode2 > 599) {
-                                            throw new com.bytedance.sdk.adnet.err.f(lVar4);
+                                            throw new com.bytedance.sdk.adnet.err.f(kVar4);
                                         }
                                         if (!request.shouldRetryServerErrors()) {
-                                            throw new com.bytedance.sdk.adnet.err.f(lVar4);
+                                            throw new com.bytedance.sdk.adnet.err.f(kVar4);
                                         }
-                                        a("server", request, new com.bytedance.sdk.adnet.err.f(lVar4));
+                                        a("server", request, new com.bytedance.sdk.adnet.err.f(kVar4));
                                     }
                                 } else {
                                     a("network", request, new com.bytedance.sdk.adnet.err.c());
@@ -191,14 +191,14 @@ public class c implements com.bytedance.sdk.adnet.e.c {
     }
 
     private void a(long j, Request<?> request, byte[] bArr, int i) {
-        if (f6021a || j > IMConnection.RETRY_DELAY_TIMES) {
+        if (f4035a || j > IMConnection.RETRY_DELAY_TIMES) {
             Object[] objArr = new Object[5];
             objArr[0] = request;
             objArr[1] = Long.valueOf(j);
             objArr[2] = bArr != null ? Integer.valueOf(bArr.length) : "null";
             objArr[3] = Integer.valueOf(i);
             objArr[4] = Integer.valueOf(request.getRetryPolicy().b());
-            r.b("HTTP response for request=<%s> [lifetime=%d], [size=%s], [rc=%d], [retryCount=%s]", objArr);
+            q.b("HTTP response for request=<%s> [lifetime=%d], [size=%s], [rc=%d], [retryCount=%s]", objArr);
         }
     }
 
@@ -223,7 +223,7 @@ public class c implements com.bytedance.sdk.adnet.e.c {
             hashMap.put("If-None-Match", aVar.c);
         }
         if (aVar.e > 0) {
-            hashMap.put("If-Modified-Since", com.bytedance.sdk.adnet.d.c.a(aVar.e));
+            hashMap.put("If-Modified-Since", com.bytedance.sdk.adnet.d.b.a(aVar.e));
             return hashMap;
         }
         return hashMap;
@@ -241,12 +241,12 @@ public class c implements com.bytedance.sdk.adnet.e.c {
     }
 
     private byte[] a(InputStream inputStream, int i) throws IOException, com.bytedance.sdk.adnet.err.f {
-        e eVar = new e(this.pvw, i);
+        e eVar = new e(this.pxB, i);
         try {
             if (inputStream == null) {
                 throw new com.bytedance.sdk.adnet.err.f();
             }
-            byte[] a2 = this.pvw.a(1024);
+            byte[] a2 = this.pxB.a(1024);
             while (true) {
                 int read = inputStream.read(a2);
                 if (read == -1) {
@@ -259,10 +259,10 @@ public class c implements com.bytedance.sdk.adnet.e.c {
                 try {
                     inputStream.close();
                 } catch (IOException e) {
-                    r.a("Error occurred when closing InputStream", new Object[0]);
+                    q.a("Error occurred when closing InputStream", new Object[0]);
                 }
             }
-            this.pvw.a(a2);
+            this.pxB.a(a2);
             eVar.close();
             return byteArray;
         } catch (Throwable th) {
@@ -270,10 +270,10 @@ public class c implements com.bytedance.sdk.adnet.e.c {
                 try {
                     inputStream.close();
                 } catch (IOException e2) {
-                    r.a("Error occurred when closing InputStream", new Object[0]);
+                    q.a("Error occurred when closing InputStream", new Object[0]);
                 }
             }
-            this.pvw.a((byte[]) null);
+            this.pxB.a((byte[]) null);
             eVar.close();
             throw th;
         }

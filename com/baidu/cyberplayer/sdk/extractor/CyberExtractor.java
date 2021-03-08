@@ -16,57 +16,57 @@ public class CyberExtractor {
     public static final String OPT_KEY_PREPARE_TIME_OUT = "prepare_time_out";
 
     /* renamed from: a  reason: collision with root package name */
-    private ExtractorProvider f1760a;
+    private ExtractorProvider f1420a;
 
     public CyberExtractor() {
         this(true);
     }
 
     public CyberExtractor(boolean z) {
-        this.f1760a = a.a().a(z);
+        this.f1420a = a.a().a(z);
     }
 
     public Bundle getMetaData() {
-        if (this.f1760a != null) {
-            return this.f1760a.getMediaMeta();
+        if (this.f1420a != null) {
+            return this.f1420a.getMediaMeta();
         }
         return null;
     }
 
     public void release() {
-        if (this.f1760a != null) {
-            this.f1760a.release();
-            this.f1760a = null;
+        if (this.f1420a != null) {
+            this.f1420a.release();
+            this.f1420a = null;
         }
     }
 
     public void setDataSource(Context context, Uri uri) {
-        if (this.f1760a != null) {
-            this.f1760a.setDataSource(context, uri);
+        if (this.f1420a != null) {
+            this.f1420a.setDataSource(context, uri);
         }
     }
 
     public void setDataSource(Context context, Uri uri, Map<String, String> map) {
-        if (this.f1760a != null) {
-            this.f1760a.setDataSource(context, uri, map);
+        if (this.f1420a != null) {
+            this.f1420a.setDataSource(context, uri, map);
         }
     }
 
     public void setDataSource(FileDescriptor fileDescriptor) {
-        if (this.f1760a != null) {
-            this.f1760a.setDataSource(fileDescriptor);
+        if (this.f1420a != null) {
+            this.f1420a.setDataSource(fileDescriptor);
         }
     }
 
     public void setDataSource(String str) {
-        if (this.f1760a != null) {
-            this.f1760a.setDataSource(str);
+        if (this.f1420a != null) {
+            this.f1420a.setDataSource(str);
         }
     }
 
     public void setOption(int i, String str, long j) {
-        if (this.f1760a != null) {
-            this.f1760a.setOption(i, str, j);
+        if (this.f1420a != null) {
+            this.f1420a.setOption(i, str, j);
         }
     }
 }

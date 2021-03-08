@@ -10,9 +10,7 @@ import com.baidu.mapapi.map.WeightedLatLng;
 public class c extends a implements Choreographer.FrameCallback {
     @Nullable
     private com.ksad.lottie.d i;
-
-    /* renamed from: b  reason: collision with root package name */
-    private float f7988b = 1.0f;
+    private float b = 1.0f;
     private boolean c = false;
     private long d = 0;
     private float e = 0.0f;
@@ -22,13 +20,13 @@ public class c extends a implements Choreographer.FrameCallback {
     @VisibleForTesting
 
     /* renamed from: a  reason: collision with root package name */
-    protected boolean f7987a = false;
+    protected boolean f5341a = false;
 
     private float o() {
         if (this.i == null) {
             return Float.MAX_VALUE;
         }
-        return (1.0E9f / this.i.f()) / Math.abs(this.f7988b);
+        return (1.0E9f / this.i.f()) / Math.abs(this.b);
     }
 
     private boolean p() {
@@ -45,7 +43,7 @@ public class c extends a implements Choreographer.FrameCallback {
     }
 
     public void a(float f) {
-        this.f7988b = f;
+        this.b = f;
     }
 
     public void a(int i) {
@@ -89,7 +87,7 @@ public class c extends a implements Choreographer.FrameCallback {
     protected void c(boolean z) {
         Choreographer.getInstance().removeFrameCallback(this);
         if (z) {
-            this.f7987a = false;
+            this.f5341a = false;
         }
     }
 
@@ -182,12 +180,12 @@ public class c extends a implements Choreographer.FrameCallback {
     }
 
     public float h() {
-        return this.f7988b;
+        return this.b;
     }
 
     @MainThread
     public void i() {
-        this.f7987a = true;
+        this.f5341a = true;
         a(p());
         a((int) (p() ? l() : k()));
         this.d = System.nanoTime();
@@ -197,7 +195,7 @@ public class c extends a implements Choreographer.FrameCallback {
 
     @Override // android.animation.ValueAnimator, android.animation.Animator
     public boolean isRunning() {
-        return this.f7987a;
+        return this.f5341a;
     }
 
     @MainThread

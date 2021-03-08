@@ -17,11 +17,11 @@ import java.io.FileInputStream;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SimpleDateFormat f1598a = null;
+    private static SimpleDateFormat f1322a = null;
 
     /* JADX WARN: Removed duplicated region for block: B:36:0x0044 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
@@ -83,8 +83,8 @@ public final class b {
 
     private static String a(byte[] bArr, String str) {
         StringBuilder sb = new StringBuilder();
-        for (byte b2 : bArr) {
-            String hexString = Integer.toHexString(b2 & 255);
+        for (byte b : bArr) {
+            String hexString = Integer.toHexString(b & 255);
             if (hexString.length() == 1) {
                 sb.append("0");
             }

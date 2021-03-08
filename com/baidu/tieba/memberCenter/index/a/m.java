@@ -5,54 +5,54 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import tbclient.GetVipInfo.DataRes;
 import tbclient.GetVipInfo.VipBasicList;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class m {
-    public com.baidu.tieba.memberCenter.index.adapter.a lnA;
-    public g lnB;
-    public LinkedHashMap<String, c> lnC;
-    private ArrayList<String> lnp;
-    private String lnq;
-    private String lnr;
-    public l lns;
-    public n lnt;
-    public e lnu;
-    public i lnv;
-    public a lnw;
-    public q lnx;
-    public p lny;
-    public k lnz;
+    public e lpA;
+    public i lpB;
+    public a lpC;
+    public q lpD;
+    public p lpE;
+    public k lpF;
+    public com.baidu.tieba.memberCenter.index.adapter.a lpG;
+    public g lpH;
+    public LinkedHashMap<String, c> lpI;
+    private ArrayList<String> lpv;
+    private String lpw;
+    private String lpx;
+    public l lpy;
+    public n lpz;
 
     public m(DataRes dataRes) {
         if (dataRes != null) {
-            this.lnq = dataRes.grade_intro_title;
-            this.lnr = dataRes.grade_intro_link;
-            this.lns = new l(dataRes);
-            this.lnt = new n(dataRes.special_list);
-            this.lnu = new e(dataRes.cooperate_list);
-            this.lnv = new i(dataRes.theme_list);
-            this.lnw = new a(dataRes.banner_list);
-            this.lnx = new q(dataRes.task_list);
-            this.lny = new p(dataRes.rank, dataRes.user);
-            this.lnB = new g(dataRes.daily_list);
-            this.lnA = new com.baidu.tieba.memberCenter.index.adapter.a();
-            this.lnA.a(dataRes);
-            this.lnz = new k();
+            this.lpw = dataRes.grade_intro_title;
+            this.lpx = dataRes.grade_intro_link;
+            this.lpy = new l(dataRes);
+            this.lpz = new n(dataRes.special_list);
+            this.lpA = new e(dataRes.cooperate_list);
+            this.lpB = new i(dataRes.theme_list);
+            this.lpC = new a(dataRes.banner_list);
+            this.lpD = new q(dataRes.task_list);
+            this.lpE = new p(dataRes.rank, dataRes.user);
+            this.lpH = new g(dataRes.daily_list);
+            this.lpG = new com.baidu.tieba.memberCenter.index.adapter.a();
+            this.lpG.a(dataRes);
+            this.lpF = new k();
             if (dataRes.basic_list != null && dataRes.basic_list.size() > 0) {
-                this.lnC = new LinkedHashMap<>();
+                this.lpI = new LinkedHashMap<>();
                 for (VipBasicList vipBasicList : dataRes.basic_list) {
                     if (vipBasicList.item != null && vipBasicList.item.size() > 0) {
                         c cVar = new c(vipBasicList);
-                        if (cVar.type != 3 || cVar.dfj().size() >= 2) {
-                            this.lnC.put(cVar.cardId, cVar);
+                        if (cVar.type != 3 || cVar.dfs().size() >= 2) {
+                            this.lpI.put(cVar.cardId, cVar);
                         }
                     }
                 }
             }
             if (dataRes.card_order != null && dataRes.card_order.size() > 0) {
-                this.lnp = new ArrayList<>();
+                this.lpv = new ArrayList<>();
                 for (String str : dataRes.card_order) {
                     if (!StringUtils.isNull(str)) {
-                        this.lnp.add(str);
+                        this.lpv.add(str);
                     }
                 }
             }

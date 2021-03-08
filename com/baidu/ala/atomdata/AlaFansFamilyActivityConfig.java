@@ -2,7 +2,7 @@ package com.baidu.ala.atomdata;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaFansFamilyActivityConfig extends IntentConfig {
     public static final String AUTHOR_LIVE_USER_ID = "author_live_user_id";
     public static final String FROM_LIVE_ROOM = "from_live_room";

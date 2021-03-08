@@ -16,10 +16,8 @@ import java.io.RandomAccessFile;
 public class f extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    LLSInterface f2644a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    LLSInterface f2645b = null;
+    LLSInterface f1975a = null;
+    LLSInterface b = null;
     LLSInterface c = null;
     public static String replaceFileName = "repll.jar";
     public static Context mC = null;
@@ -72,7 +70,7 @@ public class f extends Service {
     public void onCreate() {
         mC = getApplicationContext();
         System.currentTimeMillis();
-        this.f2645b = new com.baidu.location.c.a();
+        this.b = new com.baidu.location.c.a();
         try {
             File file = new File(j.h() + File.separator + replaceFileName);
             File file2 = new File(j.h() + File.separator + "app.jar");
@@ -83,17 +81,17 @@ public class f extends Service {
                 file.renameTo(file2);
             }
             if (file2.exists() && a(new File(j.h() + File.separator + "app.jar"))) {
-                this.f2644a = (LLSInterface) new DexClassLoader(j.h() + File.separator + "app.jar", j.h(), null, getClassLoader()).loadClass("com.baidu.serverLoc.LocationService").newInstance();
+                this.f1975a = (LLSInterface) new DexClassLoader(j.h() + File.separator + "app.jar", j.h(), null, getClassLoader()).loadClass("com.baidu.serverLoc.LocationService").newInstance();
             }
         } catch (Exception e) {
-            this.f2644a = null;
+            this.f1975a = null;
         }
-        if (this.f2644a == null || this.f2644a.getVersion() < this.f2645b.getVersion()) {
-            this.c = this.f2645b;
-            this.f2644a = null;
+        if (this.f1975a == null || this.f1975a.getVersion() < this.b.getVersion()) {
+            this.c = this.b;
+            this.f1975a = null;
         } else {
-            this.c = this.f2644a;
-            this.f2645b = null;
+            this.c = this.f1975a;
+            this.b = null;
         }
         isServing = true;
         this.c.onCreate(this);

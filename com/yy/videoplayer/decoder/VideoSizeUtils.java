@@ -3,7 +3,7 @@ package com.yy.videoplayer.decoder;
 import com.yy.videoplayer.Constant;
 import com.yy.videoplayer.decoder.VideoConstant;
 import com.yy.videoplayer.utils.YMFLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoSizeUtils {
     public static Size CalcFitSize(int i, int i2, int i3, int i4, VideoConstant.ScaleMode scaleMode) {
         YMFLog.info(null, Constant.MEDIACODE_PLAYVIEW, "CalcFitSize video frame size:" + i + "*" + i2 + ", view:" + i3 + "*" + i4 + " mode:" + scaleMode);
@@ -68,7 +68,7 @@ public class VideoSizeUtils {
         return size;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class Size {
         public int height;
         public int width;

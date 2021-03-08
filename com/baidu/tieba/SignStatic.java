@@ -32,7 +32,7 @@ import com.baidu.tieba.signall.SignAllForumAdvertActivity;
 import com.baidu.tieba.supplementSign.SupplementSignActivity;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SignStatic {
     public static String Tag = "tag";
 
@@ -40,7 +40,7 @@ public class SignStatic {
         TbadkCoreApplication.getInst().RegisterIntent(SupplementSignActivityConfig.class, SupplementSignActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumActivityConfig.class, SignAllForumActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumAdvertActivityConfig.class, SignAllForumAdvertActivity.class);
-        bKH();
+        bKL();
         registerTask();
     }
 
@@ -73,11 +73,11 @@ public class SignStatic {
                         aaVar.addPostData("activity_id", TbSingleton.getInstance().getActivityId());
                     }
                     SignStatic.a(aaVar);
-                    aaVar.bsr().bta().mIsNeedTbs = true;
+                    aaVar.bsu().btd().mIsNeedTbs = true;
                     aaVar.jL(true);
                     String postNetData = aaVar.postNetData();
                     if (aaVar.isNetSuccess()) {
-                        if (aaVar.bsr().btb().isRequestSuccess()) {
+                        if (aaVar.bsu().bte().isRequestSuccess()) {
                             signData = new SignData();
                             signData.parserJson(postNetData);
                             signData.forumId = id;
@@ -85,7 +85,7 @@ public class SignStatic {
                         } else if (!au.isEmpty(postNetData)) {
                             JSONObject jSONObject = new JSONObject(postNetData);
                             signMessage.parserJson(aaVar, jSONObject);
-                            if (AntiHelper.JN(aaVar.getServerErrorCode()) || "199901".equals(jSONObject.optString("error_code"))) {
+                            if (AntiHelper.JS(aaVar.getServerErrorCode()) || "199901".equals(jSONObject.optString("error_code"))) {
                                 signData = new SignData();
                                 signData.parserJson(postNetData);
                                 signData.is_signed = 1;
@@ -126,8 +126,8 @@ public class SignStatic {
         }
     }
 
-    private static void bKH() {
-        bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.SignStatic.2
+    private static void bKL() {
+        bf.bsY().a(new bf.a() { // from class: com.baidu.tieba.SignStatic.2
             @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {

@@ -37,9 +37,9 @@ import java.util.zip.ZipInputStream;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private static final Map<String, Integer> aTW = new HashMap();
+    private static final Map<String, Integer> aVw = new HashMap();
 
     public static void a(String str, String str2, final String str3, final String str4, final String str5, String str6, String str7, int i, boolean z) {
         String str8 = str3 + "/" + str6 + ".zip";
@@ -62,22 +62,22 @@ public class b {
             downloadData.setCallback(new FileDownloadCallBack() { // from class: com.baidu.live.h.b.1
                 @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                 public void onFileUpdateProgress(DownloadData downloadData2) {
-                    if (b.aTW != null && downloadData2 != null) {
-                        Integer num = (Integer) b.aTW.get(downloadData2.getId());
+                    if (b.aVw != null && downloadData2 != null) {
+                        Integer num = (Integer) b.aVw.get(downloadData2.getId());
                         if (num == null) {
-                            b.aTW.put(downloadData2.getId(), 10);
+                            b.aVw.put(downloadData2.getId(), 10);
                             a(downloadData2);
                         } else if (downloadData2.getProcess() > num.intValue()) {
                             if (num.intValue() < 20) {
-                                b.aTW.put(downloadData2.getId(), 20);
+                                b.aVw.put(downloadData2.getId(), 20);
                             } else if (num.intValue() < 40) {
-                                b.aTW.put(downloadData2.getId(), 40);
+                                b.aVw.put(downloadData2.getId(), 40);
                             } else if (num.intValue() < 60) {
-                                b.aTW.put(downloadData2.getId(), 60);
+                                b.aVw.put(downloadData2.getId(), 60);
                             } else if (num.intValue() < 80) {
-                                b.aTW.put(downloadData2.getId(), 80);
+                                b.aVw.put(downloadData2.getId(), 80);
                             } else if (num.intValue() < 99) {
-                                b.aTW.put(downloadData2.getId(), 99);
+                                b.aVw.put(downloadData2.getId(), 99);
                             }
                             a(downloadData2);
                         }
@@ -86,19 +86,19 @@ public class b {
 
                 private void a(DownloadData downloadData2) {
                     c cVar = new c();
-                    cVar.aUb = 7;
-                    cVar.aUc = downloadData2;
+                    cVar.aVB = 7;
+                    cVar.aVC = downloadData2;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
                 }
 
                 @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                 public boolean onPreDownload(DownloadData downloadData2) {
-                    if (!com.baidu.live.storage.opt.b.Rg().G(downloadData2)) {
+                    if (!com.baidu.live.storage.opt.b.Rj().I(downloadData2)) {
                         return false;
                     }
                     c cVar = new c();
-                    cVar.aUb = 1;
-                    cVar.aUc = downloadData2;
+                    cVar.aVB = 1;
+                    cVar.aVC = downloadData2;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
                     return true;
                 }
@@ -106,11 +106,11 @@ public class b {
                 @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                 public boolean onFileDownloaded(DownloadData downloadData2) {
                     c cVar = new c();
-                    cVar.aUb = 4;
-                    cVar.aUc = downloadData2;
+                    cVar.aVB = 4;
+                    cVar.aVC = downloadData2;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
-                    if (b.aTW != null) {
-                        b.aTW.remove(downloadData2.getId());
+                    if (b.aVw != null) {
+                        b.aVw.remove(downloadData2.getId());
                         return true;
                     }
                     return true;
@@ -154,8 +154,8 @@ public class b {
                     }
                     UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_DOWN_RES_RESP, UbcStatConstant.ContentType.UBC_TYPE_RES_DOWN, "liveroom", "").setContentExt(jSONObject), null, true);
                     c cVar = new c();
-                    cVar.aUb = 2;
-                    cVar.aUc = downloadData2;
+                    cVar.aVB = 2;
+                    cVar.aVC = downloadData2;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
                 }
             });
@@ -222,17 +222,17 @@ public class b {
             public void onPostExecute(Boolean bool) {
                 if (bool.booleanValue()) {
                     if (a.existFile(str)) {
-                        com.baidu.live.gift.b gv = ac.gv(DownloadData.this.getName());
-                        v.D(DownloadData.this.getName(), gv != null ? gv.aVr : 0);
+                        com.baidu.live.gift.b gB = ac.gB(DownloadData.this.getName());
+                        v.D(DownloadData.this.getName(), gB != null ? gB.aWR : 0);
                         c cVar = new c();
-                        cVar.aUb = 5;
-                        cVar.aUc = DownloadData.this;
+                        cVar.aVB = 5;
+                        cVar.aVC = DownloadData.this;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
                         return;
                     }
                     c cVar2 = new c();
-                    cVar2.aUb = 6;
-                    cVar2.aUc = DownloadData.this;
+                    cVar2.aVB = 6;
+                    cVar2.aVC = DownloadData.this;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar2));
                     BdLog.e("zip empty");
                     return;
@@ -242,10 +242,10 @@ public class b {
         }.execute(new Void[0]);
     }
 
-    public static ArrayList<String> fC(String str) {
+    public static ArrayList<String> fI(String str) {
         JSONException e;
         ArrayList<String> arrayList = null;
-        String string = d.xc().getSharedPreferences().getString(str, null);
+        String string = d.xf().getSharedPreferences().getString(str, null);
         if (string == null) {
             return null;
         }
@@ -302,7 +302,7 @@ public class b {
                     jSONArray.put(fileMd5);
                 }
             }
-            d.xc().putString(str, jSONArray.toString());
+            d.xf().putString(str, jSONArray.toString());
         }
     }
 
@@ -428,10 +428,10 @@ public class b {
         }
     }
 
-    public static void cE(int i) {
+    public static void cF(int i) {
         FileSerialDownLoader.getInstance().cancelDownloadByType(i);
-        if (aTW != null) {
-            aTW.clear();
+        if (aVw != null) {
+            aVw.clear();
         }
     }
 }

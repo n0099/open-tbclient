@@ -6,10 +6,10 @@ import android.text.TextUtils;
 public final class b implements com.yxcorp.kuaishou.addfp.a.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f14377a;
+    private Context f8617a;
 
     public b(Context context) {
-        this.f14377a = context;
+        this.f8617a = context;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
@@ -23,7 +23,7 @@ public final class b implements com.yxcorp.kuaishou.addfp.a.b.a {
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final String b() {
-        String a2 = a.a(this.f14377a);
+        String a2 = a.a(this.f8617a);
         return TextUtils.isEmpty(a2) ? "" : a2;
     }
 

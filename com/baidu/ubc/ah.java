@@ -18,8 +18,8 @@ public class ah {
 
     private static String toHexString(byte[] bArr, String str, boolean z) {
         StringBuilder sb = new StringBuilder();
-        for (byte b2 : bArr) {
-            String hexString = Integer.toHexString(b2 & 255);
+        for (byte b : bArr) {
+            String hexString = Integer.toHexString(b & 255);
             if (z) {
                 hexString = hexString.toUpperCase();
             }

@@ -4,83 +4,83 @@ import android.graphics.PointF;
 import android.view.animation.Interpolator;
 import androidx.annotation.FloatRange;
 import androidx.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a<T> {
     @Nullable
-    private final com.airbnb.lottie.d BJ;
-    public final float BT;
+    private final com.airbnb.lottie.d Dh;
+    public final float Dr;
     @Nullable
-    public final T HL;
+    public final T Jk;
     @Nullable
-    public final T HM;
+    public final T Jl;
     @Nullable
-    public final Interpolator HN;
+    public final Interpolator Jm;
     @Nullable
-    public Float HO;
-    private float HP;
-    private float HQ;
-    public PointF HR;
-    public PointF HS;
+    public Float Jn;
+    private float Jo;
+    private float Jp;
+    public PointF Jq;
+    public PointF Jr;
 
     public a(com.airbnb.lottie.d dVar, @Nullable T t, @Nullable T t2, @Nullable Interpolator interpolator, float f, @Nullable Float f2) {
-        this.HP = Float.MIN_VALUE;
-        this.HQ = Float.MIN_VALUE;
-        this.HR = null;
-        this.HS = null;
-        this.BJ = dVar;
-        this.HL = t;
-        this.HM = t2;
-        this.HN = interpolator;
-        this.BT = f;
-        this.HO = f2;
+        this.Jo = Float.MIN_VALUE;
+        this.Jp = Float.MIN_VALUE;
+        this.Jq = null;
+        this.Jr = null;
+        this.Dh = dVar;
+        this.Jk = t;
+        this.Jl = t2;
+        this.Jm = interpolator;
+        this.Dr = f;
+        this.Jn = f2;
     }
 
     public a(T t) {
-        this.HP = Float.MIN_VALUE;
-        this.HQ = Float.MIN_VALUE;
-        this.HR = null;
-        this.HS = null;
-        this.BJ = null;
-        this.HL = t;
-        this.HM = t;
-        this.HN = null;
-        this.BT = Float.MIN_VALUE;
-        this.HO = Float.valueOf(Float.MAX_VALUE);
+        this.Jo = Float.MIN_VALUE;
+        this.Jp = Float.MIN_VALUE;
+        this.Jq = null;
+        this.Jr = null;
+        this.Dh = null;
+        this.Jk = t;
+        this.Jl = t;
+        this.Jm = null;
+        this.Dr = Float.MIN_VALUE;
+        this.Jn = Float.valueOf(Float.MAX_VALUE);
     }
 
     public float jX() {
-        if (this.BJ == null) {
+        if (this.Dh == null) {
             return 0.0f;
         }
-        if (this.HP == Float.MIN_VALUE) {
-            this.HP = (this.BT - this.BJ.hS()) / this.BJ.hZ();
+        if (this.Jo == Float.MIN_VALUE) {
+            this.Jo = (this.Dr - this.Dh.hS()) / this.Dh.hZ();
         }
-        return this.HP;
+        return this.Jo;
     }
 
     public float iK() {
-        if (this.BJ == null) {
+        if (this.Dh == null) {
             return 1.0f;
         }
-        if (this.HQ == Float.MIN_VALUE) {
-            if (this.HO == null) {
-                this.HQ = 1.0f;
+        if (this.Jp == Float.MIN_VALUE) {
+            if (this.Jn == null) {
+                this.Jp = 1.0f;
             } else {
-                this.HQ = jX() + ((this.HO.floatValue() - this.BT) / this.BJ.hZ());
+                this.Jp = jX() + ((this.Jn.floatValue() - this.Dr) / this.Dh.hZ());
             }
         }
-        return this.HQ;
+        return this.Jp;
     }
 
     public boolean kA() {
-        return this.HN == null;
+        return this.Jm == null;
     }
 
-    public boolean l(@FloatRange(from = 0.0d, to = 1.0d) float f) {
+    public boolean p(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         return f >= jX() && f < iK();
     }
 
     public String toString() {
-        return "Keyframe{startValue=" + this.HL + ", endValue=" + this.HM + ", startFrame=" + this.BT + ", endFrame=" + this.HO + ", interpolator=" + this.HN + '}';
+        return "Keyframe{startValue=" + this.Jk + ", endValue=" + this.Jl + ", startFrame=" + this.Dr + ", endFrame=" + this.Jn + ", interpolator=" + this.Jm + '}';
     }
 }

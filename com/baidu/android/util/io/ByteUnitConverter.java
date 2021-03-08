@@ -2,7 +2,7 @@ package com.baidu.android.util.io;
 
 import java.text.DecimalFormat;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ByteUnitConverter {
     public static final int GB = 1073741824;
     public static final int KB = 1024;
@@ -10,7 +10,7 @@ public class ByteUnitConverter {
     private static final int UNIT = 1024;
     private String convertStr;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public enum UNITS {
         B,
         KB,

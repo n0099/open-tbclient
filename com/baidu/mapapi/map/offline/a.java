@@ -7,11 +7,11 @@ import java.util.ArrayList;
 class a implements v {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MKOfflineMap f2804a;
+    final /* synthetic */ MKOfflineMap f2074a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(MKOfflineMap mKOfflineMap) {
-        this.f2804a = mKOfflineMap;
+        this.f2074a = mKOfflineMap;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.v
@@ -23,11 +23,11 @@ class a implements v {
         r rVar;
         switch (i) {
             case 4:
-                ArrayList<MKOLUpdateElement> allUpdateInfo = this.f2804a.getAllUpdateInfo();
+                ArrayList<MKOLUpdateElement> allUpdateInfo = this.f2074a.getAllUpdateInfo();
                 if (allUpdateInfo != null) {
                     for (MKOLUpdateElement mKOLUpdateElement : allUpdateInfo) {
                         if (mKOLUpdateElement.update) {
-                            mKOfflineMapListener3 = this.f2804a.c;
+                            mKOfflineMapListener3 = this.f2074a.c;
                             mKOfflineMapListener3.onGetOfflineMapState(4, mKOLUpdateElement.cityID);
                         }
                     }
@@ -41,19 +41,19 @@ class a implements v {
             default:
                 return;
             case 6:
-                mKOfflineMapListener4 = this.f2804a.c;
+                mKOfflineMapListener4 = this.f2074a.c;
                 mKOfflineMapListener4.onGetOfflineMapState(6, i2);
                 return;
             case 8:
-                mKOfflineMapListener2 = this.f2804a.c;
+                mKOfflineMapListener2 = this.f2074a.c;
                 mKOfflineMapListener2.onGetOfflineMapState(0, i2 >> 8);
                 return;
             case 10:
-                mKOfflineMapListener = this.f2804a.c;
+                mKOfflineMapListener = this.f2074a.c;
                 mKOfflineMapListener.onGetOfflineMapState(2, i2);
                 return;
             case 12:
-                rVar = this.f2804a.f2803b;
+                rVar = this.f2074a.b;
                 rVar.a(true, false);
                 return;
         }

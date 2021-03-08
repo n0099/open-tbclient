@@ -3,14 +3,14 @@ package com.baidu.yuyinala.privatemessage.implugin.util;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e extends a {
     public static boolean isConnected(Context context) {
         NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
-    public static int hH(Context context) {
+    public static int hG(Context context) {
         NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
         if (activeNetworkInfo == null) {
             return 0;

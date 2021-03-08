@@ -1,16 +1,16 @@
 package rx.functions;
 
 import rx.exceptions.OnErrorNotImplementedException;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class Actions {
-    private static final b qyJ = new b();
+    private static final b qzl = new b();
 
-    public static <T0, T1, T2, T3, T4, T5, T6, T7, T8> b<T0, T1, T2, T3, T4, T5, T6, T7, T8> eMX() {
-        return qyJ;
+    public static <T0, T1, T2, T3, T4, T5, T6, T7, T8> b<T0, T1, T2, T3, T4, T5, T6, T7, T8> eMF() {
+        return qzl;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class b<T0, T1, T2, T3, T4, T5, T6, T7, T8> implements rx.functions.a, rx.functions.b<T0>, c<T0, T1> {
         b() {
         }
@@ -33,7 +33,7 @@ public final class Actions {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class a<T> implements rx.functions.b<T> {
         final rx.functions.a action;
 
@@ -48,7 +48,7 @@ public final class Actions {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public enum NotImplemented implements rx.functions.b<Throwable> {
         INSTANCE;
 
@@ -59,7 +59,7 @@ public final class Actions {
         }
     }
 
-    public static rx.functions.b<Throwable> eMY() {
+    public static rx.functions.b<Throwable> eMG() {
         return NotImplemented.INSTANCE;
     }
 }

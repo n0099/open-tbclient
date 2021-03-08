@@ -7,10 +7,8 @@ import java.lang.reflect.Method;
 public final class e extends RuntimeException {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Method f5867a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private IOException f5868b;
+    private static final Method f3953a;
+    private IOException b;
 
     static {
         Method method;
@@ -19,27 +17,27 @@ public final class e extends RuntimeException {
         } catch (Exception e) {
             method = null;
         }
-        f5867a = method;
+        f3953a = method;
     }
 
     public e(IOException iOException) {
         super(iOException);
-        this.f5868b = iOException;
+        this.b = iOException;
     }
 
     public IOException a() {
-        return this.f5868b;
+        return this.b;
     }
 
     public void a(IOException iOException) {
-        a(iOException, this.f5868b);
-        this.f5868b = iOException;
+        a(iOException, this.b);
+        this.b = iOException;
     }
 
     private void a(IOException iOException, IOException iOException2) {
-        if (f5867a != null) {
+        if (f3953a != null) {
             try {
-                f5867a.invoke(iOException, iOException2);
+                f3953a.invoke(iOException, iOException2);
             } catch (IllegalAccessException e) {
             } catch (InvocationTargetException e2) {
             }

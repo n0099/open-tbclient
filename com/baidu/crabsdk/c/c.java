@@ -15,14 +15,14 @@ import java.util.zip.DeflaterOutputStream;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class c {
-    private static SimpleDateFormat apr;
-    private static PackageManager aps;
+    private static SimpleDateFormat aqQ;
+    private static PackageManager aqR;
 
     public static String a(Date date) {
-        if (apr == null) {
-            apr = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (aqQ == null) {
+            aqQ = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return apr.format(date);
+        return aqQ.format(date);
     }
 
     public static JSONObject a(JSONObject jSONObject, JSONObject jSONObject2) {
@@ -128,15 +128,11 @@ public final class c {
         return bArr2;
     }
 
-    public static String ak() {
-        return new SimpleDateFormat("yyyyMMdd").format(new Date(System.currentTimeMillis()));
-    }
-
     public static String b(long j) {
         return j / 1000000000 > 0 ? (((float) (j / 100000000)) / 10.0f) + "G" : j / TimeUtils.NANOS_PER_MS > 0 ? (((float) (j / 100000)) / 10.0f) + "M" : j / 1000 > 0 ? (((float) (j / 100)) / 10.0f) + "K" : j + "B";
     }
 
-    public static byte[] dv(String str) {
+    public static byte[] dz(String str) {
         if (str == null || str.length() == 0) {
             return null;
         }
@@ -144,11 +140,11 @@ public final class c {
     }
 
     public static boolean g(Context context, String str) {
-        if (aps == null) {
-            aps = context.getPackageManager();
+        if (aqR == null) {
+            aqR = context.getPackageManager();
         }
         try {
-            return aps.checkPermission(str, context.getPackageName()) == 0;
+            return aqR.checkPermission(str, context.getPackageName()) == 0;
         } catch (RuntimeException e) {
             return false;
         }
@@ -172,12 +168,16 @@ public final class c {
             th = th.getCause();
         }
         StackTraceElement[] stackTrace = th.getStackTrace();
-        String J = p.J();
+        String up = p.up();
         for (int i = 0; i < stackTrace.length; i++) {
-            if (stackTrace[i].getClassName().contains(J)) {
+            if (stackTrace[i].getClassName().contains(up)) {
                 return stackTrace[i].toString();
             }
         }
         return stackTrace.length > 0 ? stackTrace[0].toString() : "N/A";
+    }
+
+    public static String ut() {
+        return new SimpleDateFormat("yyyyMMdd").format(new Date(System.currentTimeMillis()));
     }
 }

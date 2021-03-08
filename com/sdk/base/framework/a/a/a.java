@@ -12,10 +12,8 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f12767a = a.class.getSimpleName();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static Boolean f12768b = Boolean.valueOf(f.f12821b);
+    private static final String f7602a = a.class.getSimpleName();
+    private static Boolean b = Boolean.valueOf(f.b);
 
     private static String a(Context context, int i) {
         ArrayList<KInfo> b2 = com.sdk.base.framework.c.a.b(context);
@@ -40,7 +38,7 @@ public class a {
     }
 
     public static void a(Context context) {
-        c.a(f12767a, "cache clear", f12768b);
+        c.a(f7602a, "cache clear", b);
         com.sdk.base.framework.f.b.a.d(context, "accessCode");
     }
 
@@ -56,7 +54,7 @@ public class a {
     public static String b(Context context, int i, String str) {
         try {
             if (!SDKManager.useCache()) {
-                c.a(f12767a, "cache close", f12768b);
+                c.a(f7602a, "cache close", b);
                 return null;
             }
             String a2 = a(context, i);
@@ -64,16 +62,16 @@ public class a {
                 String b2 = com.sdk.base.framework.f.b.a.b(context, a2);
                 if (c.b(b2).booleanValue()) {
                     if (!com.sdk.base.framework.f.h.b.a(context, a2.substring(11)).equals(str)) {
-                        c.a(f12767a, "Capacity mismatch cache invalid", f12768b);
+                        c.a(f7602a, "Capacity mismatch cache invalid", b);
                         return null;
                     }
                     String b3 = b(b2);
                     String a3 = com.sdk.base.framework.f.l.a.a(context, a(b2));
                     if (com.sdk.base.framework.f.l.a.a(a3)) {
-                        c.a(f12767a, "OutDate cache invalid", f12768b);
+                        c.a(f7602a, "OutDate cache invalid", b);
                         return null;
                     }
-                    c.a(f12767a, "can use cache", f12768b);
+                    c.a(f7602a, "can use cache", b);
                     JSONObject jSONObject = new JSONObject(a3);
                     if (i == 1) {
                         jSONObject.remove("fakeMobile");
@@ -93,7 +91,7 @@ public class a {
     }
 
     public static void b(Context context) {
-        c.a(f12767a, "oauth cache clear", f12768b);
+        c.a(f7602a, "oauth cache clear", b);
         com.sdk.base.framework.f.b.a.d(context, "accessCode1");
     }
 }

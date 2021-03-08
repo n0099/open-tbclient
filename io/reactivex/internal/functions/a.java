@@ -1,11 +1,11 @@
 package io.reactivex.internal.functions;
 
 import io.reactivex.b.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a {
-    static final d<Object, Object> qom = new C1301a();
+    static final d<Object, Object> qoO = new C1283a();
 
-    public static <T> T m(T t, String str) {
+    public static <T> T n(T t, String str) {
         if (t == null) {
             throw new NullPointerException(str);
         }
@@ -30,7 +30,7 @@ public final class a {
         return j > j2 ? 1 : 0;
     }
 
-    public static int cl(int i, String str) {
+    public static int ck(int i, String str) {
         if (i <= 0) {
             throw new IllegalArgumentException(str + " > 0 required but it was " + i);
         }
@@ -45,9 +45,9 @@ public final class a {
     }
 
     /* renamed from: io.reactivex.internal.functions.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    static final class C1301a implements d<Object, Object> {
-        C1301a() {
+    /* loaded from: classes6.dex */
+    static final class C1283a implements d<Object, Object> {
+        C1283a() {
         }
 
         @Override // io.reactivex.b.d

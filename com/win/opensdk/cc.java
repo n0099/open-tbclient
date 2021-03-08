@@ -1,23 +1,22 @@
 package com.win.opensdk;
 
-import android.graphics.Bitmap;
-import androidx.annotation.NonNull;
-import com.win.opensdk.by;
-/* loaded from: classes3.dex */
-final class cc implements by.a {
-    @Override // com.win.opensdk.by.a
-    @NonNull
-    public final Bitmap j(int i, int i2, Bitmap.Config config) {
-        return Bitmap.createBitmap(i, i2, config);
-    }
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes14.dex */
+public class cc {
+    public int f;
+    public int g;
+    public boolean h;
+    public int i;
+    public int j;
+    public int k;
+    public int l;
+    public bz qlu;
 
-    @Override // com.win.opensdk.by.a
-    public final byte[] Sg(int i) {
-        return new byte[i];
-    }
-
-    @Override // com.win.opensdk.by.a
-    public final int[] Sh(int i) {
-        return new int[i];
-    }
+    /* renamed from: a  reason: collision with root package name */
+    public int[] f8140a = null;
+    public int b = 0;
+    public int c = 0;
+    public List e = new ArrayList();
+    public int m = 0;
 }

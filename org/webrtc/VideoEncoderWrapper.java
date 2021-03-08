@@ -3,7 +3,7 @@ package org.webrtc;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
 import org.webrtc.VideoEncoder;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 class VideoEncoderWrapper {
     VideoEncoderWrapper() {
     }

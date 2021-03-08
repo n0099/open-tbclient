@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 import com.baidu.swan.apps.console.c;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static void y(@NonNull SQLiteDatabase sQLiteDatabase) {
         try {
@@ -19,8 +19,8 @@ public final class a {
 
     @WorkerThread
     public static void y(@Nullable String... strArr) {
-        Application awW;
-        if (com.baidu.swan.apps.t.a.awW() == null || strArr == null) {
+        Application awZ;
+        if (com.baidu.swan.apps.t.a.awZ() == null || strArr == null) {
             c.w("SwanAppSubscribeMsg", "deleteAllByAppKey fail");
             return;
         }
@@ -35,6 +35,6 @@ public final class a {
                 }
             }
         }
-        c.i("SwanAppSubscribeMsg", "deleteAllByAppKey count=" + awW.getContentResolver().delete(SwanAppSubscribeMsgProvider.CONTENT_URI, "appKey in (?)", new String[]{sb.toString()}) + ", appKey=" + sb.toString());
+        c.i("SwanAppSubscribeMsg", "deleteAllByAppKey count=" + awZ.getContentResolver().delete(SwanAppSubscribeMsgProvider.CONTENT_URI, "appKey in (?)", new String[]{sb.toString()}) + ", appKey=" + sb.toString());
     }
 }

@@ -21,14 +21,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BaiduNative {
 
     /* renamed from: a  reason: collision with root package name */
-    private List<NativeResponse> f3216a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final Context f3217b;
+    private List<NativeResponse> f2314a;
+    private final Context b;
     private final String c;
     private e d;
     private BaiduNativeNetworkListener e;
@@ -36,19 +34,19 @@ public class BaiduNative {
     private BaiduNativeEventListener g;
     private CustomIOAdEventListener h;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface BaiduNativeEventListener {
         void onClicked();
 
         void onImpressionSended();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface BaiduNativeLoadAdListener extends NativeADEventListener {
         void onLoadFail(String str, String str2);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface BaiduNativeNetworkListener {
         @Deprecated
         void onNativeFail(NativeErrorCode nativeErrorCode);
@@ -56,24 +54,24 @@ public class BaiduNative {
         void onNativeLoad(List<NativeResponse> list);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface FeedLpCloseListener extends BaiduNativeNetworkListener {
         void onAdClick(NativeResponse nativeResponse);
 
         void onLpClosed();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface NativeADEventListener extends VideoCacheListener {
         void onADExposed(NativeResponse nativeResponse);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface NativeDownloadListener {
         void onADStatusChanged(NativeResponse nativeResponse);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface VideoCacheListener extends FeedLpCloseListener {
         void onVideoDownloadFailed();
 
@@ -81,14 +79,12 @@ public class BaiduNative {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class CustomIOAdEventListener implements IOAdEventListener {
-
-        /* renamed from: b  reason: collision with root package name */
-        private IXAdFeedsRequestParameters f3219b;
+        private IXAdFeedsRequestParameters b;
 
         public CustomIOAdEventListener(IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
-            this.f3219b = iXAdFeedsRequestParameters;
+            this.b = iXAdFeedsRequestParameters;
         }
 
         @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventListener
@@ -112,23 +108,23 @@ public class BaiduNative {
                                 z2 = true;
                             } else {
                                 hashSet.add(appPackageName);
-                                z = !XAdSDKFoundationFacade.getInstance().getPackageUtils().isInstalled(BaiduNative.this.f3217b, appPackageName);
+                                z = !XAdSDKFoundationFacade.getInstance().getPackageUtils().isInstalled(BaiduNative.this.b, appPackageName);
                                 z2 = false;
                             }
                         } else if (iXAdInstanceInfo.getActionType() == adConstants.getActTypeOpenExternalApp() && BaiduNative.this.a(iXAdInstanceInfo) == adConstants.getActTypeDownload() && !TextUtils.isEmpty(appPackageName)) {
-                            z = !XAdSDKFoundationFacade.getInstance().getPackageUtils().isInstalled(BaiduNative.this.f3217b, appPackageName);
+                            z = !XAdSDKFoundationFacade.getInstance().getPackageUtils().isInstalled(BaiduNative.this.b, appPackageName);
                             z2 = false;
                         } else {
                             z = false;
                             z2 = false;
                         }
                         if (!z2) {
-                            XAdNativeResponse xAdNativeResponse = new XAdNativeResponse(iXAdInstanceInfo, BaiduNative.this.d, this.f3219b, BaiduNative.this.d.getCurrentXAdContainer());
+                            XAdNativeResponse xAdNativeResponse = new XAdNativeResponse(iXAdInstanceInfo, BaiduNative.this.d, this.b, BaiduNative.this.d.getCurrentXAdContainer());
                             xAdNativeResponse.setIsDownloadApp(z);
                             arrayList.add(xAdNativeResponse);
                         }
                     }
-                    BaiduNative.this.f3216a = arrayList;
+                    BaiduNative.this.f2314a = arrayList;
                     XAdSDKFoundationFacade.getInstance().getCommonUtils().a(new Runnable() { // from class: com.baidu.mobad.feeds.BaiduNative.CustomIOAdEventListener.1
                         @Override // java.lang.Runnable
                         public void run() {
@@ -161,10 +157,10 @@ public class BaiduNative {
                     String str3 = (String) data2.get("instanceInfo");
                     while (true) {
                         int i3 = i;
-                        if (i3 >= BaiduNative.this.f3216a.size()) {
+                        if (i3 >= BaiduNative.this.f2314a.size()) {
                             break;
                         }
-                        XAdNativeResponse xAdNativeResponse2 = (XAdNativeResponse) BaiduNative.this.f3216a.get(i3);
+                        XAdNativeResponse xAdNativeResponse2 = (XAdNativeResponse) BaiduNative.this.f2314a.get(i3);
                         if (xAdNativeResponse2.getUniqueId().equals(str3)) {
                             ((FeedLpCloseListener) BaiduNative.this.e).onAdClick(xAdNativeResponse2);
                         }
@@ -172,15 +168,15 @@ public class BaiduNative {
                     }
                 }
                 if ((BaiduNative.this.e instanceof FeedLpCloseListener) && BaiduNative.this.d.d.getActionType() == 1) {
-                    a.a(BaiduNative.this.f3217b).b();
-                    a.a(BaiduNative.this.f3217b).addEventListener("AdLpClosed", BaiduNative.this.h);
+                    a.a(BaiduNative.this.b).b();
+                    a.a(BaiduNative.this.b).addEventListener("AdLpClosed", BaiduNative.this.h);
                 }
             } else if ("AdStartLp".equals(iOAdEvent.getType()) && (BaiduNative.this.e instanceof FeedLpCloseListener)) {
-                a.a(BaiduNative.this.f3217b).b();
-                a.a(BaiduNative.this.f3217b).addEventListener("AdLpClosed", BaiduNative.this.h);
+                a.a(BaiduNative.this.b).b();
+                a.a(BaiduNative.this.b).addEventListener("AdLpClosed", BaiduNative.this.h);
             } else if ("AdLpClosed".equals(iOAdEvent.getType()) && (BaiduNative.this.e instanceof FeedLpCloseListener)) {
-                a.a(BaiduNative.this.f3217b).removeEventListeners("AdLpClosed");
-                a.a(BaiduNative.this.f3217b).c();
+                a.a(BaiduNative.this.b).removeEventListeners("AdLpClosed");
+                a.a(BaiduNative.this.b).c();
                 ((FeedLpCloseListener) BaiduNative.this.e).onLpClosed();
             } else if ("vdieoCacheSucc".equals(iOAdEvent.getType())) {
                 if (BaiduNative.this.e instanceof VideoCacheListener) {
@@ -195,8 +191,8 @@ public class BaiduNative {
                     String str4 = (String) data.get("instanceInfo");
                     while (true) {
                         int i4 = i;
-                        if (i4 < BaiduNative.this.f3216a.size()) {
-                            XAdNativeResponse xAdNativeResponse3 = (XAdNativeResponse) BaiduNative.this.f3216a.get(i4);
+                        if (i4 < BaiduNative.this.f2314a.size()) {
+                            XAdNativeResponse xAdNativeResponse3 = (XAdNativeResponse) BaiduNative.this.f2314a.get(i4);
                             if (xAdNativeResponse3.getUniqueId().equals(str4)) {
                                 ((NativeADEventListener) BaiduNative.this.e).onADExposed(xAdNativeResponse3);
                             }
@@ -210,8 +206,8 @@ public class BaiduNative {
                 Map<String, Object> data3 = iOAdEvent.getData();
                 String message = iOAdEvent.getMessage();
                 if (data3 != null && !TextUtils.isEmpty(message)) {
-                    while (i < BaiduNative.this.f3216a.size()) {
-                        XAdNativeResponse xAdNativeResponse4 = (XAdNativeResponse) BaiduNative.this.f3216a.get(i);
+                    while (i < BaiduNative.this.f2314a.size()) {
+                        XAdNativeResponse xAdNativeResponse4 = (XAdNativeResponse) BaiduNative.this.f2314a.get(i);
                         if (xAdNativeResponse4.isDownloadApp() && message.equals(xAdNativeResponse4.getAppPackage())) {
                             BaiduNative.this.f.onADStatusChanged(xAdNativeResponse4);
                         }
@@ -239,7 +235,7 @@ public class BaiduNative {
     }
 
     public BaiduNative(Context context, String str, BaiduNativeNetworkListener baiduNativeNetworkListener, boolean z, int i, String str2) {
-        this.f3217b = context;
+        this.b = context;
         XAdSDKFoundationFacade.getInstance().initializeApplicationContext(context.getApplicationContext());
         this.c = str;
         this.e = baiduNativeNetworkListener;
@@ -256,7 +252,7 @@ public class BaiduNative {
     }
 
     public BaiduNative(Context context, String str, BaiduNativeNetworkListener baiduNativeNetworkListener, e eVar) {
-        this.f3217b = context;
+        this.b = context;
         XAdSDKFoundationFacade.getInstance().initializeApplicationContext(context.getApplicationContext());
         this.c = str;
         this.e = baiduNativeNetworkListener;
@@ -305,8 +301,8 @@ public class BaiduNative {
     }
 
     public void preloadVideoMaterial() {
-        if (this.f3216a != null) {
-            Iterator<NativeResponse> it = this.f3216a.iterator();
+        if (this.f2314a != null) {
+            Iterator<NativeResponse> it = this.f2314a.iterator();
             while (it.hasNext()) {
                 ((XAdNativeResponse) it.next()).preloadVideoMaterial();
             }

@@ -27,21 +27,21 @@ import com.baidu.tieba.R;
 import com.tencent.connect.common.Constants;
 /* loaded from: classes.dex */
 public class ImageViewerBottomLayout extends LinearLayout implements View.OnClickListener, View.OnTouchListener {
-    public static final int fwT = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds130);
-    private TextView eID;
-    private AgreeView fjW;
-    private ImageView fjY;
-    private ImageView fkb;
-    private ImageUrlData fvI;
-    private a fwR;
-    private TextView fwU;
-    private ImageView fwV;
-    private View fwW;
-    private TextView fwX;
-    private LinearLayout fwY;
-    private ImageView fwZ;
-    private c fxa;
-    private b fxb;
+    public static final int fys = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds130);
+    private TextView eKe;
+    private ImageView flA;
+    private AgreeView flv;
+    private ImageView flx;
+    private ImageUrlData fxh;
+    private b fyA;
+    private a fyq;
+    private TextView fyt;
+    private ImageView fyu;
+    private View fyv;
+    private TextView fyw;
+    private LinearLayout fyx;
+    private ImageView fyy;
+    private c fyz;
     private Context mContext;
     private String mUserId;
 
@@ -52,19 +52,19 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
 
     /* loaded from: classes.dex */
     public interface b {
-        void bzu();
+        void bzx();
     }
 
     /* loaded from: classes.dex */
     public interface c {
-        void bzv();
+        void bzy();
     }
 
     public ImageViewerBottomLayout(Context context) {
         super(context);
-        this.fwR = null;
-        this.fxa = null;
-        this.fxb = null;
+        this.fyq = null;
+        this.fyz = null;
+        this.fyA = null;
         this.mContext = context;
         init(context);
         initListener();
@@ -72,56 +72,56 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.image_viewer_bottom_layout, (ViewGroup) this, true);
-        this.fwW = findViewById(R.id.unfold_root);
-        this.fwU = (TextView) findViewById(R.id.unfold_text);
-        this.fwV = (ImageView) findViewById(R.id.unfold_icon);
-        this.fwW.setVisibility(8);
-        WebPManager.a(this.fwV, R.drawable.icon_mask_unfold30, (WebPManager.ResourceStateType) null);
-        this.fwX = (TextView) findViewById(R.id.image_viewer_reply);
-        this.fwX.setText(R.string.image_viewer_reply);
-        ap.setViewTextColor(this.fwX, R.color.CAM_X0101);
-        this.fwX.setBackground(ap.aL(l.getDimens(context, R.dimen.tbds38), ap.getColor(R.color.CAM_X0615)));
-        this.fwY = (LinearLayout) findViewById(R.id.image_viewer_comment_and_agree);
-        this.fjY = (ImageView) findViewById(R.id.comment_icon);
-        WebPManager.a(this.fjY, R.drawable.icon_pure_card_comment22, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
-        this.eID = (TextView) findViewById(R.id.comment_num);
-        this.eID.setText("0");
-        this.fjW = (AgreeView) findViewById(R.id.agree_and_disagreeview);
-        this.fjW.setResourceId(R.raw.lottie_agree_imageviewer, R.raw.lottie_disagree_imageviewer);
-        this.fjW.setIsFromBigpic(true);
-        this.fjW.setAgreeAlone(true);
-        this.fjW.setAgreeAnimationResource();
+        this.fyv = findViewById(R.id.unfold_root);
+        this.fyt = (TextView) findViewById(R.id.unfold_text);
+        this.fyu = (ImageView) findViewById(R.id.unfold_icon);
+        this.fyv.setVisibility(8);
+        WebPManager.a(this.fyu, R.drawable.icon_mask_unfold30, (WebPManager.ResourceStateType) null);
+        this.fyw = (TextView) findViewById(R.id.image_viewer_reply);
+        this.fyw.setText(R.string.image_viewer_reply);
+        ap.setViewTextColor(this.fyw, R.color.CAM_X0101);
+        this.fyw.setBackground(ap.aL(l.getDimens(context, R.dimen.tbds38), ap.getColor(R.color.CAM_X0615)));
+        this.fyx = (LinearLayout) findViewById(R.id.image_viewer_comment_and_agree);
+        this.flx = (ImageView) findViewById(R.id.comment_icon);
+        WebPManager.a(this.flx, R.drawable.icon_pure_card_comment22, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+        this.eKe = (TextView) findViewById(R.id.comment_num);
+        this.eKe.setText("0");
+        this.flv = (AgreeView) findViewById(R.id.agree_and_disagreeview);
+        this.flv.setResourceId(R.raw.lottie_agree_imageviewer, R.raw.lottie_disagree_imageviewer);
+        this.flv.setIsFromBigpic(true);
+        this.flv.setAgreeAlone(true);
+        this.flv.setAgreeAnimationResource();
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            this.fjW.getImgAgree().setAlpha(0.83f);
+            this.flv.getImgAgree().setAlpha(0.83f);
         } else if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-            this.fjW.getImgAgree().setAlpha(0.92f);
+            this.flv.getImgAgree().setAlpha(0.92f);
         } else {
-            this.fjW.getImgAgree().setAlpha(1.0f);
+            this.flv.getImgAgree().setAlpha(1.0f);
         }
         e eVar = new e();
-        eVar.eMa = 13;
-        eVar.eMg = 10;
-        this.fjW.setStatisticData(eVar);
-        this.fkb = (ImageView) findViewById(R.id.share_icon);
-        WebPManager.a(this.fkb, R.drawable.icon_pure_expression22, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
-        this.fwZ = (ImageView) findViewById(R.id.download_icon);
-        WebPManager.a(this.fwZ, R.drawable.icon_pure_share_download22, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+        eVar.eNB = 13;
+        eVar.eNH = 10;
+        this.flv.setStatisticData(eVar);
+        this.flA = (ImageView) findViewById(R.id.share_icon);
+        WebPManager.a(this.flA, R.drawable.icon_pure_expression22, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+        this.fyy = (ImageView) findViewById(R.id.download_icon);
+        WebPManager.a(this.fyy, R.drawable.icon_pure_share_download22, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
     }
 
     public void setExpandButtonListener(a aVar) {
-        this.fwR = aVar;
+        this.fyq = aVar;
     }
 
     public void setOnShareImageListener(c cVar) {
-        this.fxa = cVar;
+        this.fyz = cVar;
     }
 
     public void setOnDownloadImageListener(b bVar) {
-        this.fxb = bVar;
+        this.fyA = bVar;
     }
 
     public void setOnReplyClickListener(View.OnClickListener onClickListener) {
-        this.fwX.setOnClickListener(onClickListener);
+        this.fyw.setOnClickListener(onClickListener);
     }
 
     public void setUserId(String str) {
@@ -129,58 +129,58 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
     }
 
     public void b(ImageUrlData imageUrlData) {
-        this.fvI = imageUrlData;
+        this.fxh = imageUrlData;
         if (imageUrlData != null && imageUrlData.agreeData != null) {
             setVisibility(0);
             if (imageUrlData.commentNum != null) {
-                this.eID.setText(imageUrlData.commentNum);
+                this.eKe.setText(imageUrlData.commentNum);
             }
             if (imageUrlData.agreeData != null) {
-                this.fjW.setData(imageUrlData.agreeData);
+                this.flv.setData(imageUrlData.agreeData);
             }
-            this.fwW.setVisibility(0);
+            this.fyv.setVisibility(0);
             return;
         }
         setVisibility(8);
     }
 
     private void initListener() {
-        this.fjY.setOnClickListener(this);
-        this.eID.setOnClickListener(this);
-        this.fkb.setOnClickListener(this);
-        this.fwZ.setOnClickListener(this);
-        this.fwW.setOnClickListener(this);
+        this.flx.setOnClickListener(this);
+        this.eKe.setOnClickListener(this);
+        this.flA.setOnClickListener(this);
+        this.fyy.setOnClickListener(this);
+        this.fyv.setOnClickListener(this);
         setOnTouchListener(this);
     }
 
     public void kA(boolean z) {
         if (z) {
-            this.fwU.setText(getContext().getString(R.string.expand));
-            WebPManager.a(this.fwV, R.drawable.icon_mask_fold30, (WebPManager.ResourceStateType) null);
-            this.fwY.setVisibility(8);
-            this.fwX.setVisibility(8);
+            this.fyt.setText(getContext().getString(R.string.expand));
+            WebPManager.a(this.fyu, R.drawable.icon_mask_fold30, (WebPManager.ResourceStateType) null);
+            this.fyx.setVisibility(8);
+            this.fyw.setVisibility(8);
             return;
         }
-        this.fwU.setText(getContext().getString(R.string.fold));
-        WebPManager.a(this.fwV, R.drawable.icon_mask_unfold30, (WebPManager.ResourceStateType) null);
-        this.fwY.setVisibility(0);
-        this.fwX.setVisibility(0);
+        this.fyt.setText(getContext().getString(R.string.fold));
+        WebPManager.a(this.fyu, R.drawable.icon_mask_unfold30, (WebPManager.ResourceStateType) null);
+        this.fyx.setVisibility(0);
+        this.fyw.setVisibility(0);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.fjY || view == this.eID) {
-            if (this.fvI != null) {
+        if (view == this.flx || view == this.eKe) {
+            if (this.fxh != null) {
                 ar arVar = new ar("c13685");
-                arVar.v("tid", this.fvI.threadId);
-                arVar.dR(IntentConfig.NID, this.fvI.nid);
-                arVar.dR("fid", this.fvI.forumId);
-                if (this.fvI.from == "index") {
-                    arVar.ap("obj_locate", 1);
-                } else if (this.fvI.from == "frs") {
-                    arVar.ap("obj_locate", 2);
-                } else if (this.fvI.from == "pb") {
-                    arVar.ap("obj_locate", 3);
+                arVar.v("tid", this.fxh.threadId);
+                arVar.dR(IntentConfig.NID, this.fxh.nid);
+                arVar.dR("fid", this.fxh.forumId);
+                if (this.fxh.from == "index") {
+                    arVar.aq("obj_locate", 1);
+                } else if (this.fxh.from == "frs") {
+                    arVar.aq("obj_locate", 2);
+                } else if (this.fxh.from == "pb") {
+                    arVar.aq("obj_locate", 3);
                 }
                 TiebaStatic.log(arVar);
             }
@@ -191,54 +191,54 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
             if (bR != null) {
                 arVar2.dR("obj_cur_page", bR.getCurrentPageKey());
             }
-            if (d.bDM() != null) {
-                arVar2.dR("obj_pre_page", d.bDM());
+            if (d.bDP() != null) {
+                arVar2.dR("obj_pre_page", d.bDP());
             }
             TiebaStatic.log(arVar2);
-            bzk();
-        } else if (view == this.fkb) {
-            if (this.fxa != null) {
-                this.fxa.bzv();
+            bzn();
+        } else if (view == this.flA) {
+            if (this.fyz != null) {
+                this.fyz.bzy();
             }
-            if (this.fvI != null) {
-                TiebaStatic.log(new ar("c13857").dR("obj_type", "9").v("post_id", this.fvI.threadId).dR("uid", TbadkCoreApplication.getCurrentAccount()).dR("fid", this.fvI.forumId));
+            if (this.fxh != null) {
+                TiebaStatic.log(new ar("c13857").dR("obj_type", "9").v("post_id", this.fxh.threadId).dR("uid", TbadkCoreApplication.getCurrentAccount()).dR("fid", this.fxh.forumId));
             }
-        } else if (view == this.fwZ) {
-            if (this.fxb != null) {
-                this.fxb.bzu();
+        } else if (view == this.fyy) {
+            if (this.fyA != null) {
+                this.fyA.bzx();
             }
-            if (this.fvI != null) {
-                TiebaStatic.log(new ar("c13857").dR("obj_type", "2").v("post_id", this.fvI.threadId).dR("uid", TbadkCoreApplication.getCurrentAccount()).dR("fid", this.fvI.forumId));
+            if (this.fxh != null) {
+                TiebaStatic.log(new ar("c13857").dR("obj_type", "2").v("post_id", this.fxh.threadId).dR("uid", TbadkCoreApplication.getCurrentAccount()).dR("fid", this.fxh.forumId));
             }
-        } else if (view == this.fwW) {
-            if (this.fwU.getText().toString().equals(getContext().getString(R.string.expand))) {
-                this.fwU.setText(getContext().getString(R.string.fold));
-                WebPManager.a(this.fwV, R.drawable.icon_mask_unfold30, (WebPManager.ResourceStateType) null);
-                if (this.fwR != null) {
-                    this.fwR.a(this, true);
+        } else if (view == this.fyv) {
+            if (this.fyt.getText().toString().equals(getContext().getString(R.string.expand))) {
+                this.fyt.setText(getContext().getString(R.string.fold));
+                WebPManager.a(this.fyu, R.drawable.icon_mask_unfold30, (WebPManager.ResourceStateType) null);
+                if (this.fyq != null) {
+                    this.fyq.a(this, true);
                 }
             } else {
-                this.fwU.setText(getContext().getString(R.string.expand));
-                WebPManager.a(this.fwV, R.drawable.icon_mask_fold30, (WebPManager.ResourceStateType) null);
-                if (this.fwR != null) {
-                    this.fwR.a(this, false);
+                this.fyt.setText(getContext().getString(R.string.expand));
+                WebPManager.a(this.fyu, R.drawable.icon_mask_fold30, (WebPManager.ResourceStateType) null);
+                if (this.fyq != null) {
+                    this.fyq.a(this, false);
                 }
             }
-            TiebaStatic.log(new ar("c13857").dR("obj_type", "6").v("post_id", this.fvI.threadId).dR("uid", TbadkCoreApplication.getCurrentAccount()).dR("fid", this.fvI.forumId));
+            TiebaStatic.log(new ar("c13857").dR("obj_type", "6").v("post_id", this.fxh.threadId).dR("uid", TbadkCoreApplication.getCurrentAccount()).dR("fid", this.fxh.forumId));
         }
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        TiebaStatic.log(new ar("c13339").dR("uid", this.mUserId).v("post_id", this.fvI.threadId));
+        TiebaStatic.log(new ar("c13339").dR("uid", this.mUserId).v("post_id", this.fxh.threadId));
         return true;
     }
 
-    private void bzk() {
-        if (this.fvI != null) {
-            String valueOf = String.valueOf(this.fvI.threadId);
-            String valueOf2 = String.valueOf(this.fvI.postId);
-            PbActivityConfig createHistoryCfg = new PbActivityConfig(getContext()).createHistoryCfg(valueOf, valueOf2, this.fvI.mIsSeeHost, this.fvI.mIsReserver, null);
+    private void bzn() {
+        if (this.fxh != null) {
+            String valueOf = String.valueOf(this.fxh.threadId);
+            String valueOf2 = String.valueOf(this.fxh.postId);
+            PbActivityConfig createHistoryCfg = new PbActivityConfig(getContext()).createHistoryCfg(valueOf, valueOf2, this.fxh.mIsSeeHost, this.fxh.mIsReserver, null);
             createHistoryCfg.setJumpToCommentArea(true);
             createHistoryCfg.setHighLightPostId(valueOf2);
             createHistoryCfg.setStartFrom(23);

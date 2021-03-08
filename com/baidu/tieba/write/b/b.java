@@ -10,37 +10,37 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.switchs.LimitLowQualityPicUploadSwitch;
 import com.baidu.tieba.write.view.TitleTipView;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private static boolean ohr = false;
+    private static boolean ojw = false;
 
-    public static void dXx() {
-        ohr = true;
+    public static void dXF() {
+        ojw = true;
     }
 
-    public static boolean dXy() {
-        return d.biW();
+    public static boolean dXG() {
+        return d.biY();
     }
 
     public static void a(TitleTipView titleTipView) {
         if (titleTipView != null) {
-            if (!dXy() || ohr || dXz() > 0) {
+            if (!dXG() || ojw || dXH() > 0) {
                 titleTipView.setVisibility(8);
                 return;
             }
-            titleTipView.dXM();
-            dXx();
-            ar.Bd("c13996").bsO();
+            titleTipView.dXU();
+            dXF();
+            ar.Bk("c13996").bsR();
         }
     }
 
-    private static int dXz() {
-        return com.baidu.tbadk.core.sharedPref.b.brQ().getInt("show_write_title_tip_count", 0);
+    private static int dXH() {
+        return com.baidu.tbadk.core.sharedPref.b.brR().getInt("show_write_title_tip_count", 0);
     }
 
     public static void g(WriteData writeData) {
-        if (writeData != null && dXy() && !TextUtils.isEmpty(writeData.getTitle())) {
-            com.baidu.tbadk.core.sharedPref.b.brQ().putInt("show_write_title_tip_count", dXz() + 1);
+        if (writeData != null && dXG() && !TextUtils.isEmpty(writeData.getTitle())) {
+            com.baidu.tbadk.core.sharedPref.b.brR().putInt("show_write_title_tip_count", dXH() + 1);
         }
     }
 
@@ -63,6 +63,6 @@ public class b {
     }
 
     private static void cg(int i, String str) {
-        TiebaStatic.log(new ar("c14021").dR("uid", TbadkApplication.getCurrentAccount()).ap("obj_type", i).dR("obj_param1", str));
+        TiebaStatic.log(new ar("c14021").dR("uid", TbadkApplication.getCurrentAccount()).aq("obj_type", i).dR("obj_param1", str));
     }
 }

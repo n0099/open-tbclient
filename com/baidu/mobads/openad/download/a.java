@@ -8,25 +8,23 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a implements IOAdDownloaderManager {
-
-    /* renamed from: b  reason: collision with root package name */
-    private static a f3426b = null;
+    private static a b = null;
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f3427a;
+    protected Context f2440a;
     private HashMap<String, IOAdDownloader> c = new HashMap<>();
 
     protected a(Context context) {
-        this.f3427a = context;
+        this.f2440a = context;
     }
 
     public static a a(Context context) {
-        if (f3426b == null) {
-            f3426b = new a(context);
+        if (b == null) {
+            b = new a(context);
         }
-        return f3426b;
+        return b;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.download.IOAdDownloaderManager
@@ -76,7 +74,7 @@ public class a implements IOAdDownloaderManager {
 
     @Override // com.baidu.mobads.openad.interfaces.download.IOAdDownloaderManager
     public IOAdDownloader createSimpleFileDownloader(URL url, String str, String str2, boolean z) {
-        return new b(this.f3427a, url, str, str2, z);
+        return new b(this.f2440a, url, str, str2, z);
     }
 
     @Override // com.baidu.mobads.openad.interfaces.download.IOAdDownloaderManager

@@ -6,7 +6,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 @RequiresApi(21)
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 class ParceledListSliceAdapterApi21 {
     private static Constructor sConstructor;
 

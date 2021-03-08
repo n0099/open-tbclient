@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.v;
 import tbclient.GetPendantByCategory.DataReq;
 import tbclient.GetPendantByCategory.GetPendantByCategoryReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AvatarPendantListRequestMessage extends NetMessage {
     public AvatarPendantListRequestMessage() {
         super(1003178, CmdConfigSocket.CMD_AVATAR_APENDANT);

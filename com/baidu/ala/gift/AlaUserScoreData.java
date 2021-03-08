@@ -1,5 +1,5 @@
 package com.baidu.ala.gift;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaUserScoreData {
     public long mTDouScores = 0;
     public long mPetalTotal = 0;

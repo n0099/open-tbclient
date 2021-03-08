@@ -6,8 +6,8 @@ import android.os.Looper;
 import android.text.TextUtils;
 import android.widget.ImageView;
 import com.bytedance.sdk.adnet.core.Request;
+import com.bytedance.sdk.adnet.core.n;
 import com.bytedance.sdk.adnet.core.o;
-import com.bytedance.sdk.adnet.core.p;
 import com.bytedance.sdk.adnet.err.VAdError;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,13 +20,13 @@ import java.util.concurrent.Executors;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private final ExecutorService f5999a = Executors.newCachedThreadPool();
+    private final ExecutorService f4023a = Executors.newCachedThreadPool();
     private int c = 50;
     private final Map<String, a> e = Collections.synchronizedMap(new HashMap());
     private final Map<String, a> f = Collections.synchronizedMap(new HashMap());
     private final Handler g = new Handler(Looper.getMainLooper());
-    private final o pvb;
-    private final b pvc;
+    private final n pxg;
+    private final b pxh;
 
     /* loaded from: classes6.dex */
     public interface b {
@@ -39,7 +39,7 @@ public class d {
 
     /* renamed from: com.bytedance.sdk.adnet.b.d$d  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0999d extends p.a<Bitmap> {
+    public interface InterfaceC1007d extends o.a<Bitmap> {
         void a();
 
         void a(c cVar, boolean z);
@@ -47,50 +47,50 @@ public class d {
         void b();
     }
 
-    public d(o oVar, b bVar) {
-        this.pvb = oVar;
-        this.pvc = bVar == null ? new com.bytedance.sdk.adnet.b.a() : bVar;
+    public d(n nVar, b bVar) {
+        this.pxg = nVar;
+        this.pxh = bVar == null ? new com.bytedance.sdk.adnet.b.a() : bVar;
     }
 
-    public void a(String str, InterfaceC0999d interfaceC0999d) {
-        a(str, interfaceC0999d, 0, 0);
+    public void a(String str, InterfaceC1007d interfaceC1007d) {
+        a(str, interfaceC1007d, 0, 0);
     }
 
-    public void a(String str, InterfaceC0999d interfaceC0999d, int i, int i2) {
-        a(str, interfaceC0999d, i, i2, ImageView.ScaleType.CENTER_INSIDE);
+    public void a(String str, InterfaceC1007d interfaceC1007d, int i, int i2) {
+        a(str, interfaceC1007d, i, i2, ImageView.ScaleType.CENTER_INSIDE);
     }
 
-    public void a(final String str, final InterfaceC0999d interfaceC0999d, final int i, final int i2, final ImageView.ScaleType scaleType) {
-        this.f5999a.execute(new Runnable() { // from class: com.bytedance.sdk.adnet.b.d.1
+    public void a(final String str, final InterfaceC1007d interfaceC1007d, final int i, final int i2, final ImageView.ScaleType scaleType) {
+        this.f4023a.execute(new Runnable() { // from class: com.bytedance.sdk.adnet.b.d.1
             @Override // java.lang.Runnable
             public void run() {
-                d.this.b(str, interfaceC0999d, i, i2, scaleType);
+                d.this.b(str, interfaceC1007d, i, i2, scaleType);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(String str, final InterfaceC0999d interfaceC0999d, int i, int i2, ImageView.ScaleType scaleType) {
+    public void b(String str, final InterfaceC1007d interfaceC1007d, int i, int i2, ImageView.ScaleType scaleType) {
         this.g.post(new Runnable() { // from class: com.bytedance.sdk.adnet.b.d.2
             @Override // java.lang.Runnable
             public void run() {
-                interfaceC0999d.a();
+                interfaceC1007d.a();
             }
         });
         String a2 = a(str, i, i2, scaleType);
-        Bitmap a3 = this.pvc.a(a2);
+        Bitmap a3 = this.pxh.a(a2);
         if (a3 != null) {
             final c cVar = new c(a3, str, null, null);
             this.g.post(new Runnable() { // from class: com.bytedance.sdk.adnet.b.d.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    interfaceC0999d.a(cVar, true);
-                    interfaceC0999d.b();
+                    interfaceC1007d.a(cVar, true);
+                    interfaceC1007d.b();
                 }
             });
             return;
         }
-        c cVar2 = new c(null, str, a2, interfaceC0999d);
+        c cVar2 = new c(null, str, a2, interfaceC1007d);
         a aVar = this.e.get(a2);
         if (aVar == null) {
             aVar = this.f.get(a2);
@@ -100,88 +100,84 @@ public class d {
             return;
         }
         Request<Bitmap> b2 = b(str, i, i2, scaleType, a2);
-        this.pvb.j(b2);
+        this.pxg.j(b2);
         this.e.put(a2, new a(b2, cVar2));
     }
 
     protected Request<Bitmap> b(String str, int i, int i2, ImageView.ScaleType scaleType, final String str2) {
-        return new e(str, new p.a<Bitmap>() { // from class: com.bytedance.sdk.adnet.b.d.4
-            @Override // com.bytedance.sdk.adnet.core.p.a
-            public void a(final p<Bitmap> pVar) {
-                d.this.f5999a.execute(new Runnable() { // from class: com.bytedance.sdk.adnet.b.d.4.1
+        return new e(str, new o.a<Bitmap>() { // from class: com.bytedance.sdk.adnet.b.d.4
+            @Override // com.bytedance.sdk.adnet.core.o.a
+            public void a(final o<Bitmap> oVar) {
+                d.this.f4023a.execute(new Runnable() { // from class: com.bytedance.sdk.adnet.b.d.4.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        d.this.a(str2, pVar);
+                        d.this.a(str2, oVar);
                     }
                 });
             }
 
-            @Override // com.bytedance.sdk.adnet.core.p.a
-            public void b(final p<Bitmap> pVar) {
-                d.this.f5999a.execute(new Runnable() { // from class: com.bytedance.sdk.adnet.b.d.4.2
+            @Override // com.bytedance.sdk.adnet.core.o.a
+            public void b(final o<Bitmap> oVar) {
+                d.this.f4023a.execute(new Runnable() { // from class: com.bytedance.sdk.adnet.b.d.4.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        d.this.b(str2, pVar);
+                        d.this.b(str2, oVar);
                     }
                 });
             }
-        }, i, i2, scaleType, Bitmap.Config.RGB_565);
+        }, i, i2, scaleType, Bitmap.Config.ARGB_4444);
     }
 
-    protected void a(String str, p<Bitmap> pVar) {
-        this.pvc.a(str, pVar.f6047a);
+    protected void a(String str, o<Bitmap> oVar) {
+        this.pxh.a(str, oVar.f4049a);
         a remove = this.e.remove(str);
         if (remove == null) {
             return;
         }
-        remove.c = pVar.f6047a;
-        remove.a(pVar);
+        remove.c = oVar.f4049a;
+        remove.a(oVar);
         a(str, remove);
     }
 
-    protected void b(String str, p<Bitmap> pVar) {
+    protected void b(String str, o<Bitmap> oVar) {
         a remove = this.e.remove(str);
         if (remove != null) {
-            remove.b(pVar.pvP);
-            remove.a(pVar);
+            remove.b(oVar.pxT);
+            remove.a(oVar);
             a(str, remove);
         }
     }
 
     /* loaded from: classes6.dex */
     public class c {
-
-        /* renamed from: b  reason: collision with root package name */
-        private Bitmap f6004b;
+        private Bitmap b;
         private final String d;
         private final String e;
-        private final InterfaceC0999d pvm;
+        private final InterfaceC1007d pxr;
 
-        public c(Bitmap bitmap, String str, String str2, InterfaceC0999d interfaceC0999d) {
-            this.f6004b = bitmap;
+        public c(Bitmap bitmap, String str, String str2, InterfaceC1007d interfaceC1007d) {
+            this.b = bitmap;
             this.e = str;
             this.d = str2;
-            this.pvm = interfaceC0999d;
+            this.pxr = interfaceC1007d;
         }
 
         public Bitmap a() {
-            return this.f6004b;
+            return this.b;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class a {
-
-        /* renamed from: b  reason: collision with root package name */
-        private p<Bitmap> f6003b;
+        private o<Bitmap> b;
         private Bitmap c;
         private VAdError d;
         private final List<c> e = Collections.synchronizedList(new ArrayList());
-        private final Request<?> pvl;
+        private final Request<?> pxq;
 
         public a(Request<?> request, c cVar) {
-            this.pvl = request;
+            this.pxq = request;
             this.e.add(cVar);
         }
 
@@ -189,16 +185,16 @@ public class d {
             this.d = vAdError;
         }
 
-        public VAdError eqN() {
+        public VAdError eqV() {
             return this.d;
         }
 
-        public p<Bitmap> eqO() {
-            return this.f6003b;
+        public o<Bitmap> eqW() {
+            return this.b;
         }
 
-        public void a(p<Bitmap> pVar) {
-            this.f6003b = pVar;
+        public void a(o<Bitmap> oVar) {
+            this.b = oVar;
         }
 
         public void a(c cVar) {
@@ -214,14 +210,14 @@ public class d {
                 a aVar2 = (a) d.this.f.get(str);
                 if (aVar2 != null) {
                     for (c cVar : aVar2.e) {
-                        if (cVar.pvm != null) {
-                            if (aVar2.eqN() == null) {
-                                cVar.f6004b = aVar2.c;
-                                cVar.pvm.a(cVar, false);
+                        if (cVar.pxr != null) {
+                            if (aVar2.eqV() == null) {
+                                cVar.b = aVar2.c;
+                                cVar.pxr.a(cVar, false);
                             } else {
-                                cVar.pvm.b(aVar2.eqO());
+                                cVar.pxr.b(aVar2.eqW());
                             }
-                            cVar.pvm.b();
+                            cVar.pxr.b();
                         }
                     }
                 }
@@ -231,7 +227,7 @@ public class d {
     }
 
     private String a(String str, int i, int i2, ImageView.ScaleType scaleType) {
-        String a2 = this.pvc.a(str, i, i2, scaleType);
+        String a2 = this.pxh.a(str, i, i2, scaleType);
         if (!TextUtils.isEmpty(a2)) {
             return a2;
         }

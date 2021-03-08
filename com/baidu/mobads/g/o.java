@@ -8,21 +8,19 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class o implements Observer {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f3354a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private URL f3355b;
+    private Context f2397a;
+    private URL b;
     private String c;
     private final e d;
     private a e;
     private SharedPreferences f;
     private SharedPreferences.OnSharedPreferenceChangeListener g;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(e eVar);
 
@@ -30,16 +28,16 @@ public class o implements Observer {
     }
 
     public o(Context context, URL url, e eVar, a aVar) {
-        this.f3355b = null;
+        this.b = null;
         this.c = null;
         this.g = new p(this);
-        this.f3355b = url;
+        this.b = url;
         this.d = eVar;
         a(context, aVar);
     }
 
     public o(Context context, String str, e eVar, a aVar) {
-        this.f3355b = null;
+        this.b = null;
         this.c = null;
         this.g = new p(this);
         this.c = str;
@@ -48,14 +46,14 @@ public class o implements Observer {
     }
 
     private void a(Context context, a aVar) {
-        this.f3354a = context;
+        this.f2397a = context;
         this.e = aVar;
-        this.f = this.f3354a.getSharedPreferences("__xadsdk_downloaded__version__", 0);
+        this.f = this.f2397a.getSharedPreferences("__xadsdk_downloaded__version__", 0);
         this.f.registerOnSharedPreferenceChangeListener(this.g);
     }
 
     public void a(String str, String str2) {
-        IOAdDownloader createSimpleFileDownloader = XAdSDKFoundationFacade.getInstance().getDownloaderManager(this.f3354a).createSimpleFileDownloader(this.c != null ? new URL(this.c) : this.f3355b, str, str2, false);
+        IOAdDownloader createSimpleFileDownloader = XAdSDKFoundationFacade.getInstance().getDownloaderManager(this.f2397a).createSimpleFileDownloader(this.c != null ? new URL(this.c) : this.b, str, str2, false);
         createSimpleFileDownloader.addObserver(this);
         createSimpleFileDownloader.start();
         SharedPreferences.Editor edit = this.f.edit();

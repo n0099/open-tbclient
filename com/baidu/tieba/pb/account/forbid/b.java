@@ -13,26 +13,26 @@ public class b {
 
     /* renamed from: com.baidu.tieba.pb.account.forbid.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0830b {
+    public interface InterfaceC0836b {
         void a(ForbidTplData forbidTplData);
 
         void b(ForbidTplData forbidTplData);
     }
 
-    public static void a(String str, String str2, InterfaceC0830b interfaceC0830b) {
-        new a(str, str2, interfaceC0830b).execute(new String[0]);
+    public static void a(String str, String str2, InterfaceC0836b interfaceC0836b) {
+        new a(str, str2, interfaceC0836b).execute(new String[0]);
     }
 
     /* loaded from: classes2.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidTplData> {
-        private String lIH;
-        private String lII;
-        private InterfaceC0830b lIJ;
+        private String lKJ;
+        private String lKK;
+        private InterfaceC0836b lKL;
 
-        public a(String str, String str2, InterfaceC0830b interfaceC0830b) {
-            this.lIH = str;
-            this.lII = str2;
-            this.lIJ = interfaceC0830b;
+        public a(String str, String str2, InterfaceC0836b interfaceC0836b) {
+            this.lKJ = str;
+            this.lKK = str2;
+            this.lKL = interfaceC0836b;
             setPriority(3);
         }
 
@@ -42,10 +42,10 @@ public class b {
         /* renamed from: X */
         public ForbidTplData doInBackground(String... strArr) {
             aa aaVar = new aa(b.BAWU_LIST_REASON);
-            aaVar.addPostData("forum_id", this.lIH);
-            aaVar.addPostData("user_id", this.lII);
+            aaVar.addPostData("forum_id", this.lKJ);
+            aaVar.addPostData("user_id", this.lKK);
             String postNetData = aaVar.postNetData();
-            if (aaVar.bsr().btb().isRequestSuccess()) {
+            if (aaVar.bsu().bte().isRequestSuccess()) {
                 try {
                     return (ForbidTplData) OrmObject.objectWithJsonStr(postNetData, ForbidTplData.class);
                 } catch (Exception e) {
@@ -67,11 +67,11 @@ public class b {
         /* renamed from: c */
         public void onPostExecute(ForbidTplData forbidTplData) {
             super.onPostExecute(forbidTplData);
-            if (this.lIJ != null) {
+            if (this.lKL != null) {
                 if (forbidTplData.error.errno == 0 && au.isEmpty(forbidTplData.error.errMsg)) {
-                    this.lIJ.a(forbidTplData);
+                    this.lKL.a(forbidTplData);
                 } else {
-                    this.lIJ.b(forbidTplData);
+                    this.lKL.b(forbidTplData);
                 }
             }
         }

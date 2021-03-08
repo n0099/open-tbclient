@@ -3,21 +3,19 @@ package com.baidu.android.pushservice.message;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    protected short f1468a;
-
-    /* renamed from: b  reason: collision with root package name */
-    protected byte[] f1469b;
+    protected short f1247a;
+    protected byte[] b;
     protected boolean c;
     protected boolean d = false;
     protected boolean e;
     private k f;
 
     public e(short s) {
-        this.f1468a = s;
+        this.f1247a = s;
     }
 
     public short a() {
-        return this.f1468a;
+        return this.f1247a;
     }
 
     public void a(k kVar) {
@@ -29,7 +27,7 @@ public class e {
     }
 
     public byte[] b() {
-        return this.f1469b;
+        return this.b;
     }
 
     public boolean c() {
@@ -47,7 +45,7 @@ public class e {
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("type : ");
-        stringBuffer.append((int) this.f1468a);
+        stringBuffer.append((int) this.f1247a);
         stringBuffer.append(", needReply: ");
         stringBuffer.append(this.c);
         return stringBuffer.toString();

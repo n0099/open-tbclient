@@ -14,7 +14,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static AdError a(int i) {
         switch (i) {
@@ -165,7 +165,7 @@ public class a {
         return true;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:37:0x0040 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x003f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -231,9 +231,10 @@ public class a {
     }
 
     private static boolean b(Context context) {
+        String[] strArr = {"android.permission.INTERNET", "android.permission.ACCESS_NETWORK_STATE", "android.permission.ACCESS_WIFI_STATE"};
         for (int i = 0; i < 3; i++) {
             try {
-                String str = new String[]{"android.permission.INTERNET", "android.permission.ACCESS_NETWORK_STATE", "android.permission.ACCESS_WIFI_STATE"}[i];
+                String str = strArr[i];
                 if (context.checkCallingOrSelfPermission(str) == -1) {
                     GDTLogger.e(String.format("Permission %s is required in AndroidManifest.xml", str));
                     return false;
@@ -248,8 +249,8 @@ public class a {
 
     private static boolean b(Context context, Class<?>... clsArr) {
         for (int i = 0; i <= 0; i++) {
-            Class<?> cls = clsArr[0];
             try {
+                Class<?> cls = clsArr[0];
                 Intent intent = new Intent();
                 intent.setClass(context, cls);
                 if (context.getPackageManager().resolveService(intent, 65536) == null) {
@@ -264,14 +265,13 @@ public class a {
         return true;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:45:0x0058 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0056 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static byte[] b(byte[] bArr) {
-        Throwable th;
         GZIPInputStream gZIPInputStream;
-        GZIPInputStream gZIPInputStream2;
+        GZIPInputStream gZIPInputStream2 = null;
         if (bArr == null || bArr.length == 0) {
             return bArr;
         }
@@ -280,15 +280,15 @@ public class a {
         byte[] bArr2 = new byte[1024];
         try {
             try {
-                gZIPInputStream2 = new GZIPInputStream(byteArrayInputStream);
+                gZIPInputStream = new GZIPInputStream(byteArrayInputStream);
                 while (true) {
                     try {
-                        int read = gZIPInputStream2.read(bArr2);
+                        int read = gZIPInputStream.read(bArr2);
                         if (read == -1) {
                             byteArrayOutputStream.flush();
                             byte[] byteArray = byteArrayOutputStream.toByteArray();
                             try {
-                                gZIPInputStream2.close();
+                                gZIPInputStream.close();
                                 byteArrayInputStream.close();
                                 byteArrayOutputStream.close();
                                 return byteArray;
@@ -301,9 +301,9 @@ public class a {
                     } catch (Exception e2) {
                         e = e2;
                         e.printStackTrace();
-                        if (gZIPInputStream2 != null) {
+                        if (gZIPInputStream != null) {
                             try {
-                                gZIPInputStream2.close();
+                                gZIPInputStream.close();
                             } catch (Exception e3) {
                                 e3.printStackTrace();
                                 return null;
@@ -314,12 +314,11 @@ public class a {
                         return null;
                     }
                 }
-            } catch (Throwable th2) {
-                th = th2;
-                gZIPInputStream = 1024;
-                if (gZIPInputStream != null) {
+            } catch (Throwable th) {
+                th = th;
+                if (0 != 0) {
                     try {
-                        gZIPInputStream.close();
+                        gZIPInputStream2.close();
                     } catch (Exception e4) {
                         e4.printStackTrace();
                         throw th;
@@ -331,11 +330,10 @@ public class a {
             }
         } catch (Exception e5) {
             e = e5;
-            gZIPInputStream2 = null;
-        } catch (Throwable th3) {
-            th = th3;
             gZIPInputStream = null;
-            if (gZIPInputStream != null) {
+        } catch (Throwable th2) {
+            th = th2;
+            if (0 != 0) {
             }
             byteArrayInputStream.close();
             byteArrayOutputStream.close();

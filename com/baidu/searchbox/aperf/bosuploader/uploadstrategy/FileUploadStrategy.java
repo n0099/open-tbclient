@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FileUploadStrategy implements IUpload {
     private static final boolean DEBUG = false;
     private static final int KEEP_ALIVE_TIME = 60000;
@@ -261,7 +261,7 @@ public class FileUploadStrategy implements IUpload {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     private static final class Constants {
         private static final int MAX_COUNT_ATTACHMENT = 100;
         private static final long MAX_LIFE_TIME = 2592000000L;
@@ -272,7 +272,7 @@ public class FileUploadStrategy implements IUpload {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class TrimConfig {
         private long mLifeTime;
         private int mMaxCount;
@@ -284,7 +284,7 @@ public class FileUploadStrategy implements IUpload {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class StoreUtil {
         private static final String BASE_ATTACHMENT_UPLOAD_FILE_PATH = "attachment_upload";
         private static final String BASE_UPLOAD_ATTACHMENT_DIR = "attachment";
@@ -326,7 +326,7 @@ public class FileUploadStrategy implements IUpload {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class FileEntity implements Comparable<FileEntity> {
         @NonNull
         private File mFile;
@@ -361,7 +361,7 @@ public class FileUploadStrategy implements IUpload {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class FileName {
         private static final String FILE_ID_SEPARATOR = "_";
         private static final String SEPARATOR = "#";

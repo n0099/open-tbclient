@@ -24,27 +24,27 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.newinterest.data.d;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForumViewHolder> {
-    private int lEm;
-    private List<com.baidu.tieba.newinterest.data.a> lEv = new ArrayList();
-    private a lEw;
-    private boolean lEx;
+    private int lGo;
+    private List<com.baidu.tieba.newinterest.data.a> lGx = new ArrayList();
+    private a lGy;
+    private boolean lGz;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void ac(int i, boolean z);
     }
 
     static /* synthetic */ int d(InterestedForumAdapter interestedForumAdapter) {
-        int i = interestedForumAdapter.lEm;
-        interestedForumAdapter.lEm = i - 1;
+        int i = interestedForumAdapter.lGo;
+        interestedForumAdapter.lGo = i - 1;
         return i;
     }
 
     static /* synthetic */ int e(InterestedForumAdapter interestedForumAdapter) {
-        int i = interestedForumAdapter.lEm;
-        interestedForumAdapter.lEm = i + 1;
+        int i = interestedForumAdapter.lGo;
+        interestedForumAdapter.lGo = i + 1;
         return i;
     }
 
@@ -58,23 +58,23 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.lEv == null) {
+        if (this.lGx == null) {
             return 0;
         }
-        return this.lEv.size();
+        return this.lGx.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(@NonNull final InterestedForumViewHolder interestedForumViewHolder, final int i) {
-        final com.baidu.tieba.newinterest.data.a aVar = this.lEv.get(i);
-        interestedForumViewHolder.lEt.setText(aVar.class_name);
+        final com.baidu.tieba.newinterest.data.a aVar = this.lGx.get(i);
+        interestedForumViewHolder.lGv.setText(aVar.class_name);
         if (aVar.class_id.intValue() > 0) {
-            SvgManager.bsR().a(interestedForumViewHolder.lEs, com.baidu.tieba.newinterest.b.a.Fk(aVar.class_id.intValue()), (SvgManager.SvgResourceStateType) null);
+            SvgManager.bsU().a(interestedForumViewHolder.lGu, com.baidu.tieba.newinterest.b.a.Fn(aVar.class_id.intValue()), (SvgManager.SvgResourceStateType) null);
         }
         if (aVar.forum_info != null && aVar.forum_info.size() != 0) {
-            if (aVar.lFf == 0) {
+            if (aVar.lHh == 0) {
                 if (aVar.forum_info.size() >= 1) {
                     a(interestedForumViewHolder, aVar.forum_info.get(0));
                 }
@@ -85,39 +85,39 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
                     c(interestedForumViewHolder, aVar.forum_info.get(2));
                 }
                 if (aVar.forum_info.size() > 3) {
-                    aVar.lFf = 2;
+                    aVar.lHh = 2;
                 }
             } else {
-                int i2 = aVar.lFf;
+                int i2 = aVar.lHh;
                 c(interestedForumViewHolder, aVar.forum_info.get(i2));
                 int size = i2 + (-1) < 0 ? aVar.forum_info.size() - 1 : i2 - 1;
                 b(interestedForumViewHolder, aVar.forum_info.get(size));
                 a(interestedForumViewHolder, aVar.forum_info.get(size + (-1) < 0 ? aVar.forum_info.size() - 1 : size - 1));
             }
             if (aVar.forum_info.size() <= 3) {
-                interestedForumViewHolder.lED.setEnabled(false);
+                interestedForumViewHolder.lGF.setEnabled(false);
             } else {
-                interestedForumViewHolder.lED.setEnabled(true);
+                interestedForumViewHolder.lGF.setEnabled(true);
             }
-            interestedForumViewHolder.lED.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.newinterest.adapter.InterestedForumAdapter.1
+            interestedForumViewHolder.lGF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.newinterest.adapter.InterestedForumAdapter.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     int size2 = aVar.forum_info.size() - 1;
                     InterestedForumAdapter.this.a(size2, aVar);
-                    InterestedForumAdapter.this.a(interestedForumViewHolder, aVar.forum_info.get(aVar.lFf));
+                    InterestedForumAdapter.this.a(interestedForumViewHolder, aVar.forum_info.get(aVar.lHh));
                     InterestedForumAdapter.this.a(size2, aVar);
-                    InterestedForumAdapter.this.b(interestedForumViewHolder, aVar.forum_info.get(aVar.lFf));
+                    InterestedForumAdapter.this.b(interestedForumViewHolder, aVar.forum_info.get(aVar.lHh));
                     InterestedForumAdapter.this.a(size2, aVar);
-                    InterestedForumAdapter.this.c(interestedForumViewHolder, aVar.forum_info.get(aVar.lFf));
-                    InterestedForumAdapter.this.lEx = InterestedForumAdapter.this.djw();
+                    InterestedForumAdapter.this.c(interestedForumViewHolder, aVar.forum_info.get(aVar.lHh));
+                    InterestedForumAdapter.this.lGz = InterestedForumAdapter.this.djF();
                     InterestedForumAdapter.this.notifyItemChanged(i);
-                    if (InterestedForumAdapter.this.lEw != null) {
-                        InterestedForumAdapter.this.lEw.ac(InterestedForumAdapter.this.lEm, InterestedForumAdapter.this.lEx);
+                    if (InterestedForumAdapter.this.lGy != null) {
+                        InterestedForumAdapter.this.lGy.ac(InterestedForumAdapter.this.lGo, InterestedForumAdapter.this.lGz);
                     }
                     ar arVar = new ar("c13682");
-                    arVar.ap("obj_type", 2);
-                    arVar.ap("obj_locate", 4);
-                    arVar.ap("obj_source", aVar.class_id.intValue());
+                    arVar.aq("obj_type", 2);
+                    arVar.aq("obj_locate", 4);
+                    arVar.aq("obj_source", aVar.class_id.intValue());
                     TiebaStatic.log(arVar);
                 }
             });
@@ -127,58 +127,58 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
     /* JADX INFO: Access modifiers changed from: private */
     public void a(InterestedForumViewHolder interestedForumViewHolder, d dVar) {
         String str;
-        interestedForumViewHolder.lEE.setVisibility(0);
-        interestedForumViewHolder.lEH.setVisibility(0);
-        interestedForumViewHolder.lEH.startLoad(dVar.lFh.avatar, 10, false);
-        interestedForumViewHolder.lEK.setText(dVar.lFh.forum_name);
-        if (TextUtils.isEmpty(dVar.lFh.slogan)) {
-            str = "百度" + dVar.lFh.forum_name + "吧";
+        interestedForumViewHolder.lGG.setVisibility(0);
+        interestedForumViewHolder.lGJ.setVisibility(0);
+        interestedForumViewHolder.lGJ.startLoad(dVar.lHj.avatar, 10, false);
+        interestedForumViewHolder.lGM.setText(dVar.lHj.forum_name);
+        if (TextUtils.isEmpty(dVar.lHj.slogan)) {
+            str = "百度" + dVar.lHj.forum_name + "吧";
         } else {
-            str = dVar.lFh.slogan;
+            str = dVar.lHj.slogan;
         }
-        interestedForumViewHolder.lEN.setText(str);
-        interestedForumViewHolder.lEQ.setText("关注 " + au.numberUniformFormatExtra(dVar.lFh.member_count.intValue()));
-        interestedForumViewHolder.lET.setText("帖子 " + au.numberUniformFormatExtra(dVar.lFh.thread_count.intValue()));
-        a(interestedForumViewHolder.lEW, dVar);
-        a(dVar, interestedForumViewHolder.lEW);
+        interestedForumViewHolder.lGP.setText(str);
+        interestedForumViewHolder.lGS.setText("关注 " + au.numberUniformFormatExtra(dVar.lHj.member_count.intValue()));
+        interestedForumViewHolder.lGV.setText("帖子 " + au.numberUniformFormatExtra(dVar.lHj.thread_count.intValue()));
+        a(interestedForumViewHolder.lGY, dVar);
+        a(dVar, interestedForumViewHolder.lGY);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(InterestedForumViewHolder interestedForumViewHolder, d dVar) {
         String str;
-        interestedForumViewHolder.lEF.setVisibility(0);
-        interestedForumViewHolder.lEI.setVisibility(0);
-        interestedForumViewHolder.lEI.startLoad(dVar.lFh.avatar, 10, false);
-        interestedForumViewHolder.lEL.setText(dVar.lFh.forum_name);
-        if (TextUtils.isEmpty(dVar.lFh.slogan)) {
-            str = "百度" + dVar.lFh.forum_name + "吧";
+        interestedForumViewHolder.lGH.setVisibility(0);
+        interestedForumViewHolder.lGK.setVisibility(0);
+        interestedForumViewHolder.lGK.startLoad(dVar.lHj.avatar, 10, false);
+        interestedForumViewHolder.lGN.setText(dVar.lHj.forum_name);
+        if (TextUtils.isEmpty(dVar.lHj.slogan)) {
+            str = "百度" + dVar.lHj.forum_name + "吧";
         } else {
-            str = dVar.lFh.slogan;
+            str = dVar.lHj.slogan;
         }
-        interestedForumViewHolder.lEO.setText(str);
-        interestedForumViewHolder.lER.setText("关注 " + au.numberUniformFormatExtra(dVar.lFh.member_count.intValue()));
-        interestedForumViewHolder.lEU.setText("帖子 " + au.numberUniformFormatExtra(dVar.lFh.thread_count.intValue()));
-        a(interestedForumViewHolder.lEX, dVar);
-        a(dVar, interestedForumViewHolder.lEX);
+        interestedForumViewHolder.lGQ.setText(str);
+        interestedForumViewHolder.lGT.setText("关注 " + au.numberUniformFormatExtra(dVar.lHj.member_count.intValue()));
+        interestedForumViewHolder.lGW.setText("帖子 " + au.numberUniformFormatExtra(dVar.lHj.thread_count.intValue()));
+        a(interestedForumViewHolder.lGZ, dVar);
+        a(dVar, interestedForumViewHolder.lGZ);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(InterestedForumViewHolder interestedForumViewHolder, d dVar) {
         String str;
-        interestedForumViewHolder.lEG.setVisibility(0);
-        interestedForumViewHolder.lEJ.setVisibility(0);
-        interestedForumViewHolder.lEJ.startLoad(dVar.lFh.avatar, 10, false);
-        interestedForumViewHolder.lEM.setText(dVar.lFh.forum_name);
-        if (TextUtils.isEmpty(dVar.lFh.slogan)) {
-            str = "百度" + dVar.lFh.forum_name + "吧";
+        interestedForumViewHolder.lGI.setVisibility(0);
+        interestedForumViewHolder.lGL.setVisibility(0);
+        interestedForumViewHolder.lGL.startLoad(dVar.lHj.avatar, 10, false);
+        interestedForumViewHolder.lGO.setText(dVar.lHj.forum_name);
+        if (TextUtils.isEmpty(dVar.lHj.slogan)) {
+            str = "百度" + dVar.lHj.forum_name + "吧";
         } else {
-            str = dVar.lFh.slogan;
+            str = dVar.lHj.slogan;
         }
-        interestedForumViewHolder.lEP.setText(str);
-        interestedForumViewHolder.lES.setText("关注 " + au.numberUniformFormatExtra(dVar.lFh.member_count.intValue()));
-        interestedForumViewHolder.lEV.setText("帖子 " + au.numberUniformFormatExtra(dVar.lFh.thread_count.intValue()));
-        a(interestedForumViewHolder.lEY, dVar);
-        a(dVar, interestedForumViewHolder.lEY);
+        interestedForumViewHolder.lGR.setText(str);
+        interestedForumViewHolder.lGU.setText("关注 " + au.numberUniformFormatExtra(dVar.lHj.member_count.intValue()));
+        interestedForumViewHolder.lGX.setText("帖子 " + au.numberUniformFormatExtra(dVar.lHj.thread_count.intValue()));
+        a(interestedForumViewHolder.lHa, dVar);
+        a(dVar, interestedForumViewHolder.lHa);
     }
 
     private void a(TBSpecificationBtn tBSpecificationBtn, d dVar) {
@@ -189,21 +189,21 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
             return;
         }
         tBSpecificationBtn.setText("已选择");
-        bVar.pT(R.color.CAM_X0109);
+        bVar.pU(R.color.CAM_X0109);
         tBSpecificationBtn.setConfig(bVar);
     }
 
     public void cv(List<com.baidu.tieba.newinterest.data.a> list) {
-        this.lEv.addAll(list);
+        this.lGx.addAll(list);
         notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, com.baidu.tieba.newinterest.data.a aVar) {
-        if (aVar.lFf < i) {
-            aVar.lFf++;
+        if (aVar.lHh < i) {
+            aVar.lHh++;
         } else {
-            aVar.lFf = 0;
+            aVar.lHh = 0;
         }
     }
 
@@ -217,60 +217,60 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
                     InterestedForumAdapter.d(InterestedForumAdapter.this);
                     tBSpecificationBtn.setText("感兴趣");
                     tBSpecificationBtn.setConfig(bVar);
-                    InterestedForumAdapter.this.lEx = false;
+                    InterestedForumAdapter.this.lGz = false;
                 } else {
                     InterestedForumAdapter.e(InterestedForumAdapter.this);
                     tBSpecificationBtn.setText("已选择");
-                    bVar.pT(R.color.CAM_X0109);
+                    bVar.pU(R.color.CAM_X0109);
                     tBSpecificationBtn.setConfig(bVar);
-                    InterestedForumAdapter.this.lEx = InterestedForumAdapter.this.djw();
+                    InterestedForumAdapter.this.lGz = InterestedForumAdapter.this.djF();
                 }
-                if (InterestedForumAdapter.this.lEw != null) {
-                    InterestedForumAdapter.this.lEw.ac(InterestedForumAdapter.this.lEm, InterestedForumAdapter.this.lEx);
+                if (InterestedForumAdapter.this.lGy != null) {
+                    InterestedForumAdapter.this.lGy.ac(InterestedForumAdapter.this.lGo, InterestedForumAdapter.this.lGz);
                 }
                 ar arVar = new ar("c13682");
-                arVar.ap("obj_type", 2);
-                arVar.ap("obj_locate", 4);
-                arVar.v("fid", dVar.lFh.forum_id.longValue());
+                arVar.aq("obj_type", 2);
+                arVar.aq("obj_locate", 4);
+                arVar.v("fid", dVar.lHj.forum_id.longValue());
                 TiebaStatic.log(arVar);
             }
         });
     }
 
-    public List<com.baidu.tieba.newinterest.data.a> dju() {
-        return this.lEv;
+    public List<com.baidu.tieba.newinterest.data.a> djD() {
+        return this.lGx;
     }
 
-    public void djv() {
-        if (this.lEv != null && this.lEv.size() != 0) {
-            for (com.baidu.tieba.newinterest.data.a aVar : this.lEv) {
-                int i = aVar.lFf;
-                aVar.forum_info.get(i).selected = !this.lEx;
+    public void djE() {
+        if (this.lGx != null && this.lGx.size() != 0) {
+            for (com.baidu.tieba.newinterest.data.a aVar : this.lGx) {
+                int i = aVar.lHh;
+                aVar.forum_info.get(i).selected = !this.lGz;
                 a(aVar, i);
                 int size = i + (-1) < 0 ? aVar.forum_info.size() - 1 : i - 1;
-                aVar.forum_info.get(size).selected = !this.lEx;
+                aVar.forum_info.get(size).selected = !this.lGz;
                 a(aVar, size);
                 int size2 = size + (-1) < 0 ? aVar.forum_info.size() - 1 : size - 1;
-                aVar.forum_info.get(size2).selected = !this.lEx;
+                aVar.forum_info.get(size2).selected = !this.lGz;
                 a(aVar, size2);
             }
-            this.lEx = this.lEx ? false : true;
+            this.lGz = this.lGz ? false : true;
             notifyDataSetChanged();
-            if (this.lEw != null) {
-                if (this.lEx) {
-                    this.lEm = this.lEv.size() * 3;
-                    this.lEw.ac(this.lEv.size() * 3, this.lEx);
+            if (this.lGy != null) {
+                if (this.lGz) {
+                    this.lGo = this.lGx.size() * 3;
+                    this.lGy.ac(this.lGx.size() * 3, this.lGz);
                     return;
                 }
-                this.lEm = 0;
-                this.lEw.ac(0, this.lEx);
+                this.lGo = 0;
+                this.lGy.ac(0, this.lGz);
             }
         }
     }
 
-    public boolean djw() {
-        for (com.baidu.tieba.newinterest.data.a aVar : this.lEv) {
-            int i = aVar.lFf;
+    public boolean djF() {
+        for (com.baidu.tieba.newinterest.data.a aVar : this.lGx) {
+            int i = aVar.lHh;
             if (!aVar.forum_info.get(i).selected) {
                 return false;
             }
@@ -286,92 +286,92 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
     }
 
     private void a(com.baidu.tieba.newinterest.data.a aVar, int i) {
-        if (!this.lEx) {
+        if (!this.lGz) {
             ar arVar = new ar("c13682");
-            arVar.ap("obj_type", 2);
-            arVar.ap("obj_locate", 3);
-            arVar.v("fid", aVar.forum_info.get(i).lFh.forum_id.longValue());
+            arVar.aq("obj_type", 2);
+            arVar.aq("obj_locate", 3);
+            arVar.v("fid", aVar.forum_info.get(i).lHj.forum_id.longValue());
             TiebaStatic.log(arVar);
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class InterestedForumViewHolder extends RecyclerView.ViewHolder {
-        public TextView lED;
-        public RelativeLayout lEE;
-        public RelativeLayout lEF;
-        public RelativeLayout lEG;
-        public BarImageView lEH;
-        public BarImageView lEI;
-        public BarImageView lEJ;
-        public TextView lEK;
-        public TextView lEL;
-        public TextView lEM;
-        public TextView lEN;
-        public TextView lEO;
-        public TextView lEP;
-        public TextView lEQ;
-        public TextView lER;
-        public TextView lES;
-        public TextView lET;
-        public TextView lEU;
-        public TextView lEV;
-        public TBSpecificationBtn lEW;
-        public TBSpecificationBtn lEX;
-        public TBSpecificationBtn lEY;
-        public ImageView lEs;
-        public TextView lEt;
+        public TextView lGF;
+        public RelativeLayout lGG;
+        public RelativeLayout lGH;
+        public RelativeLayout lGI;
+        public BarImageView lGJ;
+        public BarImageView lGK;
+        public BarImageView lGL;
+        public TextView lGM;
+        public TextView lGN;
+        public TextView lGO;
+        public TextView lGP;
+        public TextView lGQ;
+        public TextView lGR;
+        public TextView lGS;
+        public TextView lGT;
+        public TextView lGU;
+        public TextView lGV;
+        public TextView lGW;
+        public TextView lGX;
+        public TBSpecificationBtn lGY;
+        public TBSpecificationBtn lGZ;
+        public ImageView lGu;
+        public TextView lGv;
+        public TBSpecificationBtn lHa;
 
         public InterestedForumViewHolder(View view) {
             super(view);
-            this.lEs = (ImageView) view.findViewById(R.id.interest_icon);
-            this.lEt = (TextView) view.findViewById(R.id.interest_text);
-            this.lED = (TextView) view.findViewById(R.id.interest_change);
-            this.lEE = (RelativeLayout) view.findViewById(R.id.top_recommend_layout);
-            this.lEF = (RelativeLayout) view.findViewById(R.id.middle_recommend_layout);
-            this.lEG = (RelativeLayout) view.findViewById(R.id.bottom_recommend_layout);
-            this.lEH = (BarImageView) view.findViewById(R.id.top_forum_image);
-            this.lEI = (BarImageView) view.findViewById(R.id.middle_forum_image);
-            this.lEJ = (BarImageView) view.findViewById(R.id.bottom_forum_image);
-            this.lEK = (TextView) view.findViewById(R.id.top_forum_name);
-            this.lEL = (TextView) view.findViewById(R.id.middle_forum_name);
-            this.lEM = (TextView) view.findViewById(R.id.bottom_forum_name);
-            this.lEN = (TextView) view.findViewById(R.id.top_forum_desc);
-            this.lEO = (TextView) view.findViewById(R.id.middle_forum_desc);
-            this.lEP = (TextView) view.findViewById(R.id.bottom_forum_desc);
-            this.lEQ = (TextView) view.findViewById(R.id.top_member_text);
-            this.lER = (TextView) view.findViewById(R.id.middle_member_text);
-            this.lES = (TextView) view.findViewById(R.id.bottom_member_text);
-            this.lET = (TextView) view.findViewById(R.id.top_post_text);
-            this.lEU = (TextView) view.findViewById(R.id.middle_post_text);
-            this.lEV = (TextView) view.findViewById(R.id.bottom_post_text);
-            this.lEW = (TBSpecificationBtn) view.findViewById(R.id.top_select_interest);
-            this.lEX = (TBSpecificationBtn) view.findViewById(R.id.middle_select_interest);
-            this.lEY = (TBSpecificationBtn) view.findViewById(R.id.bottom_select_interest);
-            ap.setViewTextColor(this.lEK, R.color.CAM_X0105);
-            ap.setViewTextColor(this.lEL, R.color.CAM_X0105);
-            ap.setViewTextColor(this.lEM, R.color.CAM_X0105);
-            ap.setViewTextColor(this.lEN, R.color.CAM_X0109);
-            ap.setViewTextColor(this.lEO, R.color.CAM_X0109);
-            ap.setViewTextColor(this.lEP, R.color.CAM_X0109);
-            ap.setViewTextColor(this.lEQ, R.color.CAM_X0109);
-            ap.setViewTextColor(this.lER, R.color.CAM_X0109);
-            ap.setViewTextColor(this.lES, R.color.CAM_X0109);
-            ap.setViewTextColor(this.lET, R.color.CAM_X0109);
-            ap.setViewTextColor(this.lEU, R.color.CAM_X0109);
-            ap.setViewTextColor(this.lEV, R.color.CAM_X0109);
-            ap.setViewTextColor(this.lEt, R.color.CAM_X0105);
-            ap.setViewTextColor(this.lED, R.color.CAM_X0107);
-            this.lEt.setTypeface(Typeface.DEFAULT_BOLD);
-            this.lEK.setTypeface(Typeface.DEFAULT_BOLD);
-            this.lEL.setTypeface(Typeface.DEFAULT_BOLD);
-            this.lEM.setTypeface(Typeface.DEFAULT_BOLD);
-            this.lEW.setConfig(new b());
-            this.lEX.setConfig(new b());
-            this.lEY.setConfig(new b());
-            a(this.lEH);
-            a(this.lEI);
-            a(this.lEJ);
+            this.lGu = (ImageView) view.findViewById(R.id.interest_icon);
+            this.lGv = (TextView) view.findViewById(R.id.interest_text);
+            this.lGF = (TextView) view.findViewById(R.id.interest_change);
+            this.lGG = (RelativeLayout) view.findViewById(R.id.top_recommend_layout);
+            this.lGH = (RelativeLayout) view.findViewById(R.id.middle_recommend_layout);
+            this.lGI = (RelativeLayout) view.findViewById(R.id.bottom_recommend_layout);
+            this.lGJ = (BarImageView) view.findViewById(R.id.top_forum_image);
+            this.lGK = (BarImageView) view.findViewById(R.id.middle_forum_image);
+            this.lGL = (BarImageView) view.findViewById(R.id.bottom_forum_image);
+            this.lGM = (TextView) view.findViewById(R.id.top_forum_name);
+            this.lGN = (TextView) view.findViewById(R.id.middle_forum_name);
+            this.lGO = (TextView) view.findViewById(R.id.bottom_forum_name);
+            this.lGP = (TextView) view.findViewById(R.id.top_forum_desc);
+            this.lGQ = (TextView) view.findViewById(R.id.middle_forum_desc);
+            this.lGR = (TextView) view.findViewById(R.id.bottom_forum_desc);
+            this.lGS = (TextView) view.findViewById(R.id.top_member_text);
+            this.lGT = (TextView) view.findViewById(R.id.middle_member_text);
+            this.lGU = (TextView) view.findViewById(R.id.bottom_member_text);
+            this.lGV = (TextView) view.findViewById(R.id.top_post_text);
+            this.lGW = (TextView) view.findViewById(R.id.middle_post_text);
+            this.lGX = (TextView) view.findViewById(R.id.bottom_post_text);
+            this.lGY = (TBSpecificationBtn) view.findViewById(R.id.top_select_interest);
+            this.lGZ = (TBSpecificationBtn) view.findViewById(R.id.middle_select_interest);
+            this.lHa = (TBSpecificationBtn) view.findViewById(R.id.bottom_select_interest);
+            ap.setViewTextColor(this.lGM, R.color.CAM_X0105);
+            ap.setViewTextColor(this.lGN, R.color.CAM_X0105);
+            ap.setViewTextColor(this.lGO, R.color.CAM_X0105);
+            ap.setViewTextColor(this.lGP, R.color.CAM_X0109);
+            ap.setViewTextColor(this.lGQ, R.color.CAM_X0109);
+            ap.setViewTextColor(this.lGR, R.color.CAM_X0109);
+            ap.setViewTextColor(this.lGS, R.color.CAM_X0109);
+            ap.setViewTextColor(this.lGT, R.color.CAM_X0109);
+            ap.setViewTextColor(this.lGU, R.color.CAM_X0109);
+            ap.setViewTextColor(this.lGV, R.color.CAM_X0109);
+            ap.setViewTextColor(this.lGW, R.color.CAM_X0109);
+            ap.setViewTextColor(this.lGX, R.color.CAM_X0109);
+            ap.setViewTextColor(this.lGv, R.color.CAM_X0105);
+            ap.setViewTextColor(this.lGF, R.color.CAM_X0107);
+            this.lGv.setTypeface(Typeface.DEFAULT_BOLD);
+            this.lGM.setTypeface(Typeface.DEFAULT_BOLD);
+            this.lGN.setTypeface(Typeface.DEFAULT_BOLD);
+            this.lGO.setTypeface(Typeface.DEFAULT_BOLD);
+            this.lGY.setConfig(new b());
+            this.lGZ.setConfig(new b());
+            this.lHa.setConfig(new b());
+            a(this.lGJ);
+            a(this.lGK);
+            a(this.lGL);
         }
 
         private void a(BarImageView barImageView) {
@@ -384,6 +384,6 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
     }
 
     public void a(a aVar) {
-        this.lEw = aVar;
+        this.lGy = aVar;
     }
 }

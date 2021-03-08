@@ -13,17 +13,17 @@ import com.baidu.live.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.yuyinala.liveroom.introduce.d;
 import com.baidu.tieba.yuyinala.liveroom.roomcard.f;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.tieba.yuyinala.liveroom.a implements e {
-    private ab bxN;
-    private com.baidu.live.an.a gYL;
+    private ab bzn;
+    private com.baidu.live.an.a hau;
 
     public a(TbPageContext tbPageContext) {
         super(tbPageContext);
     }
 
     public void ah(ab abVar) {
-        this.bxN = abVar;
+        this.bzn = abVar;
         HashMap hashMap = new HashMap(2);
         hashMap.put("context", getPageContext());
         hashMap.put("listener", this);
@@ -31,73 +31,73 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a implements e {
     }
 
     @Override // com.baidu.live.audiolive.e
-    public void zK() {
-        new f(getPageContext().getPageActivity(), this.bxN).ai(this.bxN);
-    }
-
-    @Override // com.baidu.live.audiolive.e
-    public void zL() {
-        if (this.bxN != null && this.bxN.aIU != null) {
-            new d(getPageContext().getPageActivity()).ae(this.bxN);
-        }
-    }
-
-    @Override // com.baidu.live.audiolive.e
-    public void zM() {
-        if (!TbadkCoreApplication.isLogin()) {
-            ViewHelper.skipToLoginActivity(getPageContext().getPageActivity());
-            return;
-        }
-        HashMap hashMap = new HashMap(2);
-        hashMap.put("context", getPageContext());
-        hashMap.put("ala_live_show_data", this.bxN);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501007, hashMap));
-    }
-
-    @Override // com.baidu.live.audiolive.e
     public void zN() {
-        if (!TbadkCoreApplication.isLogin()) {
-            ViewHelper.skipToLoginActivity(getPageContext().getPageActivity());
-            return;
-        }
-        HashMap hashMap = new HashMap(2);
-        hashMap.put("context", getPageContext());
-        hashMap.put("ala_live_show_data", this.bxN);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501006, hashMap));
+        new f(getPageContext().getPageActivity(), this.bzn).ai(this.bzn);
     }
 
     @Override // com.baidu.live.audiolive.e
     public void zO() {
+        if (this.bzn != null && this.bzn.aKu != null) {
+            new d(getPageContext().getPageActivity()).ae(this.bzn);
+        }
+    }
+
+    @Override // com.baidu.live.audiolive.e
+    public void zP() {
         if (!TbadkCoreApplication.isLogin()) {
             ViewHelper.skipToLoginActivity(getPageContext().getPageActivity());
             return;
         }
         HashMap hashMap = new HashMap(2);
         hashMap.put("context", getPageContext());
-        hashMap.put("ala_live_show_data", this.bxN);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501008, hashMap));
+        hashMap.put("ala_live_show_data", this.bzn);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501007, hashMap));
     }
 
     @Override // com.baidu.live.audiolive.e
-    public void fl(String str) {
+    public void zQ() {
         if (!TbadkCoreApplication.isLogin()) {
             ViewHelper.skipToLoginActivity(getPageContext().getPageActivity());
             return;
         }
-        if (this.gYL == null) {
-            this.gYL = new com.baidu.live.an.a(getPageContext().getPageActivity());
+        HashMap hashMap = new HashMap(2);
+        hashMap.put("context", getPageContext());
+        hashMap.put("ala_live_show_data", this.bzn);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501006, hashMap));
+    }
+
+    @Override // com.baidu.live.audiolive.e
+    public void zR() {
+        if (!TbadkCoreApplication.isLogin()) {
+            ViewHelper.skipToLoginActivity(getPageContext().getPageActivity());
+            return;
+        }
+        HashMap hashMap = new HashMap(2);
+        hashMap.put("context", getPageContext());
+        hashMap.put("ala_live_show_data", this.bzn);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501008, hashMap));
+    }
+
+    @Override // com.baidu.live.audiolive.e
+    public void fr(String str) {
+        if (!TbadkCoreApplication.isLogin()) {
+            ViewHelper.skipToLoginActivity(getPageContext().getPageActivity());
+            return;
+        }
+        if (this.hau == null) {
+            this.hau = new com.baidu.live.an.a(getPageContext().getPageActivity());
         }
         c cVar = new c();
-        if (this.bxN != null && this.bxN.aIU != null) {
+        if (this.bzn != null && this.bzn.aKu != null) {
             if (str.contains("?")) {
-                str = str + "&live_id=" + this.bxN.aIU.live_id + "&room_id=" + this.bxN.aIU.aTK + "&subapp_type=" + TbConfig.getSubappType() + "&_sdk_version=" + TbConfig.SDK_VERSION;
+                str = str + "&live_id=" + this.bzn.aKu.live_id + "&room_id=" + this.bzn.aKu.aVk + "&subapp_type=" + TbConfig.getSubappType() + "&_sdk_version=" + TbConfig.SDK_VERSION;
             } else {
-                str = str + "?live_id=" + this.bxN.aIU.live_id + "&room_id=" + this.bxN.aIU.aTK + "&subapp_type=" + TbConfig.getSubappType() + "&_sdk_version=" + TbConfig.SDK_VERSION;
+                str = str + "?live_id=" + this.bzn.aKu.live_id + "&room_id=" + this.bzn.aKu.aVk + "&subapp_type=" + TbConfig.getSubappType() + "&_sdk_version=" + TbConfig.SDK_VERSION;
             }
         }
         cVar.url = str;
-        this.gYL.alaLiveShowData = com.baidu.live.ao.a.Yj().Yq();
-        this.gYL.a(cVar);
+        this.hau.alaLiveShowData = com.baidu.live.ao.a.Ym().Yt();
+        this.hau.a(cVar);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
@@ -106,8 +106,8 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a implements e {
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
-    public void Ar() {
-        super.Ar();
+    public void Au() {
+        super.Au();
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a

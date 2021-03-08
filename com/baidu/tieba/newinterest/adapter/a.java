@@ -15,29 +15,29 @@ import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends BaseAdapter {
-    private int lEm;
-    private final List<com.baidu.tieba.newinterest.data.b> lEn;
-    private b lEo;
+    private int lGo;
+    private final List<com.baidu.tieba.newinterest.data.b> lGp;
+    private b lGq;
     private final Context mContext;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface b {
-        void Fj(int i);
+        void Fm(int i);
     }
 
     public a(List<com.baidu.tieba.newinterest.data.b> list, Context context) {
-        this.lEn = list;
+        this.lGp = list;
         this.mContext = context;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.lEn == null) {
+        if (this.lGp == null) {
             return 0;
         }
-        return this.lEn.size();
+        return this.lGp.size();
     }
 
     @Override // android.widget.Adapter
@@ -52,42 +52,42 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(final int i, View view, ViewGroup viewGroup) {
-        final C0819a c0819a;
+        final C0825a c0825a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(R.layout.list_item_interest_selection, viewGroup, false);
-            C0819a c0819a2 = new C0819a(view);
-            view.setTag(c0819a2);
-            c0819a = c0819a2;
+            C0825a c0825a2 = new C0825a(view);
+            view.setTag(c0825a2);
+            c0825a = c0825a2;
         } else {
-            c0819a = (C0819a) view.getTag();
+            c0825a = (C0825a) view.getTag();
         }
-        final com.baidu.tieba.newinterest.data.b bVar = this.lEn.get(i);
+        final com.baidu.tieba.newinterest.data.b bVar = this.lGp.get(i);
         if (bVar.getIcon() > 0) {
-            SvgManager.bsR().a(c0819a.lEs, bVar.getIcon(), (SvgManager.SvgResourceStateType) null);
+            SvgManager.bsU().a(c0825a.lGu, bVar.getIcon(), (SvgManager.SvgResourceStateType) null);
         }
-        c0819a.lEt.setText(bVar.getText());
-        a(c0819a.lEu, bVar);
+        c0825a.lGv.setText(bVar.getText());
+        a(c0825a.lGw, bVar);
         if (bVar.isSelected()) {
-            this.lEm++;
+            this.lGo++;
         }
         view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.newinterest.adapter.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (!bVar.isSelected() && a.this.lEm >= 10) {
+                if (!bVar.isSelected() && a.this.lGo >= 10) {
                     l.showToast(a.this.mContext.getApplicationContext(), a.this.mContext.getApplicationContext().getString(R.string.max_interest_select_num));
                     return;
                 }
                 bVar.setSelected(!bVar.isSelected());
-                a.this.a(c0819a.lEu, bVar);
+                a.this.a(c0825a.lGw, bVar);
                 a.this.a(bVar);
-                if (a.this.lEo != null) {
-                    a.this.lEo.Fj(a.this.lEm);
+                if (a.this.lGq != null) {
+                    a.this.lGq.Fm(a.this.lGo);
                 }
                 if (bVar.isSelected()) {
                     ar arVar = new ar("c13682");
-                    arVar.ap("obj_type", 2);
-                    arVar.ap("obj_locate", 1);
-                    arVar.ap("obj_source", i);
+                    arVar.aq("obj_type", 2);
+                    arVar.aq("obj_locate", 1);
+                    arVar.aq("obj_source", i);
                     TiebaStatic.log(arVar);
                 }
             }
@@ -95,9 +95,9 @@ public class a extends BaseAdapter {
         return view;
     }
 
-    public List<com.baidu.tieba.newinterest.data.b> djt() {
+    public List<com.baidu.tieba.newinterest.data.b> djC() {
         ArrayList arrayList = new ArrayList();
-        for (com.baidu.tieba.newinterest.data.b bVar : this.lEn) {
+        for (com.baidu.tieba.newinterest.data.b bVar : this.lGp) {
             if (bVar.isSelected()) {
                 arrayList.add(bVar);
             }
@@ -106,17 +106,17 @@ public class a extends BaseAdapter {
     }
 
     /* renamed from: com.baidu.tieba.newinterest.adapter.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0819a {
-        public ImageView lEs;
-        public TextView lEt;
-        public ImageView lEu;
+    /* loaded from: classes7.dex */
+    public static class C0825a {
+        public ImageView lGu;
+        public TextView lGv;
+        public ImageView lGw;
 
-        public C0819a(View view) {
-            this.lEs = (ImageView) view.findViewById(R.id.interest_icon);
-            this.lEt = (TextView) view.findViewById(R.id.interest_text);
-            this.lEu = (ImageView) view.findViewById(R.id.select_status_view);
-            ap.setViewTextColor(this.lEt, R.color.CAM_X0105);
+        public C0825a(View view) {
+            this.lGu = (ImageView) view.findViewById(R.id.interest_icon);
+            this.lGv = (TextView) view.findViewById(R.id.interest_text);
+            this.lGw = (ImageView) view.findViewById(R.id.select_status_view);
+            ap.setViewTextColor(this.lGv, R.color.CAM_X0105);
             ap.setBackgroundResource(view, R.drawable.bg_interest_item_selection);
         }
     }
@@ -124,22 +124,22 @@ public class a extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ImageView imageView, com.baidu.tieba.newinterest.data.b bVar) {
         if (bVar.isSelected()) {
-            SvgManager.bsR().a(imageView, R.drawable.ic_icon_pure_guide_select_svg, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bsU().a(imageView, R.drawable.ic_icon_pure_guide_select_svg, SvgManager.SvgResourceStateType.NORMAL);
         } else {
-            SvgManager.bsR().a(imageView, R.drawable.ic_icon_mask_module_unselect_svg, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bsU().a(imageView, R.drawable.ic_icon_mask_module_unselect_svg, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.newinterest.data.b bVar) {
         if (bVar.isSelected()) {
-            this.lEm++;
+            this.lGo++;
         } else {
-            this.lEm--;
+            this.lGo--;
         }
     }
 
     public void a(b bVar) {
-        this.lEo = bVar;
+        this.lGq = bVar;
     }
 }

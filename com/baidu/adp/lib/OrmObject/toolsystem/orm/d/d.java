@@ -7,7 +7,7 @@ import java.lang.reflect.Modifier;
 /* loaded from: classes.dex */
 public class d {
     public static final boolean a(com.baidu.adp.lib.OrmObject.toolsystem.orm.object.g gVar, com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c cVar) {
-        h r;
+        h t;
         Object obj;
         if (gVar == null || cVar == null) {
             return false;
@@ -15,24 +15,24 @@ public class d {
         for (Field field : com.baidu.adp.lib.OrmObject.a.a.findFields(gVar.getClass())) {
             if (field != null && !Modifier.isTransient(field.getModifiers()) && !Modifier.isStatic(field.getModifiers())) {
                 String name = field.getName();
-                if (!TextUtils.isEmpty(name) && (r = f.r(com.baidu.adp.lib.OrmObject.a.a.getValueForField(gVar, name))) != null) {
+                if (!TextUtils.isEmpty(name) && (t = f.t(com.baidu.adp.lib.OrmObject.a.a.getValueForField(gVar, name))) != null) {
                     if (cVar instanceof com.baidu.adp.lib.OrmObject.toolsystem.orm.b.e) {
-                        obj = r.a(new c(field.getGenericType()));
+                        obj = t.a(new c(field.getGenericType()));
                     } else if (cVar instanceof com.baidu.adp.lib.OrmObject.toolsystem.orm.b.a) {
-                        obj = r.b(new c(field.getGenericType()));
+                        obj = t.b(new c(field.getGenericType()));
                     } else if (cVar instanceof com.baidu.adp.lib.OrmObject.toolsystem.orm.b.d) {
-                        obj = r.c(new c(field.getGenericType()));
+                        obj = t.c(new c(field.getGenericType()));
                     } else if (cVar instanceof com.baidu.adp.lib.OrmObject.toolsystem.orm.b.f) {
-                        obj = r.d(new c(field.getGenericType()));
+                        obj = t.d(new c(field.getGenericType()));
                     } else if (cVar instanceof com.baidu.adp.lib.OrmObject.toolsystem.orm.b.b) {
-                        obj = r.e(new c(field.getGenericType()));
+                        obj = t.e(new c(field.getGenericType()));
                     } else if (!(cVar instanceof com.baidu.adp.lib.OrmObject.toolsystem.orm.b.g)) {
                         obj = null;
                     } else {
-                        obj = r.f(new c(field.getGenericType()));
+                        obj = t.f(new c(field.getGenericType()));
                     }
                     if (obj != null) {
-                        cVar.e(name, obj);
+                        cVar.f(name, obj);
                     }
                 }
             }

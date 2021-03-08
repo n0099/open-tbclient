@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 import java.lang.reflect.Field;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public class ViewUtils {
     static final Property<View, Rect> CLIP_BOUNDS;
     private static final ViewUtilsBase IMPL;

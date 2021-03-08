@@ -43,7 +43,7 @@ public class a {
 
     public static void a() {
         if (com.ss.android.downloadlib.a.j.i().optInt("hook", 0) == 1) {
-            com.ss.android.downloadlib.f.eFh().a(new Runnable() { // from class: com.ss.android.downloadlib.f.a.1
+            com.ss.android.downloadlib.f.eFl().a(new Runnable() { // from class: com.ss.android.downloadlib.f.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     com.ss.android.socialbase.downloader.m.g.f();
@@ -69,7 +69,7 @@ public class a {
             declaredField2.setAccessible(true);
             Object obj2 = declaredField2.get(obj);
             if (obj2 != null && (cls = Class.forName("android.app.IActivityManager")) != null) {
-                declaredField2.set(obj, Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new Class[]{cls}, new C1226a(obj2)));
+                declaredField2.set(obj, Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new Class[]{cls}, new C1216a(obj2)));
             }
         } catch (Throwable th) {
         }
@@ -78,7 +78,7 @@ public class a {
     public static void a(Object[] objArr) {
         if (com.ss.android.downloadlib.a.j.i().optInt("hook", 0) == 1 && (objArr[1] instanceof String) && (objArr[2] instanceof Intent)) {
             Intent intent = (Intent) objArr[2];
-            if ("android.intent.action.VIEW".equals(intent.getAction()) && com.ss.android.socialbase.downloader.b.e.f13074a.equals(intent.getType())) {
+            if ("android.intent.action.VIEW".equals(intent.getAction()) && com.ss.android.socialbase.downloader.b.e.f7777a.equals(intent.getType())) {
                 if (com.ss.android.socialbase.downloader.m.g.c()) {
                     String optString = com.ss.android.downloadlib.a.j.i().optString("hook_vivo_arg", "com.android.settings");
                     if (!"null".equals(optString)) {
@@ -113,13 +113,13 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.ss.android.downloadlib.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1226a implements InvocationHandler {
+    public static class C1216a implements InvocationHandler {
 
         /* renamed from: a  reason: collision with root package name */
-        private Object f12988a;
+        private Object f7732a;
 
-        private C1226a(Object obj) {
-            this.f12988a = obj;
+        private C1216a(Object obj) {
+            this.f7732a = obj;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -130,7 +130,7 @@ public class a {
                 }
             } catch (Throwable th) {
             }
-            return method.invoke(this.f12988a, objArr);
+            return method.invoke(this.f7732a, objArr);
         }
     }
 }

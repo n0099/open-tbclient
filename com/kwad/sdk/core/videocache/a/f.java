@@ -38,8 +38,8 @@ public class f implements c {
     @Override // com.kwad.sdk.core.videocache.a.c
     public String a(String str) {
         String c = c(str);
-        String b2 = b(c);
+        String b = b(c);
         String d = l.d(c);
-        return TextUtils.isEmpty(b2) ? d : d + "." + b2;
+        return TextUtils.isEmpty(b) ? d : d + "." + b;
     }
 }

@@ -14,7 +14,7 @@ import com.bytedance.sdk.openadsdk.utils.u;
 public class b implements com.bytedance.sdk.openadsdk.multipro.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f7410a;
+    private Context f4924a;
 
     private static ContentResolver e() {
         try {
@@ -72,12 +72,12 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
     }
 
     private static String f() {
-        return e.f7415b + "/t_frequent/";
+        return e.b + "/t_frequent/";
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
     public void a(Context context) {
-        this.f7410a = context;
+        this.f4924a = context;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a

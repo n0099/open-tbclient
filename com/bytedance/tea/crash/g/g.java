@@ -5,7 +5,7 @@ import android.app.ActivityManager;
 import android.os.Build;
 /* loaded from: classes6.dex */
 public class g {
-    static final a pwz;
+    static final a pyC;
 
     /* loaded from: classes6.dex */
     private static class a {
@@ -32,13 +32,13 @@ public class g {
 
     static {
         if (Build.VERSION.SDK_INT >= 16) {
-            pwz = new b();
+            pyC = new b();
         } else {
-            pwz = new a();
+            pyC = new a();
         }
     }
 
     public static long a(ActivityManager.MemoryInfo memoryInfo) {
-        return pwz.a(memoryInfo);
+        return pyC.a(memoryInfo);
     }
 }

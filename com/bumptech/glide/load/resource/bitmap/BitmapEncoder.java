@@ -18,7 +18,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class BitmapEncoder implements ResourceEncoder<Bitmap> {
     private static final String TAG = "BitmapEncoder";
     @Nullable
@@ -35,7 +35,7 @@ public class BitmapEncoder implements ResourceEncoder<Bitmap> {
         this.arrayPool = null;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [96=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [91=4] */
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Removed duplicated region for block: B:15:0x0059 A[Catch: all -> 0x00de, TRY_LEAVE, TryCatch #7 {all -> 0x00de, blocks: (B:3:0x0020, B:12:0x004c, B:13:0x004f, B:15:0x0059, B:31:0x00da, B:32:0x00dd, B:24:0x00cc), top: B:54:0x0020 }] */
     /* JADX WARN: Removed duplicated region for block: B:47:0x00da A[EXC_TOP_SPLITTER, SYNTHETIC] */

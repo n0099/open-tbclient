@@ -9,14 +9,14 @@ import javax.net.ssl.SSLSession;
 public final class u {
 
     /* renamed from: a  reason: collision with root package name */
-    private final ad f5979a;
+    private final ad f4011a;
     private final List<Certificate> c;
     private final List<Certificate> d;
-    private final k prG;
+    private final k ptM;
 
     private u(ad adVar, k kVar, List<Certificate> list, List<Certificate> list2) {
-        this.f5979a = adVar;
-        this.prG = kVar;
+        this.f4011a = adVar;
+        this.ptM = kVar;
         this.c = list;
         this.d = list2;
     }
@@ -29,7 +29,7 @@ public final class u {
         if (cipherSuite == null) {
             throw new IllegalStateException("cipherSuite == null");
         }
-        k YP = k.YP(cipherSuite);
+        k YW = k.YW(cipherSuite);
         String protocol = sSLSession.getProtocol();
         if (protocol == null) {
             throw new IllegalStateException("tlsVersion == null");
@@ -41,21 +41,21 @@ public final class u {
             certificateArr = null;
         }
         if (certificateArr != null) {
-            emptyList = com.bytedance.sdk.a.b.a.c.P(certificateArr);
+            emptyList = com.bytedance.sdk.a.b.a.c.O(certificateArr);
         } else {
             emptyList = Collections.emptyList();
         }
         Certificate[] localCertificates = sSLSession.getLocalCertificates();
         if (localCertificates != null) {
-            emptyList2 = com.bytedance.sdk.a.b.a.c.P(localCertificates);
+            emptyList2 = com.bytedance.sdk.a.b.a.c.O(localCertificates);
         } else {
             emptyList2 = Collections.emptyList();
         }
-        return new u(a2, YP, emptyList, emptyList2);
+        return new u(a2, YW, emptyList, emptyList2);
     }
 
-    public k eqb() {
-        return this.prG;
+    public k eqi() {
+        return this.ptM;
     }
 
     public List<Certificate> b() {
@@ -65,12 +65,12 @@ public final class u {
     public boolean equals(Object obj) {
         if (obj instanceof u) {
             u uVar = (u) obj;
-            return this.f5979a.equals(uVar.f5979a) && this.prG.equals(uVar.prG) && this.c.equals(uVar.c) && this.d.equals(uVar.d);
+            return this.f4011a.equals(uVar.f4011a) && this.ptM.equals(uVar.ptM) && this.c.equals(uVar.c) && this.d.equals(uVar.d);
         }
         return false;
     }
 
     public int hashCode() {
-        return ((((((this.f5979a.hashCode() + 527) * 31) + this.prG.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode();
+        return ((((((this.f4011a.hashCode() + 527) * 31) + this.ptM.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode();
     }
 }

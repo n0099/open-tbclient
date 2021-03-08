@@ -10,29 +10,27 @@ import java.util.concurrent.Executors;
 public abstract class e implements com.kwad.sdk.core.videocache.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final ExecutorService f9477a = Executors.newSingleThreadExecutor();
+    private final ExecutorService f6284a = Executors.newSingleThreadExecutor();
 
     /* loaded from: classes3.dex */
     private class a implements Callable<Void> {
-
-        /* renamed from: b  reason: collision with root package name */
-        private final File f9479b;
+        private final File b;
 
         public a(File file) {
-            this.f9479b = file;
+            this.b = file;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public Void call() {
-            e.this.b(this.f9479b);
+            e.this.b(this.b);
             return null;
         }
     }
 
     private void a(List<File> list) {
-        long b2 = b(list);
+        long b = b(list);
         int size = list.size();
         Iterator<File> it = list.iterator();
         while (true) {
@@ -41,11 +39,11 @@ public abstract class e implements com.kwad.sdk.core.videocache.a.a {
                 return;
             }
             File next = it.next();
-            if (!a(next, b2, i)) {
+            if (!a(next, b, i)) {
                 long length = next.length();
                 if (next.delete()) {
                     i--;
-                    b2 -= length;
+                    b -= length;
                 } else {
                     com.kwad.sdk.core.d.a.d("LruDiskUsage", "Error deleting file " + next + " for trimming cache");
                 }
@@ -74,7 +72,7 @@ public abstract class e implements com.kwad.sdk.core.videocache.a.a {
 
     @Override // com.kwad.sdk.core.videocache.a.a
     public void a(File file) {
-        this.f9477a.submit(new a(file));
+        this.f6284a.submit(new a(file));
     }
 
     protected abstract boolean a(File file, long j, int i);

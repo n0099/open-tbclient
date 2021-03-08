@@ -23,7 +23,7 @@ import com.baidu.tbadk.switchs.FlutterMyTabEnableSwitch;
 import com.baidu.tieba.flutter.util.OpenFlutter;
 import com.idlefish.flutterboost.containers.FlutterFragment;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class FlutterEnterForumDelegateStatic extends b {
     private static final int PERSON_INFO_TAB_MIDDLE_REDDOT_DISTANCE = 10;
     private Boolean isNew = false;
@@ -55,11 +55,11 @@ public class FlutterEnterForumDelegateStatic extends b {
     public c createFragmentTabStructure() {
         c cVar = new c();
         HashMap hashMap = new HashMap();
-        hashMap.put("tabIndex", Integer.valueOf(com.baidu.tbadk.core.e.b.eYr));
-        TbFlutterFragment tbFlutterFragment = (TbFlutterFragment) new FlutterFragment.NewEngineFragmentBuilder(TbFlutterFragment.class).params(hashMap).url(OpenFlutter.FRAGMENT_ENTER_FORUM).isTabHost(com.baidu.tbadk.core.e.b.eYq != 1).build();
+        hashMap.put("tabIndex", Integer.valueOf(com.baidu.tbadk.core.e.b.eZQ));
+        TbFlutterFragment tbFlutterFragment = (TbFlutterFragment) new FlutterFragment.NewEngineFragmentBuilder(TbFlutterFragment.class).params(hashMap).url(OpenFlutter.FRAGMENT_ENTER_FORUM).isTabHost(com.baidu.tbadk.core.e.b.eZP != 1).build();
         cVar.frag = tbFlutterFragment;
-        if (com.baidu.tbadk.core.e.b.eYr == com.baidu.tbadk.core.e.b.eYt) {
-            com.baidu.tbadk.core.e.b.eYr = com.baidu.tbadk.core.e.b.eYs;
+        if (com.baidu.tbadk.core.e.b.eZQ == com.baidu.tbadk.core.e.b.eZS) {
+            com.baidu.tbadk.core.e.b.eZQ = com.baidu.tbadk.core.e.b.eZR;
             tbFlutterFragment.removeSplashDelay(1000L);
             tbFlutterFragment.setAutoPlayWhenInit(true);
         }
@@ -67,7 +67,7 @@ public class FlutterEnterForumDelegateStatic extends b {
         Resources resources = h.kD().getResources();
         cVar.textResId = resources.getIdentifier("enter_forum", "string", BdBaseApplication.getInst().getPackageName());
         cVar.animationResId = resources.getIdentifier("lottie_tab_forum", "raw", BdBaseApplication.getInst().getPackageName());
-        cVar.showIconType = c.fHd;
+        cVar.showIconType = c.fIC;
         return cVar;
     }
 
@@ -76,11 +76,11 @@ public class FlutterEnterForumDelegateStatic extends b {
         this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(h.kD().getResources().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
         this.tipView = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.fHv = this.mIndicator;
+        aVar.fIU = this.mIndicator;
         aVar.offsetX = l.dip2px(context, 10.0f);
         aVar.view = this.tipView;
         this.mIndicator.b("emotion", aVar);
-        boolean z = com.baidu.tbadk.core.sharedPref.b.brQ().getBoolean(SharedPrefConfig.KEY_FEEDBACK_PERSON_TAB_SHOW, false);
+        boolean z = com.baidu.tbadk.core.sharedPref.b.brR().getBoolean(SharedPrefConfig.KEY_FEEDBACK_PERSON_TAB_SHOW, false);
         if (this.isNew.booleanValue() || z) {
             this.tipView.refresh(0);
             this.tipView.setVisibility(0);

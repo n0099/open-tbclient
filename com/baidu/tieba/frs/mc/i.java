@@ -12,11 +12,11 @@ import com.baidu.tieba.frs.ResponseSetCommForumStateSocketMessage;
 /* loaded from: classes2.dex */
 public class i {
     public i() {
-        cKc();
-        cKd();
+        cKi();
+        cKj();
     }
 
-    private void cKc() {
+    private void cKi() {
         com.baidu.tbadk.task.b a2 = com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.INCREASE_FORUM_ACCESS_COUNT, ResponseIncrForumAccessCountSocketMessage.class, false, false);
         a2.setResponsedClass(ResponseIncrForumAccessCountSocketMessage.class);
         a2.setNeedAck(true);
@@ -33,7 +33,7 @@ public class i {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void cKd() {
+    private void cKj() {
         com.baidu.tbadk.task.b a2 = com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.SET_COMMON_FORUM_STATE, ResponseSetCommForumStateSocketMessage.class, false, false);
         a2.setResponsedClass(ResponseSetCommForumStateSocketMessage.class);
         a2.setNeedAck(true);

@@ -1,21 +1,21 @@
 package com.airbnb.lottie.model.a;
 
 import androidx.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class k {
     @Nullable
-    public final a Fr;
+    public final a GM;
     @Nullable
-    public final a Fs;
+    public final a GN;
     @Nullable
-    public final b Ft;
+    public final b GO;
     @Nullable
-    public final b Fu;
+    public final b GP;
 
     public k(@Nullable a aVar, @Nullable a aVar2, @Nullable b bVar, @Nullable b bVar2) {
-        this.Fr = aVar;
-        this.Fs = aVar2;
-        this.Ft = bVar;
-        this.Fu = bVar2;
+        this.GM = aVar;
+        this.GN = aVar2;
+        this.GO = bVar;
+        this.GP = bVar2;
     }
 }

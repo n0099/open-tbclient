@@ -29,10 +29,8 @@ import java.util.List;
 public class CommentListPanel extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    RecyclerView.OnScrollListener f8441a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private e f8442b;
+    RecyclerView.OnScrollListener f5627a;
+    private e b;
     private KsRecyclerView c;
     private d d;
     private com.kwad.sdk.lib.widget.recycler.d e;
@@ -54,18 +52,18 @@ public class CommentListPanel extends LinearLayout {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        long f8448a = -1;
+        long f5633a = -1;
 
         a() {
         }
 
         void a() {
-            this.f8448a = SystemClock.elapsedRealtime();
+            this.f5633a = SystemClock.elapsedRealtime();
         }
 
         long b() {
-            long elapsedRealtime = this.f8448a > 0 ? SystemClock.elapsedRealtime() - this.f8448a : 0L;
-            this.f8448a = -1L;
+            long elapsedRealtime = this.f5633a > 0 ? SystemClock.elapsedRealtime() - this.f5633a : 0L;
+            this.f5633a = -1L;
             return elapsedRealtime;
         }
     }
@@ -82,7 +80,7 @@ public class CommentListPanel extends LinearLayout {
 
     public CommentListPanel(Context context) {
         super(context);
-        this.f8442b = null;
+        this.b = null;
         this.j = new ArrayList();
         this.k = new ArrayList();
         this.l = new ArrayList();
@@ -104,7 +102,7 @@ public class CommentListPanel extends LinearLayout {
                 CommentListPanel.this.a();
             }
         };
-        this.f8441a = new RecyclerView.OnScrollListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.comment.CommentListPanel.4
+        this.f5627a = new RecyclerView.OnScrollListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.comment.CommentListPanel.4
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
             public void onScrolled(RecyclerView recyclerView, int i, int i2) {
                 super.onScrolled(recyclerView, i, i2);
@@ -119,7 +117,7 @@ public class CommentListPanel extends LinearLayout {
 
     public CommentListPanel(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f8442b = null;
+        this.b = null;
         this.j = new ArrayList();
         this.k = new ArrayList();
         this.l = new ArrayList();
@@ -141,7 +139,7 @@ public class CommentListPanel extends LinearLayout {
                 CommentListPanel.this.a();
             }
         };
-        this.f8441a = new RecyclerView.OnScrollListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.comment.CommentListPanel.4
+        this.f5627a = new RecyclerView.OnScrollListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.comment.CommentListPanel.4
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
             public void onScrolled(RecyclerView recyclerView, int i, int i2) {
                 super.onScrolled(recyclerView, i, i2);
@@ -204,7 +202,7 @@ public class CommentListPanel extends LinearLayout {
     public void a() {
         this.c.setVisibility(8);
         this.h.b();
-        if (this.f8442b == null) {
+        if (this.b == null) {
             this.h.f();
         } else if (this.n != null) {
             a(this.n);
@@ -212,7 +210,7 @@ public class CommentListPanel extends LinearLayout {
         } else if (this.m) {
         } else {
             this.m = true;
-            new com.kwad.sdk.core.g.g().a(this.f8442b.b(), new g.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.comment.CommentListPanel.5
+            new com.kwad.sdk.core.g.g().a(this.b.b(), new g.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.comment.CommentListPanel.5
                 @Override // com.kwad.sdk.core.g.g.a
                 public void a(int i, String str) {
                     if (com.kwad.sdk.core.network.f.c.k == i) {
@@ -223,8 +221,8 @@ public class CommentListPanel extends LinearLayout {
                             CommentListPanel.this.h.f();
                         }
                         CommentListPanel.this.o.a();
-                        com.kwad.sdk.core.report.e.g(CommentListPanel.this.f8442b.a());
-                    } else if (com.kwad.sdk.core.network.f.f9323a.k == i) {
+                        com.kwad.sdk.core.report.e.g(CommentListPanel.this.b.a());
+                    } else if (com.kwad.sdk.core.network.f.f6187a.k == i) {
                         CommentListPanel.this.h.c();
                     } else {
                         CommentListPanel.this.h.d();
@@ -257,7 +255,7 @@ public class CommentListPanel extends LinearLayout {
 
     public void a(@NonNull AdTemplate adTemplate, long j) {
         this.i = adTemplate;
-        this.f8442b = new e(adTemplate, j);
+        this.b = new e(adTemplate, j);
     }
 
     protected void a(@NonNull CommentResponse commentResponse) {
@@ -268,11 +266,11 @@ public class CommentListPanel extends LinearLayout {
         this.c.setAdapter(this.e);
         this.c.setVisibility(0);
         if (com.kwad.sdk.core.config.c.C() && com.kwad.sdk.core.response.b.c.c(this.i)) {
-            this.c.setOnScrollListener(this.f8441a);
+            this.c.setOnScrollListener(this.f5627a);
             g();
         }
         this.o.a();
-        com.kwad.sdk.core.report.e.g(this.f8442b.a());
+        com.kwad.sdk.core.report.e.g(this.b.a());
     }
 
     protected RecyclerView.LayoutManager b() {
@@ -282,8 +280,8 @@ public class CommentListPanel extends LinearLayout {
     }
 
     protected com.kwad.sdk.lib.widget.recycler.d b(@NonNull CommentResponse commentResponse) {
-        this.f8442b.a(commentResponse.rootComments);
-        this.d = new d(getContext(), this.f8442b);
+        this.b.a(commentResponse.rootComments);
+        this.d = new d(getContext(), this.b);
         return new com.kwad.sdk.lib.widget.recycler.d(this.d);
     }
 
@@ -303,8 +301,8 @@ public class CommentListPanel extends LinearLayout {
 
     public void c() {
         long a2 = this.d != null ? this.d.a() : 0L;
-        if (this.f8442b != null) {
-            com.kwad.sdk.core.report.e.a(this.f8442b.a(), a2, this.o.b());
+        if (this.b != null) {
+            com.kwad.sdk.core.report.e.a(this.b.a(), a2, this.o.b());
         }
     }
 

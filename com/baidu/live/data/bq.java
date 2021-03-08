@@ -1,10 +1,10 @@
 package com.baidu.live.data;
 
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class bq {
-    public JSONObject aPv;
-    public JSONObject aPw;
+    public JSONObject aQV;
+    public JSONObject aQW;
 
     public bq(JSONObject jSONObject) {
         parseData(jSONObject);
@@ -12,8 +12,8 @@ public class bq {
 
     private void parseData(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aPv = jSONObject.optJSONObject("bubble_effect");
-            this.aPw = jSONObject.optJSONObject("nickname_effect");
+            this.aQV = jSONObject.optJSONObject("bubble_effect");
+            this.aQW = jSONObject.optJSONObject("nickname_effect");
         }
     }
 }

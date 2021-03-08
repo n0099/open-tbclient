@@ -31,15 +31,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class a {
     private static StringBuilder A;
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1668a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static Context f1669b;
+    private static a f1362a;
+    private static Context b;
     private static String c;
     private static String d;
     private static String f;
@@ -67,18 +65,18 @@ public final class a {
     private Boolean z = false;
 
     private a(Context context) {
-        f1669b = context.getApplicationContext();
-        this.B = d.a(f1669b);
+        b = context.getApplicationContext();
+        this.B = d.a(b);
         d();
     }
 
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (f1668a == null) {
-                f1668a = new a(context);
+            if (f1362a == null) {
+                f1362a = new a(context);
             }
-            aVar = f1668a;
+            aVar = f1362a;
         }
         return aVar;
     }
@@ -124,20 +122,20 @@ public final class a {
     }
 
     private void d() {
-        this.e = f1669b.getPackageName();
-        this.s = (ActivityManager) f1669b.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+        this.e = b.getPackageName();
+        this.s = (ActivityManager) b.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
         try {
-            PackageInfo packageInfo = f1669b.getPackageManager().getPackageInfo(this.e, 64);
+            PackageInfo packageInfo = b.getPackageManager().getPackageInfo(this.e, 64);
             c = packageInfo.versionName;
             d = String.valueOf(packageInfo.versionCode);
             x = new File(packageInfo.applicationInfo.publicSourceDir).length() + "";
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
-        w = j.a(f1669b, this.e);
+        w = j.a(b, this.e);
         f = g();
         this.h = f();
-        g = b(f1669b);
+        g = b(b);
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x0084 */
@@ -220,7 +218,7 @@ public final class a {
         String str;
         if (TextUtils.isEmpty(f)) {
             try {
-                str = CommonParam.getCUID(f1669b);
+                str = CommonParam.getCUID(b);
             } catch (Exception e) {
                 e.printStackTrace();
                 str = System.currentTimeMillis() + "";
@@ -252,7 +250,7 @@ public final class a {
     private String j() {
         if (Build.VERSION.SDK_INT >= 16) {
             ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            ((ActivityManager) f1669b.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
+            ((ActivityManager) b.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
             if (memoryInfo != null) {
                 return Long.toHexString(memoryInfo.totalMem);
             }
@@ -296,7 +294,7 @@ public final class a {
 
     public void a(String str) {
         this.v = str;
-        g = b(f1669b);
+        g = b(b);
     }
 
     public void a(String str, String str2) {
@@ -318,8 +316,8 @@ public final class a {
         A.append("\"cvc\":\"" + d + "\",");
         A.append("\"csz\":\"" + x + "\",");
         A.append("\"cmd5\":\"" + w + "\",");
-        ClientUpdateInfo a2 = com.baidu.clientupdate.d.a.a(f1669b).a();
-        RuleInfo b2 = com.baidu.clientupdate.d.a.a(f1669b).b();
+        ClientUpdateInfo a2 = com.baidu.clientupdate.d.a.a(b).a();
+        RuleInfo b2 = com.baidu.clientupdate.d.a.a(b).b();
         if (a2 == null || b2 == null) {
             A.append("\"ug\":\"\",");
             A.append("\"vn\":\"\",");
@@ -347,7 +345,7 @@ public final class a {
             bVar.a(com.baidu.fsg.base.statistics.j.c, g);
             bVar.a("ut", this.h);
             bVar.a("auto", String.valueOf(this.i));
-            this.j = c(f1669b);
+            this.j = c(b);
             bVar.a("network", this.j);
             this.t = h();
             if (this.t != null) {
@@ -366,7 +364,7 @@ public final class a {
             if (!TextUtils.isEmpty(w)) {
                 bVar.a("usermd5", w);
             }
-            this.y = j.a(f1669b, "com.baidu.appsearch");
+            this.y = j.a(b, "com.baidu.appsearch");
             if (!TextUtils.isEmpty(this.y)) {
                 bVar.a("appsearchmd5", this.y);
             }
@@ -384,7 +382,7 @@ public final class a {
     }
 
     public String c() {
-        RuleInfo b2 = com.baidu.clientupdate.d.a.a(f1669b).b();
+        RuleInfo b2 = com.baidu.clientupdate.d.a.a(b).b();
         return b2 != null ? b2.mUpgradeid : "-1";
     }
 

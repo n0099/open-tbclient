@@ -16,11 +16,11 @@ import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private NEGFeedBackView hnF;
-    private ViewGroup hnG;
-    private NEGFeedBackView.a hnH = new NEGFeedBackView.a() { // from class: com.baidu.tieba.ala.livecard.vc.a.1
+    private NEGFeedBackView hpp;
+    private ViewGroup hpq;
+    private NEGFeedBackView.a hpr = new NEGFeedBackView.a() { // from class: com.baidu.tieba.ala.livecard.vc.a.1
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
         public void onNEGFeedbackWindowShow(av avVar) {
             if (avVar != null) {
@@ -59,7 +59,7 @@ public class a {
 
     public a(TbPageContext tbPageContext, ViewGroup viewGroup) {
         this.mPageContext = tbPageContext;
-        this.hnG = viewGroup;
+        this.hpq = viewGroup;
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
@@ -68,57 +68,57 @@ public class a {
 
     public void l(cb cbVar, String str) {
         int i = 0;
-        if (cbVar != null && cbVar.boj() != null && this.mPageContext != null && this.hnG != null) {
-            boolean z = (cbVar.bnQ() == null || cbVar.bnQ().getUserId() == null || !cbVar.bnQ().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
-            if (TbadkCoreApplication.isLogin() && cbVar.boj().dislikeInfo != null && !z && cbVar.boj().dislikeInfo.size() > 0) {
-                if (this.hnF == null) {
-                    this.hnF = new NEGFeedBackView(this.mPageContext);
-                    this.hnF.setUniqueId(this.mBdUniqueId);
-                    this.hnF.setId(R.id.negative_feedback_view);
-                    this.hnF.setDefaultReasonArray(new String[]{this.mPageContext.getString(R.string.bad_quality), "", ""});
-                    this.hnF.setEventCallback(this.hnH);
-                    this.hnF.b(this.hnG, l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds120), l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds20));
-                    this.hnF.onChangeSkinType();
+        if (cbVar != null && cbVar.bol() != null && this.mPageContext != null && this.hpq != null) {
+            boolean z = (cbVar.bnS() == null || cbVar.bnS().getUserId() == null || !cbVar.bnS().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
+            if (TbadkCoreApplication.isLogin() && cbVar.bol().dislikeInfo != null && !z && cbVar.bol().dislikeInfo.size() > 0) {
+                if (this.hpp == null) {
+                    this.hpp = new NEGFeedBackView(this.mPageContext);
+                    this.hpp.setUniqueId(this.mBdUniqueId);
+                    this.hpp.setId(R.id.negative_feedback_view);
+                    this.hpp.setDefaultReasonArray(new String[]{this.mPageContext.getString(R.string.bad_quality), "", ""});
+                    this.hpp.setEventCallback(this.hpr);
+                    this.hpp.b(this.hpq, l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds120), l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds20));
+                    this.hpp.onChangeSkinType();
                 }
-                if (this.hnF.getVisibility() != 0) {
-                    this.hnF.setVisibility(0);
+                if (this.hpp.getVisibility() != 0) {
+                    this.hpp.setVisibility(0);
                 }
                 av avVar = new av();
                 avVar.setTid(cbVar.getTid());
                 avVar.setFid(cbVar.getFid());
-                avVar.setNid(cbVar.bmo());
+                avVar.setNid(cbVar.bmq());
                 avVar.setType(str);
-                avVar.setFeedBackReasonMap(cbVar.boj().dislikeInfo);
-                this.hnF.setData(avVar);
+                avVar.setFeedBackReasonMap(cbVar.bol().dislikeInfo);
+                this.hpp.setData(avVar);
             } else {
-                if (this.hnF != null && this.hnF.getVisibility() != 8) {
-                    this.hnF.setVisibility(8);
+                if (this.hpp != null && this.hpp.getVisibility() != 8) {
+                    this.hpp.setVisibility(8);
                 }
                 i = l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds32);
             }
-            if (this.hnG.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hnG.getLayoutParams();
+            if (this.hpq.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hpq.getLayoutParams();
                 layoutParams.rightMargin = i;
-                this.hnG.setLayoutParams(layoutParams);
+                this.hpq.setLayoutParams(layoutParams);
             }
-            if (this.hnG.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.hnG.getLayoutParams();
+            if (this.hpq.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.hpq.getLayoutParams();
                 layoutParams2.rightMargin = i;
-                this.hnG.setLayoutParams(layoutParams2);
+                this.hpq.setLayoutParams(layoutParams2);
             }
-            if (this.hnF != null) {
-                this.hnF.bKq();
+            if (this.hpp != null) {
+                this.hpp.bKu();
             }
         }
     }
 
-    public View bYV() {
-        return this.hnF;
+    public View bZb() {
+        return this.hpp;
     }
 
     public void onChangeSkinType() {
-        if (this.hnF != null) {
-            this.hnF.onChangeSkinType();
+        if (this.hpp != null) {
+            this.hpp.onChangeSkinType();
         }
     }
 }

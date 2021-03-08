@@ -5,7 +5,7 @@ import com.sdk.base.framework.f.d.a;
 public class MobileKInfo {
 
     /* renamed from: cn  reason: collision with root package name */
-    private String f12811cn;
+    private String f7626cn;
     private String ic;
     private boolean idfd;
     private String ie;
@@ -13,7 +13,7 @@ public class MobileKInfo {
     private String m;
 
     public String getCn() {
-        return this.f12811cn;
+        return this.f7626cn;
     }
 
     public String getIc() {
@@ -37,7 +37,7 @@ public class MobileKInfo {
     }
 
     public void setCn(String str) {
-        this.f12811cn = str;
+        this.f7626cn = str;
     }
 
     public void setIc(String str) {

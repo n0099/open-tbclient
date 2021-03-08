@@ -11,34 +11,34 @@ import androidx.annotation.RequiresApi;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile c dse;
-    private SparseArray<a> dsc = new SparseArray<>();
-    private Set<String> dsd = new HashSet();
+    private static volatile c dtH;
+    private SparseArray<a> dtF = new SparseArray<>();
+    private Set<String> dtG = new HashSet();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
     }
 
-    public static c aEL() {
-        if (dse == null) {
+    public static c aEO() {
+        if (dtH == null) {
             synchronized (com.baidu.swan.games.audio.b.b.class) {
-                if (dse == null) {
-                    dse = new c();
+                if (dtH == null) {
+                    dtH = new c();
                 }
             }
         }
-        return dse;
+        return dtH;
     }
 
     @TargetApi(23)
     public void a(Activity activity, int i, @NonNull String[] strArr, a aVar) {
         if (aVar != null) {
             if (!C(strArr)) {
-                this.dsc.put(i, aVar);
+                this.dtF.put(i, aVar);
                 activity.requestPermissions(strArr, i);
                 if (DEBUG) {
                     Log.d("SwanAppPermission", "requestPermissions activity: " + activity + " requestCode: " + i + " permissions: " + Arrays.toString(strArr));
@@ -55,7 +55,7 @@ public final class c {
             return true;
         }
         for (String str : strArr) {
-            if (!TextUtils.isEmpty(str) && this.dsd.contains(str)) {
+            if (!TextUtils.isEmpty(str) && this.dtG.contains(str)) {
                 return true;
             }
         }
@@ -66,12 +66,12 @@ public final class c {
         if (Build.VERSION.SDK_INT >= 23) {
             b(activity, strArr, iArr);
         }
-        a aVar = this.dsc.get(i);
+        a aVar = this.dtF.get(i);
         if (aVar != null) {
             if (strArr.length > 0 && iArr.length > 0) {
                 aVar.onRequestPermissionsResult(i, strArr, iArr);
             }
-            this.dsc.remove(i);
+            this.dtF.remove(i);
         }
         if (DEBUG) {
             Log.d("SwanAppPermission", "onRequestPermissionsResult requestCode: " + i + " permissions: " + Arrays.toString(strArr));
@@ -87,7 +87,7 @@ public final class c {
                 int i2 = iArr[i];
                 String str = strArr[i];
                 if (!TextUtils.isEmpty(str) && i2 == -1 && !activity.shouldShowRequestPermissionRationale(str)) {
-                    this.dsd.add(str);
+                    this.dtG.add(str);
                 }
             }
         }

@@ -13,10 +13,8 @@ public class SSRenderSurfaceView extends SSSurfaceView implements SurfaceHolder.
     private static final ArrayList<c> c = new ArrayList<>();
 
     /* renamed from: a  reason: collision with root package name */
-    private WeakReference<a> f6756a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private c f6757b;
+    private WeakReference<a> f4576a;
+    private c b;
     private b.a d;
 
     public SSRenderSurfaceView(Context context) {
@@ -25,13 +23,13 @@ public class SSRenderSurfaceView extends SSSurfaceView implements SurfaceHolder.
     }
 
     private void a() {
-        this.f6757b = new c(this);
-        c.add(this.f6757b);
+        this.b = new c(this);
+        c.add(this.b);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.renderview.b
     public void a(a aVar) {
-        this.f6756a = new WeakReference<>(aVar);
+        this.f4576a = new WeakReference<>(aVar);
         SurfaceHolder holder = getHolder();
         holder.setFormat(-3);
         Iterator<c> it = c.iterator();
@@ -42,7 +40,7 @@ public class SSRenderSurfaceView extends SSSurfaceView implements SurfaceHolder.
                 it.remove();
             }
         }
-        holder.addCallback(this.f6757b);
+        holder.addCallback(this.b);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.renderview.b
@@ -60,22 +58,22 @@ public class SSRenderSurfaceView extends SSSurfaceView implements SurfaceHolder.
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        if (this.f6756a != null && this.f6756a.get() != null) {
-            this.f6756a.get().a(surfaceHolder);
+        if (this.f4576a != null && this.f4576a.get() != null) {
+            this.f4576a.get().a(surfaceHolder);
         }
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
-        if (this.f6756a != null && this.f6756a.get() != null) {
-            this.f6756a.get().a(surfaceHolder, i, i2, i3);
+        if (this.f4576a != null && this.f4576a.get() != null) {
+            this.f4576a.get().a(surfaceHolder, i, i2, i3);
         }
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-        if (this.f6756a != null && this.f6756a.get() != null) {
-            this.f6756a.get().b(surfaceHolder);
+        if (this.f4576a != null && this.f4576a.get() != null) {
+            this.f4576a.get().b(surfaceHolder);
         }
     }
 

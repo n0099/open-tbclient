@@ -16,12 +16,12 @@ import androidx.core.app.BundleCompat;
 import androidx.core.app.NotificationBuilderWithBuilderAccessor;
 import androidx.core.app.NotificationCompat;
 import androidx.media.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public class NotificationCompat {
     private NotificationCompat() {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     public static class MediaStyle extends NotificationCompat.Style {
         private static final int MAX_MEDIA_BUTTONS = 5;
         private static final int MAX_MEDIA_BUTTONS_IN_COMPACT = 3;
@@ -187,7 +187,7 @@ public class NotificationCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     public static class DecoratedMediaCustomViewStyle extends MediaStyle {
         @Override // androidx.media.app.NotificationCompat.MediaStyle, androidx.core.app.NotificationCompat.Style
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})

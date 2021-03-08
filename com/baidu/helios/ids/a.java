@@ -7,30 +7,28 @@ import com.baidu.helios.common.c.a;
 import com.baidu.helios.trusts.zone.TrustSubjectManager;
 import java.io.UnsupportedEncodingException;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class a {
-    protected a.C0133a asY;
-    protected C0134a asZ;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f2442b;
+    protected a.C0139a auy;
+    protected C0140a auz;
+    private String b;
 
     /* renamed from: com.baidu.helios.ids.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0134a {
+    /* loaded from: classes4.dex */
+    public static class C0140a {
         public Context applicationContext;
-        public com.baidu.helios.common.c.a arP;
-        public ExecutorService ark;
-        public ExecutorService arl;
-        public TrustSubjectManager.d atc;
+        public ExecutorService asK;
+        public ExecutorService asL;
+        public com.baidu.helios.common.c.a atq;
+        public TrustSubjectManager.d auC;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b {
-        public boolean atd = false;
+        public boolean auD = false;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface c<T> {
         void a(int i, Exception exc, Bundle bundle);
 
@@ -38,14 +36,14 @@ public abstract class a {
     }
 
     public a(String str) {
-        this.f2442b = str;
+        this.b = str;
     }
 
     public static String aa(String str, String str2) {
         String format = String.format("%s-%s-", str, str2);
         String str3 = null;
         try {
-            str3 = new com.baidu.helios.common.b.a.b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).encode(new com.baidu.helios.common.cc.b().u(format.getBytes("UTF-8")));
+            str3 = new com.baidu.helios.common.b.a.b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).encode(new com.baidu.helios.common.cc.b().w(format.getBytes("UTF-8")));
         } catch (UnsupportedEncodingException e) {
         }
         if (TextUtils.isEmpty(str3)) {
@@ -54,30 +52,30 @@ public abstract class a {
         return format + str3;
     }
 
-    public final void a(C0134a c0134a) {
-        this.asZ = c0134a;
-        this.asY = c0134a.arP.vh().ea("ids");
+    public final void a(C0140a c0140a) {
+        this.auz = c0140a;
+        this.auy = c0140a.atq.vk().eg("ids");
     }
 
     public abstract void a(b bVar);
 
     public void a(final c<String> cVar) {
-        final String vm = vm();
-        this.asZ.ark.submit(new Runnable() { // from class: com.baidu.helios.ids.a.1
+        final String vp = vp();
+        this.auz.asK.submit(new Runnable() { // from class: com.baidu.helios.ids.a.1
             @Override // java.lang.Runnable
             public void run() {
-                cVar.a(vm, null);
+                cVar.a(vp, null);
             }
         });
     }
 
     public String getName() {
-        return this.f2442b;
+        return this.b;
     }
 
-    public abstract String vm();
+    public abstract String vp();
 
-    public byte[] vn() {
+    public byte[] vq() {
         return null;
     }
 }

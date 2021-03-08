@@ -10,24 +10,22 @@ import androidx.viewpager.widget.ViewPager;
 public class a extends ViewPager {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f10464a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private boolean f10465b;
+    private int f6899a;
+    private boolean b;
 
     public a(@NonNull Context context) {
         super(context);
-        this.f10465b = false;
+        this.b = false;
     }
 
     public a(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f10465b = false;
+        this.b = false;
     }
 
     @Override // androidx.viewpager.widget.ViewPager, android.view.View
     public boolean canScrollHorizontally(int i) {
-        if (this.f10465b) {
+        if (this.b) {
             return super.canScrollHorizontally(i);
         }
         return false;
@@ -35,21 +33,21 @@ public class a extends ViewPager {
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.f10465b) {
+        if (this.b) {
             int x = (int) motionEvent.getX();
             switch (motionEvent.getAction()) {
                 case 0:
                     getParent().requestDisallowInterceptTouchEvent(true);
                     break;
                 case 2:
-                    int i = x - this.f10464a;
+                    int i = x - this.f6899a;
                     if (getCurrentItem() == 0 && i > 0) {
                         getParent().requestDisallowInterceptTouchEvent(false);
                         break;
                     }
                     break;
             }
-            this.f10464a = x;
+            this.f6899a = x;
             return super.dispatchTouchEvent(motionEvent);
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -57,15 +55,15 @@ public class a extends ViewPager {
 
     @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        return this.f10465b && super.onInterceptTouchEvent(motionEvent);
+        return this.b && super.onInterceptTouchEvent(motionEvent);
     }
 
     @Override // androidx.viewpager.widget.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.f10465b && super.onTouchEvent(motionEvent);
+        return this.b && super.onTouchEvent(motionEvent);
     }
 
     public void setScrollable(boolean z) {
-        this.f10465b = z;
+        this.b = z;
     }
 }

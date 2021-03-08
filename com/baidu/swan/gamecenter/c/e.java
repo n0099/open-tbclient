@@ -1,15 +1,15 @@
 package com.baidu.swan.gamecenter.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class e {
-    private static volatile d ebR;
+    private static volatile d eds;
 
-    public static synchronized d aTE() {
+    public static synchronized d aTH() {
         d dVar;
         synchronized (e.class) {
-            if (ebR == null) {
-                ebR = new d();
+            if (eds == null) {
+                eds = new d();
             }
-            dVar = ebR;
+            dVar = eds;
         }
         return dVar;
     }

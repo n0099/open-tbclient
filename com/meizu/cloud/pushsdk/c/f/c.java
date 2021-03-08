@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.c.f;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f11304a = 0;
+    private static int f7423a = 0;
 
     private static String a() {
         return Thread.currentThread().getName();
@@ -18,23 +18,23 @@ public class c {
     }
 
     public static void a(b bVar) {
-        f11304a = bVar.a();
+        f7423a = bVar.a();
     }
 
     public static void a(String str, String str2, Object... objArr) {
-        if (f11304a >= 1) {
+        if (f7423a >= 1) {
             com.meizu.cloud.a.a.e(a(str), a(str2, objArr));
         }
     }
 
     public static void b(String str, String str2, Object... objArr) {
-        if (f11304a >= 2) {
+        if (f7423a >= 2) {
             com.meizu.cloud.a.a.d(a(str), a(str2, objArr));
         }
     }
 
     public static void c(String str, String str2, Object... objArr) {
-        if (f11304a >= 3) {
+        if (f7423a >= 3) {
             com.meizu.cloud.a.a.i(a(str), a(str2, objArr));
         }
     }

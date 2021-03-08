@@ -16,10 +16,8 @@ import com.bytedance.sdk.openadsdk.utils.ak;
 public class RewardDislikeToast extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private Handler f6375a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private TextView f6376b;
+    private Handler f4313a;
+    private TextView b;
 
     public RewardDislikeToast(Context context) {
         this(context, null);
@@ -31,7 +29,7 @@ public class RewardDislikeToast extends FrameLayout {
 
     public RewardDislikeToast(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f6375a = new Handler(Looper.getMainLooper());
+        this.f4313a = new Handler(Looper.getMainLooper());
         setVisibility(8);
         setClickable(false);
         setFocusable(false);
@@ -39,39 +37,39 @@ public class RewardDislikeToast extends FrameLayout {
     }
 
     private void a(Context context) {
-        this.f6376b = new TextView(context);
-        this.f6376b.setClickable(false);
-        this.f6376b.setFocusable(false);
+        this.b = new TextView(context);
+        this.b.setClickable(false);
+        this.b.setFocusable(false);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
         int a2 = (int) ak.a(p.a(), 20.0f);
         int a3 = (int) ak.a(p.a(), 12.0f);
-        this.f6376b.setPadding(a2, a3, a2, a3);
-        this.f6376b.setLayoutParams(layoutParams);
-        this.f6376b.setTextColor(-1);
-        this.f6376b.setTextSize(16.0f);
-        this.f6376b.setGravity(17);
+        this.b.setPadding(a2, a3, a2, a3);
+        this.b.setLayoutParams(layoutParams);
+        this.b.setTextColor(-1);
+        this.b.setTextSize(16.0f);
+        this.b.setGravity(17);
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setShape(0);
         gradientDrawable.setColor(Color.parseColor("#CC000000"));
         gradientDrawable.setCornerRadius(ak.a(p.a(), 6.0f));
-        this.f6376b.setBackgroundDrawable(gradientDrawable);
-        addView(this.f6376b);
+        this.b.setBackgroundDrawable(gradientDrawable);
+        addView(this.b);
     }
 
     public void a(final String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.f6375a.removeCallbacksAndMessages(null);
-            this.f6375a.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.component.reward.view.RewardDislikeToast.1
+            this.f4313a.removeCallbacksAndMessages(null);
+            this.f4313a.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.component.reward.view.RewardDislikeToast.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (RewardDislikeToast.this.f6376b != null) {
-                        RewardDislikeToast.this.f6376b.setText(String.valueOf(str));
+                    if (RewardDislikeToast.this.b != null) {
+                        RewardDislikeToast.this.b.setText(String.valueOf(str));
                     }
                     RewardDislikeToast.this.setVisibility(0);
                 }
             });
-            this.f6375a.postDelayed(new Runnable() { // from class: com.bytedance.sdk.openadsdk.component.reward.view.RewardDislikeToast.2
+            this.f4313a.postDelayed(new Runnable() { // from class: com.bytedance.sdk.openadsdk.component.reward.view.RewardDislikeToast.2
                 @Override // java.lang.Runnable
                 public void run() {
                     RewardDislikeToast.this.setVisibility(8);
@@ -82,11 +80,11 @@ public class RewardDislikeToast extends FrameLayout {
 
     public void a() {
         setVisibility(8);
-        this.f6375a.removeCallbacksAndMessages(null);
+        this.f4313a.removeCallbacksAndMessages(null);
     }
 
     public void b() {
         setVisibility(8);
-        this.f6375a.removeCallbacksAndMessages(null);
+        this.f4313a.removeCallbacksAndMessages(null);
     }
 }

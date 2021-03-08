@@ -16,10 +16,8 @@ public abstract class i {
     public static String c = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.location.b.h f2553a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    public com.baidu.location.b.a f2554b = null;
+    public com.baidu.location.b.h f1916a = null;
+    public com.baidu.location.b.a b = null;
     private boolean e = true;
     private boolean f = true;
     private boolean g = false;
@@ -55,10 +53,8 @@ public abstract class i {
     public class b extends com.baidu.location.d.e {
 
         /* renamed from: a  reason: collision with root package name */
-        String f2556a = null;
-
-        /* renamed from: b  reason: collision with root package name */
-        String f2557b = null;
+        String f1918a = null;
+        String b = null;
 
         public b() {
             this.k = new HashMap();
@@ -68,22 +64,22 @@ public abstract class i {
         public void a() {
             this.h = com.baidu.location.d.j.c();
             if ((com.baidu.location.d.j.h || com.baidu.location.d.j.j) && i.this.h != null && i.this.i != null) {
-                this.f2557b += String.format(Locale.CHINA, "&ki=%s&sn=%s", i.this.h, i.this.i);
+                this.b += String.format(Locale.CHINA, "&ki=%s&sn=%s", i.this.h, i.this.i);
             }
-            String encodeTp4 = Jni.encodeTp4(this.f2557b);
-            this.f2557b = null;
-            if (this.f2556a == null) {
-                this.f2556a = w.b();
+            String encodeTp4 = Jni.encodeTp4(this.b);
+            this.b = null;
+            if (this.f1918a == null) {
+                this.f1918a = w.b();
             }
             this.k.put(BaseLocationBox.TYPE, encodeTp4);
-            if (this.f2556a != null) {
-                this.k.put("up", this.f2556a);
+            if (this.f1918a != null) {
+                this.k.put("up", this.f1918a);
             }
             this.k.put("trtm", String.format(Locale.CHINA, "%d", Long.valueOf(System.currentTimeMillis())));
         }
 
         public void a(String str) {
-            this.f2557b = str;
+            this.b = str;
             b(com.baidu.location.d.j.f);
         }
 
@@ -111,7 +107,7 @@ public abstract class i {
                         bDLocation = new BDLocation();
                         bDLocation.setLocType(0);
                     }
-                    this.f2556a = null;
+                    this.f1918a = null;
                     if (bDLocation.getLocType() == 0 && bDLocation.getLatitude() == Double.MIN_VALUE && bDLocation.getLongitude() == Double.MIN_VALUE) {
                         Message obtainMessage2 = i.this.d.obtainMessage(63);
                         obtainMessage2.obj = "HttpStatus error";
@@ -141,14 +137,14 @@ public abstract class i {
         if (this.i == null) {
             this.i = j.c(com.baidu.location.f.getServiceContext());
         }
-        if (this.f2554b == null || !this.f2554b.a()) {
-            this.f2554b = com.baidu.location.b.b.a().f();
+        if (this.b == null || !this.b.a()) {
+            this.b = com.baidu.location.b.b.a().f();
         }
-        if (this.f2553a == null || !this.f2553a.i()) {
-            this.f2553a = com.baidu.location.b.i.a().o();
+        if (this.f1916a == null || !this.f1916a.i()) {
+            this.f1916a = com.baidu.location.b.i.a().o();
         }
         Location g = com.baidu.location.b.e.a().i() ? com.baidu.location.b.e.a().g() : null;
-        if ((this.f2554b == null || this.f2554b.d() || this.f2554b.c()) && ((this.f2553a == null || this.f2553a.a() == 0) && g == null)) {
+        if ((this.b == null || this.b.d() || this.b.c()) && ((this.f1916a == null || this.f1916a.a() == 0) && g == null)) {
             return null;
         }
         String b2 = b();
@@ -159,12 +155,12 @@ public abstract class i {
         if (b3 >= 0) {
             b2 = b2 + "&lmd=" + b3;
         }
-        String str2 = ((this.f2553a == null || this.f2553a.a() == 0) && (l = com.baidu.location.b.i.a().l()) != null) ? l + b2 : b2;
+        String str2 = ((this.f1916a == null || this.f1916a.a() == 0) && (l = com.baidu.location.b.i.a().l()) != null) ? l + b2 : b2;
         if (this.f) {
             this.f = false;
-            return com.baidu.location.d.j.a(this.f2554b, this.f2553a, g, str2, 0, true);
+            return com.baidu.location.d.j.a(this.b, this.f1916a, g, str2, 0, true);
         }
-        return com.baidu.location.d.j.a(this.f2554b, this.f2553a, g, str2, 0);
+        return com.baidu.location.d.j.a(this.b, this.f1916a, g, str2, 0);
     }
 
     public abstract void a();

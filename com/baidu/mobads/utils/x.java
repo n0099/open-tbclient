@@ -3,17 +3,17 @@ package com.baidu.mobads.utils;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 class x extends com.baidu.mobads.f.a<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TelephonyManager f3513a;
+    final /* synthetic */ TelephonyManager f2498a;
     final /* synthetic */ t c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(t tVar, TelephonyManager telephonyManager) {
         this.c = tVar;
-        this.f3513a = telephonyManager;
+        this.f2498a = telephonyManager;
     }
 
     @Override // com.baidu.mobads.f.a
@@ -22,12 +22,12 @@ class x extends com.baidu.mobads.f.a<Object> {
         String str2;
         try {
             h commonUtils = XAdSDKFoundationFacade.getInstance().getCommonUtils();
-            String simOperatorName = this.f3513a.getSimOperatorName();
+            String simOperatorName = this.f2498a.getSimOperatorName();
             StringBuilder sb = new StringBuilder();
             if (!TextUtils.isEmpty(simOperatorName)) {
                 sb.append(simOperatorName);
             } else {
-                String networkOperatorName = this.f3513a.getNetworkOperatorName();
+                String networkOperatorName = this.f2498a.getNetworkOperatorName();
                 if (TextUtils.isEmpty(networkOperatorName)) {
                     String unused = t.k = "";
                     str2 = t.k;
@@ -36,7 +36,7 @@ class x extends com.baidu.mobads.f.a<Object> {
                 sb.append(networkOperatorName);
             }
             sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
-            String simOperator = this.f3513a.getSimOperator();
+            String simOperator = this.f2498a.getSimOperator();
             if (!TextUtils.isEmpty(simOperator)) {
                 sb.append(simOperator);
             }

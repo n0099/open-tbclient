@@ -5,12 +5,12 @@ import android.util.Log;
 import com.baidu.mario.gldraw2d.d.d;
 import java.nio.Buffer;
 import java.util.LinkedList;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class b extends a implements c {
     private static final String TAG = b.class.getSimpleName();
-    protected d cfV;
-    protected com.baidu.mario.gldraw2d.d.c cfW;
-    private int cfX;
+    protected d chv;
+    protected com.baidu.mario.gldraw2d.d.c chw;
+    private int chx;
     protected int mProgramHandle;
     private int maPositionLoc;
     private int maTextureCoordLoc;
@@ -22,28 +22,28 @@ public class b extends a implements c {
 
     @Override // com.baidu.mario.gldraw2d.c.c
     public void a(d dVar, com.baidu.mario.gldraw2d.d.c cVar) {
-        this.cfV = dVar;
-        this.cfW = cVar;
+        this.chv = dVar;
+        this.chw = cVar;
         ba(this.mVertexShader, this.mFragmentShader);
         if (this.mProgramHandle == -1) {
             throw new RuntimeException("Unable to create program");
         }
-        aah();
+        aak();
     }
 
     @Override // com.baidu.mario.gldraw2d.c.c
     public void c(com.baidu.mario.gldraw2d.d.a aVar, com.baidu.mario.gldraw2d.params.b bVar) {
-        if (this.cfV == null || !this.cfV.isEffective()) {
+        if (this.chv == null || !this.chv.isEffective()) {
             Log.e(TAG, "onDraw filter has not been setup!!!");
             return;
         }
         useProgram();
-        a(this.cfV);
+        a(this.chv);
         a(aVar, bVar);
         b(aVar, bVar);
-        aai();
-        b(this.cfV);
-        aaj();
+        aal();
+        b(this.chv);
+        aam();
     }
 
     @Override // com.baidu.mario.gldraw2d.c.c
@@ -53,15 +53,15 @@ public class b extends a implements c {
 
     @Override // com.baidu.mario.gldraw2d.c.a
     protected void ba(String str, String str2) {
-        if (this.cfV.getType() != 36197) {
+        if (this.chv.getType() != 36197) {
             str2 = str2.replaceFirst("#extension GL_OES_EGL_image_external : require", "").replace("samplerExternalOES", "sampler2D");
         }
         this.mProgramHandle = com.baidu.mario.gldraw2d.e.a.createProgram(str, str2);
     }
 
     @Override // com.baidu.mario.gldraw2d.c.a
-    protected void aah() {
-        this.cfX = GLES20.glGetUniformLocation(this.mProgramHandle, "uTexture");
+    protected void aak() {
+        this.chx = GLES20.glGetUniformLocation(this.mProgramHandle, "uTexture");
         this.maPositionLoc = GLES20.glGetAttribLocation(this.mProgramHandle, "aPosition");
         this.muMVPMatrixLoc = GLES20.glGetUniformLocation(this.mProgramHandle, "uMVPMatrix");
         this.muTexMatrixLoc = GLES20.glGetUniformLocation(this.mProgramHandle, "uTexMatrix");
@@ -77,13 +77,13 @@ public class b extends a implements c {
     protected void a(d dVar) {
         GLES20.glActiveTexture(33984);
         GLES20.glBindTexture(dVar.getType(), dVar.getId());
-        GLES20.glUniform1i(this.cfX, 0);
+        GLES20.glUniform1i(this.chx, 0);
     }
 
     @Override // com.baidu.mario.gldraw2d.c.a
     protected void a(com.baidu.mario.gldraw2d.d.a aVar, com.baidu.mario.gldraw2d.params.b bVar) {
         GLES20.glUniformMatrix4fv(this.muMVPMatrixLoc, 1, false, bVar.getMVPMatrix(), 0);
-        GLES20.glUniformMatrix4fv(this.muTexMatrixLoc, 1, false, bVar.aas(), 0);
+        GLES20.glUniformMatrix4fv(this.muTexMatrixLoc, 1, false, bVar.aav(), 0);
         GLES20.glEnableVertexAttribArray(this.maPositionLoc);
         GLES20.glVertexAttribPointer(this.maPositionLoc, aVar.getCoordsPerVertex(), 5126, false, aVar.getVertexStride(), (Buffer) aVar.getVertexArray());
         GLES20.glEnableVertexAttribArray(this.maTextureCoordLoc);
@@ -92,22 +92,22 @@ public class b extends a implements c {
 
     @Override // com.baidu.mario.gldraw2d.c.a
     protected void b(com.baidu.mario.gldraw2d.d.a aVar, com.baidu.mario.gldraw2d.params.b bVar) {
-        if (bVar.aat()) {
+        if (bVar.aaw()) {
             GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             GLES20.glClear(16384);
         }
-        if (bVar.aau()) {
+        if (bVar.aax()) {
             GLES20.glEnable(3042);
             GLES20.glBlendFunc(770, 771);
         }
         GLES20.glDrawArrays(5, 0, aVar.getVertexCount());
-        if (bVar.aau()) {
+        if (bVar.aax()) {
             GLES20.glDisable(3042);
         }
     }
 
     @Override // com.baidu.mario.gldraw2d.c.a
-    protected void aai() {
+    protected void aal() {
         GLES20.glDisableVertexAttribArray(this.maPositionLoc);
         GLES20.glDisableVertexAttribArray(this.maTextureCoordLoc);
     }
@@ -118,7 +118,7 @@ public class b extends a implements c {
     }
 
     @Override // com.baidu.mario.gldraw2d.c.a
-    protected void aaj() {
+    protected void aam() {
         GLES20.glUseProgram(0);
     }
 

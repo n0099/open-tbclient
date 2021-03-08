@@ -3,28 +3,28 @@ package com.baidu.ubs.analytics;
 import android.content.Context;
 import com.baidu.ubs.analytics.d.j;
 import com.kwad.sdk.collector.AppStatusRules;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class c {
     private long e;
     private Context mContext;
-    private boolean oTX;
-    private long oTY;
-    private long oTZ;
-    private boolean oUa;
-    private int oUb;
+    private boolean oWc;
+    private long oWd;
+    private long oWe;
+    private boolean oWf;
+    private int oWg;
 
-    /* synthetic */ c(a aVar, byte b2) {
+    /* synthetic */ c(a aVar, byte b) {
         this(aVar);
     }
 
     private c(a aVar) {
         this.mContext = aVar.mContext;
-        this.oTX = aVar.oTX;
-        this.e = aVar.oUc;
-        this.oTY = aVar.oTY;
-        this.oUa = aVar.oUa;
-        this.oTZ = aVar.oTZ;
-        this.oUb = aVar.oUb;
+        this.oWc = aVar.oWc;
+        this.e = aVar.oWh;
+        this.oWd = aVar.oWd;
+        this.oWf = aVar.oWf;
+        this.oWe = aVar.oWe;
+        this.oWg = aVar.oWg;
     }
 
     public final Context b() {
@@ -32,7 +32,7 @@ public final class c {
     }
 
     public final boolean c() {
-        return this.oTX;
+        return this.oWc;
     }
 
     public final long d() {
@@ -40,68 +40,68 @@ public final class c {
     }
 
     public final long e() {
-        return this.oTY;
+        return this.oWd;
     }
 
     public final long f() {
-        return this.oTZ;
+        return this.oWe;
     }
 
     public final boolean g() {
-        return this.oUa;
+        return this.oWf;
     }
 
     public final int h() {
-        return this.oUb;
+        return this.oWg;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class a {
         private Context mContext;
-        private boolean oTX = true;
-        private long oUc = 30000;
-        private long oTY = AppStatusRules.DEFAULT_GRANULARITY;
-        private long oTZ = 10000;
-        private boolean oUa = false;
-        private int oUb = 1000;
+        private boolean oWc = true;
+        private long oWh = 30000;
+        private long oWd = AppStatusRules.DEFAULT_GRANULARITY;
+        private long oWe = 10000;
+        private boolean oWf = false;
+        private int oWg = 1000;
 
-        public a ho(Context context) {
+        public a hn(Context context) {
             this.mContext = context;
             return this;
         }
 
-        public a AB(boolean z) {
-            this.oTX = z;
+        public a AA(boolean z) {
+            this.oWc = z;
             return this;
         }
 
         public a hU(long j) {
-            this.oUc = 1000 * j;
+            this.oWh = 1000 * j;
             return this;
         }
 
-        public a Np(int i) {
-            this.oTY = i * 60 * 1000;
+        public a Nt(int i) {
+            this.oWd = i * 60 * 1000;
             return this;
         }
 
         public a hV(long j) {
-            this.oTZ = 1000 * j;
+            this.oWe = 1000 * j;
             return this;
         }
 
-        public a AC(boolean z) {
-            this.oUa = z;
+        public a AB(boolean z) {
+            this.oWf = z;
             return this;
         }
 
-        public a Nq(int i) {
+        public a Nu(int i) {
             int i2 = i <= 0 ? 0 : i;
-            this.oUb = i2 < 1000 ? i2 : 1000;
+            this.oWg = i2 < 1000 ? i2 : 1000;
             return this;
         }
 
-        public c eif() {
+        public c ein() {
             if (this.mContext == null) {
                 j.I("Context must be not empty!");
                 return null;

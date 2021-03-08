@@ -6,11 +6,11 @@ import java.util.Queue;
 abstract class d<T extends m> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Queue<T> f10193a = com.kwad.sdk.glide.g.k.a(20);
+    private final Queue<T> f6742a = com.kwad.sdk.glide.g.k.a(20);
 
     public void a(T t) {
-        if (this.f10193a.size() < 20) {
-            this.f10193a.offer(t);
+        if (this.f6742a.size() < 20) {
+            this.f6742a.offer(t);
         }
     }
 
@@ -18,7 +18,7 @@ abstract class d<T extends m> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public T c() {
-        T poll = this.f10193a.poll();
+        T poll = this.f6742a.poll();
         return poll == null ? b() : poll;
     }
 }

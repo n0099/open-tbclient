@@ -6,21 +6,21 @@ import com.baidu.live.utils.s;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c implements Cloneable {
-    public long aWR;
-    public long aYl;
+    public long aYr;
+    public long aZL;
     public String appId;
-    public boolean bZd;
-    public int bZe;
-    public boolean bZf;
-    public g bcO;
-    public int bcQ;
-    public long bcT;
-    private long bcV;
-    public boolean bcW;
-    public String bcX;
-    public String bno;
+    public g bep;
+    public int ber;
+    public long bev;
+    private long bex;
+    public boolean bey;
+    public String bez;
+    public String boO;
+    public boolean caD;
+    public int caE;
+    public boolean caF;
     public String chatMCastId;
     public String description;
     public String ensureMCastId;
@@ -33,77 +33,77 @@ public class c implements Cloneable {
     public String userId;
     public String userName;
     public int userStatus;
-    public boolean bcN = false;
-    public String bcP = "";
+    public boolean beo = false;
+    public String beq = "";
     public long followCount = 0;
     public long fansCount = 0;
     public String location = "";
     public int priority = 1;
-    public long bcU = 0;
-    private boolean bcY = true;
-    public boolean bcZ = false;
-    public boolean bda = false;
-    public boolean bdd = false;
-    public List<l> aXp = new ArrayList();
+    public long bew = 0;
+    private boolean beA = true;
+    public boolean beB = false;
+    public boolean beC = false;
+    public boolean beF = false;
+    public List<l> aYP = new ArrayList();
 
     public c(String str, long j, g gVar, String str2, String str3, String str4, String str5, String str6, boolean z, String str7, String str8, long j2, String str9, long j3) {
         this.giftId = str;
-        this.bcT = j;
-        this.bcO = gVar;
+        this.bev = j;
+        this.bep = gVar;
         this.userId = str2;
         this.portrait = str3;
         this.userName = str4;
         this.liveId = str5;
         this.groupId = str6;
-        this.bcW = z;
-        this.bcX = str7;
+        this.bey = z;
+        this.bez = str7;
         this.appId = str8;
         this.msgId = j2;
-        this.aYl = j3;
-        this.bno = str9;
-        GG();
+        this.aZL = j3;
+        this.boO = str9;
+        GJ();
     }
 
     public c(String str, long j, g gVar, String str2, String str3, String str4, int i, int i2, String str5, int i3, String str6, String str7, boolean z, String str8, String str9, long j2, String str10, long j3) {
         this.giftId = str;
-        this.bcT = j;
-        this.bcO = gVar;
+        this.bev = j;
+        this.bep = gVar;
         this.userId = str2;
         this.portrait = str3;
         this.userName = str4;
-        this.bcQ = i;
+        this.ber = i;
         this.sex = i2;
         this.description = str5;
         this.userStatus = i3;
         this.liveId = str6;
         this.groupId = str7;
-        this.bcW = z;
-        this.aYl = j3;
-        this.bcX = str8;
+        this.bey = z;
+        this.aZL = j3;
+        this.bez = str8;
         this.appId = str9;
         this.msgId = j2;
-        this.bno = str10;
-        GG();
+        this.boO = str10;
+        GJ();
     }
 
     public void aS(long j) {
-        this.bcV = j;
+        this.bex = j;
     }
 
-    public long GF() {
-        return this.bcV;
+    public long GI() {
+        return this.bex;
     }
 
-    private void GG() {
-        this.bcP = s.a(this.aYl, this.giftId, this.userId, this.bno);
+    private void GJ() {
+        this.beq = s.a(this.aZL, this.giftId, this.userId, this.boO);
     }
 
-    public String GH() {
-        return this.bcP;
+    public String GK() {
+        return this.beq;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: YQ */
+    /* renamed from: YT */
     public c clone() {
         try {
             return (c) super.clone();
@@ -113,15 +113,15 @@ public class c implements Cloneable {
         }
     }
 
-    public boolean GJ() {
-        return this.bcY;
+    public boolean GM() {
+        return this.beA;
     }
 
     public void bX(boolean z) {
-        this.bcY = z;
+        this.beA = z;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a implements Comparator<c> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
@@ -134,10 +134,10 @@ public class c implements Cloneable {
                 if (cVar.priority < cVar2.priority) {
                     return -1;
                 }
-                if (cVar.bcO != null && cVar2.bcO != null) {
+                if (cVar.bep != null && cVar2.bep != null) {
                     try {
-                        long parseLong = Long.parseLong(cVar.bcO.getPrice());
-                        long parseLong2 = Long.parseLong(cVar2.bcO.getPrice());
+                        long parseLong = Long.parseLong(cVar.bep.getPrice());
+                        long parseLong2 = Long.parseLong(cVar2.bep.getPrice());
                         if (parseLong <= parseLong2) {
                             return parseLong < parseLong2 ? -1 : 0;
                         }

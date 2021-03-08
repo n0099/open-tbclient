@@ -1,11 +1,11 @@
 package com.baidu.tieba.yuyinala.data;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class h extends HttpMessage {
-    private long gTx;
-    private long gTy;
-    private String gTz;
+    private long gVg;
+    private long gVh;
+    private String gVi;
     private String liveId;
     private String roomId;
 
@@ -14,15 +14,15 @@ public class h extends HttpMessage {
     }
 
     public void fo(long j) {
-        this.gTx = j;
+        this.gVg = j;
     }
 
     public void fp(long j) {
-        this.gTy = j;
+        this.gVh = j;
     }
 
-    public void GD(String str) {
-        this.gTz = str;
+    public void GM(String str) {
+        this.gVi = str;
     }
 
     public void setLiveId(String str) {
@@ -34,9 +34,9 @@ public class h extends HttpMessage {
     }
 
     public void setParams() {
-        addParam("red_packet_balance", this.gTx);
-        addParam("red_packet_num", this.gTy);
-        addParam("condition", this.gTz);
+        addParam("red_packet_balance", this.gVg);
+        addParam("red_packet_num", this.gVh);
+        addParam("condition", this.gVi);
         addParam("live_id", this.liveId);
         addParam("room_id", this.roomId);
         addParam("is_jiaoyou", 1);

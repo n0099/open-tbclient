@@ -32,42 +32,42 @@ import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class c {
     private static final boolean DEBUG = AppConfig.isDebug();
-    private List<n> exT;
-    private long exV;
-    private long exW;
-    private int exX;
-    private SparseArray<ArrayList> exY;
-    private HashMap<String, Long> exZ;
+    private int ezA;
+    private SparseArray<ArrayList> ezB;
+    private HashMap<String, Long> ezC;
+    private List<n> ezw;
+    private long ezy;
+    private long ezz;
     private Context mContext;
-    private int oSD;
-    private long oSE;
-    private x oSG;
-    private b oSH;
-    private long oSK;
-    private u oSL;
-    private g oSM;
-    private int oSN;
-    private int oSO;
-    private int oSP;
-    private boolean oSF = false;
-    private int oSI = 0;
-    private long oSJ = 0;
-    private Runnable oSQ = new Runnable() { // from class: com.baidu.ubc.c.1
+    private int oUI;
+    private long oUJ;
+    private x oUL;
+    private b oUM;
+    private long oUP;
+    private u oUQ;
+    private g oUR;
+    private int oUS;
+    private int oUT;
+    private int oUU;
+    private boolean oUK = false;
+    private int oUN = 0;
+    private long oUO = 0;
+    private Runnable oUV = new Runnable() { // from class: com.baidu.ubc.c.1
         @Override // java.lang.Runnable
         public void run() {
-            if (c.this.oSI == 1) {
-                long uptimeMillis = SystemClock.uptimeMillis() - c.this.oSJ;
+            if (c.this.oUN == 1) {
+                long uptimeMillis = SystemClock.uptimeMillis() - c.this.oUO;
                 if (uptimeMillis >= 5000) {
                     if (c.DEBUG) {
                         Log.d("UBCBehaviorModel", String.format("***saveCache after %d ms***", Long.valueOf(uptimeMillis)));
                     }
-                    c.this.bet();
-                    c.this.oSI = 0;
+                    c.this.bev();
+                    c.this.oUN = 0;
                     return;
                 }
-                d.ehB().e(this, 5000 - uptimeMillis);
-            } else if (c.this.oSI == 2) {
-                c.this.oSI = 0;
+                d.ehJ().e(this, 5000 - uptimeMillis);
+            } else if (c.this.oUN == 2) {
+                c.this.oUN = 0;
             }
         }
     };
@@ -75,153 +75,153 @@ public class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(Context context) {
         this.mContext = context;
-        ai eib = ai.eib();
-        this.oSG = new x(context);
-        this.oSH = new b(context);
-        this.oSL = ag.eia();
-        this.exT = new ArrayList(20);
-        this.exV = eib.getLong("ubc_last_upload_non_real", 0L);
-        this.exW = eib.getLong("ubc_reset_real_time_count_time", 0L);
-        this.oSK = eib.getLong("ubc_last_upload_failed_data_time", 0L);
-        this.exX = eib.getInt("ubc_real_time_count", 0);
-        this.oSM = g.ehF();
-        this.oSM.a(this, context);
-        this.oSE = System.currentTimeMillis();
-        this.oSD = new Random().nextInt(31) + 60;
+        ai eij = ai.eij();
+        this.oUL = new x(context);
+        this.oUM = new b(context);
+        this.oUQ = ag.eii();
+        this.ezw = new ArrayList(20);
+        this.ezy = eij.getLong("ubc_last_upload_non_real", 0L);
+        this.ezz = eij.getLong("ubc_reset_real_time_count_time", 0L);
+        this.oUP = eij.getLong("ubc_last_upload_failed_data_time", 0L);
+        this.ezA = eij.getInt("ubc_real_time_count", 0);
+        this.oUR = g.ehN();
+        this.oUR.a(this, context);
+        this.oUJ = System.currentTimeMillis();
+        this.oUI = new Random().nextInt(31) + 60;
     }
 
-    private void bes() {
+    private void beu() {
         int i = 0;
-        if (this.exY == null) {
+        if (this.ezB == null) {
             if (DEBUG) {
                 Log.d("UBCBehaviorModel", "BehaviorModel initCache");
             }
-            this.exY = new SparseArray<>();
-            this.oSG.e(this.exY);
-            this.exZ = new HashMap<>();
+            this.ezB = new SparseArray<>();
+            this.oUL.c(this.ezB);
+            this.ezC = new HashMap<>();
             int i2 = 0;
             while (true) {
                 int i3 = i;
-                if (i2 < this.exY.size()) {
-                    int keyAt = this.exY.keyAt(i2);
+                if (i2 < this.ezB.size()) {
+                    int keyAt = this.ezB.keyAt(i2);
                     i = (keyAt == 0 || i3 != 0) ? i3 : keyAt;
-                    this.exZ.put("ubc_last_upload_time_level_" + keyAt, 0L);
+                    this.ezC.put("ubc_last_upload_time_level_" + keyAt, 0L);
                     i2++;
                 } else {
-                    this.oSM.mg(i3);
+                    this.oUR.mh(i3);
                     return;
                 }
             }
         }
     }
 
-    public x ehA() {
-        return this.oSG;
+    public x ehI() {
+        return this.oUL;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(n nVar) {
         boolean z = false;
-        if (TextUtils.equals(nVar.getId(), nVar.beS()) && this.oSM.yw(nVar.getId()) && (nVar.getOption() & 64) == 0) {
+        if (TextUtils.equals(nVar.getId(), nVar.beU()) && this.oUR.yD(nVar.getId()) && (nVar.getOption() & 64) == 0) {
             z = true;
         }
         if (UBC.getUBCContext().isPeakTime()) {
             if (!z) {
-                this.oSG.b(nVar);
+                this.oUL.b(nVar);
                 return;
             }
-            List<String> dKp = UBC.getUBCContext().dKp();
-            if (dKp == null || !dKp.contains(nVar.getId())) {
-                this.oSG.b(nVar);
+            List<String> dKx = UBC.getUBCContext().dKx();
+            if (dKx == null || !dKx.contains(nVar.getId())) {
+                this.oUL.b(nVar);
                 return;
-            } else if (!this.oSF) {
-                if ((System.currentTimeMillis() - this.oSE) / 1000 >= this.oSD) {
-                    this.oSF = true;
+            } else if (!this.oUK) {
+                if ((System.currentTimeMillis() - this.oUJ) / 1000 >= this.oUI) {
+                    this.oUK = true;
                 } else {
-                    this.oSG.b(nVar);
+                    this.oUL.b(nVar);
                     return;
                 }
             }
         }
         if (z && !g(nVar)) {
-            if (this.oSM.Xq(nVar.getId())) {
-                this.oSG.b(nVar);
+            if (this.oUR.Xx(nVar.getId())) {
+                this.oUL.b(nVar);
             }
         } else if (UBC.getUBCContext().isPeakTime()) {
-            this.oSG.bem();
-        } else if (Math.abs(System.currentTimeMillis() - this.exV) >= g.ehF().beE()) {
-            if (!z && this.oSM.Xq(nVar.getId())) {
+            this.oUL.beo();
+        } else if (Math.abs(System.currentTimeMillis() - this.ezy) >= g.ehN().beG()) {
+            if (!z && this.oUR.Xx(nVar.getId())) {
                 e(nVar);
             }
-            bex();
+            bez();
         } else if ((nVar.getOption() & 1) == 0) {
-            if (!z && this.oSM.Xq(nVar.getId())) {
+            if (!z && this.oUR.Xx(nVar.getId())) {
                 e(nVar);
             }
-            if (this.exT.size() >= 20) {
-                bet();
+            if (this.ezw.size() >= 20) {
+                bev();
             }
-        } else if (!z && this.oSM.Xq(nVar.getId())) {
-            this.oSG.b(nVar);
+        } else if (!z && this.oUR.Xx(nVar.getId())) {
+            this.oUL.b(nVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c(n nVar) {
-        this.oSH.a(nVar, this.oSM.yw(nVar.getId()));
+        this.oUM.a(nVar, this.oUR.yD(nVar.getId()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d(n nVar) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.aeb()) {
-            this.oSH.a(nVar);
+        if (com.baidu.pyramid.runtime.multiprocess.a.aee()) {
+            this.oUM.a(nVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bet() {
-        if (this.exT != null && this.exT.size() != 0) {
-            this.oSG.bc(this.exT);
-            this.exT.clear();
-            if (this.oSI == 1) {
-                this.oSI = 2;
+    public void bev() {
+        if (this.ezw != null && this.ezw.size() != 0) {
+            this.oUL.bc(this.ezw);
+            this.ezw.clear();
+            if (this.oUN == 1) {
+                this.oUN = 2;
             }
         }
     }
 
     private void e(n nVar) {
-        this.exT.add(nVar);
-        if (this.oSI == 0) {
-            this.oSJ = SystemClock.uptimeMillis();
-            d.ehB().e(this.oSQ, 5000L);
-            this.oSI = 1;
-        } else if (this.oSI == 2) {
-            this.oSJ = SystemClock.uptimeMillis();
-            this.oSI = 1;
+        this.ezw.add(nVar);
+        if (this.oUN == 0) {
+            this.oUO = SystemClock.uptimeMillis();
+            d.ehJ().e(this.oUV, 5000L);
+            this.oUN = 1;
+        } else if (this.oUN == 2) {
+            this.oUO = SystemClock.uptimeMillis();
+            this.oUN = 1;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(p pVar) {
-        this.oSG.b(pVar);
+        this.oUL.b(pVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void i(String str, int i, String str2) {
-        this.oSG.i(str, i, str2);
+        this.oUL.i(str, i, str2);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str, int i, long j, JSONArray jSONArray) {
-        List<String> dKp;
-        bet();
-        this.oSG.a(str, i, j, jSONArray);
-        boolean yw = this.oSM.yw(str);
+        List<String> dKx;
+        bev();
+        this.oUL.a(str, i, j, jSONArray);
+        boolean yD = this.oUR.yD(str);
         if (UBC.getUBCContext().isPeakTime()) {
-            if (yw && (dKp = UBC.getUBCContext().dKp()) != null && dKp.contains(str)) {
-                if (!this.oSF) {
-                    if ((System.currentTimeMillis() - this.oSE) / 1000 >= this.oSD) {
-                        this.oSF = true;
+            if (yD && (dKx = UBC.getUBCContext().dKx()) != null && dKx.contains(str)) {
+                if (!this.oUK) {
+                    if ((System.currentTimeMillis() - this.oUJ) / 1000 >= this.oUI) {
+                        this.oUK = true;
                     } else {
                         return;
                     }
@@ -230,48 +230,48 @@ public class c {
                 return;
             }
         }
-        if (yw) {
+        if (yD) {
             if (DEBUG) {
                 Log.d("UBCBehaviorModel", "endFlow flow " + str + " invoke ->uploadRealTimeFlow ");
             }
-            beu();
+            bew();
         }
-        if (!UBC.getUBCContext().isPeakTime() && Math.abs(System.currentTimeMillis() - this.exV) >= g.ehF().beE()) {
+        if (!UBC.getUBCContext().isPeakTime() && Math.abs(System.currentTimeMillis() - this.ezy) >= g.ehN().beG()) {
             if (DEBUG) {
                 Log.d("UBCBehaviorModel", "endFlow flow " + str + " invoke ->uploadNonRealTimeData ");
             }
-            bex();
+            bez();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void O(String str, int i) {
-        bet();
-        this.oSG.O(str, i);
-        if (!UBC.getUBCContext().isPeakTime() && Math.abs(System.currentTimeMillis() - this.exV) >= g.ehF().beE()) {
+    public void P(String str, int i) {
+        bev();
+        this.oUL.P(str, i);
+        if (!UBC.getUBCContext().isPeakTime() && Math.abs(System.currentTimeMillis() - this.ezy) >= g.ehN().beG()) {
             if (DEBUG) {
                 Log.d("UBCBehaviorModel", "cancel flow " + str + " invoke ->uploadNonRealTimeData ");
             }
-            bex();
+            bez();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean f(n nVar) {
         if (isNetWorkEnabled(this.mContext)) {
-            nVar.Xy("1");
+            nVar.XF("1");
             aj h = h(nVar);
             if (h.isEmpty()) {
                 return false;
             }
-            this.oSG.c(h);
-            d.ehB().a(h.eie(), true, nVar, new t() { // from class: com.baidu.ubc.c.2
+            this.oUL.c(h);
+            d.ehJ().a(h.eim(), true, nVar, new t() { // from class: com.baidu.ubc.c.2
                 @Override // com.baidu.ubc.t
                 public void a(boolean z, n nVar2) {
                     if (!z) {
-                        c.this.oSG.b(nVar2);
+                        c.this.oUL.b(nVar2);
                     } else {
-                        c.this.oSG.ehT();
+                        c.this.oUL.eib();
                     }
                 }
             });
@@ -282,19 +282,19 @@ public class c {
     }
 
     private boolean g(n nVar) {
-        if (isNetWorkEnabled(this.mContext) && bev()) {
-            bet();
+        if (isNetWorkEnabled(this.mContext) && bex()) {
+            bev();
             aj h = h(nVar);
             if (h != null) {
-                if (this.exY == null) {
-                    bes();
+                if (this.ezB == null) {
+                    beu();
                 }
                 if (a(h, "0")) {
                     return true;
                 }
-                a(this.exY, h);
+                a(this.ezB, h);
                 b(h);
-                bew();
+                bey();
                 return true;
             }
             return false;
@@ -309,29 +309,29 @@ public class c {
         try {
             jSONObject.put("id", nVar.getId());
             jSONObject.put("timestamp", Long.toString(nVar.getTime()));
-            if (nVar.beV() != null) {
-                jSONObject.put("content", nVar.beV().toString());
+            if (nVar.beX() != null) {
+                jSONObject.put("content", nVar.beX().toString());
             } else {
                 jSONObject.put("content", nVar.getContent());
             }
             jSONObject.put("type", "0");
-            if (!TextUtils.isEmpty(nVar.beU())) {
-                jSONObject.put("abtest", nVar.beU());
-                ajVar.yN("1");
+            if (!TextUtils.isEmpty(nVar.beW())) {
+                jSONObject.put("abtest", nVar.beW());
+                ajVar.yU("1");
             }
             if (!TextUtils.isEmpty(nVar.getCategory())) {
                 jSONObject.put("c", nVar.getCategory());
             }
-            if (nVar.beQ()) {
+            if (nVar.beS()) {
                 jSONObject.put("of", "1");
             }
-            jSONObject.put("idtype", this.oSM.yC(nVar.getId()));
-            jSONObject.put("isreal", this.oSM.Xs(nVar.getId()) ? "1" : "0");
-            String Xt = this.oSM.Xt(nVar.getId());
-            if (!TextUtils.isEmpty(Xt) && !TextUtils.equals(Xt, "0")) {
-                jSONObject.put("gflow", Xt);
+            jSONObject.put("idtype", this.oUR.yJ(nVar.getId()));
+            jSONObject.put("isreal", this.oUR.Xz(nVar.getId()) ? "1" : "0");
+            String XA = this.oUR.XA(nVar.getId());
+            if (!TextUtils.isEmpty(XA) && !TextUtils.equals(XA, "0")) {
+                jSONObject.put("gflow", XA);
             }
-            ajVar.dk(jSONObject);
+            ajVar.dm(jSONObject);
             ajVar.y(nVar.getTime(), nVar.getTime());
             return ajVar;
         } catch (JSONException e) {
@@ -340,17 +340,17 @@ public class c {
         }
     }
 
-    private void beu() {
-        if (isNetWorkEnabled(this.mContext) && bev()) {
+    private void bew() {
+        if (isNetWorkEnabled(this.mContext) && bex()) {
             aj ajVar = new aj();
             ajVar.iL(true);
-            if (this.exY == null) {
-                bes();
+            if (this.ezB == null) {
+                beu();
             }
             if (!a(ajVar, "1")) {
-                a(this.exY, ajVar);
+                a(this.ezB, ajVar);
                 b(ajVar);
-                bew();
+                bey();
             }
         }
     }
@@ -359,8 +359,8 @@ public class c {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < sparseArray.size() && !ajVar.mp(com.baidu.fsg.base.statistics.b.c)) {
-                this.oSG.a(sparseArray.valueAt(i2), ajVar);
+            if (i2 < sparseArray.size() && !ajVar.mq(com.baidu.fsg.base.statistics.b.c)) {
+                this.oUL.a(sparseArray.valueAt(i2), ajVar);
                 i = i2 + 1;
             } else {
                 return;
@@ -368,25 +368,25 @@ public class c {
         }
     }
 
-    private boolean bev() {
+    private boolean bex() {
         if (AppConfig.isDebug()) {
             return true;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (Math.abs(currentTimeMillis - this.exW) > 86400000) {
-            this.exX = 0;
-            this.exW = currentTimeMillis;
-            ai.eib().putLong("ubc_reset_real_time_count_time", this.exW);
-            ai.eib().putInt("ubc_real_time_count", this.exX);
+        if (Math.abs(currentTimeMillis - this.ezz) > 86400000) {
+            this.ezA = 0;
+            this.ezz = currentTimeMillis;
+            ai.eij().putLong("ubc_reset_real_time_count_time", this.ezz);
+            ai.eij().putInt("ubc_real_time_count", this.ezA);
         }
-        if (this.exX >= 10000) {
+        if (this.ezA >= 10000) {
             if (DEBUG) {
                 Log.d("UBCBehaviorModel", "real time upload total count check fail");
             }
-            if (this.exX == 10000) {
-                this.exX++;
+            if (this.ezA == 10000) {
+                this.ezA++;
                 if (!DEBUG) {
-                    ac.ehX().XE(String.valueOf(10000));
+                    ac.eif().XL(String.valueOf(10000));
                 }
             }
             return false;
@@ -394,47 +394,47 @@ public class c {
         return true;
     }
 
-    private void bew() {
-        this.exX++;
-        ai.eib().putInt("ubc_real_time_count", this.exX);
+    private void bey() {
+        this.ezA++;
+        ai.eij().putInt("ubc_real_time_count", this.ezA);
     }
 
-    private void bex() {
+    private void bez() {
         if (isNetWorkEnabled(this.mContext)) {
             if (DEBUG) {
                 Log.d("UBCBehaviorModel", " upload no real data");
             }
-            this.exV = System.currentTimeMillis();
-            ai.eib().putLong("ubc_last_upload_non_real", this.exV);
-            bez();
-            bet();
-            this.oSG.bem();
+            this.ezy = System.currentTimeMillis();
+            ai.eij().putLong("ubc_last_upload_non_real", this.ezy);
+            beB();
+            bev();
+            this.oUL.beo();
             HashSet hashSet = new HashSet();
-            if (this.exY == null) {
-                bes();
+            if (this.ezB == null) {
+                beu();
             }
             aj ajVar = new aj();
             ajVar.iL(false);
             int i = 0;
-            for (int i2 = 0; i2 < this.exY.size(); i2++) {
-                int keyAt = this.exY.keyAt(i2);
+            for (int i2 = 0; i2 < this.ezB.size(); i2++) {
+                int keyAt = this.ezB.keyAt(i2);
                 if (keyAt != 0) {
-                    long longValue = this.exZ.get("ubc_last_upload_time_level_" + keyAt).longValue();
-                    if (longValue == 0 || (longValue + (keyAt * AppStatusRules.DEFAULT_GRANULARITY)) - System.currentTimeMillis() < this.oSM.beE()) {
-                        i |= this.oSG.a(this.exY.valueAt(i2), ajVar);
-                        this.exZ.put("ubc_last_upload_time_level_" + keyAt, Long.valueOf(System.currentTimeMillis()));
+                    long longValue = this.ezC.get("ubc_last_upload_time_level_" + keyAt).longValue();
+                    if (longValue == 0 || (longValue + (keyAt * AppStatusRules.DEFAULT_GRANULARITY)) - System.currentTimeMillis() < this.oUR.beG()) {
+                        i |= this.oUL.a(this.ezB.valueAt(i2), ajVar);
+                        this.ezC.put("ubc_last_upload_time_level_" + keyAt, Long.valueOf(System.currentTimeMillis()));
                         hashSet.add(Integer.valueOf(keyAt));
                     }
                 }
             }
             if (i != 0) {
-                for (int i3 = 0; i3 < this.exY.size(); i3++) {
-                    int keyAt2 = this.exY.keyAt(i3);
+                for (int i3 = 0; i3 < this.ezB.size(); i3++) {
+                    int keyAt2 = this.ezB.keyAt(i3);
                     if (keyAt2 != 0 && !hashSet.contains(Integer.valueOf(keyAt2))) {
-                        if (ajVar.mp(com.baidu.fsg.base.statistics.b.c)) {
+                        if (ajVar.mq(com.baidu.fsg.base.statistics.b.c)) {
                             break;
                         }
-                        this.oSG.a(this.exY.valueAt(i3), ajVar);
+                        this.oUL.a(this.ezB.valueAt(i3), ajVar);
                     }
                 }
                 if (DEBUG) {
@@ -448,22 +448,22 @@ public class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void uploadLocalDatas() {
         if (isNetWorkEnabled(this.mContext)) {
-            this.oSG.bem();
+            this.oUL.beo();
             aj ajVar = new aj();
-            ajVar.Nn(this.oSM.ehG());
+            ajVar.Nr(this.oUR.ehO());
             ajVar.iL(true);
             aj ajVar2 = new aj();
-            ajVar2.Nn(this.oSM.ehG());
+            ajVar2.Nr(this.oUR.ehO());
             ajVar2.iL(false);
-            if (this.oSG.a(ajVar, ajVar2) != 0) {
+            if (this.oUL.a(ajVar, ajVar2) != 0) {
                 if (DEBUG) {
-                    int length = ajVar.bfw().length();
-                    Log.d("UBCBehaviorModel", "real size = " + length + "   no real  = " + ajVar2.bfw().length());
+                    int length = ajVar.bfy().length();
+                    Log.d("UBCBehaviorModel", "real size = " + length + "   no real  = " + ajVar2.bfy().length());
                 }
-                if (ajVar.bfw().length() > 0) {
+                if (ajVar.bfy().length() > 0) {
                     b(ajVar);
                 }
-                if (ajVar2.bfw().length() > 0) {
+                if (ajVar2.bfy().length() > 0) {
                     b(ajVar2);
                 }
             }
@@ -473,29 +473,29 @@ public class c {
     private void b(aj ajVar) {
         if (!ajVar.isEmpty()) {
             try {
-                JSONObject eie = ajVar.eie();
-                String md5 = ah.toMd5(eie.toString().getBytes(), true);
-                du(eie.toString(), md5);
+                JSONObject eim = ajVar.eim();
+                String md5 = ah.toMd5(eim.toString().getBytes(), true);
+                du(eim.toString(), md5);
                 if (DEBUG) {
                     z.d(ajVar);
                     Log.d("UBCBehaviorModel", "save send data to file " + md5);
                 }
-                if (!this.oSG.a(ajVar.bfr(), ajVar.bfs(), ajVar.bfx(), md5)) {
+                if (!this.oUL.a(ajVar.bft(), ajVar.bfu(), ajVar.bfz(), md5)) {
                     ajVar.clearData();
                     File file = new File(this.mContext.getFilesDir() + File.separator + "ubcsenddir", md5);
                     if (file.exists() && file.delete()) {
                         Log.d("UBCBehaviorModel", "db fail deleteUploadFile file suc");
                     }
-                    this.oSG.yr(md5);
+                    this.oUL.yy(md5);
                     return;
                 }
-                d.ehB().B(eie, md5);
+                d.ehJ().B(eim, md5);
                 ajVar.clearData();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (Math.abs(currentTimeMillis - this.oSK) >= 7200000) {
-                    this.oSK = currentTimeMillis;
-                    ai.eib().putLong("ubc_last_upload_failed_data_time", this.oSK);
-                    d.ehB().beB();
+                if (Math.abs(currentTimeMillis - this.oUP) >= 7200000) {
+                    this.oUP = currentTimeMillis;
+                    ai.eij().putLong("ubc_last_upload_failed_data_time", this.oUP);
+                    d.ehJ().beD();
                 }
             } catch (OutOfMemoryError e) {
                 ajVar.clearData();
@@ -505,16 +505,16 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(JSONObject jSONObject, String str, boolean z, n nVar, t tVar) {
-        boolean k = this.oSL.k(jSONObject, z);
+        boolean i = this.oUQ.i(jSONObject, z);
         if (tVar != null) {
-            tVar.a(k, nVar);
+            tVar.a(i, nVar);
         }
         if (!TextUtils.isEmpty(str)) {
-            d.ehB().au(str, k);
+            d.ehJ().au(str, i);
         }
     }
 
-    private void bez() {
+    private void beB() {
         iI(true);
         iI(false);
     }
@@ -522,13 +522,13 @@ public class c {
     private void iI(boolean z) {
         aj ajVar = new aj();
         ajVar.iL(z);
-        if (this.oSH.a(ajVar, z)) {
-            JSONObject eie = ajVar.eie();
+        if (this.oUM.a(ajVar, z)) {
+            JSONObject eim = ajVar.eim();
             if (DEBUG) {
-                Log.d("UBCBehaviorModel", "checkFileData:" + eie.toString());
+                Log.d("UBCBehaviorModel", "checkFileData:" + eim.toString());
             }
-            this.oSH.iH(z);
-            d.ehB().eP(eie);
+            this.oUM.iH(z);
+            d.ehJ().eS(eim);
         }
     }
 
@@ -536,16 +536,16 @@ public class c {
     public void a(w wVar, boolean z, s sVar) {
         int i = 0;
         JSONArray jSONArray = new JSONArray();
-        this.oSN = 0;
-        this.oSO = 0;
-        this.oSP = 0;
+        this.oUS = 0;
+        this.oUT = 0;
+        this.oUU = 0;
         b(wVar, z, jSONArray);
         a(wVar, z, jSONArray);
         if (sVar != null && jSONArray.length() > 0) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("items", jSONArray);
-                jSONObject.put("count", String.format("%d,%d,%d", Integer.valueOf(this.oSN + this.oSO + this.oSP), Integer.valueOf(this.oSN), Integer.valueOf(this.oSP)));
+                jSONObject.put("count", String.format("%d,%d,%d", Integer.valueOf(this.oUS + this.oUT + this.oUU), Integer.valueOf(this.oUS), Integer.valueOf(this.oUU)));
                 sVar.setUBCConfigStatisticData(jSONObject);
             } catch (JSONException e) {
                 if (DEBUG) {
@@ -553,58 +553,58 @@ public class c {
                 }
             }
         }
-        this.oSM.be(wVar.bfj());
-        int bfi = wVar.bfi();
-        if (bfi > 0) {
-            this.oSM.mh(bfi * 86400000);
+        this.oUR.be(wVar.bfl());
+        int bfk = wVar.bfk();
+        if (bfk > 0) {
+            this.oUR.mi(bfk * 86400000);
         }
-        if (wVar.bfh() > 0) {
-            this.oSM.mi(wVar.bfh());
+        if (wVar.bfj() > 0) {
+            this.oUR.mj(wVar.bfj());
         }
-        int ehR = wVar.ehR();
-        if (ehR > 307200) {
-            this.oSM.Nh(ehR);
+        int ehZ = wVar.ehZ();
+        if (ehZ > 307200) {
+            this.oUR.Nl(ehZ);
         }
-        int ehS = wVar.ehS();
-        if (ehS > 30720) {
-            this.oSM.Ni(ehS);
+        int eia = wVar.eia();
+        if (eia > 30720) {
+            this.oUR.Nm(eia);
         }
-        if (this.exY == null) {
-            this.exY = new SparseArray<>();
+        if (this.ezB == null) {
+            this.ezB = new SparseArray<>();
         }
-        this.exY.clear();
-        if (this.exZ == null) {
-            this.exZ = new HashMap<>();
+        this.ezB.clear();
+        if (this.ezC == null) {
+            this.ezC = new HashMap<>();
         }
-        this.exZ.clear();
-        this.oSG.e(this.exY);
+        this.ezC.clear();
+        this.oUL.c(this.ezB);
         int i2 = 0;
         while (true) {
             int i3 = i;
-            if (i2 < this.exY.size()) {
-                int keyAt = this.exY.keyAt(i2);
+            if (i2 < this.ezB.size()) {
+                int keyAt = this.ezB.keyAt(i2);
                 i = (keyAt == 0 || i3 != 0) ? i3 : keyAt;
-                this.exZ.put("ubc_last_upload_time_level_" + keyAt, 0L);
+                this.ezC.put("ubc_last_upload_time_level_" + keyAt, 0L);
                 i2++;
             } else {
-                this.oSM.mg(i3);
-                wVar.bfj().clear();
+                this.oUR.mh(i3);
+                wVar.bfl().clear();
                 return;
             }
         }
     }
 
     void a(w wVar, boolean z, JSONArray jSONArray) {
-        List<k> bfj = wVar.bfj();
-        if (bfj != null && bfj.size() != 0) {
-            ArrayList arrayList = new ArrayList(bfj);
-            if (this.oSG.ehU() > 0) {
+        List<k> bfl = wVar.bfl();
+        if (bfl != null && bfl.size() != 0) {
+            ArrayList arrayList = new ArrayList(bfl);
+            if (this.oUL.eic() > 0) {
                 ArrayList<String> arrayList2 = new ArrayList<>();
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
                     arrayList2.add(((k) it.next()).getId());
                 }
-                HashMap<String, String> bi = this.oSG.bi(arrayList2);
+                HashMap<String, String> bi = this.oUL.bi(arrayList2);
                 Iterator it2 = arrayList.iterator();
                 while (it2.hasNext()) {
                     k kVar = (k) it2.next();
@@ -623,8 +623,8 @@ public class c {
                                 jSONObject2.put(CloudControlUBCUtils.KEY_VALID, "2");
                                 jSONObject2.put("version", version);
                                 jSONArray.put(jSONObject2);
-                                this.oSP++;
-                            } else if (!TextUtils.equals(jSONObject.optString("dfc"), "1") && TextUtils.equals(kVar.ehK(), "1")) {
+                                this.oUU++;
+                            } else if (!TextUtils.equals(jSONObject.optString("dfc"), "1") && TextUtils.equals(kVar.ehS(), "1")) {
                                 it2.remove();
                             }
                         } catch (NumberFormatException e) {
@@ -639,7 +639,7 @@ public class c {
                     }
                 }
             }
-            boolean gr = this.oSG.gr(arrayList);
+            boolean gr = this.oUL.gr(arrayList);
             Iterator it3 = arrayList.iterator();
             while (it3.hasNext()) {
                 k kVar2 = (k) it3.next();
@@ -649,10 +649,10 @@ public class c {
                     jSONObject3.put("version", kVar2.getVersion());
                     if (gr) {
                         jSONObject3.put(CloudControlUBCUtils.KEY_VALID, "1");
-                        this.oSN++;
+                        this.oUS++;
                     } else {
                         jSONObject3.put(CloudControlUBCUtils.KEY_VALID, "0");
-                        this.oSO++;
+                        this.oUT++;
                     }
                 } catch (JSONException e3) {
                     if (DEBUG) {
@@ -667,19 +667,19 @@ public class c {
 
     void b(w wVar, boolean z, JSONArray jSONArray) {
         String str;
-        JSONObject ehQ = wVar.ehQ();
-        if (ehQ != null) {
-            Iterator<String> keys = ehQ.keys();
+        JSONObject ehY = wVar.ehY();
+        if (ehY != null) {
+            Iterator<String> keys = ehY.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    k XB = this.oSG.XB(next);
-                    String optString = ehQ.optString(next, "0");
-                    if (XB == null) {
+                    k XI = this.oUL.XI(next);
+                    String optString = ehY.optString(next, "0");
+                    if (XI == null) {
                         str = "0";
                     } else {
-                        str = XB.getVersion();
+                        str = XI.getVersion();
                     }
                     boolean z2 = Integer.parseInt(str) >= Integer.parseInt(optString);
                     if (z && str != null && z2) {
@@ -687,16 +687,16 @@ public class c {
                         jSONObject.put(CloudControlUBCUtils.KEY_VALID, "2");
                         jSONObject.put("version", optString);
                         jSONArray.put(jSONObject);
-                        this.oSP++;
+                        this.oUU++;
                     } else {
                         jSONObject.put("product", String.format("del/%s", next));
                         jSONObject.put("version", optString);
                         jSONObject.put(CloudControlUBCUtils.KEY_VALID, "1");
-                        if (!this.oSG.XC(next)) {
+                        if (!this.oUL.XJ(next)) {
                             jSONObject.put(CloudControlUBCUtils.KEY_VALID, "0");
-                            this.oSO++;
+                            this.oUT++;
                         } else {
-                            this.oSN++;
+                            this.oUS++;
                         }
                         jSONArray.put(jSONObject);
                     }
@@ -753,7 +753,7 @@ public class c {
             outputStream = new Base64OutputStream(fileOutputStream, 0);
             outputStream.write(str.getBytes());
             outputStream.flush();
-            z.yL("save to file suc");
+            z.yS("save to file suc");
             if (outputStream != null) {
                 try {
                     outputStream.close();
@@ -787,62 +787,62 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void yt(String str) {
+    public void yA(String str) {
         File file = new File(this.mContext.getFilesDir() + File.separator + "ubcsenddir", str);
         if (DEBUG) {
             Log.d("UBCBehaviorModel", "deleteUploadFile file:" + file.getAbsolutePath());
         }
-        z.yL("delete file");
+        z.yS("delete file");
         if (file.exists() && file.delete()) {
             Log.d("UBCBehaviorModel", "deleteUploadFile file suc");
-            z.yL("delete file suc");
+            z.yS("delete file suc");
         }
-        this.oSG.yr(str);
+        this.oUL.yy(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void yu(String str) {
+    public void yB(String str) {
         if (DEBUG) {
             Log.d("UBCBehaviorModel", "upload file fail:" + str);
         }
-        z.yL("upload file fail");
-        this.oSG.ys(str);
+        z.yS("upload file fail");
+        this.oUL.yz(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void beB() {
+    public void beD() {
         File[] listFiles;
         if (isNetWorkEnabled(this.mContext)) {
             File file = new File(this.mContext.getFilesDir() + File.separator + "ubcsenddir");
             if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
                 if (listFiles.length > 1000) {
                     if (!DEBUG) {
-                        ac.ehX().ci(String.valueOf(1000), listFiles.length);
+                        ac.eif().ci(String.valueOf(1000), listFiles.length);
                     }
                     for (File file2 : listFiles) {
                         file2.delete();
                     }
-                    this.oSG.ben();
+                    this.oUL.bep();
                 }
                 for (int i = 0; i < listFiles.length; i++) {
                     if (DEBUG) {
                         Log.d("UBCBehaviorModel", "uploadFailedData fileName:" + listFiles[i].getAbsolutePath());
                     }
-                    o XD = this.oSG.XD(listFiles[i].getName());
-                    if (XD != null && TextUtils.equals("0", XD.beY())) {
+                    o XK = this.oUL.XK(listFiles[i].getName());
+                    if (XK != null && TextUtils.equals("0", XK.bfa())) {
                         if (DEBUG) {
                             Log.d("UBCBehaviorModel", "processFailedData sending, not send again");
                         }
-                        z.yL("processFailedData file, no need to send");
-                    } else if (XD != null && TextUtils.equals("1", XD.beY())) {
-                        z.yL("processFailedData file, send");
-                        this.oSG.dt(listFiles[i].getName(), "0");
-                        yv(listFiles[i].getName());
+                        z.yS("processFailedData file, no need to send");
+                    } else if (XK != null && TextUtils.equals("1", XK.bfa())) {
+                        z.yS("processFailedData file, send");
+                        this.oUL.dt(listFiles[i].getName(), "0");
+                        yC(listFiles[i].getName());
                     } else {
                         if (DEBUG) {
                             Log.d("UBCBehaviorModel", "processFailedData data in db");
                         }
-                        z.yL("processFailedData file, data in db, delete file");
+                        z.yS("processFailedData file, data in db, delete file");
                         listFiles[i].delete();
                     }
                 }
@@ -851,7 +851,7 @@ public class c {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1409=5, 1411=4, 1412=4, 1413=4] */
-    void yv(String str) {
+    void yC(String str) {
         File file = new File(this.mContext.getFilesDir() + File.separator + "ubcsenddir", str);
         InputStream inputStream = null;
         try {
@@ -868,7 +868,7 @@ public class c {
                             JSONObject jSONObject2 = jSONObject.getJSONObject("metadata");
                             jSONObject2.put("uploadtime", Long.toString(System.currentTimeMillis()));
                             jSONObject.put("metadata", jSONObject2);
-                            d.ehB().B(jSONObject, str);
+                            d.ehJ().B(jSONObject, str);
                             fileInputStream = inputStream;
                         }
                     } catch (Exception e) {
@@ -934,38 +934,38 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void beC() {
-        this.oSG.beo();
+    public void beE() {
+        this.oUL.beq();
     }
 
     private boolean a(aj ajVar, String str) {
         int i = 0;
         if (UBC.getUBCContext().isPeakTime()) {
-            List<String> dKp = UBC.getUBCContext().dKp();
-            if (dKp == null || dKp.size() == 0) {
+            List<String> dKx = UBC.getUBCContext().dKx();
+            if (dKx == null || dKx.size() == 0) {
                 return true;
             }
             ArrayList<j> arrayList = new ArrayList<>();
             while (true) {
                 int i2 = i;
-                if (i2 >= dKp.size()) {
+                if (i2 >= dKx.size()) {
                     break;
                 }
-                arrayList.add(new j(dKp.get(i2), str));
+                arrayList.add(new j(dKx.get(i2), str));
                 i = i2 + 1;
             }
             if (arrayList.size() == 0) {
                 return true;
             }
-            this.oSG.a(arrayList, ajVar);
+            this.oUL.a(arrayList, ajVar);
             b(ajVar);
-            bew();
+            bey();
             return true;
         }
         return false;
     }
 
     public String getUploadType(String str) {
-        return this.oSM != null ? this.oSM.getUploadType(str) : "";
+        return this.oUR != null ? this.oUR.getUploadType(str) : "";
     }
 }

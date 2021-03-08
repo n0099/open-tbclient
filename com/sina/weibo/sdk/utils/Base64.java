@@ -36,10 +36,10 @@ public final class Base64 {
         int i4 = 0;
         int i5 = 0;
         while (i2 < bArr.length) {
-            byte b2 = codes[bArr[i2] & 255];
-            if (b2 >= 0) {
+            byte b = codes[bArr[i2] & 255];
+            if (b >= 0) {
                 i5 += 6;
-                i4 = (i4 << 6) | b2;
+                i4 = (i4 << 6) | b;
                 if (i5 >= 8) {
                     i5 -= 8;
                     i = i3 + 1;

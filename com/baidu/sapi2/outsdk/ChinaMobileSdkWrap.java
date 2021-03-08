@@ -16,20 +16,18 @@ import com.cmic.sso.sdk.b.b;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class ChinaMobileSdkWrap {
 
     /* renamed from: a  reason: collision with root package name */
-    static final String f4979a = "rsa2048";
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final int f4980b = 15000;
+    static final String f3376a = "rsa2048";
+    private static final int b = 15000;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(SapiConfiguration sapiConfiguration, final String str, final String str2, final int i, final OneKeyLoginCallback oneKeyLoginCallback) {
         try {
-            Log.i(OneKeyLoginSdkCall.f5005a, "in china mobile login pre get phone info");
-            com.cmic.sso.sdk.b.a bw = com.cmic.sso.sdk.b.a.bw(sapiConfiguration.context, f4979a);
+            Log.i(OneKeyLoginSdkCall.f3389a, "in china mobile login pre get phone info");
+            com.cmic.sso.sdk.b.a bw = com.cmic.sso.sdk.b.a.bw(sapiConfiguration.context, f3376a);
             if (i == 0) {
                 bw.iz(15000L);
             } else {
@@ -42,7 +40,7 @@ public class ChinaMobileSdkWrap {
                         @Override // java.lang.Runnable
                         public void run() {
                             int i2 = 0;
-                            Log.i(OneKeyLoginSdkCall.f5005a, "getPhoneInfo", jSONObject);
+                            Log.i(OneKeyLoginSdkCall.f3389a, "getPhoneInfo", jSONObject);
                             String str3 = "-1";
                             JSONObject jSONObject2 = jSONObject;
                             if (jSONObject2 != null) {
@@ -81,7 +79,7 @@ public class ChinaMobileSdkWrap {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(final SapiConfiguration sapiConfiguration, final OneKeyLoginSdkCall.TokenListener tokenListener) {
         try {
-            com.cmic.sso.sdk.b.a bw = com.cmic.sso.sdk.b.a.bw(sapiConfiguration.context, f4979a);
+            com.cmic.sso.sdk.b.a bw = com.cmic.sso.sdk.b.a.bw(sapiConfiguration.context, f3376a);
             bw.iz(15000L);
             bw.a(sapiConfiguration.chinaMobileAppID, sapiConfiguration.chinaMobileAppKey, new b() { // from class: com.baidu.sapi2.outsdk.ChinaMobileSdkWrap.2
                 @Override // com.cmic.sso.sdk.b.b
@@ -99,7 +97,7 @@ public class ChinaMobileSdkWrap {
                         jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
                         jSONObject.put("appid", sapiConfiguration.chinaMobileAppID);
                         jSONObject.put("code", jSONObject.optString("resultCode"));
-                        Log.i(OneKeyLoginSdkCall.f5005a, "in china mobile get token: " + jSONObject.toString());
+                        Log.i(OneKeyLoginSdkCall.f3389a, "in china mobile get token: " + jSONObject.toString());
                     } catch (JSONException e2) {
                         e = e2;
                         Log.e(e);
@@ -116,7 +114,7 @@ public class ChinaMobileSdkWrap {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(final SapiConfiguration sapiConfiguration, final OneKeyLoginSdkCall.TokenListener tokenListener) {
-        com.cmic.sso.sdk.b.a bw = com.cmic.sso.sdk.b.a.bw(sapiConfiguration.context, f4979a);
+        com.cmic.sso.sdk.b.a bw = com.cmic.sso.sdk.b.a.bw(sapiConfiguration.context, f3376a);
         bw.iz(15000L);
         bw.b(sapiConfiguration.chinaMobileAppID, sapiConfiguration.chinaMobileAppKey, new b() { // from class: com.baidu.sapi2.outsdk.ChinaMobileSdkWrap.3
             @Override // com.cmic.sso.sdk.b.b
@@ -134,7 +132,7 @@ public class ChinaMobileSdkWrap {
                     jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
                     jSONObject.put("operator", "CM");
                     jSONObject.put("appid", sapiConfiguration.chinaMobileAppID);
-                    Log.i(OneKeyLoginSdkCall.f5005a, "in china mobile get oauth token: " + jSONObject.toString());
+                    Log.i(OneKeyLoginSdkCall.f3389a, "in china mobile get oauth token: " + jSONObject.toString());
                 } catch (Exception e2) {
                     e = e2;
                     Log.e(e);

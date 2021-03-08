@@ -2,7 +2,7 @@ package com.bumptech.glide.request.transition;
 
 import android.graphics.drawable.Drawable;
 import com.bumptech.glide.load.DataSource;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class DrawableCrossFadeFactory implements TransitionFactory<Drawable> {
     private final int duration;
     private final boolean isCrossFadeEnabled;
@@ -15,7 +15,10 @@ public class DrawableCrossFadeFactory implements TransitionFactory<Drawable> {
 
     @Override // com.bumptech.glide.request.transition.TransitionFactory
     public Transition<Drawable> build(DataSource dataSource, boolean z) {
-        return dataSource == DataSource.MEMORY_CACHE ? NoTransition.get() : getResourceTransition();
+        if (dataSource == DataSource.MEMORY_CACHE) {
+            return NoTransition.get();
+        }
+        return getResourceTransition();
     }
 
     private Transition<Drawable> getResourceTransition() {
@@ -25,7 +28,7 @@ public class DrawableCrossFadeFactory implements TransitionFactory<Drawable> {
         return this.resourceTransition;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class Builder {
         private static final int DEFAULT_DURATION_MS = 300;
         private final int durationMillis;

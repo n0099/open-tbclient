@@ -10,7 +10,7 @@ import com.yy.mediaframework.YYVideoSDK;
 import com.yy.videoplayer.YMFPlayerAPI;
 import com.yy.videoplayer.view.YMFLayoutParams;
 import com.yy.videoplayer.view.YMFVideoPosition;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderPlayerTextureView extends VideoPlayerView {
     public final int INVALID_STREAM_ID;
     private final String TAG;

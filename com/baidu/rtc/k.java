@@ -13,12 +13,12 @@ import org.webrtc.RendererCommon;
 import org.webrtc.SurfaceEglRenderer;
 import org.webrtc.ThreadUtils;
 import org.webrtc.VideoFrame;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class k extends j implements RendererCommon.RendererEvents {
-    private Boolean cvh;
-    private SurfaceHolder cvi;
-    private boolean cvj;
-    private BaiduRtcRoom.a cvk;
+    private Boolean cwH;
+    private SurfaceHolder cwI;
+    private boolean cwJ;
+    private BaiduRtcRoom.a cwK;
     private SurfaceEglRenderer eglRenderer;
     private RendererCommon.RendererEvents rendererEvents;
     private int rotatedFrameHeight;
@@ -34,20 +34,20 @@ public class k extends j implements RendererCommon.RendererEvents {
         this.videoWidth = 0;
         this.videoHeight = 0;
         this.videoRotation = 0;
-        this.cvj = false;
-        this.cvh = false;
-        this.cvk = aVar;
+        this.cwJ = false;
+        this.cwH = false;
+        this.cwK = aVar;
         this.userId = j;
         this.eglRenderer = new SurfaceEglRenderer(String.valueOf(j));
     }
 
-    public void G(float f) {
+    public void K(float f) {
         this.eglRenderer.setLayoutAspectRatio(f);
     }
 
     @Override // com.baidu.rtc.j
     public void changeSurfaceSize(int i, int i2) {
-        G(i / i2);
+        K(i / i2);
     }
 
     @Override // com.baidu.rtc.j
@@ -62,7 +62,7 @@ public class k extends j implements RendererCommon.RendererEvents {
 
     @Override // com.baidu.rtc.j
     public boolean hasSurface() {
-        return this.cvh.booleanValue();
+        return this.cwH.booleanValue();
     }
 
     @Override // com.baidu.rtc.j
@@ -93,11 +93,11 @@ public class k extends j implements RendererCommon.RendererEvents {
     @Override // com.baidu.rtc.j, org.webrtc.VideoSink
     public void onFrame(VideoFrame videoFrame) {
         Logging.d("ExternalRenderImp", this.userId + " : onFrame time stamp:" + videoFrame.getTimestampNs());
-        if (!this.cvj) {
+        if (!this.cwJ) {
             this.videoWidth = videoFrame.getBuffer().getWidth();
             this.videoHeight = videoFrame.getBuffer().getHeight();
             this.videoRotation = videoFrame.getRotation();
-            this.cvj = true;
+            this.cwJ = true;
         }
         this.eglRenderer.onFrame(videoFrame);
     }
@@ -107,8 +107,8 @@ public class k extends j implements RendererCommon.RendererEvents {
         this.videoWidth = i;
         this.videoHeight = i2;
         this.videoRotation = i3;
-        if (this.cvk != null) {
-            this.cvk.onRoomEventUpdate(500, this.userId, null);
+        if (this.cwK != null) {
+            this.cwK.onRoomEventUpdate(500, this.userId, null);
         }
         if (this.rendererEvents != null) {
             this.rendererEvents.onFrameResolutionChanged(i, i2, i3);
@@ -123,8 +123,8 @@ public class k extends j implements RendererCommon.RendererEvents {
 
     @Override // com.baidu.rtc.j
     public void releaseSurface() {
-        this.eglRenderer.surfaceDestroyed(this.cvi);
-        this.cvh = false;
+        this.eglRenderer.surfaceDestroyed(this.cwI);
+        this.cwH = false;
         this.surface = null;
         Logging.d("ExternalRenderImp", this.userId + " : External renderer release surface " + this.surface);
     }
@@ -135,11 +135,11 @@ public class k extends j implements RendererCommon.RendererEvents {
             Logging.d("ExternalRenderImp", this.userId + " : Set remote surface fail! cause surface: " + surface);
             return;
         }
-        if (this.cvh.booleanValue() && this.surface != null) {
+        if (this.cwH.booleanValue() && this.surface != null) {
             releaseSurface();
         }
         this.surface = surface;
-        this.cvi = new SurfaceHolder() { // from class: com.baidu.rtc.k.1
+        this.cwI = new SurfaceHolder() { // from class: com.baidu.rtc.k.1
             @Override // android.view.SurfaceHolder
             public void addCallback(SurfaceHolder.Callback callback) {
             }
@@ -197,8 +197,8 @@ public class k extends j implements RendererCommon.RendererEvents {
             public void unlockCanvasAndPost(Canvas canvas) {
             }
         };
-        this.eglRenderer.surfaceCreated(this.cvi);
-        this.cvh = true;
+        this.eglRenderer.surfaceCreated(this.cwI);
+        this.cwH = true;
         Logging.d("ExternalRenderImp", this.userId + " : External renderer set surface =" + this.surface);
     }
 }

@@ -12,99 +12,97 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class fs {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final AtomicInteger f14029a = new AtomicInteger(0);
+    private static final AtomicInteger f8374a = new AtomicInteger(0);
 
     /* renamed from: a  reason: collision with other field name */
-    public static boolean f437a;
+    public static boolean f358a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected ft f440a;
+    protected ft f361a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected XMPushService f442a;
+    protected XMPushService f363a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected int f438a = 0;
+    protected int f359a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    protected long f439a = -1;
+    protected long f360a = -1;
 
     /* renamed from: b  reason: collision with other field name */
-    protected volatile long f447b = 0;
+    protected volatile long f368b = 0;
 
     /* renamed from: c  reason: collision with other field name */
-    protected volatile long f450c = 0;
+    protected volatile long f371c = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    private LinkedList<Pair<Integer, Long>> f445a = new LinkedList<>();
+    private LinkedList<Pair<Integer, Long>> f366a = new LinkedList<>();
 
     /* renamed from: a  reason: collision with other field name */
-    private final Collection<fv> f444a = new CopyOnWriteArrayList();
+    private final Collection<fv> f365a = new CopyOnWriteArrayList();
 
     /* renamed from: a  reason: collision with other field name */
-    protected final Map<fx, a> f446a = new ConcurrentHashMap();
+    protected final Map<fx, a> f367a = new ConcurrentHashMap();
 
     /* renamed from: b  reason: collision with other field name */
-    protected final Map<fx, a> f449b = new ConcurrentHashMap();
+    protected final Map<fx, a> f370b = new ConcurrentHashMap();
 
     /* renamed from: a  reason: collision with other field name */
-    protected ge f441a = null;
+    protected ge f362a = null;
 
     /* renamed from: a  reason: collision with other field name */
-    protected String f443a = "";
+    protected String f364a = "";
 
     /* renamed from: b  reason: collision with other field name */
-    protected String f448b = "";
+    protected String f369b = "";
     private int c = 2;
-
-    /* renamed from: b  reason: collision with root package name */
-    protected final int f14030b = f14029a.getAndIncrement();
+    protected final int b = f8374a.getAndIncrement();
     private long e = 0;
     protected long d = 0;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private fx f14031a;
+        private fx f8375a;
 
         /* renamed from: a  reason: collision with other field name */
-        private gf f451a;
+        private gf f372a;
 
         public a(fx fxVar, gf gfVar) {
-            this.f14031a = fxVar;
-            this.f451a = gfVar;
+            this.f8375a = fxVar;
+            this.f372a = gfVar;
         }
 
         public void a(fl flVar) {
-            this.f14031a.a(flVar);
+            this.f8375a.a(flVar);
         }
 
         public void a(gj gjVar) {
-            if (this.f451a == null || this.f451a.a(gjVar)) {
-                this.f14031a.a(gjVar);
+            if (this.f372a == null || this.f372a.a(gjVar)) {
+                this.f8375a.a(gjVar);
             }
         }
     }
 
     static {
-        f437a = false;
+        f358a = false;
         try {
-            f437a = Boolean.getBoolean("smack.debugEnabled");
+            f358a = Boolean.getBoolean("smack.debugEnabled");
         } catch (Exception e) {
         }
-        fy.m329a();
+        fy.m308a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public fs(XMPushService xMPushService, ft ftVar) {
-        this.f440a = ftVar;
-        this.f442a = xMPushService;
-        m322b();
+        this.f361a = ftVar;
+        this.f363a = xMPushService;
+        m301b();
     }
 
     private String a(int i) {
@@ -112,70 +110,70 @@ public abstract class fs {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m316a(int i) {
-        synchronized (this.f445a) {
+    private void m295a(int i) {
+        synchronized (this.f366a) {
             if (i == 1) {
-                this.f445a.clear();
+                this.f366a.clear();
             } else {
-                this.f445a.add(new Pair<>(Integer.valueOf(i), Long.valueOf(System.currentTimeMillis())));
-                if (this.f445a.size() > 6) {
-                    this.f445a.remove(0);
+                this.f366a.add(new Pair<>(Integer.valueOf(i), Long.valueOf(System.currentTimeMillis())));
+                if (this.f366a.size() > 6) {
+                    this.f366a.remove(0);
                 }
             }
         }
     }
 
     public int a() {
-        return this.f438a;
+        return this.f359a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public long m317a() {
-        return this.f450c;
+    public long m296a() {
+        return this.f371c;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ft m318a() {
-        return this.f440a;
+    public ft m297a() {
+        return this.f361a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m319a() {
-        return this.f440a.c();
+    public String m298a() {
+        return this.f361a.c();
     }
 
     public void a(int i, int i2, Exception exc) {
         if (i != this.c) {
-            com.xiaomi.channel.commonutils.logger.b.m79a(String.format("update the connection status. %1$s -> %2$s : %3$s ", a(this.c), a(i), com.xiaomi.push.service.at.a(i2)));
+            com.xiaomi.channel.commonutils.logger.b.m58a(String.format("update the connection status. %1$s -> %2$s : %3$s ", a(this.c), a(i), com.xiaomi.push.service.at.a(i2)));
         }
-        if (az.b(this.f442a)) {
-            m316a(i);
+        if (az.b(this.f363a)) {
+            m295a(i);
         }
         if (i == 1) {
-            this.f442a.a(10);
+            this.f363a.a(10);
             if (this.c != 0) {
-                com.xiaomi.channel.commonutils.logger.b.m79a("try set connected while not connecting.");
+                com.xiaomi.channel.commonutils.logger.b.m58a("try set connected while not connecting.");
             }
             this.c = i;
-            for (fv fvVar : this.f444a) {
+            for (fv fvVar : this.f365a) {
                 fvVar.a(this);
             }
         } else if (i == 0) {
             if (this.c != 2) {
-                com.xiaomi.channel.commonutils.logger.b.m79a("try set connecting while not disconnected.");
+                com.xiaomi.channel.commonutils.logger.b.m58a("try set connecting while not disconnected.");
             }
             this.c = i;
-            for (fv fvVar2 : this.f444a) {
+            for (fv fvVar2 : this.f365a) {
                 fvVar2.b(this);
             }
         } else if (i == 2) {
-            this.f442a.a(10);
+            this.f363a.a(10);
             if (this.c == 0) {
-                for (fv fvVar3 : this.f444a) {
+                for (fv fvVar3 : this.f365a) {
                     fvVar3.a(this, exc == null ? new CancellationException("disconnect while connecting") : exc);
                 }
             } else if (this.c == 1) {
-                for (fv fvVar4 : this.f444a) {
+                for (fv fvVar4 : this.f365a) {
                     fvVar4.a(this, i2, exc);
                 }
             }
@@ -184,17 +182,17 @@ public abstract class fs {
     }
 
     public void a(fv fvVar) {
-        if (fvVar == null || this.f444a.contains(fvVar)) {
+        if (fvVar == null || this.f365a.contains(fvVar)) {
             return;
         }
-        this.f444a.add(fvVar);
+        this.f365a.add(fvVar);
     }
 
     public void a(fx fxVar, gf gfVar) {
         if (fxVar == null) {
             throw new NullPointerException("Packet listener is null.");
         }
-        this.f446a.put(fxVar, new a(fxVar, gfVar));
+        this.f367a.put(fxVar, new a(fxVar, gfVar));
     }
 
     public abstract void a(gj gjVar);
@@ -203,11 +201,11 @@ public abstract class fs {
 
     public synchronized void a(String str) {
         if (this.c == 0) {
-            com.xiaomi.channel.commonutils.logger.b.m79a("setChallenge hash = " + be.a(str).substring(0, 8));
-            this.f443a = str;
+            com.xiaomi.channel.commonutils.logger.b.m58a("setChallenge hash = " + be.a(str).substring(0, 8));
+            this.f364a = str;
             a(1, 0, null);
         } else {
-            com.xiaomi.channel.commonutils.logger.b.m79a("ignore setChallenge because connection was disconnected");
+            com.xiaomi.channel.commonutils.logger.b.m58a("ignore setChallenge because connection was disconnected");
         }
     }
 
@@ -216,7 +214,7 @@ public abstract class fs {
     public abstract void a(fl[] flVarArr);
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m320a() {
+    public boolean m299a() {
         return false;
     }
 
@@ -229,15 +227,15 @@ public abstract class fs {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public String m321b() {
-        return this.f440a.b();
+    public String m300b() {
+        return this.f361a.b();
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    protected void m322b() {
+    protected void m301b() {
         String str;
         Class<?> cls = null;
-        if (this.f440a.m327a() && this.f441a == null) {
+        if (this.f361a.m306a() && this.f362a == null) {
             try {
                 str = System.getProperty("smack.debuggerClass");
             } catch (Throwable th) {
@@ -251,11 +249,11 @@ public abstract class fs {
                 }
             }
             if (cls == null) {
-                this.f441a = new bn(this);
+                this.f362a = new bn(this);
                 return;
             }
             try {
-                this.f441a = (ge) cls.getConstructor(fs.class, Writer.class, Reader.class).newInstance(this);
+                this.f362a = (ge) cls.getConstructor(fs.class, Writer.class, Reader.class).newInstance(this);
             } catch (Exception e2) {
                 throw new IllegalArgumentException("Can't initialize the configured debugger!", e2);
             }
@@ -267,20 +265,20 @@ public abstract class fs {
     public abstract void b(fl flVar);
 
     public void b(fv fvVar) {
-        this.f444a.remove(fvVar);
+        this.f365a.remove(fvVar);
     }
 
     public void b(fx fxVar, gf gfVar) {
         if (fxVar == null) {
             throw new NullPointerException("Packet listener is null.");
         }
-        this.f449b.put(fxVar, new a(fxVar, gfVar));
+        this.f370b.put(fxVar, new a(fxVar, gfVar));
     }
 
     public abstract void b(boolean z);
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m323b() {
+    public boolean m302b() {
         return this.c == 0;
     }
 
@@ -289,18 +287,18 @@ public abstract class fs {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m324c() {
+    public boolean m303c() {
         return this.c == 1;
     }
 
     public void d() {
-        synchronized (this.f445a) {
-            this.f445a.clear();
+        synchronized (this.f366a) {
+            this.f366a.clear();
         }
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public synchronized boolean m325d() {
+    public synchronized boolean m304d() {
         return System.currentTimeMillis() - this.e < ((long) fy.a());
     }
 

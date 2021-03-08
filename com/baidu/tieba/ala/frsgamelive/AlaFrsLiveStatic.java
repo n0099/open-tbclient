@@ -24,7 +24,7 @@ import com.baidu.tieba.ala.gamefrslivelist.AlaGameFrsLiveListActivity;
 import com.baidu.tieba.ala.gamelist.mvc.AlaAllGameLiveEntryActivity;
 import com.baidu.tieba.frs.ai;
 import com.baidu.tieba.frs.aj;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaFrsLiveStatic {
     public static String Tag = "tag";
 
@@ -82,7 +82,7 @@ public class AlaFrsLiveStatic {
                         aVar.setForumGameLabel(aiVar.getForumGameLabel());
                         aVar.setFromType(1);
                         aVar.nk(true);
-                        if (aiVar.zb(9)) {
+                        if (aiVar.zc(9)) {
                             aiVar.b(aVar);
                         }
                     }
@@ -141,7 +141,7 @@ public class AlaFrsLiveStatic {
                         aVar.setForumId(aiVar.getForumId());
                         aVar.setForumName(aiVar.getForumName());
                         aVar.nl(true);
-                        if (aiVar.zb(8)) {
+                        if (aiVar.zc(8)) {
                             aiVar.b(aVar);
                         }
                     }

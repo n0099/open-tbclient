@@ -1,5 +1,5 @@
 package com.baidu.swan.games.binding.model;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class JSTypeMismatchException extends Exception {
     public int actualType;
     public Object name;

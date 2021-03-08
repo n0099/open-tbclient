@@ -2,57 +2,57 @@ package com.baidu.ubs.analytics.d;
 
 import android.text.TextUtils;
 import android.util.Log;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class j {
-    private static int oVc = 1000;
-    private static boolean oVd = true;
+    private static int oXh = 1000;
+    private static boolean oXi = true;
 
     public static void c(boolean z) {
-        oVd = z;
+        oXi = z;
     }
 
     public static void I(String str) {
-        if (oVd) {
+        if (oXi) {
             a(5, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void b(Throwable th) {
-        if (oVd) {
+        if (oXi) {
             a(4, "BaiDuAbSDK", "", th);
         }
     }
 
     public static void G(String str) {
-        if (oVd) {
+        if (oXi) {
             a(2, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void a(Throwable th) {
-        if (oVd) {
+        if (oXi) {
             a(2, "BaiDuAbSDK", "", th);
         }
     }
 
     private static void a(int i, String str, String str2, Throwable th) {
         if (!TextUtils.isEmpty(str2)) {
-            if (str2.length() >= oVc) {
+            if (str2.length() >= oXh) {
                 switch (i) {
                     case 1:
-                        Log.v(str, str2.substring(0, oVc));
+                        Log.v(str, str2.substring(0, oXh));
                         break;
                     case 2:
-                        Log.d(str, str2.substring(0, oVc));
+                        Log.d(str, str2.substring(0, oXh));
                         break;
                     case 3:
-                        Log.i(str, str2.substring(0, oVc));
+                        Log.i(str, str2.substring(0, oXh));
                         break;
                     case 4:
-                        Log.w(str, str2.substring(0, oVc));
+                        Log.w(str, str2.substring(0, oXh));
                         break;
                     case 5:
-                        Log.e(str, str2.substring(0, oVc));
+                        Log.e(str, str2.substring(0, oXh));
                         break;
                 }
             } else {

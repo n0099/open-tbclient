@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import tbclient.ForumMenu.ForumMenuResIdl;
 import tbclient.ForumMenu.Menu;
 import tbclient.ForumMenu.SubMenu;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ResponseOfficialBarMenuMessage extends TbSocketReponsedMessage {
     public static final String OFFICIAL_BAR_MENU_KEY_PRE = "official_bar_menu_";
     private c officialBarMenuDatas;
@@ -32,13 +32,13 @@ public class ResponseOfficialBarMenuMessage extends TbSocketReponsedMessage {
             this.officialBarMenuDatas = new c();
             if (forumMenuResIdl.data != null) {
                 getOfficialBarMenuDatas().setUpdate_time(forumMenuResIdl.data.update_time.intValue());
-                getOfficialBarMenuDatas().CT(forumMenuResIdl.data.has_menu.intValue());
+                getOfficialBarMenuDatas().CW(forumMenuResIdl.data.has_menu.intValue());
                 getOfficialBarMenuDatas().es(new ArrayList());
                 int size = forumMenuResIdl.data.parent_menu.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     com.baidu.tieba.im.data.b bVar = new com.baidu.tieba.im.data.b();
                     Menu menu = forumMenuResIdl.data.parent_menu.get(i2);
-                    bVar.CS(menu.action_type.intValue());
+                    bVar.CV(menu.action_type.intValue());
                     bVar.setContent(menu.content);
                     bVar.setCreate_time(menu.create_time.intValue());
                     bVar.setForum_id(menu.forum_id + "");
@@ -51,18 +51,18 @@ public class ResponseOfficialBarMenuMessage extends TbSocketReponsedMessage {
                         for (int i3 = 0; i3 < size2; i3++) {
                             SubMenu subMenu = menu.sub_menu.get(i3);
                             com.baidu.tieba.im.data.b bVar2 = new com.baidu.tieba.im.data.b();
-                            bVar2.CS(subMenu.action_type.intValue());
+                            bVar2.CV(subMenu.action_type.intValue());
                             bVar2.setContent(subMenu.content);
                             bVar2.setForum_id(subMenu.forum_id + "");
                             bVar2.setId(subMenu.id + "");
                             bVar2.setLevel(subMenu.level.intValue());
                             bVar2.setName(subMenu.name);
-                            bVar2.CR(subMenu.parent_id.intValue());
+                            bVar2.CU(subMenu.parent_id.intValue());
                             bVar2.setUpdate_time(subMenu.update_time.intValue());
-                            bVar.cVs().add(bVar2);
+                            bVar.cVz().add(bVar2);
                         }
                     }
-                    getOfficialBarMenuDatas().cVu().add(bVar);
+                    getOfficialBarMenuDatas().cVB().add(bVar);
                 }
             }
         }
@@ -73,8 +73,8 @@ public class ResponseOfficialBarMenuMessage extends TbSocketReponsedMessage {
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
         c officialBarMenuDatas;
         Message<?> orginalMessage = getOrginalMessage();
-        if (orginalMessage != null && (orginalMessage instanceof RequestOfficialBarMenuMessage) && getError() == 0 && (officialBarMenuDatas = getOfficialBarMenuDatas()) != null && officialBarMenuDatas.cVt() && officialBarMenuDatas.cVu() != null && officialBarMenuDatas.cVu().size() > 0) {
-            saveProtocolBufferDataToCache(com.baidu.tbadk.core.c.a.bqr().Ar("tb.official_bar_menu"), OFFICIAL_BAR_MENU_KEY_PRE + ((RequestOfficialBarMenuMessage) orginalMessage).getForum_id(), bArr);
+        if (orginalMessage != null && (orginalMessage instanceof RequestOfficialBarMenuMessage) && getError() == 0 && (officialBarMenuDatas = getOfficialBarMenuDatas()) != null && officialBarMenuDatas.cVA() && officialBarMenuDatas.cVB() != null && officialBarMenuDatas.cVB().size() > 0) {
+            saveProtocolBufferDataToCache(com.baidu.tbadk.core.c.a.bqt().Ay("tb.official_bar_menu"), OFFICIAL_BAR_MENU_KEY_PRE + ((RequestOfficialBarMenuMessage) orginalMessage).getForum_id(), bArr);
         }
     }
 }

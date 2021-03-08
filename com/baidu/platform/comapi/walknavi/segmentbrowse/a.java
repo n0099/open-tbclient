@@ -5,10 +5,8 @@ import java.util.ArrayList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4360a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f4361b;
+    private String f3024a;
+    private String b;
     private ArrayList<com.baidu.platform.comapi.walknavi.segmentbrowse.widget.c> c = new ArrayList<>();
     private ArrayList<com.baidu.platform.comapi.walknavi.segmentbrowse.widget.c> d = new ArrayList<>();
     private int e;
@@ -31,15 +29,15 @@ public class a {
     }
 
     public String c() {
-        return this.f4360a;
+        return this.f3024a;
     }
 
     public void a(String str) {
-        this.f4360a = str;
+        this.f3024a = str;
     }
 
     public void b(String str) {
-        this.f4361b = str;
+        this.b = str;
     }
 
     public int d() {
@@ -59,6 +57,6 @@ public class a {
     }
 
     public String toString() {
-        return "WRouteMessageModel [iconName=" + this.f4360a + ", guideText=" + this.f4361b + ", stepLength=" + this.e + ", uid=" + this.f + "]";
+        return "WRouteMessageModel [iconName=" + this.f3024a + ", guideText=" + this.b + ", stepLength=" + this.e + ", uid=" + this.f + "]";
     }
 }

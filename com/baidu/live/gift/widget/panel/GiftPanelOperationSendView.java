@@ -9,11 +9,11 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class GiftPanelOperationSendView extends TextView {
-    private GradientDrawable bhV;
-    private float bhW;
-    private boolean bhX;
+    private GradientDrawable bjx;
+    private float bjy;
+    private boolean bjz;
     private int mStyle;
 
     public GiftPanelOperationSendView(Context context, @Nullable AttributeSet attributeSet) {
@@ -25,13 +25,13 @@ public class GiftPanelOperationSendView extends TextView {
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         if (isEnabled()) {
             if (motionEvent.getAction() == 0) {
-                this.bhX = true;
+                this.bjz = true;
             } else if (motionEvent.getAction() == 3 || motionEvent.getAction() == 1) {
-                this.bhX = false;
+                this.bjz = false;
             }
             setStyle(this.mStyle, true);
         } else {
-            this.bhX = false;
+            this.bjz = false;
         }
         return super.onTouchEvent(motionEvent);
     }
@@ -58,37 +58,37 @@ public class GiftPanelOperationSendView extends TextView {
                     z2 = false;
                     break;
             }
-            if (!(z2 & true) && !this.bhX) {
-                this.bhV.clearColorFilter();
+            if (!(z2 & true) && !this.bjz) {
+                this.bjx.clearColorFilter();
                 setTextColor(-1);
                 setEnabled(true);
             } else {
-                this.bhV.setColorFilter(Integer.MIN_VALUE, PorterDuff.Mode.SRC_ATOP);
+                this.bjx.setColorFilter(Integer.MIN_VALUE, PorterDuff.Mode.SRC_ATOP);
                 setTextColor(-2130706433);
                 if (!z) {
                     setEnabled(false);
                 }
             }
             if (!(z2 & true)) {
-                this.bhV.setCornerRadius(this.bhW);
+                this.bjx.setCornerRadius(this.bjy);
             } else {
-                this.bhV.setCornerRadii(new float[]{0.0f, 0.0f, this.bhW, this.bhW, this.bhW, this.bhW, 0.0f, 0.0f});
+                this.bjx.setCornerRadii(new float[]{0.0f, 0.0f, this.bjy, this.bjy, this.bjy, this.bjy, 0.0f, 0.0f});
             }
-            setBackgroundDrawable(this.bhV);
+            setBackgroundDrawable(this.bjx);
         }
     }
 
     private void init() {
-        this.bhW = getResources().getDimensionPixelOffset(a.d.sdk_ds40);
-        this.bhV = new GradientDrawable();
-        this.bhV.setShape(0);
-        this.bhV.setCornerRadius(this.bhW);
-        this.bhV.setGradientType(0);
+        this.bjy = getResources().getDimensionPixelOffset(a.d.sdk_ds40);
+        this.bjx = new GradientDrawable();
+        this.bjx.setShape(0);
+        this.bjx.setCornerRadius(this.bjy);
+        this.bjx.setGradientType(0);
         if (Build.VERSION.SDK_INT >= 16) {
-            this.bhV.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
-            this.bhV.setColors(new int[]{-57498, -45747});
+            this.bjx.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
+            this.bjx.setColors(new int[]{-57498, -45747});
         }
-        setBackgroundDrawable(this.bhV);
+        setBackgroundDrawable(this.bjx);
         setGravity(17);
         setTextSize(0, getResources().getDimensionPixelOffset(a.d.sdk_fontsize26));
         setIncludeFontPadding(false);

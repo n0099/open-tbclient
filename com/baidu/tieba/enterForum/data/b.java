@@ -4,25 +4,25 @@ import android.text.TextUtils;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b {
-    public String aHq;
-    public int iHD;
-    public int iHE;
-    public String iHF;
-    public String iHG;
+    public String aIQ;
+    public int iJm;
+    public int iJn;
+    public String iJo;
+    public String iJp;
     public String picUrl;
 
-    public void eh(JSONObject jSONObject) {
+    public void ej(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.picUrl = jSONObject.optString("pic");
-            this.aHq = jSONObject.optString("url");
-            this.iHD = jSONObject.optInt("server_time");
-            this.iHE = jSONObject.optInt("adid");
-            this.iHF = jSONObject.optString("big_pic");
-            this.iHG = jSONObject.optString("small_pic");
+            this.aIQ = jSONObject.optString("url");
+            this.iJm = jSONObject.optInt("server_time");
+            this.iJn = jSONObject.optInt("adid");
+            this.iJo = jSONObject.optString("big_pic");
+            this.iJp = jSONObject.optString("small_pic");
         }
     }
 
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.iHF);
+        return !TextUtils.isEmpty(this.iJo);
     }
 }

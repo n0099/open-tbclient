@@ -8,23 +8,23 @@ import com.baidu.swan.apps.view.SwanAppErrorDialog;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a implements g {
     @Override // com.baidu.swan.apps.t.b.g
     public boolean a(Context context, String str, com.baidu.swan.apps.al.a aVar) {
         ar arVar = new ar("c13607");
-        arVar.dR("uid", com.baidu.tieba.aiapps.apps.a.a.bNa().getUid() == null ? "" : com.baidu.tieba.aiapps.apps.a.a.bNa().getUid());
-        arVar.v("obj_param1", aVar.aNb());
-        arVar.dR(TiebaInitialize.Params.OBJ_PARAM2, aVar.aNc());
+        arVar.dR("uid", com.baidu.tieba.aiapps.apps.a.a.bNg().getUid() == null ? "" : com.baidu.tieba.aiapps.apps.a.a.bNg().getUid());
+        arVar.v("obj_param1", aVar.aNe());
+        arVar.dR(TiebaInitialize.Params.OBJ_PARAM2, aVar.aNf());
         TiebaStatic.log(arVar);
-        if (aVar.aNa() == 10 && aVar.aNb() == 1013) {
-            bNQ();
+        if (aVar.aNd() == 10 && aVar.aNe() == 1013) {
+            bNW();
             return true;
         }
         return false;
     }
 
-    private void bNQ() {
-        SwanAppErrorDialog.aOX().iO(R.string.swan_app_update_title).iP(R.string.swan_app_update_msg).a(R.string.swan_app_update_btn, (DialogInterface.OnClickListener) null).show();
+    private void bNW() {
+        SwanAppErrorDialog.aPa().iP(R.string.swan_app_update_title).iQ(R.string.swan_app_update_msg).a(R.string.swan_app_update_btn, (DialogInterface.OnClickListener) null).show();
     }
 }

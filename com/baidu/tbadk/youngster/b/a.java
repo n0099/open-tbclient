@@ -29,54 +29,54 @@ public class a {
             b bVar = new b(str, str2);
             if (a(tipInfo.tip_interval, bVar)) {
                 final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(fVar.getPageActivity());
-                aVar.At(tipInfo.tip_pop_title);
+                aVar.AA(tipInfo.tip_pop_title);
                 aVar.setTitleShowCenter(true);
                 aVar.setMessageShowCenter(true);
-                aVar.Au(tipInfo.tip_pop);
+                aVar.AB(tipInfo.tip_pop);
                 aVar.a(str3, new a.b() { // from class: com.baidu.tbadk.youngster.b.a.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                         com.baidu.tbadk.core.dialog.a.this.dismiss();
                     }
                 });
-                aVar.b(fVar).bqx();
+                aVar.b(fVar).bqz();
                 bVar.eQ(System.currentTimeMillis());
             }
         }
     }
 
     private static boolean a(String str, b bVar) {
-        int bJd;
-        long bJc;
+        int bJh;
+        long bJg;
         if (StringUtils.isNull(str)) {
             return false;
         }
         String[] split = str.split(",");
         if (bVar == null) {
-            bJd = com.baidu.tbadk.core.sharedPref.b.brQ().getInt("key_youngster_frs_showed_times", 0);
+            bJh = com.baidu.tbadk.core.sharedPref.b.brR().getInt("key_youngster_frs_showed_times", 0);
         } else {
-            bJd = bVar.bJd();
+            bJh = bVar.bJh();
         }
         if (bVar == null) {
-            bJc = com.baidu.tbadk.core.sharedPref.b.brQ().getLong("key_youngster_frs_dialog_show_time", 0L);
+            bJg = com.baidu.tbadk.core.sharedPref.b.brR().getLong("key_youngster_frs_dialog_show_time", 0L);
         } else {
-            bJc = bVar.bJc();
+            bJg = bVar.bJg();
         }
-        int min = Math.min(bJd, split.length) - 1;
+        int min = Math.min(bJh, split.length) - 1;
         if (min < 0 || min >= split.length) {
             return true;
         }
-        return System.currentTimeMillis() - bJc > ((long) com.baidu.adp.lib.f.b.toInt(split[min], 0)) * 86400000;
+        return System.currentTimeMillis() - bJg > ((long) com.baidu.adp.lib.f.b.toInt(split[min], 0)) * 86400000;
     }
 
     public static boolean a(TbPageContext<?> tbPageContext, AntiData antiData, int i) {
         if (antiData == null || !antiData.isSexyForum()) {
             return false;
         }
-        if (c.bJf()) {
+        if (c.bJj()) {
             c(tbPageContext, i);
             return true;
-        } else if (Ei(antiData.getTeenModeInterval())) {
+        } else if (Ep(antiData.getTeenModeInterval())) {
             d(tbPageContext, i);
             return true;
         } else {
@@ -84,8 +84,8 @@ public class a {
         }
     }
 
-    private static boolean Ei(String str) {
-        if (com.baidu.tbadk.core.sharedPref.b.brQ().getBoolean("key_youngster_frs_dialog_no_tip_again", false) || !TbadkCoreApplication.isLogin()) {
+    private static boolean Ep(String str) {
+        if (com.baidu.tbadk.core.sharedPref.b.brR().getBoolean("key_youngster_frs_dialog_no_tip_again", false) || !TbadkCoreApplication.isLogin()) {
             return false;
         }
         return a(str, null);
@@ -117,9 +117,9 @@ public class a {
         youngsterFrsDialogView.setTxtYoungsterDialogContentText(R.string.youngster_dialog_close_message);
         youngsterFrsDialogView.setYoungsterDialogGroupMarginTop(l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds95));
         aVar.bn(youngsterFrsDialogView);
-        aVar.nA(5);
+        aVar.nB(5);
         aVar.jF(false);
-        aVar.b(tbPageContext).bqx();
+        aVar.b(tbPageContext).bqz();
         CustomMessageListener customMessageListener = new CustomMessageListener(2921484) { // from class: com.baidu.tbadk.youngster.b.a.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -134,7 +134,7 @@ public class a {
                 switch (i2) {
                     case 3:
                         aVar.dismiss();
-                        new BdTopToast(tbPageContext.getPageActivity(), 2000).zn(true).UZ(tbPageContext.getPageActivity().getString(R.string.youngster_close_title)).aR((ViewGroup) tbPageContext.getPageActivity().findViewById(i));
+                        new BdTopToast(tbPageContext.getPageActivity(), 2000).zm(true).Vg(tbPageContext.getPageActivity().getString(R.string.youngster_close_title)).aR((ViewGroup) tbPageContext.getPageActivity().findViewById(i));
                         return;
                     default:
                         return;
@@ -155,7 +155,7 @@ public class a {
         youngsterFrsDialogView.setLeftOnClickListener(R.string.youngster_settings_open_title, new View.OnClickListener() { // from class: com.baidu.tbadk.youngster.b.a.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                com.baidu.tbadk.core.sharedPref.b.brQ().putBoolean("key_youngster_frs_dialog_no_tip_again", YoungsterFrsDialogView.this.bqv());
+                com.baidu.tbadk.core.sharedPref.b.brR().putBoolean("key_youngster_frs_dialog_no_tip_again", YoungsterFrsDialogView.this.bqx());
                 YoungsterIntroduceActivityConfig youngsterIntroduceActivityConfig = new YoungsterIntroduceActivityConfig(tbPageContext.getPageActivity());
                 youngsterIntroduceActivityConfig.setKeyYoungsterPasswordFrom(1);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, youngsterIntroduceActivityConfig));
@@ -164,8 +164,8 @@ public class a {
         youngsterFrsDialogView.setRightOnClickListener(R.string.youngster_dialog_negative_button, new View.OnClickListener() { // from class: com.baidu.tbadk.youngster.b.a.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                com.baidu.tbadk.core.sharedPref.b.brQ().putBoolean("key_youngster_frs_dialog_no_tip_again", YoungsterFrsDialogView.this.bqv());
-                new BdTopToast(tbPageContext.getPageActivity(), 2000).zn(true).UZ(tbPageContext.getPageActivity().getString(R.string.youngster_frs_top_toast)).aR((ViewGroup) tbPageContext.getPageActivity().findViewById(i));
+                com.baidu.tbadk.core.sharedPref.b.brR().putBoolean("key_youngster_frs_dialog_no_tip_again", YoungsterFrsDialogView.this.bqx());
+                new BdTopToast(tbPageContext.getPageActivity(), 2000).zm(true).Vg(tbPageContext.getPageActivity().getString(R.string.youngster_frs_top_toast)).aR((ViewGroup) tbPageContext.getPageActivity().findViewById(i));
                 aVar.dismiss();
             }
         });
@@ -174,12 +174,12 @@ public class a {
         youngsterFrsDialogView.setTxtYoungsterDialogContentText(R.string.youngster_dialog_message);
         youngsterFrsDialogView.setYoungsterDialogGroupMarginTop(l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds65));
         aVar.bn(youngsterFrsDialogView);
-        aVar.nA(5);
+        aVar.nB(5);
         aVar.jF(false);
-        aVar.b(tbPageContext).bqx();
-        com.baidu.tbadk.core.sharedPref.b.brQ().putLong("key_youngster_frs_dialog_show_time", System.currentTimeMillis());
-        int i2 = com.baidu.tbadk.core.sharedPref.b.brQ().getInt("key_youngster_frs_showed_times", 0) + 1;
-        com.baidu.tbadk.core.sharedPref.b.brQ().putInt("key_youngster_frs_showed_times", i2 <= 2 ? i2 : 2);
+        aVar.b(tbPageContext).bqz();
+        com.baidu.tbadk.core.sharedPref.b.brR().putLong("key_youngster_frs_dialog_show_time", System.currentTimeMillis());
+        int i2 = com.baidu.tbadk.core.sharedPref.b.brR().getInt("key_youngster_frs_showed_times", 0) + 1;
+        com.baidu.tbadk.core.sharedPref.b.brR().putInt("key_youngster_frs_showed_times", i2 <= 2 ? i2 : 2);
         CustomMessageListener customMessageListener = new CustomMessageListener(2921487) { // from class: com.baidu.tbadk.youngster.b.a.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener

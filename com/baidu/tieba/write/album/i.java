@@ -25,39 +25,39 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.write.album.TbCameraView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class i extends BaseAdapter {
-    private com.baidu.tieba.c.e eWa;
-    private BaseFragmentActivity iKH;
+    private com.baidu.tieba.c.e eXz;
+    private BaseFragmentActivity iMq;
     private LayoutInflater mLayoutInflater;
-    private com.baidu.tieba.write.album.c oeL;
-    private View.OnClickListener oeN;
-    private g oeO;
-    private h oeP;
-    private TbCameraView.c oeQ;
-    private TbCameraView.a oeR;
-    private a oeS;
+    private com.baidu.tieba.write.album.c ogR;
+    private View.OnClickListener ogT;
+    private g ogU;
+    private h ogV;
+    private TbCameraView.c ogW;
+    private TbCameraView.a ogX;
+    private a ogY;
     private final List<MediaFileInfo> mDataList = new ArrayList();
-    private boolean bLU = false;
-    private boolean oeM = true;
+    private boolean bNu = false;
+    private boolean ogS = true;
 
-    public TbCameraView dXb() {
-        if (this.oeS != null) {
-            return this.oeS.oeV;
+    public TbCameraView dXj() {
+        if (this.ogY != null) {
+            return this.ogY.ohb;
         }
         return null;
     }
 
     public i(BaseFragmentActivity baseFragmentActivity, com.baidu.tieba.write.album.c cVar) {
-        this.iKH = baseFragmentActivity;
-        this.oeL = cVar;
-        this.mLayoutInflater = LayoutInflater.from(this.iKH.getPageContext().getPageActivity());
+        this.iMq = baseFragmentActivity;
+        this.ogR = cVar;
+        this.mLayoutInflater = LayoutInflater.from(this.iMq.getPageContext().getPageActivity());
     }
 
     public void setData(List<MediaFileInfo> list) {
         this.mDataList.clear();
-        if (this.oeM) {
-            this.mDataList.add(dXc());
+        if (this.ogS) {
+            this.mDataList.add(dXk());
         }
         if (!y.isEmpty(list)) {
             this.mDataList.addAll(list);
@@ -65,7 +65,7 @@ public class i extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    private MediaFileInfo dXc() {
+    private MediaFileInfo dXk() {
         return new AddMediaInfo();
     }
 
@@ -76,7 +76,7 @@ public class i extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Ll */
+    /* renamed from: Lp */
     public MediaFileInfo getItem(int i) {
         return (MediaFileInfo) y.getItem(this.mDataList, i);
     }
@@ -120,49 +120,49 @@ public class i extends BaseAdapter {
 
     private View a(int i, View view, ViewGroup viewGroup, MediaFileInfo mediaFileInfo) {
         if (mediaFileInfo != null && mediaFileInfo.getType() == 2) {
-            if (this.oeS == null || this.oeS.oeV == null) {
-                this.oeS = new a();
+            if (this.ogY == null || this.ogY.ohb == null) {
+                this.ogY = new a();
                 View inflate = this.mLayoutInflater.inflate(R.layout.album_make_picture_view, viewGroup, false);
-                this.oeS.rootView = inflate;
-                this.oeS.oeV = (TbCameraView) inflate.findViewById(R.id.camera_surfaceview);
-                this.oeS.oeW = (TBLottieAnimationView) inflate.findViewById(R.id.anim_make_photo);
-                this.oeS.oeU = inflate.findViewById(R.id.icon_placer_holder);
-                this.oeS.oeW.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                this.oeS.oeW.setFrame(0);
-                this.oeS.oeW.useHardwareAcceleration(true);
-                ap.a(this.oeS.oeW, R.raw.lottie_photo);
-                inflate.setTag(this.oeS);
-                if (!com.baidu.tbadk.core.sharedPref.b.brQ().getBoolean("write_camera_animaton_key", false)) {
-                    com.baidu.tbadk.core.sharedPref.b.brQ().putBoolean("write_camera_animaton_key", true);
-                    this.oeS.oeW.postDelayed(new Runnable() { // from class: com.baidu.tieba.write.album.i.1
+                this.ogY.rootView = inflate;
+                this.ogY.ohb = (TbCameraView) inflate.findViewById(R.id.camera_surfaceview);
+                this.ogY.ohc = (TBLottieAnimationView) inflate.findViewById(R.id.anim_make_photo);
+                this.ogY.oha = inflate.findViewById(R.id.icon_placer_holder);
+                this.ogY.ohc.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                this.ogY.ohc.setFrame(0);
+                this.ogY.ohc.useHardwareAcceleration(true);
+                ap.a(this.ogY.ohc, R.raw.lottie_photo);
+                inflate.setTag(this.ogY);
+                if (!com.baidu.tbadk.core.sharedPref.b.brR().getBoolean("write_camera_animaton_key", false)) {
+                    com.baidu.tbadk.core.sharedPref.b.brR().putBoolean("write_camera_animaton_key", true);
+                    this.ogY.ohc.postDelayed(new Runnable() { // from class: com.baidu.tieba.write.album.i.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            i.this.oeS.oeW.playAnimation();
+                            i.this.ogY.ohc.playAnimation();
                         }
                     }, 2000L);
                 }
-                showTip(this.oeS.oeU);
+                showTip(this.ogY.oha);
             }
-            ap.setBackgroundColor(this.oeS.rootView, R.color.black_alpha90);
-            this.oeS.oeV.setOnRequestPermissionListener(this.oeQ);
-            this.oeS.oeV.setOnOpenCameraFailedListener(this.oeR);
-            this.oeS.oeW.setOnClickListener(this.oeN);
-            this.oeS.oeV.setOnClickListener(this.oeN);
-            this.oeS.rootView.setOnClickListener(this.oeN);
-            this.oeS.oeW.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.album.i.2
+            ap.setBackgroundColor(this.ogY.rootView, R.color.black_alpha90);
+            this.ogY.ohb.setOnRequestPermissionListener(this.ogW);
+            this.ogY.ohb.setOnOpenCameraFailedListener(this.ogX);
+            this.ogY.ohc.setOnClickListener(this.ogT);
+            this.ogY.ohb.setOnClickListener(this.ogT);
+            this.ogY.rootView.setOnClickListener(this.ogT);
+            this.ogY.ohc.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.album.i.2
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 }
             });
-            this.oeS.oeW.addAnimatorListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.write.album.i.3
+            this.ogY.ohc.addAnimatorListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.write.album.i.3
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    i.this.oeS.oeW.cancelAnimation();
-                    i.this.oeS.oeW.setFrame(0);
+                    i.this.ogY.ohc.cancelAnimation();
+                    i.this.ogY.ohc.setFrame(0);
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -173,27 +173,27 @@ public class i extends BaseAdapter {
                 public void onAnimationRepeat(Animator animator) {
                 }
             });
-            return this.oeS.rootView;
+            return this.ogY.rootView;
         }
         return view;
     }
 
     public void showTip(View view) {
-        if (this.eWa == null && view != null) {
-            this.eWa = new com.baidu.tieba.c.e(this.iKH.getPageContext(), view);
-            this.eWa.en(R.drawable.bg_tip_blue_up_left);
-            this.eWa.e(new View.OnClickListener() { // from class: com.baidu.tieba.write.album.i.4
+        if (this.eXz == null && view != null) {
+            this.eXz = new com.baidu.tieba.c.e(this.iMq.getPageContext(), view);
+            this.eXz.eo(R.drawable.bg_tip_blue_up_left);
+            this.eXz.e(new View.OnClickListener() { // from class: com.baidu.tieba.write.album.i.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    i.this.eWa.Tz();
+                    i.this.eXz.TC();
                 }
             });
-            this.eWa.em(16);
-            this.eWa.eo(5000);
+            this.eXz.en(16);
+            this.eXz.ep(5000);
         }
-        if (this.eWa != null) {
+        if (this.eXz != null) {
             String sharedPrefKeyWithAccount = com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.KEY_SHOW_TAKE_PHOTO_TIP);
-            this.eWa.aJ(this.iKH.getString(R.string.album_take_photo_tip), sharedPrefKeyWithAccount);
+            this.eXz.aJ(this.iMq.getString(R.string.album_take_photo_tip), sharedPrefKeyWithAccount);
         }
     }
 
@@ -205,27 +205,27 @@ public class i extends BaseAdapter {
                 d dVar2 = new d();
                 view = this.mLayoutInflater.inflate(R.layout.album_image_item_view, viewGroup, false);
                 dVar2.rootView = view;
-                dVar2.iTn = (TbImageView) view.findViewById(R.id.pic);
-                dVar2.iTn.setDefaultResource(0);
-                dVar2.iTn.setTagPaddingDis(8, 8);
-                dVar2.iTn.setGifIconSupport(true);
-                dVar2.iTn.setLongIconSupport(true);
-                dVar2.bMa = (ImageView) view.findViewById(R.id.select_icon);
-                dVar2.bMb = (RelativeLayout) view.findViewById(R.id.lay_select);
-                if (this.oeL != null && this.oeL.getWriteImagesInfo() != null && this.oeL.getWriteImagesInfo().isFromQRCode()) {
-                    dVar2.bMb.setVisibility(8);
+                dVar2.iUW = (TbImageView) view.findViewById(R.id.pic);
+                dVar2.iUW.setDefaultResource(0);
+                dVar2.iUW.setTagPaddingDis(8, 8);
+                dVar2.iUW.setGifIconSupport(true);
+                dVar2.iUW.setLongIconSupport(true);
+                dVar2.bNA = (ImageView) view.findViewById(R.id.select_icon);
+                dVar2.bNB = (RelativeLayout) view.findViewById(R.id.lay_select);
+                if (this.ogR != null && this.ogR.getWriteImagesInfo() != null && this.ogR.getWriteImagesInfo().isFromQRCode()) {
+                    dVar2.bNB.setVisibility(8);
                 }
                 view.setTag(dVar2);
                 dVar = dVar2;
             } else {
                 dVar = (d) view.getTag();
             }
-            dVar.iTn.setIsLongPic(imageFileInfo.isLong());
-            dVar.iTn.startLoad(imageFileInfo.getFilePath(), 35, false);
-            a(dVar.bMa, mediaFileInfo);
+            dVar.iUW.setIsLongPic(imageFileInfo.isLong());
+            dVar.iUW.startLoad(imageFileInfo.getFilePath(), 35, false);
+            a(dVar.bNA, mediaFileInfo);
             b bVar = new b(mediaFileInfo, i);
-            dVar.iTn.setOnClickListener(bVar);
-            dVar.bMb.setOnClickListener(bVar);
+            dVar.iUW.setOnClickListener(bVar);
+            dVar.bNB.setOnClickListener(bVar);
         }
         return view;
     }
@@ -238,30 +238,30 @@ public class i extends BaseAdapter {
                 c cVar2 = new c();
                 view = this.mLayoutInflater.inflate(R.layout.album_video_item_view, viewGroup, false);
                 cVar2.rootView = view;
-                cVar2.oeY = (TbImageView) view.findViewById(R.id.video_thumb);
-                cVar2.oeY.setDefaultResource(0);
-                cVar2.oeY.setTagPaddingDis(8, 8);
-                cVar2.oeY.setGifIconSupport(false);
-                cVar2.oeY.setLongIconSupport(false);
-                cVar2.oeZ = (TextView) view.findViewById(R.id.video_play_time);
+                cVar2.ohe = (TbImageView) view.findViewById(R.id.video_thumb);
+                cVar2.ohe.setDefaultResource(0);
+                cVar2.ohe.setTagPaddingDis(8, 8);
+                cVar2.ohe.setGifIconSupport(false);
+                cVar2.ohe.setLongIconSupport(false);
+                cVar2.ohf = (TextView) view.findViewById(R.id.video_play_time);
                 view.setTag(cVar2);
                 cVar = cVar2;
             } else {
                 cVar = (c) view.getTag();
             }
-            cVar.oeY.startLoad(videoFileInfo.videoPath, 37, false);
-            cVar.oeZ.setText(au.stringForVideoTime(videoFileInfo.videoDuration));
-            cVar.oeY.setOnClickListener(new b(mediaFileInfo, i));
+            cVar.ohe.startLoad(videoFileInfo.videoPath, 37, false);
+            cVar.ohf.setText(au.stringForVideoTime(videoFileInfo.videoDuration));
+            cVar.ohe.setOnClickListener(new b(mediaFileInfo, i));
         }
         return view;
     }
 
     private void a(ImageView imageView, MediaFileInfo mediaFileInfo) {
         boolean z = false;
-        if (this.oeL != null && (mediaFileInfo instanceof ImageFileInfo)) {
-            z = this.oeL.isAdded((ImageFileInfo) mediaFileInfo);
-        } else if (this.oeL != null && (mediaFileInfo instanceof VideoFileInfo)) {
-            z = this.oeL.b((VideoFileInfo) mediaFileInfo);
+        if (this.ogR != null && (mediaFileInfo instanceof ImageFileInfo)) {
+            z = this.ogR.isAdded((ImageFileInfo) mediaFileInfo);
+        } else if (this.ogR != null && (mediaFileInfo instanceof VideoFileInfo)) {
+            z = this.ogR.b((VideoFileInfo) mediaFileInfo);
         }
         b(imageView, z);
     }
@@ -269,64 +269,64 @@ public class i extends BaseAdapter {
     public void b(ImageView imageView, boolean z) {
         if (imageView != null) {
             if (z) {
-                imageView.setContentDescription(this.iKH.getResources().getString(R.string.check_box_checked));
+                imageView.setContentDescription(this.iMq.getResources().getString(R.string.check_box_checked));
                 imageView.setImageDrawable(WebPManager.a(R.drawable.icon_mask_set_list_ok_selection26, WebPManager.ResourceStateType.NORMAL));
                 return;
             }
-            imageView.setContentDescription(this.iKH.getResources().getString(R.string.check_box_not_checked));
+            imageView.setContentDescription(this.iMq.getResources().getString(R.string.check_box_not_checked));
             imageView.setImageDrawable(WebPManager.a(R.drawable.icon_mask_set_list_ok26, WebPManager.ResourceStateType.NORMAL));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
-        private MediaFileInfo oeX;
+        private MediaFileInfo ohd;
         private int position;
 
         public b(MediaFileInfo mediaFileInfo, int i) {
-            this.oeX = mediaFileInfo;
+            this.ohd = mediaFileInfo;
             this.position = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getId() == R.id.pic) {
-                if (i.this.oeO != null && this.oeX != null) {
-                    i.this.oeO.a(this.position, this.oeX);
+                if (i.this.ogU != null && this.ohd != null) {
+                    i.this.ogU.a(this.position, this.ohd);
                 }
             } else if (view.getId() == R.id.lay_select) {
-                if (this.oeX != null && i.this.oeP != null) {
-                    i.this.oeP.b(this.position, this.oeX);
+                if (this.ohd != null && i.this.ogV != null) {
+                    i.this.ogV.b(this.position, this.ohd);
                 }
-            } else if (view.getId() == R.id.video_thumb && i.this.oeP != null && this.oeX != null) {
-                i.this.oeP.b(this.position, this.oeX);
+            } else if (view.getId() == R.id.video_thumb && i.this.ogV != null && this.ohd != null) {
+                i.this.ogV.b(this.position, this.ohd);
             }
         }
     }
 
     public boolean isScroll() {
-        return this.bLU;
+        return this.bNu;
     }
 
     public void dq(boolean z) {
-        this.bLU = z;
+        this.bNu = z;
     }
 
     public void a(g gVar) {
-        this.oeO = gVar;
+        this.ogU = gVar;
     }
 
     public void a(h hVar) {
-        this.oeP = hVar;
+        this.ogV = hVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a {
-        View oeU;
-        TbCameraView oeV;
-        TBLottieAnimationView oeW;
+        View oha;
+        TbCameraView ohb;
+        TBLottieAnimationView ohc;
         View rootView;
 
         private a() {
@@ -334,11 +334,11 @@ public class i extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class d {
-        ImageView bMa;
-        RelativeLayout bMb;
-        TbImageView iTn;
+        ImageView bNA;
+        RelativeLayout bNB;
+        TbImageView iUW;
         View rootView;
 
         private d() {
@@ -346,10 +346,10 @@ public class i extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class c {
-        TbImageView oeY;
-        TextView oeZ;
+        TbImageView ohe;
+        TextView ohf;
         View rootView;
 
         private c() {
@@ -377,21 +377,21 @@ public class i extends BaseAdapter {
         return -1;
     }
 
-    public void ao(View.OnClickListener onClickListener) {
-        this.oeN = onClickListener;
+    public void ap(View.OnClickListener onClickListener) {
+        this.ogT = onClickListener;
     }
 
     public void setOnRequestPermissionListener(TbCameraView.c cVar) {
-        this.oeQ = cVar;
+        this.ogW = cVar;
     }
 
     public void setOnOpenCameraFailedListener(TbCameraView.a aVar) {
-        this.oeR = aVar;
+        this.ogX = aVar;
     }
 
-    public void zB(boolean z) {
-        if (this.oeM != z) {
-            this.oeM = z;
+    public void zA(boolean z) {
+        if (this.ogS != z) {
+            this.ogS = z;
             notifyDataSetChanged();
         }
     }

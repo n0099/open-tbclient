@@ -10,7 +10,7 @@ import android.text.TextUtils;
 import android.widget.RemoteViews;
 import androidx.core.app.NotificationCompat;
 import com.baidu.mobads.proxy.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CustomNotification {
     private NotificationCompat.Style mStyle = new NotificationCompat.DecoratedCustomViewStyle();
 

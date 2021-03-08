@@ -10,12 +10,12 @@ import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private X509Certificate f7721a;
-    private SSLContext pxv;
+    private X509Certificate f5216a;
+    private SSLContext pzA;
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [34=4] */
     /* JADX WARN: Removed duplicated region for block: B:38:0x003d A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -24,14 +24,14 @@ public class a {
     */
     private void a(String str) {
         ByteArrayInputStream byteArrayInputStream;
-        if (this.f7721a != null) {
+        if (this.f5216a != null) {
             return;
         }
         try {
             byteArrayInputStream = new ByteArrayInputStream(Base64.decode(str, 0));
             try {
                 try {
-                    this.f7721a = (X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream);
+                    this.f5216a = (X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream);
                     if (byteArrayInputStream != null) {
                         try {
                             byteArrayInputStream.close();
@@ -78,17 +78,17 @@ public class a {
         try {
             KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
             keyStore.load(null, null);
-            keyStore.setCertificateEntry("cert", this.f7721a);
+            keyStore.setCertificateEntry("cert", this.f5216a);
             TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
             trustManagerFactory.init(keyStore);
-            this.pxv = SSLContext.getInstance(BdSailorConfig.SAILOR_BASE_SSL);
-            this.pxv.init(null, trustManagerFactory.getTrustManagers(), null);
+            this.pzA = SSLContext.getInstance(BdSailorConfig.SAILOR_BASE_SSL);
+            this.pzA.init(null, trustManagerFactory.getTrustManagers(), null);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public SSLContext erA() {
-        return this.pxv;
+    public SSLContext erJ() {
+        return this.pzA;
     }
 }

@@ -2,12 +2,12 @@ package com.baidu.tieba.setting.model;
 
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MoreModel extends BdBaseModel {
-    private PersonChangeData mAX;
-    private boolean nfl;
+    private PersonChangeData mDc;
+    private boolean nhp;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public enum TaskType {
         DO_CACHE_CLEAR,
         GET_SIZE
@@ -15,24 +15,24 @@ public class MoreModel extends BdBaseModel {
 
     public MoreModel(PersonChangeData personChangeData) {
         super(null);
-        this.mAX = null;
-        this.nfl = false;
-        this.mAX = personChangeData;
-        if (this.mAX == null) {
-            this.mAX = new PersonChangeData();
+        this.mDc = null;
+        this.nhp = false;
+        this.mDc = personChangeData;
+        if (this.mDc == null) {
+            this.mDc = new PersonChangeData();
         }
     }
 
     public void b(PersonChangeData personChangeData) {
-        this.mAX = personChangeData;
+        this.mDc = personChangeData;
     }
 
     public void xN(boolean z) {
-        this.nfl = z;
+        this.nhp = z;
     }
 
-    public boolean dGA() {
-        return this.nfl;
+    public boolean dGI() {
+        return this.nhp;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -45,7 +45,7 @@ public class MoreModel extends BdBaseModel {
         return false;
     }
 
-    public PersonChangeData dGB() {
-        return this.mAX;
+    public PersonChangeData dGJ() {
+        return this.mDc;
     }
 }

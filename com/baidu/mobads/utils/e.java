@@ -9,7 +9,7 @@ import android.text.TextUtils;
 import android.webkit.WebView;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class e {
     public static WebView a(Activity activity, Context context) {
         String str;

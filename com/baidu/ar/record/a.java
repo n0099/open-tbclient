@@ -13,7 +13,7 @@ import com.baidu.ar.audio.IEasyAudio;
 import com.baidu.ar.bean.RotationType;
 import com.baidu.ar.bean.Watermark;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class a implements FrameRenderListener, IRecord {
     private static final String TAG = a.class.getSimpleName();
     private DuMixOutput W;

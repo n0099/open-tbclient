@@ -3,14 +3,12 @@ package com.ss.android.socialbase.downloader.j;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte[] f13206a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f13207b;
-    b qhP;
+    public final byte[] f7864a;
+    public int b;
+    b qiF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(int i) {
-        this.f13206a = new byte[i];
+        this.f7864a = new byte[i];
     }
 }

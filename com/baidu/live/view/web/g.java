@@ -20,11 +20,11 @@ import com.baidu.live.view.web.a.v;
 import com.baidu.live.view.web.a.w;
 import com.baidu.live.view.web.a.x;
 import com.baidu.live.view.web.a.y;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class g {
-    private f bVY;
-    private AlaLastLiveroomInfo bVZ;
-    private h bWa;
+    private h bXA;
+    private f bXy;
+    private AlaLastLiveroomInfo bXz;
     private BaseActivity baseActivity;
     private Activity context;
     private boolean isHost = false;
@@ -33,11 +33,11 @@ public class g {
     private long userId;
     private String userName;
 
-    public a[] XY() {
-        r0[0].a(this.bWa);
+    public a[] Yb() {
+        r0[0].a(this.bXA);
         com.baidu.live.view.web.a.i iVar = new com.baidu.live.view.web.a.i();
         iVar.setHost(this.isHost);
-        iVar.b(this.bVZ);
+        iVar.b(this.bXz);
         q qVar = new q(this.context);
         qVar.setHost(this.isHost);
         u uVar = new u();
@@ -49,10 +49,10 @@ public class g {
         pVar.b(this.baseActivity);
         com.baidu.live.view.web.a.a aVar = new com.baidu.live.view.web.a.a();
         aVar.setHost(this.isHost);
-        aVar.b(this.bVZ);
+        aVar.b(this.bXz);
         com.baidu.live.view.web.a.b bVar = new com.baidu.live.view.web.a.b(this.context);
         bVar.setHost(this.isHost);
-        a[] aVarArr = {new x(this.context, this.schemeCallback), iVar, qVar, new o(this.schemeCallback), uVar, new k(this.schemeCallback), new com.baidu.live.view.web.a.g(), new com.baidu.live.view.web.a.c(this.bVY), new com.baidu.live.view.web.a.d(this.schemeCallback), new y(this.schemeCallback), pVar, new com.baidu.live.view.web.a.f(), new s(), aVar, bVar, new t(this.context, this.schemeCallback), new r(), new m(), new com.baidu.live.view.web.a.h(), new w(this.schemeCallback), new n(), new com.baidu.live.view.web.a.e(), new v(this.schemeCallback), new j(this.schemeCallback), new l()};
+        a[] aVarArr = {new x(this.context, this.schemeCallback), iVar, qVar, new o(this.schemeCallback), uVar, new k(this.schemeCallback), new com.baidu.live.view.web.a.g(), new com.baidu.live.view.web.a.c(this.bXy), new com.baidu.live.view.web.a.d(this.schemeCallback), new y(this.schemeCallback), pVar, new com.baidu.live.view.web.a.f(), new s(), aVar, bVar, new t(this.context, this.schemeCallback), new r(), new m(), new com.baidu.live.view.web.a.h(), new w(this.schemeCallback), new n(), new com.baidu.live.view.web.a.e(), new v(this.schemeCallback), new j(this.schemeCallback), new l()};
         return aVarArr;
     }
 
@@ -72,7 +72,7 @@ public class g {
     }
 
     public g a(f fVar) {
-        this.bVY = fVar;
+        this.bXy = fVar;
         return this;
     }
 
@@ -81,7 +81,7 @@ public class g {
         return this;
     }
 
-    public g iy(String str) {
+    public g iE(String str) {
         this.userName = str;
         return this;
     }
@@ -92,7 +92,7 @@ public class g {
     }
 
     public g b(h hVar) {
-        this.bWa = hVar;
+        this.bXA = hVar;
         return this;
     }
 
@@ -102,7 +102,7 @@ public class g {
     }
 
     public g a(AlaLastLiveroomInfo alaLastLiveroomInfo) {
-        this.bVZ = alaLastLiveroomInfo;
+        this.bXz = alaLastLiveroomInfo;
         return this;
     }
 }

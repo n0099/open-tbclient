@@ -5,7 +5,7 @@ import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.FileInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class b {
     private static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
@@ -52,9 +52,9 @@ public class b {
             if (digest == null) {
                 return null;
             }
-            for (byte b2 : digest) {
-                sb.append(Integer.toHexString((b2 >> 4) & 15));
-                sb.append(Integer.toHexString(b2 & 15));
+            for (byte b : digest) {
+                sb.append(Integer.toHexString((b >> 4) & 15));
+                sb.append(Integer.toHexString(b & 15));
             }
             return sb.toString();
         } catch (NoSuchAlgorithmException e) {

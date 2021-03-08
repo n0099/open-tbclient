@@ -76,7 +76,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     private static volatile Runnable checkIMLoginState = new Runnable() { // from class: com.baidu.android.imsdk.BIMManager.4
         @Override // java.lang.Runnable
         public void run() {
-            if (a.vz() == 0 && LoginManager.getInstance(BIMManager.sContext).getCurrentState() != LoginManager.LoginState.LOGINED) {
+            if (a.vC() == 0 && LoginManager.getInstance(BIMManager.sContext).getCurrentState() != LoginManager.LoginState.LOGINED) {
                 LogUtils.e("BIMManager", "checkIMLoginState lcp connected, but im not login, triggle im relogin");
                 LoginManager.getInstance(BIMManager.sContext).triggleLogoutListener(4001, Constants.ERROR_LOGIN_STATE_ERROR);
             }
@@ -131,8 +131,8 @@ public class BIMManager extends BaseManager implements NoProGuard {
         }
         Context applicationContext = context.getApplicationContext();
         sContext = applicationContext;
-        com.baidu.g.a.aug = a.aA(applicationContext);
-        if (com.baidu.g.a.aug) {
+        com.baidu.g.a.avG = a.az(applicationContext);
+        if (com.baidu.g.a.avG) {
             try {
                 b.j(applicationContext, i != 0);
                 b.j(applicationContext, i);
@@ -181,7 +181,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
         TaskManager.getInstance(context).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.BIMManager.2
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.g.a.ao(context);
+                com.baidu.g.a.an(context);
             }
         });
     }
@@ -202,7 +202,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
 
     public static void imLogoutByLcp(Context context) {
         try {
-            com.baidu.g.a.ap(context);
+            com.baidu.g.a.ao(context);
             LoginManager.getInstance(context).onLogoutResultInternal(0, "lcp unconnected");
         } catch (Exception e) {
             LogUtils.e(TAG, "imLogoutByLcp exception ", e);
@@ -828,7 +828,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     }
 
     public static void tryConnection(Context context) {
-        if (!com.baidu.g.a.aug) {
+        if (!com.baidu.g.a.avG) {
             AccountManagerImpl.getInstance(context);
             AccountManagerImpl.tryConnection(context);
         }

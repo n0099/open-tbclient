@@ -14,7 +14,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GPUImageBeautyFilter extends GPUImageFilter implements IFilterParams {
     private static final String TAG = "GPUImageBeautyFilter";
     public static final String noeffect_vs = "attribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTexCoord;\n\nvoid main()\n{\n    gl_Position = aPosition;\n    vTexCoord = aTextureCoord.xy;\n}";

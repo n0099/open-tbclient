@@ -7,14 +7,12 @@ import android.util.Base64;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences f5240a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences f5241b;
+    public SharedPreferences f3525a;
+    public SharedPreferences b;
     public SharedPreferences.Editor c;
     public SharedPreferences.Editor d;
     public SharedPreferences e;
@@ -24,10 +22,10 @@ public final class e {
     public e(Context context) {
         try {
             this.g = context;
-            this.f5240a = context.getSharedPreferences("leroadcfg", 4);
-            this.c = this.f5240a.edit();
-            this.f5241b = context.getSharedPreferences("leroadcfg", 4);
-            this.d = this.f5241b.edit();
+            this.f3525a = context.getSharedPreferences("leroadcfg", 4);
+            this.c = this.f3525a.edit();
+            this.b = context.getSharedPreferences("leroadcfg", 4);
+            this.d = this.b.edit();
             this.e = context.getSharedPreferences("re_po_rt", 4);
             this.f = this.e.edit();
         } catch (Throwable th) {
@@ -37,15 +35,15 @@ public final class e {
     }
 
     public final boolean a() {
-        return this.f5240a.getBoolean("iio", false);
+        return this.f3525a.getBoolean("iio", false);
     }
 
     public final String b() {
-        return this.f5240a.getString("svi_n", "");
+        return this.f3525a.getString("svi_n", "");
     }
 
     public final boolean c() {
-        return this.f5240a.getBoolean("bka", true);
+        return this.f3525a.getBoolean("bka", true);
     }
 
     public final void d() {
@@ -54,7 +52,7 @@ public final class e {
     }
 
     public final int e() {
-        return this.f5240a.getInt("wi_fa_pu_ap", 0);
+        return this.f3525a.getInt("wi_fa_pu_ap", 0);
     }
 
     public final void a(int i) {
@@ -63,7 +61,7 @@ public final class e {
     }
 
     public final int f() {
-        return this.f5240a.getInt("mo_fa_pu_ap", 0);
+        return this.f3525a.getInt("mo_fa_pu_ap", 0);
     }
 
     public final void b(int i) {
@@ -82,15 +80,15 @@ public final class e {
     }
 
     public final int i() {
-        return this.f5240a.getInt("wi_fa_pu_cl", 0);
+        return this.f3525a.getInt("wi_fa_pu_cl", 0);
     }
 
     public final int j() {
-        return this.f5240a.getInt("mo_fa_pu_cl", 0);
+        return this.f3525a.getInt("mo_fa_pu_cl", 0);
     }
 
     public final int k() {
-        return this.f5240a.getInt("mo_ae_fa_ct", 0);
+        return this.f3525a.getInt("mo_ae_fa_ct", 0);
     }
 
     public final void c(int i) {
@@ -99,7 +97,7 @@ public final class e {
     }
 
     public final String l() {
-        return this.f5241b.getString("xyus", "");
+        return this.b.getString("xyus", "");
     }
 
     public final void a(String str) {
@@ -108,7 +106,7 @@ public final class e {
     }
 
     public final String m() {
-        return this.f5241b.getString("xyusec", "");
+        return this.b.getString("xyusec", "");
     }
 
     public final void b(String str) {
@@ -118,7 +116,7 @@ public final class e {
 
     public final String n() {
         String str;
-        String string = this.f5241b.getString("xyglsn", "");
+        String string = this.b.getString("xyglsn", "");
         if (TextUtils.isEmpty(string)) {
             return "";
         }
@@ -133,7 +131,7 @@ public final class e {
 
     public final String o() {
         String str;
-        String string = this.f5241b.getString("rpiiemn", "");
+        String string = this.b.getString("rpiiemn", "");
         if (TextUtils.isEmpty(string)) {
             return "";
         }
@@ -148,7 +146,7 @@ public final class e {
 
     public final String p() {
         String str;
-        String string = this.f5241b.getString("rpnewuidn", "");
+        String string = this.b.getString("rpnewuidn", "");
         if (TextUtils.isEmpty(string)) {
             return "";
         }
@@ -178,7 +176,7 @@ public final class e {
     public final List<Integer> q() {
         String[] split;
         ArrayList arrayList = new ArrayList();
-        String string = this.f5240a.getString("hcpk", "");
+        String string = this.f3525a.getString("hcpk", "");
         if (!TextUtils.isEmpty(string) && (split = string.split(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) != null && split.length > 0) {
             for (String str : split) {
                 try {
@@ -211,7 +209,7 @@ public final class e {
     public final List<Integer> r() {
         String[] split;
         ArrayList arrayList = new ArrayList();
-        String string = this.f5240a.getString("glspk", "");
+        String string = this.f3525a.getString("glspk", "");
         if (!TextUtils.isEmpty(string) && (split = string.split(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) != null && split.length > 0) {
             for (String str : split) {
                 try {
@@ -247,7 +245,7 @@ public final class e {
     }
 
     public final boolean t() {
-        return this.f5240a.getBoolean("lpcf", false);
+        return this.f3525a.getBoolean("lpcf", false);
     }
 
     public final void d(int i) {
@@ -261,7 +259,7 @@ public final class e {
     }
 
     public final int u() {
-        return this.f5240a.getInt("appal_te", 24);
+        return this.f3525a.getInt("appal_te", 24);
     }
 
     public final void f(int i) {
@@ -270,7 +268,7 @@ public final class e {
     }
 
     public final int v() {
-        return this.f5240a.getInt("sustfd", 0);
+        return this.f3525a.getInt("sustfd", 0);
     }
 
     public final void g(int i) {
@@ -279,7 +277,7 @@ public final class e {
     }
 
     public final int w() {
-        return this.f5240a.getInt("sufzfd", 0);
+        return this.f3525a.getInt("sufzfd", 0);
     }
 
     public final void a(long j) {
@@ -316,7 +314,7 @@ public final class e {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
-        return this.f5240a.getInt(str + i2, 0);
+        return this.f3525a.getInt(str + i2, 0);
     }
 
     public final void a(com.baidu.sofire.d.a aVar) {
@@ -391,7 +389,7 @@ public final class e {
     }
 
     public final boolean A() {
-        return this.f5240a.getBoolean("s_c_c", true);
+        return this.f3525a.getBoolean("s_c_c", true);
     }
 
     public final void b(boolean z) {

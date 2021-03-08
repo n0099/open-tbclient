@@ -9,7 +9,7 @@ import com.thunder.livesdk.log.ThunderLog;
 import com.yy.mediaframework.Constant;
 import com.yy.videoplayer.decoder.VideoConstant;
 import com.yy.videoplayer.view.YMFLayoutParams;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class VideoPlayerView extends FrameLayout {
     protected VideoConstant.MirrorMode mMirrorMode;
     public boolean mPrepared;

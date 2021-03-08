@@ -9,7 +9,7 @@ import com.baidu.live.tbadk.core.util.BitmapHelper;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.imagemanager.TbImageMemoryCache;
 import com.baidu.live.tbadk.plugins.MotuPlugin;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class FilterImageAction extends ImageAction {
     public static final String ACTION_NAME = "filter";
     public static final String FILTER_NAME_NORMAL = "normal";

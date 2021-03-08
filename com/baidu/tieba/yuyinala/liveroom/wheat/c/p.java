@@ -22,45 +22,45 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class p {
-    private com.baidu.live.an.a gYL;
+    private com.baidu.live.an.a hau;
     private long mLastPlayTime;
-    private List<com.baidu.live.im.data.b> oHk;
-    private boolean oHl;
-    private NewPhoneFrameView oHm;
+    private List<com.baidu.live.im.data.b> oJp;
+    private boolean oJq;
+    private NewPhoneFrameView oJr;
 
     public void a(TbPageContext tbPageContext, com.baidu.live.im.data.b bVar) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            ab Yq = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecR().Yq();
-            if (Yq != null && Yq.aIU != null) {
-                jSONObject.put("live_id", Yq.aIU.live_id);
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, Yq.aIU.croom_id);
+            ab Yt = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecZ().Yt();
+            if (Yt != null && Yt.aKu != null) {
+                jSONObject.put("live_id", Yt.aKu.live_id);
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, Yt.aKu.croom_id);
                 jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "voiceframe");
             }
         } catch (JSONException e) {
             BdLog.e(e);
         }
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", UbcStatConstant.Page.VOICE_ROOM, "framepop_show").setContentExt(jSONObject));
-        if (this.oHk == null) {
-            this.oHk = new ArrayList();
+        if (this.oJp == null) {
+            this.oJp = new ArrayList();
         }
-        this.oHk.add(bVar);
-        if (!this.oHl || System.currentTimeMillis() - this.mLastPlayTime > AppStatusRules.DEFAULT_GRANULARITY) {
+        this.oJp.add(bVar);
+        if (!this.oJq || System.currentTimeMillis() - this.mLastPlayTime > AppStatusRules.DEFAULT_GRANULARITY) {
             g(tbPageContext);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(final TbPageContext tbPageContext) {
-        if (ListUtils.isEmpty(this.oHk)) {
-            this.oHl = false;
+        if (ListUtils.isEmpty(this.oJp)) {
+            this.oJq = false;
             return;
         }
         this.mLastPlayTime = System.currentTimeMillis();
-        final com.baidu.live.im.data.b bVar = (com.baidu.live.im.data.b) ListUtils.remove(this.oHk, 0);
+        final com.baidu.live.im.data.b bVar = (com.baidu.live.im.data.b) ListUtils.remove(this.oJp, 0);
         if (bVar == null) {
             g(tbPageContext);
             return;
@@ -71,9 +71,9 @@ public class p {
         }
         if (!(view instanceof ViewGroup)) {
             g(tbPageContext);
-        } else if (edJ()) {
-            this.oHl = true;
-            com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.eeo().e((ViewGroup) view, new com.baidu.tieba.yuyinala.liveroom.wheat.lottie.c() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.p.1
+        } else if (edR()) {
+            this.oJq = true;
+            com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.eew().e((ViewGroup) view, new com.baidu.tieba.yuyinala.liveroom.wheat.lottie.c() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.p.1
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.lottie.c
                 public void onVideoPlayStart() {
                     p.this.b(tbPageContext, bVar);
@@ -82,7 +82,7 @@ public class p {
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.lottie.c
                 public void onVideoPlayEnd() {
                     super.onVideoPlayEnd();
-                    p.this.edK();
+                    p.this.edS();
                     p.this.g(tbPageContext);
                 }
             });
@@ -91,11 +91,11 @@ public class p {
         }
     }
 
-    private boolean edJ() {
-        if (com.baidu.live.ae.a.Qj().buX == null || com.baidu.live.ae.a.Qj().buX.aNt == null || com.baidu.live.ae.a.Qj().buX.aNt.aRi == null) {
+    private boolean edR() {
+        if (com.baidu.live.ae.a.Qm().bwx == null || com.baidu.live.ae.a.Qm().bwx.aOT == null || com.baidu.live.ae.a.Qm().bwx.aOT.aSI == null) {
             return false;
         }
-        return com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.eeo().a(com.baidu.live.ae.a.Qj().buX.aNt.aRi.CK(), true);
+        return com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.eew().a(com.baidu.live.ae.a.Qm().bwx.aOT.aSI.CN(), true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -106,74 +106,74 @@ public class p {
                 view = tbPageContext.getPageActivity().findViewById(a.f.ala_liveroom_view);
             }
             if (view != null && (view instanceof ViewGroup)) {
-                if (this.oHm == null) {
-                    this.oHm = new NewPhoneFrameView(tbPageContext.getPageActivity());
-                } else if (this.oHm.getParent() != null) {
-                    ((ViewGroup) this.oHm.getParent()).removeView(this.oHm);
+                if (this.oJr == null) {
+                    this.oJr = new NewPhoneFrameView(tbPageContext.getPageActivity());
+                } else if (this.oJr.getParent() != null) {
+                    ((ViewGroup) this.oJr.getParent()).removeView(this.oJr);
                 }
                 if (view instanceof RelativeLayout) {
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
                     layoutParams.bottomMargin = (int) h(tbPageContext);
                     layoutParams.addRule(12);
                     layoutParams.addRule(14);
-                    this.oHm.setLayoutParams(layoutParams);
-                    ((RelativeLayout) view).addView(this.oHm);
+                    this.oJr.setLayoutParams(layoutParams);
+                    ((RelativeLayout) view).addView(this.oJr);
                 }
-                this.oHm.setNewPhoneFrameInfo(bVar.getContent());
-                WB(String.valueOf(this.oHm.getFrameId()));
-                this.oHm.setListener(new NewPhoneFrameView.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.p.2
+                this.oJr.setNewPhoneFrameInfo(bVar.getContent());
+                WI(String.valueOf(this.oJr.getFrameId()));
+                this.oJr.setListener(new NewPhoneFrameView.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.p.2
                     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.NewPhoneFrameView.a
-                    public void WC(String str) {
+                    public void WJ(String str) {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                            ab Yq = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecR().Yq();
-                            if (Yq != null && Yq.aIU != null) {
-                                jSONObject.put("live_id", Yq.aIU.live_id);
-                                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, Yq.aIU.croom_id);
+                            ab Yt = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecZ().Yt();
+                            if (Yt != null && Yt.aKu != null) {
+                                jSONObject.put("live_id", Yt.aKu.live_id);
+                                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, Yt.aKu.croom_id);
                                 jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "voiceframe");
                             }
                         } catch (JSONException e) {
                             BdLog.e(e);
                         }
                         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "framegeton_clk").setContentExt(jSONObject));
-                        if (p.this.gYL == null) {
-                            p.this.gYL = new com.baidu.live.an.a(tbPageContext.getPageActivity());
+                        if (p.this.hau == null) {
+                            p.this.hau = new com.baidu.live.an.a(tbPageContext.getPageActivity());
                         }
                         com.baidu.live.an.c cVar = new com.baidu.live.an.c();
                         cVar.url = str;
-                        cVar.bWs = 0.7f;
-                        p.this.gYL.alaLiveShowData = com.baidu.live.ao.a.Yj().Yq();
-                        p.this.gYL.a(cVar);
+                        cVar.bXS = 0.7f;
+                        p.this.hau.alaLiveShowData = com.baidu.live.ao.a.Ym().Yt();
+                        p.this.hau.a(cVar);
                     }
 
                     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.NewPhoneFrameView.a
-                    public void edL() {
+                    public void edT() {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                            ab Yq = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecR().Yq();
-                            if (Yq != null && Yq.aIU != null) {
-                                jSONObject.put("live_id", Yq.aIU.live_id);
-                                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, Yq.aIU.croom_id);
+                            ab Yt = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecZ().Yt();
+                            if (Yt != null && Yt.aKu != null) {
+                                jSONObject.put("live_id", Yt.aKu.live_id);
+                                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, Yt.aKu.croom_id);
                                 jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "voiceframe");
                             }
                         } catch (JSONException e) {
                             BdLog.e(e);
                         }
                         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "frameclose_clk").setContentExt(jSONObject));
-                        p.this.edK();
-                        com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.eeo().dh((ViewGroup) view);
+                        p.this.edS();
+                        com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.eew().dg((ViewGroup) view);
                     }
                 });
-                this.oHm.efg();
+                this.oJr.efo();
                 ValueAnimator ofInt = ValueAnimator.ofInt(0, 530);
                 ofInt.setDuration(5300L);
                 ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.p.3
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                     public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                        if (p.this.oHm != null) {
-                            p.this.oHm.setProgress(((Integer) valueAnimator.getAnimatedValue()).intValue());
+                        if (p.this.oJr != null) {
+                            p.this.oJr.setProgress(((Integer) valueAnimator.getAnimatedValue()).intValue());
                         }
                     }
                 });
@@ -192,13 +192,13 @@ public class p {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void edK() {
-        if (this.oHm != null && this.oHm.getParent() != null && (this.oHm.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.oHm.getParent()).removeView(this.oHm);
+    public void edS() {
+        if (this.oJr != null && this.oJr.getParent() != null && (this.oJr.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.oJr.getParent()).removeView(this.oJr);
         }
     }
 
-    private void WB(String str) {
+    private void WI(String str) {
         new com.baidu.tieba.yuyinala.liveroom.wheat.model.g(null, new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.p.4
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.g.a
             public void a(FrameNumCallBackHttpResponseMessage frameNumCallBackHttpResponseMessage) {

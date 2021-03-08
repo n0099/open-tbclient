@@ -1,15 +1,15 @@
 package com.baidu.swan.apps.ak.f;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
-    private a dNb;
+    private a dOC;
 
     public void a(a aVar) {
-        this.dNb = aVar;
+        this.dOC = aVar;
     }
 
-    public void ka(int i) {
-        if (this.dNb != null) {
-            this.dNb.jZ(i);
+    public void kb(int i) {
+        if (this.dOC != null) {
+            this.dOC.ka(i);
         }
     }
 }

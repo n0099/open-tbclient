@@ -3,39 +3,39 @@ package com.baidu.live.gift;
 import android.text.TextUtils;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class x {
-    private Set<String> aXS;
+    private Set<String> aZs;
 
-    public static x Fc() {
-        return a.aXT;
+    public static x Ff() {
+        return a.aZt;
     }
 
-    public boolean fZ(String str) {
-        if (TextUtils.isEmpty(str) || this.aXS == null || this.aXS.isEmpty()) {
+    public boolean gf(String str) {
+        if (TextUtils.isEmpty(str) || this.aZs == null || this.aZs.isEmpty()) {
             return false;
         }
-        return this.aXS.contains(str);
+        return this.aZs.contains(str);
     }
 
-    public void ga(String str) {
-        if (this.aXS == null) {
-            this.aXS = new HashSet();
+    public void gg(String str) {
+        if (this.aZs == null) {
+            this.aZs = new HashSet();
         }
-        this.aXS.add(str);
+        this.aZs.add(str);
     }
 
     public void release() {
-        if (this.aXS != null) {
-            this.aXS.clear();
+        if (this.aZs != null) {
+            this.aZs.clear();
         }
     }
 
     private x() {
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     private static class a {
-        private static x aXT = new x();
+        private static x aZt = new x();
     }
 }

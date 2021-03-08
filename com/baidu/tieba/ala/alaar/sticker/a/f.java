@@ -3,23 +3,23 @@ package com.baidu.tieba.ala.alaar.sticker.a;
 import android.util.ArrayMap;
 import com.baidu.tieba.ala.alaar.sticker.model.e;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f<T extends com.baidu.tieba.ala.alaar.sticker.model.e> {
-    private static f gtz;
-    private ArrayMap<String, T> gtu = new ArrayMap<>();
+    private static f gvi;
+    private ArrayMap<String, T> gvd = new ArrayMap<>();
     private File mFolder;
 
-    public static f<com.baidu.tieba.ala.alaar.sticker.model.c> bQd() {
-        if (gtz == null) {
-            bQe();
+    public static f<com.baidu.tieba.ala.alaar.sticker.model.c> bQj() {
+        if (gvi == null) {
+            bQk();
         }
-        return gtz;
+        return gvi;
     }
 
-    private static synchronized void bQe() {
+    private static synchronized void bQk() {
         synchronized (f.class) {
-            if (gtz == null) {
-                gtz = new f(a.bPU().bPW());
+            if (gvi == null) {
+                gvi = new f(a.bQa().bQc());
             }
         }
     }
@@ -29,10 +29,10 @@ public class f<T extends com.baidu.tieba.ala.alaar.sticker.model.e> {
     }
 
     public T a(String str, T t) {
-        return this.gtu.put(str, t);
+        return this.gvd.put(str, t);
     }
 
-    public T FI(String str) {
-        return this.gtu.get(str);
+    public T FR(String str) {
+        return this.gvd.get(str);
     }
 }

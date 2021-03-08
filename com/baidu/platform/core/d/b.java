@@ -13,32 +13,32 @@ public class b extends com.baidu.platform.base.e {
     }
 
     private void a(BikingRoutePlanOption bikingRoutePlanOption) {
-        this.f4143a.a(UbcStatConstant.KEY_CONTENT_EXT_MODE, "riding");
+        this.f2867a.a(UbcStatConstant.KEY_CONTENT_EXT_MODE, "riding");
         LatLng location = bikingRoutePlanOption.mFrom.getLocation();
         if (location != null) {
             if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                 location = CoordTrans.gcjToBaidu(location);
             }
-            this.f4143a.a("origin", location.latitude + "," + location.longitude);
+            this.f2867a.a("origin", location.latitude + "," + location.longitude);
         } else {
-            this.f4143a.a("origin", bikingRoutePlanOption.mFrom.getName());
+            this.f2867a.a("origin", bikingRoutePlanOption.mFrom.getName());
         }
         LatLng location2 = bikingRoutePlanOption.mTo.getLocation();
         if (location2 != null) {
             if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                 location2 = CoordTrans.gcjToBaidu(location2);
             }
-            this.f4143a.a("destination", location2.latitude + "," + location2.longitude);
+            this.f2867a.a("destination", location2.latitude + "," + location2.longitude);
         } else {
-            this.f4143a.a("destination", bikingRoutePlanOption.mTo.getName());
+            this.f2867a.a("destination", bikingRoutePlanOption.mTo.getName());
         }
-        this.f4143a.a("origin_region", bikingRoutePlanOption.mFrom.getCity());
-        this.f4143a.a("destination_region", bikingRoutePlanOption.mTo.getCity());
+        this.f2867a.a("origin_region", bikingRoutePlanOption.mFrom.getCity());
+        this.f2867a.a("destination_region", bikingRoutePlanOption.mTo.getCity());
         if (bikingRoutePlanOption.mRidingType == 1) {
-            this.f4143a.a("riding_type", String.valueOf(bikingRoutePlanOption.mRidingType));
+            this.f2867a.a("riding_type", String.valueOf(bikingRoutePlanOption.mRidingType));
         }
-        this.f4143a.a("output", "json");
-        this.f4143a.a("from", "android_map_sdk");
+        this.f2867a.a("output", "json");
+        this.f2867a.a("from", "android_map_sdk");
     }
 
     @Override // com.baidu.platform.base.e

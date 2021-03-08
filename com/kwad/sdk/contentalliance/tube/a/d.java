@@ -12,13 +12,13 @@ public class d extends e {
     @Override // com.kwad.sdk.contentalliance.home.e, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        List<AdTemplate> b2 = com.kwad.sdk.contentalliance.tube.episode.b.a().b();
-        if (b2 == null) {
+        List<AdTemplate> b = com.kwad.sdk.contentalliance.tube.episode.b.a().b();
+        if (b == null) {
             return;
         }
-        SceneImpl sceneImpl = this.f8736a.e;
-        ArrayList arrayList = new ArrayList(b2.size());
-        for (AdTemplate adTemplate : b2) {
+        SceneImpl sceneImpl = this.f5821a.e;
+        ArrayList arrayList = new ArrayList(b.size());
+        for (AdTemplate adTemplate : b) {
             if (adTemplate != null) {
                 adTemplate.mIsTubeEpisodeList = true;
                 arrayList.add(new CacheTemplate(adTemplate, sceneImpl));
@@ -26,6 +26,6 @@ public class d extends e {
         }
         com.kwad.sdk.contentalliance.home.c.a(arrayList);
         com.kwad.sdk.contentalliance.tube.episode.b.a().c();
-        this.f8736a.c.setInitStartPosition(this.f8736a.j);
+        this.f5821a.c.setInitStartPosition(this.f5821a.j);
     }
 }

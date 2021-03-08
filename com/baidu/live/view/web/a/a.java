@@ -8,9 +8,9 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atomdata.YuyinAlaLiveRoomActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.live.view.web.a {
-    private AlaLastLiveroomInfo bVZ;
+    private AlaLastLiveroomInfo bXz;
     private boolean isHost;
 
     @Override // com.baidu.live.view.web.a
@@ -19,7 +19,7 @@ public class a extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void is(String str) {
+    public void iy(String str) {
         if (!this.isHost) {
             Log.d("JsInterface", "@@ JsInterface-impl AudioLiveBridgeJsInterface params = " + str);
             try {
@@ -34,7 +34,7 @@ public class a extends com.baidu.live.view.web.a {
                 String jSONObject2 = jSONObject.toString();
                 YuyinAlaLiveRoomActivityConfig yuyinAlaLiveRoomActivityConfig = new YuyinAlaLiveRoomActivityConfig(TbadkCoreApplication.getInst());
                 yuyinAlaLiveRoomActivityConfig.addExtraByLiveId(parseLong, jSONObject2);
-                yuyinAlaLiveRoomActivityConfig.addLastLiveInfoParams(this.bVZ);
+                yuyinAlaLiveRoomActivityConfig.addLastLiveInfoParams(this.bXz);
                 yuyinAlaLiveRoomActivityConfig.setNeedStopImWhenClose(true);
                 yuyinAlaLiveRoomActivityConfig.getIntent().addFlags(268435456);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501080, yuyinAlaLiveRoomActivityConfig));
@@ -49,6 +49,6 @@ public class a extends com.baidu.live.view.web.a {
     }
 
     public void b(AlaLastLiveroomInfo alaLastLiveroomInfo) {
-        this.bVZ = alaLastLiveroomInfo;
+        this.bXz = alaLastLiveroomInfo;
     }
 }

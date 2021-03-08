@@ -11,7 +11,7 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import androidx.annotation.NonNull;
 import androidx.core.view.ViewCompat;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public abstract class AutoScrollHelper implements View.OnTouchListener {
     private static final int DEFAULT_ACTIVATION_DELAY = ViewConfiguration.getTapTimeout();
     private static final int DEFAULT_EDGE_TYPE = 1;
@@ -289,7 +289,7 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public class ScrollAnimationRunnable implements Runnable {
         ScrollAnimationRunnable() {
         }
@@ -318,7 +318,7 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public static class ClampedScroller {
         private int mEffectiveRampDown;
         private int mRampDownDuration;

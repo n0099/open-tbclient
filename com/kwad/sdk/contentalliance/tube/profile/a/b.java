@@ -11,10 +11,8 @@ import java.util.Set;
 public class b extends com.kwad.sdk.core.e.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f8956a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public RecyclerView f8957b;
+    public c f5964a;
+    public RecyclerView b;
     public TubeProfileParam c;
     public com.kwad.sdk.core.i.a d;
     public Set<e> e = new LinkedHashSet();

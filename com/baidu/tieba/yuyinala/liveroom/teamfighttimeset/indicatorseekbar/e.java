@@ -1,15 +1,15 @@
 package com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.indicatorseekbar;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e {
-    public IndicatorSeekBar oCu;
-    public float oCv;
-    public boolean oCw;
-    public int oCx;
-    public String oCy;
+    public float oEA;
+    public boolean oEB;
+    public int oEC;
+    public String oED;
+    public IndicatorSeekBar oEz;
     public int progress;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(IndicatorSeekBar indicatorSeekBar) {
-        this.oCu = indicatorSeekBar;
+        this.oEz = indicatorSeekBar;
     }
 }

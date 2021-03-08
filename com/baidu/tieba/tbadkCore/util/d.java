@@ -5,36 +5,36 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
-    protected volatile int fej;
-    protected volatile HashMap<Long, Integer> nAp = new HashMap<>();
+    protected volatile int ffI;
+    protected volatile HashMap<Long, Integer> nCu = new HashMap<>();
     private volatile int mWeight = 0;
 
     public d(int i) {
-        this.fej = i;
+        this.ffI = i;
     }
 
-    public void TL(String str) {
+    public void TS(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.nAp.size() >= this.fej) {
-                    dOS();
+                if (this.nCu.size() >= this.ffI) {
+                    dPb();
                 }
                 this.mWeight++;
-                this.nAp.put(valueOf, Integer.valueOf(this.mWeight));
+                this.nCu.put(valueOf, Integer.valueOf(this.mWeight));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void dOS() {
+    public void dPb() {
         int i;
         Long l;
         synchronized (this) {
             Long l2 = null;
             int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.nAp.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.nCu.entrySet()) {
                 if (entry.getValue().intValue() < i2) {
                     i = entry.getValue().intValue();
                     l = entry.getKey();
@@ -46,19 +46,19 @@ public class d {
                 l2 = l;
             }
             if (l2 != null) {
-                this.nAp.remove(l2);
+                this.nCu.remove(l2);
             } else {
-                this.nAp.clear();
+                this.nCu.clear();
             }
         }
     }
 
-    public boolean TM(String str) {
+    public boolean TT(String str) {
         boolean z;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                z = this.nAp.get(valueOf) != null;
+                z = this.nCu.get(valueOf) != null;
             }
             return z;
         } catch (Exception e) {
@@ -67,18 +67,18 @@ public class d {
         }
     }
 
-    public boolean TN(String str) {
+    public boolean TU(String str) {
         try {
-            return this.nAp.containsKey(Long.valueOf(Long.parseLong(str)));
+            return this.nCu.containsKey(Long.valueOf(Long.parseLong(str)));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
         }
     }
 
-    public void dOR() {
+    public void dPa() {
         synchronized (this) {
-            this.nAp.clear();
+            this.nCu.clear();
         }
     }
 }

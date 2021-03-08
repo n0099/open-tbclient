@@ -7,7 +7,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.actions.aa;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class l extends aa {
     public l(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/setStorage");
@@ -24,29 +24,29 @@ public class l extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
             return false;
         }
-        String aU = com.baidu.swan.apps.api.module.i.a.aU(optParamsAsJo);
-        if (aU == null) {
+        String aW = com.baidu.swan.apps.api.module.i.a.aW(optParamsAsJo);
+        if (aW == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (com.baidu.swan.apps.storage.c.tk(aU)) {
+        } else if (com.baidu.swan.apps.storage.c.tr(aW)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage key max length");
             return false;
         } else {
-            String aT = com.baidu.swan.apps.api.module.i.a.aT(optParamsAsJo);
-            if (aT == null) {
+            String aV = com.baidu.swan.apps.api.module.i.a.aV(optParamsAsJo);
+            if (aV == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
-            } else if (com.baidu.swan.apps.storage.c.tl(aT)) {
+            } else if (com.baidu.swan.apps.storage.c.ts(aV)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage item max length");
                 return false;
             } else {
-                com.baidu.swan.apps.storage.c aIV = eVar.aIV();
-                if (aIV.cC(aU, aT)) {
+                com.baidu.swan.apps.storage.c aIY = eVar.aIY();
+                if (aIY.cC(aW, aV)) {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1003, "exceed storage max length");
                     return false;
                 }
-                aIV.aLR().putString(aU, aT);
-                com.baidu.swan.apps.al.e.dOe.update();
+                aIY.aLU().putString(aW, aV);
+                com.baidu.swan.apps.al.e.dPF.update();
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             }

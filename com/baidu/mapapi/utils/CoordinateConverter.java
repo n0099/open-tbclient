@@ -8,10 +8,8 @@ import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 public class CoordinateConverter {
 
     /* renamed from: a  reason: collision with root package name */
-    private LatLng f2956a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private CoordType f2957b;
+    private LatLng f2161a;
+    private CoordType b;
 
     /* loaded from: classes4.dex */
     public enum CoordType {
@@ -48,33 +46,33 @@ public class CoordinateConverter {
     }
 
     public LatLng convert() {
-        if (this.f2956a == null) {
+        if (this.f2161a == null) {
             return null;
         }
-        if (this.f2957b == null) {
-            this.f2957b = CoordType.GPS;
+        if (this.b == null) {
+            this.b = CoordType.GPS;
         }
-        switch (this.f2957b) {
+        switch (this.b) {
             case COMMON:
-                return b(this.f2956a);
+                return b(this.f2161a);
             case GPS:
-                return a(this.f2956a);
+                return a(this.f2161a);
             case BD09LL:
-                return d(this.f2956a);
+                return d(this.f2161a);
             case BD09MC:
-                return c(this.f2956a);
+                return c(this.f2161a);
             default:
                 return null;
         }
     }
 
     public CoordinateConverter coord(LatLng latLng) {
-        this.f2956a = latLng;
+        this.f2161a = latLng;
         return this;
     }
 
     public CoordinateConverter from(CoordType coordType) {
-        this.f2957b = coordType;
+        this.b = coordType;
         return this;
     }
 }

@@ -11,9 +11,7 @@ import com.kwad.sdk.contentalliance.refreshview.RefreshLayout;
 import com.kwad.sdk.contentalliance.refreshview.e;
 /* loaded from: classes3.dex */
 public class a extends c {
-
-    /* renamed from: b  reason: collision with root package name */
-    private SlidePlayViewPager f8758b;
+    private SlidePlayViewPager b;
     private i c;
     @Nullable
     private e d;
@@ -44,8 +42,8 @@ public class a extends c {
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            int a2 = a.this.f8758b.getAdapter().a(i);
-            int a3 = a.this.f8758b.getAdapter().a();
+            int a2 = a.this.b.getAdapter().a(i);
+            int a3 = a.this.b.getAdapter().a();
             if (a3 <= 0 || a2 < a3 - 3) {
                 return;
             }
@@ -59,33 +57,33 @@ public class a extends c {
             if (a.this.d != null) {
                 a.this.d.setRefreshing(false);
             }
-            a.this.f8758b.i();
+            a.this.b.i();
         }
 
         @Override // com.kwad.sdk.contentalliance.home.a.e, com.kwad.sdk.contentalliance.home.a.d
         public void a(boolean z, int i) {
             if (!z) {
-                a.this.f8758b.a(a.this.c.d());
-                a.this.f8758b.i();
+                a.this.b.a(a.this.c.d());
+                a.this.b.i();
                 return;
             }
             if (a.this.d != null) {
                 a.this.d.setRefreshing(false);
             }
-            a.this.f8758b.postDelayed(a.this.i, 300L);
+            a.this.b.postDelayed(a.this.i, 300L);
         }
 
         @Override // com.kwad.sdk.contentalliance.home.a.e, com.kwad.sdk.contentalliance.home.a.d
         public void a(boolean z, boolean z2, int i, int i2) {
             super.a(z, z2, i, i2);
-            a.this.f8758b.h();
+            a.this.b.h();
         }
     };
     private Runnable i = new Runnable() { // from class: com.kwad.sdk.contentalliance.home.viewpager.a.a.5
         @Override // java.lang.Runnable
         public void run() {
-            a.this.f8758b.b(a.this.c.d());
-            a.this.f8758b.i();
+            a.this.b.b(a.this.c.d());
+            a.this.b.i();
         }
     };
 
@@ -110,15 +108,15 @@ public class a extends c {
     @Override // com.kwad.sdk.contentalliance.home.viewpager.c, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.c = this.f8768a.f8769a;
-        this.f8758b = this.f8768a.c;
-        this.f8758b.a(this.g);
+        this.c = this.f5842a.f5843a;
+        this.b = this.f5842a.c;
+        this.b.a(this.g);
         this.c.a(this.h);
-        this.d = this.f8768a.d;
+        this.d = this.f5842a.d;
         if (this.d != null) {
             this.d.setOnRefreshListener(this.e);
         }
-        this.f8758b.a(this.f);
+        this.b.a(this.f);
         e();
     }
 
@@ -126,9 +124,9 @@ public class a extends c {
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f8758b.b(this.g);
+        this.b.b(this.g);
         this.c.b(this.h);
-        this.f8758b.removeCallbacks(this.i);
+        this.b.removeCallbacks(this.i);
         this.c.b();
     }
 }

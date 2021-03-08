@@ -11,14 +11,14 @@ import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 import java.util.Date;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void Eo(int i);
+        void Er(int i);
 
-        void deZ();
+        void dfi();
     }
 
     public static void a(TbPageContext<?> tbPageContext, final BubbleListData.BubbleData bubbleData, final a aVar) {
@@ -43,7 +43,7 @@ public class c {
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar3) {
                     aVar3.dismiss();
                     if (a.this != null) {
-                        a.this.Eo(bubbleData.getBcode());
+                        a.this.Er(bubbleData.getBcode());
                     }
                 }
             });
@@ -52,12 +52,12 @@ public class c {
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar3) {
                     aVar3.dismiss();
                     if (a.this != null) {
-                        a.this.deZ();
+                        a.this.dfi();
                     }
                 }
             });
             aVar2.b(tbPageContext);
-            aVar2.bqx();
+            aVar2.bqz();
         }
     }
 
@@ -65,13 +65,13 @@ public class c {
         if (bubbleData != null) {
             com.baidu.tbadk.core.dialog.a aVar2 = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
             aVar2.jG(false);
-            aVar2.Au(String.format(tbPageContext.getString(R.string.bubble_pay_dialog_text), bubbleData.getLevel_name()));
+            aVar2.AB(String.format(tbPageContext.getString(R.string.bubble_pay_dialog_text), bubbleData.getLevel_name()));
             aVar2.a(R.string.open_now, new a.b() { // from class: com.baidu.tieba.memberCenter.bubble.c.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar3) {
                     aVar3.dismiss();
                     if (a.this != null) {
-                        a.this.Eo(bubbleData.getBcode());
+                        a.this.Er(bubbleData.getBcode());
                     }
                 }
             });
@@ -80,12 +80,12 @@ public class c {
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar3) {
                     aVar3.dismiss();
                     if (a.this != null) {
-                        a.this.deZ();
+                        a.this.dfi();
                     }
                 }
             });
             aVar2.b(tbPageContext);
-            aVar2.bqx();
+            aVar2.bqz();
         }
     }
 }

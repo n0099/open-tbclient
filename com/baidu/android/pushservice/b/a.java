@@ -19,14 +19,14 @@ public class a {
     }
 
     public static String a(Context context, String str) {
-        InputStream b2 = b(context, str);
-        if (b2 == null) {
+        InputStream b = b(context, str);
+        if (b == null) {
             return a();
         }
         StringBuilder sb = new StringBuilder();
         try {
             try {
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(b2, "utf-8"));
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(b, "utf-8"));
                 try {
                     try {
                         for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
@@ -37,18 +37,18 @@ public class a {
                         new b.c(context).a(Log.getStackTraceString(e)).a();
                         com.baidu.android.pushservice.e.b.a(context, bufferedReader);
                     }
-                    com.baidu.android.pushservice.e.b.a(context, b2);
+                    com.baidu.android.pushservice.e.b.a(context, b);
                 } catch (Throwable th) {
                     com.baidu.android.pushservice.e.b.a(context, bufferedReader);
                     throw th;
                 }
             } catch (Throwable th2) {
-                com.baidu.android.pushservice.e.b.a(context, b2);
+                com.baidu.android.pushservice.e.b.a(context, b);
                 throw th2;
             }
         } catch (UnsupportedEncodingException e2) {
             new b.c(context).a(Log.getStackTraceString(e2)).a();
-            com.baidu.android.pushservice.e.b.a(context, b2);
+            com.baidu.android.pushservice.e.b.a(context, b);
         }
         return sb.toString();
     }

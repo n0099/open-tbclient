@@ -2,14 +2,14 @@ package com.baidu.live.d;
 
 import android.content.Context;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class r extends IntentConfig {
     public r(Context context, com.baidu.live.data.ab abVar, String str, String str2) {
         super(context);
-        getIntent().putExtra("ala_get_poke_user_id", abVar.aId.userId);
-        getIntent().putExtra("ala_get_poke_portrait", abVar.aId.portrait);
-        getIntent().putExtra("ala_get_poke_userName", abVar.aId.userName);
-        getIntent().putExtra("ala_get_poke_nickName", abVar.aId.nickName);
+        getIntent().putExtra("ala_get_poke_user_id", abVar.aJD.userId);
+        getIntent().putExtra("ala_get_poke_portrait", abVar.aJD.portrait);
+        getIntent().putExtra("ala_get_poke_userName", abVar.aJD.userName);
+        getIntent().putExtra("ala_get_poke_nickName", abVar.aJD.nickName);
         getIntent().putExtra("ala_get_poke_live_id", abVar.mLiveInfo.live_id);
         getIntent().putExtra("ala_get_poke_room_id", abVar.mLiveInfo.room_id);
         getIntent().putExtra("ala_get_poke_appId", abVar.mLiveInfo.appId);

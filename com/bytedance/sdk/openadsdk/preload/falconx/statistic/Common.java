@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.preload.falconx.statistic;
 import android.os.Build;
 import androidx.annotation.Keep;
 import com.baidu.sapi2.SapiContext;
-import com.bytedance.sdk.openadsdk.d.a.c;
+import com.bytedance.sdk.openadsdk.preload.a.a.c;
 @Keep
 /* loaded from: classes6.dex */
 public class Common {

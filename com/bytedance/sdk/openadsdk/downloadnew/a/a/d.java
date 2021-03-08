@@ -16,16 +16,16 @@ import java.lang.ref.WeakReference;
 public class d implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    private final WeakReference<Context> f7065a;
+    private final WeakReference<Context> f4703a;
 
     public d(Context context) {
-        this.f7065a = new WeakReference<>(context);
+        this.f4703a = new WeakReference<>(context);
     }
 
     @Override // com.ss.android.a.a.a.h
     public void a(@NonNull Activity activity, @NonNull final String[] strArr, final q qVar) {
         boolean z;
-        TTCustomController d;
+        TTCustomController e;
         if (strArr != null && strArr.length > 0) {
             int length = strArr.length;
             int i = 0;
@@ -42,7 +42,7 @@ public class d implements h {
                     break;
                 }
             }
-            if (z && (d = i.c().d()) != null && qVar != null && !d.isCanUseWriteExternal()) {
+            if (z && (e = i.d().e()) != null && qVar != null && !e.isCanUseWriteExternal()) {
                 qVar.a("android.permission.WRITE_EXTERNAL_STORAGE");
                 return;
             }
@@ -66,7 +66,7 @@ public class d implements h {
                     if (qVar != null) {
                         qVar.a();
                     }
-                    com.bytedance.sdk.openadsdk.h.a.a().a(true, strArr);
+                    com.bytedance.sdk.openadsdk.g.a.a().a(true, strArr);
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.utils.h.a
@@ -74,7 +74,7 @@ public class d implements h {
                     if (qVar != null) {
                         qVar.a(str2);
                     }
-                    com.bytedance.sdk.openadsdk.h.a.a().a(false, new String[]{str2});
+                    com.bytedance.sdk.openadsdk.g.a.a().a(false, new String[]{str2});
                 }
             });
         }
@@ -82,8 +82,8 @@ public class d implements h {
 
     @Override // com.ss.android.a.a.a.h
     public boolean a(@Nullable Context context, @NonNull String str) {
-        TTCustomController d;
-        if ("android.permission.WRITE_EXTERNAL_STORAGE".equalsIgnoreCase(str) && (d = i.c().d()) != null && !d.isCanUseWriteExternal()) {
+        TTCustomController e;
+        if ("android.permission.WRITE_EXTERNAL_STORAGE".equalsIgnoreCase(str) && (e = i.d().e()) != null && !e.isCanUseWriteExternal()) {
             return false;
         }
         if (context == null) {

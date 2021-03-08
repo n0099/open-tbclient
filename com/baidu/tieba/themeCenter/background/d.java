@@ -11,17 +11,17 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
 import com.baidu.tbadk.core.util.bh;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d {
     private int mFrom = -1;
     private TbPageContext<?> mPageContext;
-    private int nHh;
-    public BdUniqueId nHi;
+    private int nJn;
+    public BdUniqueId nJo;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        this.nHi = null;
+        this.nJo = null;
         this.mPageContext = tbPageContext;
-        this.nHi = bdUniqueId;
+        this.nJo = bdUniqueId;
     }
 
     public void setFrom(int i) {
@@ -42,11 +42,11 @@ public class d {
                 bh.skipToLoginActivity(this.mPageContext.getPageActivity());
                 return;
             }
-            this.nHh = dressItemData.getPropsId();
+            this.nJn = dressItemData.getPropsId();
             BackgroundSetRequestMessage backgroundSetRequestMessage = new BackgroundSetRequestMessage();
             backgroundSetRequestMessage.setFromDetail(z);
-            backgroundSetRequestMessage.setRequestUniqueId(this.nHi);
-            backgroundSetRequestMessage.setPropId(this.nHh);
+            backgroundSetRequestMessage.setRequestUniqueId(this.nJo);
+            backgroundSetRequestMessage.setPropId(this.nJn);
             MessageManager.getInstance().sendMessage(backgroundSetRequestMessage);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_REFRESH_PERSONAL));
         }
@@ -60,7 +60,7 @@ public class d {
             i2 = 0;
         }
         if (!StringUtils.isNull(str)) {
-            if (i == com.baidu.tieba.themeCenter.c.nGc) {
+            if (i == com.baidu.tieba.themeCenter.c.nIi) {
                 String str2 = "";
                 if (this.mFrom == 1) {
                     str2 = MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND_TRY;
@@ -68,13 +68,13 @@ public class d {
                     str2 = MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND_TRY;
                 }
                 com.baidu.tieba.themeCenter.b.a(this.mPageContext, z ? 4 : 2, str, i2, str2, MemberPayStatistic.CLICK_ZONE_BOTTOM_OPENDE_RENEWALFEE_BUTTON);
-            } else if (i == com.baidu.tieba.themeCenter.c.nGd) {
+            } else if (i == com.baidu.tieba.themeCenter.c.nIj) {
                 com.baidu.tieba.themeCenter.b.a(this.mPageContext, z ? 4 : 2, str, i2);
             }
         }
     }
 
     public int getPropId() {
-        return this.nHh;
+        return this.nJn;
     }
 }

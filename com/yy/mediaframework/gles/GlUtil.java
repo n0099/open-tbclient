@@ -11,7 +11,7 @@ import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GlUtil {
     public static final float[] IDENTITY_MATRIX = new float[16];
     private static final int SIZEOF_FLOAT = 4;

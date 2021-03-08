@@ -10,15 +10,13 @@ public abstract class c extends FrameLayout {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    protected final d f9471a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Timer f9472b;
+    protected final d f6280a;
+    private Timer b;
     private TimerTask c;
 
     public c(Context context, @NonNull d dVar) {
         super(context);
-        this.f9471a = dVar;
+        this.f6280a = dVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -35,8 +33,8 @@ public abstract class c extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: protected */
     public void h() {
         i();
-        if (this.f9472b == null) {
-            this.f9472b = new Timer();
+        if (this.b == null) {
+            this.b = new Timer();
         }
         if (this.c == null) {
             this.c = new TimerTask() { // from class: com.kwad.sdk.core.video.videoview.c.1
@@ -51,14 +49,14 @@ public abstract class c extends FrameLayout {
                 }
             };
         }
-        this.f9472b.schedule(this.c, 0L, 1000L);
+        this.b.schedule(this.c, 0L, 1000L);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void i() {
-        if (this.f9472b != null) {
-            this.f9472b.cancel();
-            this.f9472b = null;
+        if (this.b != null) {
+            this.b.cancel();
+            this.b = null;
         }
         if (this.c != null) {
             this.c.cancel();

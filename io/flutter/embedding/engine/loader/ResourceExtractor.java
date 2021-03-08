@@ -21,7 +21,7 @@ import java.util.Iterator;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ResourceExtractor {
     private static final String[] SUPPORTED_ABIS = getSupportedAbis();
     private static final String TAG = "ResourceExtractor";
@@ -54,7 +54,7 @@ public class ResourceExtractor {
         return Build.VERSION.SDK_INT >= 28 ? packageInfo.getLongVersionCode() : packageInfo.versionCode;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static class ExtractTask extends AsyncTask<Void, Void, Void> {
         @NonNull
         private final AssetManager mAssetManager;

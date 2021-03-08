@@ -6,11 +6,11 @@ import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
 public class i implements com.baidu.platform.comapi.wnplatform.c.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f4420a;
+    final /* synthetic */ f f3060a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(f fVar) {
-        this.f4420a = fVar;
+        this.f3060a = fVar;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.c.b

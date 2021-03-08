@@ -12,12 +12,12 @@ public abstract class aa extends PngChunk {
         }
         if (obj != null && getClass() == obj.getClass()) {
             aa aaVar = (aa) obj;
-            return this.f10496a == null ? aaVar.f10496a == null : this.f10496a.equals(aaVar.f10496a);
+            return this.f6917a == null ? aaVar.f6917a == null : this.f6917a.equals(aaVar.f6917a);
         }
         return false;
     }
 
     public int hashCode() {
-        return (this.f10496a == null ? 0 : this.f10496a.hashCode()) + 31;
+        return (this.f6917a == null ? 0 : this.f6917a.hashCode()) + 31;
     }
 }

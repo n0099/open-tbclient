@@ -18,9 +18,9 @@ import com.baidu.tieba.faceshop.EmotionGroupData;
 import com.baidu.tieba.faceshop.i;
 import com.baidu.tieba.newfaceshop.message.GetFaceGroupInfoResponseMessage;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class NewFaceGroupDownloadModel extends FaceBaseModel {
-    private final HttpMessageListener lAm = new HttpMessageListener(1003338) { // from class: com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel.1
+    private final HttpMessageListener lCo = new HttpMessageListener(1003338) { // from class: com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -58,7 +58,7 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
                             /* JADX INFO: Access modifiers changed from: protected */
                             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                             public Boolean doInBackground(Void... voidArr) {
-                                int a2 = com.baidu.tieba.faceshop.a.cyv().a(data);
+                                int a2 = com.baidu.tieba.faceshop.a.cyB().a(data);
                                 if (a2 == 0) {
                                     return false;
                                 }
@@ -70,8 +70,8 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
                                 emotionGroupData.setDownloadTime(System.currentTimeMillis());
                                 emotionGroupData.setGroupName(data.name);
                                 emotionGroupData.setStatus(1);
-                                if (i.cyL().a(emotionGroupData)) {
-                                    return Boolean.valueOf(i.cyL().a(TbadkCoreApplication.getCurrentAccount(), emotionGroupData));
+                                if (i.cyR().a(emotionGroupData)) {
+                                    return Boolean.valueOf(i.cyR().a(TbadkCoreApplication.getCurrentAccount(), emotionGroupData));
                                 }
                                 return false;
                             }
@@ -83,7 +83,7 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
                                 if (bool2 != null && bool2.booleanValue()) {
                                     MessageManager.getInstance().runTask(CmdConfigCustom.EMOTION_RELOAD_EMOTION_GROUPS, (Class) null);
                                     if (bool.booleanValue()) {
-                                        d.diw().dix();
+                                        d.diF().diG();
                                     }
                                     if (bVar != null) {
                                         bVar.onSuccess(str);
@@ -135,9 +135,9 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
     public NewFaceGroupDownloadModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.lAm.setTag(getUniqueId());
-        this.lAm.setSelfListener(true);
-        registerListener(this.lAm);
+        this.lCo.setTag(getUniqueId());
+        this.lCo.setSelfListener(true);
+        registerListener(this.lCo);
     }
 
     private void registerTask() {
@@ -163,7 +163,7 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.lAm);
+        MessageManager.getInstance().unRegisterListener(this.lCo);
         MessageManager.getInstance().unRegisterTask(1003338);
         return true;
     }

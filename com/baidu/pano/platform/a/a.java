@@ -3,9 +3,7 @@ package com.baidu.pano.platform.a;
 import android.content.Intent;
 /* loaded from: classes4.dex */
 public class a extends v {
-
-    /* renamed from: b  reason: collision with root package name */
-    private Intent f3849b;
+    private Intent b;
 
     public a() {
     }
@@ -16,6 +14,6 @@ public class a extends v {
 
     @Override // java.lang.Throwable
     public String getMessage() {
-        return this.f3849b != null ? "User needs to (re)enter credentials." : super.getMessage();
+        return this.b != null ? "User needs to (re)enter credentials." : super.getMessage();
     }
 }

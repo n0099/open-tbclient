@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.animated.base;
 
 import android.graphics.Bitmap;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public interface c {
     void dispose();
 

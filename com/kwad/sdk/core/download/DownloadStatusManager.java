@@ -32,10 +32,8 @@ public class DownloadStatusManager {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private final WeakHashMap<d, AdTemplate> f9089a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final Map<d, AdTemplate> f9090b;
+    private final WeakHashMap<d, AdTemplate> f6042a;
+    private final Map<d, AdTemplate> b;
     private volatile boolean c;
     private final HashMap<String, AdTemplate> d;
     private final Map<String, AdTemplate> e;
@@ -62,8 +60,8 @@ public class DownloadStatusManager {
     }
 
     private DownloadStatusManager() {
-        this.f9089a = new WeakHashMap<>();
-        this.f9090b = Collections.synchronizedMap(this.f9089a);
+        this.f6042a = new WeakHashMap<>();
+        this.b = Collections.synchronizedMap(this.f6042a);
         this.c = false;
         this.d = new HashMap<>();
         this.e = Collections.synchronizedMap(this.d);
@@ -81,7 +79,7 @@ public class DownloadStatusManager {
                     if (Holder.INSTANCE.mInstance.c) {
                         context.unregisterReceiver(g);
                         context.unregisterReceiver(h);
-                        Holder.INSTANCE.mInstance.f9090b.clear();
+                        Holder.INSTANCE.mInstance.b.clear();
                         Holder.INSTANCE.mInstance.e.clear();
                         Holder.INSTANCE.mInstance.c = false;
                     }
@@ -106,7 +104,7 @@ public class DownloadStatusManager {
         }
         String string = extras.getString("RESULT_DOWNLOAD_ID");
         String action = intent.getAction();
-        if (TextUtils.equals(a.f9092b, action)) {
+        if (TextUtils.equals(a.b, action)) {
             c = 1;
             str = null;
         } else if (TextUtils.equals(a.c, action)) {
@@ -155,8 +153,8 @@ public class DownloadStatusManager {
             str = null;
         }
         f fVar = new f();
-        Set<d> keySet = this.f9090b.keySet();
-        synchronized (this.f9090b) {
+        Set<d> keySet = this.b.keySet();
+        synchronized (this.b) {
             for (d dVar : keySet) {
                 if (dVar != null && TextUtils.equals(dVar.a(), string)) {
                     if (c == 1) {
@@ -215,7 +213,7 @@ public class DownloadStatusManager {
             return;
         }
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(a.f9092b);
+        intentFilter.addAction(a.b);
         intentFilter.addAction(a.c);
         intentFilter.addAction(a.d);
         intentFilter.addAction(a.e);
@@ -243,8 +241,8 @@ public class DownloadStatusManager {
             return;
         }
         f fVar = new f();
-        Set<d> keySet = this.f9090b.keySet();
-        synchronized (this.f9090b) {
+        Set<d> keySet = this.b.keySet();
+        synchronized (this.b) {
             for (d dVar : keySet) {
                 if (dVar != null && !TextUtils.isEmpty(schemeSpecificPart) && TextUtils.equals(schemeSpecificPart, dVar.b())) {
                     dVar.a((String) null, 0, fVar);
@@ -268,11 +266,11 @@ public class DownloadStatusManager {
     }
 
     public void a(d dVar) {
-        this.f9090b.remove(dVar);
+        this.b.remove(dVar);
     }
 
     public void a(d dVar, AdTemplate adTemplate) {
-        this.f9090b.put(dVar, adTemplate);
+        this.b.put(dVar, adTemplate);
     }
 
     public void a(AdTemplate adTemplate) {

@@ -12,21 +12,21 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class h extends BdBaseModel {
-    private a bxA;
-    private HttpMessageListener bxt;
-    private HttpMessageListener bxu;
-    private HttpMessageListener bxv;
+    private HttpMessageListener byT;
+    private HttpMessageListener byU;
+    private HttpMessageListener byV;
+    private a bza;
     private TbPageContext mPageContext;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
     }
 
     public h(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.bxt = new HttpMessageListener(1031049) { // from class: com.baidu.live.personmanager.h.1
+        this.byT = new HttpMessageListener(1031049) { // from class: com.baidu.live.personmanager.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -44,7 +44,7 @@ public class h extends BdBaseModel {
                 }
             }
         };
-        this.bxu = new HttpMessageListener(1031050) { // from class: com.baidu.live.personmanager.h.2
+        this.byU = new HttpMessageListener(1031050) { // from class: com.baidu.live.personmanager.h.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -59,7 +59,7 @@ public class h extends BdBaseModel {
                 }
             }
         };
-        this.bxv = new HttpMessageListener(1031051) { // from class: com.baidu.live.personmanager.h.3
+        this.byV = new HttpMessageListener(1031051) { // from class: com.baidu.live.personmanager.h.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -75,16 +75,16 @@ public class h extends BdBaseModel {
             }
         };
         this.mPageContext = tbPageContext;
-        registerListener(this.bxt);
-        registerListener(this.bxu);
-        registerListener(this.bxv);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031049, com.baidu.live.a.avP);
+        registerListener(this.byT);
+        registerListener(this.byU);
+        registerListener(this.byV);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031049, com.baidu.live.a.axp);
         tbHttpMessageTask.setResponsedClass(YuyinPersonManagerResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(1031050, com.baidu.live.a.avQ);
+        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(1031050, com.baidu.live.a.axq);
         tbHttpMessageTask2.setResponsedClass(YuyinPersonManagerResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
-        TbHttpMessageTask tbHttpMessageTask3 = new TbHttpMessageTask(1031051, com.baidu.live.a.avR);
+        TbHttpMessageTask tbHttpMessageTask3 = new TbHttpMessageTask(1031051, com.baidu.live.a.axr);
         tbHttpMessageTask3.setResponsedClass(YuyinPersonManagerResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask3);
     }
@@ -154,6 +154,6 @@ public class h extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.bxA = aVar;
+        this.bza = aVar;
     }
 }

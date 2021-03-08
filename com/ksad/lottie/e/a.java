@@ -9,11 +9,9 @@ public class a<T> {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    public final T f8003a;
+    public final T f5351a;
     @Nullable
-
-    /* renamed from: b  reason: collision with root package name */
-    public final T f8004b;
+    public final T b;
     @Nullable
     public final Interpolator c;
     public final float d;
@@ -32,8 +30,8 @@ public class a<T> {
         this.f = null;
         this.g = null;
         this.h = dVar;
-        this.f8003a = t;
-        this.f8004b = t2;
+        this.f5351a = t;
+        this.b = t2;
         this.c = interpolator;
         this.d = f;
         this.e = f2;
@@ -45,8 +43,8 @@ public class a<T> {
         this.f = null;
         this.g = null;
         this.h = null;
-        this.f8003a = t;
-        this.f8004b = t;
+        this.f5351a = t;
+        this.b = t;
         this.c = null;
         this.d = Float.MIN_VALUE;
         this.e = Float.valueOf(Float.MAX_VALUE);
@@ -85,6 +83,6 @@ public class a<T> {
     }
 
     public String toString() {
-        return "Keyframe{startValue=" + this.f8003a + ", endValue=" + this.f8004b + ", startFrame=" + this.d + ", endFrame=" + this.e + ", interpolator=" + this.c + '}';
+        return "Keyframe{startValue=" + this.f5351a + ", endValue=" + this.b + ", startFrame=" + this.d + ", endFrame=" + this.e + ", interpolator=" + this.c + '}';
     }
 }

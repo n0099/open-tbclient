@@ -5,27 +5,25 @@ import android.text.TextUtils;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.a.d;
 import java.io.File;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class f {
-
-    /* renamed from: b  reason: collision with root package name */
-    protected a f13381b = new a(c);
+    protected a b = new a(c);
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f13380a = null;
+    public static f f7955a = null;
     private static boolean d = false;
     protected static final b c = new b(c(), c.m, c.g, c.h, c.c, c.i, 10, c.e, c.n);
 
     public static f a() {
-        if (f13380a == null) {
+        if (f7955a == null) {
             synchronized (f.class) {
-                if (f13380a == null) {
-                    f13380a = new f();
+                if (f7955a == null) {
+                    f7955a = new f();
                     d = true;
                 }
             }
         }
-        return f13380a;
+        return f7955a;
     }
 
     private f() {
@@ -33,21 +31,21 @@ public class f {
 
     protected void a(int i, String str, String str2, Throwable th) {
         if (d) {
-            String b2 = com.tencent.open.utils.e.b();
-            if (!TextUtils.isEmpty(b2)) {
-                String str3 = b2 + " SDK_VERSION:" + Constants.SDK_VERSION;
-                if (this.f13381b != null) {
-                    e.f13379a.b(32, Thread.currentThread(), System.currentTimeMillis(), "openSDK_LOG", str3, null);
-                    this.f13381b.b(32, Thread.currentThread(), System.currentTimeMillis(), "openSDK_LOG", str3, null);
+            String b = com.tencent.open.utils.e.b();
+            if (!TextUtils.isEmpty(b)) {
+                String str3 = b + " SDK_VERSION:" + Constants.SDK_VERSION;
+                if (this.b != null) {
+                    e.f7954a.b(32, Thread.currentThread(), System.currentTimeMillis(), "openSDK_LOG", str3, null);
+                    this.b.b(32, Thread.currentThread(), System.currentTimeMillis(), "openSDK_LOG", str3, null);
                     d = false;
                 } else {
                     return;
                 }
             }
         }
-        e.f13379a.b(i, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
-        if (d.a.a(c.f13376b, i) && this.f13381b != null) {
-            this.f13381b.b(i, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
+        e.f7954a.b(i, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
+        if (d.a.a(c.b, i) && this.b != null) {
+            this.b.b(i, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
         }
     }
 
@@ -82,8 +80,8 @@ public class f {
     public static void b() {
         synchronized (f.class) {
             a().d();
-            if (f13380a != null) {
-                f13380a = null;
+            if (f7955a != null) {
+                f7955a = null;
             }
         }
     }
@@ -92,9 +90,9 @@ public class f {
         boolean z = false;
         String str = c.d;
         try {
-            d.c b2 = d.b.b();
-            if (b2 != null) {
-                if (b2.c() > c.f) {
+            d.c b = d.b.b();
+            if (b != null) {
+                if (b.c() > c.f) {
                     z = true;
                 }
             }
@@ -108,10 +106,10 @@ public class f {
     }
 
     protected void d() {
-        if (this.f13381b != null) {
-            this.f13381b.a();
-            this.f13381b.b();
-            this.f13381b = null;
+        if (this.b != null) {
+            this.b.a();
+            this.b.b();
+            this.b = null;
         }
     }
 }

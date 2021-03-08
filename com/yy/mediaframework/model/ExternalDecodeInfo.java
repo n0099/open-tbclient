@@ -1,5 +1,5 @@
 package com.yy.mediaframework.model;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ExternalDecodeInfo {
     public final long m_dts;
     public final int m_frameType;

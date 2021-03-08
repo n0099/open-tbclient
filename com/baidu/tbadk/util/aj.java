@@ -9,7 +9,7 @@ public class aj {
         return lA(newGodInfo != null && newGodInfo.type.intValue() == 2);
     }
 
-    public static String rF(int i) {
+    public static String rH(int i) {
         return lA(i == 2);
     }
 

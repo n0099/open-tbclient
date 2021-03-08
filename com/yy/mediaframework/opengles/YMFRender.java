@@ -3,7 +3,7 @@ package com.yy.mediaframework.opengles;
 import com.yy.mediaframework.model.YMFImageBuffer;
 import com.yy.mediaframework.utils.YMFLog;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFRender implements IRender {
     private static final String TAG = "YMFRender";
     private YMFFramebuffer mFrameBuffer;

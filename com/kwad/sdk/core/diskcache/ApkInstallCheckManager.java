@@ -21,10 +21,8 @@ import java.util.concurrent.Future;
 public class ApkInstallCheckManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private Future f9062a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private File f9063b;
+    private Future f6025a;
+    private File b;
     private final ExecutorService c;
     private PackageManager d;
     private final f e;
@@ -56,8 +54,8 @@ public class ApkInstallCheckManager {
             public PackageInfo call() {
                 PackageInfo a2;
                 synchronized (ApkInstallCheckManager.class) {
-                    if (ApkInstallCheckManager.this.f9063b != null && ApkInstallCheckManager.this.f9063b.exists()) {
-                        for (File file : ApkInstallCheckManager.this.b(ApkInstallCheckManager.this.f9063b)) {
+                    if (ApkInstallCheckManager.this.b != null && ApkInstallCheckManager.this.b.exists()) {
+                        for (File file : ApkInstallCheckManager.this.b(ApkInstallCheckManager.this.b)) {
                             if (file.getName().endsWith(".apk") && a.a().a(file.getAbsolutePath()) != null && (a2 = ApkInstallCheckManager.this.a(file)) != null) {
                                 ApkInstallCheckManager.this.e.a(file);
                                 return a2;
@@ -74,7 +72,7 @@ public class ApkInstallCheckManager {
             return;
         }
         try {
-            this.f9063b = ad.c(KsAdSDKImpl.get().getContext());
+            this.b = ad.c(KsAdSDKImpl.get().getContext());
             this.d = KsAdSDKImpl.get().getContext().getPackageManager();
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.a(th);
@@ -135,9 +133,9 @@ public class ApkInstallCheckManager {
     }
 
     public void b() {
-        if (this.f && this.f9063b != null && this.f9063b.exists()) {
-            if (this.f9062a == null || this.f9062a.isDone()) {
-                this.f9062a = this.c.submit(this.g);
+        if (this.f && this.b != null && this.b.exists()) {
+            if (this.f6025a == null || this.f6025a.isDone()) {
+                this.f6025a = this.c.submit(this.g);
             }
         }
     }

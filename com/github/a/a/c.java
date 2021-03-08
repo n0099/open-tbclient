@@ -9,91 +9,91 @@ import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class c {
-    private static c pQX;
-    private static b pQY;
-    g pQU;
-    private List<d> pQZ = new LinkedList();
-    i pQV = new i(Looper.getMainLooper().getThread(), pQY.provideDumpInterval());
-    h pQW = new h(pQY.provideDumpInterval());
+    private static c pRM;
+    private static b pRN;
+    g pRJ;
+    private List<d> pRO = new LinkedList();
+    i pRK = new i(Looper.getMainLooper().getThread(), pRN.provideDumpInterval());
+    h pRL = new h(pRN.provideDumpInterval());
 
     public c() {
         a(new g(new g.a() { // from class: com.github.a.a.c.1
             @Override // com.github.a.a.g.a
             public void d(long j, long j2, long j3, long j4) {
-                ArrayList<String> T = c.this.pQV.T(j, j2);
+                ArrayList<String> T = c.this.pRK.T(j, j2);
                 if (!T.isEmpty()) {
-                    com.github.a.a.a.a eAQ = com.github.a.a.a.a.eAP().e(j, j2, j3, j4).ZR(c.this.pQW.getCpuRateInfo()).bo(T).eAQ();
-                    if (c.eAH().displayNotification()) {
-                        f.ZQ(eAQ.toString());
+                    com.github.a.a.a.a eAW = com.github.a.a.a.a.eAV().e(j, j2, j3, j4).ZW(c.this.pRL.getCpuRateInfo()).bo(T).eAW();
+                    if (c.eAN().displayNotification()) {
+                        f.ZV(eAW.toString());
                     }
-                    if (c.this.pQZ.size() != 0) {
-                        for (d dVar : c.this.pQZ) {
-                            dVar.onBlock(c.eAH().provideContext(), eAQ);
+                    if (c.this.pRO.size() != 0) {
+                        for (d dVar : c.this.pRO) {
+                            dVar.onBlock(c.eAN().provideContext(), eAW);
                         }
                     }
                 }
             }
-        }, eAH().provideBlockThreshold(), eAH().stopWhenDebugging()));
-        f.eAM();
+        }, eAN().provideBlockThreshold(), eAN().stopWhenDebugging()));
+        f.eAS();
     }
 
-    public g eAD() {
-        return this.pQU;
+    public g eAJ() {
+        return this.pRJ;
     }
 
-    public i eAE() {
-        return this.pQV;
+    public i eAK() {
+        return this.pRK;
     }
 
-    public h eAF() {
-        return this.pQW;
+    public h eAL() {
+        return this.pRL;
     }
 
-    public static c eAG() {
-        if (pQX == null) {
+    public static c eAM() {
+        if (pRM == null) {
             synchronized (c.class) {
-                if (pQX == null) {
-                    pQX = new c();
+                if (pRM == null) {
+                    pRM = new c();
                 }
             }
         }
-        return pQX;
+        return pRM;
     }
 
     public static void a(b bVar) {
-        pQY = bVar;
+        pRN = bVar;
     }
 
-    public static b eAH() {
-        return pQY;
+    public static b eAN() {
+        return pRN;
     }
 
     public void addBlockInterceptor(d dVar) {
-        this.pQZ.add(dVar);
+        this.pRO.add(dVar);
     }
 
     private void a(g gVar) {
-        this.pQU = gVar;
+        this.pRJ = gVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long eAI() {
-        return eAH().provideBlockThreshold() * 0.8f;
+    public long eAO() {
+        return eAN().provideBlockThreshold() * 0.8f;
     }
 
     static String getPath() {
         String externalStorageState = Environment.getExternalStorageState();
-        String providePath = eAH() == null ? "" : eAH().providePath();
+        String providePath = eAN() == null ? "" : eAN().providePath();
         if ("mounted".equals(externalStorageState) && Environment.getExternalStorageDirectory().canWrite()) {
             return Environment.getExternalStorageDirectory().getPath() + providePath;
         }
-        return eAH().provideContext().getFilesDir() + eAH().providePath();
+        return eAN().provideContext().getFilesDir() + eAN().providePath();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static File eAJ() {
+    public static File eAP() {
         File file = new File(getPath());
         if (!file.exists()) {
             file.mkdirs();
@@ -101,15 +101,15 @@ public final class c {
         return file;
     }
 
-    public static File[] anh() {
-        File eAJ = eAJ();
-        if (eAJ.exists() && eAJ.isDirectory()) {
-            return eAJ.listFiles(new a());
+    public static File[] ank() {
+        File eAP = eAP();
+        if (eAP.exists() && eAP.isDirectory()) {
+            return eAP.listFiles(new a());
         }
         return null;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     private static class a implements FilenameFilter {
         private String TYPE = BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
 

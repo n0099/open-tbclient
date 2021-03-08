@@ -10,7 +10,7 @@ import com.baidu.tieba.homepage.topic.topicdetail.view.TopicTimelineCellCardView
 import java.util.List;
 /* loaded from: classes2.dex */
 public class TopicTimelineAdapter extends RecyclerView.Adapter<TopicTimelineHolder> {
-    private List<e> koG;
+    private List<e> kqI;
     private Context mContext;
 
     public TopicTimelineAdapter(Context context) {
@@ -26,7 +26,7 @@ public class TopicTimelineAdapter extends RecyclerView.Adapter<TopicTimelineHold
 
     public void setData(List<e> list) {
         if (!y.isEmpty(list)) {
-            this.koG = list;
+            this.kqI = list;
         }
     }
 
@@ -34,9 +34,9 @@ public class TopicTimelineAdapter extends RecyclerView.Adapter<TopicTimelineHold
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(TopicTimelineHolder topicTimelineHolder, int i) {
-        e eVar = (e) y.getItem(this.koG, i);
+        e eVar = (e) y.getItem(this.kqI, i);
         if (eVar != null) {
-            TopicTimelineCellCardView topicTimelineCellCardView = (TopicTimelineCellCardView) topicTimelineHolder.cSp();
+            TopicTimelineCellCardView topicTimelineCellCardView = (TopicTimelineCellCardView) topicTimelineHolder.cSw();
             topicTimelineCellCardView.setData(eVar);
             topicTimelineCellCardView.onChangeSkinType();
         }
@@ -44,6 +44,6 @@ public class TopicTimelineAdapter extends RecyclerView.Adapter<TopicTimelineHold
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return y.getCount(this.koG);
+        return y.getCount(this.kqI);
     }
 }

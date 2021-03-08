@@ -1,12 +1,10 @@
 package com.google.ar.core;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 final class al {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f7860a = 1;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final int f7861b = 2;
+    public static final int f5263a = 1;
+    public static final int b = 2;
     public static final int c = 3;
-    private static final /* synthetic */ int[] d = {f7860a, f7861b, c};
+    private static final /* synthetic */ int[] d = {f5263a, b, c};
 }

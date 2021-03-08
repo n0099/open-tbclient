@@ -11,13 +11,13 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.live.personcenter.admin.message.AlaAdminListResponseMessage;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b extends BdBaseModel {
-    private HttpMessageListener gNm;
-    private a hkp;
-    private com.baidu.tieba.ala.live.personcenter.admin.b.a hku;
+    private HttpMessageListener gOV;
+    private a hlY;
+    private com.baidu.tieba.ala.live.personcenter.admin.b.a hmd;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void aJ(int i, String str);
 
@@ -26,28 +26,28 @@ public class b extends BdBaseModel {
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.gNm = new HttpMessageListener(1021078, true) { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.b.1
+        this.gOV = new HttpMessageListener(1021078, true) { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof AlaAdminListResponseMessage) {
                     AlaAdminListResponseMessage alaAdminListResponseMessage = (AlaAdminListResponseMessage) httpResponsedMessage;
                     if (!alaAdminListResponseMessage.isSuccess()) {
-                        if (b.this.hkp != null) {
-                            b.this.hkp.aJ(alaAdminListResponseMessage.getError(), alaAdminListResponseMessage.getErrorString());
+                        if (b.this.hlY != null) {
+                            b.this.hlY.aJ(alaAdminListResponseMessage.getError(), alaAdminListResponseMessage.getErrorString());
                             return;
                         }
                         return;
                     }
-                    b.this.hku = alaAdminListResponseMessage.bYm();
-                    if (b.this.hkp != null) {
-                        b.this.hkp.mK(false);
+                    b.this.hmd = alaAdminListResponseMessage.bYs();
+                    if (b.this.hlY != null) {
+                        b.this.hlY.mK(false);
                     }
                 }
             }
         };
         registerTask();
-        registerListener(this.gNm);
+        registerListener(this.gOV);
     }
 
     private void registerTask() {
@@ -59,13 +59,13 @@ public class b extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bYn() {
+    public void bYt() {
         sendMessage(new com.baidu.tieba.ala.live.personcenter.admin.message.a());
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
     protected boolean loadData() {
-        bYn();
+        bYt();
         return true;
     }
 
@@ -76,30 +76,30 @@ public class b extends BdBaseModel {
     }
 
     public List<IAdapterData> getUserList() {
-        return hasData() ? new ArrayList(this.hku.getUserList()) : new ArrayList();
+        return hasData() ? new ArrayList(this.hmd.getUserList()) : new ArrayList();
     }
 
-    public int bYl() {
+    public int bYr() {
         if (hasData()) {
-            return this.hku.bYl();
+            return this.hmd.bYr();
         }
         return -1;
     }
 
     public void a(a aVar) {
-        this.hkp = aVar;
+        this.hlY = aVar;
     }
 
     public void a(com.baidu.tieba.ala.live.personcenter.admin.b.b bVar) {
         if (hasData()) {
-            this.hku.getUserList().remove(bVar);
-            if (this.hkp != null) {
-                this.hkp.mK(false);
+            this.hmd.getUserList().remove(bVar);
+            if (this.hlY != null) {
+                this.hlY.mK(false);
             }
         }
     }
 
     private boolean hasData() {
-        return (this.hku == null || this.hku.getUserList() == null || this.hku.getUserList().isEmpty()) ? false : true;
+        return (this.hmd == null || this.hmd.getUserList() == null || this.hmd.getUserList().isEmpty()) ? false : true;
     }
 }

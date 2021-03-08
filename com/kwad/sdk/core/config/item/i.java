@@ -8,18 +8,18 @@ import org.json.JSONObject;
 public class i extends a<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile String[] f9055a;
+    private static volatile String[] f6020a;
 
     public i(String str, String str2) {
         super(str, str2);
-        f9055a = null;
+        f6020a = null;
     }
 
     private void a(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        f9055a = str.split(",");
+        f6020a = str.split(",");
     }
 
     @Override // com.kwad.sdk.core.config.item.a
@@ -47,10 +47,10 @@ public class i extends a<String> {
 
     public boolean a(long j) {
         String[] strArr;
-        if (f9055a == null) {
+        if (f6020a == null) {
             return false;
         }
-        for (String str : f9055a) {
+        for (String str : f6020a) {
             if (str != null && String.valueOf(j).equals(str.trim())) {
                 return true;
             }

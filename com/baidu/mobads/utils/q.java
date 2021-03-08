@@ -2,26 +2,26 @@ package com.baidu.mobads.utils;
 
 import android.util.Log;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class q implements IXAdLogger {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile q f3505a = null;
+    private static volatile q f2492a = null;
 
     public static q a() {
-        if (f3505a == null) {
+        if (f2492a == null) {
             synchronized (q.class) {
-                if (f3505a == null) {
-                    f3505a = new q();
+                if (f2492a == null) {
+                    f2492a = new q();
                 }
             }
         }
-        return f3505a;
+        return f2492a;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
     public boolean isLoggable(String str, int i) {
-        return i >= com.baidu.mobads.constants.a.f3313b;
+        return i >= com.baidu.mobads.constants.a.b;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdLogger

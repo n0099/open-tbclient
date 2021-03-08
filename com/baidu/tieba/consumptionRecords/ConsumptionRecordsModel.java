@@ -8,9 +8,9 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActivity> {
-    private a iCT;
+    private a iEC;
     private ArrayList<com.baidu.tieba.consumptionRecords.a> orderList;
     private b recommendData;
     private int currentPage = 0;
@@ -24,8 +24,8 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof GetUserOrderHttpResponseMessage)) {
                 if (httpResponsedMessage.getError() != 0) {
                     ConsumptionRecordsModel.a(ConsumptionRecordsModel.this);
-                    if (ConsumptionRecordsModel.this.iCT != null) {
-                        ConsumptionRecordsModel.this.iCT.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ConsumptionRecordsModel.this.orderList, ConsumptionRecordsModel.this.recommendData, ConsumptionRecordsModel.this.hasMore);
+                    if (ConsumptionRecordsModel.this.iEC != null) {
+                        ConsumptionRecordsModel.this.iEC.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ConsumptionRecordsModel.this.orderList, ConsumptionRecordsModel.this.recommendData, ConsumptionRecordsModel.this.hasMore);
                         return;
                     }
                     return;
@@ -34,18 +34,18 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
                     GetUserOrderHttpResponseMessage getUserOrderHttpResponseMessage = (GetUserOrderHttpResponseMessage) httpResponsedMessage;
                     ConsumptionRecordsModel.this.a(getUserOrderHttpResponseMessage.getOrderList(), getUserOrderHttpResponseMessage.getRecommendInfo(), getUserOrderHttpResponseMessage.getHasMore());
                 }
-                if (ConsumptionRecordsModel.this.iCT != null) {
-                    ConsumptionRecordsModel.this.iCT.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ConsumptionRecordsModel.this.orderList, ConsumptionRecordsModel.this.recommendData, ConsumptionRecordsModel.this.hasMore);
+                if (ConsumptionRecordsModel.this.iEC != null) {
+                    ConsumptionRecordsModel.this.iEC.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ConsumptionRecordsModel.this.orderList, ConsumptionRecordsModel.this.recommendData, ConsumptionRecordsModel.this.hasMore);
                 }
             }
         }
     };
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(int i, String str, ArrayList<com.baidu.tieba.consumptionRecords.a> arrayList, b bVar, boolean z);
 
-        void ctv();
+        void ctB();
     }
 
     static /* synthetic */ int a(ConsumptionRecordsModel consumptionRecordsModel) {
@@ -102,7 +102,7 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
         MessageManager.getInstance().unRegisterListener(this.mHttpMessageListener);
     }
 
-    public void ctt() {
+    public void ctz() {
         NewGetUserOrderRequestMessage newGetUserOrderRequestMessage = new NewGetUserOrderRequestMessage();
         this.currentPage = 1;
         newGetUserOrderRequestMessage.setPn(this.currentPage);
@@ -112,10 +112,10 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
         sendMessage(newGetUserOrderRequestMessage);
     }
 
-    public void ctu() {
+    public void ctA() {
         if (!this.hasMore) {
-            if (this.iCT != null) {
-                this.iCT.ctv();
+            if (this.iEC != null) {
+                this.iEC.ctB();
                 return;
             }
             return;
@@ -138,6 +138,6 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     }
 
     public void a(a aVar) {
-        this.iCT = aVar;
+        this.iEC = aVar;
     }
 }

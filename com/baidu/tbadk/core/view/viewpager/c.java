@@ -5,104 +5,104 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private int foV;
-    private List<n> fpb;
-    private List<n> fpc;
-    private boolean fpd;
-    private boolean fpe;
-    private int fpf = 2;
-    private int fpg = 1;
+    private List<n> fqB;
+    private List<n> fqC;
+    private boolean fqD;
+    private boolean fqE;
+    private int fqF = 2;
+    private int fqG = 1;
+    private int fqv;
 
     public c(List<n> list, boolean z, int i) {
-        this.foV = 2;
-        this.fpb = list;
-        this.fpe = z;
-        this.foV = i;
+        this.fqv = 2;
+        this.fqB = list;
+        this.fqE = z;
+        this.fqv = i;
         bB(list);
     }
 
     public void bB(List<n> list) {
-        if (list != null && list.size() >= this.fpf && list.size() <= this.foV) {
-            this.fpd = true;
-        } else if (list.size() > this.foV && this.fpe) {
-            this.fpd = true;
+        if (list != null && list.size() >= this.fqF && list.size() <= this.fqv) {
+            this.fqD = true;
+        } else if (list.size() > this.fqv && this.fqE) {
+            this.fqD = true;
         } else {
-            this.fpd = false;
+            this.fqD = false;
         }
-        this.fpc = bvy();
+        this.fqC = bvB();
     }
 
-    private List<n> bvy() {
+    private List<n> bvB() {
         ArrayList arrayList = new ArrayList();
-        if (this.fpb != null) {
-            if (this.fpd) {
-                if (this.fpb.size() > this.foV && this.fpb.size() >= this.fpg) {
-                    arrayList.addAll(this.fpb.subList(0, this.foV));
-                    arrayList.addAll(0, this.fpb.subList(this.foV - this.fpg, this.foV));
-                    arrayList.addAll(this.fpb.subList(0, this.fpg));
+        if (this.fqB != null) {
+            if (this.fqD) {
+                if (this.fqB.size() > this.fqv && this.fqB.size() >= this.fqG) {
+                    arrayList.addAll(this.fqB.subList(0, this.fqv));
+                    arrayList.addAll(0, this.fqB.subList(this.fqv - this.fqG, this.fqv));
+                    arrayList.addAll(this.fqB.subList(0, this.fqG));
                 } else {
-                    arrayList.addAll(this.fpb);
-                    arrayList.addAll(0, this.fpb.subList(this.fpb.size() - this.fpg, this.fpb.size()));
-                    arrayList.addAll(this.fpb.subList(0, this.fpg));
+                    arrayList.addAll(this.fqB);
+                    arrayList.addAll(0, this.fqB.subList(this.fqB.size() - this.fqG, this.fqB.size()));
+                    arrayList.addAll(this.fqB.subList(0, this.fqG));
                 }
-            } else if (this.fpb != null && this.fpb.size() > 0 && this.fpb.size() >= this.fpg) {
-                arrayList.addAll(this.fpb.subList(0, this.fpg));
+            } else if (this.fqB != null && this.fqB.size() > 0 && this.fqB.size() >= this.fqG) {
+                arrayList.addAll(this.fqB.subList(0, this.fqG));
             }
         }
         return arrayList;
     }
 
-    public int qf(int i) {
-        if (this.fpd) {
-            int size = this.fpc.size();
+    public int qg(int i) {
+        if (this.fqD) {
+            int size = this.fqC.size();
             if (i == 0) {
-                return (size - 1) - this.fpg;
+                return (size - 1) - this.fqG;
             }
-            if (i == size - this.fpg) {
-                return this.fpg;
+            if (i == size - this.fqG) {
+                return this.fqG;
             }
             return i;
         }
         return i;
     }
 
-    public int qg(int i) {
-        if (this.fpd) {
-            return i - this.fpg;
+    public int qh(int i) {
+        if (this.fqD) {
+            return i - this.fqG;
         }
         return i;
     }
 
-    public int bvz() {
-        if (this.fpb == null) {
+    public int bvC() {
+        if (this.fqB == null) {
             return 0;
         }
-        return this.fpb.size();
+        return this.fqB.size();
     }
 
-    public int bvA() {
-        if (this.fpd) {
-            return this.fpg;
+    public int bvD() {
+        if (this.fqD) {
+            return this.fqG;
         }
         return 0;
     }
 
-    public void qh(int i) {
-        this.foV = i;
-        bB(this.fpb);
-    }
-
     public void qi(int i) {
-        this.fpf = i;
-        bB(this.fpb);
-    }
-
-    public List<n> bvB() {
-        return this.fpc;
+        this.fqv = i;
+        bB(this.fqB);
     }
 
     public void qj(int i) {
-        this.fpg = i;
-        bB(this.fpb);
+        this.fqF = i;
+        bB(this.fqB);
+    }
+
+    public List<n> bvE() {
+        return this.fqC;
+    }
+
+    public void qk(int i) {
+        this.fqG = i;
+        bB(this.fqB);
     }
 }

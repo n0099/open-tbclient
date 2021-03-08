@@ -21,53 +21,53 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.ViewHelper;
 import com.baidu.live.tbadk.coreextra.message.UpdateAttentionMessage;
 import com.baidu.live.utils.j;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements View.OnClickListener {
-    private LiveFollowPendantView aVc;
-    private b aVd;
+    private LiveFollowPendantView aWC;
+    private b aWD;
     private Context mContext;
-    private boolean aVf = false;
-    private c.a aVg = new c.a() { // from class: com.baidu.live.follow.pendant.a.1
+    private boolean aWF = false;
+    private c.a aWG = new c.a() { // from class: com.baidu.live.follow.pendant.a.1
         @Override // com.baidu.live.follow.a.c.a
         public void a(boolean z, String str, boolean z2) {
-            if (!z || a.this.aVc == null) {
-                a.this.fO(str);
+            if (!z || a.this.aWC == null) {
+                a.this.fU(str);
             } else if (!z2) {
-                a.this.aVc.getFollowView().setVisibility(0);
+                a.this.aWC.getFollowView().setVisibility(0);
             } else {
-                a.this.aVc.getFollowView().setVisibility(8);
+                a.this.aWC.getFollowView().setVisibility(8);
             }
-            if (a.this.aVd != null) {
-                a.this.aVd.bz(z2);
+            if (a.this.aWD != null) {
+                a.this.aWD.bz(z2);
             }
         }
     };
-    private CustomMessageListener aVh = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.live.follow.pendant.a.2
+    private CustomMessageListener aWH = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.live.follow.pendant.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             UpdateAttentionMessage updateAttentionMessage;
-            if ((customResponsedMessage instanceof UpdateAttentionMessage) && (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage) != null && updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid) && a.this.aVc != null) {
+            if ((customResponsedMessage instanceof UpdateAttentionMessage) && (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage) != null && updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid) && a.this.aWC != null) {
                 if (!updateAttentionMessage.isSucc()) {
-                    a.this.fO(updateAttentionMessage.getData().usermsg);
+                    a.this.fU(updateAttentionMessage.getData().usermsg);
                 } else if (!updateAttentionMessage.isAttention() || a.this.mContext == null) {
-                    a.this.aVc.getFollowView().setVisibility(0);
+                    a.this.aWC.getFollowView().setVisibility(0);
                 } else {
                     BdUtilHelper.showToast(a.this.mContext, a.this.mContext.getString(a.h.sdk_attention_success), 0);
-                    a.this.aVc.getFollowView().setVisibility(8);
+                    a.this.aWC.getFollowView().setVisibility(8);
                 }
             }
         }
     };
-    private com.baidu.live.follow.a.a aVe = new com.baidu.live.follow.a.a();
+    private com.baidu.live.follow.a.a aWE = new com.baidu.live.follow.a.a();
 
     public a(Context context) {
         this.mContext = context;
-        this.aVc = new LiveFollowPendantView(context);
+        this.aWC = new LiveFollowPendantView(context);
     }
 
     public void m(String str, String str2, String str3) {
-        this.aVd = new b(str2, str, str3);
+        this.aWD = new b(str2, str, str3);
     }
 
     public boolean d(ab abVar) {
@@ -82,121 +82,121 @@ public class a implements View.OnClickListener {
     }
 
     public boolean isDisplay() {
-        return this.aVf;
+        return this.aWF;
     }
 
     public void b(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         if (viewGroup != null) {
             viewGroup.removeAllViews();
             if (viewGroup.getChildCount() > 0) {
-                Dr();
+                Du();
             }
             if (viewGroup.getVisibility() == 8 || viewGroup.getVisibility() == 4) {
                 viewGroup.setVisibility(0);
             }
             updateView();
-            viewGroup.addView(this.aVc, layoutParams);
+            viewGroup.addView(this.aWC, layoutParams);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913301));
             registerListener();
-            Dq();
+            Dt();
         }
     }
 
-    public void Dq() {
-        if (TbadkCoreApplication.isLogin() && this.aVe != null && this.aVd != null) {
-            this.aVe.as(this.aVd.getUserId(), "");
+    public void Dt() {
+        if (TbadkCoreApplication.isLogin() && this.aWE != null && this.aWD != null) {
+            this.aWE.as(this.aWD.getUserId(), "");
         }
     }
 
     private void updateView() {
-        this.aVf = true;
-        if (this.aVc != null && this.aVd != null) {
+        this.aWF = true;
+        if (this.aWC != null && this.aWD != null) {
             if (!TbadkCoreApplication.isLogin()) {
-                this.aVc.getFollowView().setVisibility(0);
+                this.aWC.getFollowView().setVisibility(0);
             } else {
-                this.aVc.getFollowView().setVisibility(8);
+                this.aWC.getFollowView().setVisibility(8);
             }
-            this.aVc.setHeadImage(this.aVd.Du());
-            this.aVc.setNickName(j.K(this.aVd.getNickName(), 8));
+            this.aWC.setHeadImage(this.aWD.Dx());
+            this.aWC.setNickName(j.K(this.aWD.getNickName(), 8));
         }
     }
 
-    public void cF(int i) {
-        if (this.aVc != null) {
-            if (this.aVc.getParent() != null) {
-                ((ViewGroup) this.aVc.getParent()).setVisibility(i);
-                ((ViewGroup) this.aVc.getParent()).removeView(this.aVc);
+    public void cG(int i) {
+        if (this.aWC != null) {
+            if (this.aWC.getParent() != null) {
+                ((ViewGroup) this.aWC.getParent()).setVisibility(i);
+                ((ViewGroup) this.aWC.getParent()).removeView(this.aWC);
             }
             unRegisterListener();
             release();
         }
-        this.aVf = false;
+        this.aWF = false;
     }
 
-    public void Dr() {
+    public void Du() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913302));
-        cF(8);
+        cG(8);
     }
 
     public void registerListener() {
-        if (this.aVc != null) {
-            this.aVc.c(this);
+        if (this.aWC != null) {
+            this.aWC.c(this);
         }
-        if (this.aVe != null) {
-            this.aVe.a(this.aVg);
+        if (this.aWE != null) {
+            this.aWE.a(this.aWG);
         }
-        MessageManager.getInstance().registerListener(this.aVh);
+        MessageManager.getInstance().registerListener(this.aWH);
     }
 
     public void unRegisterListener() {
-        if (this.aVc != null) {
-            this.aVc.setOnClickListener(null);
+        if (this.aWC != null) {
+            this.aWC.setOnClickListener(null);
         }
-        MessageManager.getInstance().unRegisterListener(this.aVh);
+        MessageManager.getInstance().unRegisterListener(this.aWH);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.aVc != null) {
-            if (view == this.aVc.getFollowView()) {
-                Ds();
-            } else if (view == this.aVc.getNickNameView() || view == this.aVc.getHeadView()) {
-                Dt();
+        if (this.aWC != null) {
+            if (view == this.aWC.getFollowView()) {
+                Dv();
+            } else if (view == this.aWC.getNickNameView() || view == this.aWC.getHeadView()) {
+                Dw();
             }
         }
     }
 
     public void onDestroy() {
-        this.aVc = null;
+        this.aWC = null;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913302));
         release();
     }
 
     public void release() {
-        this.aVd = null;
-        if (this.aVe != null) {
-            this.aVe.release();
+        this.aWD = null;
+        if (this.aWE != null) {
+            this.aWE.release();
         }
     }
 
-    private void Ds() {
+    private void Dv() {
         if (!TbadkCoreApplication.isLogin()) {
             ViewHelper.skipToLoginActivity();
-        } else if (this.aVd != null) {
-            f fVar = new f(this.aVd.Du(), this.aVd.getUserId(), true, BdUniqueId.gen());
+        } else if (this.aWD != null) {
+            f fVar = new f(this.aWD.Dx(), this.aWD.getUserId(), true, BdUniqueId.gen());
             fVar.setFrom("live_show_perference");
-            com.baidu.live.view.a.Xo().a(this.aVd.getUserId(), fVar);
+            com.baidu.live.view.a.Xr().a(this.aWD.getUserId(), fVar);
         }
     }
 
-    private void Dt() {
-        if (this.aVd != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), this.aVd.getUserId())));
+    private void Dw() {
+        if (this.aWD != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), this.aWD.getUserId())));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fO(String str) {
+    public void fU(String str) {
         if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str)) {
             str = "操作失败";
         }
@@ -204,8 +204,8 @@ public class a implements View.OnClickListener {
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.aVc != null) {
-            this.aVc.setVisibility(z ? 4 : 0);
+        if (this.aWC != null) {
+            this.aWC.setVisibility(z ? 4 : 0);
         }
     }
 }

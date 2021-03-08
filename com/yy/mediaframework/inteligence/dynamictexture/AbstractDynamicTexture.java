@@ -5,7 +5,7 @@ import android.opengl.GLES20;
 import android.opengl.GLUtils;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractDynamicTexture implements IDynamicTexture {
     public int createTexture(Bitmap bitmap, int i, int i2, float f, float f2) {
         return createTexture(bitmap, i, i2, (int) ((i * f) - (bitmap.getWidth() / 2.0f)), (int) ((i2 * f2) - (bitmap.getHeight() / 2.0f)));

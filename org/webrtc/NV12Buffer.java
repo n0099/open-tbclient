@@ -3,7 +3,7 @@ package org.webrtc;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
 import org.webrtc.VideoFrame;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class NV12Buffer implements VideoFrame.Buffer {
     private final ByteBuffer buffer;
     private final int height;

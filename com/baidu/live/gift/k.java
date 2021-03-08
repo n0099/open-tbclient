@@ -14,50 +14,50 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class k implements Cloneable {
-    public int aXe;
-    public int aXf;
-    public int aXg;
-    public int aXh;
-    public int aXi;
-    public int aXj;
-    public int aXk;
-    public int aXl;
-    public int aXn;
-    public List<PointF> aXm = new ArrayList();
-    public Rect aXo = new Rect();
-    public List<l> aXp = new ArrayList();
+    public int aYE;
+    public int aYF;
+    public int aYG;
+    public int aYH;
+    public int aYI;
+    public int aYJ;
+    public int aYK;
+    public int aYL;
+    public int aYN;
+    public List<PointF> aYM = new ArrayList();
+    public Rect aYO = new Rect();
+    public List<l> aYP = new ArrayList();
 
-    public String EM() {
+    public String EP() {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("width", String.valueOf(this.aXe));
-            jSONObject2.put("height", String.valueOf(this.aXf));
+            jSONObject2.put("width", String.valueOf(this.aYE));
+            jSONObject2.put("height", String.valueOf(this.aYF));
             jSONObject.put("screen_size", jSONObject2);
-            jSONObject.put("ani_type", String.valueOf(this.aXk));
+            jSONObject.put("ani_type", String.valueOf(this.aYK));
             JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put(Config.EVENT_HEAT_X, String.valueOf(this.aXg));
-            jSONObject3.put("y", String.valueOf(this.aXh));
-            jSONObject3.put("width", String.valueOf(this.aXi));
-            jSONObject3.put("height", String.valueOf(this.aXj));
+            jSONObject3.put(Config.EVENT_HEAT_X, String.valueOf(this.aYG));
+            jSONObject3.put("y", String.valueOf(this.aYH));
+            jSONObject3.put("width", String.valueOf(this.aYI));
+            jSONObject3.put("height", String.valueOf(this.aYJ));
             jSONObject.put("draw_rect", jSONObject3);
-            jSONObject.put("point_count", this.aXn);
+            jSONObject.put("point_count", this.aYN);
             JSONArray jSONArray = new JSONArray();
             DecimalFormat decimalFormat = new DecimalFormat(".0");
-            for (int i = 0; i < this.aXm.size(); i++) {
+            for (int i = 0; i < this.aYM.size(); i++) {
                 JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put(Config.EVENT_HEAT_X, decimalFormat.format(this.aXm.get(i).x));
-                jSONObject4.put("y", decimalFormat.format(this.aXm.get(i).y));
+                jSONObject4.put(Config.EVENT_HEAT_X, decimalFormat.format(this.aYM.get(i).x));
+                jSONObject4.put("y", decimalFormat.format(this.aYM.get(i).y));
                 jSONArray.put(jSONObject4);
             }
             jSONObject.put("point_data", jSONArray);
-            jSONObject.put("point_size", this.aXl);
-            if (!ListUtils.isEmpty(this.aXp)) {
+            jSONObject.put("point_size", this.aYL);
+            if (!ListUtils.isEmpty(this.aYP)) {
                 JSONArray jSONArray2 = new JSONArray();
-                for (int i2 = 0; i2 < this.aXp.size(); i2++) {
-                    jSONArray2.put(new JSONObject(this.aXp.get(i2).EM()));
+                for (int i2 = 0; i2 < this.aYP.size(); i2++) {
+                    jSONArray2.put(new JSONObject(this.aYP.get(i2).EP()));
                 }
                 jSONObject.put("point_des", jSONArray2);
             }
@@ -67,43 +67,43 @@ public class k implements Cloneable {
         }
     }
 
-    public boolean fS(String str) {
+    public boolean fY(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.aXk = JavaTypesHelper.toInt(jSONObject.optString("ani_type"), 0);
-            this.aXl = jSONObject.optInt("point_size");
+            this.aYK = JavaTypesHelper.toInt(jSONObject.optString("ani_type"), 0);
+            this.aYL = jSONObject.optInt("point_size");
             JSONObject optJSONObject = jSONObject.optJSONObject("screen_size");
-            this.aXe = JavaTypesHelper.toInt(optJSONObject.optString("width"), 0);
-            this.aXf = JavaTypesHelper.toInt(optJSONObject.optString("height"), 0);
+            this.aYE = JavaTypesHelper.toInt(optJSONObject.optString("width"), 0);
+            this.aYF = JavaTypesHelper.toInt(optJSONObject.optString("height"), 0);
             JSONObject optJSONObject2 = jSONObject.optJSONObject("draw_rect");
-            this.aXg = JavaTypesHelper.toInt(optJSONObject2.optString(Config.EVENT_HEAT_X), 0);
-            this.aXh = JavaTypesHelper.toInt(optJSONObject2.optString("y"), 0);
-            this.aXi = JavaTypesHelper.toInt(optJSONObject2.optString("width"), 0);
-            this.aXj = JavaTypesHelper.toInt(optJSONObject2.optString("height"), 0);
-            this.aXo.left = this.aXg;
-            this.aXo.top = this.aXh;
-            this.aXo.right = this.aXi;
-            this.aXo.bottom = this.aXj + this.aXh;
-            this.aXn = JavaTypesHelper.toInt("point_count", 0);
+            this.aYG = JavaTypesHelper.toInt(optJSONObject2.optString(Config.EVENT_HEAT_X), 0);
+            this.aYH = JavaTypesHelper.toInt(optJSONObject2.optString("y"), 0);
+            this.aYI = JavaTypesHelper.toInt(optJSONObject2.optString("width"), 0);
+            this.aYJ = JavaTypesHelper.toInt(optJSONObject2.optString("height"), 0);
+            this.aYO.left = this.aYG;
+            this.aYO.top = this.aYH;
+            this.aYO.right = this.aYI;
+            this.aYO.bottom = this.aYJ + this.aYH;
+            this.aYN = JavaTypesHelper.toInt("point_count", 0);
             JSONArray optJSONArray = jSONObject.optJSONArray("point_data");
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                this.aXm.add(new PointF(JavaTypesHelper.toFloat(jSONObject2.optString(Config.EVENT_HEAT_X), 0.0f), JavaTypesHelper.toFloat(jSONObject2.optString("y"), 0.0f)));
+                this.aYM.add(new PointF(JavaTypesHelper.toFloat(jSONObject2.optString(Config.EVENT_HEAT_X), 0.0f), JavaTypesHelper.toFloat(jSONObject2.optString("y"), 0.0f)));
             }
-            if (this.aXm.size() > 0) {
+            if (this.aYM.size() > 0) {
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("point_des");
                 if (optJSONArray2 != null && optJSONArray2.length() > 0) {
                     for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                         JSONObject jSONObject3 = optJSONArray2.getJSONObject(i2);
                         l lVar = new l();
-                        lVar.fS(jSONObject3.toString());
-                        if (this.aXp == null) {
-                            this.aXp = new ArrayList();
+                        lVar.fY(jSONObject3.toString());
+                        if (this.aYP == null) {
+                            this.aYP = new ArrayList();
                         }
-                        this.aXp.add(lVar);
+                        this.aYP.add(lVar);
                     }
                 }
                 return isValid();
@@ -114,16 +114,16 @@ public class k implements Cloneable {
         }
     }
 
-    public String EN() {
-        if (ListUtils.isEmpty(this.aXp)) {
+    public String EQ() {
+        if (ListUtils.isEmpty(this.aYP)) {
             return "";
         }
         JSONArray jSONArray = new JSONArray();
         SparseArray sparseArray = new SparseArray();
-        for (int i = 0; i < this.aXp.size(); i++) {
-            int giftId = this.aXp.get(i).getGiftId();
-            int ER = this.aXp.get(i).ER();
-            sparseArray.put(giftId, Integer.valueOf(sparseArray.get(giftId) != null ? ((Integer) sparseArray.get(giftId)).intValue() + ER : ER));
+        for (int i = 0; i < this.aYP.size(); i++) {
+            int giftId = this.aYP.get(i).getGiftId();
+            int EU = this.aYP.get(i).EU();
+            sparseArray.put(giftId, Integer.valueOf(sparseArray.get(giftId) != null ? ((Integer) sparseArray.get(giftId)).intValue() + EU : EU));
         }
         if (sparseArray.size() > 0) {
             for (int i2 = 0; i2 < sparseArray.size(); i2++) {
@@ -142,7 +142,7 @@ public class k implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* renamed from: EO */
+    /* renamed from: ER */
     public k clone() {
         try {
             return (k) super.clone();
@@ -153,6 +153,6 @@ public class k implements Cloneable {
     }
 
     private boolean isValid() {
-        return !ListUtils.isEmpty(this.aXm) && this.aXe > 0 && this.aXf > 0 && this.aXl > 0;
+        return !ListUtils.isEmpty(this.aYM) && this.aYE > 0 && this.aYF > 0 && this.aYL > 0;
     }
 }

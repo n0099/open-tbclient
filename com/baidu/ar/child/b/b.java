@@ -3,6 +3,7 @@ package com.baidu.ar.child.b;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.ar.h.s;
 import com.baidu.ar.ihttp.HttpException;
 import com.baidu.ar.ihttp.IHttpResponse;
@@ -10,10 +11,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class b {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void e(byte[] bArr);
     }
@@ -44,13 +45,13 @@ public class b {
             case -90:
                 return "HR";
             case 0:
-                return "V";
+                return ExifInterface.GPS_MEASUREMENT_INTERRUPTED;
             case 90:
                 return "HL";
             case 180:
                 return "FV";
             default:
-                return "V";
+                return ExifInterface.GPS_MEASUREMENT_INTERRUPTED;
         }
     }
 

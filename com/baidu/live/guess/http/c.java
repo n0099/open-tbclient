@@ -1,7 +1,7 @@
 package com.baidu.live.guess.http;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c extends HttpMessage {
     public c() {
         super(1021218);

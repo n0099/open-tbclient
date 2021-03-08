@@ -4,7 +4,7 @@ import android.net.http.Headers;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.StringUtils;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaUserInfoData {
     public long ala_id;
     public long anchor_live;

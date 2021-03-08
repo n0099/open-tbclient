@@ -7,12 +7,12 @@ import com.baidu.live.j.c;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements c {
-    private String aNa;
-    private String buH;
-    private com.baidu.tieba.ala.guardthrone.view.a hcR;
-    private com.baidu.tieba.ala.guardthrone.view.a hcS;
+    private String aOA;
+    private String bwh;
+    private com.baidu.tieba.ala.guardthrone.view.a heA;
+    private com.baidu.tieba.ala.guardthrone.view.a heB;
     private boolean mIsHost;
     private String mLiveId;
     private RelativeLayout mRootView;
@@ -23,8 +23,8 @@ public class a implements c {
     public void a(TbPageContext tbPageContext, String str, String str2, String str3, int i, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mLiveId = str;
-        this.buH = str2;
-        this.aNa = str3;
+        this.bwh = str2;
+        this.aOA = str3;
         this.mTabId = i;
         this.mIsHost = z;
         initView();
@@ -32,21 +32,21 @@ public class a implements c {
 
     private void initView() {
         this.mRootView = new RelativeLayout(this.mTbPageContext.getPageActivity());
-        this.hcR = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, false, this.mIsHost);
-        this.hcR.i(this.mLiveId, this.buH, this.aNa, this.mTabId);
-        this.hcS = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, true, this.mIsHost);
-        this.hcS.i(this.mLiveId, this.buH, this.aNa, this.mTabId);
+        this.heA = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, false, this.mIsHost);
+        this.heA.i(this.mLiveId, this.bwh, this.aOA, this.mTabId);
+        this.heB = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, true, this.mIsHost);
+        this.heB.i(this.mLiveId, this.bwh, this.aOA, this.mTabId);
         if (UtilHelper.getRealScreenOrientation(this.mTbPageContext.getPageActivity()) == 2) {
-            this.hcS.getRootView().setVisibility(0);
-            this.hcR.getRootView().setVisibility(8);
+            this.heB.getRootView().setVisibility(0);
+            this.heA.getRootView().setVisibility(8);
         } else {
-            this.hcS.getRootView().setVisibility(8);
-            this.hcR.getRootView().setVisibility(0);
+            this.heB.getRootView().setVisibility(8);
+            this.heA.getRootView().setVisibility(0);
         }
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(12);
-        this.mRootView.addView(this.hcR.getRootView(), layoutParams);
-        this.mRootView.addView(this.hcS.getRootView(), layoutParams);
+        this.mRootView.addView(this.heA.getRootView(), layoutParams);
+        this.mRootView.addView(this.heB.getRootView(), layoutParams);
     }
 
     @Override // com.baidu.live.j.c
@@ -60,28 +60,28 @@ public class a implements c {
 
     @Override // com.baidu.live.j.c
     public void onConfigurationChanged(Configuration configuration) {
-        if (this.hcR != null && this.hcS != null) {
+        if (this.heA != null && this.heB != null) {
             if (configuration.orientation == 2) {
-                this.hcS.getRootView().setVisibility(0);
-                this.hcR.getRootView().setVisibility(8);
+                this.heB.getRootView().setVisibility(0);
+                this.heA.getRootView().setVisibility(8);
             } else {
-                this.hcS.getRootView().setVisibility(8);
-                this.hcR.getRootView().setVisibility(0);
+                this.heB.getRootView().setVisibility(8);
+                this.heA.getRootView().setVisibility(0);
             }
-            this.hcR.bkp();
-            this.hcS.bkp();
+            this.heA.bkr();
+            this.heB.bkr();
         }
     }
 
     @Override // com.baidu.live.j.c
     public void onDestroy() {
-        if (this.hcR != null) {
-            this.hcR.bWH();
-            this.hcR.onDestroy();
+        if (this.heA != null) {
+            this.heA.bWN();
+            this.heA.onDestroy();
         }
-        if (this.hcS != null) {
-            this.hcS.bWH();
-            this.hcS.onDestroy();
+        if (this.heB != null) {
+            this.heB.bWN();
+            this.heB.onDestroy();
         }
     }
 

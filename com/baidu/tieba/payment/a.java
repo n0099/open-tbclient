@@ -9,33 +9,33 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends com.baidu.adp.base.d<PayVcodeActivity> {
-    private PayVcodeActivity lHB;
-    private View lHC;
-    private ViewGroup lHD;
-    private TextView lHE;
-    private TextView lHF;
+    private PayVcodeActivity lJD;
+    private View lJE;
+    private ViewGroup lJF;
+    private TextView lJG;
+    private TextView lJH;
     private ProgressBar mProgress;
     private ViewGroup mRootView;
     private BaseWebView mWebView;
 
     public a(PayVcodeActivity payVcodeActivity) {
         super(payVcodeActivity.getPageContext());
-        this.lHB = payVcodeActivity;
+        this.lJD = payVcodeActivity;
         payVcodeActivity.setContentView(R.layout.pay_vcode_activity);
         p(payVcodeActivity);
     }
 
     private void p(PayVcodeActivity payVcodeActivity) {
-        this.mRootView = (ViewGroup) this.lHB.findViewById(R.id.payvcode_parent);
-        this.lHE = (TextView) this.lHB.findViewById(R.id.payment_performance);
-        ap.setBackgroundResource(this.lHE, R.drawable.s_navbar_button_bg);
-        ap.setViewTextColor(this.lHE, R.color.CAM_X0101, 1);
+        this.mRootView = (ViewGroup) this.lJD.findViewById(R.id.payvcode_parent);
+        this.lJG = (TextView) this.lJD.findViewById(R.id.payment_performance);
+        ap.setBackgroundResource(this.lJG, R.drawable.s_navbar_button_bg);
+        ap.setViewTextColor(this.lJG, R.color.CAM_X0101, 1);
         this.mWebView = (BaseWebView) payVcodeActivity.findViewById(R.id.vcode_webview);
-        this.lHF = (TextView) payVcodeActivity.findViewById(R.id.webview_fail_view);
-        this.lHC = payVcodeActivity.findViewById(R.id.payvcode_empty_layout);
-        this.lHD = (ViewGroup) payVcodeActivity.findViewById(R.id.payvcode_layout);
+        this.lJH = (TextView) payVcodeActivity.findViewById(R.id.webview_fail_view);
+        this.lJE = payVcodeActivity.findViewById(R.id.payvcode_empty_layout);
+        this.lJF = (ViewGroup) payVcodeActivity.findViewById(R.id.payvcode_layout);
         this.mProgress = (ProgressBar) payVcodeActivity.findViewById(R.id.payvcode_progress);
         this.mWebView.setHorizontalScrollBarEnabled(false);
         this.mWebView.setHorizontalScrollbarOverlay(false);
@@ -43,12 +43,12 @@ public class a extends com.baidu.adp.base.d<PayVcodeActivity> {
         this.mWebView.getSettings().setJavaScriptEnabled(true);
     }
 
-    public TextView dkB() {
-        return this.lHE;
+    public TextView dkK() {
+        return this.lJG;
     }
 
-    public TextView dkC() {
-        return this.lHF;
+    public TextView dkL() {
+        return this.lJH;
     }
 
     public BaseWebView getWebView() {
@@ -56,22 +56,22 @@ public class a extends com.baidu.adp.base.d<PayVcodeActivity> {
     }
 
     public void uz(boolean z) {
-        this.lHF.setVisibility(z ? 0 : 8);
+        this.lJH.setVisibility(z ? 0 : 8);
     }
 
     public void onChangeSkinType(int i) {
-        com.baidu.tbadk.r.a.a(this.lHB.getPageContext(), this.mRootView);
-        ap.setBgColor(this.lHF, i);
-        ap.setBackgroundResource(this.lHE, R.drawable.s_navbar_button_bg);
-        ap.setViewTextColor(this.lHE, R.color.CAM_X0101, 1);
+        com.baidu.tbadk.r.a.a(this.lJD.getPageContext(), this.mRootView);
+        ap.setBgColor(this.lJH, i);
+        ap.setBackgroundResource(this.lJG, R.drawable.s_navbar_button_bg);
+        ap.setViewTextColor(this.lJG, R.color.CAM_X0101, 1);
     }
 
-    public View dkD() {
-        return this.lHC;
+    public View dkM() {
+        return this.lJE;
     }
 
-    public ViewGroup dkE() {
-        return this.lHD;
+    public ViewGroup dkN() {
+        return this.lJF;
     }
 
     public void tL(boolean z) {

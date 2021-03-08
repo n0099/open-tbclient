@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public final class d {
     private static String sCacheDir = null;
     private static int INVALID_INDEX = -1;
@@ -304,7 +304,7 @@ public final class d {
         }
     }
 
-    public static boolean yO(String str) {
+    public static boolean yV(String str) {
         return !TextUtils.isEmpty(str) && safeDeleteFile(new File(str));
     }
 
@@ -374,7 +374,7 @@ public final class d {
                     try {
                         try {
                             ZipEntry nextElement = entries.nextElement();
-                            if (!TextUtils.isEmpty(nextElement.getName()) && !yQ(nextElement.getName())) {
+                            if (!TextUtils.isEmpty(nextElement.getName()) && !yX(nextElement.getName())) {
                                 File file = new File(str2 + "/" + nextElement.getName());
                                 if (!nextElement.isDirectory()) {
                                     if (!file.exists()) {
@@ -503,7 +503,7 @@ public final class d {
                     closeSafely(inputStream);
                     closeSafely(zipInputStream);
                     return true;
-                } else if (!TextUtils.isEmpty(nextEntry.getName()) && !yQ(nextEntry.getName())) {
+                } else if (!TextUtils.isEmpty(nextEntry.getName()) && !yX(nextEntry.getName())) {
                     File file2 = new File(str2 + File.separator + nextEntry.getName());
                     if (nextEntry.isDirectory()) {
                         if (!file2.exists()) {
@@ -553,8 +553,8 @@ public final class d {
 
     public static String toHexString(byte[] bArr, String str, boolean z) {
         StringBuilder sb = new StringBuilder();
-        for (byte b2 : bArr) {
-            String hexString = Integer.toHexString(b2 & 255);
+        for (byte b : bArr) {
+            String hexString = Integer.toHexString(b & 255);
             if (z) {
                 hexString = hexString.toUpperCase();
             }
@@ -588,7 +588,7 @@ public final class d {
         return str;
     }
 
-    public static String yP(String str) {
+    public static String yW(String str) {
         int lastIndexOf;
         String fileNameFromPath = getFileNameFromPath(str);
         if (TextUtils.isEmpty(fileNameFromPath) || (lastIndexOf = fileNameFromPath.lastIndexOf(".")) == INVALID_INDEX || lastIndexOf == fileNameFromPath.length() - 1) {
@@ -697,7 +697,7 @@ public final class d {
         }
     }
 
-    public static boolean yQ(String str) {
+    public static boolean yX(String str) {
         return str.contains(Constants.PATH_PARENT);
     }
 
@@ -798,7 +798,7 @@ public final class d {
         }
     }
 
-    public static long yR(String str) {
+    public static long yY(String str) {
         long j = -1;
         if (!TextUtils.isEmpty(str)) {
             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();

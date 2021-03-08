@@ -1,7 +1,7 @@
 package com.baidu.cloudbase.download.a;
 
 import com.baidu.cloudbase.download.exception.DownloadException;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class a {
     public void c(DownloadException downloadException) {
     }

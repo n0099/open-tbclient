@@ -4,11 +4,9 @@ import java.net.InetSocketAddress;
 import java.net.Proxy;
 /* loaded from: classes6.dex */
 public final class d {
-
-    /* renamed from: b  reason: collision with root package name */
-    final Proxy f5958b;
-    final a ppg;
-    final InetSocketAddress pry;
+    final Proxy b;
+    final a prn;
+    final InetSocketAddress ptE;
 
     public d(a aVar, Proxy proxy, InetSocketAddress inetSocketAddress) {
         if (aVar == null) {
@@ -20,36 +18,36 @@ public final class d {
         if (inetSocketAddress == null) {
             throw new NullPointerException("inetSocketAddress == null");
         }
-        this.ppg = aVar;
-        this.f5958b = proxy;
-        this.pry = inetSocketAddress;
+        this.prn = aVar;
+        this.b = proxy;
+        this.ptE = inetSocketAddress;
     }
 
-    public a epT() {
-        return this.ppg;
+    public a eqa() {
+        return this.prn;
     }
 
-    public Proxy epU() {
-        return this.f5958b;
+    public Proxy eqb() {
+        return this.b;
     }
 
-    public InetSocketAddress epV() {
-        return this.pry;
+    public InetSocketAddress eqc() {
+        return this.ptE;
     }
 
     public boolean d() {
-        return this.ppg.poA != null && this.f5958b.type() == Proxy.Type.HTTP;
+        return this.prn.pqH != null && this.b.type() == Proxy.Type.HTTP;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof d) && ((d) obj).ppg.equals(this.ppg) && ((d) obj).f5958b.equals(this.f5958b) && ((d) obj).pry.equals(this.pry);
+        return (obj instanceof d) && ((d) obj).prn.equals(this.prn) && ((d) obj).b.equals(this.b) && ((d) obj).ptE.equals(this.ptE);
     }
 
     public int hashCode() {
-        return ((((this.ppg.hashCode() + 527) * 31) + this.f5958b.hashCode()) * 31) + this.pry.hashCode();
+        return ((((this.prn.hashCode() + 527) * 31) + this.b.hashCode()) * 31) + this.ptE.hashCode();
     }
 
     public String toString() {
-        return "Route{" + this.pry + "}";
+        return "Route{" + this.ptE + "}";
     }
 }

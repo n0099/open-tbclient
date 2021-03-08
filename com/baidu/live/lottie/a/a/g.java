@@ -17,63 +17,63 @@ import com.baidu.live.lottie.a.b.a;
 import com.baidu.live.lottie.model.content.GradientType;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
-public class g implements d, j, a.InterfaceC0186a {
-    private final int DU;
-    private final com.baidu.live.lottie.a.b.a<PointF, PointF> bsA;
-    private final com.baidu.live.lottie.a.b.a<PointF, PointF> bsB;
-    private final com.baidu.live.lottie.model.layer.a bso;
-    private final com.baidu.live.lottie.a.b.a<Integer, Integer> bsq;
+/* loaded from: classes9.dex */
+public class g implements d, j, a.InterfaceC0192a {
+    private final int Fn;
+    private final com.baidu.live.lottie.model.layer.a btP;
+    private final com.baidu.live.lottie.a.b.a<Integer, Integer> btR;
     @Nullable
-    private com.baidu.live.lottie.a.b.a<ColorFilter, ColorFilter> bss;
-    private final com.baidu.live.lottie.a.b.a<com.baidu.live.lottie.model.content.c, com.baidu.live.lottie.model.content.c> bsy;
-    private final GradientType bsz;
+    private com.baidu.live.lottie.a.b.a<ColorFilter, ColorFilter> btT;
+    private final com.baidu.live.lottie.a.b.a<com.baidu.live.lottie.model.content.c, com.baidu.live.lottie.model.content.c> btZ;
+    private final GradientType bua;
+    private final com.baidu.live.lottie.a.b.a<PointF, PointF> bub;
+    private final com.baidu.live.lottie.a.b.a<PointF, PointF> buc;
     private final com.baidu.live.lottie.h lottieDrawable;
     @NonNull
     private final String name;
-    private final LongSparseArray<LinearGradient> DM = new LongSparseArray<>();
-    private final LongSparseArray<RadialGradient> DN = new LongSparseArray<>();
-    private final Matrix DO = new Matrix();
+    private final LongSparseArray<LinearGradient> Fg = new LongSparseArray<>();
+    private final LongSparseArray<RadialGradient> Fh = new LongSparseArray<>();
+    private final Matrix Fi = new Matrix();
     private final Path path = new Path();
     private final Paint paint = new Paint(1);
-    private final RectF DQ = new RectF();
-    private final List<l> DA = new ArrayList();
+    private final RectF Fj = new RectF();
+    private final List<l> EX = new ArrayList();
 
     public g(com.baidu.live.lottie.h hVar, com.baidu.live.lottie.model.layer.a aVar, com.baidu.live.lottie.model.content.d dVar) {
-        this.bso = aVar;
+        this.btP = aVar;
         this.name = dVar.getName();
         this.lottieDrawable = hVar;
-        this.bsz = dVar.ND();
+        this.bua = dVar.NG();
         this.path.setFillType(dVar.jo());
-        this.DU = (int) (hVar.getComposition().hR() / 32.0f);
-        this.bsy = dVar.NE().Ns();
-        this.bsy.b(this);
-        aVar.a(this.bsy);
-        this.bsq = dVar.Ny().Ns();
-        this.bsq.b(this);
-        aVar.a(this.bsq);
-        this.bsA = dVar.NF().Ns();
-        this.bsA.b(this);
-        aVar.a(this.bsA);
-        this.bsB = dVar.NG().Ns();
-        this.bsB.b(this);
-        aVar.a(this.bsB);
+        this.Fn = (int) (hVar.getComposition().hR() / 32.0f);
+        this.btZ = dVar.NH().Nv();
+        this.btZ.b(this);
+        aVar.a(this.btZ);
+        this.btR = dVar.NB().Nv();
+        this.btR.b(this);
+        aVar.a(this.btR);
+        this.bub = dVar.NI().Nv();
+        this.bub.b(this);
+        aVar.a(this.bub);
+        this.buc = dVar.NJ().Nv();
+        this.buc.b(this);
+        aVar.a(this.buc);
     }
 
-    @Override // com.baidu.live.lottie.a.b.a.InterfaceC0186a
+    @Override // com.baidu.live.lottie.a.b.a.InterfaceC0192a
     public void ir() {
         this.lottieDrawable.invalidateSelf();
     }
 
     @Override // com.baidu.live.lottie.a.a.b
-    public void c(List<b> list, List<b> list2) {
+    public void b(List<b> list, List<b> list2) {
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < list2.size()) {
                 b bVar = list2.get(i2);
                 if (bVar instanceof l) {
-                    this.DA.add((l) bVar);
+                    this.EX.add((l) bVar);
                 }
                 i = i2 + 1;
             } else {
@@ -87,31 +87,31 @@ public class g implements d, j, a.InterfaceC0186a {
         Shader iw;
         com.baidu.live.lottie.d.beginSection("GradientFillContent#draw");
         this.path.reset();
-        for (int i2 = 0; i2 < this.DA.size(); i2++) {
-            this.path.addPath(this.DA.get(i2).iu(), matrix);
+        for (int i2 = 0; i2 < this.EX.size(); i2++) {
+            this.path.addPath(this.EX.get(i2).iu(), matrix);
         }
-        this.path.computeBounds(this.DQ, false);
-        if (this.bsz == GradientType.Linear) {
+        this.path.computeBounds(this.Fj, false);
+        if (this.bua == GradientType.Linear) {
             iw = iv();
         } else {
             iw = iw();
         }
-        this.DO.set(matrix);
-        iw.setLocalMatrix(this.DO);
+        this.Fi.set(matrix);
+        iw.setLocalMatrix(this.Fi);
         this.paint.setShader(iw);
-        if (this.bss != null) {
-            this.paint.setColorFilter(this.bss.getValue());
+        if (this.btT != null) {
+            this.paint.setColorFilter(this.btT.getValue());
         }
-        this.paint.setAlpha(com.baidu.live.lottie.d.e.clamp((int) (((this.bsq.getValue().intValue() * (i / 255.0f)) / 100.0f) * 255.0f), 0, 255));
+        this.paint.setAlpha(com.baidu.live.lottie.d.e.clamp((int) (((this.btR.getValue().intValue() * (i / 255.0f)) / 100.0f) * 255.0f), 0, 255));
         canvas.drawPath(this.path, this.paint);
-        com.baidu.live.lottie.d.bb("GradientFillContent#draw");
+        com.baidu.live.lottie.d.bf("GradientFillContent#draw");
     }
 
     @Override // com.baidu.live.lottie.a.a.d
     public void d(RectF rectF, Matrix matrix) {
         this.path.reset();
-        for (int i = 0; i < this.DA.size(); i++) {
-            this.path.addPath(this.DA.get(i).iu(), matrix);
+        for (int i = 0; i < this.EX.size(); i++) {
+            this.path.addPath(this.EX.get(i).iu(), matrix);
         }
         this.path.computeBounds(rectF, false);
         rectF.set(rectF.left - 1.0f, rectF.top - 1.0f, rectF.right + 1.0f, rectF.bottom + 1.0f);
@@ -124,13 +124,13 @@ public class g implements d, j, a.InterfaceC0186a {
 
     private LinearGradient iv() {
         int ix = ix();
-        LinearGradient linearGradient = this.DM.get(ix);
+        LinearGradient linearGradient = this.Fg.get(ix);
         if (linearGradient == null) {
-            PointF value = this.bsA.getValue();
-            PointF value2 = this.bsB.getValue();
-            com.baidu.live.lottie.model.content.c value3 = this.bsy.getValue();
+            PointF value = this.bub.getValue();
+            PointF value2 = this.buc.getValue();
+            com.baidu.live.lottie.model.content.c value3 = this.btZ.getValue();
             LinearGradient linearGradient2 = new LinearGradient(value.x, value.y, value2.x, value2.y, value3.getColors(), value3.jm(), Shader.TileMode.CLAMP);
-            this.DM.put(ix, linearGradient2);
+            this.Fg.put(ix, linearGradient2);
             return linearGradient2;
         }
         return linearGradient;
@@ -138,26 +138,26 @@ public class g implements d, j, a.InterfaceC0186a {
 
     private RadialGradient iw() {
         int ix = ix();
-        RadialGradient radialGradient = this.DN.get(ix);
+        RadialGradient radialGradient = this.Fh.get(ix);
         if (radialGradient == null) {
-            PointF value = this.bsA.getValue();
-            PointF value2 = this.bsB.getValue();
-            com.baidu.live.lottie.model.content.c value3 = this.bsy.getValue();
+            PointF value = this.bub.getValue();
+            PointF value2 = this.buc.getValue();
+            com.baidu.live.lottie.model.content.c value3 = this.btZ.getValue();
             int[] colors = value3.getColors();
             float[] jm = value3.jm();
             float f = value.x;
             float f2 = value.y;
             RadialGradient radialGradient2 = new RadialGradient(f, f2, (float) Math.hypot(value2.x - f, value2.y - f2), colors, jm, Shader.TileMode.CLAMP);
-            this.DN.put(ix, radialGradient2);
+            this.Fh.put(ix, radialGradient2);
             return radialGradient2;
         }
         return radialGradient;
     }
 
     private int ix() {
-        int round = Math.round(this.bsA.getProgress() * this.DU);
-        int round2 = Math.round(this.bsB.getProgress() * this.DU);
-        int round3 = Math.round(this.bsy.getProgress() * this.DU);
+        int round = Math.round(this.bub.getProgress() * this.Fn);
+        int round2 = Math.round(this.buc.getProgress() * this.Fn);
+        int round3 = Math.round(this.btZ.getProgress() * this.Fn);
         int i = 17;
         if (round != 0) {
             i = round * 527;
@@ -178,14 +178,14 @@ public class g implements d, j, a.InterfaceC0186a {
 
     @Override // com.baidu.live.lottie.model.f
     public <T> void a(T t, @Nullable com.baidu.live.lottie.e.c<T> cVar) {
-        if (t == com.baidu.live.lottie.l.Db) {
+        if (t == com.baidu.live.lottie.l.Ex) {
             if (cVar == null) {
-                this.bss = null;
+                this.btT = null;
                 return;
             }
-            this.bss = new com.baidu.live.lottie.a.b.p(cVar);
-            this.bss.b(this);
-            this.bso.a(this.bss);
+            this.btT = new com.baidu.live.lottie.a.b.p(cVar);
+            this.btT.b(this);
+            this.btP.a(this.btT);
         }
     }
 }

@@ -2,8 +2,8 @@ package com.baidu.live.challenge;
 
 import android.view.ViewGroup;
 import com.baidu.live.challenge.i;
-/* loaded from: classes11.dex */
-public interface j extends i.a, i.c, i.e, i.g, i.h, i.InterfaceC0166i, i.j, i.k, i.l, i.m {
+/* loaded from: classes10.dex */
+public interface j extends i.a, i.c, i.e, i.g, i.h, i.InterfaceC0172i, i.j, i.k, i.l, i.m {
     void a(i iVar);
 
     void a(k kVar);
@@ -12,7 +12,7 @@ public interface j extends i.a, i.c, i.e, i.g, i.h, i.InterfaceC0166i, i.j, i.k,
 
     void br(boolean z);
 
-    void cy(int i);
+    void cz(int i);
 
     boolean isActive();
 

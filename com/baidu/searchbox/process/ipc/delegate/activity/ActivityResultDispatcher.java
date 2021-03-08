@@ -6,7 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ActivityResultDispatcher {
     private final Set<ActivityResultConsumer> mConsumers = new HashSet();
     public final Activity mHolder;

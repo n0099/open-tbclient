@@ -11,25 +11,23 @@ import java.util.zip.GZIPInputStream;
 public class f implements com.baidu.fsg.base.restnet.rest.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private InputStream f1898a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f1899b;
+    private InputStream f1508a;
+    private int b;
     private String c;
     private Map<String, List<String>> d;
     private com.baidu.fsg.base.restnet.http.a e;
     private InputStream f;
 
     public f(InputStream inputStream, int i, String str, Map<String, List<String>> map) {
-        this.f1898a = inputStream;
-        this.f1899b = i;
+        this.f1508a = inputStream;
+        this.b = i;
         this.c = str;
         this.d = map;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.e
     public int a() throws IOException {
-        return this.f1899b;
+        return this.b;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.e
@@ -39,7 +37,7 @@ public class f implements com.baidu.fsg.base.restnet.rest.e {
 
     @Override // com.baidu.fsg.base.restnet.rest.e
     public InputStream c() throws IOException {
-        return g() ? a(this.f1898a) : this.f1898a;
+        return g() ? a(this.f1508a) : this.f1508a;
     }
 
     private boolean g() {
@@ -76,9 +74,9 @@ public class f implements com.baidu.fsg.base.restnet.rest.e {
                 e.printStackTrace();
             }
         }
-        if (this.f1898a != null) {
+        if (this.f1508a != null) {
             try {
-                this.f1898a.close();
+                this.f1508a.close();
             } catch (IOException e2) {
                 e2.printStackTrace();
             }

@@ -26,7 +26,7 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class UfoSDK {
     public static boolean localFirstCall;
     private static Context mApplication;
@@ -293,7 +293,7 @@ public class UfoSDK {
             hashMap.put("devid", devid);
             hashMap.put("uid", b.d);
             hashMap.put(DpStatConstants.KEY_USER_ID, b.d);
-            hashMap.put("username", b.f5358b);
+            hashMap.put("username", b.b);
             hashMap.put("output_style", 1);
             hashMap.put("interval", String.valueOf(b.ai));
             String a2 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=newmsgnotice", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
@@ -383,7 +383,7 @@ public class UfoSDK {
             hashMap.put("devid", devid);
             hashMap.put("uid", b.d);
             hashMap.put(DpStatConstants.KEY_USER_ID, b.d);
-            hashMap.put("username", b.f5358b);
+            hashMap.put("username", b.b);
             hashMap.put("interval", String.valueOf(b.ai));
             String a2 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=getmsglistcount", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
             if (!TextUtils.isEmpty(a2)) {
@@ -432,7 +432,7 @@ public class UfoSDK {
             hashMap.put("devid", devid);
             hashMap.put("uid", b.d);
             hashMap.put(DpStatConstants.KEY_USER_ID, b.d);
-            hashMap.put("username", b.f5358b);
+            hashMap.put("username", b.b);
             hashMap.put("output_style", 1);
             hashMap.put("interval", String.valueOf(b.ai));
             String a2 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=newmsgnotice", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
@@ -521,11 +521,11 @@ public class UfoSDK {
             localFirstCall = sharedPreferences.getBoolean("UfoLocalFirstCall", true);
             String string = sharedPreferences.getString("lastStart", "");
             startStr = string;
-            String b2 = i.b(System.currentTimeMillis());
-            com.baidu.ufosdk.f.c.c("--UfoSDK:206 -- today : " + b2 + "; lastStart : " + startStr);
-            if (string.contains(b2)) {
-                com.baidu.ufosdk.f.c.c("--UfoSDK:212 -- today : " + b2 + "; lastStart : " + startStr);
-                if (string.equals(b2 + "-enable")) {
+            String b = i.b(System.currentTimeMillis());
+            com.baidu.ufosdk.f.c.c("--UfoSDK:206 -- today : " + b + "; lastStart : " + startStr);
+            if (string.contains(b)) {
+                com.baidu.ufosdk.f.c.c("--UfoSDK:212 -- today : " + b + "; lastStart : " + startStr);
+                if (string.equals(b + "-enable")) {
                     int i = sharedPreferences.getInt("editFeedbackViewUV", 0);
                     int i2 = sharedPreferences.getInt("editFeedbackViewFromRobotUV", 0);
                     int i3 = sharedPreferences.getInt("editFeedbackViewFromFaqUV", 0);
@@ -548,8 +548,8 @@ public class UfoSDK {
                 com.baidu.ufosdk.f.c.a("--UfoSDK:182 -- edit.commit()");
                 if (i5 == 0 && i6 == 0 && i7 == 0 && i8 == 0) {
                     com.baidu.ufosdk.f.c.a("--UfoSDK:203 -- all zero!!");
-                    startStr = b2 + "-enable";
-                    edit.putString("lastStart", b2 + "-enable");
+                    startStr = b + "-enable";
+                    edit.putString("lastStart", b + "-enable");
                     edit.commit();
                 } else {
                     com.baidu.ufosdk.f.c.a("--UfoSDK:189 -- not all zero!!");
@@ -567,7 +567,7 @@ public class UfoSDK {
     }
 
     public static void openLogcatSwitch() {
-        b.f5357a = true;
+        b.f3606a = true;
     }
 
     public static void openRobotAnswer() {
@@ -798,7 +798,7 @@ public class UfoSDK {
     }
 
     public static void setUserName(String str) {
-        b.f5358b = str;
+        b.b = str;
     }
 
     public static void setUserStatus(int i) {

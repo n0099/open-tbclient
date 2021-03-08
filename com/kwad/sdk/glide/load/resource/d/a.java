@@ -18,26 +18,24 @@ import java.util.Queue;
 public class a implements com.kwad.sdk.glide.load.f<ByteBuffer, c> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final C1135a f10307a = new C1135a();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final b f10308b = new b();
+    private static final C1152a f6804a = new C1152a();
+    private static final b b = new b();
     private final Context c;
     private final List<ImageHeaderParser> d;
     private final b e;
-    private final C1135a f;
+    private final C1152a f;
     private final com.kwad.sdk.glide.load.resource.d.b g;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
     /* renamed from: com.kwad.sdk.glide.load.resource.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1135a {
-        C1135a() {
+    public static class C1152a {
+        C1152a() {
         }
 
-        com.kwad.sdk.glide.b.a a(a.InterfaceC1122a interfaceC1122a, com.kwad.sdk.glide.b.c cVar, ByteBuffer byteBuffer, int i) {
-            return new com.kwad.sdk.glide.b.e(interfaceC1122a, cVar, byteBuffer, i);
+        com.kwad.sdk.glide.b.a a(a.InterfaceC1139a interfaceC1139a, com.kwad.sdk.glide.b.c cVar, ByteBuffer byteBuffer, int i) {
+            return new com.kwad.sdk.glide.b.e(interfaceC1139a, cVar, byteBuffer, i);
         }
     }
 
@@ -47,14 +45,14 @@ public class a implements com.kwad.sdk.glide.load.f<ByteBuffer, c> {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Queue<com.kwad.sdk.glide.b.d> f10309a = k.a(0);
+        private final Queue<com.kwad.sdk.glide.b.d> f6805a = k.a(0);
 
         b() {
         }
 
         synchronized com.kwad.sdk.glide.b.d a(ByteBuffer byteBuffer) {
             com.kwad.sdk.glide.b.d poll;
-            poll = this.f10309a.poll();
+            poll = this.f6805a.poll();
             if (poll == null) {
                 poll = new com.kwad.sdk.glide.b.d();
             }
@@ -63,19 +61,19 @@ public class a implements com.kwad.sdk.glide.load.f<ByteBuffer, c> {
 
         synchronized void a(com.kwad.sdk.glide.b.d dVar) {
             dVar.a();
-            this.f10309a.offer(dVar);
+            this.f6805a.offer(dVar);
         }
     }
 
     public a(Context context, List<ImageHeaderParser> list, com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar) {
-        this(context, list, eVar, bVar, f10308b, f10307a);
+        this(context, list, eVar, bVar, b, f6804a);
     }
 
     @VisibleForTesting
-    a(Context context, List<ImageHeaderParser> list, com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar, b bVar2, C1135a c1135a) {
+    a(Context context, List<ImageHeaderParser> list, com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar, b bVar2, C1152a c1152a) {
         this.c = context.getApplicationContext();
         this.d = list;
-        this.f = c1135a;
+        this.f = c1152a;
         this.g = new com.kwad.sdk.glide.load.resource.d.b(eVar, bVar);
         this.e = bVar2;
     }
@@ -97,7 +95,7 @@ public class a implements com.kwad.sdk.glide.load.f<ByteBuffer, c> {
             com.kwad.sdk.glide.b.c b2 = dVar.b();
             if (b2.c() <= 0 || b2.d() != 0) {
             }
-            Bitmap.Config config = eVar.a(i.f10322a) == DecodeFormat.PREFER_RGB_565 ? Bitmap.Config.RGB_565 : Bitmap.Config.ARGB_8888;
+            Bitmap.Config config = eVar.a(i.f6813a) == DecodeFormat.PREFER_RGB_565 ? Bitmap.Config.RGB_565 : Bitmap.Config.ARGB_8888;
             com.kwad.sdk.glide.b.a a3 = this.f.a(this.g, b2, byteBuffer, a(b2, i, i2));
             a3.a(config);
             a3.b();
@@ -135,6 +133,6 @@ public class a implements com.kwad.sdk.glide.load.f<ByteBuffer, c> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.f
     public boolean a(@NonNull ByteBuffer byteBuffer, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        return !((Boolean) eVar.a(i.f10323b)).booleanValue() && com.kwad.sdk.glide.load.b.a(this.d, byteBuffer) == ImageHeaderParser.ImageType.GIF;
+        return !((Boolean) eVar.a(i.b)).booleanValue() && com.kwad.sdk.glide.load.b.a(this.d, byteBuffer) == ImageHeaderParser.ImageType.GIF;
     }
 }

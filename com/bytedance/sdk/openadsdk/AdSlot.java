@@ -13,34 +13,46 @@ public class AdSlot {
     public static final int TYPE_INTERACTION_AD = 2;
     public static final int TYPE_REWARD_VIDEO = 7;
     public static final int TYPE_SPLASH = 3;
+    public static final int TYPE_STREAM = 6;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6067a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f6068b;
+    private String f4061a;
+    private int b;
     private int c;
     private float d;
     private float e;
     private int f;
     private boolean g;
-    private String h;
-    private int i;
-    private String j;
+    private boolean h;
+    private String i;
+    private int j;
     private String k;
-    private int l;
+    private String l;
     private int m;
-    private boolean n;
-    private int[] o;
-    private int p;
+    private int n;
+    private boolean o;
+    private int[] p;
     private String q;
+    private int r;
+    private String s;
+    private String t;
+    private String u;
 
     private AdSlot() {
-        this.n = true;
+        this.m = 2;
+        this.o = true;
+    }
+
+    public String getAdId() {
+        return this.t;
+    }
+
+    public String getCreativeId() {
+        return this.u;
     }
 
     public String getCodeId() {
-        return this.f6067a;
+        return this.f4061a;
     }
 
     public static int getPosition(int i) {
@@ -63,11 +75,11 @@ public class AdSlot {
     }
 
     public boolean isAutoPlay() {
-        return this.n;
+        return this.o;
     }
 
     public int getImgAcceptedWidth() {
-        return this.f6068b;
+        return this.b;
     }
 
     public int getImgAcceptedHeight() {
@@ -86,6 +98,10 @@ public class AdSlot {
         return this.g;
     }
 
+    public boolean isSupportRenderConrol() {
+        return this.h;
+    }
+
     public int getAdCount() {
         return this.f;
     }
@@ -95,72 +111,80 @@ public class AdSlot {
     }
 
     public String getRewardName() {
-        return this.h;
-    }
-
-    public int getRewardAmount() {
         return this.i;
     }
 
-    public String getMediaExtra() {
+    public int getRewardAmount() {
         return this.j;
     }
 
-    public String getUserID() {
+    public String getMediaExtra() {
         return this.k;
     }
 
-    public int getOrientation() {
+    public String getUserID() {
         return this.l;
     }
 
-    public int getNativeAdType() {
+    public int getOrientation() {
         return this.m;
     }
 
+    public int getNativeAdType() {
+        return this.n;
+    }
+
     public void setNativeAdType(int i) {
-        this.m = i;
+        this.n = i;
     }
 
     public int[] getExternalABVid() {
-        return this.o;
-    }
-
-    public void setExternalABVid(int... iArr) {
-        this.o = iArr;
-    }
-
-    public int getAdloadSeq() {
         return this.p;
     }
 
+    public void setExternalABVid(int... iArr) {
+        this.p = iArr;
+    }
+
+    public int getAdloadSeq() {
+        return this.r;
+    }
+
     public String getPrimeRit() {
-        return this.q == null ? "" : this.q;
+        return this.s == null ? "" : this.s;
+    }
+
+    public String getExtraSmartLookParam() {
+        return this.q;
     }
 
     public String toString() {
-        return "AdSlot{mCodeId='" + this.f6067a + "', mImgAcceptedWidth=" + this.f6068b + ", mImgAcceptedHeight=" + this.c + ", mExpressViewAcceptedWidth=" + this.d + ", mExpressViewAcceptedHeight=" + this.e + ", mAdCount=" + this.f + ", mSupportDeepLink=" + this.g + ", mRewardName='" + this.h + "', mRewardAmount=" + this.i + ", mMediaExtra='" + this.j + "', mUserID='" + this.k + "', mOrientation=" + this.l + ", mNativeAdType=" + this.m + ", mIsAutoPlay=" + this.n + ", mPrimeRit" + this.q + ", mAdloadSeq" + this.p + '}';
+        return "AdSlot{mCodeId='" + this.f4061a + "', mImgAcceptedWidth=" + this.b + ", mImgAcceptedHeight=" + this.c + ", mExpressViewAcceptedWidth=" + this.d + ", mExpressViewAcceptedHeight=" + this.e + ", mAdCount=" + this.f + ", mSupportDeepLink=" + this.g + ", mSupportRenderControl=" + this.h + ", mRewardName='" + this.i + "', mRewardAmount=" + this.j + ", mMediaExtra='" + this.k + "', mUserID='" + this.l + "', mOrientation=" + this.m + ", mNativeAdType=" + this.n + ", mIsAutoPlay=" + this.o + ", mPrimeRit" + this.s + ", mAdloadSeq" + this.r + ", mAdId" + this.t + ", mCreativeId" + this.u + '}';
     }
 
     public JSONObject toJsonObj() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("mCodeId", this.f6067a);
-            jSONObject.put("mIsAutoPlay", this.n);
-            jSONObject.put("mImgAcceptedWidth", this.f6068b);
+            jSONObject.put("mCodeId", this.f4061a);
+            jSONObject.put("mIsAutoPlay", this.o);
+            jSONObject.put("mImgAcceptedWidth", this.b);
             jSONObject.put("mImgAcceptedHeight", this.c);
             jSONObject.put("mExpressViewAcceptedWidth", this.d);
             jSONObject.put("mExpressViewAcceptedHeight", this.e);
             jSONObject.put("mAdCount", this.f);
             jSONObject.put("mSupportDeepLink", this.g);
-            jSONObject.put("mRewardName", this.h);
-            jSONObject.put("mRewardAmount", this.i);
-            jSONObject.put("mMediaExtra", this.j);
-            jSONObject.put("mUserID", this.k);
-            jSONObject.put("mOrientation", this.l);
-            jSONObject.put("mNativeAdType", this.m);
-            jSONObject.put("mAdloadSeq", this.p);
-            jSONObject.put("mPrimeRit", this.q);
+            jSONObject.put("mSupportRenderControl", this.h);
+            jSONObject.put("mRewardName", this.i);
+            jSONObject.put("mRewardAmount", this.j);
+            jSONObject.put("mMediaExtra", this.k);
+            jSONObject.put("mUserID", this.l);
+            jSONObject.put("mOrientation", this.m);
+            jSONObject.put("mNativeAdType", this.n);
+            jSONObject.put("mAdloadSeq", this.r);
+            jSONObject.put("mPrimeRit", this.s);
+            jSONObject.put("mExtraSmartLookParam", this.q);
+            jSONObject.put("mAdId", this.t);
+            jSONObject.put("mCreativeId", this.u);
         } catch (Exception e) {
         }
         return jSONObject;
@@ -170,50 +194,71 @@ public class AdSlot {
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f6069a;
-        private boolean d;
-        private String f;
-        private int g;
-        private String h;
+        private String f4062a;
         private String i;
-        private int j;
-        private int k;
-        private float l;
-        private float m;
-        private int[] o;
-        private int p;
-        private String q;
-
-        /* renamed from: b  reason: collision with root package name */
-        private int f6070b = 640;
+        private int l;
+        private String m;
+        private float n;
+        private float o;
+        private int[] q;
+        private int r;
+        private String s;
+        private String t;
+        private String u;
+        private int b = 640;
         private int c = VideoConstant.THUMBNAIL_WIDTH;
-        private int e = 1;
-        private boolean n = true;
+        private boolean d = true;
+        private boolean e = false;
+        private int f = 1;
+        private String g = "";
+        private int h = 0;
+        private String j = "defaultUser";
+        private int k = 2;
+        private boolean p = true;
+
+        public Builder setExtraParam(String str) {
+            this.m = str;
+            return this;
+        }
+
+        public Builder setAdId(String str) {
+            this.t = str;
+            return this;
+        }
+
+        public Builder setCreativeId(String str) {
+            this.u = str;
+            return this;
+        }
 
         public Builder setIsAutoPlay(boolean z) {
-            this.n = z;
+            this.p = z;
             return this;
         }
 
         public Builder setCodeId(String str) {
-            this.f6069a = str;
+            this.f4062a = str;
             return this;
         }
 
         public Builder setImageAcceptedSize(int i, int i2) {
-            this.f6070b = i;
+            this.b = i;
             this.c = i2;
             return this;
         }
 
         public Builder setExpressViewAcceptedSize(float f, float f2) {
-            this.l = f;
-            this.m = f2;
+            this.n = f;
+            this.o = f2;
             return this;
         }
 
         public Builder setSupportDeepLink(boolean z) {
-            this.d = z;
+            return this;
+        }
+
+        public Builder supportRenderControl() {
+            this.e = true;
             return this;
         }
 
@@ -231,74 +276,81 @@ public class AdSlot {
             } else {
                 i3 = i2;
             }
-            this.e = i3;
+            this.f = i3;
             return this;
         }
 
         public Builder setRewardName(String str) {
-            this.f = str;
             return this;
         }
 
         public Builder setRewardAmount(int i) {
-            this.g = i;
             return this;
         }
 
         public Builder setMediaExtra(String str) {
-            this.h = str;
-            return this;
-        }
-
-        public Builder setUserID(String str) {
             this.i = str;
             return this;
         }
 
-        public Builder setOrientation(int i) {
-            this.j = i;
+        public Builder setUserID(String str) {
+            this.j = str;
             return this;
         }
 
-        public Builder setNativeAdType(int i) {
+        public Builder setOrientation(int i) {
             this.k = i;
             return this;
         }
 
+        public Builder setNativeAdType(int i) {
+            this.l = i;
+            return this;
+        }
+
         public Builder setAdloadSeq(int i) {
-            this.p = i;
+            this.r = i;
             return this;
         }
 
         public Builder setPrimeRit(String str) {
-            this.q = str;
+            this.s = str;
             return this;
         }
 
         public Builder setExternalABVid(int... iArr) {
-            this.o = iArr;
+            this.q = iArr;
             return this;
         }
 
         public AdSlot build() {
             AdSlot adSlot = new AdSlot();
-            adSlot.f6067a = this.f6069a;
-            adSlot.f = this.e;
+            adSlot.f4061a = this.f4062a;
+            adSlot.f = this.f;
             adSlot.g = this.d;
-            adSlot.f6068b = this.f6070b;
+            adSlot.h = this.e;
+            adSlot.b = this.b;
             adSlot.c = this.c;
-            adSlot.d = this.l;
-            adSlot.e = this.m;
-            adSlot.h = this.f;
+            if (this.n <= 0.0f) {
+                adSlot.d = this.b;
+                adSlot.e = this.c;
+            } else {
+                adSlot.d = this.n;
+                adSlot.e = this.o;
+            }
             adSlot.i = this.g;
             adSlot.j = this.h;
             adSlot.k = this.i;
             adSlot.l = this.j;
             adSlot.m = this.k;
-            adSlot.n = this.n;
-            adSlot.o = this.o;
-            adSlot.p = this.p;
-            adSlot.q = this.q;
+            adSlot.n = this.l;
+            adSlot.o = this.p;
+            adSlot.p = this.q;
+            adSlot.r = this.r;
+            adSlot.s = this.s;
+            adSlot.q = this.m;
+            adSlot.t = this.t;
+            adSlot.u = this.u;
             return adSlot;
         }
     }

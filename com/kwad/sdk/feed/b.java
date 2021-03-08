@@ -20,10 +20,8 @@ import com.kwad.sdk.utils.ao;
 public class b extends AbstractKsFeedAd {
 
     /* renamed from: a  reason: collision with root package name */
-    private KsFeedAd.AdInteractionListener f9846a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private com.kwad.sdk.feed.widget.base.a f9847b;
+    private KsFeedAd.AdInteractionListener f6513a;
+    private com.kwad.sdk.feed.widget.base.a b;
     private com.kwad.sdk.feed.widget.base.a c;
     private boolean d;
     private int e;
@@ -36,28 +34,26 @@ public class b extends AbstractKsFeedAd {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        int f9852a;
-
-        /* renamed from: b  reason: collision with root package name */
-        int f9853b;
+        int f6516a;
+        int b;
 
         public a(int i) {
-            this.f9852a = i;
+            this.f6516a = i;
         }
 
         public int a() {
-            return this.f9853b;
+            return this.b;
         }
 
         public boolean b() {
-            this.f9853b++;
-            return this.f9853b == this.f9852a;
+            this.b++;
+            return this.b == this.f6516a;
         }
     }
 
     /* renamed from: com.kwad.sdk.feed.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1119b {
+    public interface InterfaceC1136b {
         void a();
     }
 
@@ -89,25 +85,25 @@ public class b extends AbstractKsFeedAd {
         if (aVar == null) {
             return;
         }
-        aVar.setAdClickListener(new a.InterfaceC1120a() { // from class: com.kwad.sdk.feed.b.2
-            @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC1120a
+        aVar.setAdClickListener(new a.InterfaceC1137a() { // from class: com.kwad.sdk.feed.b.2
+            @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC1137a
             public void a() {
-                if (b.this.f9846a != null) {
-                    b.this.f9846a.onAdClicked();
+                if (b.this.f6513a != null) {
+                    b.this.f6513a.onAdClicked();
                 }
             }
 
-            @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC1120a
+            @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC1137a
             public void b() {
-                if (b.this.f9846a != null) {
-                    b.this.f9846a.onAdShow();
+                if (b.this.f6513a != null) {
+                    b.this.f6513a.onAdShow();
                 }
             }
 
-            @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC1120a
+            @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC1137a
             public void c() {
-                if (b.this.f9846a != null) {
-                    b.this.f9846a.onDislikeClicked();
+                if (b.this.f6513a != null) {
+                    b.this.f6513a.onDislikeClicked();
                     try {
                         if (aVar.getParent() instanceof ViewGroup) {
                             ((ViewGroup) aVar.getParent()).removeView(aVar);
@@ -124,10 +120,10 @@ public class b extends AbstractKsFeedAd {
         return !TextUtils.isEmpty(this.g.adStyleInfo.feedAdInfo.templateConfig);
     }
 
-    public com.kwad.sdk.feed.widget.base.a a(final InterfaceC1119b interfaceC1119b) {
+    public com.kwad.sdk.feed.widget.base.a a(final InterfaceC1136b interfaceC1136b) {
         Context context = KsAdSDK.getContext();
         if (context == null) {
-            interfaceC1119b.a();
+            interfaceC1136b.a();
         }
         this.c = a(context);
         this.c.setMargin(ao.a(context, 16.0f));
@@ -141,8 +137,8 @@ public class b extends AbstractKsFeedAd {
                     @Override // com.kwad.sdk.feed.widget.l.a
                     public void a() {
                         b.this.a(b.this.c);
-                        if (interfaceC1119b != null) {
-                            interfaceC1119b.a();
+                        if (interfaceC1136b != null) {
+                            interfaceC1136b.a();
                         }
                     }
                 });
@@ -152,12 +148,12 @@ public class b extends AbstractKsFeedAd {
                     ((com.kwad.sdk.feed.widget.a) this.c).a(this.h);
                 }
                 a(this.c);
-                if (interfaceC1119b != null) {
-                    interfaceC1119b.a();
+                if (interfaceC1136b != null) {
+                    interfaceC1136b.a();
                 }
             }
-        } else if (interfaceC1119b != null) {
-            interfaceC1119b.a();
+        } else if (interfaceC1136b != null) {
+            interfaceC1136b.a();
         }
         return this.c;
     }
@@ -169,28 +165,28 @@ public class b extends AbstractKsFeedAd {
 
     @Override // com.kwad.sdk.api.core.AbstractKsFeedAd
     public View getFeedView2(Context context) {
-        if (this.f9847b == null) {
+        if (this.b == null) {
             if (this.c != null) {
-                this.f9847b = this.c;
-                return this.f9847b;
+                this.b = this.c;
+                return this.b;
             }
-            this.f9847b = a(context);
-        } else if (this.f9847b.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.f9847b.getParent()).removeView(this.f9847b);
+            this.b = a(context);
+        } else if (this.b.getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.b.getParent()).removeView(this.b);
         }
-        if (this.f9847b != null) {
-            this.f9847b.a(this.f);
-            if (this.f9847b instanceof com.kwad.sdk.feed.widget.a) {
-                ((com.kwad.sdk.feed.widget.a) this.f9847b).a(this.h);
+        if (this.b != null) {
+            this.b.a(this.f);
+            if (this.b instanceof com.kwad.sdk.feed.widget.a) {
+                ((com.kwad.sdk.feed.widget.a) this.b).a(this.h);
             }
-            a(this.f9847b);
+            a(this.b);
         }
-        return this.f9847b;
+        return this.b;
     }
 
     @Override // com.kwad.sdk.api.KsFeedAd
     public void setAdInteractionListener(KsFeedAd.AdInteractionListener adInteractionListener) {
-        this.f9846a = adInteractionListener;
+        this.f6513a = adInteractionListener;
     }
 
     @Override // com.kwad.sdk.api.KsFeedAd

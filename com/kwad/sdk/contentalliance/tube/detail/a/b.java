@@ -10,10 +10,8 @@ import java.util.Set;
 public class b extends com.kwad.sdk.core.e.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f8925a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TubeDetailParam f8926b;
+    public c f5946a;
+    public TubeDetailParam b;
     public com.kwad.sdk.core.i.a c;
     public Set<b.a> d = new LinkedHashSet();
     public Set<com.kwad.sdk.contentalliance.tube.detail.a> e = new LinkedHashSet();

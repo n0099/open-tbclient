@@ -1,5 +1,5 @@
 package com.baidu.ar.arplay.core.engine;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class ARPEngineParams {
     private float mDensity;
     private int mInputHeight;

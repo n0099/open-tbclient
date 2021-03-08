@@ -21,10 +21,8 @@ public class k {
     private static long j = 12000;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f2560a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Context f2561b;
+    public e f1920a;
+    private Context b;
     private WebView c;
     private LocationClient d;
     private a e;
@@ -149,14 +147,14 @@ public class k {
                     } else {
                         k.this.f.clear();
                     }
-                    k.this.d.registerLocationListener(k.this.f2560a);
+                    k.this.d.registerLocationListener(k.this.f1920a);
                     return;
                 case 4:
                     if (k.this.f != null) {
                         k.this.f.clear();
                         k.this.f = null;
                     }
-                    k.this.d.unRegisterLocationListener(k.this.f2560a);
+                    k.this.d.unRegisterLocationListener(k.this.f1920a);
                     k.this.h = 0L;
                     k.this.i = null;
                     if (k.this.k != null && k.this.l) {
@@ -198,20 +196,18 @@ public class k {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public class b {
-
-        /* renamed from: b  reason: collision with root package name */
-        private String f2564b;
+        private String b;
         private String c;
         private long d;
 
         b(String str) {
-            this.f2564b = null;
+            this.b = null;
             this.c = null;
             this.d = 0L;
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject != null && jSONObject.has("action")) {
-                    this.f2564b = jSONObject.getString("action");
+                    this.b = jSONObject.getString("action");
                 }
                 if (jSONObject != null && jSONObject.has(BuyTBeanActivityConfig.CALLBACK)) {
                     this.c = jSONObject.getString(BuyTBeanActivityConfig.CALLBACK);
@@ -224,13 +220,13 @@ public class k {
                 }
                 this.d = System.currentTimeMillis();
             } catch (Exception e) {
-                this.f2564b = null;
+                this.b = null;
                 this.c = null;
             }
         }
 
         public String a() {
-            return this.f2564b;
+            return this.b;
         }
 
         public String b() {
@@ -243,7 +239,7 @@ public class k {
     public static final class c {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final k f2565a = new k();
+        private static final k f1923a = new k();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -319,9 +315,9 @@ public class k {
     }
 
     private k() {
-        this.f2561b = null;
+        this.b = null;
         this.d = null;
-        this.f2560a = new e();
+        this.f1920a = new e();
         this.e = null;
         this.f = null;
         this.g = false;
@@ -332,7 +328,7 @@ public class k {
     }
 
     public static k a() {
-        return c.f2565a;
+        return c.f1923a;
     }
 
     @SuppressLint({"JavascriptInterface", "AddJavascriptInterface"})
@@ -342,7 +338,7 @@ public class k {
 
     public void a(Context context, WebView webView, LocationClient locationClient) {
         if (!this.g && Integer.valueOf(Build.VERSION.SDK_INT).intValue() >= 17) {
-            this.f2561b = context;
+            this.b = context;
             this.c = webView;
             this.d = locationClient;
             this.e = new a(Looper.getMainLooper());

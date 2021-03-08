@@ -21,24 +21,25 @@ import com.baidu.tbadk.switchs.FunAdSdkSwitch;
 import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.EBusinessProtocolView;
-import com.bytedance.sdk.openadsdk.TTFeedAd;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.ChannelNativeAds_5;
 import com.fun.ad.sdk.FunNativeAd;
 import com.kwad.sdk.api.KsNativeAd;
 import com.qq.e.ads.nativ.NativeUnifiedADData;
 /* loaded from: classes5.dex */
 public class FunAdDownloadView extends RelativeLayout {
-    private TextView jTT;
-    private LinearLayout jTU;
-    private RankStarView jTV;
-    private TextView jTW;
-    private TextView jTX;
-    private TextView jTY;
-    private ViewGroup jTZ;
-    private FunAdButton jTz;
-    private TextView jUa;
-    private TextView jUb;
-    private TextView jUc;
-    private EBusinessProtocolView jUd;
+    private ViewGroup jVA;
+    private TextView jVB;
+    private TextView jVC;
+    private TextView jVD;
+    private EBusinessProtocolView jVE;
+    private FunAdButton jVt;
+    private TextView jVu;
+    private LinearLayout jVv;
+    private RankStarView jVw;
+    private TextView jVx;
+    private TextView jVy;
+    private TextView jVz;
     private final Context mContext;
 
     public FunAdDownloadView(Context context) {
@@ -57,177 +58,181 @@ public class FunAdDownloadView extends RelativeLayout {
 
     private void initView() {
         LayoutInflater.from(this.mContext).inflate(R.layout.fun_ad_download_info, (ViewGroup) this, true);
-        this.jTz = (FunAdButton) findViewById(R.id.fun_ad_download_button);
-        this.jTT = (TextView) findViewById(R.id.fun_ad_download_title);
-        this.jTU = (LinearLayout) findViewById(R.id.fun_ad_download_score_layout);
-        this.jTV = (RankStarView) findViewById(R.id.fun_ad_download_star);
-        this.jTW = (TextView) findViewById(R.id.fun_ad_download_score);
-        this.jTX = (TextView) findViewById(R.id.fun_ad_download_count);
-        this.jTY = (TextView) findViewById(R.id.fun_ad_download_version);
-        this.jTZ = (ViewGroup) findViewById(R.id.fun_download_line_2);
-        this.jUa = (TextView) findViewById(R.id.fun_ad_download_company);
-        this.jUb = (TextView) findViewById(R.id.fun_ad_download_privacy);
-        this.jUc = (TextView) findViewById(R.id.fun_ad_download_authority);
-        this.jUd = new EBusinessProtocolView(this.mContext, EBusinessProtocolView.WindowType.TIP);
+        this.jVt = (FunAdButton) findViewById(R.id.fun_ad_download_button);
+        this.jVu = (TextView) findViewById(R.id.fun_ad_download_title);
+        this.jVv = (LinearLayout) findViewById(R.id.fun_ad_download_score_layout);
+        this.jVw = (RankStarView) findViewById(R.id.fun_ad_download_star);
+        this.jVx = (TextView) findViewById(R.id.fun_ad_download_score);
+        this.jVy = (TextView) findViewById(R.id.fun_ad_download_count);
+        this.jVz = (TextView) findViewById(R.id.fun_ad_download_version);
+        this.jVA = (ViewGroup) findViewById(R.id.fun_download_line_2);
+        this.jVB = (TextView) findViewById(R.id.fun_ad_download_company);
+        this.jVC = (TextView) findViewById(R.id.fun_ad_download_privacy);
+        this.jVD = (TextView) findViewById(R.id.fun_ad_download_authority);
+        this.jVE = new EBusinessProtocolView(this.mContext, EBusinessProtocolView.WindowType.TIP);
     }
 
-    public void Bg(int i) {
-        c.br(this).og(R.string.J_X05).setBackGroundColor(R.color.CAM_X0206);
-        c.br(this.jTT).nY(R.color.CAM_X0107);
-        c.br(this.jTY).nY(R.color.CAM_X0109);
-        c.br(this.jTW).nY(R.color.CAM_X0109);
-        c.br(this.jTX).nY(R.color.CAM_X0109);
-        c.br(this.jUa).nY(R.color.CAM_X0109);
-        c.br(this.jUb).nY(R.color.CAM_X0109);
-        c.br(this.jUc).nY(R.color.CAM_X0109);
-        c.br(this.jTz).og(R.string.J_X01).nY(R.color.CAM_X0302).setBackGroundColor(R.color.CAM_X0905);
-        this.jTV.onChangeSkinType(i);
+    public void Bj(int i) {
+        c.br(this).oh(R.string.J_X05).setBackGroundColor(R.color.CAM_X0206);
+        c.br(this.jVu).nZ(R.color.CAM_X0107);
+        c.br(this.jVz).nZ(R.color.CAM_X0109);
+        c.br(this.jVx).nZ(R.color.CAM_X0109);
+        c.br(this.jVy).nZ(R.color.CAM_X0109);
+        c.br(this.jVB).nZ(R.color.CAM_X0109);
+        c.br(this.jVC).nZ(R.color.CAM_X0109);
+        c.br(this.jVD).nZ(R.color.CAM_X0109);
+        this.jVt.onChangeSkinType();
+        this.jVw.onChangeSkinType(i);
     }
 
     public FunAdButton getDownloadButton() {
-        return this.jTz;
+        return this.jVt;
     }
 
-    public void setViewData(FunNativeAd funNativeAd, final Activity activity, CharSequence charSequence, final String str) {
-        if (funNativeAd == null || !com.baidu.tieba.funad.c.b(funNativeAd) || !FunAdSdkSwitch.isOn()) {
+    public void setViewData(FunNativeAd funNativeAd, final Activity activity, final String str) {
+        if (!com.baidu.tieba.funad.c.a(funNativeAd) || !FunAdSdkSwitch.isOn()) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        final a aVar = new a(funNativeAd, charSequence);
-        this.jTT.setText(aVar.cNB());
-        float cNC = aVar.cNC();
-        if (cNC > 2.5d) {
-            this.jTU.setVisibility(0);
-            this.jTX.setVisibility(8);
-            this.jTW.setText(String.valueOf(cNC));
-            this.jTV.setStarCount(cNC);
-        } else if (!TextUtils.isEmpty(aVar.cND())) {
-            this.jTU.setVisibility(8);
-            this.jTX.setVisibility(0);
-            this.jTX.setText(aVar.cND());
+        final a aVar = new a(funNativeAd);
+        this.jVu.setText(aVar.cNH());
+        float cNI = aVar.cNI();
+        if (cNI > 2.5d) {
+            this.jVv.setVisibility(0);
+            this.jVy.setVisibility(8);
+            this.jVx.setText(String.valueOf(cNI));
+            this.jVw.setStarCount(cNI);
+        } else if (!TextUtils.isEmpty(aVar.cNJ())) {
+            this.jVv.setVisibility(8);
+            this.jVy.setVisibility(0);
+            this.jVy.setText(aVar.cNJ());
         } else {
-            this.jTU.setVisibility(8);
-            this.jTX.setVisibility(8);
+            this.jVv.setVisibility(8);
+            this.jVy.setVisibility(8);
         }
-        if (!TextUtils.isEmpty(aVar.cNE())) {
-            this.jTY.setText(aVar.cNE());
-            this.jTY.setVisibility(0);
+        if (!TextUtils.isEmpty(aVar.cNK())) {
+            this.jVz.setText(aVar.cNK());
+            this.jVz.setVisibility(0);
         } else {
-            this.jTY.setVisibility(8);
+            this.jVz.setVisibility(8);
         }
-        if (!TextUtils.isEmpty(aVar.cNF())) {
-            this.jUa.setText(aVar.cNF());
-            this.jUa.setVisibility(0);
+        if (!TextUtils.isEmpty(aVar.cNL())) {
+            this.jVB.setText(aVar.cNL());
+            this.jVB.setVisibility(0);
+            this.jVB.requestLayout();
         } else {
-            this.jUa.setVisibility(8);
+            this.jVB.setVisibility(8);
         }
-        if (!TextUtils.isEmpty(aVar.cNH())) {
-            this.jUc.setVisibility(0);
-            this.jUd.v(aVar.cNH());
-            this.jUd.setTitle(this.mContext.getString(R.string.fun_ad_privacy_dialog_title));
-            this.jUc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.funad.view.FunAdDownloadView.1
+        if (!TextUtils.isEmpty(aVar.cNN())) {
+            this.jVD.setVisibility(0);
+            this.jVE.v(aVar.cNN());
+            this.jVE.setTitle(this.mContext.getString(R.string.fun_ad_privacy_dialog_title));
+            this.jVD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.funad.view.FunAdDownloadView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    g.showDialog(FunAdDownloadView.this.jUd, activity);
-                    TiebaStatic.log(new ar("c14090").ap("obj_source", 6).dR("obj_type", str));
+                    g.showDialog(FunAdDownloadView.this.jVE, activity);
+                    TiebaStatic.log(new ar("c14090").aq("obj_source", 6).dR("obj_type", str));
                 }
             });
         } else {
-            this.jUc.setVisibility(8);
+            this.jVD.setVisibility(8);
         }
-        if (!TextUtils.isEmpty(aVar.cNG())) {
-            this.jUb.setVisibility(0);
-            this.jUb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.funad.view.FunAdDownloadView.2
+        if (!TextUtils.isEmpty(aVar.cNM())) {
+            this.jVC.setVisibility(0);
+            this.jVC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.funad.view.FunAdDownloadView.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    com.baidu.tbadk.browser.a.ay(FunAdDownloadView.this.mContext, aVar.cNG());
-                    TiebaStatic.log(new ar("c14089").ap("obj_source", 6).dR("obj_type", str));
+                    com.baidu.tbadk.browser.a.ay(FunAdDownloadView.this.mContext, aVar.cNM());
+                    TiebaStatic.log(new ar("c14089").aq("obj_source", 6).dR("obj_type", str));
                 }
             });
         } else {
-            this.jUb.setVisibility(8);
+            this.jVC.setVisibility(8);
         }
-        if ((this.jUa.getVisibility() & this.jUc.getVisibility() & this.jUb.getVisibility()) != 8) {
-            this.jTZ.setVisibility(0);
+        if ((this.jVB.getVisibility() & this.jVD.getVisibility() & this.jVC.getVisibility()) != 8) {
+            this.jVA.setVisibility(0);
         } else {
-            this.jTZ.setVisibility(8);
+            this.jVA.setVisibility(8);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
-    public static class a {
-        private final CharSequence jUg;
-        private final float jUh;
-        private final String jUi;
-        private final String jUj;
-        private final String jUk;
-        private final String jUl;
-        private final String jUm;
+    private static class a {
+        private final CharSequence jVI;
+        private final float jVJ;
+        private final String jVK;
+        private final String jVL;
+        private final String jVM;
+        private final String jVN;
+        private final String jVO;
 
-        public a(@NonNull FunNativeAd funNativeAd, String str) {
-            this.jUg = str == null ? "" : str;
-            if (funNativeAd.mTTFeedAd != null) {
-                TTFeedAd tTFeedAd = funNativeAd.mTTFeedAd;
-                this.jUh = tTFeedAd.getAppScore();
-                this.jUi = null;
-                this.jUj = null;
-                this.jUk = tTFeedAd.getSource();
-                this.jUm = null;
-                this.jUl = null;
-            } else if (funNativeAd.mKsNativeAd != null) {
-                KsNativeAd ksNativeAd = funNativeAd.mKsNativeAd;
-                this.jUh = ksNativeAd.getAppScore() / 2.0f;
-                this.jUi = ksNativeAd.getAppDownloadCountDes();
-                this.jUj = TbadkCoreApplication.getInst().getString(R.string.fun_ad_item_version) + ksNativeAd.getAppVersion();
-                this.jUk = ksNativeAd.getCorporationName();
-                this.jUm = ksNativeAd.getPermissionInfo();
-                this.jUl = ksNativeAd.getAppPrivacyUrl();
-            } else if (funNativeAd.mNativeUnifiedADData != null) {
-                NativeUnifiedADData nativeUnifiedADData = funNativeAd.mNativeUnifiedADData;
-                this.jUh = nativeUnifiedADData.getAppScore() / 2.0f;
-                this.jUi = TbadkCoreApplication.getInst().getString(R.string.fun_ad_item_download_count, new Object[]{au.numberUniformFormat(nativeUnifiedADData.getDownloadCount())});
-                this.jUj = null;
-                this.jUk = null;
-                this.jUm = null;
-                this.jUl = null;
+        public a(@NonNull FunNativeAd funNativeAd) {
+            ChannelNativeAds_5 channelNativeAds_5 = funNativeAd.getChannelNativeAds_5();
+            if (channelNativeAds_5 != null && channelNativeAds_5.csjNative != null) {
+                TTNativeAd tTNativeAd = channelNativeAds_5.csjNative;
+                this.jVJ = tTNativeAd.getAppScore();
+                this.jVK = null;
+                this.jVL = null;
+                this.jVM = tTNativeAd.getSource();
+                this.jVO = null;
+                this.jVN = null;
+                this.jVI = tTNativeAd.getTitle();
+            } else if (channelNativeAds_5 != null && channelNativeAds_5.ksNative != null) {
+                KsNativeAd ksNativeAd = channelNativeAds_5.ksNative;
+                this.jVI = ksNativeAd.getAppName();
+                this.jVJ = ksNativeAd.getAppScore() / 2.0f;
+                this.jVK = ksNativeAd.getAppDownloadCountDes();
+                this.jVL = TbadkCoreApplication.getInst().getString(R.string.fun_ad_item_version) + ksNativeAd.getAppVersion();
+                this.jVM = ksNativeAd.getCorporationName();
+                this.jVO = ksNativeAd.getPermissionInfo();
+                this.jVN = ksNativeAd.getAppPrivacyUrl();
+            } else if (channelNativeAds_5 != null && channelNativeAds_5.gdtNative != null) {
+                NativeUnifiedADData nativeUnifiedADData = channelNativeAds_5.gdtNative;
+                this.jVI = nativeUnifiedADData.getTitle();
+                this.jVJ = nativeUnifiedADData.getAppScore() / 2.0f;
+                this.jVK = TbadkCoreApplication.getInst().getString(R.string.fun_ad_item_download_count, new Object[]{au.numberUniformFormat(nativeUnifiedADData.getDownloadCount())});
+                this.jVL = null;
+                this.jVM = null;
+                this.jVO = null;
+                this.jVN = null;
             } else {
-                this.jUh = 0.0f;
-                this.jUi = null;
-                this.jUj = null;
-                this.jUk = null;
-                this.jUm = null;
-                this.jUl = null;
+                this.jVJ = 0.0f;
+                this.jVK = null;
+                this.jVL = null;
+                this.jVM = null;
+                this.jVO = null;
+                this.jVN = null;
+                this.jVI = "";
             }
         }
 
-        public CharSequence cNB() {
-            return this.jUg;
+        public CharSequence cNH() {
+            return this.jVI;
         }
 
-        public float cNC() {
-            return this.jUh;
+        public float cNI() {
+            return this.jVJ;
         }
 
-        public String cND() {
-            return this.jUi;
+        public String cNJ() {
+            return this.jVK;
         }
 
-        public String cNE() {
-            return this.jUj;
+        public String cNK() {
+            return this.jVL;
         }
 
-        public String cNF() {
-            return this.jUk;
+        public String cNL() {
+            return this.jVM;
         }
 
-        public String cNG() {
-            return this.jUl;
+        public String cNM() {
+            return this.jVN;
         }
 
-        public String cNH() {
-            return this.jUm;
+        public String cNN() {
+            return this.jVO;
         }
     }
 }

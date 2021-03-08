@@ -24,10 +24,10 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.CompoundButton;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class Switch extends CompoundButton {
     private static final int[] CHECKED_STATE_SET = {16842912};
-    private static final a<Switch> bUr = new a<Switch>("thumbPos") { // from class: com.baidu.live.view.Switch.1
+    private static final a<Switch> bVR = new a<Switch>("thumbPos") { // from class: com.baidu.live.view.Switch.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         /* renamed from: b */
@@ -359,7 +359,7 @@ public class Switch extends CompoundButton {
                         } else {
                             f = f3 > 0.0f ? 1.0f : -1.0f;
                         }
-                        if (XF()) {
+                        if (XI()) {
                             f = -f;
                         }
                         if (this.mThumbPosition + f < 0.0f) {
@@ -402,7 +402,7 @@ public class Switch extends CompoundButton {
             this.mVelocityTracker.computeCurrentVelocity(1000);
             float xVelocity = this.mVelocityTracker.getXVelocity();
             if (Math.abs(xVelocity) > this.mMinFlingVelocity) {
-                if (XF()) {
+                if (XI()) {
                     if (xVelocity >= 0.0f) {
                         z = false;
                     }
@@ -420,7 +420,7 @@ public class Switch extends CompoundButton {
     }
 
     private void animateThumbToCheckedState(boolean z) {
-        this.mPositionAnimator = ObjectAnimator.ofFloat(this, bUr, z ? 1.0f : 0.0f);
+        this.mPositionAnimator = ObjectAnimator.ofFloat(this, bVR, z ? 1.0f : 0.0f);
         this.mPositionAnimator.setDuration(250L);
         this.mPositionAnimator.start();
     }
@@ -483,7 +483,7 @@ public class Switch extends CompoundButton {
                 rect.setEmpty();
             }
         }
-        if (XF()) {
+        if (XI()) {
             i5 = getPaddingLeft() + 0;
             width = ((this.mSwitchWidth + i5) - 0) - 0;
         } else {
@@ -581,7 +581,7 @@ public class Switch extends CompoundButton {
 
     @Override // android.widget.CompoundButton, android.widget.TextView
     public int getCompoundPaddingLeft() {
-        if (!XF()) {
+        if (!XI()) {
             return super.getCompoundPaddingLeft();
         }
         int compoundPaddingLeft = super.getCompoundPaddingLeft() + this.mSwitchWidth;
@@ -593,7 +593,7 @@ public class Switch extends CompoundButton {
 
     @Override // android.widget.CompoundButton, android.widget.TextView
     public int getCompoundPaddingRight() {
-        if (XF()) {
+        if (XI()) {
             return super.getCompoundPaddingRight();
         }
         int compoundPaddingRight = super.getCompoundPaddingRight() + this.mSwitchWidth;
@@ -605,7 +605,7 @@ public class Switch extends CompoundButton {
 
     private int getThumbOffset() {
         float f;
-        if (XF()) {
+        if (XI()) {
             f = 1.0f - this.mThumbPosition;
         } else {
             f = this.mThumbPosition;
@@ -687,12 +687,12 @@ public class Switch extends CompoundButton {
         }
     }
 
-    private boolean XF() {
+    private boolean XI() {
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static abstract class a<T> extends Property<T, Float> {
         public abstract void b(T t, float f);
 

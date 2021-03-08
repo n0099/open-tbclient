@@ -4,7 +4,7 @@ import android.util.JsonReader;
 import java.io.IOException;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class af {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.airbnb.lottie.model.content.j x(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {

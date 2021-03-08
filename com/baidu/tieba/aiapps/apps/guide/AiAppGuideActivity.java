@@ -9,10 +9,10 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AiAppGuideActivity extends BaseActivity {
-    private GifView fvR;
-    private ImageView gfq;
+    private GifView fxq;
+    private ImageView ggT;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.guide.AiAppGuideActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
@@ -28,15 +28,15 @@ public class AiAppGuideActivity extends BaseActivity {
         setSwipeBackEnabled(false);
         setActivityBgTransparent();
         setContentView(R.layout.activity_aiapp_guide);
-        this.fvR = (GifView) findViewById(R.id.view_gif);
-        this.fvR.setGifRaw(R.raw.aiapp_guide);
-        this.gfq = (ImageView) findViewById(R.id.img_close);
-        this.gfq.setOnClickListener(this.mOnClickListener);
+        this.fxq = (GifView) findViewById(R.id.view_gif);
+        this.fxq.setGifRaw(R.raw.aiapp_guide);
+        this.ggT = (ImageView) findViewById(R.id.img_close);
+        this.ggT.setOnClickListener(this.mOnClickListener);
         int equipmentWidth = l.getEquipmentWidth(getActivity()) - (l.getDimens(getActivity(), R.dimen.tbds44) * 2);
-        ViewGroup.LayoutParams layoutParams = this.fvR.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.fxq.getLayoutParams();
         layoutParams.width = equipmentWidth;
         layoutParams.height = (int) (((equipmentWidth * 828) * 1.0f) / 760.0f);
-        this.fvR.setLayoutParams(layoutParams);
+        this.fxq.setLayoutParams(layoutParams);
     }
 
     @Override // android.app.Activity
@@ -48,6 +48,6 @@ public class AiAppGuideActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        ap.setImageResource(this.gfq, R.drawable.icon_use_close_n);
+        ap.setImageResource(this.ggT, R.drawable.icon_use_close_n);
     }
 }

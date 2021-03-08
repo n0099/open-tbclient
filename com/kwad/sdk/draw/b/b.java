@@ -19,9 +19,7 @@ import com.kwad.sdk.utils.ao;
 import com.kwad.sdk.widget.KsLogoView;
 /* loaded from: classes3.dex */
 public class b extends com.kwad.sdk.draw.a.a implements View.OnClickListener {
-
-    /* renamed from: b  reason: collision with root package name */
-    private ViewGroup f9686b;
+    private ViewGroup b;
     private TextView c;
     private TextView d;
     private TextView e;
@@ -39,7 +37,7 @@ public class b extends com.kwad.sdk.draw.a.a implements View.OnClickListener {
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void a(long j, long j2) {
             if (j2 >= b.this.m * 1000) {
-                b.this.f9675a.f.a();
+                b.this.f6403a.f.a();
             } else if (j2 >= b.this.l * 1000) {
                 b.this.p();
             } else if (j2 >= b.this.k * 1000) {
@@ -90,12 +88,12 @@ public class b extends com.kwad.sdk.draw.a.a implements View.OnClickListener {
     }
 
     private void f() {
-        com.kwad.sdk.core.download.b.a.a(this.f9686b.getContext(), this.g, new a.InterfaceC1094a() { // from class: com.kwad.sdk.draw.b.b.3
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
+        com.kwad.sdk.core.download.b.a.a(this.b.getContext(), this.g, new a.InterfaceC1111a() { // from class: com.kwad.sdk.draw.b.b.3
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1111a
             public void a() {
-                com.kwad.sdk.core.report.b.a(b.this.g, 1, b.this.f9675a.f9677b.getTouchCoords());
-                if (b.this.f9675a.f9676a != null) {
-                    b.this.f9675a.f9676a.onAdClicked();
+                com.kwad.sdk.core.report.b.a(b.this.g, 1, b.this.f6403a.b.getTouchCoords());
+                if (b.this.f6403a.f6404a != null) {
+                    b.this.f6403a.f6404a.onAdClicked();
                 }
             }
         }, this.i);
@@ -135,17 +133,17 @@ public class b extends com.kwad.sdk.draw.a.a implements View.OnClickListener {
     @Override // com.kwad.sdk.draw.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.g = this.f9675a.c;
+        this.g = this.f6403a.c;
         this.h = com.kwad.sdk.core.response.b.c.j(this.g);
-        this.i = this.f9675a.d;
+        this.i = this.f6403a.d;
         e();
         this.n.a(this.g);
         this.e.setText(com.kwad.sdk.core.response.b.a.w(this.h));
         this.e.setVisibility(8);
         this.f.a(com.kwad.sdk.core.response.b.a.w(this.h), this.f.getMax());
         this.f.setVisibility(8);
-        this.f9686b.setVisibility(0);
-        this.f9686b.setOnClickListener(this);
+        this.b.setVisibility(0);
+        this.b.setOnClickListener(this);
         if (com.kwad.sdk.core.response.b.a.y(this.h)) {
             this.c.setText(com.kwad.sdk.core.response.b.a.q(this.h));
             this.c.setVisibility(0);
@@ -156,7 +154,7 @@ public class b extends com.kwad.sdk.draw.a.a implements View.OnClickListener {
             this.c.setVisibility(8);
         }
         this.d.setText(com.kwad.sdk.core.response.b.a.n(this.h));
-        this.f9675a.e.a(this.o);
+        this.f6403a.e.a(this.o);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -167,14 +165,14 @@ public class b extends com.kwad.sdk.draw.a.a implements View.OnClickListener {
         if (this.i != null && this.p != null) {
             this.i.b(this.p);
         }
-        this.f9675a.e.b(this.o);
+        this.f6403a.e.b(this.o);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f9686b = (ViewGroup) b(R.id.ksad_ad_normal_container);
+        this.b = (ViewGroup) b(R.id.ksad_ad_normal_container);
         this.c = (TextView) b(R.id.ksad_ad_normal_title);
         this.d = (TextView) b(R.id.ksad_ad_normal_des);
         this.n = (KsLogoView) b(R.id.ksad_ad_normal_logo);
@@ -185,7 +183,7 @@ public class b extends com.kwad.sdk.draw.a.a implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f9686b) {
+        if (view == this.b) {
             p();
             f();
         } else if (view == this.e) {

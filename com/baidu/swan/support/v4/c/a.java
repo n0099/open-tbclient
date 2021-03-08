@@ -2,45 +2,45 @@ package com.baidu.swan.support.v4.c;
 
 import android.os.Build;
 import android.view.LayoutInflater;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class a {
-    static final InterfaceC0542a exz;
+    static final InterfaceC0548a ezc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.swan.support.v4.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
-    public interface InterfaceC0542a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC0548a {
         void a(LayoutInflater layoutInflater, e eVar);
     }
 
-    /* loaded from: classes15.dex */
-    static class b implements InterfaceC0542a {
+    /* loaded from: classes3.dex */
+    static class b implements InterfaceC0548a {
         b() {
         }
 
-        @Override // com.baidu.swan.support.v4.c.a.InterfaceC0542a
+        @Override // com.baidu.swan.support.v4.c.a.InterfaceC0548a
         public void a(LayoutInflater layoutInflater, e eVar) {
             com.baidu.swan.support.v4.c.b.a(layoutInflater, eVar);
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     static class c extends b {
         c() {
         }
 
-        @Override // com.baidu.swan.support.v4.c.a.b, com.baidu.swan.support.v4.c.a.InterfaceC0542a
+        @Override // com.baidu.swan.support.v4.c.a.b, com.baidu.swan.support.v4.c.a.InterfaceC0548a
         public void a(LayoutInflater layoutInflater, e eVar) {
             com.baidu.swan.support.v4.c.c.a(layoutInflater, eVar);
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     static class d extends c {
         d() {
         }
 
-        @Override // com.baidu.swan.support.v4.c.a.c, com.baidu.swan.support.v4.c.a.b, com.baidu.swan.support.v4.c.a.InterfaceC0542a
+        @Override // com.baidu.swan.support.v4.c.a.c, com.baidu.swan.support.v4.c.a.b, com.baidu.swan.support.v4.c.a.InterfaceC0548a
         public void a(LayoutInflater layoutInflater, e eVar) {
             com.baidu.swan.support.v4.c.d.a(layoutInflater, eVar);
         }
@@ -49,15 +49,15 @@ public class a {
     static {
         int i = Build.VERSION.SDK_INT;
         if (i >= 21) {
-            exz = new d();
+            ezc = new d();
         } else if (i >= 11) {
-            exz = new c();
+            ezc = new c();
         } else {
-            exz = new b();
+            ezc = new b();
         }
     }
 
     public static void a(LayoutInflater layoutInflater, e eVar) {
-        exz.a(layoutInflater, eVar);
+        ezc.a(layoutInflater, eVar);
     }
 }

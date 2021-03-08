@@ -6,23 +6,23 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.coremedia.iso.boxes.FreeSpaceBox;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AdSplashStyle {
     public int duration;
-    public int gkK;
-    public a gkL;
-    public a gkM;
-    public a gkN;
-    public a gkO;
-    public a gkP;
-    public a gkQ;
-    public a gkR;
-    public a gkS;
-    public a gkT;
-    public a gkU;
+    public int gmo;
+    public a gmp;
+    public a gmq;
+    public a gmr;
+    public a gms;
+    public a gmt;
+    public a gmu;
+    public a gmv;
+    public a gmw;
+    public a gmx;
+    public a gmy;
     public String labelName = TbadkCoreApplication.getInst().getString(R.string.advert_label);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public enum SplashElement {
         LOGO,
         SKIP,
@@ -31,26 +31,26 @@ public class AdSplashStyle {
         WIFI_TIP
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        public int Yh;
-        public int Yi;
-        public int fvN;
-        public String gkV;
-        public int[] gkW;
-        public int gkX;
+        public int ZA;
+        public int ZB;
+        public int fxm;
+        public int[] gmA;
+        public int gmB;
+        public String gmz;
         public int gravity;
 
         public a(int i, String str) {
             this.gravity = i;
-            this.gkV = str;
-            bMB();
+            this.gmz = str;
+            bME();
         }
 
         public void aQ(int i, String str) {
             this.gravity = i;
-            this.gkV = str;
-            bMB();
+            this.gmz = str;
+            bME();
         }
 
         public a(JSONObject jSONObject) {
@@ -61,58 +61,58 @@ public class AdSplashStyle {
             if (jSONObject != null) {
                 try {
                     this.gravity = jSONObject.optInt("l_gravity", -1);
-                    this.gkV = jSONObject.optString("margin", "");
-                    bMB();
+                    this.gmz = jSONObject.optString("margin", "");
+                    bME();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         }
 
-        public void bMB() {
+        public void bME() {
             String[] split;
-            if (this.gkV != null && (split = this.gkV.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS)) != null && split.length == 4) {
-                this.gkX = com.baidu.adp.lib.f.b.toInt(split[0], 0);
-                this.Yh = com.baidu.adp.lib.f.b.toInt(split[1], 0);
-                this.fvN = com.baidu.adp.lib.f.b.toInt(split[2], 0);
-                this.Yi = com.baidu.adp.lib.f.b.toInt(split[3], 0);
-                this.gkW = new int[4];
-                this.gkW[0] = this.gkX;
-                this.gkW[1] = this.Yh;
-                this.gkW[2] = this.fvN;
-                this.gkW[3] = this.Yi;
+            if (this.gmz != null && (split = this.gmz.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS)) != null && split.length == 4) {
+                this.gmB = com.baidu.adp.lib.f.b.toInt(split[0], 0);
+                this.ZA = com.baidu.adp.lib.f.b.toInt(split[1], 0);
+                this.fxm = com.baidu.adp.lib.f.b.toInt(split[2], 0);
+                this.ZB = com.baidu.adp.lib.f.b.toInt(split[3], 0);
+                this.gmA = new int[4];
+                this.gmA[0] = this.gmB;
+                this.gmA[1] = this.ZA;
+                this.gmA[2] = this.fxm;
+                this.gmA[3] = this.ZB;
             }
         }
     }
 
-    public boolean bMA() {
-        return this.gkK == 1;
+    public boolean bMD() {
+        return this.gmo == 1;
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                dA(jSONObject);
-                this.gkK = jSONObject.optInt("logo_type", 0);
+                dC(jSONObject);
+                this.gmo = jSONObject.optInt("logo_type", 0);
                 this.duration = jSONObject.optInt("duration", 0);
                 JSONObject optJSONObject = jSONObject.optJSONObject("style");
-                this.gkL = z(optJSONObject, "logo");
-                this.gkM = z(optJSONObject, FreeSpaceBox.TYPE);
-                this.gkN = z(optJSONObject, "label");
-                this.gkO = z(optJSONObject, "voice");
-                this.gkP = z(optJSONObject, "wifi_tip");
-                this.gkQ = z(optJSONObject, "logo_f");
-                this.gkR = z(optJSONObject, "skip_f");
-                this.gkS = z(optJSONObject, "label_f");
-                this.gkT = z(optJSONObject, "voice_f");
-                this.gkU = z(optJSONObject, "wifi_tip_f");
+                this.gmp = z(optJSONObject, "logo");
+                this.gmq = z(optJSONObject, FreeSpaceBox.TYPE);
+                this.gmr = z(optJSONObject, "label");
+                this.gms = z(optJSONObject, "voice");
+                this.gmt = z(optJSONObject, "wifi_tip");
+                this.gmu = z(optJSONObject, "logo_f");
+                this.gmv = z(optJSONObject, "skip_f");
+                this.gmw = z(optJSONObject, "label_f");
+                this.gmx = z(optJSONObject, "voice_f");
+                this.gmy = z(optJSONObject, "wifi_tip_f");
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private void dA(JSONObject jSONObject) {
+    private void dC(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 if (jSONObject.has("label_name")) {

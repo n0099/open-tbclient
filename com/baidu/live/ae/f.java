@@ -4,47 +4,47 @@ import android.text.TextUtils;
 import com.baidu.live.data.t;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f {
-    private long bBg;
-    private t.a bBh;
-    private List<String> bBi;
+    private long bCG;
+    private t.a bCH;
+    private List<String> bCI;
 
-    public static f QB() {
-        return a.bBj;
+    public static f QE() {
+        return a.bCJ;
     }
 
     public void b(t.a aVar) {
-        if (this.bBi != null) {
-            this.bBi.clear();
+        if (this.bCI != null) {
+            this.bCI.clear();
         }
         bi(0L);
-        this.bBh = aVar;
-        if (this.bBh != null) {
-            List<String> list = aVar.aIb;
+        this.bCH = aVar;
+        if (this.bCH != null) {
+            List<String> list = aVar.aJB;
             if (list != null && !list.isEmpty()) {
-                if (this.bBi == null) {
-                    this.bBi = new ArrayList();
+                if (this.bCI == null) {
+                    this.bCI = new ArrayList();
                 }
-                this.bBi.addAll(list);
+                this.bCI.addAll(list);
             }
-            bi(aVar.endTime - aVar.aIa);
+            bi(aVar.endTime - aVar.aJA);
         }
     }
 
     public double m(boolean z, String str) {
         double a2;
-        if (this.bBh == null || this.bBh.aHX != 1) {
+        if (this.bCH == null || this.bCH.aJx != 1) {
             return 0.0d;
         }
         if (z) {
-            if (QC()) {
-                a2 = Math.max(a(str, this.bBh.aHZ), a(str, this.bBh.aHY));
+            if (QF()) {
+                a2 = Math.max(a(str, this.bCH.aJz), a(str, this.bCH.aJy));
             } else {
-                a2 = a(str, this.bBh.aHY);
+                a2 = a(str, this.bCH.aJy);
             }
         } else {
-            a2 = QC() ? a(str, this.bBh.aHZ) : 0.0d;
+            a2 = QF() ? a(str, this.bCH.aJz) : 0.0d;
         }
         if (a2 == 1.0d || a2 < 0.0d) {
             return 0.0d;
@@ -53,9 +53,9 @@ public class f {
     }
 
     private double a(String str, double d) {
-        if (!TextUtils.isEmpty(str) && this.bBh != null) {
-            if (this.bBh.aIc != null && !this.bBh.aIc.isEmpty()) {
-                for (String str2 : this.bBh.aIc) {
+        if (!TextUtils.isEmpty(str) && this.bCH != null) {
+            if (this.bCH.aJC != null && !this.bCH.aJC.isEmpty()) {
+                for (String str2 : this.bCH.aJC) {
                     if (str.equals(str2)) {
                         return d;
                     }
@@ -67,34 +67,34 @@ public class f {
         return 0.0d;
     }
 
-    public boolean QC() {
-        return this.bBg > 0;
+    public boolean QF() {
+        return this.bCG > 0;
     }
 
     public void bi(long j) {
-        this.bBg = j;
+        this.bCG = j;
     }
 
-    public boolean hv(String str) {
-        if (this.bBi == null || this.bBi.isEmpty()) {
+    public boolean hB(String str) {
+        if (this.bCI == null || this.bCI.isEmpty()) {
             return false;
         }
-        return this.bBi.contains(str);
+        return this.bCI.contains(str);
     }
 
     public void release() {
-        this.bBg = 0L;
-        if (this.bBi != null) {
-            this.bBi.clear();
+        this.bCG = 0L;
+        if (this.bCI != null) {
+            this.bCI.clear();
         }
-        this.bBh = null;
+        this.bCH = null;
     }
 
     private f() {
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     private static class a {
-        private static final f bBj = new f();
+        private static final f bCJ = new f();
     }
 }

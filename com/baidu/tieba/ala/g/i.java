@@ -8,30 +8,30 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.tieba.ala.message.AlaUpdateWishListResponseMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class i extends BdBaseModel {
-    private c hUj;
-    private a hUk;
-    private b hUl;
-    private HttpMessageListener hUm;
-    private HttpMessageListener hUn;
-    private HttpMessageListener hUo;
+    private c hVS;
+    private a hVT;
+    private b hVU;
+    private HttpMessageListener hVV;
+    private HttpMessageListener hVW;
+    private HttpMessageListener hVX;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(com.baidu.tieba.ala.data.m mVar);
 
         void aS(int i, String str);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         void aU(int i, String str);
 
         void c(com.baidu.tieba.ala.data.m mVar);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface c {
         void aT(int i, String str);
 
@@ -40,63 +40,63 @@ public class i extends BdBaseModel {
 
     public i(BdPageContext<?> bdPageContext, c cVar, a aVar, b bVar) {
         super(bdPageContext);
-        this.hUm = new HttpMessageListener(1021168) { // from class: com.baidu.tieba.ala.g.i.1
+        this.hVV = new HttpMessageListener(1021168) { // from class: com.baidu.tieba.ala.g.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021168 && (httpResponsedMessage instanceof AlaUpdateWishListResponseMessage)) {
                     AlaUpdateWishListResponseMessage alaUpdateWishListResponseMessage = (AlaUpdateWishListResponseMessage) httpResponsedMessage;
-                    com.baidu.tieba.ala.data.m clY = alaUpdateWishListResponseMessage.clY();
-                    if (i.this.hUj != null && clY != null) {
+                    com.baidu.tieba.ala.data.m cme = alaUpdateWishListResponseMessage.cme();
+                    if (i.this.hVS != null && cme != null) {
                         if (alaUpdateWishListResponseMessage.getError() != 0 || !alaUpdateWishListResponseMessage.isSuccess()) {
-                            i.this.hUj.aT(alaUpdateWishListResponseMessage.getError(), alaUpdateWishListResponseMessage.getErrorString());
+                            i.this.hVS.aT(alaUpdateWishListResponseMessage.getError(), alaUpdateWishListResponseMessage.getErrorString());
                         } else {
-                            i.this.hUj.b(clY);
+                            i.this.hVS.b(cme);
                         }
                     }
                 }
             }
         };
-        this.hUn = new HttpMessageListener(1021169) { // from class: com.baidu.tieba.ala.g.i.2
+        this.hVW = new HttpMessageListener(1021169) { // from class: com.baidu.tieba.ala.g.i.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021169 && (httpResponsedMessage instanceof AlaUpdateWishListResponseMessage)) {
                     AlaUpdateWishListResponseMessage alaUpdateWishListResponseMessage = (AlaUpdateWishListResponseMessage) httpResponsedMessage;
-                    com.baidu.tieba.ala.data.m clY = alaUpdateWishListResponseMessage.clY();
-                    if (i.this.hUk != null && clY != null) {
+                    com.baidu.tieba.ala.data.m cme = alaUpdateWishListResponseMessage.cme();
+                    if (i.this.hVT != null && cme != null) {
                         if (alaUpdateWishListResponseMessage.getError() != 0 || !alaUpdateWishListResponseMessage.isSuccess()) {
-                            i.this.hUk.aS(alaUpdateWishListResponseMessage.getError(), alaUpdateWishListResponseMessage.getErrorString());
+                            i.this.hVT.aS(alaUpdateWishListResponseMessage.getError(), alaUpdateWishListResponseMessage.getErrorString());
                         } else {
-                            i.this.hUk.a(clY);
+                            i.this.hVT.a(cme);
                         }
                     }
                 }
             }
         };
-        this.hUo = new HttpMessageListener(1021170) { // from class: com.baidu.tieba.ala.g.i.3
+        this.hVX = new HttpMessageListener(1021170) { // from class: com.baidu.tieba.ala.g.i.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021170 && (httpResponsedMessage instanceof AlaUpdateWishListResponseMessage)) {
                     AlaUpdateWishListResponseMessage alaUpdateWishListResponseMessage = (AlaUpdateWishListResponseMessage) httpResponsedMessage;
-                    com.baidu.tieba.ala.data.m clY = alaUpdateWishListResponseMessage.clY();
-                    if (i.this.hUl != null && clY != null) {
+                    com.baidu.tieba.ala.data.m cme = alaUpdateWishListResponseMessage.cme();
+                    if (i.this.hVU != null && cme != null) {
                         if (alaUpdateWishListResponseMessage.getError() != 0 || !alaUpdateWishListResponseMessage.isSuccess()) {
-                            i.this.hUl.aU(alaUpdateWishListResponseMessage.getError(), alaUpdateWishListResponseMessage.getErrorString());
+                            i.this.hVU.aU(alaUpdateWishListResponseMessage.getError(), alaUpdateWishListResponseMessage.getErrorString());
                         } else {
-                            i.this.hUl.c(clY);
+                            i.this.hVU.c(cme);
                         }
                     }
                 }
             }
         };
-        this.hUj = cVar;
-        this.hUk = aVar;
-        this.hUl = bVar;
-        registerListener(this.hUm);
-        registerListener(this.hUn);
-        registerListener(this.hUo);
+        this.hVS = cVar;
+        this.hVT = aVar;
+        this.hVU = bVar;
+        registerListener(this.hVV);
+        registerListener(this.hVW);
+        registerListener(this.hVX);
     }
 
     public void c(String str, String str2, String str3, int i, int i2) {
@@ -110,7 +110,7 @@ public class i extends BdBaseModel {
         sendMessage(httpMessage);
     }
 
-    public void Ig(String str) {
+    public void Ip(String str) {
         HttpMessage httpMessage = new HttpMessage(1021169);
         httpMessage.addParam("wish_id", str);
         httpMessage.addParam("status", 2);
@@ -135,14 +135,14 @@ public class i extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.hUm);
+        MessageManager.getInstance().unRegisterListener(this.hVV);
     }
 
-    public void cmf() {
-        MessageManager.getInstance().unRegisterListener(this.hUn);
+    public void cml() {
+        MessageManager.getInstance().unRegisterListener(this.hVW);
     }
 
-    public void cmg() {
-        MessageManager.getInstance().unRegisterListener(this.hUo);
+    public void cmm() {
+        MessageManager.getInstance().unRegisterListener(this.hVX);
     }
 }

@@ -20,7 +20,7 @@ import com.baidu.webkit.sdk.PermissionRequest;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class BdUploadHandler implements INoProGuard {
     private static final String AUDIO_MIME_TYPE = "audio/*";
     private static final String IMAGE_MIME_TYPE = "image/*";
@@ -98,7 +98,7 @@ public class BdUploadHandler implements INoProGuard {
     }
 
     public Intent createCameraIntent() {
-        if (com.baidu.browser.core.permission.b.checkCamera(this.mActivity) && com.baidu.browser.core.permission.b.Q(this.mActivity)) {
+        if (com.baidu.browser.core.permission.b.checkCamera(this.mActivity) && com.baidu.browser.core.permission.b.P(this.mActivity)) {
             return createCameraIntentAfterCheckPermission();
         }
         Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);

@@ -8,21 +8,21 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.runtime.e;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 class b {
-    private boolean drR;
-    private boolean drk;
+    private boolean dsN;
+    private boolean dtu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void reset() {
-        this.drk = false;
-        aEI();
-        aEH();
+        this.dsN = false;
+        aEL();
+        aEK();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void done() {
-        this.drk = true;
+        this.dsN = true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -46,9 +46,9 @@ class b {
     }
 
     private void b(int i, long j, String str, String str2) {
-        ViewGroup aEF;
-        if (!this.drk && (aEF = aEF()) != null) {
-            TextView textView = (TextView) aEF.findViewById(i);
+        ViewGroup aEI;
+        if (!this.dsN && (aEI = aEI()) != null) {
+            TextView textView = (TextView) aEI.findViewById(i);
             textView.setText(String.format(str2 + ":[%s]ms", Long.valueOf(j)));
             textView.setBackgroundColor(Color.parseColor(str));
         }
@@ -56,19 +56,19 @@ class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void q(long j, long j2) {
-        ViewGroup aEF;
-        if (!this.drk && (aEF = aEF()) != null) {
-            ((TextView) aEF.findViewById(a.f.sum)).setText(String.format("启动:[%s] 耗时:[%s]ms", new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault()).format(Long.valueOf(j)), Long.valueOf(j2)));
+        ViewGroup aEI;
+        if (!this.dsN && (aEI = aEI()) != null) {
+            ((TextView) aEI.findViewById(a.f.sum)).setText(String.format("启动:[%s] 耗时:[%s]ms", new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault()).format(Long.valueOf(j)), Long.valueOf(j2)));
         }
     }
 
-    private ViewGroup aEF() {
+    private ViewGroup aEI() {
         ViewGroup viewGroup;
-        if (e.aIL() != null && e.aIL().aIE() != null && (viewGroup = (ViewGroup) e.aIL().aIE().findViewById(16908290)) != null) {
+        if (e.aIO() != null && e.aIO().aIH() != null && (viewGroup = (ViewGroup) e.aIO().aIH().findViewById(16908290)) != null) {
             ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(a.f.start_up_root_container);
             if (viewGroup2 == null) {
-                ViewGroup viewGroup3 = (ViewGroup) LayoutInflater.from(e.aIL().aIE()).inflate(a.g.swan_app_startup_window, viewGroup);
-                this.drR = true;
+                ViewGroup viewGroup3 = (ViewGroup) LayoutInflater.from(e.aIO().aIH()).inflate(a.g.swan_app_startup_window, viewGroup);
+                this.dtu = true;
                 return viewGroup3;
             }
             return viewGroup2;
@@ -76,28 +76,28 @@ class b {
         return null;
     }
 
-    private void aEG() {
-        e aIL = e.aIL();
-        if (aIL != null && aIL.aIE() != null) {
-            ViewGroup viewGroup = (ViewGroup) aIL.aIE().findViewById(a.f.start_up_root_container);
+    private void aEJ() {
+        e aIO = e.aIO();
+        if (aIO != null && aIO.aIH() != null) {
+            ViewGroup viewGroup = (ViewGroup) aIO.aIH().findViewById(a.f.start_up_root_container);
             if (viewGroup != null && (viewGroup.getParent() instanceof ViewGroup)) {
                 ((ViewGroup) viewGroup.getParent()).removeView(viewGroup);
             }
-            this.drR = false;
+            this.dtu = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aEH() {
-        if (!this.drR) {
-            aEF();
+    public void aEK() {
+        if (!this.dtu) {
+            aEI();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aEI() {
-        if (this.drR) {
-            aEG();
+    public void aEL() {
+        if (this.dtu) {
+            aEJ();
         }
     }
 }

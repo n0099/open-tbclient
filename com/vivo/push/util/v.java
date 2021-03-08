@@ -3,16 +3,16 @@ package com.vivo.push.util;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.provider.Settings;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 final class v implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private ContentResolver f13703a;
+    private ContentResolver f8085a;
 
     @Override // com.vivo.push.util.c
     public final boolean a(Context context) {
         if (k.b()) {
-            this.f13703a = context.getContentResolver();
+            this.f8085a = context.getContentResolver();
             return true;
         }
         return false;
@@ -21,7 +21,7 @@ final class v implements c {
     @Override // com.vivo.push.util.c
     public final String a(String str, String str2) {
         try {
-            return Settings.System.getString(this.f13703a, str);
+            return Settings.System.getString(this.f8085a, str);
         } catch (Exception e) {
             e.printStackTrace();
             p.b("SettingsCache", "getString error by " + str);
@@ -32,7 +32,7 @@ final class v implements c {
     @Override // com.vivo.push.util.c
     public final void b(String str, String str2) {
         try {
-            Settings.System.putString(this.f13703a, str, str2);
+            Settings.System.putString(this.f8085a, str, str2);
         } catch (Exception e) {
             e.printStackTrace();
             p.b("SettingsCache", "putString error by " + str);

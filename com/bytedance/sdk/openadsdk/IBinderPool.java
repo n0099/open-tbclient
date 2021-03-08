@@ -52,15 +52,15 @@ public interface IBinderPool extends IInterface {
         private static class a implements IBinderPool {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f6073a;
+            private IBinder f4064a;
 
             a(IBinder iBinder) {
-                this.f6073a = iBinder;
+                this.f4064a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f6073a;
+                return this.f4064a;
             }
 
             @Override // com.bytedance.sdk.openadsdk.IBinderPool
@@ -70,7 +70,7 @@ public interface IBinderPool extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IBinderPool");
                     obtain.writeInt(i);
-                    this.f6073a.transact(1, obtain, obtain2, 0);
+                    this.f4064a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readStrongBinder();
                 } finally {

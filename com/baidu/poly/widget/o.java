@@ -3,7 +3,7 @@ package com.baidu.poly.widget;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class o implements Serializable {
     private String Wd;
     private String Xd;

@@ -5,12 +5,12 @@ import android.text.TextUtils;
 import android.util.LruCache;
 import android.widget.ImageView;
 import com.bytedance.sdk.adnet.b.d;
-import com.bytedance.sdk.adnet.core.r;
+import com.bytedance.sdk.adnet.core.q;
 /* loaded from: classes6.dex */
 public class a implements d.b {
 
     /* renamed from: a  reason: collision with root package name */
-    protected LruCache<String, Bitmap> f5993a = new LruCache<String, Bitmap>(Long.valueOf(Runtime.getRuntime().maxMemory()).intValue() / 16) { // from class: com.bytedance.sdk.adnet.b.a.1
+    protected LruCache<String, Bitmap> f4020a = new LruCache<String, Bitmap>(Long.valueOf(Runtime.getRuntime().maxMemory()).intValue() / 16) { // from class: com.bytedance.sdk.adnet.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.util.LruCache
@@ -23,9 +23,9 @@ public class a implements d.b {
     @Override // com.bytedance.sdk.adnet.b.d.b
     public Bitmap a(String str) {
         try {
-            return this.f5993a.get(str);
+            return this.f4020a.get(str);
         } catch (Throwable th) {
-            r.a(th, "DefaultImageCache get bitmap error", new Object[0]);
+            q.a(th, "DefaultImageCache get bitmap error", new Object[0]);
             return null;
         }
     }
@@ -34,9 +34,9 @@ public class a implements d.b {
     public void a(String str, Bitmap bitmap) {
         if (!TextUtils.isEmpty(str) && bitmap != null) {
             try {
-                this.f5993a.put(str, bitmap);
+                this.f4020a.put(str, bitmap);
             } catch (Throwable th) {
-                r.a(th, "DefaultImageCache put bitmap error", new Object[0]);
+                q.a(th, "DefaultImageCache put bitmap error", new Object[0]);
             }
         }
     }

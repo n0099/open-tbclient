@@ -12,21 +12,19 @@ import androidx.core.view.ViewCompat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class fd extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f5593a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private JSONArray f5594b;
+    private Context f3781a;
+    private JSONArray b;
     private int c;
     private boolean d;
 
     public fd(Context context, JSONArray jSONArray, int i, boolean z) {
         this.d = false;
-        this.f5593a = context;
-        this.f5594b = jSONArray;
+        this.f3781a = context;
+        this.b = jSONArray;
         this.c = i;
         this.d = z;
     }
@@ -37,7 +35,7 @@ public final class fd extends BaseAdapter {
     /* renamed from: a */
     public String getItem(int i) {
         try {
-            return ((JSONObject) this.f5594b.get(i)).getString("name");
+            return ((JSONObject) this.b.get(i)).getString("name");
         } catch (JSONException e) {
             e.printStackTrace();
             return "";
@@ -46,7 +44,7 @@ public final class fd extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public final int getCount() {
-        return this.f5594b.length();
+        return this.b.length();
     }
 
     @Override // android.widget.Adapter
@@ -60,18 +58,18 @@ public final class fd extends BaseAdapter {
         LinearLayout linearLayout;
         if (view == null) {
             fe feVar2 = new fe();
-            LinearLayout linearLayout2 = new LinearLayout(this.f5593a);
+            LinearLayout linearLayout2 = new LinearLayout(this.f3781a);
             linearLayout2.setLayoutParams(new AbsListView.LayoutParams(-1, -2));
-            TextView textView = new TextView(this.f5593a);
+            TextView textView = new TextView(this.f3781a);
             textView.setTextColor(ViewCompat.MEASURED_STATE_MASK);
             textView.setTextSize(com.baidu.ufosdk.b.R);
             textView.setGravity(16);
             textView.setSingleLine(true);
             textView.setEllipsize(TextUtils.TruncateAt.END);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.f5593a, 10.0f), com.baidu.ufosdk.f.i.a(this.f5593a, 5.0f), 0, com.baidu.ufosdk.f.i.a(this.f5593a, 5.0f));
+            layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.f3781a, 10.0f), com.baidu.ufosdk.f.i.a(this.f3781a, 5.0f), 0, com.baidu.ufosdk.f.i.a(this.f3781a, 5.0f));
             linearLayout2.addView(textView, layoutParams);
-            feVar2.f5595a = textView;
+            feVar2.f3782a = textView;
             linearLayout2.setTag(feVar2);
             feVar = feVar2;
             linearLayout = linearLayout2;
@@ -80,27 +78,27 @@ public final class fd extends BaseAdapter {
             linearLayout = view;
         }
         try {
-            JSONObject jSONObject = (JSONObject) this.f5594b.get(i);
+            JSONObject jSONObject = (JSONObject) this.b.get(i);
             if (this.c == 0) {
-                feVar.f5595a.setText(jSONObject.getString("question"));
-                feVar.f5595a.setSingleLine(true);
+                feVar.f3782a.setText(jSONObject.getString("question"));
+                feVar.f3782a.setSingleLine(true);
                 if (this.d) {
-                    feVar.f5595a.setTextColor(-13421773);
+                    feVar.f3782a.setTextColor(-13421773);
                 } else {
-                    feVar.f5595a.setTextColor(-12814593);
+                    feVar.f3782a.setTextColor(-12814593);
                 }
             } else {
-                feVar.f5595a.setText(jSONObject.getString("name"));
-                feVar.f5595a.setSingleLine(true);
+                feVar.f3782a.setText(jSONObject.getString("name"));
+                feVar.f3782a.setSingleLine(true);
                 if (this.d) {
-                    feVar.f5595a.setTextColor(-13421773);
+                    feVar.f3782a.setTextColor(-13421773);
                 } else {
-                    feVar.f5595a.setTextColor(-12814593);
+                    feVar.f3782a.setTextColor(-12814593);
                 }
             }
         } catch (JSONException e) {
             e.printStackTrace();
-            feVar.f5595a.setText("");
+            feVar.f3782a.setText("");
         }
         return linearLayout;
     }

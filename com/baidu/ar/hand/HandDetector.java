@@ -13,7 +13,7 @@ import com.baidu.ar.d.l;
 import com.baidu.ar.mdl.ARMdlInterfaceJNI;
 import com.baidu.ar.statistic.StatisticApi;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class HandDetector extends com.baidu.ar.b.a.a {
     private static final String TAG = HandDetector.class.getSimpleName();
     private int oU = 7;
@@ -44,7 +44,7 @@ public class HandDetector extends com.baidu.ar.b.a.a {
         return new b(this.oU) { // from class: com.baidu.ar.hand.HandDetector.1
             @Override // com.baidu.ar.b.b.b
             public int a(com.baidu.ar.mdl.a aVar) {
-                return aVar.f1491tv ? ARMdlInterfaceJNI.initHandSkeletonFromAsset(aVar.tw[0], aVar.tw[1]) : ARMdlInterfaceJNI.initHandSkeleton(aVar.tw[0], aVar.tw[1]);
+                return aVar.f1261tv ? ARMdlInterfaceJNI.initHandSkeletonFromAsset(aVar.tw[0], aVar.tw[1]) : ARMdlInterfaceJNI.initHandSkeleton(aVar.tw[0], aVar.tw[1]);
             }
 
             @Override // com.baidu.ar.c.a

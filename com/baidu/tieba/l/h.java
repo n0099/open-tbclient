@@ -1,27 +1,27 @@
 package com.baidu.tieba.l;
 /* loaded from: classes.dex */
 public interface h {
-    void EJ(int i);
+    void EM(int i);
 
-    void EK(int i);
+    void EN(int i);
 
-    void EL(int i);
+    void EO(int i);
 
     void F(long j, int i);
 
-    void OF(String str);
+    void OL(String str);
 
-    String OG(String str);
+    String OM(String str);
 
-    boolean OH(String str);
+    boolean ON(String str);
 
     void ao(boolean z, boolean z2);
 
-    void dgS();
+    void dhb();
 
-    void dgT();
+    void dhc();
 
-    void h(long j, long j2, long j3);
+    void i(long j, long j2, long j3);
 
     void ua(boolean z);
 }

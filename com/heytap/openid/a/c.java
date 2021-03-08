@@ -16,24 +16,22 @@ import com.baidu.android.imsdk.internal.IMConnection;
 import com.heytap.openid.a;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class c {
-    public com.heytap.openid.a pXO = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f7905b = null;
+    public com.heytap.openid.a pYC = null;
+    public String b = null;
     public String c = null;
     public final Object d = new Object();
-    public ServiceConnection pms = new a();
+    public ServiceConnection poA = new a();
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes4.dex */
     public class a implements ServiceConnection {
         public a() {
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            c.this.pXO = a.AbstractBinderC1062a.a(iBinder);
+            c.this.pYC = a.AbstractBinderC1079a.a(iBinder);
             synchronized (c.this.d) {
                 c.this.d.notify();
             }
@@ -41,14 +39,14 @@ public class c {
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            c.this.pXO = null;
+            c.this.pYC = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes4.dex */
     public static class b {
-        public static final c pXP = new c(null);
+        public static final c pYD = new c(null);
     }
 
     public /* synthetic */ c(a aVar) {
@@ -57,11 +55,11 @@ public class c {
     public synchronized String a(Context context, String str) {
         String str2;
         if (Looper.myLooper() != Looper.getMainLooper()) {
-            if (this.pXO == null) {
+            if (this.pYC == null) {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
                 intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-                if (context.bindService(intent, this.pms, 1)) {
+                if (context.bindService(intent, this.poA, 1)) {
                     synchronized (this.d) {
                         try {
                             this.d.wait(IMConnection.RETRY_DELAY_TIMES);
@@ -70,7 +68,7 @@ public class c {
                         }
                     }
                 }
-                if (this.pXO == null) {
+                if (this.pYC == null) {
                     str2 = "";
                 } else {
                     try {
@@ -114,12 +112,12 @@ public class c {
     public final String b(Context context, String str) {
         Signature[] signatureArr;
         String str2 = null;
-        if (TextUtils.isEmpty(this.f7905b)) {
-            this.f7905b = context.getPackageName();
+        if (TextUtils.isEmpty(this.b)) {
+            this.b = context.getPackageName();
         }
         if (TextUtils.isEmpty(this.c)) {
             try {
-                signatureArr = context.getPackageManager().getPackageInfo(this.f7905b, 64).signatures;
+                signatureArr = context.getPackageManager().getPackageInfo(this.b, 64).signatures;
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
                 signatureArr = null;
@@ -142,7 +140,7 @@ public class c {
             }
             this.c = str2;
         }
-        String a2 = ((a.AbstractBinderC1062a.C1063a) this.pXO).a(this.f7905b, this.c, str);
+        String a2 = ((a.AbstractBinderC1079a.C1080a) this.pYC).a(this.b, this.c, str);
         return TextUtils.isEmpty(a2) ? "" : a2;
     }
 }

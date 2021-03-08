@@ -1,7 +1,7 @@
 package com.baidu.live.lottie.network;
 
 import com.baidu.live.lottie.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public enum FileExtension {
     Json(".json"),
     Zip(".zip");

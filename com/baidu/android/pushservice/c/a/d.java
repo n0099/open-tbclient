@@ -3,10 +3,8 @@ package com.baidu.android.pushservice.c.a;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1218a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f1219b;
+    public String f1101a;
+    public String b;
     public String c;
     public String d;
     public long e;

@@ -15,10 +15,8 @@ import java.lang.reflect.Method;
 public final class SafeKeyBoardUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2029a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Context f2030b;
+    private String f1585a;
+    private Context b;
     private SafeKeyBoardEditText c;
     private ViewGroup d;
     private SafeScrollView e;
@@ -30,7 +28,7 @@ public final class SafeKeyBoardUtil {
     public SafeKeyBoardPopupWindow mPopupWindow;
 
     public void init(Context context, ViewGroup viewGroup, SafeScrollView safeScrollView) {
-        this.f2030b = context;
+        this.b = context;
         this.d = viewGroup;
         this.e = safeScrollView;
         if (this.mPopupWindow == null) {
@@ -73,7 +71,7 @@ public final class SafeKeyBoardUtil {
     }
 
     public void hideSoftInputMethod(EditText editText) {
-        ((InputMethodManager) this.f2030b.getSystemService("input_method")).hideSoftInputFromWindow(this.c.getWindowToken(), 0);
+        ((InputMethodManager) this.b.getSystemService("input_method")).hideSoftInputFromWindow(this.c.getWindowToken(), 0);
         if (Build.VERSION.SDK_INT < 11) {
             editText.setInputType(0);
             return;
@@ -109,7 +107,7 @@ public final class SafeKeyBoardUtil {
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         if (this.mPopupWindow != null && this.e != null && this.f != null) {
-            this.g = ((Activity) this.f2030b).getWindow().getDecorView().getBottom();
+            this.g = ((Activity) this.b).getWindow().getDecorView().getBottom();
             this.j = this.mPopupWindow.getPopupWindowHeight();
             int[] iArr = new int[2];
             this.e.getLocationOnScreen(iArr);

@@ -1,5 +1,5 @@
 package rx.internal.util.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class q<E> extends v<E> {
     public q(int i) {
         super(i);
@@ -10,13 +10,13 @@ public final class q<E> extends v<E> {
         if (e == null) {
             throw new NullPointerException("null elements not allowed");
         }
-        E[] eArr = this.qtz;
+        E[] eArr = this.qub;
         long j = this.producerIndex;
-        long jB = jB(j);
-        if (b(eArr, jB) != null) {
+        long jA = jA(j);
+        if (b(eArr, jA) != null) {
             return false;
         }
-        b(eArr, jB, e);
+        b(eArr, jA, e);
         soProducerIndex(1 + j);
         return true;
     }
@@ -24,53 +24,53 @@ public final class q<E> extends v<E> {
     @Override // java.util.Queue
     public E poll() {
         long j = this.consumerIndex;
-        long jB = jB(j);
-        E[] eArr = this.qtz;
-        E b2 = b(eArr, jB);
-        if (b2 == null) {
+        long jA = jA(j);
+        E[] eArr = this.qub;
+        E b = b(eArr, jA);
+        if (b == null) {
             return null;
         }
-        b(eArr, jB, null);
+        b(eArr, jA, null);
         soConsumerIndex(j + 1);
-        return b2;
+        return b;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        return jC(jB(this.consumerIndex));
+        return jB(jA(this.consumerIndex));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long eKD = eKD();
+        long eKl = eKl();
         while (true) {
-            long eKC = eKC();
-            long eKD2 = eKD();
-            if (eKD == eKD2) {
-                return (int) (eKC - eKD2);
+            long eKk = eKk();
+            long eKl2 = eKl();
+            if (eKl == eKl2) {
+                return (int) (eKk - eKl2);
             }
-            eKD = eKD2;
+            eKl = eKl2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return eKC() == eKD();
+        return eKk() == eKl();
     }
 
     private void soProducerIndex(long j) {
-        ae.qDZ.a(this, qDT, j);
+        ae.qEB.a(this, qEv, j);
     }
 
     private void soConsumerIndex(long j) {
-        ae.qDZ.a(this, qDS, j);
+        ae.qEB.a(this, qEu, j);
     }
 
-    private long eKC() {
-        return ae.qDZ.e(this, qDT);
+    private long eKk() {
+        return ae.qEB.e(this, qEv);
     }
 
-    private long eKD() {
-        return ae.qDZ.e(this, qDS);
+    private long eKl() {
+        return ae.qEB.e(this, qEu);
     }
 }

@@ -4,18 +4,18 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes.dex */
 public class aa implements com.baidu.tbadk.core.flow.a.a {
-    private String dcS;
-    private String eNn;
-    private String eNo;
-    private boolean eNp;
+    private String dev;
+    private String eOO;
+    private String eOP;
+    private boolean eOQ;
     private String mSubTitle;
     private String mTitle;
     private String tagNameUrl;
     private float tagRatio;
 
     public aa(String str, String str2, String str3) {
-        this.dcS = str;
-        this.eNn = str2;
+        this.dev = str;
+        this.eOO = str2;
         this.mTitle = str3;
     }
 
@@ -24,47 +24,47 @@ public class aa implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.dcS;
+        return this.dev;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String blL() {
-        return this.eNn;
+    public String blN() {
+        return this.eOO;
     }
 
     public String getImageUrl() {
-        return this.dcS;
+        return this.dev;
     }
 
     public void setImageUrl(String str) {
-        this.dcS = str;
+        this.dev = str;
     }
 
     public String getLinkUrl() {
-        return this.eNn;
+        return this.eOO;
     }
 
     public void setLinkUrl(String str) {
-        this.eNn = str;
+        this.eOO = str;
     }
 
-    public String blV() {
+    public String blX() {
         return this.tagNameUrl;
     }
 
-    public float blW() {
+    public float blY() {
         return this.tagRatio;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: blX */
+    /* renamed from: blZ */
     public aa clone() {
         aa aaVar = new aa();
-        aaVar.dcS = this.dcS;
-        aaVar.eNn = this.eNn;
+        aaVar.dev = this.dev;
+        aaVar.eOO = this.eOO;
         aaVar.mTitle = this.mTitle;
         aaVar.mSubTitle = this.mSubTitle;
-        aaVar.eNo = this.eNo;
+        aaVar.eOP = this.eOP;
         aaVar.tagNameUrl = this.tagNameUrl;
         aaVar.tagRatio = this.tagRatio;
         return aaVar;
@@ -72,8 +72,8 @@ public class aa implements com.baidu.tbadk.core.flow.a.a {
 
     public void b(HeadImgs headImgs) {
         if (headImgs != null) {
-            this.dcS = headImgs.img_url;
-            this.eNn = headImgs.pc_url;
+            this.dev = headImgs.img_url;
+            this.eOO = headImgs.pc_url;
             this.tagNameUrl = headImgs.tag_name_url;
             String str = headImgs.tag_name_wh;
             if (str != null) {
@@ -95,16 +95,16 @@ public class aa implements com.baidu.tbadk.core.flow.a.a {
                 this.mSubTitle = headImgs.subtitle.trim();
             }
             if (headImgs.btn_text != null) {
-                this.eNo = headImgs.btn_text.trim();
+                this.eOP = headImgs.btn_text.trim();
             }
         }
     }
 
-    public boolean blY() {
-        return this.eNp;
+    public boolean bma() {
+        return this.eOQ;
     }
 
     public void jt(boolean z) {
-        this.eNp = z;
+        this.eOQ = z;
     }
 }

@@ -1,12 +1,12 @@
 package com.baidu.live.yuyinim.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    public boolean bpO = false;
-    public boolean bpP = true;
+    public boolean bro = false;
+    public boolean brp = true;
     public boolean isNormal = true;
-    public boolean bpQ = false;
-    public boolean bpR = false;
-    public boolean bpS = false;
-    public boolean bpT = false;
-    public boolean bpU = false;
+    public boolean brq = false;
+    public boolean brr = false;
+    public boolean brs = false;
+    public boolean brt = false;
+    public boolean bru = false;
 }

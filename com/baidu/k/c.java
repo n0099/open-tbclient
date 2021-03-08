@@ -4,22 +4,24 @@ import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class c {
     private static final String TAG = c.class.getSimpleName();
-    private static volatile c cmL;
 
-    public static synchronized c ade() {
+    /* renamed from: com  reason: collision with root package name */
+    private static volatile c f1870com;
+
+    public static synchronized c adh() {
         c cVar;
         synchronized (c.class) {
-            if (cmL == null) {
+            if (f1870com == null) {
                 synchronized (c.class) {
-                    if (cmL == null) {
-                        cmL = new c();
+                    if (f1870com == null) {
+                        f1870com = new c();
                     }
                 }
             }
-            cVar = cmL;
+            cVar = f1870com;
         }
         return cVar;
     }
@@ -31,7 +33,7 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.add().e(activity, str, aVar);
+        b.adg().e(activity, str, aVar);
         return true;
     }
 
@@ -39,7 +41,7 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.add().f(activity, str, aVar);
+        b.adg().f(activity, str, aVar);
         return true;
     }
 
@@ -47,7 +49,7 @@ public class c {
         if (jSONObject == null) {
             return false;
         }
-        b.add().b(context, jSONObject, aVar);
+        b.adg().b(context, jSONObject, aVar);
         return true;
     }
 
@@ -55,7 +57,7 @@ public class c {
         if (jSONObject == null) {
             return false;
         }
-        b.add().f(context, jSONObject);
+        b.adg().f(context, jSONObject);
         return true;
     }
 
@@ -63,7 +65,7 @@ public class c {
         if (jSONObject == null) {
             return false;
         }
-        b.add().b(activity, jSONObject, aVar);
+        b.adg().b(activity, jSONObject, aVar);
         return true;
     }
 }

@@ -6,7 +6,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ImageBufferPool<T extends ImageBuffer> {
     AtomicInteger mBufferCnt = new AtomicInteger(0);
     private int mCapacity;

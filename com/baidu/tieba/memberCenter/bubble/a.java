@@ -8,25 +8,25 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends BaseAdapter {
-    private TbPageContext<BubbleChooseActivity> iVp;
-    private boolean llc;
+    private TbPageContext<BubbleChooseActivity> iWY;
+    private boolean lne;
     private int mBottom;
     private List<BubbleListData.BubbleData> mData = new ArrayList();
     private int mTop;
 
     public void tT(boolean z) {
-        this.llc = z;
+        this.lne = z;
     }
 
     public a(TbPageContext<BubbleChooseActivity> tbPageContext) {
-        this.iVp = tbPageContext;
-        this.mBottom = (int) this.iVp.getResources().getDimension(R.dimen.ds30);
-        this.mTop = (int) this.iVp.getResources().getDimension(R.dimen.ds30);
+        this.iWY = tbPageContext;
+        this.mBottom = (int) this.iWY.getResources().getDimension(R.dimen.ds30);
+        this.mTop = (int) this.iWY.getResources().getDimension(R.dimen.ds30);
     }
 
-    public List<BubbleListData.BubbleData> cSi() {
+    public List<BubbleListData.BubbleData> cSp() {
         return this.mData;
     }
 
@@ -40,7 +40,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Ep */
+    /* renamed from: Es */
     public BubbleListData.BubbleData getItem(int i) {
         if (this.mData == null || (i < 0 && i >= this.mData.size())) {
             return null;
@@ -57,7 +57,7 @@ public class a extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         BubbleView bubbleView;
         if (view == null) {
-            BubbleView bubbleView2 = new BubbleView(this.iVp.getPageActivity());
+            BubbleView bubbleView2 = new BubbleView(this.iWY.getPageActivity());
             bubbleView = bubbleView2;
             view = bubbleView2;
         } else {
@@ -76,9 +76,9 @@ public class a extends BaseAdapter {
         BubbleListData.BubbleData item = getItem(i);
         if (item != null) {
             bubbleView.setShowName(true);
-            bubbleView.setData(item, this.llc);
+            bubbleView.setData(item, this.lne);
         }
-        bubbleView.D(this.iVp);
+        bubbleView.D(this.iWY);
         return view;
     }
 

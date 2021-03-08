@@ -10,13 +10,11 @@ import com.bytedance.sdk.openadsdk.utils.u;
 public class a extends ICommonDialogListener.Stub {
 
     /* renamed from: a  reason: collision with root package name */
-    private Handler f7360a = new Handler(Looper.getMainLooper());
-
-    /* renamed from: b  reason: collision with root package name */
-    private g.a f7361b;
+    private Handler f4889a = new Handler(Looper.getMainLooper());
+    private g.a b;
 
     public a(g.a aVar) {
-        this.f7361b = aVar;
+        this.b = aVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.ICommonDialogListener
@@ -25,8 +23,8 @@ public class a extends ICommonDialogListener.Stub {
         a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.f7361b != null) {
-                    a.this.f7361b.a();
+                if (a.this.b != null) {
+                    a.this.b.a();
                 }
             }
         });
@@ -38,8 +36,8 @@ public class a extends ICommonDialogListener.Stub {
         a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.a.2
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.f7361b != null) {
-                    a.this.f7361b.b();
+                if (a.this.b != null) {
+                    a.this.b.b();
                 }
             }
         });
@@ -51,14 +49,14 @@ public class a extends ICommonDialogListener.Stub {
         a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.a.3
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.f7361b != null) {
-                    a.this.f7361b.c();
+                if (a.this.b != null) {
+                    a.this.b.c();
                 }
             }
         });
     }
 
     private void a(Runnable runnable) {
-        this.f7360a.post(runnable);
+        this.f4889a.post(runnable);
     }
 }

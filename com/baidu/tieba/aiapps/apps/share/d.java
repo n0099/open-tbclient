@@ -17,18 +17,18 @@ import com.baidu.swan.apps.t.b.i;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d implements i {
-    i.a gmM;
-    private CustomMessageListener gmN = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.d.1
+    i.a gov;
+    private CustomMessageListener gow = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (d.this.gmM != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if (d.this.gov != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    d.this.gmM.ayB();
+                    d.this.gov.ayE();
                 } else {
-                    d.this.gmM.ayC();
+                    d.this.gov.ayF();
                 }
             }
         }
@@ -36,13 +36,13 @@ public class d implements i {
 
     public d() {
         TbadkCoreApplication.getInst().setSkinType(0);
-        MessageManager.getInstance().registerListener(this.gmN);
+        MessageManager.getInstance().registerListener(this.gow);
     }
 
     @Override // com.baidu.swan.apps.t.b.i
     public void a(Context context, JSONObject jSONObject, final i.a aVar) {
         if (context instanceof Activity) {
-            this.gmM = aVar;
+            this.gov = aVar;
             Bundle bundle = new Bundle();
             try {
                 String optString = jSONObject.optString("shareUrl");
@@ -67,9 +67,9 @@ public class d implements i {
                 public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
                     if (delegateResult.isOk()) {
                         if (delegateResult.mResult.getBoolean("share_result")) {
-                            aVar.ayB();
+                            aVar.ayE();
                         } else {
-                            aVar.ayC();
+                            aVar.ayF();
                         }
                     }
                 }
@@ -78,6 +78,6 @@ public class d implements i {
     }
 
     @Override // com.baidu.swan.apps.t.b.i
-    public void b(Context context, String str, Uri uri) {
+    public void a(Context context, String str, Uri uri) {
     }
 }

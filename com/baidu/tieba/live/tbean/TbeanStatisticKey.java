@@ -1,5 +1,5 @@
 package com.baidu.tieba.live.tbean;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class TbeanStatisticKey {
     public static final String BUY_BIG_TBEAN_PAY_BUTTON = "c13141";
     public static final String BUY_BIG_TBEAN_WALLET_H5 = "c13142";

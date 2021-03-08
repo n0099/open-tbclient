@@ -1,5 +1,5 @@
 package com.baidu.live.adp.lib.cache;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BdCacheItem<T> {
     public long lastHitTime;
     public String nameSpace;

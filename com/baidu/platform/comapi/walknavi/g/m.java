@@ -7,11 +7,11 @@ import android.os.Message;
 public class m implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f4346a;
+    final /* synthetic */ a f3011a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(a aVar) {
-        this.f4346a = aVar;
+        this.f3011a = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -20,9 +20,9 @@ public class m implements Runnable {
         Handler handler2;
         Message obtain = Message.obtain();
         obtain.what = 1;
-        handler = this.f4346a.Q;
+        handler = this.f3011a.Q;
         if (handler != null) {
-            handler2 = this.f4346a.Q;
+            handler2 = this.f3011a.Q;
             handler2.dispatchMessage(obtain);
         }
     }

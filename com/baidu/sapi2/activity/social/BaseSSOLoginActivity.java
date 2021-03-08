@@ -410,7 +410,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
-        this.rootView = (RelativeLayout) findViewById(a.C0146a.root_view);
+        this.rootView = (RelativeLayout) findViewById(a.C0152a.root_view);
         this.sapiWebView.setOnBackCallback(new SapiWebView.OnBackCallback() { // from class: com.baidu.sapi2.activity.social.BaseSSOLoginActivity.3
             @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
             public void onBack() {

@@ -9,9 +9,7 @@ import java.security.MessageDigest;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class g implements com.kwad.sdk.glide.load.c {
-
-    /* renamed from: b  reason: collision with root package name */
-    private final h f10088b;
+    private final h b;
     @Nullable
     private final URL c;
     @Nullable
@@ -25,23 +23,23 @@ public class g implements com.kwad.sdk.glide.load.c {
     private int h;
 
     public g(String str) {
-        this(str, h.f10090b);
+        this(str, h.b);
     }
 
     public g(String str, h hVar) {
         this.c = null;
         this.d = com.kwad.sdk.glide.g.j.a(str);
-        this.f10088b = (h) com.kwad.sdk.glide.g.j.a(hVar);
+        this.b = (h) com.kwad.sdk.glide.g.j.a(hVar);
     }
 
     public g(URL url) {
-        this(url, h.f10090b);
+        this(url, h.b);
     }
 
     public g(URL url, h hVar) {
         this.c = (URL) com.kwad.sdk.glide.g.j.a(url);
         this.d = null;
-        this.f10088b = (h) com.kwad.sdk.glide.g.j.a(hVar);
+        this.b = (h) com.kwad.sdk.glide.g.j.a(hVar);
     }
 
     private URL d() {
@@ -64,7 +62,7 @@ public class g implements com.kwad.sdk.glide.load.c {
 
     private byte[] f() {
         if (this.g == null) {
-            this.g = c().getBytes(f10134a);
+            this.g = c().getBytes(f6709a);
         }
         return this.g;
     }
@@ -79,7 +77,7 @@ public class g implements com.kwad.sdk.glide.load.c {
     }
 
     public Map<String, String> b() {
-        return this.f10088b.a();
+        return this.b.a();
     }
 
     public String c() {
@@ -90,7 +88,7 @@ public class g implements com.kwad.sdk.glide.load.c {
     public boolean equals(Object obj) {
         if (obj instanceof g) {
             g gVar = (g) obj;
-            return c().equals(gVar.c()) && this.f10088b.equals(gVar.f10088b);
+            return c().equals(gVar.c()) && this.b.equals(gVar.b);
         }
         return false;
     }
@@ -99,7 +97,7 @@ public class g implements com.kwad.sdk.glide.load.c {
     public int hashCode() {
         if (this.h == 0) {
             this.h = c().hashCode();
-            this.h = (this.h * 31) + this.f10088b.hashCode();
+            this.h = (this.h * 31) + this.b.hashCode();
         }
         return this.h;
     }

@@ -8,14 +8,14 @@ import android.graphics.PointF;
 import androidx.annotation.Nullable;
 import com.baidu.live.lottie.a.a.r;
 import java.io.Closeable;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class f {
-    private static final PathMeasure EC = new PathMeasure();
-    private static final Path EE = new Path();
-    private static final Path HI = new Path();
+    private static final PathMeasure FW = new PathMeasure();
+    private static final Path FY = new Path();
+    private static final Path Jh = new Path();
     private static final float[] points = new float[4];
-    private static final float HJ = (float) Math.sqrt(2.0d);
-    private static float HK = -1.0f;
+    private static final float Ji = (float) Math.sqrt(2.0d);
+    private static float Jj = -1.0f;
 
     public static Path b(PointF pointF, PointF pointF2, PointF pointF3, PointF pointF4) {
         Path path = new Path();
@@ -42,26 +42,26 @@ public final class f {
     public static float c(Matrix matrix) {
         points[0] = 0.0f;
         points[1] = 0.0f;
-        points[2] = HJ;
-        points[3] = HJ;
+        points[2] = Ji;
+        points[3] = Ji;
         matrix.mapPoints(points);
         return ((float) Math.hypot(points[2] - points[0], points[3] - points[1])) / 2.0f;
     }
 
     public static void a(Path path, @Nullable r rVar) {
         if (rVar != null) {
-            b(path, rVar.Nj().getValue().floatValue() / 100.0f, rVar.Nk().getValue().floatValue() / 100.0f, rVar.Nl().getValue().floatValue() / 360.0f);
+            b(path, rVar.Nm().getValue().floatValue() / 100.0f, rVar.Nn().getValue().floatValue() / 100.0f, rVar.No().getValue().floatValue() / 360.0f);
         }
     }
 
     public static void b(Path path, float f, float f2, float f3) {
         com.baidu.live.lottie.d.beginSection("applyTrimPathIfNeeded");
-        EC.setPath(path, false);
-        float length = EC.getLength();
+        FW.setPath(path, false);
+        float length = FW.getLength();
         if (f == 1.0f && f2 == 0.0f) {
-            com.baidu.live.lottie.d.bb("applyTrimPathIfNeeded");
+            com.baidu.live.lottie.d.bf("applyTrimPathIfNeeded");
         } else if (length < 1.0f || Math.abs((f2 - f) - 1.0f) < 0.01d) {
-            com.baidu.live.lottie.d.bb("applyTrimPathIfNeeded");
+            com.baidu.live.lottie.d.bf("applyTrimPathIfNeeded");
         } else {
             float f4 = length * f;
             float f5 = length * f2;
@@ -82,25 +82,25 @@ public final class f {
             }
             if (f7 == f8) {
                 path.reset();
-                com.baidu.live.lottie.d.bb("applyTrimPathIfNeeded");
+                com.baidu.live.lottie.d.bf("applyTrimPathIfNeeded");
                 return;
             }
             if (f7 >= f8) {
                 f7 -= length;
             }
-            EE.reset();
-            EC.getSegment(f7, f8, EE, true);
+            FY.reset();
+            FW.getSegment(f7, f8, FY, true);
             if (f8 > length) {
-                HI.reset();
-                EC.getSegment(0.0f, f8 % length, HI, true);
-                EE.addPath(HI);
+                Jh.reset();
+                FW.getSegment(0.0f, f8 % length, Jh, true);
+                FY.addPath(Jh);
             } else if (f7 < 0.0f) {
-                HI.reset();
-                EC.getSegment(f7 + length, length, HI, true);
-                EE.addPath(HI);
+                Jh.reset();
+                FW.getSegment(f7 + length, length, Jh, true);
+                FY.addPath(Jh);
             }
-            path.set(EE);
-            com.baidu.live.lottie.d.bb("applyTrimPathIfNeeded");
+            path.set(FY);
+            com.baidu.live.lottie.d.bf("applyTrimPathIfNeeded");
         }
     }
 
@@ -135,9 +135,9 @@ public final class f {
     }
 
     public static float kz() {
-        if (HK == -1.0f) {
-            HK = Resources.getSystem().getDisplayMetrics().density;
+        if (Jj == -1.0f) {
+            Jj = Resources.getSystem().getDisplayMetrics().density;
         }
-        return HK;
+        return Jj;
     }
 }

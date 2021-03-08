@@ -7,10 +7,8 @@ import java.security.MessageDigest;
 public class e extends com.sdk.base.framework.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f12862a = e.class.getName();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static boolean f12863b = f.f12821b;
+    private static final String f7654a = e.class.getName();
+    private static boolean b = f.b;
 
     static {
         char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
@@ -34,7 +32,7 @@ public class e extends com.sdk.base.framework.f.a {
             }
             return sb.toString();
         } catch (Exception e) {
-            a(f12862a, "encrypt", e.getMessage(), f12863b);
+            a(f7654a, "encrypt", e.getMessage(), b);
             return null;
         }
     }

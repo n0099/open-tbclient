@@ -13,10 +13,8 @@ import java.util.Locale;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    static final char[] f11063a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-
-    /* renamed from: b  reason: collision with root package name */
-    private static volatile com.kwai.video.ksvodplayerkit.a f11064b;
+    static final char[] f7284a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private static volatile com.kwai.video.ksvodplayerkit.a b;
 
     public static int a(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -36,9 +34,9 @@ public class c {
         for (int i4 = 0; i4 < i2; i4++) {
             int i5 = bArr[i4 + i] & 255;
             int i6 = i3 + 1;
-            cArr[i3] = f11063a[i5 >> 4];
+            cArr[i3] = f7284a[i5 >> 4];
             i3 = i6 + 1;
-            cArr[i6] = f11063a[i5 & 15];
+            cArr[i6] = f7284a[i5 & 15];
         }
         return new String(cArr, 0, i2 * 2);
     }
@@ -64,8 +62,8 @@ public class c {
     }
 
     public static String c(String str) {
-        if (f11064b != null) {
-            return f11064b.a(str);
+        if (b != null) {
+            return b.a(str);
         }
         String lowerCase = d(str).toLowerCase(Locale.US);
         try {

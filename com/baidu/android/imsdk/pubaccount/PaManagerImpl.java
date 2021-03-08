@@ -271,7 +271,7 @@ public class PaManagerImpl {
                         creatMethodIntent.putExtra(Constants.EXTRA_PA_ID, j);
                         creatMethodIntent.putExtra(Constants.EXTRA_PA_INFO, paInfo);
                         try {
-                            a.ao(PaManagerImpl.mContext).e(PaManagerImpl.mContext, creatMethodIntent);
+                            a.an(PaManagerImpl.mContext).e(PaManagerImpl.mContext, creatMethodIntent);
                             return;
                         } catch (Exception e) {
                             ListenerManager.getInstance().removeListener(addListener);
@@ -295,7 +295,7 @@ public class PaManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             creatMethodIntent.putExtra(Constants.EXTRA_PA_ID, j);
             try {
-                a.ao(mContext).e(mContext, creatMethodIntent);
+                a.an(mContext).e(mContext, creatMethodIntent);
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
@@ -391,7 +391,7 @@ public class PaManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             creatMethodIntent.putExtra(Constants.EXTRA_PA_SEARCH_CONTENT, str);
             try {
-                a.ao(mContext).e(mContext, creatMethodIntent);
+                a.an(mContext).e(mContext, creatMethodIntent);
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
@@ -409,7 +409,7 @@ public class PaManagerImpl {
             Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 104);
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             try {
-                a.ao(mContext).e(mContext, creatMethodIntent);
+                a.an(mContext).e(mContext, creatMethodIntent);
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
@@ -429,7 +429,7 @@ public class PaManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_PA_ID, j);
             creatMethodIntent.putExtra(Constants.EXTRA_PA_ACCEPT_PUSH, z);
             try {
-                a.ao(mContext).e(mContext, creatMethodIntent);
+                a.an(mContext).e(mContext, creatMethodIntent);
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
@@ -448,7 +448,7 @@ public class PaManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             creatMethodIntent.putExtra(Constants.EXTRA_PA_ID, j);
             try {
-                a.ao(mContext).e(mContext, creatMethodIntent);
+                a.an(mContext).e(mContext, creatMethodIntent);
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);

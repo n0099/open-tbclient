@@ -4,7 +4,7 @@ import com.yy.mediaframework.IPublishListener;
 import com.yy.mediaframework.ITextureListener;
 import com.yy.videoplayer.VideoRenderNotify;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface IThunderVideoEngine extends IPublishListener, ITextureListener {
     void onDecodedFrameData(long j, int i, int i2, byte[] bArr, int i3, long j2);
 

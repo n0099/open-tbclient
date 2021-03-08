@@ -60,9 +60,9 @@ public class y {
         if (context == null) {
             return 0;
         }
-        long b2 = ae.b(context, str);
+        long b = ae.b(context, str);
         String c = ae.c(context, str);
-        if (TextUtils.isEmpty(c) || b2 <= 0) {
+        if (TextUtils.isEmpty(c) || b <= 0) {
             com.kwad.sdk.core.d.a.c("PackageUtil", "cannot judge package, has no download apk info.");
             return 0;
         }
@@ -76,14 +76,14 @@ public class y {
             if (!file.exists()) {
                 com.kwad.sdk.core.d.a.c("PackageUtil", "cannot judge package, insgtalled apk is not exists.");
                 return 0;
-            } else if (b2 == file.length()) {
+            } else if (b == file.length()) {
                 if (TextUtils.isEmpty(c)) {
                     com.kwad.sdk.core.d.a.c("PackageUtil", "cannot judge package, cannot calculate md5 of download file.");
                     return 0;
                 }
-                String b3 = c.b(file);
-                if (!TextUtils.isEmpty(b3)) {
-                    return c.equalsIgnoreCase(b3) ? 2 : 1;
+                String b2 = c.b(file);
+                if (!TextUtils.isEmpty(b2)) {
+                    return c.equalsIgnoreCase(b2) ? 2 : 1;
                 }
                 com.kwad.sdk.core.d.a.c("PackageUtil", "cannot judge package, cannot calculate md5 of installed file.");
                 return 0;

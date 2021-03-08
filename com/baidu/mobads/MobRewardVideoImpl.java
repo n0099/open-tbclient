@@ -10,23 +10,21 @@ import com.baidu.mobads.production.rewardvideo.MobRewardVideoActivity;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import dalvik.system.DexClassLoader;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MobRewardVideoImpl {
     public static String activityName = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static Class<?> f3280b;
+    private static Class<?> b;
     public static IXRewardVideoAdContainer mAdContainer;
     public static IXAdContainerContext mContext;
     public static boolean mVideoPlaying;
 
     /* renamed from: a  reason: collision with root package name */
-    private Activity f3281a;
+    private Activity f2351a;
     private Object c;
     private Method[] d = null;
 
     public MobRewardVideoImpl(Activity activity) {
-        this.f3281a = activity;
+        this.f2351a = activity;
     }
 
     public void onCreate(Bundle bundle) {
@@ -79,12 +77,12 @@ public class MobRewardVideoImpl {
         DexClassLoader d = com.baidu.mobads.g.b.d();
         try {
             if (d == null) {
-                f3280b = a("com.baidu.mobads.container.rewardvideo.RemoteRewardActivity");
+                b = a("com.baidu.mobads.container.rewardvideo.RemoteRewardActivity");
             } else {
-                f3280b = Class.forName("com.baidu.mobads.container.rewardvideo.RemoteRewardActivity", true, d);
+                b = Class.forName("com.baidu.mobads.container.rewardvideo.RemoteRewardActivity", true, d);
             }
-            this.d = f3280b.getDeclaredMethods();
-            this.c = f3280b.getConstructor(Activity.class, IXAdContainerContext.class, IXRewardVideoAdContainer.class).newInstance(this.f3281a, mContext, mAdContainer);
+            this.d = b.getDeclaredMethods();
+            this.c = b.getConstructor(Activity.class, IXAdContainerContext.class, IXRewardVideoAdContainer.class).newInstance(this.f2351a, mContext, mAdContainer);
         } catch (Exception e) {
         }
         a(MissionEvent.MESSAGE_CREATE, bundle);
@@ -94,7 +92,7 @@ public class MobRewardVideoImpl {
         Class<?> cls = null;
         com.baidu.mobads.utils.q a2 = com.baidu.mobads.utils.q.a();
         try {
-            cls = Class.forName(str, true, new DexClassLoader(com.baidu.mobads.g.g.a(this.f3281a), this.f3281a.getFilesDir().getAbsolutePath(), null, getClass().getClassLoader()));
+            cls = Class.forName(str, true, new DexClassLoader(com.baidu.mobads.g.g.a(this.f2351a), this.f2351a.getFilesDir().getAbsolutePath(), null, getClass().getClassLoader()));
         } catch (Exception e) {
             a2.e(e);
         }

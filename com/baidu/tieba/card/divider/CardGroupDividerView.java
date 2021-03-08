@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class CardGroupDividerView extends LinearLayout {
-    private static final int iCd = R.color.CAM_X0204;
-    private static final int iCe = R.color.CAM_X0204;
-    private View iCb;
-    private View iCc;
-    private int iCf;
+    private static final int iDM = R.color.CAM_X0204;
+    private static final int iDN = R.color.CAM_X0204;
+    private View iDK;
+    private View iDL;
+    private int iDO;
     private TextView mTitle;
 
     public void setTitleClickListener(View.OnClickListener onClickListener) {
@@ -26,35 +26,35 @@ public class CardGroupDividerView extends LinearLayout {
 
     public CardGroupDividerView(Context context) {
         super(context);
-        this.iCf = iCe;
+        this.iDO = iDN;
         init();
     }
 
     public CardGroupDividerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.iCf = iCe;
+        this.iDO = iDN;
         init();
     }
 
     public CardGroupDividerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.iCf = iCe;
+        this.iDO = iDN;
         init();
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.card_divider_view, (ViewGroup) this, true);
-        this.iCb = findViewById(R.id.card_divider_top_margin);
+        this.iDK = findViewById(R.id.card_divider_top_margin);
         this.mTitle = (TextView) findViewById(R.id.card_divider_tv);
-        this.iCc = findViewById(R.id.bottom_line);
+        this.iDL = findViewById(R.id.bottom_line);
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
         ap.setBackgroundColor(this, R.color.CAM_X0201);
-        ap.setBackgroundColor(this.iCb, R.color.CAM_X0204);
+        ap.setBackgroundColor(this.iDK, R.color.CAM_X0204);
         ap.setViewTextColor(this.mTitle, R.color.CAM_X0109);
-        ap.setBackgroundColor(this.iCc, this.iCf);
+        ap.setBackgroundColor(this.iDL, this.iDO);
     }
 
     public void setTitleText(String str) {
@@ -66,11 +66,11 @@ public class CardGroupDividerView extends LinearLayout {
     }
 
     private void setDividerColor(int i) {
-        this.iCf = i;
-        ap.setBackgroundColor(this.iCc, this.iCf);
+        this.iDO = i;
+        ap.setBackgroundColor(this.iDL, this.iDO);
     }
 
     public View getBotttomLine() {
-        return this.iCc;
+        return this.iDL;
     }
 }

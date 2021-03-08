@@ -8,9 +8,9 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsLiveDoubleView;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.gamelist.b.a, AlaGameFrsLiveDoubleView.AlaGameFrsLiveDoubleViewHolder> {
-    private com.baidu.tieba.ala.h gVl;
+    private com.baidu.tieba.ala.h gWU;
     private String labelName;
     private TbPageContext<?> mPageContext;
 
@@ -34,24 +34,24 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.gamel
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.gamelist.b.a aVar, AlaGameFrsLiveDoubleView.AlaGameFrsLiveDoubleViewHolder alaGameFrsLiveDoubleViewHolder) {
-        alaGameFrsLiveDoubleViewHolder.gWO.a(aVar);
-        alaGameFrsLiveDoubleViewHolder.gWO.c(this.gVl);
+        alaGameFrsLiveDoubleViewHolder.gYx.a(aVar);
+        alaGameFrsLiveDoubleViewHolder.gYx.c(this.gWU);
         String str = "";
-        if (!StringUtils.isNull(aVar.gXs.boj().appId)) {
-            str = aVar.gXs.boj().appId;
+        if (!StringUtils.isNull(aVar.gZb.bol().appId)) {
+            str = aVar.gZb.bol().appId;
         }
-        com.baidu.tieba.ala.d.bOL().e(new ar("c12115").v("obj_id", aVar.gXs.boj().live_id).dR(TiebaInitialize.Params.OBJ_PARAM3, str));
-        if (aVar.gXt != null) {
+        com.baidu.tieba.ala.d.bOR().e(new ar("c12115").v("obj_id", aVar.gZb.bol().live_id).dR(TiebaInitialize.Params.OBJ_PARAM3, str));
+        if (aVar.gZc != null) {
             String str2 = "";
-            if (!StringUtils.isNull(aVar.gXt.boj().appId)) {
-                str2 = aVar.gXt.boj().appId;
+            if (!StringUtils.isNull(aVar.gZc.bol().appId)) {
+                str2 = aVar.gZc.bol().appId;
             }
-            com.baidu.tieba.ala.d.bOL().e(new ar("c12115").v("obj_id", aVar.gXt.boj().live_id).dR(TiebaInitialize.Params.OBJ_PARAM3, str2));
+            com.baidu.tieba.ala.d.bOR().e(new ar("c12115").v("obj_id", aVar.gZc.bol().live_id).dR(TiebaInitialize.Params.OBJ_PARAM3, str2));
         }
         return alaGameFrsLiveDoubleViewHolder.getView();
     }
 
     public void a(com.baidu.tieba.ala.h hVar) {
-        this.gVl = hVar;
+        this.gWU = hVar;
     }
 }

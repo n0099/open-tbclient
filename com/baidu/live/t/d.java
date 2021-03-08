@@ -1,9 +1,9 @@
 package com.baidu.live.t;
 
 import android.view.ViewGroup;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface d {
-    void Fy();
+    void FB();
 
     void bh(long j);
 

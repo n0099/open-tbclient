@@ -12,27 +12,27 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class bi {
 
     /* renamed from: a  reason: collision with other field name */
-    private static AtomicLong f974a = new AtomicLong(0);
+    private static AtomicLong f895a = new AtomicLong(0);
 
     /* renamed from: a  reason: collision with other field name */
-    private static SimpleDateFormat f973a = new SimpleDateFormat("yyyy/MM/dd");
+    private static SimpleDateFormat f894a = new SimpleDateFormat("yyyy/MM/dd");
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f14276a = f973a.format(Long.valueOf(System.currentTimeMillis()));
+    private static String f8545a = f894a.format(Long.valueOf(System.currentTimeMillis()));
 
     public static synchronized String a() {
         String str;
         synchronized (bi.class) {
-            String format = f973a.format(Long.valueOf(System.currentTimeMillis()));
-            if (!TextUtils.equals(f14276a, format)) {
-                f974a.set(0L);
-                f14276a = format;
+            String format = f894a.format(Long.valueOf(System.currentTimeMillis()));
+            if (!TextUtils.equals(f8545a, format)) {
+                f895a.set(0L);
+                f8545a = format;
             }
-            str = format + Constants.ACCEPT_TIME_SEPARATOR_SERVER + f974a.incrementAndGet();
+            str = format + Constants.ACCEPT_TIME_SEPARATOR_SERVER + f895a.incrementAndGet();
         }
         return str;
     }
@@ -59,7 +59,7 @@ public class bi {
                             il ilVar = new il("-1", false);
                             ilVar.d(str);
                             ilVar.b(str2);
-                            ilVar.c(hw.UploadTinyData.f555a);
+                            ilVar.c(hw.UploadTinyData.f476a);
                             ilVar.a(com.xiaomi.push.y.a(iw.a(hpVar)));
                             arrayList.add(ilVar);
                             hpVar = new hp();
@@ -74,7 +74,7 @@ public class bi {
                 il ilVar2 = new il("-1", false);
                 ilVar2.d(str);
                 ilVar2.b(str2);
-                ilVar2.c(hw.UploadTinyData.f555a);
+                ilVar2.c(hw.UploadTinyData.f476a);
                 ilVar2.a(com.xiaomi.push.y.a(iw.a(hpVar)));
                 arrayList.add(ilVar2);
             }
@@ -99,32 +99,32 @@ public class bi {
 
     public static boolean a(hq hqVar, boolean z) {
         if (hqVar == null) {
-            com.xiaomi.channel.commonutils.logger.b.m79a("item is null, verfiy ClientUploadDataItem failed.");
+            com.xiaomi.channel.commonutils.logger.b.m58a("item is null, verfiy ClientUploadDataItem failed.");
             return true;
-        } else if (!z && TextUtils.isEmpty(hqVar.f527a)) {
-            com.xiaomi.channel.commonutils.logger.b.m79a("item.channel is null or empty, verfiy ClientUploadDataItem failed.");
+        } else if (!z && TextUtils.isEmpty(hqVar.f448a)) {
+            com.xiaomi.channel.commonutils.logger.b.m58a("item.channel is null or empty, verfiy ClientUploadDataItem failed.");
             return true;
-        } else if (TextUtils.isEmpty(hqVar.f534d)) {
-            com.xiaomi.channel.commonutils.logger.b.m79a("item.category is null or empty, verfiy ClientUploadDataItem failed.");
+        } else if (TextUtils.isEmpty(hqVar.f455d)) {
+            com.xiaomi.channel.commonutils.logger.b.m58a("item.category is null or empty, verfiy ClientUploadDataItem failed.");
             return true;
-        } else if (TextUtils.isEmpty(hqVar.f533c)) {
-            com.xiaomi.channel.commonutils.logger.b.m79a("item.name is null or empty, verfiy ClientUploadDataItem failed.");
+        } else if (TextUtils.isEmpty(hqVar.f454c)) {
+            com.xiaomi.channel.commonutils.logger.b.m58a("item.name is null or empty, verfiy ClientUploadDataItem failed.");
             return true;
-        } else if (!com.xiaomi.push.bf.m188a(hqVar.f534d)) {
-            com.xiaomi.channel.commonutils.logger.b.m79a("item.category can only contain ascii char, verfiy ClientUploadDataItem failed.");
+        } else if (!com.xiaomi.push.bf.m167a(hqVar.f455d)) {
+            com.xiaomi.channel.commonutils.logger.b.m58a("item.category can only contain ascii char, verfiy ClientUploadDataItem failed.");
             return true;
-        } else if (!com.xiaomi.push.bf.m188a(hqVar.f533c)) {
-            com.xiaomi.channel.commonutils.logger.b.m79a("item.name can only contain ascii char, verfiy ClientUploadDataItem failed.");
+        } else if (!com.xiaomi.push.bf.m167a(hqVar.f454c)) {
+            com.xiaomi.channel.commonutils.logger.b.m58a("item.name can only contain ascii char, verfiy ClientUploadDataItem failed.");
             return true;
-        } else if (hqVar.f532b == null || hqVar.f532b.length() <= 10240) {
+        } else if (hqVar.f453b == null || hqVar.f453b.length() <= 10240) {
             return false;
         } else {
-            com.xiaomi.channel.commonutils.logger.b.m79a("item.data is too large(" + hqVar.f532b.length() + "), max size for data is 10240 , verfiy ClientUploadDataItem failed.");
+            com.xiaomi.channel.commonutils.logger.b.m58a("item.data is too large(" + hqVar.f453b.length() + "), max size for data is 10240 , verfiy ClientUploadDataItem failed.");
             return true;
         }
     }
 
     public static boolean a(String str) {
-        return !com.xiaomi.push.t.m613b() || Constants.HYBRID_PACKAGE_NAME.equals(str);
+        return !com.xiaomi.push.t.m592b() || Constants.HYBRID_PACKAGE_NAME.equals(str);
     }
 }

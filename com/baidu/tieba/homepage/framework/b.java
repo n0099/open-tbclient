@@ -5,5 +5,5 @@ public interface b {
 
     void a(int i, com.baidu.tbadk.util.c cVar, int i2);
 
-    void cPv();
+    void cPC();
 }

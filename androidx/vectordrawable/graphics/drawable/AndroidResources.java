@@ -1,7 +1,7 @@
 package androidx.vectordrawable.graphics.drawable;
 
 import androidx.annotation.StyleableRes;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 class AndroidResources {
     public static final int FAST_OUT_LINEAR_IN = 17563663;
     public static final int FAST_OUT_SLOW_IN = 17563661;

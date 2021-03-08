@@ -12,6 +12,6 @@ public class b extends e<Bitmap> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.glide.request.a.e
     public void a(Bitmap bitmap) {
-        ((ImageView) this.f10348a).setImageBitmap(bitmap);
+        ((ImageView) this.f6827a).setImageBitmap(bitmap);
     }
 }

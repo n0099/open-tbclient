@@ -14,18 +14,18 @@ import com.baidu.live.liveroom.d.e;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.UrlManager;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private e aEA;
-    private FrameLayout aEw;
-    private ImageView aEx;
-    private TextView aEy;
-    private AlaAudienceLiveRoomBottomPanelView.a aEz;
+    private FrameLayout aFW;
+    private ImageView aFX;
+    private TextView aFY;
+    private AlaAudienceLiveRoomBottomPanelView.a aFZ;
+    private e aGa;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.live.bottompanel.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == a.this.aEx && a.this.aEz != null) {
-                a.this.aEz.An();
+            if (view == a.this.aFX && a.this.aFZ != null) {
+                a.this.aFZ.Aq();
             }
         }
     };
@@ -35,7 +35,7 @@ public class a {
 
     public a(Context context, AlaAudienceLiveRoomBottomPanelView.a aVar) {
         this.mContext = context;
-        this.aEz = aVar;
+        this.aFZ = aVar;
         createView();
     }
 
@@ -43,21 +43,21 @@ public class a {
         if (this.mRootView == null) {
             this.mRootView = (ViewGroup) LayoutInflater.from(this.mContext).inflate(a.g.sdk_live_room_bottom_panel_shell_layout, (ViewGroup) null);
         }
-        this.aEw = (FrameLayout) this.mRootView.findViewById(a.f.ala_live_room_bottom_panel_top_layout);
-        this.aEx = (ImageView) this.mRootView.findViewById(a.f.ala_live_room_bottom_panel_back_btn);
-        this.aEx.setOnClickListener(this.mClickListener);
+        this.aFW = (FrameLayout) this.mRootView.findViewById(a.f.ala_live_room_bottom_panel_top_layout);
+        this.aFX = (ImageView) this.mRootView.findViewById(a.f.ala_live_room_bottom_panel_back_btn);
+        this.aFX.setOnClickListener(this.mClickListener);
         this.mTitleView = (TextView) this.mRootView.findViewById(a.f.ala_live_room_bottom_panel_title);
-        this.aEy = (TextView) this.mRootView.findViewById(a.f.ala_live_room_bottom_panel_entry);
+        this.aFY = (TextView) this.mRootView.findViewById(a.f.ala_live_room_bottom_panel_entry);
         if (this.mRootView.getParent() != null) {
             ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
         }
-        this.aEy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.bottompanel.a.2
+        this.aFY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.bottompanel.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.aEA != null && !StringUtils.isNull(a.this.aEA.JK())) {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) IScrollableHelper.getBbPageContext(a.this.mContext), new String[]{a.this.aEA.JK()}, true);
+                if (a.this.aGa != null && !StringUtils.isNull(a.this.aGa.JN())) {
+                    UrlManager.getInstance().dealOneLink((TbPageContext) IScrollableHelper.getBbPageContext(a.this.mContext), new String[]{a.this.aGa.JN()}, true);
                 } else {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) IScrollableHelper.getBbPageContext(a.this.mContext), new String[]{com.baidu.live.ae.a.Qj().buX.aLD}, true);
+                    UrlManager.getInstance().dealOneLink((TbPageContext) IScrollableHelper.getBbPageContext(a.this.mContext), new String[]{com.baidu.live.ae.a.Qm().bwx.aNd}, true);
                 }
             }
         });
@@ -68,9 +68,9 @@ public class a {
     }
 
     public void reset() {
-        if (this.aEA != null && this.aEA.getPanelView() != null && this.mRootView.indexOfChild(this.aEA.getPanelView()) >= 0) {
-            this.mRootView.removeView(this.aEA.getPanelView());
+        if (this.aGa != null && this.aGa.getPanelView() != null && this.mRootView.indexOfChild(this.aGa.getPanelView()) >= 0) {
+            this.mRootView.removeView(this.aGa.getPanelView());
         }
-        this.aEA = null;
+        this.aGa = null;
     }
 }

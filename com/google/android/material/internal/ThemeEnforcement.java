@@ -10,7 +10,7 @@ import androidx.annotation.StyleableRes;
 import androidx.appcompat.widget.TintTypedArray;
 import com.google.android.material.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class ThemeEnforcement {
     private static final String APPCOMPAT_THEME_NAME = "Theme.AppCompat";
     private static final String MATERIAL_THEME_NAME = "Theme.MaterialComponents";

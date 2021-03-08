@@ -12,81 +12,81 @@ import com.baidu.tieba.frs.bb;
 import com.baidu.tieba.frs.q;
 /* loaded from: classes2.dex */
 public class a {
-    private int cBN;
-    private final FrsFragment jEV;
-    private bb jEo;
-    private boolean jGY;
-    private int jGZ = -1;
-    private TextView jyP;
+    private int cDn;
+    private TextView jAy;
+    private bb jFX;
+    private final FrsFragment jGE;
+    private boolean jIH;
+    private int jII = -1;
 
     public a(FrsFragment frsFragment) {
-        this.cBN = 0;
+        this.cDn = 0;
         if (frsFragment == null) {
             throw new NullPointerException("FrsFragment is null");
         }
-        this.jEV = frsFragment;
+        this.jGE = frsFragment;
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.cBN = UtilHelper.getStatusBarHeight();
+            this.cDn = UtilHelper.getStatusBarHeight();
         }
     }
 
-    public void cKh() {
-        if (this.jGY && this.jGZ >= 0) {
-            Ag(this.jGZ);
+    public void cKn() {
+        if (this.jIH && this.jII >= 0) {
+            Ah(this.jII);
         }
-        this.jGY = false;
+        this.jIH = false;
     }
 
-    public void Af(int i) {
+    public void Ag(int i) {
         if (i >= 0) {
             rw(true);
-            Ah(i);
+            Ai(i);
             return;
         }
         rw(false);
-        Ah(i);
+        Ai(i);
     }
 
-    private void Ag(int i) {
+    private void Ah(int i) {
         FrameLayout frameLayout;
         String string;
-        q cCB = this.jEV.cCB();
-        if (cCB != null && cCB.getListView() != null && (frameLayout = (FrameLayout) cCB.cEc()) != null) {
-            if (this.jyP == null && this.jEV.getPageContext() != null) {
-                this.jyP = new TextView(this.jEV.getPageContext().getPageActivity());
-                this.jyP.setTextSize(0, this.jEV.getResources().getDimensionPixelSize(R.dimen.fontsize28));
-                this.jyP.setGravity(17);
+        q cCH = this.jGE.cCH();
+        if (cCH != null && cCH.getListView() != null && (frameLayout = (FrameLayout) cCH.cEi()) != null) {
+            if (this.jAy == null && this.jGE.getPageContext() != null) {
+                this.jAy = new TextView(this.jGE.getPageContext().getPageActivity());
+                this.jAy.setTextSize(0, this.jGE.getResources().getDimensionPixelSize(R.dimen.fontsize28));
+                this.jAy.setGravity(17);
             }
-            if (this.jyP != null) {
+            if (this.jAy != null) {
                 if (i > 0) {
                     string = String.format(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_refresh_return), Integer.valueOf(i));
                 } else {
                     string = TbadkCoreApplication.getInst().getString(R.string.smart_frs_refresh_nodata);
                 }
-                this.jyP.setText(string);
+                this.jAy.setText(string);
             }
-            ap.setBackgroundResource(this.jyP, R.color.CAM_X0302);
-            ap.setViewTextColor(this.jyP, R.color.CAM_X0112);
+            ap.setBackgroundResource(this.jAy, R.color.CAM_X0302);
+            ap.setViewTextColor(this.jAy, R.color.CAM_X0112);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds56));
-            if (this.jEo == null) {
-                this.jEo = new bb();
+            if (this.jFX == null) {
+                this.jFX = new bb();
             }
-            this.jEo.a(this.jyP, frameLayout, layoutParams, 2000);
-            this.jGZ = -1;
+            this.jFX.a(this.jAy, frameLayout, layoutParams, 2000);
+            this.jII = -1;
         }
     }
 
     public void rw(boolean z) {
-        this.jGY = z;
+        this.jIH = z;
     }
 
-    public void Ah(int i) {
-        this.jGZ = i;
+    public void Ai(int i) {
+        this.jII = i;
     }
 
     public void onDestroy() {
-        if (this.jEo != null) {
-            this.jEo.onDestroy();
+        if (this.jFX != null) {
+            this.jFX.onDestroy();
         }
     }
 }

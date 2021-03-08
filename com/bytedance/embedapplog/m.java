@@ -19,28 +19,26 @@ public class m {
     private static final String[] f = {"channel", "package", "app_version"};
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f5833a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final Context f5834b;
-    private final cn pmU;
-    private final SharedPreferences pmV;
+    private boolean f3935a;
+    private final Context b;
+    private final cn ppc;
+    private final SharedPreferences ppd;
     private final ArrayList<ch> e = new ArrayList<>(32);
     private int h = 0;
     @NonNull
     private JSONObject d = new JSONObject();
 
     public m(Context context, cn cnVar) {
-        this.f5834b = context;
-        this.pmU = cnVar;
-        this.pmV = cnVar.eoo();
-        ba.a(this.f5834b);
+        this.b = context;
+        this.ppc = cnVar;
+        this.ppd = cnVar.eox();
+        ba.a(this.b);
     }
 
     @Nullable
     public JSONObject a() {
-        if (this.f5833a) {
-            return enX();
+        if (this.f3935a) {
+            return eoi();
         }
         return null;
     }
@@ -65,34 +63,34 @@ public class m {
     }
 
     @Nullable
-    public <T> T C(String str, T t) {
+    public <T> T c(String str, T t) {
         Object obj;
-        JSONObject enX = enX();
-        if (enX == null || (obj = enX.opt(str)) == null) {
+        JSONObject eoi = eoi();
+        if (eoi == null || (obj = eoi.opt(str)) == null) {
             obj = null;
         }
         return obj == null ? t : (T) obj;
     }
 
     @NonNull
-    private JSONObject enX() {
+    private JSONObject eoi() {
         return this.d;
     }
 
     public int c() {
-        int optInt = this.f5833a ? enX().optInt("version_code", -1) : -1;
+        int optInt = this.f3935a ? eoi().optInt("version_code", -1) : -1;
         for (int i = 0; i < 3 && optInt == -1; i++) {
             e();
-            optInt = this.f5833a ? enX().optInt("version_code", -1) : -1;
+            optInt = this.f3935a ? eoi().optInt("version_code", -1) : -1;
         }
         return optInt;
     }
 
     public String d() {
-        String optString = this.f5833a ? enX().optString("app_version", null) : null;
+        String optString = this.f3935a ? eoi().optString("app_version", null) : null;
         for (int i = 0; i < 3 && optString == null; i++) {
             e();
-            optString = this.f5833a ? enX().optString("app_version", null) : null;
+            optString = this.f3935a ? eoi().optString("app_version", null) : null;
         }
         return optString;
     }
@@ -101,52 +99,52 @@ public class m {
         synchronized (this.e) {
             if (this.e.size() == 0) {
                 this.e.add(new ci());
-                this.e.add(new ck(this.f5834b));
-                this.e.add(new cm(this.f5834b, this.pmU));
-                this.e.add(new n(this.f5834b));
-                this.e.add(new p(this.f5834b));
-                this.e.add(new q(this.f5834b, this.pmU));
-                this.e.add(new r(this.f5834b));
-                this.e.add(new t(this.f5834b));
-                this.e.add(new u(this.f5834b, this.pmU));
+                this.e.add(new ck(this.b));
+                this.e.add(new cm(this.b, this.ppc));
+                this.e.add(new n(this.b));
+                this.e.add(new p(this.b));
+                this.e.add(new q(this.b, this.ppc));
+                this.e.add(new r(this.b));
+                this.e.add(new t(this.b));
+                this.e.add(new u(this.b, this.ppc));
                 this.e.add(new v());
-                this.e.add(new w(this.pmU));
-                this.e.add(new x(this.f5834b));
-                this.e.add(new y(this.f5834b));
-                this.e.add(new z(this.f5834b, this.pmU));
-                this.e.add(new cf(this.f5834b, this.pmU));
-                this.e.add(new s(this.f5834b, this.pmU));
-                this.e.add(new cj(this.f5834b, this.pmU));
+                this.e.add(new w(this.ppc));
+                this.e.add(new x(this.b));
+                this.e.add(new y(this.b));
+                this.e.add(new z(this.b, this.ppc));
+                this.e.add(new cf(this.b, this.ppc));
+                this.e.add(new s(this.b, this.ppc));
+                this.e.add(new cj(this.b, this.ppc));
             }
         }
-        JSONObject enX = enX();
+        JSONObject eoi = eoi();
         JSONObject jSONObject = new JSONObject();
-        av.e(jSONObject, enX);
+        av.e(jSONObject, eoi);
         Iterator<ch> it = this.e.iterator();
         boolean z = true;
         int i = 0;
         int i2 = 0;
         while (it.hasNext()) {
             ch next = it.next();
-            if (!next.f5825a || next.c || a(next)) {
+            if (!next.f3929a || next.c || a(next)) {
                 try {
-                    next.f5825a = next.a(jSONObject);
+                    next.f3929a = next.a(jSONObject);
                 } catch (SecurityException e) {
-                    if (!next.f5826b) {
+                    if (!next.b) {
                         i2++;
                         au.b("loadHeader, " + this.h, e);
-                        if (!next.f5825a && this.h > 10) {
-                            next.f5825a = true;
+                        if (!next.f3929a && this.h > 10) {
+                            next.f3929a = true;
                         }
                     }
                 } catch (JSONException e2) {
                     au.a(e2);
                 }
-                if (!next.f5825a && !next.f5826b) {
+                if (!next.f3929a && !next.b) {
                     i++;
                 }
             }
-            z = (next.f5825a || next.f5826b) & z;
+            z = (next.f3929a || next.b) & z;
         }
         if (z) {
             for (String str : f) {
@@ -161,11 +159,11 @@ public class m {
             }
         }
         this.d = jSONObject;
-        this.f5833a = z;
-        if (au.f5788b) {
-            au.a("loadHeader, " + this.f5833a + ", " + this.h + ", " + this.d.toString(), null);
+        this.f3935a = z;
+        if (au.b) {
+            au.a("loadHeader, " + this.f3935a + ", " + this.h + ", " + this.d.toString(), null);
         } else {
-            au.d("loadHeader, " + this.f5833a + ", " + this.h, null);
+            au.d("loadHeader, " + this.f3935a + ", " + this.h, null);
         }
         if (i2 > 0 && i2 == i) {
             this.h++;
@@ -173,22 +171,22 @@ public class m {
                 this.h += 10;
             }
         }
-        if (this.f5833a) {
-            b.enB().onIdLoaded(g(), j(), k());
+        if (this.f3935a) {
+            b.enL().onIdLoaded(g(), j(), k());
         }
-        return this.f5833a;
+        return this.f3935a;
     }
 
     private boolean a(ch chVar) {
-        boolean z = !this.pmU.r() && chVar.d;
-        if (au.f5788b) {
+        boolean z = !this.ppc.r() && chVar.d;
+        if (au.b) {
             au.a("needSyncFromSub " + chVar + " " + z, null);
         }
         return z;
     }
 
     public void a(JSONObject jSONObject) {
-        this.pmU.c(jSONObject);
+        this.ppc.c(jSONObject);
         b(jSONObject);
     }
 
@@ -196,7 +194,7 @@ public class m {
         if (jSONObject == null) {
             au.b("null abconfig", null);
         } else {
-            String optString = enX().optString("ab_version");
+            String optString = eoi().optString("ab_version");
             if (!TextUtils.isEmpty(optString)) {
                 String[] split = optString.split(",");
                 Set<String> hashSet = new HashSet<>();
@@ -221,7 +219,7 @@ public class m {
                     }
                 }
                 hashSet.retainAll(hashSet2);
-                D("ab_version", h(hashSet));
+                C("ab_version", h(hashSet));
             }
         }
     }
@@ -247,7 +245,7 @@ public class m {
         JSONObject jSONObject = null;
         if (hashMap != null && !hashMap.isEmpty()) {
             try {
-                JSONObject optJSONObject = enX().optJSONObject("custom");
+                JSONObject optJSONObject = eoi().optJSONObject("custom");
                 if (optJSONObject == null) {
                     try {
                         optJSONObject = new JSONObject();
@@ -255,7 +253,7 @@ public class m {
                         e = e;
                         jSONObject = optJSONObject;
                         au.a(e);
-                        if (D("custom", jSONObject)) {
+                        if (C("custom", jSONObject)) {
                         }
                     }
                 }
@@ -270,41 +268,41 @@ public class m {
                     e = e2;
                     jSONObject = optJSONObject;
                     au.a(e);
-                    if (D("custom", jSONObject)) {
+                    if (C("custom", jSONObject)) {
                     }
                 }
             } catch (JSONException e3) {
                 e = e3;
             }
         }
-        if (D("custom", jSONObject)) {
-            this.pmU.b(jSONObject);
+        if (C("custom", jSONObject)) {
+            this.ppc.b(jSONObject);
         }
     }
 
     public String f() {
-        return enX().optString("user_unique_id", "");
+        return eoi().optString("user_unique_id", "");
     }
 
     public String g() {
-        return enX().optString("device_id", "");
+        return eoi().optString("device_id", "");
     }
 
     public String j() {
-        return enX().optString("install_id", "");
+        return eoi().optString("install_id", "");
     }
 
     public String k() {
-        return enX().optString("ssid", "");
+        return eoi().optString("ssid", "");
     }
 
     public String l() {
-        return enX().optString("user_unique_id", "");
+        return eoi().optString("user_unique_id", "");
     }
 
-    private boolean D(String str, Object obj) {
+    private boolean C(String str, Object obj) {
         boolean z = false;
-        Object opt = enX().opt(str);
+        Object opt = eoi().opt(str);
         if ((obj != null && !obj.equals(opt)) || (obj == null && opt != null)) {
             synchronized (this) {
                 try {
@@ -366,58 +364,58 @@ public class m {
     }
 
     public int o() {
-        String optString = enX().optString("device_id", "");
-        enX().optString("install_id", "");
+        String optString = eoi().optString("device_id", "");
+        eoi().optString("install_id", "");
         if (e(optString)) {
-            return this.pmV.getInt("version_code", 0) == enX().optInt("version_code", -1) ? 1 : 2;
+            return this.ppd.getInt("version_code", 0) == eoi().optInt("version_code", -1) ? 1 : 2;
         }
         return 0;
     }
 
     public long p() {
-        return enX().optLong("register_time", 0L);
+        return eoi().optLong("register_time", 0L);
     }
 
     public boolean a(JSONObject jSONObject, String str, String str2, String str3) {
-        if (au.f5788b) {
+        if (au.b) {
             au.a("saveRegisterInfo, " + str + ", " + str2 + ", " + str3 + ", " + jSONObject, null);
         }
         boolean e = e(str);
         boolean e2 = e(str2);
         try {
             boolean e3 = e(str3);
-            int i = this.pmV.getInt("version_code", 0);
-            int optInt = enX().optInt("version_code", 0);
-            SharedPreferences.Editor edit = this.pmV.edit();
+            int i = this.ppd.getInt("version_code", 0);
+            int optInt = eoi().optInt("version_code", 0);
+            SharedPreferences.Editor edit = this.ppd.edit();
             if (i != optInt) {
                 edit.putInt("version_code", optInt);
             }
             if (e) {
                 long currentTimeMillis = System.currentTimeMillis();
                 edit.putLong("register_time", currentTimeMillis);
-                D("register_time", Long.valueOf(currentTimeMillis));
+                C("register_time", Long.valueOf(currentTimeMillis));
             } else if (!e) {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put(IIntercepter.TYPE_RESPONSE, jSONObject);
-                b.v("tt_fetch_did_error", jSONObject2);
+                b.w("tt_fetch_did_error", jSONObject2);
             }
             boolean z = false;
-            String optString = enX().optString("device_id", "");
-            if (e && D("device_id", str)) {
+            String optString = eoi().optString("device_id", "");
+            if (e && C("device_id", str)) {
                 edit.putString("device_id", str);
                 z = true;
             }
-            String optString2 = enX().optString("install_id", "");
-            if (e2 && D("install_id", str2)) {
+            String optString2 = eoi().optString("install_id", "");
+            if (e2 && C("install_id", str2)) {
                 edit.putString("install_id", str2);
                 z = true;
             }
-            String optString3 = enX().optString("ssid", "");
-            if (e3 && D("ssid", str3)) {
+            String optString3 = eoi().optString("ssid", "");
+            if (e3 && C("ssid", str3)) {
                 edit.putString("ssid", str3);
                 z = true;
             }
-            b.enB().onRemoteIdGet(z, optString, str, optString2, str2, optString3, str3);
+            b.enL().onRemoteIdGet(z, optString, str, optString2, str2, optString3, str3);
             edit.apply();
         } catch (JSONException e4) {
             au.a(e4);
@@ -426,6 +424,6 @@ public class m {
     }
 
     public String q() {
-        return enX().optString("ab_sdk_version", "");
+        return eoi().optString("ab_sdk_version", "");
     }
 }

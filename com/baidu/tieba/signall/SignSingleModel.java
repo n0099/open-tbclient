@@ -7,15 +7,15 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.SignData;
 import com.baidu.tbadk.core.util.aa;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
     private String mAuthSid;
     private String mForumId;
     private String mForumName;
-    private b npC;
-    private a npD;
+    private b nrG;
+    private a nrH;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void c(SignData signData);
 
@@ -26,7 +26,7 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         super(signAllForumActivity.getPageContext());
         this.mForumName = null;
         this.mForumId = null;
-        this.npC = null;
+        this.nrG = null;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -39,25 +39,25 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         return false;
     }
 
-    public void dLv() {
-        if (this.npC != null) {
-            this.npC.cancel();
-            this.npC = null;
+    public void dLD() {
+        if (this.nrG != null) {
+            this.nrG.cancel();
+            this.nrG = null;
         }
     }
 
     public void gt(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.npC == null) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.nrG == null) {
             this.mForumName = str;
             this.mForumId = str2;
-            this.npC = new b();
-            this.npC.setPriority(2);
-            this.npC.execute(new Object[0]);
+            this.nrG = new b();
+            this.nrG.setPriority(2);
+            this.nrG.execute(new Object[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class b extends BdAsyncTask<Object, Integer, SignData> {
         private volatile aa mNetwork;
         private AuthTokenData tokenData;
@@ -74,7 +74,7 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: G */
+        /* renamed from: F */
         public SignData doInBackground(Object... objArr) {
             SignData signData;
             try {
@@ -82,10 +82,10 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
                 this.mNetwork.addPostData("kw", SignSingleModel.this.mForumName);
                 this.mNetwork.addPostData("fid", SignSingleModel.this.mForumId);
                 this.mNetwork.addPostData("authsid", SignSingleModel.this.mAuthSid);
-                this.mNetwork.bsr().bta().mIsNeedTbs = true;
+                this.mNetwork.bsu().btd().mIsNeedTbs = true;
                 this.mNetwork.jL(true);
                 String postNetData = this.mNetwork.postNetData();
-                if (!this.mNetwork.isNetSuccess() || !this.mNetwork.bsr().btb().isRequestSuccess()) {
+                if (!this.mNetwork.isNetSuccess() || !this.mNetwork.bsu().bte().isRequestSuccess()) {
                     signData = null;
                 } else {
                     signData = new SignData();
@@ -112,9 +112,9 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
             if (this.mNetwork != null) {
                 this.mNetwork.cancelNetConnect();
             }
-            SignSingleModel.this.npC = null;
+            SignSingleModel.this.nrG = null;
             super.cancel(true);
-            SignSingleModel.this.npD.gs(SignSingleModel.this.mForumId, null);
+            SignSingleModel.this.nrH.gs(SignSingleModel.this.mForumId, null);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -122,18 +122,18 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: d */
         public void onPostExecute(SignData signData) {
-            SignSingleModel.this.npC = null;
+            SignSingleModel.this.nrG = null;
             if (signData != null || this.mNetwork == null) {
-                SignSingleModel.this.npD.c(signData);
+                SignSingleModel.this.nrH.c(signData);
                 return;
             }
             SignSingleModel.this.mErrorCode = this.mNetwork.getServerErrorCode();
             SignSingleModel.this.mErrorString = this.mNetwork.getErrorString();
-            SignSingleModel.this.npD.gs(SignSingleModel.this.mForumId, SignSingleModel.this.mErrorString);
+            SignSingleModel.this.nrH.gs(SignSingleModel.this.mForumId, SignSingleModel.this.mErrorString);
         }
     }
 
     public void a(a aVar) {
-        this.npD = aVar;
+        this.nrH = aVar;
     }
 }

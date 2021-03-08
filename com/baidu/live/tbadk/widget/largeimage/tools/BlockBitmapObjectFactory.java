@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.widget.largeimage.tools;
 
 import com.baidu.live.adp.lib.pool.IBdPoolableObjectFactory;
 import com.baidu.live.tbadk.widget.largeimage.atomskeleton.BlockBitmap;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BlockBitmapObjectFactory implements IBdPoolableObjectFactory<BlockBitmap> {
     private int mBlockSize;
 

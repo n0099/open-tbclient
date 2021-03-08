@@ -22,23 +22,23 @@ import com.facebook.drawee.a.a.c;
 import com.facebook.imagepipeline.request.ImageRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class NewPhoneFrameView extends SafeFrameLayout implements View.OnClickListener {
-    private HeadImageView oIg;
-    private RelativeLayout oLA;
-    private RelativeLayout oLB;
-    private int oLC;
-    private SimpleDraweeView oLv;
-    private TextView oLw;
-    private TextView oLx;
-    private a oLy;
-    private LinearLayout oLz;
+    private HeadImageView oKl;
+    private SimpleDraweeView oNA;
+    private TextView oNB;
+    private TextView oNC;
+    private a oND;
+    private LinearLayout oNE;
+    private RelativeLayout oNF;
+    private RelativeLayout oNG;
+    private int oNH;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void WC(String str);
+        void WJ(String str);
 
-        void edL();
+        void edT();
     }
 
     public NewPhoneFrameView(@NonNull Context context) {
@@ -57,18 +57,18 @@ public class NewPhoneFrameView extends SafeFrameLayout implements View.OnClickLi
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.g.yuyinala_liveroom_new_phone_frame_view_layout, this);
-        this.oIg = (HeadImageView) findViewById(a.f.user_avatar);
-        this.oLv = (SimpleDraweeView) findViewById(a.f.frame_emoticon_iv);
-        this.oLw = (TextView) findViewById(a.f.new_frame_name);
-        this.oLx = (TextView) findViewById(a.f.wear_new_frame);
-        this.oLz = (LinearLayout) findViewById(a.f.frame_info_container);
-        this.oLA = (RelativeLayout) findViewById(a.f.frame_head_container);
-        this.oLB = (RelativeLayout) findViewById(a.f.close_btn);
+        this.oKl = (HeadImageView) findViewById(a.f.user_avatar);
+        this.oNA = (SimpleDraweeView) findViewById(a.f.frame_emoticon_iv);
+        this.oNB = (TextView) findViewById(a.f.new_frame_name);
+        this.oNC = (TextView) findViewById(a.f.wear_new_frame);
+        this.oNE = (LinearLayout) findViewById(a.f.frame_info_container);
+        this.oNF = (RelativeLayout) findViewById(a.f.frame_head_container);
+        this.oNG = (RelativeLayout) findViewById(a.f.close_btn);
     }
 
     private void initListener() {
-        this.oLB.setOnClickListener(this);
-        this.oLx.setOnClickListener(this);
+        this.oNG.setOnClickListener(this);
+        this.oNC.setOnClickListener(this);
     }
 
     public void setNewPhoneFrameInfo(String str) {
@@ -76,30 +76,30 @@ public class NewPhoneFrameView extends SafeFrameLayout implements View.OnClickLi
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 jSONObject.optString("content_type");
-                this.oLC = jSONObject.optInt("frame_id");
+                this.oNH = jSONObject.optInt("frame_id");
                 jSONObject.optString("user_name");
                 jSONObject.optString("user_nickname");
                 String optString = jSONObject.optString("user_portrait");
                 String optString2 = jSONObject.optString("frame_name");
                 String optString3 = jSONObject.optString("frame_icon");
                 String optString4 = jSONObject.optString("frame_jumpurl");
-                WR(optString);
+                WY(optString);
                 String str2 = "【" + optString2 + "】";
                 if (!TextUtils.isEmpty(optString2)) {
-                    this.oLw.setText(StringHelper.highLightText(String.format(getContext().getString(a.h.yuyin_ala_new_frame_name_text), str2), str2, a.c.sdk_color_FFB280, false));
+                    this.oNB.setText(StringHelper.highLightText(String.format(getContext().getString(a.h.yuyin_ala_new_frame_name_text), str2), str2, a.c.sdk_color_FFB280, false));
                 }
                 if (TextUtils.isEmpty(optString3)) {
-                    this.oLv.setVisibility(8);
+                    this.oNA.setVisibility(8);
                 } else {
-                    String str3 = (String) this.oLv.getTag();
-                    if (this.oLv.getVisibility() != 0 || !optString3.equals(str3)) {
-                        this.oLv.setVisibility(0);
-                        a(this.oLv, optString3);
-                        this.oLv.setTag(optString3);
+                    String str3 = (String) this.oNA.getTag();
+                    if (this.oNA.getVisibility() != 0 || !optString3.equals(str3)) {
+                        this.oNA.setVisibility(0);
+                        a(this.oNA, optString3);
+                        this.oNA.setTag(optString3);
                     }
                 }
-                this.oLv.setTag(optString4);
-                this.oLx.setTag(optString4);
+                this.oNA.setTag(optString4);
+                this.oNC.setTag(optString4);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -107,69 +107,69 @@ public class NewPhoneFrameView extends SafeFrameLayout implements View.OnClickLi
     }
 
     public void a(SimpleDraweeView simpleDraweeView, String str) {
-        simpleDraweeView.setController(c.etw().bo(ImageRequest.ZL(str)).Bm(true).c(simpleDraweeView.getController()).eun());
+        simpleDraweeView.setController(c.etF().bq(ImageRequest.ZR(str)).Bk(true).c(simpleDraweeView.getController()).euw());
     }
 
-    private void WR(String str) {
-        this.oIg.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.oIg.setImageResource(0);
-        this.oIg.setBackgroundResource(0);
-        this.oIg.setIsRound(true);
-        this.oIg.setDrawBorder(false);
-        this.oIg.setAutoChangeStyle(false);
-        this.oIg.setDefaultResource(a.e.sdk_icon_default_avatar100);
-        this.oIg.setUrl(str);
-        this.oIg.startLoad(str, 12, false, false);
+    private void WY(String str) {
+        this.oKl.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.oKl.setImageResource(0);
+        this.oKl.setBackgroundResource(0);
+        this.oKl.setIsRound(true);
+        this.oKl.setDrawBorder(false);
+        this.oKl.setAutoChangeStyle(false);
+        this.oKl.setDefaultResource(a.e.sdk_icon_default_avatar100);
+        this.oKl.setUrl(str);
+        this.oKl.startLoad(str, 12, false, false);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.oLx) {
-            if (this.oLy != null) {
-                this.oLy.WC((String) view.getTag());
+        if (view == this.oNC) {
+            if (this.oND != null) {
+                this.oND.WJ((String) view.getTag());
             }
-        } else if (view == this.oLB && this.oLy != null) {
-            this.oLy.edL();
+        } else if (view == this.oNG && this.oND != null) {
+            this.oND.edT();
         }
     }
 
     public void setProgress(int i) {
         if (i >= 0 && i <= 20) {
-            this.oLA.setAlpha((i * 1.0f) / 20.0f);
+            this.oNF.setAlpha((i * 1.0f) / 20.0f);
         } else if (i >= 20 && i <= 460) {
-            this.oLA.setAlpha(1.0f);
+            this.oNF.setAlpha(1.0f);
         } else if (i >= 460 && i <= 530) {
-            this.oLA.setAlpha(((530 - i) * 1.0f) / 70.0f);
+            this.oNF.setAlpha(((530 - i) * 1.0f) / 70.0f);
         } else {
-            this.oLA.setAlpha(0.0f);
+            this.oNF.setAlpha(0.0f);
         }
         if (i >= 0 && i <= 24) {
-            this.oLz.setAlpha(0.0f);
+            this.oNE.setAlpha(0.0f);
         } else if (i >= 24 && i <= 60) {
-            this.oLz.setAlpha(((i - 24) * 1.0f) / 36.0f);
+            this.oNE.setAlpha(((i - 24) * 1.0f) / 36.0f);
         } else if (i >= 60 && i <= 460) {
-            this.oLz.setAlpha(1.0f);
+            this.oNE.setAlpha(1.0f);
         } else if (i >= 460 && i <= 530) {
-            this.oLz.setAlpha(((530 - i) * 1.0f) / 70.0f);
+            this.oNE.setAlpha(((530 - i) * 1.0f) / 70.0f);
         } else {
-            this.oLz.setAlpha(1.0f);
+            this.oNE.setAlpha(1.0f);
         }
         if (i >= 0 && i <= 160) {
-            this.oLB.setAlpha(0.0f);
+            this.oNG.setAlpha(0.0f);
         } else if (i >= 160 && i <= 200) {
-            this.oLB.setAlpha(((i - 160) * 1.0f) / 40.0f);
+            this.oNG.setAlpha(((i - 160) * 1.0f) / 40.0f);
         } else if (i >= 200 && i <= 460) {
-            this.oLB.setAlpha(1.0f);
+            this.oNG.setAlpha(1.0f);
         } else if (i >= 460 && i <= 530) {
-            this.oLB.setAlpha(((530 - i) * 1.0f) / 70.0f);
+            this.oNG.setAlpha(((530 - i) * 1.0f) / 70.0f);
         } else {
-            this.oLB.setAlpha(1.0f);
+            this.oNG.setAlpha(1.0f);
         }
     }
 
-    public void efg() {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.oLA, "scaleX", 0.0f, 1.25f, 0.8f, 1.0f);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.oLA, "scaleY", 0.0f, 1.25f, 0.8f, 1.0f);
+    public void efo() {
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.oNF, "scaleX", 0.0f, 1.25f, 0.8f, 1.0f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.oNF, "scaleY", 0.0f, 1.25f, 0.8f, 1.0f);
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.play(ofFloat).with(ofFloat2);
         animatorSet.setDuration(1000L);
@@ -177,10 +177,10 @@ public class NewPhoneFrameView extends SafeFrameLayout implements View.OnClickLi
     }
 
     public void setListener(a aVar) {
-        this.oLy = aVar;
+        this.oND = aVar;
     }
 
     public int getFrameId() {
-        return this.oLC;
+        return this.oNH;
     }
 }

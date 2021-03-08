@@ -3,49 +3,49 @@ package com.google.ar.core;
 import com.google.ar.core.exceptions.UnavailableException;
 import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f7875a = false;
-    final /* synthetic */ InstallActivity pSn;
+    boolean f5273a = false;
+    final /* synthetic */ InstallActivity pTc;
 
     public void a(p pVar) {
-        synchronized (this.pSn) {
-            if (!this.f7875a) {
-                InstallActivity.a(this.pSn, pVar);
+        synchronized (this.pTc) {
+            if (!this.f5273a) {
+                InstallActivity.a(this.pTc, pVar);
                 switch (pVar.ordinal()) {
                     case 0:
                         return;
                     case 1:
-                        InstallActivity.a(this.pSn, new UnavailableUserDeclinedInstallationException());
+                        InstallActivity.a(this.pTc, new UnavailableUserDeclinedInstallationException());
                         break;
                     case 2:
-                        if (!InstallActivity.d(this.pSn)) {
-                            InstallActivity.e(this.pSn);
+                        if (!InstallActivity.d(this.pTc)) {
+                            InstallActivity.e(this.pTc);
                         }
-                        InstallActivity.a(this.pSn, (Exception) null);
+                        InstallActivity.a(this.pTc, (Exception) null);
                         break;
                 }
-                this.f7875a = true;
+                this.f5273a = true;
             }
         }
     }
 
     public void a(Exception exc) {
-        synchronized (this.pSn) {
-            if (!this.f7875a) {
-                this.f7875a = true;
-                InstallActivity.a(this.pSn, p.CANCELLED);
+        synchronized (this.pTc) {
+            if (!this.f5273a) {
+                this.f5273a = true;
+                InstallActivity.a(this.pTc, p.CANCELLED);
                 if (!(exc instanceof UnavailableException)) {
                 }
-                InstallActivity.a(this.pSn, exc);
+                InstallActivity.a(this.pTc, exc);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(InstallActivity installActivity) {
-        this.pSn = installActivity;
+        this.pTc = installActivity;
     }
 }

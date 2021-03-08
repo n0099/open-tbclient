@@ -463,11 +463,11 @@ public class MessageParser {
                 for (List<NewAckMessage.Tripule> list2 : splitList) {
                     final NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j, z);
                     newAckMessage.addTriples(list2);
-                    if (a.aug) {
+                    if (a.avG) {
                         BLCPRequest bLCPRequest = new BLCPRequest();
                         bLCPRequest.serviceId = 2L;
                         bLCPRequest.methodId = 95L;
-                        bLCPRequest.auv = newAckMessage.getBody().getBytes();
+                        bLCPRequest.avV = newAckMessage.getBody().getBytes();
                         bLCPRequest.msgId = System.nanoTime();
                         com.baidu.lcp.sdk.client.a.a(bLCPRequest, new b() { // from class: com.baidu.android.imsdk.internal.MessageParser.3
                             @Override // com.baidu.lcp.sdk.client.bean.b

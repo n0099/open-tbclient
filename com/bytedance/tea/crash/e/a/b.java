@@ -17,10 +17,8 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private Application f7636a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Context f7637b;
+    private Application f5168a;
+    private Context b;
     private String g;
     private long h;
     private String i;
@@ -36,7 +34,7 @@ public class b {
     private List<Long> d = new ArrayList();
     private List<String> e = new ArrayList();
     private List<Long> f = new ArrayList();
-    private final Application.ActivityLifecycleCallbacks pwl = new Application.ActivityLifecycleCallbacks() { // from class: com.bytedance.tea.crash.e.a.b.1
+    private final Application.ActivityLifecycleCallbacks pyo = new Application.ActivityLifecycleCallbacks() { // from class: com.bytedance.tea.crash.e.a.b.1
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityCreated(Activity activity, Bundle bundle) {
             b.this.g = activity.getClass().getName();
@@ -102,16 +100,16 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(@NonNull Context context) {
-        this.f7637b = context;
-        if (this.f7637b instanceof Application) {
-            this.f7636a = (Application) context;
+        this.b = context;
+        if (this.b instanceof Application) {
+            this.f5168a = (Application) context;
         }
         c();
     }
 
     private void c() {
-        if (Build.VERSION.SDK_INT >= 14 && this.f7636a != null) {
-            this.f7636a.registerActivityLifecycleCallbacks(this.pwl);
+        if (Build.VERSION.SDK_INT >= 14 && this.f5168a != null) {
+            this.f5168a.registerActivityLifecycleCallbacks(this.pyo);
         }
     }
 
@@ -181,12 +179,12 @@ public class b {
         return jSONObject;
     }
 
-    public JSONArray b() {
+    public JSONArray erf() {
         ActivityManager activityManager;
         List<ActivityManager.RunningTaskInfo> runningTasks;
         JSONArray jSONArray = new JSONArray();
         try {
-            activityManager = (ActivityManager) this.f7637b.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+            activityManager = (ActivityManager) this.b.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
         } catch (Exception e) {
         }
         if (activityManager != null && (runningTasks = activityManager.getRunningTasks(5)) != null) {

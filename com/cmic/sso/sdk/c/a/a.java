@@ -13,7 +13,7 @@ import java.net.URL;
 import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLHandshakeException;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class a implements b {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [120=4, 126=6, 127=4] */
     /* JADX WARN: Removed duplicated region for block: B:18:0x0091 A[Catch: all -> 0x027d, TryCatch #11 {all -> 0x027d, blocks: (B:16:0x006c, B:18:0x0091, B:19:0x0098), top: B:100:0x006c }] */
@@ -45,9 +45,9 @@ public class a implements b {
         com.cmic.sso.sdk.e.c.b("ConnectionInterceptor", "请求地址: " + cVar.a());
         try {
             URL url = new URL(cVar.a());
-            if (cVar.ery() != null) {
+            if (cVar.erH() != null) {
                 com.cmic.sso.sdk.e.c.b("ConnectionInterceptor", "开始wifi下取号");
-                httpURLConnection = (HttpURLConnection) cVar.ery().openConnection(url);
+                httpURLConnection = (HttpURLConnection) cVar.erH().openConnection(url);
             } else {
                 com.cmic.sso.sdk.e.c.b("ConnectionInterceptor", "使用当前网络环境发送请求");
                 httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -88,7 +88,7 @@ public class a implements b {
                             if (e instanceof SSLHandshakeException) {
                                 aVar.a("isNeedToGetCert", true);
                             }
-                            com.cmic.sso.sdk.d.a.pxx.add(e);
+                            com.cmic.sso.sdk.d.a.pzC.add(e);
                             i2 = !(e instanceof EOFException) ? 200050 : 102102;
                             a(outputStream);
                             a(inputStream);
@@ -104,7 +104,7 @@ public class a implements b {
                                     cVar2.a((com.cmic.sso.sdk.c.d.b) null);
                                     return;
                                 default:
-                                    cVar2.a(com.cmic.sso.sdk.c.d.a.ON(i2));
+                                    cVar2.a(com.cmic.sso.sdk.c.d.a.OR(i2));
                                     return;
                             }
                         } catch (Throwable th2) {
@@ -123,7 +123,7 @@ public class a implements b {
                                     cVar2.a((com.cmic.sso.sdk.c.d.b) null);
                                     break;
                                 default:
-                                    cVar2.a(com.cmic.sso.sdk.c.d.a.ON(i));
+                                    cVar2.a(com.cmic.sso.sdk.c.d.a.OR(i));
                                     break;
                             }
                             throw th;
@@ -170,7 +170,7 @@ public class a implements b {
                                 com.cmic.sso.sdk.e.c.a("ConnectionInterceptor", "请求失败: " + cVar.a());
                                 if (e instanceof SSLHandshakeException) {
                                 }
-                                com.cmic.sso.sdk.d.a.pxx.add(e);
+                                com.cmic.sso.sdk.d.a.pzC.add(e);
                                 if (!(e instanceof EOFException)) {
                                 }
                                 a(outputStream);
@@ -218,7 +218,7 @@ public class a implements b {
                                 cVar2.a(bVar);
                                 return;
                             default:
-                                cVar2.a(com.cmic.sso.sdk.c.d.a.ON(i));
+                                cVar2.a(com.cmic.sso.sdk.c.d.a.OR(i));
                                 return;
                         }
                     } catch (Exception e4) {
@@ -288,7 +288,7 @@ public class a implements b {
             }
             com.cmic.sso.sdk.e.c.b("ConnectionInterceptor", "cer: " + a2);
             if (!TextUtils.isEmpty(a2)) {
-                ((HttpsURLConnection) httpURLConnection).setSSLSocketFactory(new com.cmic.sso.sdk.c.e.a(a2).erA().getSocketFactory());
+                ((HttpsURLConnection) httpURLConnection).setSSLSocketFactory(new com.cmic.sso.sdk.c.e.a(a2).erJ().getSocketFactory());
             }
         }
     }

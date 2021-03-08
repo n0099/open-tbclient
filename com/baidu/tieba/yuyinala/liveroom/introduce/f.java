@@ -1,9 +1,9 @@
 package com.baidu.tieba.yuyinala.liveroom.introduce;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f {
-    public a owA;
+    public a oyF;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public int errno;
         public String usermsg;

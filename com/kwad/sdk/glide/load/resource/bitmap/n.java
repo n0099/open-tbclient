@@ -11,7 +11,7 @@ import java.nio.ByteBuffer;
 public final class n implements ImageHeaderParser {
     @Override // com.kwad.sdk.glide.load.ImageHeaderParser
     public int a(@NonNull InputStream inputStream, @NonNull com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar) {
-        int attributeInt = new ExifInterface(inputStream).getAttributeInt("Orientation", 1);
+        int attributeInt = new ExifInterface(inputStream).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
         if (attributeInt == 0) {
             return -1;
         }

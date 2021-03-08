@@ -19,25 +19,25 @@ public class d extends a {
     @Override // com.baidu.swan.facade.provider.processor.a
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        String aQu = aQu();
+        String aQx = aQx();
         if (DEBUG) {
-            Log.i("ParamsProcessor", "params: " + aQu);
+            Log.i("ParamsProcessor", "params: " + aQx);
         }
-        String encryptParams = encryptParams(aQu);
+        String encryptParams = encryptParams(aQx);
         if (DEBUG) {
             Log.i("ParamsProcessor", "encryption params: " + encryptParams);
         }
-        return uP(encryptParams);
+        return uW(encryptParams);
     }
 
-    private String aQu() {
+    private String aQx() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("swan_sdk_version", com.baidu.swan.apps.c.getVersion());
-            jSONObject.put("swan_core_version", com.baidu.swan.apps.swancore.b.jB(0));
-            jSONObject.put("game_core_version", com.baidu.swan.apps.swancore.b.jB(1));
-            jSONObject.put("uid", com.baidu.swan.apps.t.a.axb().cb(AppRuntime.getAppContext()));
-            jSONObject.put("puid", com.baidu.swan.apps.t.a.axb().ca(AppRuntime.getAppContext()));
+            jSONObject.put("swan_core_version", com.baidu.swan.apps.swancore.b.jC(0));
+            jSONObject.put("game_core_version", com.baidu.swan.apps.swancore.b.jC(1));
+            jSONObject.put("uid", com.baidu.swan.apps.t.a.axe().ca(AppRuntime.getAppContext()));
+            jSONObject.put("puid", com.baidu.swan.apps.t.a.axe().bZ(AppRuntime.getAppContext()));
             jSONObject.put(j.c, com.baidu.swan.apps.i.c.getUA());
             jSONObject.put("ut", com.baidu.swan.apps.i.c.getDeviceInfo());
             jSONObject.put("timestamp", System.currentTimeMillis());
@@ -54,7 +54,7 @@ public class d extends a {
         return Base64.encodeToString(com.baidu.swan.facade.provider.a.b.a(str.getBytes(), "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDI4nl5QCs/mwaPjm2H4cHaxTBya7F1S1f2IXBwfEB6QD16esL+37EX+SeGR3NQ+0Xxs32Bpl/E70xlII24e/E6GJnU1vks/d1+h4rBjv987X2eppIBrT8f6COjczYcUm0OBa7IGmAMnqMCnOt/U1Wx3Mn7zniQKueT5DjQBOuxyQIDAQAB", 117), 10);
     }
 
-    private Cursor uP(String str) {
+    private Cursor uW(String str) {
         MatrixCursor matrixCursor = new MatrixCursor(new String[]{"params"}, 1);
         matrixCursor.newRow().add("params", str);
         return matrixCursor;

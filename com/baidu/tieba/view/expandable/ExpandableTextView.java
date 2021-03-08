@@ -23,24 +23,24 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.view.i;
 /* loaded from: classes.dex */
 public class ExpandableTextView extends RelativeLayout {
-    private TextView miP;
-    private boolean miT;
-    private SpannableStringBuilder miW;
-    private SpannableStringBuilder miX;
-    private View.OnTouchListener miY;
-    private View.OnTouchListener miZ;
-    private f mja;
-    private a obA;
-    private boolean obB;
-    private ViewTreeObserver.OnGlobalLayoutListener obC;
-    private f obD;
-    private View.OnClickListener obE;
-    private boolean obu;
-    private boolean obv;
-    private SpannableClickTextView obw;
-    private int obx;
-    private int oby;
-    private int obz;
+    private TextView mkR;
+    private boolean mkV;
+    private SpannableStringBuilder mkY;
+    private SpannableStringBuilder mkZ;
+    private View.OnTouchListener mla;
+    private View.OnTouchListener mlb;
+    private f mlc;
+    private boolean odA;
+    private boolean odB;
+    private SpannableClickTextView odC;
+    private int odD;
+    private int odE;
+    private int odF;
+    private a odG;
+    private boolean odH;
+    private ViewTreeObserver.OnGlobalLayoutListener odI;
+    private f odJ;
+    private View.OnClickListener odK;
     private int textColor;
     private int textSize;
     private int type;
@@ -53,108 +53,108 @@ public class ExpandableTextView extends RelativeLayout {
     public ExpandableTextView(Context context) {
         super(context);
         this.type = 1;
-        this.obu = true;
-        this.obv = false;
-        this.miT = false;
-        this.obx = 2;
-        this.oby = Integer.MAX_VALUE;
-        this.obB = false;
-        this.obC = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.1
+        this.odA = true;
+        this.odB = false;
+        this.mkV = false;
+        this.odD = 2;
+        this.odE = Integer.MAX_VALUE;
+        this.odH = false;
+        this.odI = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.1
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
                 Layout layout;
                 String substring;
                 Object[] spans;
-                if (ExpandableTextView.this.obw != null && ExpandableTextView.this.miW != null && ExpandableTextView.this.obu && (layout = ExpandableTextView.this.obw.getLayout()) != null) {
-                    if (!ExpandableTextView.this.obv) {
-                        if (layout.getLineCount() > ExpandableTextView.this.obx) {
-                            if (ExpandableTextView.this.miX == null) {
-                                String spannableStringBuilder = ExpandableTextView.this.miW.toString();
-                                int lineStart = layout.getLineStart(ExpandableTextView.this.obx - 1);
-                                int lineEnd = layout.getLineEnd(ExpandableTextView.this.obx - 1);
+                if (ExpandableTextView.this.odC != null && ExpandableTextView.this.mkY != null && ExpandableTextView.this.odA && (layout = ExpandableTextView.this.odC.getLayout()) != null) {
+                    if (!ExpandableTextView.this.odB) {
+                        if (layout.getLineCount() > ExpandableTextView.this.odD) {
+                            if (ExpandableTextView.this.mkZ == null) {
+                                String spannableStringBuilder = ExpandableTextView.this.mkY.toString();
+                                int lineStart = layout.getLineStart(ExpandableTextView.this.odD - 1);
+                                int lineEnd = layout.getLineEnd(ExpandableTextView.this.odD - 1);
                                 String substring2 = spannableStringBuilder.substring(0, lineStart);
                                 String cutChineseAndEnglishWithSuffix = au.cutChineseAndEnglishWithSuffix(spannableStringBuilder.substring(lineStart, lineEnd), au.getChineseAndEnglishLength(substring) - 6, "");
-                                ExpandableTextView.this.miX = new SpannableStringBuilder();
-                                ExpandableTextView.this.miX.append((CharSequence) substring2);
-                                ExpandableTextView.this.miX.append((CharSequence) cutChineseAndEnglishWithSuffix);
-                                int length = ExpandableTextView.this.miX.length();
-                                for (Object obj : ExpandableTextView.this.miW.getSpans(length, spannableStringBuilder.length(), Object.class)) {
-                                    int spanStart = ExpandableTextView.this.miW.getSpanStart(obj);
-                                    int spanEnd = ExpandableTextView.this.miW.getSpanEnd(obj);
+                                ExpandableTextView.this.mkZ = new SpannableStringBuilder();
+                                ExpandableTextView.this.mkZ.append((CharSequence) substring2);
+                                ExpandableTextView.this.mkZ.append((CharSequence) cutChineseAndEnglishWithSuffix);
+                                int length = ExpandableTextView.this.mkZ.length();
+                                for (Object obj : ExpandableTextView.this.mkY.getSpans(length, spannableStringBuilder.length(), Object.class)) {
+                                    int spanStart = ExpandableTextView.this.mkY.getSpanStart(obj);
+                                    int spanEnd = ExpandableTextView.this.mkY.getSpanEnd(obj);
                                     if (spanStart < length && spanEnd >= length) {
                                         break;
                                     }
                                     if (obj instanceof SpannableString) {
-                                        ExpandableTextView.this.miX.setSpan(obj, spanStart, spanEnd, ((SpannableString) obj).getSpanFlags(obj));
+                                        ExpandableTextView.this.mkZ.setSpan(obj, spanStart, spanEnd, ((SpannableString) obj).getSpanFlags(obj));
                                     }
                                 }
-                                ExpandableTextView.this.miX.append((CharSequence) StringHelper.STRING_MORE);
+                                ExpandableTextView.this.mkZ.append((CharSequence) StringHelper.STRING_MORE);
                                 SpannableString spannableString = new SpannableString("展开");
-                                spannableString.setSpan(ExpandableTextView.this.mja, 0, spannableString.length(), 17);
-                                ExpandableTextView.this.miX.append((CharSequence) spannableString);
-                                ExpandableTextView.this.miZ = new i(ExpandableTextView.this.miX);
-                                ((i) ExpandableTextView.this.miZ).Lb(R.color.transparent);
+                                spannableString.setSpan(ExpandableTextView.this.mlc, 0, spannableString.length(), 17);
+                                ExpandableTextView.this.mkZ.append((CharSequence) spannableString);
+                                ExpandableTextView.this.mlb = new i(ExpandableTextView.this.mkZ);
+                                ((i) ExpandableTextView.this.mlb).Lf(R.color.transparent);
                             }
-                            ExpandableTextView.this.miP.setVisibility(8);
-                            ExpandableTextView.this.obw.setOnTouchListener(ExpandableTextView.this.miZ);
-                            ExpandableTextView.this.obw.setText(ExpandableTextView.this.miX);
-                            if (ExpandableTextView.this.obB) {
-                                ExpandableTextView.this.dWq();
+                            ExpandableTextView.this.mkR.setVisibility(8);
+                            ExpandableTextView.this.odC.setOnTouchListener(ExpandableTextView.this.mlb);
+                            ExpandableTextView.this.odC.setText(ExpandableTextView.this.mkZ);
+                            if (ExpandableTextView.this.odH) {
+                                ExpandableTextView.this.dWy();
                             }
                         }
-                    } else if (!ExpandableTextView.this.miT) {
-                        ExpandableTextView.this.miT = true;
+                    } else if (!ExpandableTextView.this.mkV) {
+                        ExpandableTextView.this.mkV = true;
                         if (ExpandableTextView.this.type == 2) {
                             int lineCount = layout.getLineCount();
                             int lineEnd2 = layout.getLineEnd(0);
                             int lineEnd3 = layout.getLineEnd(lineCount - 1) - layout.getLineStart(lineCount - 1);
                             SpannableString spannableString2 = new SpannableString("收起");
-                            spannableString2.setSpan(ExpandableTextView.this.obD, 0, spannableString2.length(), 17);
+                            spannableString2.setSpan(ExpandableTextView.this.odJ, 0, spannableString2.length(), 17);
                             if (lineEnd2 - lineEnd3 > "收起".length()) {
-                                ExpandableTextView.this.miW.append((CharSequence) spannableString2);
+                                ExpandableTextView.this.mkY.append((CharSequence) spannableString2);
                             } else {
                                 int i = (lineEnd2 - lineEnd3) + 1;
                                 for (int i2 = 0; i2 < i; i2++) {
-                                    ExpandableTextView.this.miW.append((CharSequence) "  ");
+                                    ExpandableTextView.this.mkY.append((CharSequence) "  ");
                                 }
-                                ExpandableTextView.this.miW.append((CharSequence) spannableString2);
+                                ExpandableTextView.this.mkY.append((CharSequence) spannableString2);
                             }
-                            ((i) ExpandableTextView.this.miY).Lb(R.color.transparent);
-                            ExpandableTextView.this.obw.setOnTouchListener(ExpandableTextView.this.miY);
-                            ExpandableTextView.this.obw.setText(ExpandableTextView.this.miW);
-                            ExpandableTextView.this.miP.setVisibility(8);
+                            ((i) ExpandableTextView.this.mla).Lf(R.color.transparent);
+                            ExpandableTextView.this.odC.setOnTouchListener(ExpandableTextView.this.mla);
+                            ExpandableTextView.this.odC.setText(ExpandableTextView.this.mkY);
+                            ExpandableTextView.this.mkR.setVisibility(8);
                             return;
                         }
                         int lineCount2 = layout.getLineCount();
-                        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) ExpandableTextView.this.miP.getLayoutParams();
-                        if (layout.getLineWidth(lineCount2 - 1) + ExpandableTextView.this.miP.getWidth() > layout.getWidth()) {
+                        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) ExpandableTextView.this.mkR.getLayoutParams();
+                        if (layout.getLineWidth(lineCount2 - 1) + ExpandableTextView.this.mkR.getWidth() > layout.getWidth()) {
                             layoutParams.addRule(3, R.id.expandable_view_title);
                             layoutParams.addRule(8, 0);
                         } else {
                             layoutParams.addRule(8, R.id.expandable_view_title);
                             layoutParams.addRule(3, 0);
                         }
-                        ExpandableTextView.this.miP.setLayoutParams(layoutParams);
+                        ExpandableTextView.this.mkR.setLayoutParams(layoutParams);
                     }
                 }
             }
         };
-        this.mja = new f(2, null) { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.2
+        this.mlc = new f(2, null) { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.2
             @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
             public void onClick(View view) {
-                ExpandableTextView.this.dWq();
+                ExpandableTextView.this.dWy();
             }
         };
-        this.obD = new f(2, null) { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.3
+        this.odJ = new f(2, null) { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.3
             @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
             public void onClick(View view) {
-                ExpandableTextView.this.dWr();
+                ExpandableTextView.this.dWz();
             }
         };
-        this.obE = new View.OnClickListener() { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.4
+        this.odK = new View.OnClickListener() { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ExpandableTextView.this.dWr();
+                ExpandableTextView.this.dWz();
             }
         };
         init(context);
@@ -163,108 +163,108 @@ public class ExpandableTextView extends RelativeLayout {
     public ExpandableTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.type = 1;
-        this.obu = true;
-        this.obv = false;
-        this.miT = false;
-        this.obx = 2;
-        this.oby = Integer.MAX_VALUE;
-        this.obB = false;
-        this.obC = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.1
+        this.odA = true;
+        this.odB = false;
+        this.mkV = false;
+        this.odD = 2;
+        this.odE = Integer.MAX_VALUE;
+        this.odH = false;
+        this.odI = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.1
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
                 Layout layout;
                 String substring;
                 Object[] spans;
-                if (ExpandableTextView.this.obw != null && ExpandableTextView.this.miW != null && ExpandableTextView.this.obu && (layout = ExpandableTextView.this.obw.getLayout()) != null) {
-                    if (!ExpandableTextView.this.obv) {
-                        if (layout.getLineCount() > ExpandableTextView.this.obx) {
-                            if (ExpandableTextView.this.miX == null) {
-                                String spannableStringBuilder = ExpandableTextView.this.miW.toString();
-                                int lineStart = layout.getLineStart(ExpandableTextView.this.obx - 1);
-                                int lineEnd = layout.getLineEnd(ExpandableTextView.this.obx - 1);
+                if (ExpandableTextView.this.odC != null && ExpandableTextView.this.mkY != null && ExpandableTextView.this.odA && (layout = ExpandableTextView.this.odC.getLayout()) != null) {
+                    if (!ExpandableTextView.this.odB) {
+                        if (layout.getLineCount() > ExpandableTextView.this.odD) {
+                            if (ExpandableTextView.this.mkZ == null) {
+                                String spannableStringBuilder = ExpandableTextView.this.mkY.toString();
+                                int lineStart = layout.getLineStart(ExpandableTextView.this.odD - 1);
+                                int lineEnd = layout.getLineEnd(ExpandableTextView.this.odD - 1);
                                 String substring2 = spannableStringBuilder.substring(0, lineStart);
                                 String cutChineseAndEnglishWithSuffix = au.cutChineseAndEnglishWithSuffix(spannableStringBuilder.substring(lineStart, lineEnd), au.getChineseAndEnglishLength(substring) - 6, "");
-                                ExpandableTextView.this.miX = new SpannableStringBuilder();
-                                ExpandableTextView.this.miX.append((CharSequence) substring2);
-                                ExpandableTextView.this.miX.append((CharSequence) cutChineseAndEnglishWithSuffix);
-                                int length = ExpandableTextView.this.miX.length();
-                                for (Object obj : ExpandableTextView.this.miW.getSpans(length, spannableStringBuilder.length(), Object.class)) {
-                                    int spanStart = ExpandableTextView.this.miW.getSpanStart(obj);
-                                    int spanEnd = ExpandableTextView.this.miW.getSpanEnd(obj);
+                                ExpandableTextView.this.mkZ = new SpannableStringBuilder();
+                                ExpandableTextView.this.mkZ.append((CharSequence) substring2);
+                                ExpandableTextView.this.mkZ.append((CharSequence) cutChineseAndEnglishWithSuffix);
+                                int length = ExpandableTextView.this.mkZ.length();
+                                for (Object obj : ExpandableTextView.this.mkY.getSpans(length, spannableStringBuilder.length(), Object.class)) {
+                                    int spanStart = ExpandableTextView.this.mkY.getSpanStart(obj);
+                                    int spanEnd = ExpandableTextView.this.mkY.getSpanEnd(obj);
                                     if (spanStart < length && spanEnd >= length) {
                                         break;
                                     }
                                     if (obj instanceof SpannableString) {
-                                        ExpandableTextView.this.miX.setSpan(obj, spanStart, spanEnd, ((SpannableString) obj).getSpanFlags(obj));
+                                        ExpandableTextView.this.mkZ.setSpan(obj, spanStart, spanEnd, ((SpannableString) obj).getSpanFlags(obj));
                                     }
                                 }
-                                ExpandableTextView.this.miX.append((CharSequence) StringHelper.STRING_MORE);
+                                ExpandableTextView.this.mkZ.append((CharSequence) StringHelper.STRING_MORE);
                                 SpannableString spannableString = new SpannableString("展开");
-                                spannableString.setSpan(ExpandableTextView.this.mja, 0, spannableString.length(), 17);
-                                ExpandableTextView.this.miX.append((CharSequence) spannableString);
-                                ExpandableTextView.this.miZ = new i(ExpandableTextView.this.miX);
-                                ((i) ExpandableTextView.this.miZ).Lb(R.color.transparent);
+                                spannableString.setSpan(ExpandableTextView.this.mlc, 0, spannableString.length(), 17);
+                                ExpandableTextView.this.mkZ.append((CharSequence) spannableString);
+                                ExpandableTextView.this.mlb = new i(ExpandableTextView.this.mkZ);
+                                ((i) ExpandableTextView.this.mlb).Lf(R.color.transparent);
                             }
-                            ExpandableTextView.this.miP.setVisibility(8);
-                            ExpandableTextView.this.obw.setOnTouchListener(ExpandableTextView.this.miZ);
-                            ExpandableTextView.this.obw.setText(ExpandableTextView.this.miX);
-                            if (ExpandableTextView.this.obB) {
-                                ExpandableTextView.this.dWq();
+                            ExpandableTextView.this.mkR.setVisibility(8);
+                            ExpandableTextView.this.odC.setOnTouchListener(ExpandableTextView.this.mlb);
+                            ExpandableTextView.this.odC.setText(ExpandableTextView.this.mkZ);
+                            if (ExpandableTextView.this.odH) {
+                                ExpandableTextView.this.dWy();
                             }
                         }
-                    } else if (!ExpandableTextView.this.miT) {
-                        ExpandableTextView.this.miT = true;
+                    } else if (!ExpandableTextView.this.mkV) {
+                        ExpandableTextView.this.mkV = true;
                         if (ExpandableTextView.this.type == 2) {
                             int lineCount = layout.getLineCount();
                             int lineEnd2 = layout.getLineEnd(0);
                             int lineEnd3 = layout.getLineEnd(lineCount - 1) - layout.getLineStart(lineCount - 1);
                             SpannableString spannableString2 = new SpannableString("收起");
-                            spannableString2.setSpan(ExpandableTextView.this.obD, 0, spannableString2.length(), 17);
+                            spannableString2.setSpan(ExpandableTextView.this.odJ, 0, spannableString2.length(), 17);
                             if (lineEnd2 - lineEnd3 > "收起".length()) {
-                                ExpandableTextView.this.miW.append((CharSequence) spannableString2);
+                                ExpandableTextView.this.mkY.append((CharSequence) spannableString2);
                             } else {
                                 int i = (lineEnd2 - lineEnd3) + 1;
                                 for (int i2 = 0; i2 < i; i2++) {
-                                    ExpandableTextView.this.miW.append((CharSequence) "  ");
+                                    ExpandableTextView.this.mkY.append((CharSequence) "  ");
                                 }
-                                ExpandableTextView.this.miW.append((CharSequence) spannableString2);
+                                ExpandableTextView.this.mkY.append((CharSequence) spannableString2);
                             }
-                            ((i) ExpandableTextView.this.miY).Lb(R.color.transparent);
-                            ExpandableTextView.this.obw.setOnTouchListener(ExpandableTextView.this.miY);
-                            ExpandableTextView.this.obw.setText(ExpandableTextView.this.miW);
-                            ExpandableTextView.this.miP.setVisibility(8);
+                            ((i) ExpandableTextView.this.mla).Lf(R.color.transparent);
+                            ExpandableTextView.this.odC.setOnTouchListener(ExpandableTextView.this.mla);
+                            ExpandableTextView.this.odC.setText(ExpandableTextView.this.mkY);
+                            ExpandableTextView.this.mkR.setVisibility(8);
                             return;
                         }
                         int lineCount2 = layout.getLineCount();
-                        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) ExpandableTextView.this.miP.getLayoutParams();
-                        if (layout.getLineWidth(lineCount2 - 1) + ExpandableTextView.this.miP.getWidth() > layout.getWidth()) {
+                        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) ExpandableTextView.this.mkR.getLayoutParams();
+                        if (layout.getLineWidth(lineCount2 - 1) + ExpandableTextView.this.mkR.getWidth() > layout.getWidth()) {
                             layoutParams.addRule(3, R.id.expandable_view_title);
                             layoutParams.addRule(8, 0);
                         } else {
                             layoutParams.addRule(8, R.id.expandable_view_title);
                             layoutParams.addRule(3, 0);
                         }
-                        ExpandableTextView.this.miP.setLayoutParams(layoutParams);
+                        ExpandableTextView.this.mkR.setLayoutParams(layoutParams);
                     }
                 }
             }
         };
-        this.mja = new f(2, null) { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.2
+        this.mlc = new f(2, null) { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.2
             @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
             public void onClick(View view) {
-                ExpandableTextView.this.dWq();
+                ExpandableTextView.this.dWy();
             }
         };
-        this.obD = new f(2, null) { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.3
+        this.odJ = new f(2, null) { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.3
             @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
             public void onClick(View view) {
-                ExpandableTextView.this.dWr();
+                ExpandableTextView.this.dWz();
             }
         };
-        this.obE = new View.OnClickListener() { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.4
+        this.odK = new View.OnClickListener() { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ExpandableTextView.this.dWr();
+                ExpandableTextView.this.dWz();
             }
         };
         init(context);
@@ -273,108 +273,108 @@ public class ExpandableTextView extends RelativeLayout {
     public ExpandableTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.type = 1;
-        this.obu = true;
-        this.obv = false;
-        this.miT = false;
-        this.obx = 2;
-        this.oby = Integer.MAX_VALUE;
-        this.obB = false;
-        this.obC = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.1
+        this.odA = true;
+        this.odB = false;
+        this.mkV = false;
+        this.odD = 2;
+        this.odE = Integer.MAX_VALUE;
+        this.odH = false;
+        this.odI = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.1
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
                 Layout layout;
                 String substring;
                 Object[] spans;
-                if (ExpandableTextView.this.obw != null && ExpandableTextView.this.miW != null && ExpandableTextView.this.obu && (layout = ExpandableTextView.this.obw.getLayout()) != null) {
-                    if (!ExpandableTextView.this.obv) {
-                        if (layout.getLineCount() > ExpandableTextView.this.obx) {
-                            if (ExpandableTextView.this.miX == null) {
-                                String spannableStringBuilder = ExpandableTextView.this.miW.toString();
-                                int lineStart = layout.getLineStart(ExpandableTextView.this.obx - 1);
-                                int lineEnd = layout.getLineEnd(ExpandableTextView.this.obx - 1);
+                if (ExpandableTextView.this.odC != null && ExpandableTextView.this.mkY != null && ExpandableTextView.this.odA && (layout = ExpandableTextView.this.odC.getLayout()) != null) {
+                    if (!ExpandableTextView.this.odB) {
+                        if (layout.getLineCount() > ExpandableTextView.this.odD) {
+                            if (ExpandableTextView.this.mkZ == null) {
+                                String spannableStringBuilder = ExpandableTextView.this.mkY.toString();
+                                int lineStart = layout.getLineStart(ExpandableTextView.this.odD - 1);
+                                int lineEnd = layout.getLineEnd(ExpandableTextView.this.odD - 1);
                                 String substring2 = spannableStringBuilder.substring(0, lineStart);
                                 String cutChineseAndEnglishWithSuffix = au.cutChineseAndEnglishWithSuffix(spannableStringBuilder.substring(lineStart, lineEnd), au.getChineseAndEnglishLength(substring) - 6, "");
-                                ExpandableTextView.this.miX = new SpannableStringBuilder();
-                                ExpandableTextView.this.miX.append((CharSequence) substring2);
-                                ExpandableTextView.this.miX.append((CharSequence) cutChineseAndEnglishWithSuffix);
-                                int length = ExpandableTextView.this.miX.length();
-                                for (Object obj : ExpandableTextView.this.miW.getSpans(length, spannableStringBuilder.length(), Object.class)) {
-                                    int spanStart = ExpandableTextView.this.miW.getSpanStart(obj);
-                                    int spanEnd = ExpandableTextView.this.miW.getSpanEnd(obj);
+                                ExpandableTextView.this.mkZ = new SpannableStringBuilder();
+                                ExpandableTextView.this.mkZ.append((CharSequence) substring2);
+                                ExpandableTextView.this.mkZ.append((CharSequence) cutChineseAndEnglishWithSuffix);
+                                int length = ExpandableTextView.this.mkZ.length();
+                                for (Object obj : ExpandableTextView.this.mkY.getSpans(length, spannableStringBuilder.length(), Object.class)) {
+                                    int spanStart = ExpandableTextView.this.mkY.getSpanStart(obj);
+                                    int spanEnd = ExpandableTextView.this.mkY.getSpanEnd(obj);
                                     if (spanStart < length && spanEnd >= length) {
                                         break;
                                     }
                                     if (obj instanceof SpannableString) {
-                                        ExpandableTextView.this.miX.setSpan(obj, spanStart, spanEnd, ((SpannableString) obj).getSpanFlags(obj));
+                                        ExpandableTextView.this.mkZ.setSpan(obj, spanStart, spanEnd, ((SpannableString) obj).getSpanFlags(obj));
                                     }
                                 }
-                                ExpandableTextView.this.miX.append((CharSequence) StringHelper.STRING_MORE);
+                                ExpandableTextView.this.mkZ.append((CharSequence) StringHelper.STRING_MORE);
                                 SpannableString spannableString = new SpannableString("展开");
-                                spannableString.setSpan(ExpandableTextView.this.mja, 0, spannableString.length(), 17);
-                                ExpandableTextView.this.miX.append((CharSequence) spannableString);
-                                ExpandableTextView.this.miZ = new i(ExpandableTextView.this.miX);
-                                ((i) ExpandableTextView.this.miZ).Lb(R.color.transparent);
+                                spannableString.setSpan(ExpandableTextView.this.mlc, 0, spannableString.length(), 17);
+                                ExpandableTextView.this.mkZ.append((CharSequence) spannableString);
+                                ExpandableTextView.this.mlb = new i(ExpandableTextView.this.mkZ);
+                                ((i) ExpandableTextView.this.mlb).Lf(R.color.transparent);
                             }
-                            ExpandableTextView.this.miP.setVisibility(8);
-                            ExpandableTextView.this.obw.setOnTouchListener(ExpandableTextView.this.miZ);
-                            ExpandableTextView.this.obw.setText(ExpandableTextView.this.miX);
-                            if (ExpandableTextView.this.obB) {
-                                ExpandableTextView.this.dWq();
+                            ExpandableTextView.this.mkR.setVisibility(8);
+                            ExpandableTextView.this.odC.setOnTouchListener(ExpandableTextView.this.mlb);
+                            ExpandableTextView.this.odC.setText(ExpandableTextView.this.mkZ);
+                            if (ExpandableTextView.this.odH) {
+                                ExpandableTextView.this.dWy();
                             }
                         }
-                    } else if (!ExpandableTextView.this.miT) {
-                        ExpandableTextView.this.miT = true;
+                    } else if (!ExpandableTextView.this.mkV) {
+                        ExpandableTextView.this.mkV = true;
                         if (ExpandableTextView.this.type == 2) {
                             int lineCount = layout.getLineCount();
                             int lineEnd2 = layout.getLineEnd(0);
                             int lineEnd3 = layout.getLineEnd(lineCount - 1) - layout.getLineStart(lineCount - 1);
                             SpannableString spannableString2 = new SpannableString("收起");
-                            spannableString2.setSpan(ExpandableTextView.this.obD, 0, spannableString2.length(), 17);
+                            spannableString2.setSpan(ExpandableTextView.this.odJ, 0, spannableString2.length(), 17);
                             if (lineEnd2 - lineEnd3 > "收起".length()) {
-                                ExpandableTextView.this.miW.append((CharSequence) spannableString2);
+                                ExpandableTextView.this.mkY.append((CharSequence) spannableString2);
                             } else {
                                 int i2 = (lineEnd2 - lineEnd3) + 1;
                                 for (int i22 = 0; i22 < i2; i22++) {
-                                    ExpandableTextView.this.miW.append((CharSequence) "  ");
+                                    ExpandableTextView.this.mkY.append((CharSequence) "  ");
                                 }
-                                ExpandableTextView.this.miW.append((CharSequence) spannableString2);
+                                ExpandableTextView.this.mkY.append((CharSequence) spannableString2);
                             }
-                            ((i) ExpandableTextView.this.miY).Lb(R.color.transparent);
-                            ExpandableTextView.this.obw.setOnTouchListener(ExpandableTextView.this.miY);
-                            ExpandableTextView.this.obw.setText(ExpandableTextView.this.miW);
-                            ExpandableTextView.this.miP.setVisibility(8);
+                            ((i) ExpandableTextView.this.mla).Lf(R.color.transparent);
+                            ExpandableTextView.this.odC.setOnTouchListener(ExpandableTextView.this.mla);
+                            ExpandableTextView.this.odC.setText(ExpandableTextView.this.mkY);
+                            ExpandableTextView.this.mkR.setVisibility(8);
                             return;
                         }
                         int lineCount2 = layout.getLineCount();
-                        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) ExpandableTextView.this.miP.getLayoutParams();
-                        if (layout.getLineWidth(lineCount2 - 1) + ExpandableTextView.this.miP.getWidth() > layout.getWidth()) {
+                        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) ExpandableTextView.this.mkR.getLayoutParams();
+                        if (layout.getLineWidth(lineCount2 - 1) + ExpandableTextView.this.mkR.getWidth() > layout.getWidth()) {
                             layoutParams.addRule(3, R.id.expandable_view_title);
                             layoutParams.addRule(8, 0);
                         } else {
                             layoutParams.addRule(8, R.id.expandable_view_title);
                             layoutParams.addRule(3, 0);
                         }
-                        ExpandableTextView.this.miP.setLayoutParams(layoutParams);
+                        ExpandableTextView.this.mkR.setLayoutParams(layoutParams);
                     }
                 }
             }
         };
-        this.mja = new f(2, null) { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.2
+        this.mlc = new f(2, null) { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.2
             @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
             public void onClick(View view) {
-                ExpandableTextView.this.dWq();
+                ExpandableTextView.this.dWy();
             }
         };
-        this.obD = new f(2, null) { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.3
+        this.odJ = new f(2, null) { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.3
             @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
             public void onClick(View view) {
-                ExpandableTextView.this.dWr();
+                ExpandableTextView.this.dWz();
             }
         };
-        this.obE = new View.OnClickListener() { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.4
+        this.odK = new View.OnClickListener() { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ExpandableTextView.this.dWr();
+                ExpandableTextView.this.dWz();
             }
         };
         init(context);
@@ -382,59 +382,59 @@ public class ExpandableTextView extends RelativeLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.widget_expandable_text_view, this);
-        this.obw = (SpannableClickTextView) findViewById(R.id.expandable_view_title);
-        this.obw.setTextSize(0, TbConfig.getContentSize());
-        this.obw.setLineSpacing(TbConfig.getContentLineSpace(), 1.0f);
-        this.miP = (TextView) findViewById(R.id.expandable_view_title_up);
-        this.miP.setOnClickListener(this.obE);
+        this.odC = (SpannableClickTextView) findViewById(R.id.expandable_view_title);
+        this.odC.setTextSize(0, TbConfig.getContentSize());
+        this.odC.setLineSpacing(TbConfig.getContentLineSpace(), 1.0f);
+        this.mkR = (TextView) findViewById(R.id.expandable_view_title_up);
+        this.mkR.setOnClickListener(this.odK);
         this.textSize = l.getDimens(context, R.dimen.tbfontsize42);
         this.textColor = R.color.CAM_X0101;
-        this.obz = l.getDimens(context, R.dimen.tbds6);
+        this.odF = l.getDimens(context, R.dimen.tbds6);
     }
 
     public void setTextSize(int i) {
         this.textSize = i;
-        this.obw.setTextSize(0, i);
-        this.miP.setTextSize(0, i);
+        this.odC.setTextSize(0, i);
+        this.mkR.setTextSize(0, i);
     }
 
     public void setHasDown() {
-        c.br(this.obw).oi(R.array.S_O_X001);
+        c.br(this.odC).oj(R.array.S_O_X001);
     }
 
     public void setTextColor(int i) {
         this.textColor = i;
-        ap.setViewTextColor(this.obw, this.textColor, 1);
+        ap.setViewTextColor(this.odC, this.textColor, 1);
     }
 
     public void setLineSpacingExtra(int i) {
-        this.obz = i;
-        this.obw.setLineSpacing(i, 1.0f);
-        this.miP.setLineSpacing(i, 1.0f);
+        this.odF = i;
+        this.odC.setLineSpacing(i, 1.0f);
+        this.mkR.setLineSpacing(i, 1.0f);
     }
 
     public void setTextMaxLine(int i) {
-        this.oby = i;
+        this.odE = i;
     }
 
     public void setExpandable(boolean z) {
-        this.obu = z;
+        this.odA = z;
         if (!z) {
             if (Build.VERSION.SDK_INT < 16) {
-                this.obw.getViewTreeObserver().removeGlobalOnLayoutListener(this.obC);
+                this.odC.getViewTreeObserver().removeGlobalOnLayoutListener(this.odI);
             } else {
-                this.obw.getViewTreeObserver().removeOnGlobalLayoutListener(this.obC);
+                this.odC.getViewTreeObserver().removeOnGlobalLayoutListener(this.odI);
             }
-            this.obw.setMaxLines(this.oby);
-            this.obw.setEllipsize(TextUtils.TruncateAt.END);
-            this.obw.setText(this.miW);
-            this.obw.setOnTouchListener(null);
-            this.miP.setVisibility(8);
+            this.odC.setMaxLines(this.odE);
+            this.odC.setEllipsize(TextUtils.TruncateAt.END);
+            this.odC.setText(this.mkY);
+            this.odC.setOnTouchListener(null);
+            this.mkR.setVisibility(8);
             return;
         }
-        this.obw.getViewTreeObserver().addOnGlobalLayoutListener(this.obC);
-        this.obw.setMaxLines(Integer.MAX_VALUE);
-        this.obw.setEllipsize(null);
+        this.odC.getViewTreeObserver().addOnGlobalLayoutListener(this.odI);
+        this.odC.setMaxLines(Integer.MAX_VALUE);
+        this.odC.setEllipsize(null);
     }
 
     public void setExpandType(int i) {
@@ -442,55 +442,55 @@ public class ExpandableTextView extends RelativeLayout {
     }
 
     public void setTitleUpViewPadding(int i, int i2, int i3, int i4) {
-        this.miP.setPadding(i, i2, i3, i4);
+        this.mkR.setPadding(i, i2, i3, i4);
     }
 
     public void setData(CharSequence charSequence, boolean z) {
         if (charSequence == null) {
             charSequence = "";
         }
-        this.obB = z;
-        this.miW = new SpannableStringBuilder(charSequence);
-        this.miY = new i(this.miW);
-        this.obw.setText(this.miW);
-        this.obw.setLinkTextColor(ap.getColor(R.color.CAM_X0304));
-        this.obw.setOnTouchListener(this.miY);
-        ap.setViewTextColor(this.obw, this.textColor, 1);
+        this.odH = z;
+        this.mkY = new SpannableStringBuilder(charSequence);
+        this.mla = new i(this.mkY);
+        this.odC.setText(this.mkY);
+        this.odC.setLinkTextColor(ap.getColor(R.color.CAM_X0304));
+        this.odC.setOnTouchListener(this.mla);
+        ap.setViewTextColor(this.odC, this.textColor, 1);
     }
 
     public TextView getContentView() {
-        return this.obw;
+        return this.odC;
     }
 
     public void onChangeSkinType() {
-        ap.setViewTextColor(this.obw, this.textColor, 1);
+        ap.setViewTextColor(this.odC, this.textColor, 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dWq() {
-        this.obv = true;
-        if (this.obA != null) {
-            this.obA.rJ(this.obv);
+    public void dWy() {
+        this.odB = true;
+        if (this.odG != null) {
+            this.odG.rJ(this.odB);
         }
-        this.obw.setOnTouchListener(this.miY);
-        this.obw.setText(this.miW);
+        this.odC.setOnTouchListener(this.mla);
+        this.odC.setText(this.mkY);
         if (this.type == 1) {
-            this.miP.setVisibility(0);
+            this.mkR.setVisibility(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dWr() {
-        this.obv = false;
-        if (this.obA != null) {
-            this.obA.rJ(this.obv);
+    public void dWz() {
+        this.odB = false;
+        if (this.odG != null) {
+            this.odG.rJ(this.odB);
         }
-        this.obw.setOnTouchListener(this.miZ);
-        this.obw.setText(this.miX);
-        this.miP.setVisibility(8);
+        this.odC.setOnTouchListener(this.mlb);
+        this.odC.setText(this.mkZ);
+        this.mkR.setVisibility(8);
     }
 
     public void setOnStatusChangedListener(a aVar) {
-        this.obA = aVar;
+        this.odG = aVar;
     }
 }

@@ -12,11 +12,9 @@ import com.baidu.mapsdkplatform.comapi.synchronization.data.i;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3146a = f.class.getSimpleName();
+    private static final String f2277a = f.class.getSimpleName();
     private static HandlerThread d;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f3147b;
+    private int b;
     private int c;
     private com.baidu.mapsdkplatform.comapi.synchronization.render.b e;
     private com.baidu.mapsdkplatform.comapi.synchronization.data.g f;
@@ -30,7 +28,7 @@ public class f {
         @Override // com.baidu.mapsdkplatform.comapi.synchronization.data.i
         public void a() {
             f.this.j();
-            f.this.e(f.this.f3147b);
+            f.this.e(f.this.b);
         }
 
         @Override // com.baidu.mapsdkplatform.comapi.synchronization.data.i
@@ -43,22 +41,22 @@ public class f {
     private static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final f f3149a = new f();
+        private static final f f2279a = new f();
     }
 
     private f() {
-        this.f3147b = 0;
+        this.b = 0;
         this.c = 5;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static f a() {
-        return b.f3149a;
+        return b.f2279a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(int i) {
-        com.baidu.mapsdkplatform.comapi.synchronization.d.a.c(f3146a, "The order state is: " + i);
+        com.baidu.mapsdkplatform.comapi.synchronization.d.a.c(f2277a, "The order state is: " + i);
         switch (i) {
             case 0:
             case 1:
@@ -69,14 +67,14 @@ public class f {
                 f(i);
                 return;
             default:
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.c(f3146a, "Undefined order state: " + i);
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.c(f2277a, "Undefined order state: " + i);
                 return;
         }
     }
 
     private void f(int i) {
         if (this.e == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3146a, "SyncRenderHandler is null");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2277a, "SyncRenderHandler is null");
             return;
         }
         Message obtainMessage = this.e.obtainMessage();
@@ -89,7 +87,7 @@ public class f {
         RoleOptions e = this.f.e();
         DisplayOptions f = this.f.f();
         if (this.e == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3146a, "SyncRenderHandler is null");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2277a, "SyncRenderHandler is null");
         } else {
             this.e.a(e, f, null, this.c);
         }
@@ -103,11 +101,11 @@ public class f {
         try {
             syncResponseResult = this.f.g().take();
         } catch (InterruptedException e2) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3146a, "Get result when InterruptedException happened.", e2);
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2277a, "Get result when InterruptedException happened.", e2);
             syncResponseResult = null;
         }
         if (this.e == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3146a, "SyncRenderHandler is null");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2277a, "SyncRenderHandler is null");
         } else {
             this.e.a(e, f, syncResponseResult, this.c);
         }
@@ -115,8 +113,8 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(int i) {
-        this.f3147b = i;
-        e(this.f3147b);
+        this.b = i;
+        e(this.b);
     }
 
     public void a(BaiduMap baiduMap) {
@@ -139,7 +137,7 @@ public class f {
     /* JADX INFO: Access modifiers changed from: package-private */
     public Marker b() {
         if (this.e == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3146a, "SyncRenderHandler created failed");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2277a, "SyncRenderHandler created failed");
             return null;
         }
         return this.e.a();
@@ -155,7 +153,7 @@ public class f {
     /* JADX INFO: Access modifiers changed from: package-private */
     public Marker c() {
         if (this.e == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3146a, "SyncRenderHandler created failed");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2277a, "SyncRenderHandler created failed");
             return null;
         }
         return this.e.b();
@@ -171,7 +169,7 @@ public class f {
     /* JADX INFO: Access modifiers changed from: package-private */
     public Marker d() {
         if (this.e == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3146a, "SyncRenderHandler created failed");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2277a, "SyncRenderHandler created failed");
             return null;
         }
         return this.e.c();

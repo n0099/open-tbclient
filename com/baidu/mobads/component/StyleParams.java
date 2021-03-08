@@ -3,7 +3,7 @@ package com.baidu.mobads.component;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class StyleParams {
     public int mBrandBottomDp;
     public int mBrandFontColor;
@@ -591,7 +591,7 @@ public class StyleParams {
         return this.mIsShowDownloadInfo;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class Builder {
         public int mBrandRightDp;
         public boolean mIsShowDownloadInfo = true;

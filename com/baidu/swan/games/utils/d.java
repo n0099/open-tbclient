@@ -12,19 +12,19 @@ import okhttp3.RequestBody;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static void aYW() {
+    public static void aYZ() {
         String str;
-        com.baidu.swan.apps.runtime.e aIK = com.baidu.swan.apps.runtime.e.aIK();
-        if (aIK != null) {
+        com.baidu.swan.apps.runtime.e aIN = com.baidu.swan.apps.runtime.e.aIN();
+        if (aIN != null) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("cuid", com.baidu.swan.apps.t.a.axb().cb(com.baidu.swan.apps.t.a.awW()));
+                jSONObject.put("cuid", com.baidu.swan.apps.t.a.axe().ca(com.baidu.swan.apps.t.a.awZ()));
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put(ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME, aIK.getAppKey());
+                jSONObject2.put(ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME, aIN.getAppKey());
                 jSONObject2.put("type", 0);
                 jSONObject2.put("upload_time", System.currentTimeMillis() / 1000);
                 JSONArray jSONArray = new JSONArray();
@@ -34,10 +34,10 @@ public class d {
             } catch (Exception e) {
                 str = "";
             }
-            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) aIK.aIZ().postRequest().cookieManager(com.baidu.swan.apps.t.a.axv().aiy())).url(com.baidu.swan.apps.t.a.axi().ahK())).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), str)).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.utils.d.1
+            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) aIN.aJc().postRequest().cookieManager(com.baidu.swan.apps.t.a.axy().aiB())).url(com.baidu.swan.apps.t.a.axl().ahN())).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), str)).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.utils.d.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
-                /* renamed from: U */
+                /* renamed from: V */
                 public void onSuccess(String str2, int i) {
                     if (200 == i) {
                         try {

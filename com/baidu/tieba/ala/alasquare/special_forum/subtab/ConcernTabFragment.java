@@ -37,29 +37,29 @@ import com.baidu.tieba.ala.alasquare.special_forum.a.c;
 import com.baidu.tieba.ala.alasquare.special_forum.model.SpecialConcernTabModel;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class ConcernTabFragment extends SpecialForumTabBaseFragment {
-    private BdTypeRecyclerView XW;
-    private PbListView gAw;
-    private BdSwipeRefreshLayout gCQ;
-    private a gHv;
-    private SpecialConcernTabModel gHw;
+    private BdTypeRecyclerView Zq;
+    private PbListView gCf;
+    private BdSwipeRefreshLayout gEz;
+    private a gJe;
+    private SpecialConcernTabModel gJf;
     private g mPullView;
     private h mRefreshView;
     private View mRootView;
     private boolean mHasMore = true;
-    private boolean gHx = false;
+    private boolean gJg = false;
     private boolean mIsInit = false;
     private CustomMessageListener mAccountChangedListener = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.ConcernTabFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && ConcernTabFragment.this.gHw != null && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+            if (customResponsedMessage != null && ConcernTabFragment.this.gJf != null && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                 ConcernTabFragment.this.refreshData();
             }
         }
     };
-    private SpecialConcernTabModel.a gHy = new SpecialConcernTabModel.a() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.ConcernTabFragment.2
+    private SpecialConcernTabModel.a gJh = new SpecialConcernTabModel.a() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.ConcernTabFragment.2
         @Override // com.baidu.tieba.ala.alasquare.special_forum.model.SpecialConcernTabModel.a
         public void d(List<n> list, boolean z, int i) {
             ConcernTabFragment.this.mHasMore = z;
@@ -67,15 +67,15 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
             ConcernTabFragment.this.lU(false);
             ConcernTabFragment.this.hideLoadingView(ConcernTabFragment.this.mRootView);
             if (y.getCount(list) == 0) {
-                ConcernTabFragment.this.bRB();
+                ConcernTabFragment.this.bRH();
             } else {
-                ConcernTabFragment.this.XW.setData(list);
+                ConcernTabFragment.this.Zq.setData(list);
                 if (!ConcernTabFragment.this.mHasMore) {
-                    ConcernTabFragment.this.WY();
+                    ConcernTabFragment.this.Xb();
                 } else {
-                    ConcernTabFragment.this.WX();
+                    ConcernTabFragment.this.Xa();
                 }
-                ConcernTabFragment.this.WZ();
+                ConcernTabFragment.this.Xc();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(AlaCmdConfigCustom.CMD_ALA_SPECIAL_CONCERN_TAB_TAB_ICON, Boolean.valueOf(i > 0)));
         }
@@ -83,41 +83,41 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
         @Override // com.baidu.tieba.ala.alasquare.special_forum.model.SpecialConcernTabModel.a
         public void A(int i, String str) {
             ConcernTabFragment.this.hideLoadingView(ConcernTabFragment.this.mRootView);
-            ConcernTabFragment.this.bSy();
-            ConcernTabFragment.this.bRB();
+            ConcernTabFragment.this.bSE();
+            ConcernTabFragment.this.bRH();
         }
     };
-    private BdListView.e WH = new BdListView.e() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.ConcernTabFragment.3
+    private BdListView.e Yb = new BdListView.e() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.ConcernTabFragment.3
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
             if (!l.isNetOk()) {
-                ConcernTabFragment.this.bSy();
+                ConcernTabFragment.this.bSE();
             } else if (ConcernTabFragment.this.mHasMore) {
-                ConcernTabFragment.this.gHw.bRL();
+                ConcernTabFragment.this.gJf.bRR();
             }
         }
     };
-    private final f.c gHz = new f.c() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.ConcernTabFragment.4
+    private final f.c gJi = new f.c() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.ConcernTabFragment.4
         @Override // com.baidu.tbadk.core.view.f.c
         public void onListPullRefresh(boolean z) {
             if (j.isNetWorkAvailable()) {
-                ConcernTabFragment.this.gHw.Ut();
+                ConcernTabFragment.this.gJf.Uw();
             } else {
                 ConcernTabFragment.this.lU(false);
             }
         }
     };
 
-    public static ConcernTabFragment tQ(int i) {
+    public static ConcernTabFragment tS(int i) {
         return new ConcernTabFragment();
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.subtab.SpecialForumTabBaseFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.gHw == null) {
-            this.gHw = new SpecialConcernTabModel(getPageContext());
-            this.gHw.a(this.gHy);
+        if (this.gJf == null) {
+            this.gJf = new SpecialConcernTabModel(getPageContext());
+            this.gJf.a(this.gJh);
         }
         MessageManager.getInstance().registerListener(this.mAccountChangedListener);
     }
@@ -126,26 +126,26 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         if (this.mRootView == null) {
             this.mRootView = layoutInflater.inflate(R.layout.special_bar_concern_tab, viewGroup, false);
-            this.XW = (BdTypeRecyclerView) this.mRootView.findViewById(R.id.content_thread);
-            this.XW.setLayoutManager(new LinearLayoutManager(getContext()));
-            this.XW.setFadingEdgeLength(0);
-            this.XW.setOverScrollMode(2);
-            this.XW.setOnSrollToBottomListener(this.WH);
+            this.Zq = (BdTypeRecyclerView) this.mRootView.findViewById(R.id.content_thread);
+            this.Zq.setLayoutManager(new LinearLayoutManager(getContext()));
+            this.Zq.setFadingEdgeLength(0);
+            this.Zq.setOverScrollMode(2);
+            this.Zq.setOnSrollToBottomListener(this.Yb);
             this.mPullView = new g(getPageContext());
-            this.mPullView.setListPullRefreshListener(this.gHz);
-            this.gAw = new PbListView(getContext());
-            this.gAw.createView();
-            this.gAw.setContainerBackgroundColorResId(R.color.CAM_X0201);
-            this.gAw.setHeight(l.getDimens(getContext(), R.dimen.tbds182));
-            this.gAw.setLineGone();
-            this.gAw.setTextSize(R.dimen.tbfontsize33);
-            this.gAw.setTextColor(ap.getColor(R.color.CAM_X0107));
-            this.gAw.setNoMoreTextColorId(R.color.CAM_X0110);
-            this.gAw.getView().setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.gCQ = (BdSwipeRefreshLayout) this.mRootView.findViewById(R.id.pull_refresh_layout);
-            this.gCQ.setProgressView(this.mPullView);
-            this.gHv = new a();
-            this.XW.addAdapters(this.gHv.bns);
+            this.mPullView.setListPullRefreshListener(this.gJi);
+            this.gCf = new PbListView(getContext());
+            this.gCf.createView();
+            this.gCf.setContainerBackgroundColorResId(R.color.CAM_X0201);
+            this.gCf.setHeight(l.getDimens(getContext(), R.dimen.tbds182));
+            this.gCf.setLineGone();
+            this.gCf.setTextSize(R.dimen.tbfontsize33);
+            this.gCf.setTextColor(ap.getColor(R.color.CAM_X0107));
+            this.gCf.setNoMoreTextColorId(R.color.CAM_X0110);
+            this.gCf.getView().setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+            this.gEz = (BdSwipeRefreshLayout) this.mRootView.findViewById(R.id.pull_refresh_layout);
+            this.gEz.setProgressView(this.mPullView);
+            this.gJe = new a();
+            this.Zq.addAdapters(this.gJe.boS);
         }
         if (this.mRootView.getParent() != null) {
             ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
@@ -158,25 +158,25 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.subtab.SpecialForumTabBaseFragment
-    public void bSx() {
-        super.bSx();
-        if (this.XW != null) {
-            this.XW.scrollToPosition(0);
+    public void bSD() {
+        super.bSD();
+        if (this.Zq != null) {
+            this.Zq.scrollToPosition(0);
         }
-        if (this.gCQ != null) {
-            this.gCQ.setRefreshing(true);
+        if (this.gEz != null) {
+            this.gEz.setRefreshing(true);
         }
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.subtab.SpecialForumTabBaseFragment
     protected void notifyDataSetChanged() {
-        if (this.XW != null) {
-            this.XW.getAdapter().notifyDataSetChanged();
+        if (this.Zq != null) {
+            this.Zq.getAdapter().notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bRB() {
+    public void bRH() {
         if (this.mRefreshView == null) {
             this.mRefreshView = new h(getPageContext().getContext(), getNetRefreshListener());
             this.mRefreshView.setTitle(null);
@@ -186,10 +186,10 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
         }
         this.mRefreshView.setSubText(getPageContext().getResources().getString(R.string.square_sub_list_no_data));
         this.mRefreshView.onChangeSkinType();
-        if (!this.gHx) {
-            this.XW.addHeaderView(this.mRefreshView.getAttachedView(), 0);
+        if (!this.gJg) {
+            this.Zq.addHeaderView(this.mRefreshView.getAttachedView(), 0);
         }
-        this.gHx = true;
+        this.gJg = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -202,39 +202,39 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
     /* JADX INFO: Access modifiers changed from: private */
     public void refreshData() {
         this.mIsInit = false;
-        this.gHw.Ut();
+        this.gJf.Uw();
         showLoadingView(this.mRootView, false, getResources().getDimensionPixelSize(R.dimen.ds230));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void WZ() {
-        if (this.XW != null && this.mRefreshView != null) {
-            this.XW.removeHeaderView(this.mRefreshView.getAttachedView());
+    public void Xc() {
+        if (this.Zq != null && this.mRefreshView != null) {
+            this.Zq.removeHeaderView(this.mRefreshView.getAttachedView());
         }
-        this.gHx = false;
+        this.gJg = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void WX() {
-        this.XW.setNextPage(this.gAw);
-        this.gAw.startLoadData();
+    public void Xa() {
+        this.Zq.setNextPage(this.gCf);
+        this.gCf.startLoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void WY() {
-        this.XW.setNextPage(this.gAw);
-        this.gAw.setText(getResources().getString(R.string.list_no_more));
-        this.gAw.endLoadData();
+    public void Xb() {
+        this.Zq.setNextPage(this.gCf);
+        this.gCf.setText(getResources().getString(R.string.list_no_more));
+        this.gCf.endLoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bSy() {
-        this.XW.setNextPage(null);
+    public void bSE() {
+        this.Zq.setNextPage(null);
     }
 
     public void lU(boolean z) {
         if (!z) {
-            this.gCQ.setRefreshing(false);
+            this.gEz.setRefreshing(false);
         }
     }
 
@@ -244,63 +244,63 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
         if (this.mPullView != null) {
             this.mPullView.changeSkin(i);
         }
-        if (this.gAw != null) {
-            this.gAw.setTextColor(ap.getColor(R.color.CAM_X0107));
-            this.gAw.changeSkin(i);
+        if (this.gCf != null) {
+            this.gCf.setTextColor(ap.getColor(R.color.CAM_X0107));
+            this.gCf.changeSkin(i);
         }
-        if (this.XW != null) {
-            this.XW.getListAdapter().notifyDataSetChanged();
+        if (this.Zq != null) {
+            this.Zq.getListAdapter().notifyDataSetChanged();
         }
-        ap.setBackgroundColor(this.gCQ, R.color.CAM_X0204);
-        ap.setBackgroundColor(this.XW, R.color.CAM_X0201);
+        ap.setBackgroundColor(this.gEz, R.color.CAM_X0204);
+        ap.setBackgroundColor(this.Zq, R.color.CAM_X0201);
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.subtab.SpecialForumTabBaseFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.XW.setOnSrollToBottomListener(null);
-        this.XW.setScrollable(null);
-        this.gHw.onDestroy();
+        this.Zq.setOnSrollToBottomListener(null);
+        this.Zq.setScrollable(null);
+        this.gJf.onDestroy();
         hideLoadingView(this.mRootView);
         MessageManager.getInstance().unRegisterListener(this.mAccountChangedListener);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     class a {
-        private List<com.baidu.adp.widget.ListView.a> bns = new LinkedList();
-        private com.baidu.tieba.ala.alasquare.special_forum.a.a gHB;
-        private b gHC;
-        private c gHD;
+        private List<com.baidu.adp.widget.ListView.a> boS = new LinkedList();
+        private com.baidu.tieba.ala.alasquare.special_forum.a.a gJk;
+        private b gJl;
+        private c gJm;
 
         public a() {
-            this.gHB = new com.baidu.tieba.ala.alasquare.special_forum.a.a(ConcernTabFragment.this.getPageContext());
-            this.gHC = new b(ConcernTabFragment.this.getPageContext());
-            this.gHD = new c(ConcernTabFragment.this.getPageContext());
-            this.gHC.a(new w() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.ConcernTabFragment.a.1
+            this.gJk = new com.baidu.tieba.ala.alasquare.special_forum.a.a(ConcernTabFragment.this.getPageContext());
+            this.gJl = new b(ConcernTabFragment.this.getPageContext());
+            this.gJm = new c(ConcernTabFragment.this.getPageContext());
+            this.gJl.a(new w() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.ConcernTabFragment.a.1
                 @Override // com.baidu.adp.widget.ListView.w
                 public void a(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
                     if (nVar != null && (nVar instanceof com.baidu.tieba.ala.alasquare.special_forum.data.f)) {
                         com.baidu.tieba.ala.alasquare.special_forum.data.f fVar = (com.baidu.tieba.ala.alasquare.special_forum.data.f) nVar;
-                        if (fVar.gGX != null) {
+                        if (fVar.gIG != null) {
                             if (!l.isNetOk()) {
                                 ConcernTabFragment.this.getPageContext().showToast(R.string.neterror);
                                 return;
                             }
-                            if (((com.baidu.tieba.ala.alasquare.special_forum.data.f) nVar).gGY) {
+                            if (((com.baidu.tieba.ala.alasquare.special_forum.data.f) nVar).gIH) {
                                 TiebaStatic.log(new ar("c12896"));
                             } else {
                                 TiebaStatic.log(new ar("c12894"));
                             }
                             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-                            alaLiveInfoCoreData.fillWithInfoData(fVar.gGX);
+                            alaLiveInfoCoreData.fillWithInfoData(fVar.gIG);
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(ConcernTabFragment.this.getContext(), alaLiveInfoCoreData, "frs_live_tab_concern_tab", TbadkCoreApplication.getCurrentAccount(), false, "")));
                         }
                     }
                 }
             });
-            this.bns.add(this.gHB);
-            this.bns.add(this.gHC);
-            this.bns.add(this.gHD);
+            this.boS.add(this.gJk);
+            this.boS.add(this.gJl);
+            this.boS.add(this.gJm);
         }
     }
 }

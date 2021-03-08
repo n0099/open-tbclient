@@ -3,7 +3,7 @@ package com.baidu.live.im.b;
 import android.view.View;
 import androidx.annotation.NonNull;
 import com.baidu.live.data.cr;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
     @NonNull
     View getView();

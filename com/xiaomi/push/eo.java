@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class eo implements et {
     private void a(Activity activity, Intent intent) {
         String stringExtra = intent.getStringExtra("awake_info");
@@ -14,38 +14,38 @@ public class eo implements et {
             em.a(activity.getApplicationContext(), PushConstants.INTENT_ACTIVITY_NAME, 1008, "B get incorrect message");
             return;
         }
-        String b2 = el.b(stringExtra);
-        if (TextUtils.isEmpty(b2)) {
+        String b = el.b(stringExtra);
+        if (TextUtils.isEmpty(b)) {
             em.a(activity.getApplicationContext(), PushConstants.INTENT_ACTIVITY_NAME, 1008, "B get incorrect message");
         } else {
-            em.a(activity.getApplicationContext(), b2, 1007, "play with activity successfully");
+            em.a(activity.getApplicationContext(), b, 1007, "play with activity successfully");
         }
     }
 
     private void b(Context context, ep epVar) {
-        String m291a = epVar.m291a();
-        String b2 = epVar.b();
+        String m270a = epVar.m270a();
+        String b = epVar.b();
         String d = epVar.d();
         int a2 = epVar.a();
-        if (context == null || TextUtils.isEmpty(m291a) || TextUtils.isEmpty(b2) || TextUtils.isEmpty(d)) {
+        if (context == null || TextUtils.isEmpty(m270a) || TextUtils.isEmpty(b) || TextUtils.isEmpty(d)) {
             if (TextUtils.isEmpty(d)) {
                 em.a(context, PushConstants.INTENT_ACTIVITY_NAME, 1008, "argument error");
             } else {
                 em.a(context, d, 1008, "argument error");
             }
-        } else if (!com.xiaomi.push.service.f.b(context, m291a, b2)) {
+        } else if (!com.xiaomi.push.service.f.b(context, m270a, b)) {
             em.a(context, d, 1003, "B is not ready");
         } else {
             em.a(context, d, 1002, "B is ready");
             em.a(context, d, 1004, "A is ready");
-            Intent intent = new Intent(b2);
-            intent.setPackage(m291a);
+            Intent intent = new Intent(b);
+            intent.setPackage(m270a);
             intent.putExtra("awake_info", el.a(d));
             intent.addFlags(276824064);
-            intent.setAction(b2);
+            intent.setAction(b);
             if (a2 == 1) {
                 try {
-                    if (!eq.m292a(context)) {
+                    if (!eq.m271a(context)) {
                         em.a(context, d, 1008, "A not in foreground");
                     }
                 } catch (Exception e) {

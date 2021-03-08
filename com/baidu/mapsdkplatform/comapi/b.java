@@ -7,15 +7,15 @@ import android.os.Message;
 public class b extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f3018a;
+    final /* synthetic */ a f2201a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.f3018a = aVar;
+        this.f2201a = aVar;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
-        this.f3018a.a(message);
+        this.f2201a.a(message);
     }
 }

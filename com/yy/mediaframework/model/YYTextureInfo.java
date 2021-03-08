@@ -1,7 +1,7 @@
 package com.yy.mediaframework.model;
 
 import java.nio.FloatBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YYTextureInfo {
     public int height;
     public int orientation;

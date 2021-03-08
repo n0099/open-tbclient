@@ -2,21 +2,21 @@ package com.baidu.live.gift;
 
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.base.BdPageContext;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class ac {
-    private static ac aYe;
+    private static ac aZE;
 
-    protected abstract void EZ();
+    protected abstract void Fc();
 
-    protected abstract com.baidu.live.data.ab Fm();
+    protected abstract com.baidu.live.data.ab Fp();
 
-    protected abstract String Fn();
+    protected abstract String Fq();
 
-    protected abstract void Fo();
+    protected abstract void Fr();
 
-    protected abstract String Fp();
+    protected abstract String Fs();
 
-    protected abstract void Fq();
+    protected abstract void Ft();
 
     protected abstract void a(BdPageContext bdPageContext, boolean z, boolean z2);
 
@@ -32,145 +32,145 @@ public abstract class ac {
 
     protected abstract void b(String str, long j, String str2, String str3, String str4, String str5, String str6, String str7, String str8, boolean z, String str9, String str10, String str11, boolean z2, boolean z3, boolean z4, long j2);
 
-    protected abstract g gb(String str);
+    protected abstract g gh(String str);
 
-    protected abstract void gc(String str);
+    protected abstract void gi(String str);
 
-    protected abstract String gd(String str);
+    protected abstract String gj(String str);
 
-    protected abstract boolean ge(String str);
+    protected abstract boolean gk(String str);
 
-    protected abstract boolean gf(String str);
+    protected abstract boolean gl(String str);
 
-    protected abstract boolean gg(String str);
+    protected abstract boolean gm(String str);
 
-    protected abstract void gh(String str);
+    protected abstract void gn(String str);
 
-    protected abstract b gi(String str);
+    protected abstract b go(String str);
 
-    protected abstract void gj(String str);
+    protected abstract void gp(String str);
 
-    protected abstract c gk(String str);
+    protected abstract c gq(String str);
 
     protected abstract void onDestroy();
 
     protected abstract void setLiveShowData(com.baidu.live.data.ab abVar);
 
     public static void b(com.baidu.live.im.data.c cVar, com.baidu.live.data.a aVar, String str, String str2, boolean z, String str3, String str4, boolean z2, boolean z3, String str5, String str6, long j) {
-        if (aYe != null) {
-            aYe.a(cVar, aVar, str, str2, z, str3, str4, z2, z3, str5, str6, j);
+        if (aZE != null) {
+            aZE.a(cVar, aVar, str, str2, z, str3, str4, z2, z3, str5, str6, j);
         }
     }
 
     public static final void b(com.baidu.live.im.data.c cVar, com.baidu.live.data.a aVar, String str, String str2, boolean z, String str3, String str4, String str5, String str6, long j) {
-        if (aYe != null) {
-            aYe.a(cVar, aVar, str, str2, z, str3, str4, str5, str6, j);
+        if (aZE != null) {
+            aZE.a(cVar, aVar, str, str2, z, str3, str4, str5, str6, j);
         }
     }
 
     public static void c(String str, long j, String str2, String str3, String str4, String str5, String str6, String str7, String str8, boolean z, String str9, String str10, String str11, boolean z2, boolean z3, boolean z4, long j2) {
-        if (aYe != null) {
-            aYe.a(str, j, str2, str3, str4, str5, str6, str7, str8, z, str9, str10, str11, z2, z3, z4, j2);
+        if (aZE != null) {
+            aZE.a(str, j, str2, str3, str4, str5, str6, str7, str8, z, str9, str10, str11, z2, z3, z4, j2);
         }
     }
 
     public static void d(String str, long j, String str2, String str3, String str4, String str5, String str6, String str7, String str8, boolean z, String str9, String str10, String str11, boolean z2, boolean z3, boolean z4, long j2) {
-        if (aYe != null) {
-            aYe.b(str, j, str2, str3, str4, str5, str6, str7, str8, z, str9, str10, str11, z2, z3, z4, j2);
+        if (aZE != null) {
+            aZE.b(str, j, str2, str3, str4, str5, str6, str7, str8, z, str9, str10, str11, z2, z3, z4, j2);
         }
     }
 
-    public static void gl(String str) {
-        if (aYe != null) {
-            aYe.gj(str);
+    public static void gr(String str) {
+        if (aZE != null) {
+            aZE.gp(str);
         }
     }
 
     public static void b(String str, String str2, String str3, String str4, int i, int i2, String str5) {
-        if (aYe != null) {
-            aYe.a(str, str2, str3, str4, i, i2, str5);
+        if (aZE != null) {
+            aZE.a(str, str2, str3, str4, i, i2, str5);
         }
     }
 
-    public static final g gm(String str) {
-        if (aYe != null) {
-            return aYe.gb(str);
+    public static final g gt(String str) {
+        if (aZE != null) {
+            return aZE.gh(str);
         }
         return null;
     }
 
-    public static final com.baidu.live.data.ab Fr() {
-        if (aYe != null) {
-            return aYe.Fm();
+    public static final com.baidu.live.data.ab Fu() {
+        if (aZE != null) {
+            return aZE.Fp();
         }
         return null;
     }
 
     public static final void e(com.baidu.live.data.ab abVar) {
-        if (aYe != null) {
-            aYe.setLiveShowData(abVar);
+        if (aZE != null) {
+            aZE.setLiveShowData(abVar);
         }
     }
 
-    public static final String Fs() {
-        if (aYe != null) {
-            return aYe.Fn();
+    public static final String Fv() {
+        if (aZE != null) {
+            return aZE.Fq();
         }
         return null;
     }
 
-    public static final void gn(String str) {
-        if (aYe != null) {
-            aYe.gc(str);
+    public static final void gu(String str) {
+        if (aZE != null) {
+            aZE.gi(str);
         }
     }
 
     public static final void b(BdPageContext bdPageContext, boolean z, boolean z2) {
-        if (aYe != null) {
-            aYe.a(bdPageContext, z, z2);
+        if (aZE != null) {
+            aZE.a(bdPageContext, z, z2);
         }
     }
 
-    public static final void Ft() {
-        if (aYe != null) {
-            aYe.Fo();
+    public static final void Fw() {
+        if (aZE != null) {
+            aZE.Fr();
         }
     }
 
-    public static final void Fu() {
-        if (aYe != null) {
-            aYe.onDestroy();
+    public static final void Fx() {
+        if (aZE != null) {
+            aZE.onDestroy();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static final void a(ac acVar) {
-        aYe = acVar;
+        aZE = acVar;
     }
 
-    public static boolean go(String str) {
-        if (aYe != null) {
-            return aYe.ge(str);
+    public static boolean gv(String str) {
+        if (aZE != null) {
+            return aZE.gk(str);
         }
         return false;
     }
 
-    public static boolean gp(String str) {
-        if (aYe != null) {
-            return aYe.gf(str);
+    public static boolean gw(String str) {
+        if (aZE != null) {
+            return aZE.gl(str);
         }
         return false;
     }
 
-    public static boolean gq(String str) {
-        if (aYe != null) {
-            return aYe.gg(str);
+    public static boolean gx(String str) {
+        if (aZE != null) {
+            return aZE.gm(str);
         }
         return false;
     }
 
-    public static String Fv() {
-        return aYe != null ? aYe.Fp() : "";
+    public static String Fy() {
+        return aZE != null ? aZE.Fs() : "";
     }
 
     public static void a(g gVar, long j, String str, String str2, String str3, String str4, String str5, String str6, String str7, long j2) {
@@ -178,43 +178,43 @@ public abstract class ac {
     }
 
     public static void b(g gVar, long j, String str, String str2, String str3, String str4, String str5, String str6, String str7, long j2, BdUniqueId bdUniqueId) {
-        if (aYe != null) {
-            aYe.a(gVar, j, str, str2, str3, str4, str5, str6, str7, j2, bdUniqueId);
+        if (aZE != null) {
+            aZE.a(gVar, j, str, str2, str3, str4, str5, str6, str7, j2, bdUniqueId);
         }
     }
 
-    public static void Fw() {
-        if (aYe != null) {
-            aYe.Fq();
+    public static void Fz() {
+        if (aZE != null) {
+            aZE.Ft();
         }
     }
 
-    public static String gr(String str) {
-        return aYe != null ? aYe.gd(str) : "";
+    public static String gy(String str) {
+        return aZE != null ? aZE.gj(str) : "";
     }
 
-    public static c gt(String str) {
-        if (aYe != null) {
-            return aYe.gk(str);
+    public static c gz(String str) {
+        if (aZE != null) {
+            return aZE.gq(str);
         }
         return null;
     }
 
-    public static void Fx() {
-        if (aYe != null) {
-            aYe.EZ();
+    public static void FA() {
+        if (aZE != null) {
+            aZE.Fc();
         }
     }
 
-    public static void gu(String str) {
-        if (aYe != null) {
-            aYe.gh(str);
+    public static void gA(String str) {
+        if (aZE != null) {
+            aZE.gn(str);
         }
     }
 
-    public static b gv(String str) {
-        if (aYe != null) {
-            return aYe.gi(str);
+    public static b gB(String str) {
+        if (aZE != null) {
+            return aZE.go(str);
         }
         return null;
     }

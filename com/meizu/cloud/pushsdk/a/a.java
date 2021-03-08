@@ -8,20 +8,20 @@ import java.util.Map;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f11110a = a.class.getSimpleName();
+    private static final String f7313a = a.class.getSimpleName();
 
     public static com.meizu.cloud.pushsdk.c.a.c a(Context context) {
         com.meizu.cloud.pushsdk.c.a.c cVar = new com.meizu.cloud.pushsdk.c.a.c();
         c c = c(context);
         Map<String, String> a2 = c.a();
-        Map<String, String> b2 = c.b();
+        Map<String, String> b = c.b();
         Map<String, Object> c2 = c.c();
         Map<String, Object> d = c.d();
         if (a2.size() > 0) {
-            cVar.a(b.f11119a, a2);
+            cVar.a(b.f7319a, a2);
         }
-        if (b2.size() > 0) {
-            cVar.a(b.f, b2);
+        if (b.size() > 0) {
+            cVar.a(b.f, b);
         }
         if (c2.size() > 0) {
             cVar.a(b.o, c2);

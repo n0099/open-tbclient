@@ -1,14 +1,22 @@
 package com.bumptech.glide.request;
 
+import androidx.annotation.GuardedBy;
 import androidx.annotation.Nullable;
-/* loaded from: classes15.dex */
+import com.bumptech.glide.request.RequestCoordinator;
+/* loaded from: classes14.dex */
 public final class ErrorRequestCoordinator implements Request, RequestCoordinator {
-    private Request error;
+    private volatile Request error;
     @Nullable
     private final RequestCoordinator parent;
-    private Request primary;
+    private volatile Request primary;
+    private final Object requestLock;
+    @GuardedBy("requestLock")
+    private RequestCoordinator.RequestState primaryState = RequestCoordinator.RequestState.CLEARED;
+    @GuardedBy("requestLock")
+    private RequestCoordinator.RequestState errorState = RequestCoordinator.RequestState.CLEARED;
 
-    public ErrorRequestCoordinator(@Nullable RequestCoordinator requestCoordinator) {
+    public ErrorRequestCoordinator(Object obj, @Nullable RequestCoordinator requestCoordinator) {
+        this.requestLock = obj;
         this.parent = requestCoordinator;
     }
 
@@ -19,48 +27,65 @@ public final class ErrorRequestCoordinator implements Request, RequestCoordinato
 
     @Override // com.bumptech.glide.request.Request
     public void begin() {
-        if (!this.primary.isRunning()) {
-            this.primary.begin();
+        synchronized (this.requestLock) {
+            if (this.primaryState != RequestCoordinator.RequestState.RUNNING) {
+                this.primaryState = RequestCoordinator.RequestState.RUNNING;
+                this.primary.begin();
+            }
         }
     }
 
     @Override // com.bumptech.glide.request.Request
     public void clear() {
-        this.primary.clear();
-        if (this.error.isRunning()) {
-            this.error.clear();
+        synchronized (this.requestLock) {
+            this.primaryState = RequestCoordinator.RequestState.CLEARED;
+            this.primary.clear();
+            if (this.errorState != RequestCoordinator.RequestState.CLEARED) {
+                this.errorState = RequestCoordinator.RequestState.CLEARED;
+                this.error.clear();
+            }
+        }
+    }
+
+    @Override // com.bumptech.glide.request.Request
+    public void pause() {
+        synchronized (this.requestLock) {
+            if (this.primaryState == RequestCoordinator.RequestState.RUNNING) {
+                this.primaryState = RequestCoordinator.RequestState.PAUSED;
+                this.primary.pause();
+            }
+            if (this.errorState == RequestCoordinator.RequestState.RUNNING) {
+                this.errorState = RequestCoordinator.RequestState.PAUSED;
+                this.error.pause();
+            }
         }
     }
 
     @Override // com.bumptech.glide.request.Request
     public boolean isRunning() {
-        return this.primary.isFailed() ? this.error.isRunning() : this.primary.isRunning();
+        boolean z;
+        synchronized (this.requestLock) {
+            z = this.primaryState == RequestCoordinator.RequestState.RUNNING || this.errorState == RequestCoordinator.RequestState.RUNNING;
+        }
+        return z;
     }
 
     @Override // com.bumptech.glide.request.Request
     public boolean isComplete() {
-        return this.primary.isFailed() ? this.error.isComplete() : this.primary.isComplete();
-    }
-
-    @Override // com.bumptech.glide.request.Request
-    public boolean isResourceSet() {
-        return this.primary.isFailed() ? this.error.isResourceSet() : this.primary.isResourceSet();
+        boolean z;
+        synchronized (this.requestLock) {
+            z = this.primaryState == RequestCoordinator.RequestState.SUCCESS || this.errorState == RequestCoordinator.RequestState.SUCCESS;
+        }
+        return z;
     }
 
     @Override // com.bumptech.glide.request.Request
     public boolean isCleared() {
-        return this.primary.isFailed() ? this.error.isCleared() : this.primary.isCleared();
-    }
-
-    @Override // com.bumptech.glide.request.Request
-    public boolean isFailed() {
-        return this.primary.isFailed() && this.error.isFailed();
-    }
-
-    @Override // com.bumptech.glide.request.Request
-    public void recycle() {
-        this.primary.recycle();
-        this.error.recycle();
+        boolean z;
+        synchronized (this.requestLock) {
+            z = this.primaryState == RequestCoordinator.RequestState.CLEARED && this.errorState == RequestCoordinator.RequestState.CLEARED;
+        }
+        return z;
     }
 
     @Override // com.bumptech.glide.request.Request
@@ -74,59 +99,105 @@ public final class ErrorRequestCoordinator implements Request, RequestCoordinato
 
     @Override // com.bumptech.glide.request.RequestCoordinator
     public boolean canSetImage(Request request) {
-        return parentCanSetImage() && isValidRequest(request);
+        boolean z;
+        synchronized (this.requestLock) {
+            z = parentCanSetImage() && isValidRequest(request);
+        }
+        return z;
     }
 
+    @GuardedBy("requestLock")
     private boolean parentCanSetImage() {
         return this.parent == null || this.parent.canSetImage(this);
     }
 
     @Override // com.bumptech.glide.request.RequestCoordinator
     public boolean canNotifyStatusChanged(Request request) {
-        return parentCanNotifyStatusChanged() && isValidRequest(request);
+        boolean z;
+        synchronized (this.requestLock) {
+            z = parentCanNotifyStatusChanged() && isValidRequest(request);
+        }
+        return z;
     }
 
     @Override // com.bumptech.glide.request.RequestCoordinator
     public boolean canNotifyCleared(Request request) {
-        return parentCanNotifyCleared() && isValidRequest(request);
+        boolean z;
+        synchronized (this.requestLock) {
+            z = parentCanNotifyCleared() && isValidRequest(request);
+        }
+        return z;
     }
 
+    @GuardedBy("requestLock")
     private boolean parentCanNotifyCleared() {
         return this.parent == null || this.parent.canNotifyCleared(this);
     }
 
+    @GuardedBy("requestLock")
     private boolean parentCanNotifyStatusChanged() {
         return this.parent == null || this.parent.canNotifyStatusChanged(this);
     }
 
+    @GuardedBy("requestLock")
     private boolean isValidRequest(Request request) {
-        return request.equals(this.primary) || (this.primary.isFailed() && request.equals(this.error));
+        return request.equals(this.primary) || (this.primaryState == RequestCoordinator.RequestState.FAILED && request.equals(this.error));
     }
 
-    @Override // com.bumptech.glide.request.RequestCoordinator
+    @Override // com.bumptech.glide.request.Request, com.bumptech.glide.request.RequestCoordinator
     public boolean isAnyResourceSet() {
-        return parentIsAnyResourceSet() || isResourceSet();
-    }
-
-    private boolean parentIsAnyResourceSet() {
-        return this.parent != null && this.parent.isAnyResourceSet();
+        boolean z;
+        synchronized (this.requestLock) {
+            z = this.primary.isAnyResourceSet() || this.error.isAnyResourceSet();
+        }
+        return z;
     }
 
     @Override // com.bumptech.glide.request.RequestCoordinator
     public void onRequestSuccess(Request request) {
-        if (this.parent != null) {
-            this.parent.onRequestSuccess(this);
+        synchronized (this.requestLock) {
+            if (request.equals(this.primary)) {
+                this.primaryState = RequestCoordinator.RequestState.SUCCESS;
+            } else if (request.equals(this.error)) {
+                this.errorState = RequestCoordinator.RequestState.SUCCESS;
+            }
+            if (this.parent != null) {
+                this.parent.onRequestSuccess(this);
+            }
         }
     }
 
     @Override // com.bumptech.glide.request.RequestCoordinator
     public void onRequestFailed(Request request) {
-        if (!request.equals(this.error)) {
-            if (!this.error.isRunning()) {
-                this.error.begin();
+        synchronized (this.requestLock) {
+            if (!request.equals(this.error)) {
+                this.primaryState = RequestCoordinator.RequestState.FAILED;
+                if (this.errorState != RequestCoordinator.RequestState.RUNNING) {
+                    this.errorState = RequestCoordinator.RequestState.RUNNING;
+                    this.error.begin();
+                }
+                return;
             }
-        } else if (this.parent != null) {
-            this.parent.onRequestFailed(this);
+            this.errorState = RequestCoordinator.RequestState.FAILED;
+            if (this.parent != null) {
+                this.parent.onRequestFailed(this);
+            }
         }
+    }
+
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v1, types: [com.bumptech.glide.request.RequestCoordinator] */
+    /* JADX WARN: Type inference failed for: r2v3 */
+    @Override // com.bumptech.glide.request.RequestCoordinator
+    public RequestCoordinator getRoot() {
+        ?? r2;
+        synchronized (this.requestLock) {
+            RequestCoordinator requestCoordinator = this.parent;
+            this = this;
+            if (requestCoordinator != null) {
+                r2 = this.parent.getRoot();
+            }
+        }
+        return r2;
     }
 }

@@ -35,143 +35,143 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private t jZA;
-    private o jZB;
-    private s jZC;
-    private com.baidu.tieba.homepage.concern.adapter.d jZD;
-    private p jZE;
-    private e jZF;
-    private q jZG;
-    private ConcernEmotionTipAdapter jZH;
-    private z jZI;
-    ArrayList<com.baidu.adp.widget.ListView.a> jZJ;
-    private BdTypeRecyclerView jZf;
-    private ConcernTipAdapter jZg;
-    private ConcernEmotionTipAdapter jZh;
-    private com.baidu.tieba.homepage.concern.adapter.b jZi;
-    private com.baidu.tieba.homepage.concern.adapter.a jZj;
-    private v jZk;
-    private x jZm;
-    private x jZn;
-    private j jZo;
-    private w jZp;
-    private l jZq;
-    private u jZr;
-    private i jZs;
-    private h jZt;
-    private g jZu;
-    private f jZv;
-    private y jZw;
-    private k jZx;
-    private m jZy;
-    private n jZz;
+    private m kbA;
+    private n kbB;
+    private t kbC;
+    private o kbD;
+    private s kbE;
+    private com.baidu.tieba.homepage.concern.adapter.d kbF;
+    private p kbG;
+    private e kbH;
+    private q kbI;
+    private ConcernEmotionTipAdapter kbJ;
+    private z kbK;
+    ArrayList<com.baidu.adp.widget.ListView.a> kbL;
+    private BdTypeRecyclerView kbh;
+    private ConcernTipAdapter kbi;
+    private ConcernEmotionTipAdapter kbj;
+    private com.baidu.tieba.homepage.concern.adapter.b kbk;
+    private com.baidu.tieba.homepage.concern.adapter.a kbl;
+    private v kbm;
+    private x kbo;
+    private x kbp;
+    private j kbq;
+    private w kbr;
+    private l kbs;
+    private u kbt;
+    private i kbu;
+    private h kbv;
+    private g kbw;
+    private f kbx;
+    private y kby;
+    private k kbz;
     private List<com.baidu.adp.widget.ListView.n> mDataList;
     private TbPageContext<?> mPageContext;
-    private ArrayList<r> jZl = new ArrayList<>();
-    private List<com.baidu.adp.widget.ListView.a> jOi = new ArrayList();
+    private ArrayList<r> kbn = new ArrayList<>();
+    private List<com.baidu.adp.widget.ListView.a> jPR = new ArrayList();
 
     public a(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.jZf = bdTypeRecyclerView;
-        this.mPageContext = (TbPageContext) com.baidu.adp.base.j.K(context);
-        gm(context);
+        this.kbh = bdTypeRecyclerView;
+        this.mPageContext = (TbPageContext) com.baidu.adp.base.j.J(context);
+        gl(context);
         a(bdTypeRecyclerView);
-        bdTypeRecyclerView.addAdapters(this.jOi);
+        bdTypeRecyclerView.addAdapters(this.jPR);
     }
 
-    private void gm(Context context) {
-        for (int i = 0; i < com.baidu.tieba.card.data.b.iAo.size(); i++) {
-            for (int i2 = 0; i2 < com.baidu.tieba.card.data.b.iAp.size(); i2++) {
-                this.jZl.add(new r(this.mPageContext, com.baidu.tieba.card.data.b.iAq[i][i2], com.baidu.tieba.card.data.b.iAo.get(i), com.baidu.tieba.card.data.b.iAp.get(i2)));
+    private void gl(Context context) {
+        for (int i = 0; i < com.baidu.tieba.card.data.b.iBX.size(); i++) {
+            for (int i2 = 0; i2 < com.baidu.tieba.card.data.b.iBY.size(); i2++) {
+                this.kbn.add(new r(this.mPageContext, com.baidu.tieba.card.data.b.iBZ[i][i2], com.baidu.tieba.card.data.b.iBX.get(i), com.baidu.tieba.card.data.b.iBY.get(i2)));
             }
         }
-        this.jZm = new x(this.mPageContext, cb.eQK, com.baidu.tieba.card.data.b.iAe);
-        this.jZn = new x(this.mPageContext, cb.eQn, com.baidu.tieba.card.data.b.iAf);
-        this.jZo = new j(this.mPageContext, cb.eRd, com.baidu.tieba.card.data.b.iAe);
-        this.jZp = new w(this.mPageContext, com.baidu.tieba.card.data.k.iBb);
-        this.jZq = new l(this.mPageContext, com.baidu.tieba.card.data.k.eQr);
-        this.jZx = new k(this.mPageContext, com.baidu.tieba.card.data.k.iBh);
-        this.jZy = new m(this.mPageContext, com.baidu.tieba.card.data.k.iBi);
-        this.jZr = new u(this.mPageContext, com.baidu.tieba.card.data.k.iBg);
-        this.jZs = new i(this.mPageContext, com.baidu.tieba.card.data.k.iBc);
-        this.jZt = new h(this.mPageContext, com.baidu.tieba.card.data.k.iBd);
-        this.jZu = new g(this.mPageContext, com.baidu.tieba.card.data.k.iBe);
-        this.jZw = new y(this.mPageContext, com.baidu.tieba.card.data.l.eQK);
-        this.jZD = new com.baidu.tieba.homepage.concern.adapter.d(this.mPageContext, com.baidu.tieba.card.data.e.iAC);
-        this.jZv = new f(this.mPageContext, com.baidu.tieba.card.data.k.iBf);
-        this.jZC = new s(this.mPageContext, com.baidu.tieba.homepage.concern.a.a.eMV);
-        this.jZz = new n(this.mPageContext, com.baidu.tieba.card.data.k.eQD);
-        this.jZA = new t(this.mPageContext, com.baidu.tieba.card.data.k.eQF);
-        this.jZB = new o(this.mPageContext, com.baidu.tieba.card.data.k.eQG);
-        this.jOi.addAll(this.jZl);
-        this.jOi.add(this.jZm);
-        this.jOi.add(this.jZn);
-        this.jOi.add(this.jZo);
-        this.jOi.add(this.jZp);
-        this.jOi.add(this.jZq);
-        this.jOi.add(this.jZx);
-        this.jOi.add(this.jZy);
-        this.jOi.add(this.jZr);
-        this.jOi.add(this.jZs);
-        this.jOi.add(this.jZt);
-        this.jOi.add(this.jZu);
-        this.jOi.add(this.jZw);
-        this.jOi.add(this.jZv);
-        this.jOi.add(this.jZC);
-        this.jOi.add(this.jZz);
-        this.jOi.add(this.jZA);
-        this.jOi.add(this.jZB);
-        this.jZg = new ConcernTipAdapter(this.mPageContext.getContext());
-        this.jZh = new ConcernEmotionTipAdapter(this.mPageContext.getContext());
-        this.jZi = new com.baidu.tieba.homepage.concern.adapter.b(this.mPageContext, com.baidu.tieba.card.data.j.TYPE);
-        this.jZj = new com.baidu.tieba.homepage.concern.adapter.a(this.mPageContext, com.baidu.tieba.card.data.j.iAH);
-        this.jZk = new v(this.mPageContext, com.baidu.tieba.card.data.k.eQP);
-        this.jZE = new p(this.mPageContext, com.baidu.tieba.card.data.k.eQQ);
-        this.jZF = new e(this.mPageContext, com.baidu.tieba.card.data.k.eQR);
-        this.jZG = new q(this.mPageContext, com.baidu.tieba.card.data.k.eQS);
-        this.jZH = new ConcernEmotionTipAdapter(this.mPageContext.getContext(), com.baidu.tieba.homepage.concern.a.b.kbL);
-        this.jZI = new z(this.mPageContext, com.baidu.tieba.card.data.k.iBa, (byte) 4);
-        this.jOi.add(this.jZg);
-        this.jOi.add(this.jZh);
-        this.jOi.add(this.jZi);
-        this.jOi.add(this.jZj);
-        this.jOi.add(this.jZk);
-        this.jOi.add(this.jZE);
-        this.jOi.add(this.jZF);
-        this.jOi.add(this.jZG);
-        this.jOi.add(this.jZD);
-        this.jOi.add(this.jZH);
-        this.jOi.add(this.jZI);
-        Ew("page_concern");
-        cOL();
+        this.kbo = new x(this.mPageContext, cb.eSl, com.baidu.tieba.card.data.b.iBN);
+        this.kbp = new x(this.mPageContext, cb.eRO, com.baidu.tieba.card.data.b.iBO);
+        this.kbq = new j(this.mPageContext, cb.eSE, com.baidu.tieba.card.data.b.iBN);
+        this.kbr = new w(this.mPageContext, com.baidu.tieba.card.data.k.iCK);
+        this.kbs = new l(this.mPageContext, com.baidu.tieba.card.data.k.eRS);
+        this.kbz = new k(this.mPageContext, com.baidu.tieba.card.data.k.iCQ);
+        this.kbA = new m(this.mPageContext, com.baidu.tieba.card.data.k.iCR);
+        this.kbt = new u(this.mPageContext, com.baidu.tieba.card.data.k.iCP);
+        this.kbu = new i(this.mPageContext, com.baidu.tieba.card.data.k.iCL);
+        this.kbv = new h(this.mPageContext, com.baidu.tieba.card.data.k.iCM);
+        this.kbw = new g(this.mPageContext, com.baidu.tieba.card.data.k.iCN);
+        this.kby = new y(this.mPageContext, com.baidu.tieba.card.data.l.eSl);
+        this.kbF = new com.baidu.tieba.homepage.concern.adapter.d(this.mPageContext, com.baidu.tieba.card.data.e.iCl);
+        this.kbx = new f(this.mPageContext, com.baidu.tieba.card.data.k.iCO);
+        this.kbE = new s(this.mPageContext, com.baidu.tieba.homepage.concern.a.a.eOw);
+        this.kbB = new n(this.mPageContext, com.baidu.tieba.card.data.k.eSe);
+        this.kbC = new t(this.mPageContext, com.baidu.tieba.card.data.k.eSg);
+        this.kbD = new o(this.mPageContext, com.baidu.tieba.card.data.k.eSh);
+        this.jPR.addAll(this.kbn);
+        this.jPR.add(this.kbo);
+        this.jPR.add(this.kbp);
+        this.jPR.add(this.kbq);
+        this.jPR.add(this.kbr);
+        this.jPR.add(this.kbs);
+        this.jPR.add(this.kbz);
+        this.jPR.add(this.kbA);
+        this.jPR.add(this.kbt);
+        this.jPR.add(this.kbu);
+        this.jPR.add(this.kbv);
+        this.jPR.add(this.kbw);
+        this.jPR.add(this.kby);
+        this.jPR.add(this.kbx);
+        this.jPR.add(this.kbE);
+        this.jPR.add(this.kbB);
+        this.jPR.add(this.kbC);
+        this.jPR.add(this.kbD);
+        this.kbi = new ConcernTipAdapter(this.mPageContext.getContext());
+        this.kbj = new ConcernEmotionTipAdapter(this.mPageContext.getContext());
+        this.kbk = new com.baidu.tieba.homepage.concern.adapter.b(this.mPageContext, com.baidu.tieba.card.data.j.TYPE);
+        this.kbl = new com.baidu.tieba.homepage.concern.adapter.a(this.mPageContext, com.baidu.tieba.card.data.j.iCq);
+        this.kbm = new v(this.mPageContext, com.baidu.tieba.card.data.k.eSq);
+        this.kbG = new p(this.mPageContext, com.baidu.tieba.card.data.k.eSr);
+        this.kbH = new e(this.mPageContext, com.baidu.tieba.card.data.k.eSs);
+        this.kbI = new q(this.mPageContext, com.baidu.tieba.card.data.k.eSt);
+        this.kbJ = new ConcernEmotionTipAdapter(this.mPageContext.getContext(), com.baidu.tieba.homepage.concern.a.b.kdN);
+        this.kbK = new z(this.mPageContext, com.baidu.tieba.card.data.k.iCJ, (byte) 4);
+        this.jPR.add(this.kbi);
+        this.jPR.add(this.kbj);
+        this.jPR.add(this.kbk);
+        this.jPR.add(this.kbl);
+        this.jPR.add(this.kbm);
+        this.jPR.add(this.kbG);
+        this.jPR.add(this.kbH);
+        this.jPR.add(this.kbI);
+        this.jPR.add(this.kbF);
+        this.jPR.add(this.kbJ);
+        this.jPR.add(this.kbK);
+        ED("page_concern");
+        cOS();
     }
 
-    private void cOL() {
-        if (!cb.eRa.get()) {
-            AdvertAppInfo.eLs.set(false);
+    private void cOS() {
+        if (!cb.eSB.get()) {
+            AdvertAppInfo.eMT.set(false);
             return;
         }
-        this.jZJ = new ArrayList<>();
-        com.baidu.adp.widget.ListView.a<?, ?> a2 = com.baidu.tieba.recapp.s.dDt().a(this.mPageContext, AdvertAppInfo.eLg, "CONCERN");
-        com.baidu.adp.widget.ListView.a<?, ?> a3 = com.baidu.tieba.recapp.s.dDt().a(this.mPageContext, AdvertAppInfo.eLj, "CONCERN");
-        com.baidu.adp.widget.ListView.a<?, ?> a4 = com.baidu.tieba.recapp.s.dDt().a(this.mPageContext, AdvertAppInfo.eLn, "CONCERN");
-        com.baidu.adp.widget.ListView.a<?, ?> a5 = com.baidu.tieba.recapp.s.dDt().a(this.mPageContext, AdvertAppInfo.eLo, "CONCERN");
-        com.baidu.adp.widget.ListView.a<?, ?> a6 = com.baidu.tieba.recapp.s.dDt().a(this.mPageContext, AdvertAppInfo.eLp, "CONCERN");
-        com.baidu.adp.widget.ListView.a<?, ?> a7 = com.baidu.tieba.recapp.s.dDt().a(this.mPageContext, AdvertAppInfo.eLr, "CONCERN");
-        com.baidu.adp.widget.ListView.a<?, ?> a8 = com.baidu.tieba.recapp.s.dDt().a(this.mPageContext, AdvertAppInfo.eLq, "CONCERN");
-        this.jZJ.add(a2);
-        this.jZJ.add(a3);
-        this.jZJ.add(a4);
-        this.jZJ.add(a5);
-        this.jZJ.add(a6);
-        this.jZJ.add(a7);
-        this.jZJ.add(a8);
-        this.jOi.addAll(this.jZJ);
-        AdvertAppInfo.eLs.set(true);
+        this.kbL = new ArrayList<>();
+        com.baidu.adp.widget.ListView.a<?, ?> a2 = com.baidu.tieba.recapp.s.dDB().a(this.mPageContext, AdvertAppInfo.eMH, "CONCERN");
+        com.baidu.adp.widget.ListView.a<?, ?> a3 = com.baidu.tieba.recapp.s.dDB().a(this.mPageContext, AdvertAppInfo.eMK, "CONCERN");
+        com.baidu.adp.widget.ListView.a<?, ?> a4 = com.baidu.tieba.recapp.s.dDB().a(this.mPageContext, AdvertAppInfo.eMO, "CONCERN");
+        com.baidu.adp.widget.ListView.a<?, ?> a5 = com.baidu.tieba.recapp.s.dDB().a(this.mPageContext, AdvertAppInfo.eMP, "CONCERN");
+        com.baidu.adp.widget.ListView.a<?, ?> a6 = com.baidu.tieba.recapp.s.dDB().a(this.mPageContext, AdvertAppInfo.eMQ, "CONCERN");
+        com.baidu.adp.widget.ListView.a<?, ?> a7 = com.baidu.tieba.recapp.s.dDB().a(this.mPageContext, AdvertAppInfo.eMS, "CONCERN");
+        com.baidu.adp.widget.ListView.a<?, ?> a8 = com.baidu.tieba.recapp.s.dDB().a(this.mPageContext, AdvertAppInfo.eMR, "CONCERN");
+        this.kbL.add(a2);
+        this.kbL.add(a3);
+        this.kbL.add(a4);
+        this.kbL.add(a5);
+        this.kbL.add(a6);
+        this.kbL.add(a7);
+        this.kbL.add(a8);
+        this.jPR.addAll(this.kbL);
+        AdvertAppInfo.eMT.set(true);
     }
 
     public void cx(List<com.baidu.adp.widget.ListView.n> list) {
         this.mDataList = list;
-        this.jZf.setData(list);
+        this.kbh.setData(list);
     }
 
     public void onChangeSkinType(int i) {
@@ -179,65 +179,65 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        if (this.jZf != null) {
-            this.jZf.getListAdapter().notifyDataSetChanged();
+        if (this.kbh != null) {
+            this.kbh.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        Iterator<r> it = this.jZl.iterator();
+        Iterator<r> it = this.kbn.iterator();
         while (it.hasNext()) {
-            it.next().fGZ = bdUniqueId;
+            it.next().fIy = bdUniqueId;
         }
-        this.jZi.fGZ = bdUniqueId;
-        this.jZj.fGZ = bdUniqueId;
-        this.jZk.fGZ = bdUniqueId;
-        this.jZG.fGZ = bdUniqueId;
-        this.jZE.fGZ = bdUniqueId;
-        this.jZF.fGZ = bdUniqueId;
-        this.jZD.fGZ = bdUniqueId;
-        this.jZv.fGZ = bdUniqueId;
-        this.jZC.fGZ = bdUniqueId;
-        this.jZI.fGZ = bdUniqueId;
+        this.kbk.fIy = bdUniqueId;
+        this.kbl.fIy = bdUniqueId;
+        this.kbm.fIy = bdUniqueId;
+        this.kbI.fIy = bdUniqueId;
+        this.kbG.fIy = bdUniqueId;
+        this.kbH.fIy = bdUniqueId;
+        this.kbF.fIy = bdUniqueId;
+        this.kbx.fIy = bdUniqueId;
+        this.kbE.fIy = bdUniqueId;
+        this.kbK.fIy = bdUniqueId;
     }
 
-    private void Ew(String str) {
-        if (this.jOi != null) {
-            for (com.baidu.adp.widget.ListView.a aVar : this.jOi) {
+    private void ED(String str) {
+        if (this.jPR != null) {
+            for (com.baidu.adp.widget.ListView.a aVar : this.jPR) {
                 if (aVar instanceof com.baidu.tieba.a.f) {
-                    ((com.baidu.tieba.a.f) aVar).Ew(str);
+                    ((com.baidu.tieba.a.f) aVar).ED(str);
                 }
             }
         }
     }
 
     private void a(com.baidu.adp.widget.ListView.s sVar) {
-        Iterator<r> it = this.jZl.iterator();
+        Iterator<r> it = this.kbn.iterator();
         while (it.hasNext()) {
             it.next().a(sVar);
         }
-        this.jZm.a(sVar);
-        this.jZn.a(sVar);
-        this.jZo.a(sVar);
-        this.jZp.a(sVar);
-        this.jZq.a(sVar);
-        this.jZx.a(sVar);
-        this.jZy.a(sVar);
-        this.jZr.a(sVar);
-        this.jZC.a(sVar);
-        this.jZz.a(sVar);
-        this.jZA.a(sVar);
-        this.jZB.a(sVar);
-        this.jZs.a(sVar);
-        this.jZt.a(sVar);
-        this.jZu.a(sVar);
-        this.jZw.a(sVar);
-        this.jZv.a(sVar);
-        this.jZD.a(sVar);
-        this.jZF.a(sVar);
-        this.jZE.a(sVar);
-        this.jZG.a(sVar);
-        this.jZI.a(sVar);
+        this.kbo.a(sVar);
+        this.kbp.a(sVar);
+        this.kbq.a(sVar);
+        this.kbr.a(sVar);
+        this.kbs.a(sVar);
+        this.kbz.a(sVar);
+        this.kbA.a(sVar);
+        this.kbt.a(sVar);
+        this.kbE.a(sVar);
+        this.kbB.a(sVar);
+        this.kbC.a(sVar);
+        this.kbD.a(sVar);
+        this.kbu.a(sVar);
+        this.kbv.a(sVar);
+        this.kbw.a(sVar);
+        this.kby.a(sVar);
+        this.kbx.a(sVar);
+        this.kbF.a(sVar);
+        this.kbH.a(sVar);
+        this.kbG.a(sVar);
+        this.kbI.a(sVar);
+        this.kbK.a(sVar);
     }
 
     public List<com.baidu.adp.widget.ListView.n> getDataList() {
@@ -246,7 +246,7 @@ public class a {
 
     public void onDestroy() {
         if (!com.baidu.tieba.lego.card.c.a.isEmpty(this.mDataList)) {
-            Iterator<com.baidu.adp.widget.ListView.a> it = this.jZJ.iterator();
+            Iterator<com.baidu.adp.widget.ListView.a> it = this.kbL.iterator();
             while (it.hasNext()) {
                 com.baidu.adp.widget.ListView.a next = it.next();
                 if (next instanceof com.baidu.tieba.recapp.l) {

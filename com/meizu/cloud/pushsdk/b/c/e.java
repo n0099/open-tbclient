@@ -14,7 +14,7 @@ import org.apache.http.client.methods.HttpPut;
 public class e implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    com.meizu.cloud.pushsdk.b.h.a f11152a = new com.meizu.cloud.pushsdk.b.h.a(null);
+    com.meizu.cloud.pushsdk.b.h.a f7338a = new com.meizu.cloud.pushsdk.b.h.a(null);
 
     private static l a(final HttpURLConnection httpURLConnection) throws IOException {
         if (httpURLConnection.getDoInput()) {
@@ -73,7 +73,7 @@ public class e implements a {
         a2.setUseCaches(false);
         a2.setDoInput(true);
         if (iVar.f() && fVar.startsWith("https://api-push.meizu.com")) {
-            ((HttpsURLConnection) a2).setSSLSocketFactory(this.f11152a);
+            ((HttpsURLConnection) a2).setSSLSocketFactory(this.f7338a);
         }
         return a2;
     }
@@ -91,15 +91,15 @@ public class e implements a {
 
     @Override // com.meizu.cloud.pushsdk.b.c.a
     public k a(i iVar) throws IOException {
-        HttpURLConnection b2 = b(iVar);
+        HttpURLConnection b = b(iVar);
         for (String str : iVar.d().b()) {
             String a2 = iVar.a(str);
             com.meizu.cloud.pushsdk.b.a.a.b("current header name " + str + " value " + a2);
-            b2.addRequestProperty(str, a2);
+            b.addRequestProperty(str, a2);
         }
-        a(b2, iVar);
-        int responseCode = b2.getResponseCode();
-        return new k.a().a(responseCode).a(iVar.d()).a(b2.getResponseMessage()).a(iVar).a(a(b2)).a();
+        a(b, iVar);
+        int responseCode = b.getResponseCode();
+        return new k.a().a(responseCode).a(iVar.d()).a(b.getResponseMessage()).a(iVar).a(a(b)).a();
     }
 
     protected HttpURLConnection a(URL url) throws IOException {

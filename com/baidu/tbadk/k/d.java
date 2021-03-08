@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
-    private static d fFk = null;
-    private Activity fFl;
-    private Activity fFm;
-    private c fFn;
-    private boolean fFo;
+    private static d fGJ = null;
+    private Activity fGK;
+    private Activity fGL;
+    private c fGM;
+    private boolean fGN;
     private View mFloatingView;
     private Runnable runnable;
     private WindowManager wm;
@@ -33,18 +33,18 @@ public class d {
             Boolean data;
             if ((customResponsedMessage instanceof BackgroundSwitchMessage) && (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null) {
                 if (data.booleanValue()) {
-                    d.this.fFo = true;
-                    if (d.this.fFl != null) {
-                        d.this.fFm = d.this.fFl;
+                    d.this.fGN = true;
+                    if (d.this.fGK != null) {
+                        d.this.fGL = d.this.fGK;
                     }
                     d.this.ld(true);
                     return;
                 }
-                d.this.fFo = false;
-                if (d.this.fFm != null) {
-                    d.this.fFl = d.this.fFm;
-                    d.this.fFm = null;
-                    if (com.baidu.adp.base.b.kB().l(d.this.fFl) != -1) {
+                d.this.fGN = false;
+                if (d.this.fGL != null) {
+                    d.this.fGK = d.this.fGL;
+                    d.this.fGL = null;
+                    if (com.baidu.adp.base.b.kB().l(d.this.fGK) != -1) {
                         d.this.init();
                         d.this.lc(false);
                     }
@@ -52,7 +52,7 @@ public class d {
             }
         }
     };
-    private CustomMessageListener fFp = new CustomMessageListener(2921478) { // from class: com.baidu.tbadk.k.d.2
+    private CustomMessageListener fGO = new CustomMessageListener(2921478) { // from class: com.baidu.tbadk.k.d.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -60,46 +60,46 @@ public class d {
             if (customResponsedMessage != null && customResponsedMessage.getData() != null && (map = (Map) customResponsedMessage.getData()) != null) {
                 String str = (String) map.get("lifeCycle");
                 if ("BarBroadcastEdit".equals((String) map.get("name"))) {
-                    if (("0".equals(str) || "1".equals(str)) && (d.this.fFn instanceof a)) {
+                    if (("0".equals(str) || "1".equals(str)) && (d.this.fGM instanceof a)) {
                         d.this.ld(false);
                     }
                 }
             }
         }
     };
-    private CustomMessageListener eVF = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tbadk.k.d.3
+    private CustomMessageListener eXe = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tbadk.k.d.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer) && d.this.mFloatingView != null && d.this.fFn != null) {
-                d.this.fFn.buo();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer) && d.this.mFloatingView != null && d.this.fGM != null) {
+                d.this.fGM.bur();
             }
         }
     };
 
-    public static d bCB() {
-        if (fFk == null) {
-            fFk = new d();
+    public static d bCE() {
+        if (fGJ == null) {
+            fGJ = new d();
         }
-        return fFk;
+        return fGJ;
     }
 
     public boolean init() {
-        if (this.fFn == null) {
+        if (this.fGM == null) {
             return false;
         }
         if (this.mFloatingView == null) {
-            this.mFloatingView = this.fFn.getView();
+            this.mFloatingView = this.fGM.getView();
             this.mFloatingView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.k.d.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     int l;
                     int size;
-                    if (d.this.fFl != null && (l = com.baidu.adp.base.b.kB().l(d.this.fFl)) != -1 && l < com.baidu.adp.base.b.kB().getSize() && (size = com.baidu.adp.base.b.kB().getSize() - l) >= 0) {
+                    if (d.this.fGK != null && (l = com.baidu.adp.base.b.kB().l(d.this.fGK)) != -1 && l < com.baidu.adp.base.b.kB().getSize() && (size = com.baidu.adp.base.b.kB().getSize() - l) >= 0) {
                         com.baidu.adp.base.b.kB().ab(size);
                     }
-                    if (d.this.fFn != null) {
-                        d.this.fFn.onClick();
+                    if (d.this.fGM != null) {
+                        d.this.fGM.onClick();
                     }
                     d.this.ld(false);
                 }
@@ -112,7 +112,7 @@ public class d {
 
     public void lc(boolean z) {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-        layoutParams.type = com.baidu.tieba.v.c.Kr(2002);
+        layoutParams.type = com.baidu.tieba.v.c.Kw(2002);
         layoutParams.flags = 65800;
         layoutParams.format = -3;
         layoutParams.x = this.mOffsetX;
@@ -131,13 +131,13 @@ public class d {
                 if (this.mFloatingView != null && this.mFloatingView.getParent() == null) {
                     this.wm.addView(this.mFloatingView, layoutParams);
                     if (z) {
-                        this.fFl = com.baidu.adp.base.b.kB().currentActivity();
+                        this.fGK = com.baidu.adp.base.b.kB().currentActivity();
                     }
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921473, 0));
                 MessageManager.getInstance().registerListener(this.mBackGroundSwitchListener);
-                MessageManager.getInstance().registerListener(this.eVF);
-                MessageManager.getInstance().registerListener(this.fFp);
+                MessageManager.getInstance().registerListener(this.eXe);
+                MessageManager.getInstance().registerListener(this.fGO);
             }
         } catch (SecurityException e) {
             this.wm = null;
@@ -162,7 +162,7 @@ public class d {
                 this.wm.removeView(this.mFloatingView);
                 this.mFloatingView = null;
                 this.wm = null;
-                if (!z && !this.fFo) {
+                if (!z && !this.fGN) {
                     this.runnable = new Runnable() { // from class: com.baidu.tbadk.k.d.5
                         @Override // java.lang.Runnable
                         public void run() {
@@ -185,20 +185,20 @@ public class d {
     }
 
     public void a(c cVar) {
-        this.fFn = cVar;
+        this.fGM = cVar;
     }
 
-    public boolean bCC() {
+    public boolean bCF() {
         return (this.wm == null || this.mFloatingView == null || this.mFloatingView.getParent() == null) ? false : true;
     }
 
     public void onDestory() {
         ld(false);
-        this.fFm = null;
-        this.fFl = null;
-        this.fFn = null;
+        this.fGL = null;
+        this.fGK = null;
+        this.fGM = null;
         this.mFloatingView = null;
-        fFk = null;
+        fGJ = null;
         if (this.runnable != null) {
             e.mA().removeCallbacks(this.runnable);
         }

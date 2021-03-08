@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class CloudSettings implements INoProGuard, INetListener {
     private static final String CLOUD_SETTING_URL = "https://browserkernel.baidu.com/config/t5config?cmd=1&";
     private static final String CLOUD_SETTING_URL_HTTP = "http://browserkernel.baidu.com/config/t5config?cmd=1&";
@@ -40,14 +40,12 @@ public class CloudSettings implements INoProGuard, INetListener {
     private int mNetres = -1;
     private ByteArrayOutputStream mData = null;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f5669a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f5670b = -1;
+        public long f3832a;
+        public int b = -1;
         public boolean c;
 
         public a() {
@@ -55,12 +53,12 @@ public class CloudSettings implements INoProGuard, INetListener {
 
         final void a(int i) {
             Log.w(CloudSettings.LOG_TAG, "setNetRes " + i);
-            this.f5670b = i;
+            this.b = i;
         }
 
         final void a(long j) {
             Log.w(CloudSettings.LOG_TAG, "setNetTime " + j);
-            this.f5669a = j;
+            this.f3832a = j;
         }
 
         final void a(boolean z) {
@@ -101,8 +99,8 @@ public class CloudSettings implements INoProGuard, INetListener {
         if (bArr == null || bArr.length <= 0) {
             return null;
         }
-        for (byte b2 : bArr) {
-            String hexString = Integer.toHexString(b2 & 255);
+        for (byte b : bArr) {
+            String hexString = Integer.toHexString(b & 255);
             if (hexString.length() < 2) {
                 sb.append(0);
             }

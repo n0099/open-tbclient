@@ -2,7 +2,7 @@ package com.yy.videoplayer.view;
 
 import android.graphics.Bitmap;
 import com.yy.videoplayer.utils.YMFLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFLayoutParams {
     private static final String TAG = "YMFLayoutParams";
     public YMFVideoPosition[] mDrawPosition;

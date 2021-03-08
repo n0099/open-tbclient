@@ -9,21 +9,19 @@ import com.baidu.ar.npc.BaiduArView;
 public class l implements BaiduArView.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ArBridge.c f1542a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ ArBridge f1543b;
+    final /* synthetic */ ArBridge.c f1293a;
+    final /* synthetic */ ArBridge b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(ArBridge arBridge, ArBridge.c cVar) {
-        this.f1543b = arBridge;
-        this.f1542a = cVar;
+        this.b = arBridge;
+        this.f1293a = cVar;
     }
 
     @Override // com.baidu.ar.npc.BaiduArView.a
     public void a(Bitmap bitmap) {
         Handler handler;
-        handler = this.f1543b.d;
+        handler = this.b.d;
         handler.post(new m(this, bitmap));
     }
 }

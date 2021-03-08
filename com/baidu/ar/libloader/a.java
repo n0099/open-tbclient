@@ -3,7 +3,7 @@ package com.baidu.ar.libloader;
 import android.content.Context;
 import com.baidu.ar.ARType;
 import com.baidu.ar.libloader.ILibLoader;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class a {
     private static volatile ILibLoader sJ;
     private static Object sLock = new Object();

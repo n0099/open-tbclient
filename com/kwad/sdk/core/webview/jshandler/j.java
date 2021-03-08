@@ -11,50 +11,48 @@ import org.json.JSONObject;
 public class j implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.kwad.sdk.core.webview.a f9589a;
+    private final com.kwad.sdk.core.webview.a f6350a;
 
     /* loaded from: classes3.dex */
     public static final class a implements com.kwad.sdk.core.b {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f9590a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private String f9591b;
+        private int f6351a;
+        private String b;
 
         public void a(@Nullable JSONObject jSONObject) {
             if (jSONObject == null) {
                 return;
             }
-            this.f9590a = jSONObject.optInt("actionType");
-            this.f9591b = jSONObject.optString("payload");
+            this.f6351a = jSONObject.optInt("actionType");
+            this.b = jSONObject.optString("payload");
         }
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "actionType", this.f9590a);
-            com.kwad.sdk.utils.o.a(jSONObject, "payload", this.f9591b);
+            com.kwad.sdk.utils.o.a(jSONObject, "actionType", this.f6351a);
+            com.kwad.sdk.utils.o.a(jSONObject, "payload", this.b);
             return jSONObject;
         }
     }
 
     public j(com.kwad.sdk.core.webview.a aVar) {
-        this.f9589a = aVar;
+        this.f6350a = aVar;
     }
 
     @SuppressLint({"SwitchIntDef"})
     private void a(@NonNull a aVar) {
-        if (aVar.f9590a == 1) {
+        if (aVar.f6351a == 1) {
             com.kwad.sdk.core.d.a.b("WebCardLogHandler", "handleH5Log actionType is AD_ITEM_IMPRESSION");
-        } else if (aVar.f9590a != 2) {
-            com.kwad.sdk.core.report.b.a(this.f9589a.f9539b, aVar.f9590a, this.f9589a.d, aVar.f9591b);
+        } else if (aVar.f6351a != 2) {
+            com.kwad.sdk.core.report.b.a(this.f6350a.b, aVar.f6351a, this.f6350a.d, aVar.b);
         } else {
-            AdBaseFrameLayout adBaseFrameLayout = this.f9589a.c;
+            AdBaseFrameLayout adBaseFrameLayout = this.f6350a.c;
             if (adBaseFrameLayout != null) {
-                com.kwad.sdk.core.report.b.a(this.f9589a.f9539b, this.f9589a.d, adBaseFrameLayout.getTouchCoords(), aVar.f9591b);
+                com.kwad.sdk.core.report.b.a(this.f6350a.b, this.f6350a.d, adBaseFrameLayout.getTouchCoords(), aVar.b);
             } else {
-                com.kwad.sdk.core.report.b.a(this.f9589a.f9539b, this.f9589a.d, aVar.f9591b);
+                com.kwad.sdk.core.report.b.a(this.f6350a.b, this.f6350a.d, aVar.b);
             }
         }
     }
@@ -67,7 +65,7 @@ public class j implements com.kwad.sdk.core.webview.a.a {
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
-        if (this.f9589a.f9539b == null) {
+        if (this.f6350a.b == null) {
             cVar.a(-1, "native adTemplate is null");
         }
         try {

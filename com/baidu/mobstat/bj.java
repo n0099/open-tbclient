@@ -45,7 +45,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class bj {
     public static View a(Activity activity) {
         Window window;
@@ -201,8 +201,8 @@ public class bj {
         if (cls == null) {
             return String.valueOf(0);
         }
-        String b2 = b(cls);
-        if (TextUtils.isEmpty(b2)) {
+        String b = b(cls);
+        if (TextUtils.isEmpty(b)) {
             return String.valueOf(0);
         }
         ViewGroup viewGroup = (ViewGroup) parent;
@@ -216,7 +216,7 @@ public class bj {
             if (childAt != null) {
                 if (childAt == view) {
                     break;
-                } else if (childAt.getClass() != null && b2.equals(b(childAt.getClass()))) {
+                } else if (childAt.getClass() != null && b.equals(b(childAt.getClass()))) {
                     i++;
                 }
             }
@@ -667,7 +667,7 @@ public class bj {
     private static String b(String str) {
         String a2 = ay.a().a(str);
         if (TextUtils.isEmpty(a2)) {
-            a2 = au.a().a(str, au.a.f3716a);
+            a2 = au.a().a(str, au.a.f2614a);
         }
         if (a2 == null) {
             return "";
@@ -676,7 +676,7 @@ public class bj {
     }
 
     public static String a(String str) {
-        String a2 = au.a().a(str, au.a.f3717b);
+        String a2 = au.a().a(str, au.a.b);
         if (a2 == null) {
             return "";
         }

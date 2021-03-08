@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ar;
 /* loaded from: classes.dex */
 public class t {
-    public static final boolean bFz() {
+    public static final boolean bFD() {
         Object valueForField = com.baidu.adp.lib.OrmObject.a.a.getValueForField(Looper.myQueue(), "mMessages");
         if (valueForField == null || !(valueForField instanceof Message)) {
             return false;

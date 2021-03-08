@@ -10,7 +10,7 @@ import com.baidu.mobstat.Config;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class i {
     private int mColor;
     private Shader mShader;
@@ -28,7 +28,7 @@ public class i {
         return !TextUtils.isEmpty(this.mType);
     }
 
-    public boolean akP() {
+    public boolean akS() {
         return TextUtils.equals(this.mType, "linearGradient") || TextUtils.equals(this.mType, "circularGradient");
     }
 
@@ -69,11 +69,11 @@ public class i {
                 if (iArr != null && fArr != null && iArr.length >= 2 && iArr.length == fArr.length) {
                     JSONObject optJSONObject2 = jSONArray.optJSONObject(2);
                     if (TextUtils.equals(optString, "linearGradient")) {
-                        this.mShader = new LinearGradient(com.baidu.swan.apps.ao.ah.P(optJSONObject2.optInt("x0")), com.baidu.swan.apps.ao.ah.P(optJSONObject2.optInt("y0")), com.baidu.swan.apps.ao.ah.P(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_X1)), com.baidu.swan.apps.ao.ah.P(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_Y1)), iArr, fArr, Shader.TileMode.CLAMP);
+                        this.mShader = new LinearGradient(com.baidu.swan.apps.ao.ah.T(optJSONObject2.optInt("x0")), com.baidu.swan.apps.ao.ah.T(optJSONObject2.optInt("y0")), com.baidu.swan.apps.ao.ah.T(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_X1)), com.baidu.swan.apps.ao.ah.T(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_Y1)), iArr, fArr, Shader.TileMode.CLAMP);
                         this.mType = "linearGradient";
                         return;
                     }
-                    this.mShader = new RadialGradient(com.baidu.swan.apps.ao.ah.P(optJSONObject2.optInt(Config.EVENT_HEAT_X)), com.baidu.swan.apps.ao.ah.P(optJSONObject2.optInt("y")), com.baidu.swan.apps.ao.ah.P(optJSONObject2.optInt("r")), iArr, fArr, Shader.TileMode.CLAMP);
+                    this.mShader = new RadialGradient(com.baidu.swan.apps.ao.ah.T(optJSONObject2.optInt(Config.EVENT_HEAT_X)), com.baidu.swan.apps.ao.ah.T(optJSONObject2.optInt("y")), com.baidu.swan.apps.ao.ah.T(optJSONObject2.optInt("r")), iArr, fArr, Shader.TileMode.CLAMP);
                     this.mType = "circularGradient";
                 }
             }

@@ -17,16 +17,14 @@ import java.nio.charset.StandardCharsets;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char f9666a = File.separatorChar;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f9667b;
+    public static final char f6398a = File.separatorChar;
+    public static final String b;
 
     static {
         StringBuilderWriter stringBuilderWriter = new StringBuilderWriter(4);
         PrintWriter printWriter = new PrintWriter(stringBuilderWriter);
         printWriter.println();
-        f9667b = stringBuilderWriter.toString();
+        b = stringBuilderWriter.toString();
         printWriter.close();
     }
 

@@ -7,7 +7,7 @@ import android.content.Intent;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AlarmReceiver extends BroadcastReceiver {
     private static final String TID = "tid";
     private static final String TITLE = "title";

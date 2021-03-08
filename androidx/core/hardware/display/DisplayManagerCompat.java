@@ -8,7 +8,7 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.util.WeakHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public final class DisplayManagerCompat {
     public static final String DISPLAY_CATEGORY_PRESENTATION = "android.hardware.display.category.PRESENTATION";
     private static final WeakHashMap<Context, DisplayManagerCompat> sInstances = new WeakHashMap<>();

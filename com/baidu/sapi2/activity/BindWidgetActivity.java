@@ -12,7 +12,7 @@ import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.WebBindWidgetResult;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import java.util.Collections;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class BindWidgetActivity extends BaseActivity {
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
     public static final String EXTRA_BIND_WIDGET_ACTION = "EXTRA_BIND_WIDGET_ACTION";

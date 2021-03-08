@@ -11,7 +11,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.live.adp.R;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class IndicatorView extends View {
     private static final int DEFAULT_SPACING = 5;
     private static final String TAG = "IndicatorView$IndicatorView";
@@ -117,7 +117,7 @@ public class IndicatorView extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public class HorizontalViewInjector implements ViewInjector {
         private boolean animating;
         private float animatingPosition;
@@ -270,7 +270,7 @@ public class IndicatorView extends View {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes11.dex */
+        /* loaded from: classes10.dex */
         public class AnimationHandler extends Handler {
             private static final int MSG_ANIMATE = 1000;
 

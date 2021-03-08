@@ -7,7 +7,7 @@ import com.yy.mediaframework.GlManager;
 import com.yy.mediaframework.filters.VideoLiveFilterContext;
 import com.yy.mediaframework.utils.YMFLog;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TextureMoiveEncoderAsync extends AbstractTextureMoiveEncoder implements Runnable {
     private static final int MSG_FRAME_AVAILABLE = 2;
     private static final int MSG_STOP_RECORDING = 1;
@@ -93,7 +93,7 @@ public class TextureMoiveEncoderAsync extends AbstractTextureMoiveEncoder implem
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class EncoderHandler extends Handler {
         private WeakReference<TextureMoiveEncoderAsync> mWeakEncoder;
 

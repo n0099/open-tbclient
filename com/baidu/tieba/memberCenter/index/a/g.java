@@ -5,33 +5,33 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetVipInfo.VipDailyList;
 import tbclient.GetVipInfo.VipThemeItem;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class g implements com.baidu.adp.widget.ListView.n {
-    public static final BdUniqueId lmS = BdUniqueId.gen();
+    public static final BdUniqueId loZ = BdUniqueId.gen();
     public String cardId;
-    private d lmE;
-    private List<h> lmL;
-    public boolean lmy = false;
-    public boolean lmz = true;
+    public boolean loF = false;
+    public boolean loG = true;
+    private d loL;
+    private List<h> loS;
 
     public g(VipDailyList vipDailyList) {
         this.cardId = "";
         if (vipDailyList != null && vipDailyList.item != null && vipDailyList.item.size() > 0) {
             this.cardId = vipDailyList.card_id;
-            this.lmE = new d();
-            this.lmE.Es(1);
-            this.lmE.setCategoryName(vipDailyList.class_name);
-            this.lmE.Oa(vipDailyList.class_url_name);
-            this.lmE.Ob(vipDailyList.class_url);
-            this.lmL = new ArrayList();
+            this.loL = new d();
+            this.loL.Ev(1);
+            this.loL.setCategoryName(vipDailyList.class_name);
+            this.loL.Og(vipDailyList.class_url_name);
+            this.loL.Oh(vipDailyList.class_url);
+            this.loS = new ArrayList();
             for (VipThemeItem vipThemeItem : vipDailyList.item) {
-                this.lmL.add(new h(vipThemeItem));
+                this.loS.add(new h(vipThemeItem));
             }
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return lmS;
+        return loZ;
     }
 }

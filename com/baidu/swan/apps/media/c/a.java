@@ -5,74 +5,74 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.swan.apps.adaptation.a.ar;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a implements com.baidu.swan.apps.media.a {
-    private String dms;
-    private boolean dmu;
-    private ar dna;
-    private c dnb;
+    private String dnU;
+    private boolean dnW;
+    private ar doE;
+    private c doF;
     private Context mContext;
     private boolean mIsForeground = true;
 
     public a(Context context, @NonNull c cVar) {
         this.mContext = context;
-        this.dnb = cVar;
-        this.dms = cVar.diq;
-        aBZ();
-        aBV();
+        this.doF = cVar;
+        this.dnU = cVar.djT;
+        aCc();
+        aBY();
     }
 
-    private void aBV() {
-        if (!TextUtils.isEmpty(this.dms)) {
+    private void aBY() {
+        if (!TextUtils.isEmpty(this.dnU)) {
             com.baidu.swan.apps.media.b.a(this);
         }
     }
 
     public void a(c cVar) {
         com.baidu.swan.apps.console.c.d("VrVideo", "update 接口");
-        if (this.dna != null) {
-            this.dna.a(cVar, true);
+        if (this.doE != null) {
+            this.doE.a(cVar, true);
         }
-        this.dnb = cVar;
+        this.doF = cVar;
     }
 
-    public c aBY() {
-        return this.dnb;
+    public c aCb() {
+        return this.doF;
     }
 
     public void b(c cVar) {
-        com.baidu.swan.apps.console.c.i("VrVideo", "Open Player " + cVar.diq);
-        if (this.dna != null) {
-            this.dna.a(cVar, this.mContext);
+        com.baidu.swan.apps.console.c.i("VrVideo", "Open Player " + cVar.djT);
+        if (this.doE != null) {
+            this.doE.a(cVar, this.mContext);
         }
-        this.dnb = cVar;
+        this.doF = cVar;
     }
 
-    public ar aBZ() {
-        if (this.dna == null) {
+    public ar aCc() {
+        if (this.doE == null) {
             com.baidu.swan.apps.console.c.i("VrVideo", "create player");
-            this.dna = com.baidu.swan.apps.t.a.axR().aif();
+            this.doE = com.baidu.swan.apps.t.a.axU().aii();
         }
-        return this.dna;
+        return this.doE;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public String awC() {
-        return this.dms;
+    public String awF() {
+        return this.dnU;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public String aAE() {
-        return this.dnb != null ? this.dnb.dmG : "";
+    public String aAH() {
+        return this.doF != null ? this.doF.doj : "";
     }
 
     @Override // com.baidu.swan.apps.media.a
     public String getSlaveId() {
-        return this.dnb.cLr;
+        return this.doF.cMR;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public Object aAF() {
+    public Object aAI() {
         return this;
     }
 
@@ -80,14 +80,14 @@ public class a implements com.baidu.swan.apps.media.a {
     public void fX(boolean z) {
         this.mIsForeground = z;
         if (z) {
-            if (this.dmu) {
-                aBZ().resume();
+            if (this.dnW) {
+                aCc().resume();
             }
-            aBZ().onForeground();
-        } else if (this.dna != null) {
-            this.dmu = aBZ().isPlaying();
-            aBZ().pause();
-            aBZ().onBackground();
+            aCc().onForeground();
+        } else if (this.doE != null) {
+            this.dnW = aCc().isPlaying();
+            aCc().pause();
+            aCc().onBackground();
         }
     }
 
@@ -98,15 +98,15 @@ public class a implements com.baidu.swan.apps.media.a {
     @Override // com.baidu.swan.apps.media.a
     public boolean onBackPressed() {
         com.baidu.swan.apps.console.c.i("VrVideo", "onBackPressed");
-        return this.dna != null && this.dna.onBackPressed();
+        return this.doE != null && this.doE.onBackPressed();
     }
 
     @Override // com.baidu.swan.apps.media.a
     public void onDestroy() {
         com.baidu.swan.apps.console.c.i("VrVideo", MissionEvent.MESSAGE_DESTROY);
-        if (this.dna != null) {
-            this.dna.stop();
-            this.dna = null;
+        if (this.doE != null) {
+            this.doE.stop();
+            this.doE = null;
         }
         com.baidu.swan.apps.media.b.b(this);
     }

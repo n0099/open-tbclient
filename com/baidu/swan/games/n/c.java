@@ -4,21 +4,21 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.swan.games.binding.model.JSTypeMismatchException;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
-    public int eix;
-    public String eiy;
-    public String eiu = "";
+    public int ejY;
+    public String ejZ;
+    public String ejV = "";
     public int maxLength = Integer.MAX_VALUE;
-    public boolean eiv = false;
-    public boolean eiw = false;
+    public boolean ejW = false;
+    public boolean ejX = false;
 
     public boolean h(com.baidu.swan.games.binding.model.c cVar) throws JSTypeMismatchException {
         try {
-            this.eiu = cVar.optString("defaultValue");
+            this.ejV = cVar.optString("defaultValue");
             this.maxLength = cVar.optInt("maxLength");
-            this.eiv = cVar.optBoolean("multiple");
-            this.eiw = cVar.optBoolean("confirmHold");
+            this.ejW = cVar.optBoolean("multiple");
+            this.ejX = cVar.optBoolean("confirmHold");
             String optString = cVar.optString("confirmType");
             char c = 65535;
             switch (optString.hashCode()) {
@@ -55,28 +55,28 @@ public class c {
             }
             switch (c) {
                 case 0:
-                    this.eix = 6;
-                    this.eiy = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
+                    this.ejY = 6;
+                    this.ejZ = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
                     return true;
                 case 1:
-                    this.eix = 5;
-                    this.eiy = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
+                    this.ejY = 5;
+                    this.ejZ = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
                     return true;
                 case 2:
-                    this.eix = 3;
-                    this.eiy = "search";
+                    this.ejY = 3;
+                    this.ejZ = "search";
                     return true;
                 case 3:
-                    this.eix = 2;
-                    this.eiy = "go";
+                    this.ejY = 2;
+                    this.ejZ = "go";
                     return true;
                 case 4:
-                    this.eix = 4;
-                    this.eiy = UbcStatConstant.ContentType.UBC_TYPE_IM_SEND;
+                    this.ejY = 4;
+                    this.ejZ = UbcStatConstant.ContentType.UBC_TYPE_IM_SEND;
                     return true;
                 default:
-                    this.eix = 6;
-                    this.eiy = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
+                    this.ejY = 6;
+                    this.ejZ = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
                     return true;
             }
         } catch (Exception e) {

@@ -6,14 +6,12 @@ import android.os.Process;
 import android.text.TextUtils;
 import com.baidu.cesium.d.b;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class Util {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final boolean f1148a = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final String f1149b = "Util";
+    private static final boolean f1063a = false;
+    private static final String b = "Util";
 
     private Util() {
     }

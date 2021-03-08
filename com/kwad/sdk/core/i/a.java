@@ -15,10 +15,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class a implements b, ap.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final AtomicBoolean f9311a = new AtomicBoolean(false);
-
-    /* renamed from: b  reason: collision with root package name */
-    private final ap f9312b = new ap(this);
+    private final AtomicBoolean f6180a = new AtomicBoolean(false);
+    private final ap b = new ap(this);
     private Set<c> c;
     private KsFragment d;
     private View e;
@@ -55,7 +53,7 @@ public class a implements b, ap.a {
     }
 
     private void h() {
-        if (this.f9311a.getAndSet(true)) {
+        if (this.f6180a.getAndSet(true)) {
             return;
         }
         com.kwad.sdk.core.d.a.b("FragmentPageVisibleHelper", "start notifyPageVisible by " + this.g);
@@ -63,14 +61,14 @@ public class a implements b, ap.a {
     }
 
     private void i() {
-        if (this.f9311a.getAndSet(false)) {
+        if (this.f6180a.getAndSet(false)) {
             com.kwad.sdk.core.d.a.b("FragmentPageVisibleHelper", "start notifyPageInVisible by " + this.g);
             c(false);
         }
     }
 
     public void a() {
-        this.f9312b.sendEmptyMessage(666);
+        this.b.sendEmptyMessage(666);
     }
 
     @Override // com.kwad.sdk.utils.ap.a
@@ -91,7 +89,7 @@ public class a implements b, ap.a {
                     i();
                 }
             }
-            this.f9312b.sendEmptyMessageDelayed(666, 500L);
+            this.b.sendEmptyMessageDelayed(666, 500L);
         }
     }
 
@@ -105,7 +103,7 @@ public class a implements b, ap.a {
         if (this.c == null) {
             this.c = new HashSet();
         }
-        if (this.f9311a.get()) {
+        if (this.f6180a.get()) {
             cVar.c_();
         } else {
             cVar.b();
@@ -117,7 +115,7 @@ public class a implements b, ap.a {
     }
 
     public void b() {
-        this.f9312b.removeCallbacksAndMessages(null);
+        this.b.removeCallbacksAndMessages(null);
     }
 
     @Override // com.kwad.sdk.core.i.b
@@ -144,7 +142,7 @@ public class a implements b, ap.a {
 
     @MainThread
     public boolean e() {
-        return this.f9311a.get();
+        return this.f6180a.get();
     }
 
     public void f() {

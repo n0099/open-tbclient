@@ -13,32 +13,32 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
 import com.baidu.yuyinala.privatemessage.implugin.util.f;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class TagView extends View {
-    private Paint bhE;
-    private Paint bhF;
+    private Paint bjg;
+    private Paint bjh;
     private int mBgColor;
     private Context mContext;
     private int mTextColor;
     private float mTextSize;
-    private int pki;
-    private int pkj;
-    private int pkk;
-    private int pkl;
-    private int pkm;
-    private float pkn;
-    private float pko;
-    private float pkp;
-    private float pkq;
-    private float pkr;
-    private float pks;
-    private float pkt;
-    private float pku;
-    private String pkv;
-    private int pkw;
-    private boolean pkx;
-    private Paint pky;
-    private LinearGradient pkz;
+    private String pmA;
+    private int pmB;
+    private boolean pmC;
+    private Paint pmD;
+    private LinearGradient pmE;
+    private int pmn;
+    private int pmo;
+    private int pmp;
+    private int pmq;
+    private int pmr;
+    private float pms;
+    private float pmt;
+    private float pmu;
+    private float pmv;
+    private float pmw;
+    private float pmx;
+    private float pmy;
+    private float pmz;
 
     public TagView(Context context) {
         this(context, null);
@@ -50,36 +50,36 @@ public class TagView extends View {
 
     public TagView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.pki = -1;
-        this.pkn = -1.0f;
-        this.pko = -1.0f;
+        this.pmn = -1;
+        this.pms = -1.0f;
+        this.pmt = -1.0f;
         this.mContext = context;
         init(attributeSet);
     }
 
     public void setText(String str) {
-        this.pkv = str;
-        if (!TextUtils.isEmpty(this.pkv)) {
-            this.pkw = this.pkv.length();
+        this.pmA = str;
+        if (!TextUtils.isEmpty(this.pmA)) {
+            this.pmB = this.pmA.length();
         }
         requestLayout();
         invalidate();
     }
 
     public String getText() {
-        return this.pkv;
+        return this.pmA;
     }
 
     public void setBgColor(int i) {
         this.mBgColor = i;
-        this.pkj = -1;
-        this.pkk = -1;
+        this.pmo = -1;
+        this.pmp = -1;
         invalidate();
     }
 
     public void setGradientColor(int i, int i2) {
-        this.pkj = i;
-        this.pkk = i2;
+        this.pmo = i;
+        this.pmp = i2;
         this.mBgColor = -1;
         invalidate();
     }
@@ -92,26 +92,26 @@ public class TagView extends View {
         int mode2 = View.MeasureSpec.getMode(i2);
         int size2 = View.MeasureSpec.getSize(i2);
         if (mode != 1073741824) {
-            if (this.pki == 1) {
-                size = (int) this.pko;
-            } else if (this.pki == 2) {
-                size = (int) ((this.pku * 2.0f) + (this.pkp * 2.0f));
-                if (!TextUtils.isEmpty(this.pkv)) {
-                    if (this.pkw == 1) {
-                        size = (int) this.pkn;
+            if (this.pmn == 1) {
+                size = (int) this.pmt;
+            } else if (this.pmn == 2) {
+                size = (int) ((this.pmz * 2.0f) + (this.pmu * 2.0f));
+                if (!TextUtils.isEmpty(this.pmA)) {
+                    if (this.pmB == 1) {
+                        size = (int) this.pms;
                     } else {
-                        size = (int) (size + this.bhF.measureText(this.pkv));
+                        size = (int) (size + this.bjh.measureText(this.pmA));
                     }
                 }
             } else {
-                size = (int) ((this.pku * 2.0f) + (this.pkp * 2.0f));
-                if (!TextUtils.isEmpty(this.pkv)) {
-                    size = (int) (size + this.bhF.measureText(this.pkv));
+                size = (int) ((this.pmz * 2.0f) + (this.pmu * 2.0f));
+                if (!TextUtils.isEmpty(this.pmA)) {
+                    size = (int) (size + this.bjh.measureText(this.pmA));
                 }
             }
         }
         if (mode2 != 1073741824) {
-            size2 = (int) this.pkn;
+            size2 = (int) this.pms;
         }
         setMeasuredDimension(size, size2);
     }
@@ -119,8 +119,8 @@ public class TagView extends View {
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        this.pko = i;
-        this.pkn = i2;
+        this.pmt = i;
+        this.pms = i2;
     }
 
     @Override // android.view.View
@@ -134,177 +134,177 @@ public class TagView extends View {
     private void init(AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, a.j.TagView);
         this.mBgColor = obtainStyledAttributes.getColor(a.j.TagView_bgColor, 0);
-        this.pkj = obtainStyledAttributes.getColor(a.j.TagView_bgGradientStartColor, 0);
-        this.pkk = obtainStyledAttributes.getColor(a.j.TagView_bgGradientEndColor, 0);
+        this.pmo = obtainStyledAttributes.getColor(a.j.TagView_bgGradientStartColor, 0);
+        this.pmp = obtainStyledAttributes.getColor(a.j.TagView_bgGradientEndColor, 0);
         this.mTextColor = obtainStyledAttributes.getColor(a.j.TagView_textColor, 0);
-        this.pkm = obtainStyledAttributes.getColor(a.j.TagView_bgTraceColor, 0);
-        this.pkl = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_bgGradientAngle, -1);
+        this.pmr = obtainStyledAttributes.getColor(a.j.TagView_bgTraceColor, 0);
+        this.pmq = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_bgGradientAngle, -1);
         this.mTextSize = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_textSize, -1);
-        this.pkx = obtainStyledAttributes.getBoolean(a.j.TagView_textIsBold, false);
-        this.pku = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_horizontalMargin, -1);
-        this.pkp = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_traceWidth, 0);
-        this.pkq = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_leftBottomConnerRadius, -1);
-        this.pkr = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_leftTopConnerRadius, -1);
-        this.pks = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_rightTopConnerRadius, -1);
-        this.pkt = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_rightBottomConnerRadius, -1);
-        this.pki = obtainStyledAttributes.getInt(a.j.TagView_viewStyle, -1);
-        this.pkv = obtainStyledAttributes.getString(a.j.TagView_text);
+        this.pmC = obtainStyledAttributes.getBoolean(a.j.TagView_textIsBold, false);
+        this.pmz = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_horizontalMargin, -1);
+        this.pmu = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_traceWidth, 0);
+        this.pmv = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_leftBottomConnerRadius, -1);
+        this.pmw = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_leftTopConnerRadius, -1);
+        this.pmx = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_rightTopConnerRadius, -1);
+        this.pmy = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_rightBottomConnerRadius, -1);
+        this.pmn = obtainStyledAttributes.getInt(a.j.TagView_viewStyle, -1);
+        this.pmA = obtainStyledAttributes.getString(a.j.TagView_text);
         obtainStyledAttributes.recycle();
-        this.bhE = new Paint(1);
-        this.bhE.setStyle(Paint.Style.FILL);
-        this.bhE.setDither(true);
-        this.bhF = new Paint(1);
-        this.bhF.setTextAlign(Paint.Align.CENTER);
-        this.bhF.setFakeBoldText(this.pkx);
-        enc();
-        this.bhF.setTextSize(this.mTextSize);
-        if (this.pkp != 0.0f) {
-            this.pky = new Paint(1);
-            this.pky.setStyle(Paint.Style.FILL);
-            this.pky.setDither(true);
+        this.bjg = new Paint(1);
+        this.bjg.setStyle(Paint.Style.FILL);
+        this.bjg.setDither(true);
+        this.bjh = new Paint(1);
+        this.bjh.setTextAlign(Paint.Align.CENTER);
+        this.bjh.setFakeBoldText(this.pmC);
+        enn();
+        this.bjh.setTextSize(this.mTextSize);
+        if (this.pmu != 0.0f) {
+            this.pmD = new Paint(1);
+            this.pmD.setStyle(Paint.Style.FILL);
+            this.pmD.setDither(true);
         }
     }
 
-    private void enc() {
-        if (this.pki != -1) {
-            if (this.pki == 0) {
-                this.pkn = this.pkn != -1.0f ? this.pkn : f.dip2px(this.mContext, 15.0f);
+    private void enn() {
+        if (this.pmn != -1) {
+            if (this.pmn == 0) {
+                this.pms = this.pms != -1.0f ? this.pms : f.dip2px(this.mContext, 15.0f);
                 this.mBgColor = this.mBgColor != 0 ? this.mBgColor : -45690;
-                this.pkq = this.pkq != -1.0f ? this.pkq : f.dip2px(this.mContext, 2.0f);
-                this.pkr = this.pkr != -1.0f ? this.pkr : f.dip2px(this.mContext, 2.0f);
-                this.pkt = this.pkt != -1.0f ? this.pkt : f.dip2px(this.mContext, 2.0f);
-                this.pks = this.pks != -1.0f ? this.pks : f.dip2px(this.mContext, 2.0f);
+                this.pmv = this.pmv != -1.0f ? this.pmv : f.dip2px(this.mContext, 2.0f);
+                this.pmw = this.pmw != -1.0f ? this.pmw : f.dip2px(this.mContext, 2.0f);
+                this.pmy = this.pmy != -1.0f ? this.pmy : f.dip2px(this.mContext, 2.0f);
+                this.pmx = this.pmx != -1.0f ? this.pmx : f.dip2px(this.mContext, 2.0f);
                 this.mTextSize = this.mTextSize != -1.0f ? this.mTextSize : f.dip2px(this.mContext, 9.0f);
                 this.mTextColor = this.mTextColor != 0 ? this.mTextColor : -1;
-                this.pku = f.dip2px(this.mContext, 4.0f);
-            } else if (this.pki == 1) {
+                this.pmz = f.dip2px(this.mContext, 4.0f);
+            } else if (this.pmn == 1) {
                 this.mBgColor = this.mBgColor != 0 ? this.mBgColor : -45690;
-                this.pkn = f.dip2px(this.mContext, 8.0f);
-                this.pko = f.dip2px(this.mContext, 8.0f);
-                this.pkq = f.dip2px(this.mContext, 4.0f);
-                this.pkr = this.pkq;
-                this.pkt = this.pkq;
-                this.pks = this.pkq;
-            } else if (this.pki == 2) {
+                this.pms = f.dip2px(this.mContext, 8.0f);
+                this.pmt = f.dip2px(this.mContext, 8.0f);
+                this.pmv = f.dip2px(this.mContext, 4.0f);
+                this.pmw = this.pmv;
+                this.pmy = this.pmv;
+                this.pmx = this.pmv;
+            } else if (this.pmn == 2) {
                 this.mBgColor = this.mBgColor != 0 ? this.mBgColor : -45690;
-                this.pkn = this.pkn != -1.0f ? this.pkn : f.dip2px(this.mContext, 16.0f);
-                this.pkq = f.dip2px(this.mContext, 8.0f);
-                this.pkr = this.pkq;
-                this.pkt = this.pkq;
-                this.pks = this.pkq;
+                this.pms = this.pms != -1.0f ? this.pms : f.dip2px(this.mContext, 16.0f);
+                this.pmv = f.dip2px(this.mContext, 8.0f);
+                this.pmw = this.pmv;
+                this.pmy = this.pmv;
+                this.pmx = this.pmv;
                 this.mTextSize = this.mTextSize != -1.0f ? this.mTextSize : f.dip2px(this.mContext, 12.0f);
                 this.mTextColor = this.mTextColor != 0 ? this.mTextColor : -1;
-                this.pku = this.pku != -1.0f ? this.pku : f.dip2px(this.mContext, 4.0f);
+                this.pmz = this.pmz != -1.0f ? this.pmz : f.dip2px(this.mContext, 4.0f);
             }
         }
     }
 
     private void aB(Canvas canvas) {
-        if (this.pkp != 0.0f) {
-            this.pky.setColor(this.pkm);
-            if (this.pki == 1) {
-                canvas.drawCircle(this.pko / 2.0f, this.pkn / 2.0f, this.pkn / 2.0f, this.pky);
+        if (this.pmu != 0.0f) {
+            this.pmD.setColor(this.pmr);
+            if (this.pmn == 1) {
+                canvas.drawCircle(this.pmt / 2.0f, this.pms / 2.0f, this.pms / 2.0f, this.pmD);
                 return;
             }
-            if (this.pki == 2 && this.pkw == 1) {
-                canvas.drawCircle(this.pkn / 2.0f, this.pkn / 2.0f, this.pkn / 2.0f, this.pky);
+            if (this.pmn == 2 && this.pmB == 1) {
+                canvas.drawCircle(this.pms / 2.0f, this.pms / 2.0f, this.pms / 2.0f, this.pmD);
             }
             Path path = new Path();
-            if (this.pkr != -1.0f) {
-                path.moveTo(0.0f, this.pkr + this.pkp);
-                path.quadTo(0.0f, 0.0f, this.pkr + this.pkp, 0.0f);
+            if (this.pmw != -1.0f) {
+                path.moveTo(0.0f, this.pmw + this.pmu);
+                path.quadTo(0.0f, 0.0f, this.pmw + this.pmu, 0.0f);
             }
-            if (this.pks != -1.0f) {
-                path.lineTo(this.pko - (this.pks + this.pkp), 0.0f);
+            if (this.pmx != -1.0f) {
+                path.lineTo(this.pmt - (this.pmx + this.pmu), 0.0f);
             } else {
-                path.lineTo(this.pko, 0.0f);
+                path.lineTo(this.pmt, 0.0f);
             }
-            if (this.pks != -1.0f) {
-                path.quadTo(this.pko, 0.0f, this.pko, this.pks + this.pkp);
+            if (this.pmx != -1.0f) {
+                path.quadTo(this.pmt, 0.0f, this.pmt, this.pmx + this.pmu);
             }
-            if (this.pkt != -1.0f) {
-                path.lineTo(this.pko, this.pkn - (this.pkt + this.pkp));
+            if (this.pmy != -1.0f) {
+                path.lineTo(this.pmt, this.pms - (this.pmy + this.pmu));
             } else {
-                path.lineTo(this.pko, this.pkn);
+                path.lineTo(this.pmt, this.pms);
             }
-            if (this.pkt != -1.0f) {
-                path.quadTo(this.pko, this.pkn, this.pko - (this.pkt + this.pkp), this.pkn);
+            if (this.pmy != -1.0f) {
+                path.quadTo(this.pmt, this.pms, this.pmt - (this.pmy + this.pmu), this.pms);
             }
-            if (this.pkq != -1.0f) {
-                path.lineTo(this.pkq + this.pkp, this.pkn);
+            if (this.pmv != -1.0f) {
+                path.lineTo(this.pmv + this.pmu, this.pms);
             } else {
-                path.lineTo(0.0f, this.pkn);
+                path.lineTo(0.0f, this.pms);
             }
-            if (this.pkq != -1.0f) {
-                path.quadTo(0.0f, this.pkn, 0.0f, this.pkn - (this.pkq + this.pkp));
+            if (this.pmv != -1.0f) {
+                path.quadTo(0.0f, this.pms, 0.0f, this.pms - (this.pmv + this.pmu));
             }
             path.close();
-            canvas.drawPath(path, this.pky);
+            canvas.drawPath(path, this.pmD);
         }
     }
 
     private void aC(Canvas canvas) {
         if (this.mBgColor != 0) {
-            this.bhE.setColor(this.mBgColor);
-            this.bhE.setShader(null);
+            this.bjg.setColor(this.mBgColor);
+            this.bjg.setShader(null);
         }
-        if (this.pkj != 0 || this.pkk != 0) {
-            this.pkz = new LinearGradient(0.0f, 0.0f, this.pko, this.pkn, this.pkj, this.pkk, Shader.TileMode.CLAMP);
-            this.bhE.setShader(this.pkz);
+        if (this.pmo != 0 || this.pmp != 0) {
+            this.pmE = new LinearGradient(0.0f, 0.0f, this.pmt, this.pms, this.pmo, this.pmp, Shader.TileMode.CLAMP);
+            this.bjg.setShader(this.pmE);
         }
-        if (this.pki == 1) {
-            canvas.drawCircle(this.pko / 2.0f, this.pkn / 2.0f, this.pkq, this.bhE);
-        } else if (this.pki == 2 && this.pkw == 1) {
-            canvas.drawCircle(this.pkn / 2.0f, this.pkn / 2.0f, this.pkn / 2.0f, this.bhE);
+        if (this.pmn == 1) {
+            canvas.drawCircle(this.pmt / 2.0f, this.pms / 2.0f, this.pmv, this.bjg);
+        } else if (this.pmn == 2 && this.pmB == 1) {
+            canvas.drawCircle(this.pms / 2.0f, this.pms / 2.0f, this.pms / 2.0f, this.bjg);
         } else {
             Path path = new Path();
-            if (this.pkr != -1.0f) {
-                path.moveTo(this.pkp, this.pkp + this.pkr);
-                path.quadTo(this.pkp, this.pkp, this.pkp + this.pkr, this.pkp);
+            if (this.pmw != -1.0f) {
+                path.moveTo(this.pmu, this.pmu + this.pmw);
+                path.quadTo(this.pmu, this.pmu, this.pmu + this.pmw, this.pmu);
             }
-            if (this.pks != -1.0f) {
-                path.lineTo((this.pko - this.pkp) - this.pks, this.pkp);
+            if (this.pmx != -1.0f) {
+                path.lineTo((this.pmt - this.pmu) - this.pmx, this.pmu);
             } else {
-                path.lineTo(this.pko - this.pkp, this.pkp);
+                path.lineTo(this.pmt - this.pmu, this.pmu);
             }
-            if (this.pks != -1.0f) {
-                path.quadTo(this.pko - this.pkp, this.pkp, this.pko - this.pkp, this.pks + this.pkp);
+            if (this.pmx != -1.0f) {
+                path.quadTo(this.pmt - this.pmu, this.pmu, this.pmt - this.pmu, this.pmx + this.pmu);
             }
-            if (this.pkt != -1.0f) {
-                path.lineTo(this.pko - this.pkp, (this.pkn - this.pkp) - this.pkt);
+            if (this.pmy != -1.0f) {
+                path.lineTo(this.pmt - this.pmu, (this.pms - this.pmu) - this.pmy);
             } else {
-                path.lineTo(this.pko - this.pkp, this.pkn - this.pkp);
+                path.lineTo(this.pmt - this.pmu, this.pms - this.pmu);
             }
-            if (this.pkt != -1.0f) {
-                path.quadTo(this.pko - this.pkp, this.pkn - this.pkp, (this.pko - this.pkp) - this.pkt, this.pkn - this.pkp);
+            if (this.pmy != -1.0f) {
+                path.quadTo(this.pmt - this.pmu, this.pms - this.pmu, (this.pmt - this.pmu) - this.pmy, this.pms - this.pmu);
             }
-            if (this.pkq != -1.0f) {
-                path.lineTo(this.pkq + this.pkp, this.pkn - this.pkp);
+            if (this.pmv != -1.0f) {
+                path.lineTo(this.pmv + this.pmu, this.pms - this.pmu);
             } else {
-                path.lineTo(this.pkp, this.pkn - this.pkp);
+                path.lineTo(this.pmu, this.pms - this.pmu);
             }
-            if (this.pkq != -1.0f) {
-                path.quadTo(this.pkp, this.pkn - this.pkp, this.pkp, (this.pkn - this.pkp) - this.pkq);
+            if (this.pmv != -1.0f) {
+                path.quadTo(this.pmu, this.pms - this.pmu, this.pmu, (this.pms - this.pmu) - this.pmv);
             }
             path.close();
-            canvas.drawPath(path, this.bhE);
+            canvas.drawPath(path, this.bjg);
         }
     }
 
     private void J(Canvas canvas) {
-        if (!TextUtils.isEmpty(this.pkv)) {
-            this.bhF.setColor(this.mTextColor);
-            Paint.FontMetricsInt fontMetricsInt = this.bhF.getFontMetricsInt();
-            canvas.drawText(this.pkv, this.pko / 2.0f, (((((int) this.pkn) + 0) - fontMetricsInt.bottom) - fontMetricsInt.top) / 2, this.bhF);
+        if (!TextUtils.isEmpty(this.pmA)) {
+            this.bjh.setColor(this.mTextColor);
+            Paint.FontMetricsInt fontMetricsInt = this.bjh.getFontMetricsInt();
+            canvas.drawText(this.pmA, this.pmt / 2.0f, (((((int) this.pms) + 0) - fontMetricsInt.bottom) - fontMetricsInt.top) / 2, this.bjh);
         }
     }
 
     public void setStroke(int i) {
-        this.pkm = i;
+        this.pmr = i;
         invalidate();
     }
 
     public int getStyle() {
-        return this.pki;
+        return this.pmn;
     }
 }

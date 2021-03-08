@@ -2,10 +2,10 @@ package com.thunder.livesdk;
 
 import com.thunder.livesdk.ThunderNotification;
 import com.yy.mediaframework.model.Rect;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class ThunderEventHandler {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class AudioVolumeInfo {
         public int originalVolume;
         public int pts;
@@ -13,7 +13,7 @@ public abstract class ThunderEventHandler {
         public int volume;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class DeviceStats {
         public double cpuAppUsage;
         public double cpuTotalUsage;
@@ -21,7 +21,7 @@ public abstract class ThunderEventHandler {
         public double memoryTotalUsage;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class LocalAudioStats {
         public int enableVad;
         public int encodedBitrate;
@@ -30,13 +30,13 @@ public abstract class ThunderEventHandler {
         public int sendSampleRate;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class LocalAudioStatusChanged {
         public int errorReason;
         public int status;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class LocalVideoStats {
         public int codecType;
         public int configBitRate;
@@ -57,13 +57,13 @@ public abstract class ThunderEventHandler {
         public int targetFrameRate;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class MixAudioInfo {
         public String uid;
         public int volume;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class MixVideoInfo {
         public float alpha;
         public int cropH;
@@ -80,7 +80,7 @@ public abstract class ThunderEventHandler {
         public int zOrder;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class RemoteAudioStats {
         public int frameLossRate;
         public int frozenRate;
@@ -94,7 +94,7 @@ public abstract class ThunderEventHandler {
         public int totalFrozenTime;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class RemoteVideoStats {
         public int codecType;
         public int decodedType;
@@ -110,7 +110,7 @@ public abstract class ThunderEventHandler {
         public int width;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class RoomStats {
         public int temp;
     }

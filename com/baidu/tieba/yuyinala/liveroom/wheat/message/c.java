@@ -2,7 +2,7 @@ package com.baidu.tieba.yuyinala.liveroom.wheat.message;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c extends HttpMessage {
     public c(String str, String str2, String str3, long j, long j2, String str4) {
         super(1031007);

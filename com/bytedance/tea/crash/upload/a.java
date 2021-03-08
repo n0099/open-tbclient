@@ -10,20 +10,18 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
     @SuppressLint({"StaticFieldLeak"})
-    private static volatile a pwE;
+    private static volatile a pyI;
+    private volatile Context b;
 
-    /* renamed from: b  reason: collision with root package name */
-    private volatile Context f7674b;
-
-    public static a erq() {
-        if (pwE == null) {
-            pwE = new a(h.d());
+    public static a erA() {
+        if (pyI == null) {
+            pyI = new a(h.d());
         }
-        return pwE;
+        return pyI;
     }
 
     private a(@NonNull Context context) {
-        this.f7674b = context;
+        this.b = context;
     }
 
     @Nullable
@@ -32,7 +30,7 @@ public class a {
             return null;
         }
         try {
-            return com.bytedance.tea.crash.g.d.a(com.bytedance.tea.crash.g.h.a(this.f7674b), com.bytedance.tea.crash.g.h.a(), b.a(h.erl().a()), jSONObject, b.a());
+            return com.bytedance.tea.crash.g.d.a(com.bytedance.tea.crash.g.h.a(this.b), com.bytedance.tea.crash.g.h.a(), b.a(h.erv().a()), jSONObject, b.a());
         } catch (Throwable th) {
             return null;
         }
@@ -41,8 +39,8 @@ public class a {
     public void b(JSONObject jSONObject) {
         if (jSONObject != null && jSONObject.length() > 0) {
             try {
-                String a2 = b.a(h.erl().a());
-                String a3 = com.bytedance.tea.crash.g.d.a(com.bytedance.tea.crash.g.h.a(this.f7674b), com.bytedance.tea.crash.g.h.b(), a2, jSONObject, b.b());
+                String a2 = b.a(h.erv().a());
+                String a3 = com.bytedance.tea.crash.g.d.a(com.bytedance.tea.crash.g.h.a(this.b), com.bytedance.tea.crash.g.h.b(), a2, jSONObject, b.b());
                 jSONObject.put("upload_scene", UbcStatConstant.ContentType.UBC_TYPE_PK_DIRECT);
                 if (b.hr(a2, jSONObject.toString()).a()) {
                     com.bytedance.tea.crash.g.d.a(a3);

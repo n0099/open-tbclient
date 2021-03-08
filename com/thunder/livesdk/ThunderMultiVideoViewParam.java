@@ -5,7 +5,7 @@ import com.thunder.livesdk.video.ThunderMultiVideoViewCoordinate;
 import com.yy.videoplayer.videoview.VideoPosition;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderMultiVideoViewParam {
     public Bitmap mBgBitmap;
     @Deprecated

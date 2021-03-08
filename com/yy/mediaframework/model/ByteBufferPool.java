@@ -3,7 +3,7 @@ package com.yy.mediaframework.model;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ByteBufferPool {
     private int mBufSize;
     private int mCapacity;

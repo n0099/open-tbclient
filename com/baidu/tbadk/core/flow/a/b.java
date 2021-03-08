@@ -12,16 +12,16 @@ public class b implements com.baidu.tbadk.core.flow.a {
     @Override // com.baidu.tbadk.core.flow.a
     public c tu() {
         c cVar = new c();
-        cVar.op(R.drawable.icon_banner_n);
-        cVar.oq(R.drawable.icon_banner_s);
+        cVar.oq(R.drawable.icon_banner_n);
+        cVar.or(R.drawable.icon_banner_s);
         cVar.setSpacing(R.dimen.ds22);
         cVar.setGravity(81);
-        cVar.or(R.dimen.ds22);
+        cVar.os(R.dimen.ds22);
         return cVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.a
-    public TbImageView V(Context context) {
+    public TbImageView U(Context context) {
         TbImageView tbImageView = new TbImageView(context);
         tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
         tbImageView.setGifIconSupport(false);
@@ -39,7 +39,7 @@ public class b implements com.baidu.tbadk.core.flow.a {
     }
 
     @Override // com.baidu.tbadk.core.flow.a
-    public View brh() {
+    public View bri() {
         return null;
     }
 }

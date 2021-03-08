@@ -9,13 +9,13 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 class a extends Drawable {
-    private Path aFf;
-    private float aFg;
-    private float aFh;
-    private float aFi;
-    private float aFj;
+    private Path aGF;
+    private float aGG;
+    private float aGH;
+    private float aGI;
+    private float aGJ;
     private RectF mRect;
     private Paint mStrokePaint;
     private float mStrokeWidth;
@@ -24,10 +24,10 @@ class a extends Drawable {
 
     public a(RectF rectF, float f, float f2, float f3, float f4, float f5, int i, int i2, int i3, int i4, ArrowDirection arrowDirection) {
         this.mRect = rectF;
-        this.aFg = f;
-        this.aFh = f2;
-        this.aFi = f3;
-        this.aFj = f4;
+        this.aGG = f;
+        this.aGH = f2;
+        this.aGI = f3;
+        this.aGJ = f4;
         this.mStrokeWidth = f5;
         if (i3 != 0 || i4 != 0) {
             this.mPaint.setShader(new LinearGradient(0.0f, 0.0f, 0.0f, (int) this.mRect.height(), i3, i4, Shader.TileMode.CLAMP));
@@ -37,9 +37,9 @@ class a extends Drawable {
         if (f5 > 0.0f) {
             this.mStrokePaint = new Paint(1);
             this.mStrokePaint.setColor(i);
-            this.aFf = new Path();
+            this.aGF = new Path();
             a(arrowDirection, this.mPath, f5);
-            a(arrowDirection, this.aFf, 0.0f);
+            a(arrowDirection, this.aGF, 0.0f);
             return;
         }
         a(arrowDirection, this.mPath, 0.0f);
@@ -53,7 +53,7 @@ class a extends Drawable {
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         if (this.mStrokeWidth > 0.0f) {
-            canvas.drawPath(this.aFf, this.mStrokePaint);
+            canvas.drawPath(this.aGF, this.mStrokePaint);
         }
         canvas.drawPath(this.mPath, this.mPaint);
     }
@@ -86,10 +86,10 @@ class a extends Drawable {
     private void a(ArrowDirection arrowDirection, Path path, float f) {
         switch (arrowDirection) {
             case LEFT:
-                if (this.aFh <= 0.0f) {
+                if (this.aGH <= 0.0f) {
                     b(this.mRect, path, f);
                     return;
-                } else if (f > 0.0f && f > this.aFh) {
+                } else if (f > 0.0f && f > this.aGH) {
                     b(this.mRect, path, f);
                     return;
                 } else {
@@ -97,10 +97,10 @@ class a extends Drawable {
                     return;
                 }
             case TOP:
-                if (this.aFh <= 0.0f) {
+                if (this.aGH <= 0.0f) {
                     d(this.mRect, path, f);
                     return;
-                } else if (f > 0.0f && f > this.aFh) {
+                } else if (f > 0.0f && f > this.aGH) {
                     d(this.mRect, path, f);
                     return;
                 } else {
@@ -108,10 +108,10 @@ class a extends Drawable {
                     return;
                 }
             case RIGHT:
-                if (this.aFh <= 0.0f) {
+                if (this.aGH <= 0.0f) {
                     f(this.mRect, path, f);
                     return;
-                } else if (f > 0.0f && f > this.aFh) {
+                } else if (f > 0.0f && f > this.aGH) {
                     f(this.mRect, path, f);
                     return;
                 } else {
@@ -119,10 +119,10 @@ class a extends Drawable {
                     return;
                 }
             case BOTTOM:
-                if (this.aFh <= 0.0f) {
+                if (this.aGH <= 0.0f) {
                     h(this.mRect, path, f);
                     return;
-                } else if (f > 0.0f && f > this.aFh) {
+                } else if (f > 0.0f && f > this.aGH) {
                     h(this.mRect, path, f);
                     return;
                 } else {
@@ -135,114 +135,114 @@ class a extends Drawable {
     }
 
     private void a(RectF rectF, Path path, float f) {
-        path.moveTo(this.aFg + rectF.left + this.aFh + f, rectF.top + f);
-        path.lineTo((rectF.width() - this.aFh) - f, rectF.top + f);
-        path.arcTo(new RectF(rectF.right - this.aFh, rectF.top + f, rectF.right - f, this.aFh + rectF.top), 270.0f, 90.0f);
-        path.lineTo(rectF.right - f, (rectF.bottom - this.aFh) - f);
-        path.arcTo(new RectF(rectF.right - this.aFh, rectF.bottom - this.aFh, rectF.right - f, rectF.bottom - f), 0.0f, 90.0f);
-        path.lineTo(rectF.left + this.aFg + this.aFh + f, rectF.bottom - f);
-        path.arcTo(new RectF(rectF.left + this.aFg + f, rectF.bottom - this.aFh, this.aFh + rectF.left + this.aFg, rectF.bottom - f), 90.0f, 90.0f);
-        path.lineTo(rectF.left + this.aFg + f, (this.aFi + this.aFj) - (f / 2.0f));
-        path.lineTo(rectF.left + f + f, this.aFj + (this.aFi / 2.0f));
-        path.lineTo(rectF.left + this.aFg + f, this.aFj + (f / 2.0f));
-        path.lineTo(rectF.left + this.aFg + f, rectF.top + this.aFh + f);
-        path.arcTo(new RectF(rectF.left + this.aFg + f, rectF.top + f, this.aFh + rectF.left + this.aFg, this.aFh + rectF.top), 180.0f, 90.0f);
+        path.moveTo(this.aGG + rectF.left + this.aGH + f, rectF.top + f);
+        path.lineTo((rectF.width() - this.aGH) - f, rectF.top + f);
+        path.arcTo(new RectF(rectF.right - this.aGH, rectF.top + f, rectF.right - f, this.aGH + rectF.top), 270.0f, 90.0f);
+        path.lineTo(rectF.right - f, (rectF.bottom - this.aGH) - f);
+        path.arcTo(new RectF(rectF.right - this.aGH, rectF.bottom - this.aGH, rectF.right - f, rectF.bottom - f), 0.0f, 90.0f);
+        path.lineTo(rectF.left + this.aGG + this.aGH + f, rectF.bottom - f);
+        path.arcTo(new RectF(rectF.left + this.aGG + f, rectF.bottom - this.aGH, this.aGH + rectF.left + this.aGG, rectF.bottom - f), 90.0f, 90.0f);
+        path.lineTo(rectF.left + this.aGG + f, (this.aGI + this.aGJ) - (f / 2.0f));
+        path.lineTo(rectF.left + f + f, this.aGJ + (this.aGI / 2.0f));
+        path.lineTo(rectF.left + this.aGG + f, this.aGJ + (f / 2.0f));
+        path.lineTo(rectF.left + this.aGG + f, rectF.top + this.aGH + f);
+        path.arcTo(new RectF(rectF.left + this.aGG + f, rectF.top + f, this.aGH + rectF.left + this.aGG, this.aGH + rectF.top), 180.0f, 90.0f);
         path.close();
     }
 
     private void b(RectF rectF, Path path, float f) {
-        path.moveTo(this.aFg + rectF.left + f, rectF.top + f);
+        path.moveTo(this.aGG + rectF.left + f, rectF.top + f);
         path.lineTo(rectF.width() - f, rectF.top + f);
         path.lineTo(rectF.right - f, rectF.bottom - f);
-        path.lineTo(rectF.left + this.aFg + f, rectF.bottom - f);
-        path.lineTo(rectF.left + this.aFg + f, (this.aFi + this.aFj) - (f / 2.0f));
-        path.lineTo(rectF.left + f + f, this.aFj + (this.aFi / 2.0f));
-        path.lineTo(rectF.left + this.aFg + f, this.aFj + (f / 2.0f));
-        path.lineTo(rectF.left + this.aFg + f, rectF.top + f);
+        path.lineTo(rectF.left + this.aGG + f, rectF.bottom - f);
+        path.lineTo(rectF.left + this.aGG + f, (this.aGI + this.aGJ) - (f / 2.0f));
+        path.lineTo(rectF.left + f + f, this.aGJ + (this.aGI / 2.0f));
+        path.lineTo(rectF.left + this.aGG + f, this.aGJ + (f / 2.0f));
+        path.lineTo(rectF.left + this.aGG + f, rectF.top + f);
         path.close();
     }
 
     private void c(RectF rectF, Path path, float f) {
-        path.moveTo(rectF.left + Math.min(this.aFj, this.aFh) + f, rectF.top + this.aFi + f);
-        path.lineTo(rectF.left + this.aFj + (f / 2.0f), rectF.top + this.aFi + f);
-        path.lineTo(rectF.left + (this.aFg / 2.0f) + this.aFj, rectF.top + f + f);
-        path.lineTo(((rectF.left + this.aFg) + this.aFj) - (f / 2.0f), rectF.top + this.aFi + f);
-        path.lineTo((rectF.right - this.aFh) - f, rectF.top + this.aFi + f);
-        path.arcTo(new RectF(rectF.right - this.aFh, rectF.top + this.aFi + f, rectF.right - f, this.aFh + rectF.top + this.aFi), 270.0f, 90.0f);
-        path.lineTo(rectF.right - f, (rectF.bottom - this.aFh) - f);
-        path.arcTo(new RectF(rectF.right - this.aFh, rectF.bottom - this.aFh, rectF.right - f, rectF.bottom - f), 0.0f, 90.0f);
-        path.lineTo(rectF.left + this.aFh + f, rectF.bottom - f);
-        path.arcTo(new RectF(rectF.left + f, rectF.bottom - this.aFh, this.aFh + rectF.left, rectF.bottom - f), 90.0f, 90.0f);
-        path.lineTo(rectF.left + f, rectF.top + this.aFi + this.aFh + f);
-        path.arcTo(new RectF(rectF.left + f, rectF.top + this.aFi + f, this.aFh + rectF.left, this.aFh + rectF.top + this.aFi), 180.0f, 90.0f);
+        path.moveTo(rectF.left + Math.min(this.aGJ, this.aGH) + f, rectF.top + this.aGI + f);
+        path.lineTo(rectF.left + this.aGJ + (f / 2.0f), rectF.top + this.aGI + f);
+        path.lineTo(rectF.left + (this.aGG / 2.0f) + this.aGJ, rectF.top + f + f);
+        path.lineTo(((rectF.left + this.aGG) + this.aGJ) - (f / 2.0f), rectF.top + this.aGI + f);
+        path.lineTo((rectF.right - this.aGH) - f, rectF.top + this.aGI + f);
+        path.arcTo(new RectF(rectF.right - this.aGH, rectF.top + this.aGI + f, rectF.right - f, this.aGH + rectF.top + this.aGI), 270.0f, 90.0f);
+        path.lineTo(rectF.right - f, (rectF.bottom - this.aGH) - f);
+        path.arcTo(new RectF(rectF.right - this.aGH, rectF.bottom - this.aGH, rectF.right - f, rectF.bottom - f), 0.0f, 90.0f);
+        path.lineTo(rectF.left + this.aGH + f, rectF.bottom - f);
+        path.arcTo(new RectF(rectF.left + f, rectF.bottom - this.aGH, this.aGH + rectF.left, rectF.bottom - f), 90.0f, 90.0f);
+        path.lineTo(rectF.left + f, rectF.top + this.aGI + this.aGH + f);
+        path.arcTo(new RectF(rectF.left + f, rectF.top + this.aGI + f, this.aGH + rectF.left, this.aGH + rectF.top + this.aGI), 180.0f, 90.0f);
         path.close();
     }
 
     private void d(RectF rectF, Path path, float f) {
-        path.moveTo(rectF.left + this.aFj + f, rectF.top + this.aFi + f);
-        path.lineTo(rectF.left + this.aFj + (f / 2.0f), rectF.top + this.aFi + f);
-        path.lineTo(rectF.left + (this.aFg / 2.0f) + this.aFj, rectF.top + f + f);
-        path.lineTo(((rectF.left + this.aFg) + this.aFj) - (f / 2.0f), rectF.top + this.aFi + f);
-        path.lineTo(rectF.right - f, rectF.top + this.aFi + f);
+        path.moveTo(rectF.left + this.aGJ + f, rectF.top + this.aGI + f);
+        path.lineTo(rectF.left + this.aGJ + (f / 2.0f), rectF.top + this.aGI + f);
+        path.lineTo(rectF.left + (this.aGG / 2.0f) + this.aGJ, rectF.top + f + f);
+        path.lineTo(((rectF.left + this.aGG) + this.aGJ) - (f / 2.0f), rectF.top + this.aGI + f);
+        path.lineTo(rectF.right - f, rectF.top + this.aGI + f);
         path.lineTo(rectF.right - f, rectF.bottom - f);
         path.lineTo(rectF.left + f, rectF.bottom - f);
-        path.lineTo(rectF.left + f, rectF.top + this.aFi + f);
-        path.lineTo(rectF.left + this.aFj + f, rectF.top + this.aFi + f);
+        path.lineTo(rectF.left + f, rectF.top + this.aGI + f);
+        path.lineTo(rectF.left + this.aGJ + f, rectF.top + this.aGI + f);
         path.close();
     }
 
     private void e(RectF rectF, Path path, float f) {
-        path.moveTo(rectF.left + this.aFh + f, rectF.top + f);
-        path.lineTo(((rectF.width() - this.aFh) - this.aFg) - f, rectF.top + f);
-        path.arcTo(new RectF((rectF.right - this.aFh) - this.aFg, rectF.top + f, (rectF.right - this.aFg) - f, this.aFh + rectF.top), 270.0f, 90.0f);
-        path.lineTo((rectF.right - this.aFg) - f, this.aFj + (f / 2.0f));
-        path.lineTo((rectF.right - f) - f, this.aFj + (this.aFi / 2.0f));
-        path.lineTo((rectF.right - this.aFg) - f, (this.aFj + this.aFi) - (f / 2.0f));
-        path.lineTo((rectF.right - this.aFg) - f, (rectF.bottom - this.aFh) - f);
-        path.arcTo(new RectF((rectF.right - this.aFh) - this.aFg, rectF.bottom - this.aFh, (rectF.right - this.aFg) - f, rectF.bottom - f), 0.0f, 90.0f);
-        path.lineTo(rectF.left + this.aFg + f, rectF.bottom - f);
-        path.arcTo(new RectF(rectF.left + f, rectF.bottom - this.aFh, this.aFh + rectF.left, rectF.bottom - f), 90.0f, 90.0f);
-        path.arcTo(new RectF(rectF.left + f, rectF.top + f, this.aFh + rectF.left, this.aFh + rectF.top), 180.0f, 90.0f);
+        path.moveTo(rectF.left + this.aGH + f, rectF.top + f);
+        path.lineTo(((rectF.width() - this.aGH) - this.aGG) - f, rectF.top + f);
+        path.arcTo(new RectF((rectF.right - this.aGH) - this.aGG, rectF.top + f, (rectF.right - this.aGG) - f, this.aGH + rectF.top), 270.0f, 90.0f);
+        path.lineTo((rectF.right - this.aGG) - f, this.aGJ + (f / 2.0f));
+        path.lineTo((rectF.right - f) - f, this.aGJ + (this.aGI / 2.0f));
+        path.lineTo((rectF.right - this.aGG) - f, (this.aGJ + this.aGI) - (f / 2.0f));
+        path.lineTo((rectF.right - this.aGG) - f, (rectF.bottom - this.aGH) - f);
+        path.arcTo(new RectF((rectF.right - this.aGH) - this.aGG, rectF.bottom - this.aGH, (rectF.right - this.aGG) - f, rectF.bottom - f), 0.0f, 90.0f);
+        path.lineTo(rectF.left + this.aGG + f, rectF.bottom - f);
+        path.arcTo(new RectF(rectF.left + f, rectF.bottom - this.aGH, this.aGH + rectF.left, rectF.bottom - f), 90.0f, 90.0f);
+        path.arcTo(new RectF(rectF.left + f, rectF.top + f, this.aGH + rectF.left, this.aGH + rectF.top), 180.0f, 90.0f);
         path.close();
     }
 
     private void f(RectF rectF, Path path, float f) {
         path.moveTo(rectF.left + f, rectF.top + f);
-        path.lineTo((rectF.width() - this.aFg) - f, rectF.top + f);
-        path.lineTo((rectF.right - this.aFg) - f, this.aFj + (f / 2.0f));
-        path.lineTo((rectF.right - f) - f, this.aFj + (this.aFi / 2.0f));
-        path.lineTo((rectF.right - this.aFg) - f, (this.aFj + this.aFi) - (f / 2.0f));
-        path.lineTo((rectF.right - this.aFg) - f, rectF.bottom - f);
+        path.lineTo((rectF.width() - this.aGG) - f, rectF.top + f);
+        path.lineTo((rectF.right - this.aGG) - f, this.aGJ + (f / 2.0f));
+        path.lineTo((rectF.right - f) - f, this.aGJ + (this.aGI / 2.0f));
+        path.lineTo((rectF.right - this.aGG) - f, (this.aGJ + this.aGI) - (f / 2.0f));
+        path.lineTo((rectF.right - this.aGG) - f, rectF.bottom - f);
         path.lineTo(rectF.left + f, rectF.bottom - f);
         path.lineTo(rectF.left + f, rectF.top + f);
         path.close();
     }
 
     private void g(RectF rectF, Path path, float f) {
-        path.moveTo(rectF.left + this.aFh + f, rectF.top + f);
-        path.lineTo((rectF.width() - this.aFh) - f, rectF.top + f);
-        path.arcTo(new RectF(rectF.right - this.aFh, rectF.top + f, rectF.right - f, this.aFh + rectF.top), 270.0f, 90.0f);
-        path.lineTo(rectF.right - f, ((rectF.bottom - this.aFi) - this.aFh) - f);
-        path.arcTo(new RectF(rectF.right - this.aFh, (rectF.bottom - this.aFh) - this.aFi, rectF.right - f, (rectF.bottom - this.aFi) - f), 0.0f, 90.0f);
-        path.lineTo(((rectF.left + this.aFg) + this.aFj) - (f / 2.0f), (rectF.bottom - this.aFi) - f);
-        path.lineTo(rectF.left + this.aFj + (this.aFg / 2.0f), (rectF.bottom - f) - f);
-        path.lineTo(rectF.left + this.aFj + (f / 2.0f), (rectF.bottom - this.aFi) - f);
-        path.lineTo(rectF.left + Math.min(this.aFh, this.aFj) + f, (rectF.bottom - this.aFi) - f);
-        path.arcTo(new RectF(rectF.left + f, (rectF.bottom - this.aFh) - this.aFi, this.aFh + rectF.left, (rectF.bottom - this.aFi) - f), 90.0f, 90.0f);
-        path.lineTo(rectF.left + f, rectF.top + this.aFh + f);
-        path.arcTo(new RectF(rectF.left + f, rectF.top + f, this.aFh + rectF.left, this.aFh + rectF.top), 180.0f, 90.0f);
+        path.moveTo(rectF.left + this.aGH + f, rectF.top + f);
+        path.lineTo((rectF.width() - this.aGH) - f, rectF.top + f);
+        path.arcTo(new RectF(rectF.right - this.aGH, rectF.top + f, rectF.right - f, this.aGH + rectF.top), 270.0f, 90.0f);
+        path.lineTo(rectF.right - f, ((rectF.bottom - this.aGI) - this.aGH) - f);
+        path.arcTo(new RectF(rectF.right - this.aGH, (rectF.bottom - this.aGH) - this.aGI, rectF.right - f, (rectF.bottom - this.aGI) - f), 0.0f, 90.0f);
+        path.lineTo(((rectF.left + this.aGG) + this.aGJ) - (f / 2.0f), (rectF.bottom - this.aGI) - f);
+        path.lineTo(rectF.left + this.aGJ + (this.aGG / 2.0f), (rectF.bottom - f) - f);
+        path.lineTo(rectF.left + this.aGJ + (f / 2.0f), (rectF.bottom - this.aGI) - f);
+        path.lineTo(rectF.left + Math.min(this.aGH, this.aGJ) + f, (rectF.bottom - this.aGI) - f);
+        path.arcTo(new RectF(rectF.left + f, (rectF.bottom - this.aGH) - this.aGI, this.aGH + rectF.left, (rectF.bottom - this.aGI) - f), 90.0f, 90.0f);
+        path.lineTo(rectF.left + f, rectF.top + this.aGH + f);
+        path.arcTo(new RectF(rectF.left + f, rectF.top + f, this.aGH + rectF.left, this.aGH + rectF.top), 180.0f, 90.0f);
         path.close();
     }
 
     private void h(RectF rectF, Path path, float f) {
         path.moveTo(rectF.left + f, rectF.top + f);
         path.lineTo(rectF.right - f, rectF.top + f);
-        path.lineTo(rectF.right - f, (rectF.bottom - this.aFi) - f);
-        path.lineTo(((rectF.left + this.aFg) + this.aFj) - (f / 2.0f), (rectF.bottom - this.aFi) - f);
-        path.lineTo(rectF.left + this.aFj + (this.aFg / 2.0f), (rectF.bottom - f) - f);
-        path.lineTo(rectF.left + this.aFj + (f / 2.0f), (rectF.bottom - this.aFi) - f);
-        path.lineTo(rectF.left + this.aFj + f, (rectF.bottom - this.aFi) - f);
-        path.lineTo(rectF.left + f, (rectF.bottom - this.aFi) - f);
+        path.lineTo(rectF.right - f, (rectF.bottom - this.aGI) - f);
+        path.lineTo(((rectF.left + this.aGG) + this.aGJ) - (f / 2.0f), (rectF.bottom - this.aGI) - f);
+        path.lineTo(rectF.left + this.aGJ + (this.aGG / 2.0f), (rectF.bottom - f) - f);
+        path.lineTo(rectF.left + this.aGJ + (f / 2.0f), (rectF.bottom - this.aGI) - f);
+        path.lineTo(rectF.left + this.aGJ + f, (rectF.bottom - this.aGI) - f);
+        path.lineTo(rectF.left + f, (rectF.bottom - this.aGI) - f);
         path.lineTo(rectF.left + f, rectF.top + f);
         path.close();
     }

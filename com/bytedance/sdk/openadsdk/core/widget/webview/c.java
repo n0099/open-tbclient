@@ -16,21 +16,20 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import androidx.annotation.RequiresApi;
 import com.bytedance.sdk.openadsdk.c.j;
-import com.bytedance.sdk.openadsdk.c.k;
 import com.bytedance.sdk.openadsdk.core.d.l;
 import com.bytedance.sdk.openadsdk.core.i;
 import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.core.x;
+import com.bytedance.sdk.openadsdk.downloadnew.a.g;
 import com.bytedance.sdk.openadsdk.utils.aj;
 import com.bytedance.sdk.openadsdk.utils.b;
+import com.bytedance.sdk.openadsdk.utils.k;
 import com.bytedance.sdk.openadsdk.utils.r;
 import com.bytedance.sdk.openadsdk.utils.t;
 import com.bytedance.sdk.openadsdk.utils.u;
 /* loaded from: classes6.dex */
 public class c extends WebViewClient {
-
-    /* renamed from: b  reason: collision with root package name */
-    protected final x f6843b;
+    protected final x b;
     protected final Context c;
     protected final String d;
     protected j e;
@@ -39,7 +38,7 @@ public class c extends WebViewClient {
 
     public c(Context context, x xVar, String str, j jVar) {
         this.c = context;
-        this.f6843b = xVar;
+        this.b = xVar;
         this.d = str;
         this.e = jVar;
     }
@@ -63,68 +62,77 @@ public class c extends WebViewClient {
         super.onLoadResource(webView, str);
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x006e, code lost:
-        if (com.bytedance.sdk.openadsdk.downloadnew.a.e.d().eFo().a(r7.c, r1, com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(r7.f6843b.f(), r7.f6843b.a(), null).eEo()) == false) goto L18;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x0112, code lost:
-        if (r7.f6843b.b() != false) goto L7;
-     */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x0114 -> B:29:0x0035). Please submit an issue!!! */
     @Override // android.webkit.WebViewClient
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
         Uri parse;
         String lowerCase;
-        boolean z = true;
         u.b("WebChromeClient", "shouldOverrideUrlLoading " + str);
         try {
             parse = Uri.parse(str);
             lowerCase = parse.getScheme().toLowerCase();
         } catch (Exception e) {
             u.b("WebChromeClient", "shouldOverrideUrlLoading", e);
-            if (this.f6843b != null) {
+            if (this.b != null && this.b.d()) {
+                return true;
             }
         }
         if ("bytedance".equals(lowerCase)) {
-            r.a(parse, this.f6843b);
-        } else {
-            if ("market".equals(lowerCase) && this.f6843b != null && this.f6843b.a() != null) {
+            r.a(parse, this.b);
+            return true;
+        }
+        if (com.ss.android.downloadlib.b.b.a(parse) && this.b != null && this.b.c() != null) {
+            String l = this.b.l();
+            l c = this.b.c();
+            com.ss.android.b.a.a.c eEs = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(l, c, null).eEs();
+            com.ss.android.b.a.a.a eEq = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(c).eEq();
+            boolean a2 = g.d().eFs().a(this.c, parse, eEs, com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(c, this.b.l()).eEr(), eEq);
+            k.a(true);
+            if (a2) {
+                return true;
             }
-            if (!com.bytedance.sdk.openadsdk.utils.x.a(str)) {
-                final String f = this.f6843b.f();
-                u.f("TTWebViewClient", "TTWebView shouldOverrideUrlLoading tag " + f);
-                final l a2 = this.f6843b.a();
-                Intent intent = new Intent("android.intent.action.VIEW");
-                intent.setData(parse);
-                intent.addFlags(268435456);
-                com.bytedance.sdk.openadsdk.c.d.a(this.c, a2, f, "lp_open_dpl", lowerCase);
+        }
+        if (!com.bytedance.sdk.openadsdk.utils.x.a(str) && this.b != null && this.b.c() != null) {
+            final String l2 = this.b.l();
+            u.f("TTWebViewClient", "TTWebView shouldOverrideUrlLoading tag " + l2);
+            final l c2 = this.b.c();
+            Intent intent = new Intent("android.intent.action.VIEW");
+            intent.setData(parse);
+            intent.addFlags(268435456);
+            com.bytedance.sdk.openadsdk.c.d.a(this.c, c2, l2, "lp_open_dpl", lowerCase);
+            if (aj.c(this.c)) {
                 if (aj.a(this.c, intent)) {
-                    u.f("TTWebViewClient", "TTWebView shouldOverrideUrlLoading 该app已经安装 tag " + f + " URL " + str);
+                    u.f("TTWebViewClient", "TTWebView shouldOverrideUrlLoading 该app已经安装 tag " + l2 + " URL " + str);
                     com.bytedance.sdk.openadsdk.utils.b.a(this.c, intent, new b.a() { // from class: com.bytedance.sdk.openadsdk.core.widget.webview.c.1
                         @Override // com.bytedance.sdk.openadsdk.utils.b.a
                         public void a() {
                             u.f("TTWebViewClient", "TTWebView shouldOverrideUrlLoading startActivitySuccess ");
-                            com.bytedance.sdk.openadsdk.c.d.b(c.this.c, a2, f, "lp_openurl");
+                            com.bytedance.sdk.openadsdk.c.d.b(c.this.c, c2, l2, "lp_openurl");
+                            com.bytedance.sdk.openadsdk.c.d.b(p.a(), c2, l2, "lp_deeplink_success_realtime");
                         }
 
                         @Override // com.bytedance.sdk.openadsdk.utils.b.a
                         public void a(Throwable th) {
                             u.f("TTWebViewClient", "TTWebView shouldOverrideUrlLoading 调起该app失败 ");
-                            com.bytedance.sdk.openadsdk.c.d.b(c.this.c, a2, f, "lp_openurl_failed");
+                            com.bytedance.sdk.openadsdk.c.d.b(c.this.c, c2, l2, "lp_openurl_failed");
+                            com.bytedance.sdk.openadsdk.c.d.b(p.a(), c2, l2, "lp_deeplink_fail_realtime");
                         }
                     });
                     u.f("TTWebViewClient", "TTWebView shouldOverrideUrlLoading OpenAppSuccEvent.obtain().send true ");
-                    k.a().a(a2, f, true);
+                    com.bytedance.sdk.openadsdk.c.k.a().a(c2, l2, true);
                 } else {
-                    u.f("TTWebViewClient", "TTWebView shouldOverrideUrlLoading 该app没有安装 tag " + f + " url " + str);
-                    com.bytedance.sdk.openadsdk.c.d.b(this.c, a2, f, "lp_openurl_failed");
+                    u.f("TTWebViewClient", "TTWebView shouldOverrideUrlLoading 该app没有安装 tag " + l2 + " url " + str);
+                    com.bytedance.sdk.openadsdk.c.d.b(this.c, c2, l2, "lp_openurl_failed");
+                    com.bytedance.sdk.openadsdk.c.d.b(p.a(), c2, l2, "lp_deeplink_fail_realtime");
                 }
+            } else {
+                this.c.startActivity(intent);
+                u.f("TTWebViewClient", "TTWebView shouldOverrideUrlLoading startActivitySuccess ");
+                com.bytedance.sdk.openadsdk.c.d.b(this.c, c2, l2, "lp_openurl");
+                com.bytedance.sdk.openadsdk.c.k.a().a(c2, l2, true);
             }
-            z = super.shouldOverrideUrlLoading(webView, str);
+            return true;
         }
-        return z;
+        return super.shouldOverrideUrlLoading(webView, str);
     }
 
     @Override // android.webkit.WebViewClient
@@ -137,7 +145,7 @@ public class c extends WebViewClient {
         }
         if (webView != null && this.f) {
             try {
-                String a2 = a.a(p.h().j(), this.d);
+                String a2 = a.a(p.h().i(), this.d);
                 if (!TextUtils.isEmpty(a2)) {
                     t.a(webView, a2);
                 }
@@ -186,7 +194,7 @@ public class c extends WebViewClient {
 
     @Override // android.webkit.WebViewClient
     public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
-        if (i.c().u()) {
+        if (i.d().v()) {
             if (sslErrorHandler != null) {
                 try {
                     sslErrorHandler.proceed();

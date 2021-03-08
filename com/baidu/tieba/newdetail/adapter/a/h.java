@@ -21,31 +21,31 @@ import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
 import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.card.t;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class h extends a<ca, ThreadCardViewHolder<cb>> {
-    private ab<ca> agg;
-    private s amk;
-    public BdUniqueId fGZ;
+    private ab<ca> ahy;
+    private s anC;
+    public BdUniqueId fIy;
     private TbPageContext<?> mPageContext;
 
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.agg = new ab<ca>() { // from class: com.baidu.tieba.newdetail.adapter.a.h.1
+        this.ahy = new ab<ca>() { // from class: com.baidu.tieba.newdetail.adapter.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, ca caVar) {
                 if (caVar != null) {
-                    t.csB().mG(true);
-                    h.this.g(view, caVar.eJQ);
+                    t.csH().mG(true);
+                    h.this.g(view, caVar.eLr);
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        this.fGZ = bdUniqueId2;
+        this.fIy = bdUniqueId2;
     }
 
     public void a(s sVar) {
-        this.amk = sVar;
+        this.anC = sVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -61,31 +61,31 @@ public class h extends a<ca, ThreadCardViewHolder<cb>> {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
         am amVar = new am(this.mPageContext.getPageActivity());
         com.baidu.tbadk.core.data.e eVar = new com.baidu.tbadk.core.data.e();
-        eVar.eMa = 22;
-        eVar.eMg = 19;
+        eVar.eNB = 22;
+        eVar.eNH = 19;
         amVar.setAgreeStatisticData(eVar);
         amVar.setFrom(18);
         amVar.setStType("personalize_page");
         amVar.setShareReportFrom(18);
         amVar.setFromForPb(17);
-        amVar.bq(32);
+        amVar.br(32);
         aVar.b(amVar);
-        ak a2 = aVar.a(BaseCardInfo.SupportType.BOTTOM, viewGroup, this.amk);
+        ak a2 = aVar.a(BaseCardInfo.SupportType.BOTTOM, viewGroup, this.anC);
         a2.setSourceForPb(17);
         ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(a2);
-        threadCardViewHolder.setPageId(this.fGZ);
+        threadCardViewHolder.setPageId(this.fIy);
         a(new w() { // from class: com.baidu.tieba.newdetail.adapter.a.h.2
             @Override // com.baidu.adp.widget.ListView.w
             public void a(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
                 if ((nVar instanceof ca) && (view.getTag() instanceof ThreadCardViewHolder)) {
                     ThreadCardViewHolder threadCardViewHolder2 = (ThreadCardViewHolder) view.getTag();
-                    cb cbVar = ((ca) nVar).eJQ;
+                    cb cbVar = ((ca) nVar).eLr;
                     cbVar.objType = 1;
-                    if (h.this.agg != null) {
-                        h.this.agg.a(threadCardViewHolder2.getView(), (ca) nVar);
+                    if (h.this.ahy != null) {
+                        h.this.ahy.a(threadCardViewHolder2.getView(), (ca) nVar);
                     }
                     az.a((com.baidu.tbadk.core.data.a) cbVar, view.getContext(), 17, false, com.baidu.card.e.a((s) viewGroup2, view, i));
-                    threadCardViewHolder2.tj().b(new a.C0089a(1));
+                    threadCardViewHolder2.tj().b(new a.C0095a(1));
                 }
             }
         });
@@ -96,10 +96,10 @@ public class h extends a<ca, ThreadCardViewHolder<cb>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(final int i, final View view, final ViewGroup viewGroup, ca caVar, ThreadCardViewHolder threadCardViewHolder) {
-        if (caVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || caVar.eJQ == null) {
+        if (caVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || caVar.eLr == null) {
             return null;
         }
-        caVar.eJQ.eOs = getPositionByType(i) + 1;
+        caVar.eLr.ePT = getPositionByType(i) + 1;
         threadCardViewHolder.tj().setPosition(i);
         if (threadCardViewHolder.tj().td() instanceof am) {
             ((am) threadCardViewHolder.tj().td()).setOnCommentClickCallback(new ThreadCommentAndPraiseInfoLayout.a() { // from class: com.baidu.tieba.newdetail.adapter.a.h.3
@@ -113,7 +113,7 @@ public class h extends a<ca, ThreadCardViewHolder<cb>> {
         }
         threadCardViewHolder.b((ThreadCardViewHolder) caVar);
         threadCardViewHolder.tj().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        threadCardViewHolder.tj().a(this.agg);
+        threadCardViewHolder.tj().a(this.ahy);
         com.baidu.tieba.newdetail.b.b(this, caVar);
         return threadCardViewHolder.getView();
     }

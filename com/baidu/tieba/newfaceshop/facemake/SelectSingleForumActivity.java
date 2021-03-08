@@ -20,14 +20,14 @@ import com.baidu.tbadk.data.BazhuInfoData;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumActivity> {
-    private BdListView WO;
-    private View dBb;
-    private View eHy;
-    private TextView lCK;
-    private i lCL;
-    private View lCM;
+    private BdListView Yj;
+    private View dCC;
+    private View eIZ;
+    private TextView lEM;
+    private i lEN;
+    private View lEO;
     private NavigationBar mNavigationBar;
     private View mRootView;
     private TextView mTitleView;
@@ -36,14 +36,14 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != null) {
-                if (view.getId() == SelectSingleForumActivity.this.lCK.getId()) {
-                    if (SelectSingleForumActivity.this.diW() != null) {
+                if (view.getId() == SelectSingleForumActivity.this.lEM.getId()) {
+                    if (SelectSingleForumActivity.this.djf() != null) {
                         Intent intent = new Intent();
-                        intent.putExtra(SelectSingleForumActivityConfig.KEY_OUTPUT_FORUM, SelectSingleForumActivity.this.diW());
+                        intent.putExtra(SelectSingleForumActivityConfig.KEY_OUTPUT_FORUM, SelectSingleForumActivity.this.djf());
                         SelectSingleForumActivity.this.setResult(-1, intent);
                         SelectSingleForumActivity.this.finish();
                     }
-                } else if (view.getId() == SelectSingleForumActivity.this.eHy.getId()) {
+                } else if (view.getId() == SelectSingleForumActivity.this.eIZ.getId()) {
                     SelectSingleForumActivity.this.setResult(0);
                     SelectSingleForumActivity.this.finish();
                 }
@@ -56,12 +56,12 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
             BazhuInfoData.BaInfo baInfo = (BazhuInfoData.BaInfo) SelectSingleForumActivity.this.mDataList.get(i);
             CheckBox checkBox = (CheckBox) view.findViewById(R.id.transmit_check_box);
             if (!checkBox.isChecked()) {
-                if (SelectSingleForumActivity.this.diW() != null && SelectSingleForumActivity.this.diW().isChecked) {
-                    SelectSingleForumActivity.this.diW().isChecked = false;
+                if (SelectSingleForumActivity.this.djf() != null && SelectSingleForumActivity.this.djf().isChecked) {
+                    SelectSingleForumActivity.this.djf().isChecked = false;
                 }
                 baInfo.isChecked = true;
                 checkBox.setChecked(!checkBox.isChecked());
-                SelectSingleForumActivity.this.lCL.notifyDataSetChanged();
+                SelectSingleForumActivity.this.lEN.notifyDataSetChanged();
             }
         }
     };
@@ -73,39 +73,39 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
         setContentView(R.layout.select_single_forum_activity);
         this.mRootView = findViewById(R.id.root_view);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.eHy = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        if (this.eHy.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eHy.getLayoutParams();
+        this.eIZ = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        if (this.eIZ.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eIZ.getLayoutParams();
             layoutParams.leftMargin = l.getDimens(getActivity(), R.dimen.ds10);
-            this.eHy.setLayoutParams(layoutParams);
+            this.eIZ.setLayoutParams(layoutParams);
         }
         this.mTitleView = this.mNavigationBar.setCenterTextTitle(getString(R.string.emotion_make_select_bar));
-        this.eHy.setOnClickListener(this.mOnClickListener);
-        this.dBb = findViewById(R.id.view_divider);
-        this.lCK = (TextView) findViewById(R.id.transmit_confirm);
-        this.lCK.setOnClickListener(this.mOnClickListener);
-        this.lCM = findViewById(R.id.layout_confirm);
-        this.WO = (BdListView) findViewById(R.id.trasmit_grid_view);
+        this.eIZ.setOnClickListener(this.mOnClickListener);
+        this.dCC = findViewById(R.id.view_divider);
+        this.lEM = (TextView) findViewById(R.id.transmit_confirm);
+        this.lEM.setOnClickListener(this.mOnClickListener);
+        this.lEO = findViewById(R.id.layout_confirm);
+        this.Yj = (BdListView) findViewById(R.id.trasmit_grid_view);
         if (getIntent() != null) {
             ArrayList parcelableArrayListExtra = getIntent().getParcelableArrayListExtra("KEY_INTPUT_FORUM_LIST");
             if (y.getCount(parcelableArrayListExtra) > 0) {
                 this.mDataList.addAll(parcelableArrayListExtra);
             }
         }
-        this.WO.setOnItemClickListener(this.mOnItemClickListener);
-        this.lCL = new i(getActivity());
-        this.WO.setAdapter((ListAdapter) this.lCL);
-        this.lCL.eK(this.mDataList);
-        diV();
+        this.Yj.setOnItemClickListener(this.mOnItemClickListener);
+        this.lEN = new i(getActivity());
+        this.Yj.setAdapter((ListAdapter) this.lEN);
+        this.lEN.eK(this.mDataList);
+        dje();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    private void diV() {
-        this.lCK.setText(R.string.select_single_forum_confirm);
+    private void dje() {
+        this.lEM.setText(R.string.select_single_forum_confirm);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public BazhuInfoData.BaInfo diW() {
+    public BazhuInfoData.BaInfo djf() {
         for (BazhuInfoData.BaInfo baInfo : this.mDataList) {
             if (baInfo.isChecked) {
                 return baInfo;
@@ -120,12 +120,12 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         ap.setViewTextColor(this.mTitleView, R.color.CAM_X0105);
-        ap.setBackgroundResource(this.lCK, R.drawable.btn_all_blue);
-        ap.setViewTextColor(this.lCK, R.color.CAM_X0111, 1);
+        ap.setBackgroundResource(this.lEM, R.drawable.btn_all_blue);
+        ap.setViewTextColor(this.lEM, R.color.CAM_X0111, 1);
         ap.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
-        ap.setBackgroundColor(this.dBb, R.color.CAM_X0204);
-        this.lCL.Fi(i);
-        this.WO.setSelector(ap.getDrawable(R.drawable.selector_select_forum_item));
-        ap.setBackgroundColor(this.lCM, R.color.cp_bg_line_d_alpha95);
+        ap.setBackgroundColor(this.dCC, R.color.CAM_X0204);
+        this.lEN.Fl(i);
+        this.Yj.setSelector(ap.getDrawable(R.drawable.selector_select_forum_item));
+        ap.setBackgroundColor(this.lEO, R.color.cp_bg_line_d_alpha95);
     }
 }

@@ -7,10 +7,10 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.parallel.a;
 import java.util.concurrent.Callable;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ParallelReduce<T, R> extends a<R> {
-    final Callable<R> qoE;
-    final a<? extends T> qqv;
+    final Callable<R> qpg;
+    final a<? extends T> qqX;
     final c<R, ? super T, R> reducer;
 
     @Override // io.reactivex.parallel.a
@@ -20,14 +20,14 @@ public final class ParallelReduce<T, R> extends a<R> {
             org.a.c<? super Object>[] cVarArr2 = new org.a.c[length];
             for (int i = 0; i < length; i++) {
                 try {
-                    cVarArr2[i] = new ParallelReduceSubscriber(cVarArr[i], io.reactivex.internal.functions.a.m(this.qoE.call(), "The initialSupplier returned a null value"), this.reducer);
+                    cVarArr2[i] = new ParallelReduceSubscriber(cVarArr[i], io.reactivex.internal.functions.a.n(this.qpg.call(), "The initialSupplier returned a null value"), this.reducer);
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.N(th);
                     a(cVarArr, th);
                     return;
                 }
             }
-            this.qqv.a(cVarArr2);
+            this.qqX.a(cVarArr2);
         }
     }
 
@@ -38,11 +38,11 @@ public final class ParallelReduce<T, R> extends a<R> {
     }
 
     @Override // io.reactivex.parallel.a
-    public int eKy() {
-        return this.qqv.eKy();
+    public int eKg() {
+        return this.qqX.eKg();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class ParallelReduceSubscriber<T, R> extends DeferredScalarSubscriber<T, R> {
         private static final long serialVersionUID = 8200530050639449080L;
         R accumulator;
@@ -68,7 +68,7 @@ public final class ParallelReduce<T, R> extends a<R> {
         public void onNext(T t) {
             if (!this.done) {
                 try {
-                    this.accumulator = (R) io.reactivex.internal.functions.a.m(this.reducer.apply(this.accumulator, t), "The reducer returned a null value");
+                    this.accumulator = (R) io.reactivex.internal.functions.a.n(this.reducer.apply(this.accumulator, t), "The reducer returned a null value");
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.N(th);
                     cancel();

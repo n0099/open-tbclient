@@ -9,8 +9,8 @@ public abstract class c implements f, Closeable {
 
     public abstract boolean isClosed();
 
-    public h eyp() {
-        return g.pKJ;
+    public h eyy() {
+        return g.pMO;
     }
 
     public boolean isStateful() {

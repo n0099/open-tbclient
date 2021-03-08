@@ -11,10 +11,8 @@ import android.view.ViewGroup;
 public class MapFragment extends Fragment {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2726a = MapFragment.class.getSimpleName();
-
-    /* renamed from: b  reason: collision with root package name */
-    private MapView f2727b;
+    private static final String f2027a = MapFragment.class.getSimpleName();
+    private MapView b;
     private BaiduMapOptions c;
 
     public MapFragment() {
@@ -33,14 +31,14 @@ public class MapFragment extends Fragment {
     }
 
     public BaiduMap getBaiduMap() {
-        if (this.f2727b == null) {
+        if (this.b == null) {
             return null;
         }
-        return this.f2727b.getMap();
+        return this.b.getMap();
     }
 
     public MapView getMapView() {
-        return this.f2727b;
+        return this.b;
     }
 
     @Override // android.app.Fragment
@@ -65,8 +63,8 @@ public class MapFragment extends Fragment {
 
     @Override // android.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.f2727b = new MapView(getActivity(), this.c);
-        return this.f2727b;
+        this.b = new MapView(getActivity(), this.c);
+        return this.b;
     }
 
     @Override // android.app.Fragment
@@ -77,7 +75,7 @@ public class MapFragment extends Fragment {
     @Override // android.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        this.f2727b.onDestroy();
+        this.b.onDestroy();
     }
 
     @Override // android.app.Fragment
@@ -88,13 +86,13 @@ public class MapFragment extends Fragment {
     @Override // android.app.Fragment
     public void onPause() {
         super.onPause();
-        this.f2727b.onPause();
+        this.b.onPause();
     }
 
     @Override // android.app.Fragment
     public void onResume() {
         super.onResume();
-        this.f2727b.onResume();
+        this.b.onResume();
     }
 
     @Override // android.app.Fragment

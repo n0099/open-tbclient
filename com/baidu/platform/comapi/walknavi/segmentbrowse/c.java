@@ -15,12 +15,10 @@ import java.util.HashMap;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f4364a;
+    public static int f3026a;
     private static a f;
     private static int g = -1;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static int f4365b = -1;
+    public static int b = -1;
     public static int c = -1;
     public static int d = BdStatsConstant.ErrorCode.ERR_LOG_FAST;
     public static b e = b.FIRST_GUIDANCE;
@@ -90,7 +88,7 @@ public class c {
         Paint paint = new Paint();
         paint.setTextSize(com.baidu.platform.comapi.walknavi.segmentbrowse.widget.b.a(context, 17.0f));
         int measureText = (int) paint.measureText("任");
-        double d2 = (0.7d * f4364a) / measureText;
+        double d2 = (0.7d * f3026a) / measureText;
         com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "singleCharwidth:" + measureText);
         com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "num:" + d2);
         return (int) d2;
@@ -170,28 +168,28 @@ public class c {
         if (i() == -1.0d) {
             return -1;
         }
-        return (int) (i() * f4364a);
+        return (int) (i() * f3026a);
     }
 
     public static int n() {
         if (j() == -1.0d) {
             return -1;
         }
-        return (int) (j() * f4364a);
+        return (int) (j() * f3026a);
     }
 
     public static int o() {
         if (k() == -1.0d) {
             return -1;
         }
-        return (int) (k() * f4364a);
+        return (int) (k() * f3026a);
     }
 
     public static int p() {
         if (l() == -1.0d) {
             return -1;
         }
-        return (int) (l() * f4364a);
+        return (int) (l() * f3026a);
     }
 
     public static double e(int i) {
@@ -216,7 +214,7 @@ public class c {
         c = -1;
         d = BdStatsConstant.ErrorCode.ERR_LOG_FAST;
         e = b.FIRST_GUIDANCE;
-        f4365b = -1;
+        b = -1;
         if (h != null) {
             h.clear();
         }

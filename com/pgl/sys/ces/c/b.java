@@ -4,25 +4,23 @@ import android.content.Context;
 import com.pgl.sys.ces.a.c;
 /* loaded from: classes6.dex */
 public class b extends com.pgl.a.a.b {
-
-    /* renamed from: b  reason: collision with root package name */
-    private Context f11407b;
+    private Context b;
 
     public b(Context context, String str) {
         super(context, str);
-        this.f11407b = null;
-        this.f11407b = context;
-        this.f11384a = com.pgl.a.a.a.a() + "/v2/s" + a();
+        this.b = null;
+        this.b = context;
+        this.f7470a = com.pgl.a.a.a.a() + "/v2/s" + a();
     }
 
     public String a() {
         String str = "";
         try {
-            str = this.f11407b.getPackageManager().getPackageInfo(this.f11407b.getPackageName(), 0).versionName;
+            str = this.b.getPackageManager().getPackageInfo(this.b.getPackageName(), 0).versionName;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return ((("?os=0&ver=0.6.11.30.02-PGL-Do&m=2&app_ver=" + str) + "&region=" + c.c(this.f11407b)) + "&appkey=" + com.pgl.sys.ces.b.b()) + "&did=" + com.pgl.sys.ces.b.c();
+        return ((("?os=0&ver=0.6.11.30.08-PGL-Do-fix3&m=2&app_ver=" + str) + "&region=" + c.c(this.b)) + "&appkey=" + com.pgl.sys.ces.b.b()) + "&did=" + com.pgl.sys.ces.b.c();
     }
 
     @Override // com.pgl.a.a.b
@@ -31,7 +29,7 @@ public class b extends com.pgl.a.a.b {
         String str;
         if (i == 200 && bArr != null) {
             try {
-                if (bArr.length > 0 && (str = (String) com.pgl.sys.ces.a.meta(200, this.f11407b, bArr)) != null && str.length() > 0) {
+                if (bArr.length > 0 && (str = (String) com.pgl.sys.ces.a.meta(200, this.b, bArr)) != null && str.length() > 0) {
                     if (str.equalsIgnoreCase("AYE")) {
                         com.pgl.sys.ces.b.d = true;
                         z = true;

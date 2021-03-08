@@ -1,14 +1,20 @@
 package com.bytedance.sdk.openadsdk.d;
 
-import java.lang.reflect.Field;
+import android.content.Context;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class c {
+public interface c {
+    void a();
 
-    /* renamed from: a  reason: collision with root package name */
-    private final Field f6979a;
+    void a(Context context, JSONObject jSONObject);
 
-    public c(Field field) {
-        com.bytedance.sdk.openadsdk.d.b.a.a(field);
-        this.f6979a = field;
-    }
+    void a(Context context, JSONObject jSONObject, String str, int i, boolean z);
+
+    void a(JSONObject jSONObject);
+
+    void b();
+
+    void b(JSONObject jSONObject);
+
+    void c();
 }

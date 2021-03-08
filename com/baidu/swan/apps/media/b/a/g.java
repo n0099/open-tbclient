@@ -9,15 +9,15 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class g {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected String dmZ;
+    protected String doD;
 
     public abstract boolean a(com.baidu.swan.apps.media.b.a aVar, com.baidu.swan.apps.media.b.c cVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar);
 
     public g(@NonNull String str) {
-        this.dmZ = str;
+        this.doD = str;
     }
 
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
@@ -36,7 +36,7 @@ public abstract class g {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.media.b.c a2 = com.baidu.swan.apps.media.b.c.a(optParamsAsJo, c.aju());
+        com.baidu.swan.apps.media.b.c a2 = com.baidu.swan.apps.media.b.c.a(optParamsAsJo, c.ajx());
         if (!a2.isValid()) {
             com.baidu.swan.apps.console.c.e("video", "param is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -48,9 +48,9 @@ public abstract class g {
     @Nullable
     protected com.baidu.swan.apps.media.b.a c(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
         com.baidu.swan.apps.media.a U;
-        if (TextUtils.isEmpty(str3) || (U = com.baidu.swan.apps.media.b.U(str, str2, str3)) == null || !(U.aAF() instanceof com.baidu.swan.apps.media.b.a)) {
+        if (TextUtils.isEmpty(str3) || (U = com.baidu.swan.apps.media.b.U(str, str2, str3)) == null || !(U.aAI() instanceof com.baidu.swan.apps.media.b.a)) {
             return null;
         }
-        return (com.baidu.swan.apps.media.b.a) U.aAF();
+        return (com.baidu.swan.apps.media.b.a) U.aAI();
     }
 }

@@ -3,12 +3,14 @@ package com.bumptech.glide.load.resource.bitmap;
 import android.annotation.TargetApi;
 import android.content.res.AssetFileDescriptor;
 import android.graphics.Bitmap;
+import android.media.MediaDataSource;
 import android.media.MediaMetadataRetriever;
 import android.os.Build;
 import android.os.ParcelFileDescriptor;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.annotation.VisibleForTesting;
 import com.bumptech.glide.load.Option;
 import com.bumptech.glide.load.Options;
@@ -18,7 +20,7 @@ import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
     public static final long DEFAULT_FRAME = -1;
     @VisibleForTesting
@@ -59,7 +61,7 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface MediaMetadataRetrieverInitializer<T> {
         void initialize(MediaMetadataRetriever mediaMetadataRetriever, T t);
     }
@@ -70,6 +72,11 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
 
     public static ResourceDecoder<ParcelFileDescriptor, Bitmap> parcel(BitmapPool bitmapPool) {
         return new VideoDecoder(bitmapPool, new ParcelFileDescriptorInitializer());
+    }
+
+    @RequiresApi(api = 23)
+    public static ResourceDecoder<ByteBuffer, Bitmap> byteBuffer(BitmapPool bitmapPool) {
+        return new VideoDecoder(bitmapPool, new ByteBufferInitializer());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -157,7 +164,7 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
     }
 
     @VisibleForTesting
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     static class MediaMetadataRetrieverFactory {
         MediaMetadataRetrieverFactory() {
         }
@@ -168,7 +175,7 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class AssetFileDescriptorInitializer implements MediaMetadataRetrieverInitializer<AssetFileDescriptor> {
         private AssetFileDescriptorInitializer() {
         }
@@ -181,12 +188,46 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class ParcelFileDescriptorInitializer implements MediaMetadataRetrieverInitializer<ParcelFileDescriptor> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.bumptech.glide.load.resource.bitmap.VideoDecoder.MediaMetadataRetrieverInitializer
         public void initialize(MediaMetadataRetriever mediaMetadataRetriever, ParcelFileDescriptor parcelFileDescriptor) {
             mediaMetadataRetriever.setDataSource(parcelFileDescriptor.getFileDescriptor());
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @RequiresApi(23)
+    /* loaded from: classes14.dex */
+    public static final class ByteBufferInitializer implements MediaMetadataRetrieverInitializer<ByteBuffer> {
+        ByteBufferInitializer() {
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.bumptech.glide.load.resource.bitmap.VideoDecoder.MediaMetadataRetrieverInitializer
+        public void initialize(MediaMetadataRetriever mediaMetadataRetriever, final ByteBuffer byteBuffer) {
+            mediaMetadataRetriever.setDataSource(new MediaDataSource() { // from class: com.bumptech.glide.load.resource.bitmap.VideoDecoder.ByteBufferInitializer.1
+                @Override // android.media.MediaDataSource
+                public int readAt(long j, byte[] bArr, int i, int i2) {
+                    if (j >= byteBuffer.limit()) {
+                        return -1;
+                    }
+                    byteBuffer.position((int) j);
+                    int min = Math.min(i2, byteBuffer.remaining());
+                    byteBuffer.get(bArr, i, min);
+                    return min;
+                }
+
+                @Override // android.media.MediaDataSource
+                public long getSize() {
+                    return byteBuffer.limit();
+                }
+
+                @Override // java.io.Closeable, java.lang.AutoCloseable
+                public void close() {
+                }
+            });
         }
     }
 }

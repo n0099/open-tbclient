@@ -21,7 +21,7 @@ public class b extends a {
                 super.onChanged();
                 com.kwad.sdk.core.d.a.a("SlidePlaySmoothUpdatePagerAdapter", "onChanged");
                 b.this.c = -1;
-                b.this.f8757b = -1;
+                b.this.b = -1;
                 b.this.e.a(SlidePlayTouchViewPager.TargetBoundUpdatedType.ON_SCROLL_END);
             }
         };
@@ -56,15 +56,15 @@ public class b extends a {
                 this.h = (a2 - indexOf) + this.h;
             }
         }
-        this.f8756a.clear();
-        this.f8756a.addAll(list);
+        this.f5833a.clear();
+        this.f5833a.addAll(list);
         if (this.d == 1 && e(a(this.e.getCurrentItem())) == null) {
             this.h = this.e.getCurrentItem();
             com.kwad.sdk.core.d.a.a("SlidePlaySmoothUpdatePagerAdapter", "correct mStartIndex:" + this.h);
         }
         this.c = -2;
         if (!z) {
-            this.f8757b = this.e.getCurrentItem();
+            this.b = this.e.getCurrentItem();
         }
         com.kwad.sdk.core.d.a.a("SlidePlaySmoothUpdatePagerAdapter", "replaceFeed notifyDataSetChanged mStartIndex:" + this.h);
         notifyDataSetChanged();

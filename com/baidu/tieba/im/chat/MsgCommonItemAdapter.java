@@ -9,11 +9,11 @@ import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public abstract class MsgCommonItemAdapter<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, MsgViewHolder<T>> {
-    private boolean kAA;
-    private boolean kAB;
-    protected int kAC;
-    protected com.baidu.adp.lib.b.a kAt;
-    protected com.baidu.adp.lib.b.b kAu;
+    private boolean kCC;
+    private boolean kCD;
+    protected int kCE;
+    protected com.baidu.adp.lib.b.a kCv;
+    protected com.baidu.adp.lib.b.b kCw;
     protected long mCurrentTime;
     protected TbPageContext<MsglistActivity<?>> mPageContext;
 
@@ -26,44 +26,44 @@ public abstract class MsgCommonItemAdapter<T> extends com.baidu.adp.widget.ListV
 
     public MsgCommonItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.kAt = null;
-        this.kAu = null;
+        this.kCv = null;
+        this.kCw = null;
         this.mCurrentTime = 0L;
-        this.kAA = false;
-        this.kAB = false;
+        this.kCC = false;
+        this.kCD = false;
         this.mPageContext = tbPageContext;
     }
 
     public void a(com.baidu.adp.lib.b.a aVar) {
-        this.kAt = aVar;
+        this.kCv = aVar;
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.b.b bVar) {
-        this.kAu = bVar;
+        this.kCw = bVar;
     }
 
-    private void cUJ() {
+    private void cUQ() {
         this.mCurrentTime = System.currentTimeMillis() / 1000;
     }
 
-    public boolean cUK() {
-        return this.kAA;
+    public boolean cUR() {
+        return this.kCC;
     }
 
     public void sB(boolean z) {
-        this.kAA = z;
+        this.kCC = z;
     }
 
-    public boolean cUL() {
-        return this.kAB;
+    public boolean cUS() {
+        return this.kCD;
     }
 
     public void sC(boolean z) {
-        this.kAB = z;
+        this.kCD = z;
     }
 
-    public void CH(int i) {
-        this.kAC = i;
+    public void CK(int i) {
+        this.kCE = i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -71,21 +71,21 @@ public abstract class MsgCommonItemAdapter<T> extends com.baidu.adp.widget.ListV
         if (chatMessage != null && chatMessage.getCacheData() == null) {
             chatMessage.setCacheData(new MsgCacheData());
         }
-        cUJ();
+        cUQ();
         return view;
     }
 
     /* loaded from: classes.dex */
     public static class MsgViewHolder<T> extends TypeAdapter.ViewHolder {
-        private T kAD;
+        private T kCF;
 
         public MsgViewHolder(View view, T t) {
             super(view);
-            this.kAD = t;
+            this.kCF = t;
         }
 
-        public T cUM() {
-            return this.kAD;
+        public T cUT() {
+            return this.kCF;
         }
     }
 }

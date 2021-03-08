@@ -7,9 +7,9 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import com.baidu.live.sdk.a;
 import com.baidu.live.view.web.CommonWebLayout;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaAirDropView extends RelativeLayout {
-    private CommonWebLayout bVC;
+    private CommonWebLayout bXc;
     public RelativeLayout mContainer;
     private View mView;
 
@@ -19,7 +19,7 @@ public class AlaAirDropView extends RelativeLayout {
     }
 
     public CommonWebLayout getWebView() {
-        return this.bVC;
+        return this.bXc;
     }
 
     public View getView() {
@@ -33,12 +33,12 @@ public class AlaAirDropView extends RelativeLayout {
     }
 
     private void x(ViewGroup viewGroup) {
-        this.bVC = new CommonWebLayout(getContext());
-        viewGroup.addView(this.bVC, -1, -1);
-        this.bVC.setLayoutParams((RelativeLayout.LayoutParams) this.bVC.getLayoutParams());
+        this.bXc = new CommonWebLayout(getContext());
+        viewGroup.addView(this.bXc, -1, -1);
+        this.bXc.setLayoutParams((RelativeLayout.LayoutParams) this.bXc.getLayoutParams());
     }
 
     public boolean isShowing() {
-        return this.bVC.getVisibility() == 0;
+        return this.bXc.getVisibility() == 0;
     }
 }

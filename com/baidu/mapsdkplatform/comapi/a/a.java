@@ -10,10 +10,8 @@ import com.baidu.mapapi.map.Marker;
 public class a extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Animator f2998a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    private long f2999b = 0;
+    private Animator f2187a = null;
+    private long b = 0;
     private Interpolator c = null;
     private Animation.AnimationListener d = null;
     private int e = 1;
@@ -31,7 +29,7 @@ public class a extends c {
         if (ofFloat != null) {
             ofFloat.setRepeatCount(this.f);
             ofFloat.setRepeatMode(c());
-            ofFloat.setDuration(this.f2999b);
+            ofFloat.setDuration(this.b);
             if (this.c != null) {
                 ofFloat.setInterpolator(this.c);
             }
@@ -42,10 +40,10 @@ public class a extends c {
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a() {
-        if (this.f2998a == null) {
+        if (this.f2187a == null) {
             return;
         }
-        this.f2998a.start();
+        this.f2187a.start();
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -58,7 +56,7 @@ public class a extends c {
         if (j < 0) {
             j = 0;
         }
-        this.f2999b = j;
+        this.b = j;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -83,16 +81,16 @@ public class a extends c {
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a(Marker marker, Animation animation) {
-        this.f2998a = a(marker);
-        a(this.f2998a);
+        this.f2187a = a(marker);
+        a(this.f2187a);
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void b() {
-        if (this.f2998a != null) {
-            this.f2998a.cancel();
-            this.f2998a = null;
+        if (this.f2187a != null) {
+            this.f2187a.cancel();
+            this.f2187a = null;
         }
     }
 

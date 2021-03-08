@@ -1,12 +1,11 @@
 package com.fun.ad.sdk;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class FunAdType {
-    public static final String CSJ_BANNER = "csjBanner";
+    public static final String BAIDU_NATIVE_CPU = "baiduNativeCpu";
     public static final String CSJ_BANNER_EXPRESS = "csjBannerExpress";
     public static final String CSJ_BANNER_NATIVE = "csjBannerNative";
     public static final String CSJ_DRAW_VIDEO = "csjDrawVideo";
     public static final String CSJ_FULLSCREEN_VIDEO = "csjFullscreenVideo";
-    public static final String CSJ_INTERACTION = "csjInterstitial";
     public static final String CSJ_INTERACTION_EXPRESS = "csjInterstitialExpress";
     public static final String CSJ_NATIVE = "csjNative";
     public static final String CSJ_NATIVE_EXPRESS = "csjNativeExpress";

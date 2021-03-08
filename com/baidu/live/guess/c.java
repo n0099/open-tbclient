@@ -2,12 +2,12 @@ package com.baidu.live.guess;
 
 import android.content.DialogInterface;
 import android.view.ViewGroup;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface c {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void Jf();
+        void Ji();
 
         void a(c cVar);
 
@@ -22,15 +22,15 @@ public interface c {
         void onTimeout();
     }
 
-    void Ja();
+    void Jd();
 
-    void Jb();
+    void Je();
 
-    boolean Jc();
+    boolean Jf();
 
-    int Jd();
+    int Jg();
 
-    ViewGroup Je();
+    ViewGroup Jh();
 
     void a(DialogInterface.OnKeyListener onKeyListener);
 
@@ -40,15 +40,15 @@ public interface c {
 
     void dismiss();
 
-    void dw(int i);
+    void dx(int i);
 
-    void gS(String str);
+    void gY(String str);
 
-    void gT(String str);
+    void gZ(String str);
 
-    void gU(String str);
+    void ha(String str);
 
-    void gV(String str);
+    void hb(String str);
 
     boolean isShowing();
 

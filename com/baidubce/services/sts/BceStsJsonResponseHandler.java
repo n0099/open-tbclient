@@ -7,7 +7,7 @@ import com.baidubce.services.sts.model.GetSessionTokenResponse;
 import com.baidubce.util.JsonUtils;
 import java.io.InputStream;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BceStsJsonResponseHandler extends BceJsonResponseHandler {
     @Override // com.baidubce.http.handler.BceJsonResponseHandler, com.baidubce.http.handler.HttpResponseHandler
     public boolean handle(BceHttpResponse bceHttpResponse, AbstractBceResponse abstractBceResponse) throws Exception {

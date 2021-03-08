@@ -14,13 +14,13 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends d {
     public a(@NonNull b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b lg(String str) {
+    public com.baidu.swan.apps.api.c.b ln(String str) {
         if (DEBUG) {
             Log.d("Api-Subscription", "subscribe with json string:  " + str);
         }
@@ -44,11 +44,11 @@ public class a extends d {
     }
 
     private Pair<Request, Integer> a(@NonNull e eVar, @NonNull JSONObject jSONObject) {
-        RequestBody b2 = b(eVar, jSONObject);
-        if (b2 == null) {
+        RequestBody b = b(eVar, jSONObject);
+        if (b == null) {
             return new Pair<>(null, 202);
         }
-        return new Pair<>(new Request.Builder().url(com.baidu.swan.apps.t.a.axB().ahQ()).post(b2).build(), 0);
+        return new Pair<>(new Request.Builder().url(com.baidu.swan.apps.t.a.axE().ahT()).post(b).build(), 0);
     }
 
     private void a(@NonNull Request request, final String str) {
@@ -69,10 +69,10 @@ public class a extends d {
             }
         });
         aVar.tag = request.tag();
-        aVar.etH = true;
-        aVar.etI = true;
-        aVar.etJ = true;
-        com.baidu.swan.a.c.a.bbY().b(aVar);
+        aVar.evi = true;
+        aVar.evj = true;
+        aVar.evk = true;
+        com.baidu.swan.a.c.a.bca().b(aVar);
     }
 
     private RequestBody b(@NonNull e eVar, @NonNull JSONObject jSONObject) {

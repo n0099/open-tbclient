@@ -6,7 +6,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MsgActivityViewItemAdapter extends MsgCommonItemAdapter<MsgActivityView> {
     public MsgActivityViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -17,13 +17,13 @@ public class MsgActivityViewItemAdapter extends MsgCommonItemAdapter<MsgActivity
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgActivityView> msgViewHolder) {
         super.a(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) msgViewHolder);
-        MsgActivityView cUM = msgViewHolder.cUM();
-        cUM.setPosition(i);
-        cUM.setData(chatMessage);
-        cUM.a(this.kAt);
-        cUM.setOnItemViewLongClickListener(this.kAu);
-        cUM.gM(this.mCurrentTime);
-        cUM.gL(chatMessage.getCacheData().getLastMsgTime());
+        MsgActivityView cUT = msgViewHolder.cUT();
+        cUT.setPosition(i);
+        cUT.setData(chatMessage);
+        cUT.a(this.kCv);
+        cUT.setOnItemViewLongClickListener(this.kCw);
+        cUT.gM(this.mCurrentTime);
+        cUT.gL(chatMessage.getCacheData().getLastMsgTime());
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
@@ -32,14 +32,14 @@ public class MsgActivityViewItemAdapter extends MsgCommonItemAdapter<MsgActivity
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ci */
+    /* renamed from: ch */
     public MsgCommonItemAdapter.MsgViewHolder<MsgActivityView> e(ViewGroup viewGroup) {
         MsgActivityView msgActivityView = new MsgActivityView(this.mPageContext);
         return new a(msgActivityView.getConvertView(), msgActivityView);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a extends MsgCommonItemAdapter.MsgViewHolder<MsgActivityView> {
         public a(View view, MsgActivityView msgActivityView) {
             super(view, msgActivityView);

@@ -1,5 +1,5 @@
 package com.thunder.livesdk;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TranscodingText {
     public int x = 0;
     public int y = 0;

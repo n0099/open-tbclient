@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.animated.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public interface c {
     com.facebook.imagepipeline.animated.base.b M(long j, int i);
 }

@@ -1,7 +1,7 @@
 package com.yy.videoplayer.render;
 
 import com.yy.videoplayer.decoder.VideoConstant;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface IProgram {
     boolean checkUpdateMirrorMode(boolean z);
 

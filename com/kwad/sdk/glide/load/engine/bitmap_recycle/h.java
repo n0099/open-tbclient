@@ -10,20 +10,16 @@ import java.util.Map;
 class h<K extends m, V> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final a<K, V> f10194a = new a<>();
-
-    /* renamed from: b  reason: collision with root package name */
-    private final Map<K, a<K, V>> f10195b = new HashMap();
+    private final a<K, V> f6743a = new a<>();
+    private final Map<K, a<K, V>> b = new HashMap();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public static class a<K, V> {
 
         /* renamed from: a  reason: collision with root package name */
-        final K f10196a;
-
-        /* renamed from: b  reason: collision with root package name */
-        a<K, V> f10197b;
+        final K f6744a;
+        a<K, V> b;
         a<K, V> c;
         private List<V> d;
 
@@ -33,15 +29,15 @@ class h<K extends m, V> {
 
         a(K k) {
             this.c = this;
-            this.f10197b = this;
-            this.f10196a = k;
+            this.b = this;
+            this.f6744a = k;
         }
 
         @Nullable
         public V a() {
-            int b2 = b();
-            if (b2 > 0) {
-                return this.d.remove(b2 - 1);
+            int b = b();
+            if (b > 0) {
+                return this.d.remove(b - 1);
             }
             return null;
         }
@@ -63,34 +59,34 @@ class h<K extends m, V> {
 
     private void a(a<K, V> aVar) {
         d(aVar);
-        aVar.c = this.f10194a;
-        aVar.f10197b = this.f10194a.f10197b;
+        aVar.c = this.f6743a;
+        aVar.b = this.f6743a.b;
         c(aVar);
     }
 
     private void b(a<K, V> aVar) {
         d(aVar);
-        aVar.c = this.f10194a.c;
-        aVar.f10197b = this.f10194a;
+        aVar.c = this.f6743a.c;
+        aVar.b = this.f6743a;
         c(aVar);
     }
 
     private static <K, V> void c(a<K, V> aVar) {
-        aVar.f10197b.c = aVar;
-        aVar.c.f10197b = aVar;
+        aVar.b.c = aVar;
+        aVar.c.b = aVar;
     }
 
     private static <K, V> void d(a<K, V> aVar) {
-        aVar.c.f10197b = aVar.f10197b;
-        aVar.f10197b.c = aVar.c;
+        aVar.c.b = aVar.b;
+        aVar.b.c = aVar.c;
     }
 
     @Nullable
     public V a() {
-        a aVar = this.f10194a.c;
+        a aVar = this.f6743a.c;
         while (true) {
             a aVar2 = aVar;
-            if (aVar2.equals(this.f10194a)) {
+            if (aVar2.equals(this.f6743a)) {
                 return null;
             }
             V v = (V) aVar2.a();
@@ -98,18 +94,18 @@ class h<K extends m, V> {
                 return v;
             }
             d(aVar2);
-            this.f10195b.remove(aVar2.f10196a);
-            ((m) aVar2.f10196a).a();
+            this.b.remove(aVar2.f6744a);
+            ((m) aVar2.f6744a).a();
             aVar = aVar2.c;
         }
     }
 
     @Nullable
     public V a(K k) {
-        a<K, V> aVar = this.f10195b.get(k);
+        a<K, V> aVar = this.b.get(k);
         if (aVar == null) {
             aVar = new a<>(k);
-            this.f10195b.put(k, aVar);
+            this.b.put(k, aVar);
         } else {
             k.a();
         }
@@ -118,11 +114,11 @@ class h<K extends m, V> {
     }
 
     public void a(K k, V v) {
-        a<K, V> aVar = this.f10195b.get(k);
+        a<K, V> aVar = this.b.get(k);
         if (aVar == null) {
             aVar = new a<>(k);
             b(aVar);
-            this.f10195b.put(k, aVar);
+            this.b.put(k, aVar);
         } else {
             k.a();
         }
@@ -132,9 +128,9 @@ class h<K extends m, V> {
     public String toString() {
         StringBuilder sb = new StringBuilder("GroupedLinkedMap( ");
         boolean z = false;
-        for (a aVar = this.f10194a.f10197b; !aVar.equals(this.f10194a); aVar = aVar.f10197b) {
+        for (a aVar = this.f6743a.b; !aVar.equals(this.f6743a); aVar = aVar.b) {
             z = true;
-            sb.append('{').append(aVar.f10196a).append(':').append(aVar.b()).append("}, ");
+            sb.append('{').append(aVar.f6744a).append(':').append(aVar.b()).append("}, ");
         }
         if (z) {
             sb.delete(sb.length() - 2, sb.length());

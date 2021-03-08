@@ -3,10 +3,10 @@ package com.baidu.tbadk.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class a implements com.baidu.adp.widget.ListView.n {
-    public static final BdUniqueId fzO = BdUniqueId.gen();
+    public static final BdUniqueId fBn = BdUniqueId.gen();
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return fzO;
+        return fBn;
     }
 }

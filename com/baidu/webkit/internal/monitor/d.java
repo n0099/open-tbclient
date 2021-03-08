@@ -7,14 +7,12 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public final class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f5680a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ String f5681b;
+    final /* synthetic */ String f3839a;
+    final /* synthetic */ String b;
     final /* synthetic */ String c;
     final /* synthetic */ boolean d;
     final /* synthetic */ SessionMonitorNetWorker e;
@@ -22,8 +20,8 @@ public final class d implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(SessionMonitorNetWorker sessionMonitorNetWorker, String str, String str2, String str3, boolean z) {
         this.e = sessionMonitorNetWorker;
-        this.f5680a = str;
-        this.f5681b = str2;
+        this.f3839a = str;
+        this.b = str2;
         this.c = str3;
         this.d = z;
     }
@@ -32,11 +30,11 @@ public final class d implements Runnable {
     public final void run() {
         boolean z;
         boolean z2;
-        if (TextUtils.isEmpty(this.f5680a)) {
+        if (TextUtils.isEmpty(this.f3839a)) {
             return;
         }
         if (WebSettingsGlobalBlink.isSessionDataEnable()) {
-            Log.i("ZeusMonitorEngine", "aContent=" + this.f5680a);
+            Log.i("ZeusMonitorEngine", "aContent=" + this.f3839a);
             String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("gzip_support");
             if (GetCloudSettingsValue == null || !GetCloudSettingsValue.equals("false")) {
                 try {
@@ -47,12 +45,12 @@ public final class d implements Runnable {
                             com.baidu.webkit.logsdk.a.a(WebKitFactory.getContext(), new c());
                             boolean unused = SessionMonitorNetWorker.mLogSdkInit = true;
                         }
-                        com.baidu.webkit.logsdk.a.a(this.f5681b, this.f5680a);
+                        com.baidu.webkit.logsdk.a.a(this.b, this.f3839a);
                         if (WebSettingsGlobalBlink.getDoubleLogEnabled()) {
-                            this.e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(com.baidu.webkit.internal.d.c(this.f5680a.getBytes())), this.c, this.d);
+                            this.e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(com.baidu.webkit.internal.d.c(this.f3839a.getBytes())), this.c, this.d);
                         }
                     } else {
-                        this.e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(com.baidu.webkit.internal.d.c(this.f5680a.getBytes())), this.c, this.d);
+                        this.e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(com.baidu.webkit.internal.d.c(this.f3839a.getBytes())), this.c, this.d);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -64,13 +62,13 @@ public final class d implements Runnable {
                     com.baidu.webkit.logsdk.a.a(WebKitFactory.getContext(), new c());
                     boolean unused2 = SessionMonitorNetWorker.mLogSdkInit = true;
                 }
-                com.baidu.webkit.logsdk.a.a(this.f5681b, this.f5680a);
+                com.baidu.webkit.logsdk.a.a(this.b, this.f3839a);
             } else {
-                this.e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(Base64.encode(this.f5680a.getBytes(), false)), this.c, this.d);
+                this.e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(Base64.encode(this.f3839a.getBytes(), false)), this.c, this.d);
             }
         }
         if (WebSettingsGlobalBlink.useT5Log()) {
-            this.e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(Base64.encode(this.f5680a.getBytes(), false)), this.c, this.d);
+            this.e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(Base64.encode(this.f3839a.getBytes(), false)), this.c, this.d);
         }
     }
 }

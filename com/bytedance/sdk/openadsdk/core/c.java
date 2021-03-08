@@ -22,7 +22,7 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class c {
     @Nullable
-    public static com.bytedance.sdk.openadsdk.core.d.a a(JSONObject jSONObject, AdSlot adSlot) {
+    public static com.bytedance.sdk.openadsdk.core.d.a a(JSONObject jSONObject, AdSlot adSlot, com.bytedance.sdk.openadsdk.core.d.m mVar) {
         if (jSONObject == null) {
             return null;
         }
@@ -35,9 +35,9 @@ public class c {
                 JSONArray optJSONArray = jSONObject.optJSONArray("creatives");
                 if (optJSONArray != null) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
-                        com.bytedance.sdk.openadsdk.core.d.l b2 = b(optJSONArray.optJSONObject(i), adSlot);
-                        if (b2 != null && a(b2)) {
-                            aVar.a(b2);
+                        com.bytedance.sdk.openadsdk.core.d.l b = b(optJSONArray.optJSONObject(i), adSlot, mVar);
+                        if (b != null && a(b)) {
+                            aVar.a(b);
                         }
                     }
                 }
@@ -55,33 +55,37 @@ public class c {
         if (jSONObject == null) {
             return null;
         }
-        return b(jSONObject, null);
+        return b(jSONObject, null, null);
     }
 
     @Nullable
-    public static com.bytedance.sdk.openadsdk.core.d.l b(JSONObject jSONObject, AdSlot adSlot) {
+    public static com.bytedance.sdk.openadsdk.core.d.l b(JSONObject jSONObject, AdSlot adSlot, com.bytedance.sdk.openadsdk.core.d.m mVar) {
         if (jSONObject == null) {
             return null;
         }
         com.bytedance.sdk.openadsdk.core.d.l lVar = new com.bytedance.sdk.openadsdk.core.d.l();
-        lVar.k(jSONObject.optInt("interaction_type"));
-        lVar.e(jSONObject.optString("target_url"));
-        lVar.f(jSONObject.optString("gecko_id"));
-        lVar.k(jSONObject.optString(LegoListActivityConfig.AD_ID));
-        lVar.d(jSONObject.optString("source"));
-        lVar.n(jSONObject.optString("package_name"));
-        lVar.n(jSONObject.optInt("dislike_control", 0));
-        lVar.h(jSONObject.optInt("play_bar_show_time", -200));
+        lVar.n(jSONObject.optInt("interaction_type"));
+        lVar.f(jSONObject.optString("target_url"));
+        lVar.a(jSONObject.optInt("use_media_video_player", 0));
+        lVar.a(jSONObject.optJSONObject("playable"));
+        lVar.o(jSONObject.optInt("landing_scroll_percentage", -1));
+        lVar.g(jSONObject.optString("gecko_id"));
+        lVar.l(jSONObject.optString(LegoListActivityConfig.AD_ID));
+        lVar.e(jSONObject.optString("source"));
+        lVar.o(jSONObject.optString("package_name"));
+        lVar.u(jSONObject.optInt("dislike_control", 0));
+        lVar.k(jSONObject.optInt("play_bar_show_time", -200));
         lVar.a(jSONObject.optBoolean("is_playable"));
-        lVar.b(jSONObject.optInt("playable_type", 0));
-        lVar.a(jSONObject.optString("playable_style"));
+        lVar.e(jSONObject.optInt("playable_type", 0));
+        lVar.b(jSONObject.optString("playable_style"));
         JSONObject optJSONObject = jSONObject.optJSONObject(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
         lVar.b(jSONObject.optBoolean(StatisticConstants.SCREENSHOT, false));
-        lVar.f(jSONObject.optInt("play_bar_style", 0));
-        lVar.m(jSONObject.optString("market_url", ""));
-        lVar.d(jSONObject.optInt("video_adaptation", 0));
-        lVar.c(jSONObject.optInt("feed_video_opentype", 0));
-        lVar.a(jSONObject.optJSONObject("session_params"));
+        lVar.i(jSONObject.optInt("play_bar_style", 0));
+        lVar.n(jSONObject.optString("market_url", ""));
+        lVar.g(jSONObject.optInt("video_adaptation", 0));
+        lVar.f(jSONObject.optInt("feed_video_opentype", 0));
+        lVar.b(jSONObject.optJSONObject("session_params"));
+        lVar.c(jSONObject.optInt("render_control", mVar != null ? mVar.e : 1));
         if (optJSONObject != null) {
             com.bytedance.sdk.openadsdk.core.d.k kVar = new com.bytedance.sdk.openadsdk.core.d.k();
             kVar.a(optJSONObject.optString("url"));
@@ -89,66 +93,72 @@ public class c {
             kVar.a(optJSONObject.optInt("width"));
             lVar.a(kVar);
         }
-        JSONObject optJSONObject2 = jSONObject.optJSONObject("cover_image");
+        JSONObject optJSONObject2 = jSONObject.optJSONObject("reward_data");
         if (optJSONObject2 != null) {
+            lVar.b(optJSONObject2.optInt("reward_amount", 0));
+            lVar.a(optJSONObject2.optString("reward_name", ""));
+        }
+        JSONObject optJSONObject3 = jSONObject.optJSONObject("cover_image");
+        if (optJSONObject3 != null) {
             com.bytedance.sdk.openadsdk.core.d.k kVar2 = new com.bytedance.sdk.openadsdk.core.d.k();
-            kVar2.a(optJSONObject2.optString("url"));
-            kVar2.b(optJSONObject2.optInt("height"));
-            kVar2.a(optJSONObject2.optInt("width"));
+            kVar2.a(optJSONObject3.optString("url"));
+            kVar2.b(optJSONObject3.optInt("height"));
+            kVar2.a(optJSONObject3.optInt("width"));
             lVar.b(kVar2);
         }
         JSONArray optJSONArray = jSONObject.optJSONArray("image");
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 com.bytedance.sdk.openadsdk.core.d.k kVar3 = new com.bytedance.sdk.openadsdk.core.d.k();
-                JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
-                kVar3.a(optJSONObject3.optString("url"));
-                kVar3.b(optJSONObject3.optInt("height"));
-                kVar3.a(optJSONObject3.optInt("width"));
+                JSONObject optJSONObject4 = optJSONArray.optJSONObject(i);
+                kVar3.a(optJSONObject4.optString("url"));
+                kVar3.b(optJSONObject4.optInt("height"));
+                kVar3.a(optJSONObject4.optInt("width"));
+                kVar3.a(optJSONObject4.optInt("duration"));
                 lVar.c(kVar3);
             }
         }
         JSONArray optJSONArray2 = jSONObject.optJSONArray("show_url");
         if (optJSONArray2 != null) {
             for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                lVar.O().add(optJSONArray2.optString(i2));
+                lVar.ab().add(optJSONArray2.optString(i2));
             }
         }
         JSONArray optJSONArray3 = jSONObject.optJSONArray("click_url");
         if (optJSONArray3 != null) {
             for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                lVar.P().add(optJSONArray3.optString(i3));
+                lVar.ac().add(optJSONArray3.optString(i3));
             }
         }
-        JSONObject optJSONObject4 = jSONObject.optJSONObject("click_area");
-        if (optJSONObject4 != null) {
+        JSONObject optJSONObject5 = jSONObject.optJSONObject("click_area");
+        if (optJSONObject5 != null) {
             com.bytedance.sdk.openadsdk.core.d.e eVar = new com.bytedance.sdk.openadsdk.core.d.e();
-            eVar.f6493a = optJSONObject4.optBoolean("click_upper_content_area", true);
-            eVar.f6494b = optJSONObject4.optBoolean("click_upper_non_content_area", true);
-            eVar.c = optJSONObject4.optBoolean("click_lower_content_area", true);
-            eVar.d = optJSONObject4.optBoolean("click_lower_non_content_area", true);
-            eVar.e = optJSONObject4.optBoolean("click_button_area", true);
-            eVar.f = optJSONObject4.optBoolean("click_video_area", true);
+            eVar.f4389a = optJSONObject5.optBoolean("click_upper_content_area", true);
+            eVar.b = optJSONObject5.optBoolean("click_upper_non_content_area", true);
+            eVar.c = optJSONObject5.optBoolean("click_lower_content_area", true);
+            eVar.d = optJSONObject5.optBoolean("click_lower_non_content_area", true);
+            eVar.e = optJSONObject5.optBoolean("click_button_area", true);
+            eVar.f = optJSONObject5.optBoolean("click_video_area", true);
             lVar.a(eVar);
         }
-        JSONObject optJSONObject5 = jSONObject.optJSONObject("adslot");
-        if (optJSONObject5 != null) {
-            lVar.a(c(optJSONObject5));
+        JSONObject optJSONObject6 = jSONObject.optJSONObject("adslot");
+        if (optJSONObject6 != null) {
+            lVar.a(c(optJSONObject6));
         } else {
             lVar.a(adSlot);
         }
-        lVar.g(jSONObject.optInt("intercept_flag", 0));
-        lVar.g(jSONObject.optString(Oauth2AccessToken.KEY_PHONE_NUM));
-        lVar.h(jSONObject.optString("title"));
-        lVar.i(jSONObject.optString("description"));
-        lVar.j(jSONObject.optString("button_text"));
-        lVar.e(jSONObject.optInt("ad_logo", 1));
-        lVar.l(jSONObject.optString("ext"));
-        lVar.l(jSONObject.optInt("image_mode"));
-        JSONObject optJSONObject6 = jSONObject.optJSONObject("app");
-        JSONObject optJSONObject7 = jSONObject.optJSONObject("deep_link");
-        lVar.a(e(optJSONObject6));
-        lVar.a(g(optJSONObject7));
+        lVar.j(jSONObject.optInt("intercept_flag", 0));
+        lVar.h(jSONObject.optString(Oauth2AccessToken.KEY_PHONE_NUM));
+        lVar.i(jSONObject.optString("title"));
+        lVar.j(jSONObject.optString("description"));
+        lVar.k(jSONObject.optString("button_text"));
+        lVar.h(jSONObject.optInt("ad_logo", 1));
+        lVar.m(jSONObject.optString("ext"));
+        lVar.p(jSONObject.optInt("image_mode"));
+        JSONObject optJSONObject7 = jSONObject.optJSONObject("app");
+        JSONObject optJSONObject8 = jSONObject.optJSONObject("deep_link");
+        lVar.a(e(optJSONObject7));
+        lVar.a(g(optJSONObject8));
         JSONArray optJSONArray4 = jSONObject.optJSONArray("filter_words");
         if (optJSONArray4 != null) {
             for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
@@ -158,37 +168,52 @@ public class c {
                 }
             }
         }
-        lVar.m(jSONObject.optInt("count_down"));
+        lVar.q(jSONObject.optInt("count_down"));
         lVar.a(jSONObject.optLong("expiration_time"));
-        JSONObject optJSONObject8 = jSONObject.optJSONObject("video");
-        if (optJSONObject8 != null) {
-            lVar.a(h(optJSONObject8));
-        }
-        JSONObject optJSONObject9 = jSONObject.optJSONObject("download_conf");
+        JSONObject optJSONObject9 = jSONObject.optJSONObject("video");
         if (optJSONObject9 != null) {
-            lVar.a(f(optJSONObject9));
+            lVar.a(h(optJSONObject9));
         }
-        JSONObject optJSONObject10 = jSONObject.optJSONObject("app_manage");
+        JSONObject optJSONObject10 = jSONObject.optJSONObject("download_conf");
         if (optJSONObject10 != null) {
-            lVar.a(b(optJSONObject10));
-            lVar.c(optJSONObject10.toString());
+            lVar.a(f(optJSONObject10));
+        }
+        lVar.r(jSONObject.optInt("if_both_open"));
+        lVar.s(jSONObject.optInt("if_double_deeplink"));
+        JSONObject optJSONObject11 = jSONObject.optJSONObject("app_manage");
+        if (optJSONObject11 != null) {
+            lVar.a(b(optJSONObject11));
+            lVar.d(optJSONObject11.toString());
         }
         lVar.a(i(jSONObject.optJSONObject("media_ext")));
-        JSONObject optJSONObject11 = jSONObject.optJSONObject("tpl_info");
-        if (optJSONObject11 != null) {
+        lVar.t(jSONObject.optInt("landing_page_type"));
+        JSONObject optJSONObject12 = jSONObject.optJSONObject("tpl_info");
+        if (optJSONObject12 != null) {
             l.a aVar = new l.a();
-            aVar.b(optJSONObject11.optString("id"));
-            aVar.c(optJSONObject11.optString("md5"));
-            aVar.d(optJSONObject11.optString("url"));
-            aVar.e(optJSONObject11.optString("data"));
-            aVar.f(optJSONObject11.optString("diff_data"));
-            aVar.g(optJSONObject11.optString("dynamic_creative"));
-            aVar.a(optJSONObject11.optString("version"));
+            aVar.b(optJSONObject12.optString("id"));
+            aVar.c(optJSONObject12.optString("md5"));
+            aVar.d(optJSONObject12.optString("url"));
+            aVar.e(optJSONObject12.optString("data"));
+            aVar.f(optJSONObject12.optString("diff_data"));
+            aVar.g(optJSONObject12.optString("dynamic_creative"));
+            aVar.a(optJSONObject12.optString("version"));
             lVar.a(aVar);
         }
-        lVar.a(jSONObject.optInt("if_block_lp", 0));
-        lVar.i(jSONObject.optInt("cache_sort", 1));
-        lVar.j(jSONObject.optInt("if_sp_cache", 0));
+        JSONObject optJSONObject13 = jSONObject.optJSONObject("middle_tpl_info");
+        if (optJSONObject13 != null) {
+            l.a aVar2 = new l.a();
+            aVar2.b(optJSONObject13.optString("middle_id"));
+            aVar2.c(optJSONObject13.optString("middle_md5"));
+            aVar2.d(optJSONObject13.optString("middle_url"));
+            aVar2.e(optJSONObject13.optString("middle_data"));
+            aVar2.f(optJSONObject13.optString("middle_diff_data"));
+            aVar2.g(optJSONObject13.optString("middle_dynamic_creative"));
+            aVar2.a(optJSONObject13.optString("middle_version"));
+            lVar.b(aVar2);
+        }
+        lVar.d(jSONObject.optInt("if_block_lp", 0));
+        lVar.l(jSONObject.optInt("cache_sort", 1));
+        lVar.m(jSONObject.optInt("if_sp_cache", 0));
         return lVar;
     }
 
@@ -256,11 +281,14 @@ public class c {
             return null;
         }
         com.bytedance.sdk.openadsdk.core.d.h hVar = new com.bytedance.sdk.openadsdk.core.d.h();
-        hVar.c(jSONObject.optInt("auto_open", 0));
+        hVar.c(jSONObject.optInt("auto_open", 1));
         hVar.d(jSONObject.optInt("download_mode", 0));
         hVar.e(jSONObject.optInt("auto_control", 0));
+        hVar.i(jSONObject.optInt("auto_control_choose", 0));
+        hVar.j(jSONObject.optInt("auto_control_time", 300));
         hVar.b(jSONObject.optInt("download_type", -1));
         hVar.a(jSONObject.optInt("if_suspend_download", 1));
+        hVar.k(jSONObject.optInt("if_send_click", 0));
         hVar.f(jSONObject.optInt("dl_popup", 1));
         hVar.g(jSONObject.optInt("market_popup", 1));
         hVar.h(jSONObject.optInt("if_pop_lp", 1));
@@ -304,25 +332,25 @@ public class c {
     }
 
     @Nullable
-    private static com.bytedance.sdk.openadsdk.core.d.s h(JSONObject jSONObject) {
+    private static com.bytedance.sdk.openadsdk.core.d.t h(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
-        com.bytedance.sdk.openadsdk.core.d.s sVar = new com.bytedance.sdk.openadsdk.core.d.s();
-        sVar.b(jSONObject.optInt("cover_height"));
-        sVar.c(jSONObject.optInt("cover_width"));
-        sVar.a(jSONObject.optString("resolution"));
-        sVar.a(jSONObject.optLong(TiebaInitialize.LogFields.SIZE));
-        sVar.a(jSONObject.optDouble(AdWebVideoActivityConfig.KEY_VIDEO_DURATION));
-        sVar.b(jSONObject.optString("cover_url"));
-        sVar.c(jSONObject.optString("video_url"));
-        sVar.d(jSONObject.optString("endcard"));
-        sVar.e(jSONObject.optString("playable_download_url"));
-        sVar.f(jSONObject.optString("file_hash"));
-        sVar.d(jSONObject.optInt("if_playable_loading_show", 0));
-        sVar.e(jSONObject.optInt("remove_loading_page_type", 0));
-        sVar.a(jSONObject.optInt("fallback_endcard_judge", 0));
-        return sVar;
+        com.bytedance.sdk.openadsdk.core.d.t tVar = new com.bytedance.sdk.openadsdk.core.d.t();
+        tVar.b(jSONObject.optInt("cover_height"));
+        tVar.c(jSONObject.optInt("cover_width"));
+        tVar.a(jSONObject.optString("resolution"));
+        tVar.a(jSONObject.optLong(TiebaInitialize.LogFields.SIZE));
+        tVar.a(jSONObject.optDouble(AdWebVideoActivityConfig.KEY_VIDEO_DURATION));
+        tVar.b(jSONObject.optString("cover_url"));
+        tVar.c(jSONObject.optString("video_url"));
+        tVar.d(jSONObject.optString("endcard"));
+        tVar.e(jSONObject.optString("playable_download_url"));
+        tVar.f(jSONObject.optString("file_hash"));
+        tVar.d(jSONObject.optInt("if_playable_loading_show", 0));
+        tVar.e(jSONObject.optInt("remove_loading_page_type", 0));
+        tVar.a(jSONObject.optInt("fallback_endcard_judge", 0));
+        return tVar;
     }
 
     private static Map<String, Object> i(JSONObject jSONObject) {
@@ -342,43 +370,43 @@ public class c {
 
     private static boolean a(com.bytedance.sdk.openadsdk.core.d.l lVar) {
         boolean z = lVar != null;
-        if (TextUtils.isEmpty(lVar.T()) || lVar.T().length() <= 1 || !a(lVar.V())) {
+        if (TextUtils.isEmpty(lVar.ag()) || lVar.ag().length() <= 1 || !a(lVar.ai())) {
             return false;
         }
-        switch (lVar.H()) {
+        switch (lVar.T()) {
             case 2:
             case 3:
-                if (TextUtils.isEmpty(lVar.K())) {
+                if (TextUtils.isEmpty(lVar.W())) {
                     z = false;
                     break;
                 }
                 break;
             case 4:
-                if (!a(lVar.U())) {
+                if (!a(lVar.ah())) {
                     z = false;
                     break;
                 }
                 break;
             case 5:
-                if (TextUtils.isEmpty(lVar.N())) {
+                if (TextUtils.isEmpty(lVar.aa())) {
                     z = false;
                     break;
                 }
                 break;
         }
         if (z) {
-            switch (lVar.X()) {
+            switch (lVar.ak()) {
                 case 2:
                 case 3:
                 case 4:
                 case 16:
-                    if (!a(lVar.M())) {
+                    if (!a(lVar.Z())) {
                         return false;
                     }
                     break;
                 case 5:
                 case 15:
-                    if (!a(lVar.F())) {
+                    if (!a(lVar.R())) {
                         return false;
                     }
                     break;
@@ -398,8 +426,8 @@ public class c {
         return gVar.c() == 1 || gVar.c() == 2;
     }
 
-    private static boolean a(com.bytedance.sdk.openadsdk.core.d.s sVar) {
-        return (sVar == null || TextUtils.isEmpty(sVar.h()) || TextUtils.isEmpty(sVar.g())) ? false : true;
+    private static boolean a(com.bytedance.sdk.openadsdk.core.d.t tVar) {
+        return (tVar == null || TextUtils.isEmpty(tVar.i()) || TextUtils.isEmpty(tVar.h())) ? false : true;
     }
 
     private static boolean a(com.bytedance.sdk.openadsdk.core.d.b bVar) {

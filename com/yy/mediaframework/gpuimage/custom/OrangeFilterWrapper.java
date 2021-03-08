@@ -4,7 +4,7 @@ import com.yy.mediaframework.VideoLiveSessionYCloud;
 import com.yy.mediaframework.gpuimage.FilterType;
 import com.yy.mediaframework.gpuimage.util.GLTexture;
 import com.yy.mediaframework.utils.YMFLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class OrangeFilterWrapper {
     public static final String TAG = "OrangeFilterWrapper";
     private VideoLiveSessionYCloud mVideoLiveSessionYCloud;

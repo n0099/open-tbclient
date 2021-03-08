@@ -16,10 +16,8 @@ import java.nio.ByteBuffer;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static final boolean f2310a = true;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f2311b = "video/avc";
+    protected static final boolean f1772a = true;
+    public static final String b = "video/avc";
     protected static final int c = 10000;
     protected int d;
     protected int e;
@@ -112,8 +110,8 @@ public class f {
                     if (!this.j) {
                         this.i = this.g.addTrack(this.f.getOutputFormat());
                         try {
-                            if (!a.f2307b && !a.f2307b) {
-                                a.f2307b = true;
+                            if (!a.b && !a.b) {
+                                a.b = true;
                                 this.g.start();
                             }
                         } catch (Exception e) {

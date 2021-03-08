@@ -1,7 +1,7 @@
 package io.reactivex.internal.util;
 
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public enum ListAddBiConsumer implements io.reactivex.b.c<List, Object, List> {
     INSTANCE;
 

@@ -17,16 +17,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<b> iIy = new ArrayList<>();
-    private f nzu = new f();
+    private ArrayList<b> iKh = new ArrayList<>();
+    private f nBz = new f();
 
     public void a(b bVar) {
         if (bVar != null) {
-            this.iIy.add(bVar);
+            this.iKh.add(bVar);
         }
-        if (this.nzu != null && bVar != null && bVar.getClass().getAnnotation(com.baidu.b.a.a.class) != null) {
+        if (this.nBz != null && bVar != null && bVar.getClass().getAnnotation(com.baidu.b.a.a.class) != null) {
             try {
-                this.nzu.a((com.baidu.tieba.tbadkCore.e.a.a) Class.forName("com.baidu.tieba.h5power." + bVar.getClass().getSimpleName() + com.baidu.tieba.tbadkCore.e.a.a.PROXY_CLASS_NAME_SUFFIX).getConstructor(bVar.getClass()).newInstance(bVar));
+                this.nBz.a((com.baidu.tieba.tbadkCore.e.a.a) Class.forName("com.baidu.tieba.h5power." + bVar.getClass().getSimpleName() + com.baidu.tieba.tbadkCore.e.a.a.PROXY_CLASS_NAME_SUFFIX).getConstructor(bVar.getClass()).newInstance(bVar));
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -35,12 +35,12 @@ public class a {
 
     public void b(b bVar) {
         if (bVar != null) {
-            this.iIy.remove(bVar);
+            this.iKh.remove(bVar);
         }
     }
 
-    public void dOh() {
-        this.iIy.clear();
+    public void dOq() {
+        this.iKh.clear();
     }
 
     public boolean a(WebView webView, String str, JsPromptResult jsPromptResult) {
@@ -70,42 +70,42 @@ public class a {
     }
 
     public void a(WebView webView, String str, @Nullable HashMap hashMap) {
-        if (this.nzu != null) {
-            this.nzu.a(webView, this.nzu.g(str, hashMap));
+        if (this.nBz != null) {
+            this.nBz.a(webView, this.nBz.g(str, hashMap));
         }
     }
 
     private void b(WebView webView, String str) {
-        if (this.nzu != null) {
+        if (this.nBz != null) {
             e eVar = new e();
             com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-            String Ty = g.Ty(str);
-            eVar.setAction(Ty);
-            String Tz = g.Tz(str);
-            eVar.bW(Tz);
-            String TA = g.TA(str);
-            cVar.Tt(TA);
-            if (au.isEmpty(Ty) || au.isEmpty(Tz) || au.isEmpty(TA)) {
-                cVar.JM(101);
+            String TF = g.TF(str);
+            eVar.setAction(TF);
+            String TG = g.TG(str);
+            eVar.ca(TG);
+            String TH = g.TH(str);
+            cVar.TA(TH);
+            if (au.isEmpty(TF) || au.isEmpty(TG) || au.isEmpty(TH)) {
+                cVar.JR(101);
             }
             try {
-                eVar.eL(g.TD(str));
+                eVar.eO(g.TK(str));
             } catch (JSONException e) {
-                eVar.eL(new JSONObject());
-                cVar.JM(101);
+                eVar.eO(new JSONObject());
+                cVar.JR(101);
             }
-            eVar.Tw(g.TB(str));
-            eVar.Tx(g.TC(str));
-            com.baidu.tieba.tbadkCore.e.a.c a2 = this.nzu.a(eVar, cVar);
-            if (a2.dOm()) {
-                this.nzu.a(webView, a2);
+            eVar.TD(g.TI(str));
+            eVar.TE(g.TJ(str));
+            com.baidu.tieba.tbadkCore.e.a.c a2 = this.nBz.a(eVar, cVar);
+            if (a2.dOv()) {
+                this.nBz.a(webView, a2);
             }
         }
     }
 
     private boolean b(String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        if (y.getCount(this.iIy) > 0) {
-            Iterator<b> it = this.iIy.iterator();
+        if (y.getCount(this.iKh) > 0) {
+            Iterator<b> it = this.iKh.iterator();
             while (it.hasNext()) {
                 b next = it.next();
                 if (next != null && next.dealJsInterface(str, str2, str3, jsPromptResult)) {

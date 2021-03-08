@@ -1,74 +1,74 @@
 package com.baidu.swan.pms.c.d;
 /* loaded from: classes3.dex */
 public class c extends g {
-    private String evc;
-    private long evd;
-    private long eve;
-    private String evf;
-    private String evg;
-    private int evh;
+    private String ewD;
+    private long ewE;
+    private long ewF;
+    private String ewG;
+    private String ewH;
+    private int ewI;
     private String mPath;
 
     public c(String str, int i) {
         super(i);
-        this.evd = -1L;
-        this.eve = -1L;
-        this.evh = -1;
-        this.evc = str;
+        this.ewE = -1L;
+        this.ewF = -1L;
+        this.ewI = -1;
+        this.ewD = str;
     }
 
-    public c lW(int i) {
-        this.evh = i;
+    public c lX(int i) {
+        this.ewI = i;
         return this;
     }
 
-    public int bdn() {
-        return this.evh;
+    public int bdp() {
+        return this.ewI;
     }
 
-    public c yd(String str) {
-        this.evf = str;
+    public c yk(String str) {
+        this.ewG = str;
         return this;
     }
 
     public c dy(long j) {
-        this.evd = j;
+        this.ewE = j;
         return this;
     }
 
     public c dz(long j) {
-        this.eve = j;
+        this.ewF = j;
         return this;
     }
 
-    public c ye(String str) {
-        this.evg = str;
+    public c yl(String str) {
+        this.ewH = str;
         return this;
     }
 
-    public c yf(String str) {
+    public c ym(String str) {
         this.mPath = str;
         return this;
     }
 
     public String getBundleId() {
-        return this.evc;
+        return this.ewD;
     }
 
-    public long bdl() {
-        return this.evd;
+    public long bdn() {
+        return this.ewE;
     }
 
-    public long bdm() {
-        return this.eve;
+    public long bdo() {
+        return this.ewF;
     }
 
-    public String bdo() {
-        return this.evf;
+    public String bdq() {
+        return this.ewG;
     }
 
-    public String bdp() {
-        return this.evg;
+    public String bdr() {
+        return this.ewH;
     }
 
     public String getPath() {

@@ -1,7 +1,7 @@
 package com.baidu.swan.games.w.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
-    public static String xq(String str) {
+    public static String xx(String str) {
         return String.format("%s ok", str);
     }
 

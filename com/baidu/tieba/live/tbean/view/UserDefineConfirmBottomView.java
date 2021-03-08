@@ -10,7 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class UserDefineConfirmBottomView extends LinearLayout {
     private Context mContext;
     private View.OnClickListener mOnClickListener;

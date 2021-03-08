@@ -13,10 +13,8 @@ import com.kwad.sdk.utils.ao;
 public class DrawDownloadProgressBar extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f9715a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private TextProgressBar f9716b;
+    private Context f6431a;
+    private TextProgressBar b;
     private View c;
 
     public DrawDownloadProgressBar(@NonNull Context context) {
@@ -35,9 +33,9 @@ public class DrawDownloadProgressBar extends FrameLayout {
     }
 
     private void a(Context context) {
-        this.f9715a = context;
-        inflate(this.f9715a, R.layout.ksad_draw_download_bar, this);
-        this.f9716b = (TextProgressBar) findViewById(R.id.ksad_download_progress);
+        this.f6431a = context;
+        inflate(this.f6431a, R.layout.ksad_draw_download_bar, this);
+        this.b = (TextProgressBar) findViewById(R.id.ksad_download_progress);
         this.c = findViewById(R.id.ksad_download_progress_cover);
         this.c.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.draw.view.DrawDownloadProgressBar.1
             @Override // android.view.View.OnClickListener
@@ -53,18 +51,18 @@ public class DrawDownloadProgressBar extends FrameLayout {
         } else {
             this.c.setVisibility(8);
         }
-        this.f9716b.a(str, i);
+        this.b.a(str, i);
     }
 
     public int getMax() {
-        return this.f9716b.getMax();
+        return this.b.getMax();
     }
 
     public void setTextColor(int i) {
-        this.f9716b.setTextColor(i);
+        this.b.setTextColor(i);
     }
 
     public void setTextSize(int i) {
-        this.f9716b.setTextDimen(ao.a(getContext(), i));
+        this.b.setTextDimen(ao.a(getContext(), i));
     }
 }

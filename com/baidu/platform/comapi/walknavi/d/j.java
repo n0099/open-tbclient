@@ -5,26 +5,26 @@ import com.baidu.mapapi.walknavi.model.RouteGuideKind;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f4264a = false;
+    private static boolean f2948a = false;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final d f4265a = new b();
+        static final d f2949a = new b();
     }
 
     public static d a() {
-        return a.f4265a;
+        return a.f2949a;
     }
 
     public static boolean b() {
-        return f4264a;
+        return f2948a;
     }
 
     public static void a(boolean z) {
-        f4264a = z;
+        f2948a = z;
     }
 
     /* loaded from: classes4.dex */
@@ -79,7 +79,7 @@ public class j {
             if (e.c().b("helpless")) {
                 e.c().k();
                 e.c().a("\nlocal token = dfk7fghdsf7d33e\nlocal pod_name = \"helpless\"\n\nfunction run()\nlocal cfg = an.ActionPriorityConfig:new()\ncfg.forward_logic = 1\ncfg.backward_logic = 0\ncurrent_scene:set_event_handler(0, 0)\nlocal param = an.GpbAnimationParam:new()\nparam._speed = 1.0\nparam._repeat_count = -1\nparam._name = pod_name\nlocal id_play_pod = pod_node:play_gpb_animation(param, cfg)\nif id_play_pod == -1 then\nlocal mapData = an.MapData:new()\nmapData:put_string(\"action_type\", \"animation_failed\")\nmapData:put_string(\"token\", token)\nlua_handler:send_message_tosdk(mapData)\nreturn\nend\nlocal podFinishedHandlerId = lua_handler:register_handle(\"onHelplessPlayPodFinished\")\npod_node:set_action_completion_handler(id_play_pod, podFinishedHandlerId)\nend\nrun()\nfunction onHelplessPlayPodFinished(state, action_id)\n    local mapData = an.MapData:new()\n    mapData:put_string(\"action_id\", action_id)\n    mapData:put_string(\"action_type\", \"animation_end\")\n    mapData:put_string(\"action_name\", \"helpless\")\n    mapData:put_string(\"token\", token)\n    mapData:put_int(\"state\", state)\n    lua_handler:send_message_tosdk(mapData)\nend\n", "helpless");
-                boolean unused = j.f4264a = true;
+                boolean unused = j.f2948a = true;
             }
         }
 

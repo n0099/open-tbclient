@@ -7,16 +7,14 @@ import com.ksad.lottie.model.a.l;
 public class g implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f8077a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final com.ksad.lottie.model.a.b f8078b;
+    private final String f5391a;
+    private final com.ksad.lottie.model.a.b b;
     private final com.ksad.lottie.model.a.b c;
     private final l d;
 
     public g(String str, com.ksad.lottie.model.a.b bVar, com.ksad.lottie.model.a.b bVar2, l lVar) {
-        this.f8077a = str;
-        this.f8078b = bVar;
+        this.f5391a = str;
+        this.b = bVar;
         this.c = bVar2;
         this.d = lVar;
     }
@@ -28,11 +26,11 @@ public class g implements b {
     }
 
     public String a() {
-        return this.f8077a;
+        return this.f5391a;
     }
 
     public com.ksad.lottie.model.a.b b() {
-        return this.f8078b;
+        return this.b;
     }
 
     public com.ksad.lottie.model.a.b c() {

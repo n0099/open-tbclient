@@ -9,67 +9,67 @@ import tbclient.AdInfo;
 import tbclient.Media;
 /* loaded from: classes2.dex */
 public class c extends BaseCardInfo {
-    public static final BdUniqueId jmN = BdUniqueId.gen();
-    private String eLu;
-    private String eLv;
-    public boolean jbD = false;
-    private String jmO;
-    private String jmP;
-    private List<MediaData> jmQ;
-    private int jmR;
+    public static final BdUniqueId jow = BdUniqueId.gen();
+    private String eMV;
+    private String eMW;
+    public boolean jdm = false;
+    private int joA;
+    private String jox;
+    private String joy;
+    private List<MediaData> joz;
 
     public void a(AdInfo adInfo) {
         if (adInfo != null) {
-            this.jmO = adInfo.portrait;
-            this.eLu = adInfo.ad_name;
-            this.jmP = adInfo.ad_desc;
-            this.eLv = adInfo.ad_url;
-            this.jmR = adInfo.show_rule.intValue();
+            this.jox = adInfo.portrait;
+            this.eMV = adInfo.ad_name;
+            this.joy = adInfo.ad_desc;
+            this.eMW = adInfo.ad_url;
+            this.joA = adInfo.show_rule.intValue();
             if (adInfo.media != null) {
-                this.jmQ = new ArrayList();
+                this.joz = new ArrayList();
                 for (Media media : adInfo.media) {
                     MediaData mediaData = new MediaData();
                     mediaData.parserProtobuf(media);
-                    this.jmQ.add(mediaData);
+                    this.joz.add(mediaData);
                 }
             }
         }
     }
 
-    public int cFg() {
-        return this.jmR;
+    public int cFm() {
+        return this.joA;
     }
 
-    public String cFh() {
-        return this.jmO;
+    public String cFn() {
+        return this.jox;
     }
 
-    public String cFi() {
-        return this.eLu;
+    public String cFo() {
+        return this.eMV;
     }
 
-    public String cFj() {
-        return this.jmP;
+    public String cFp() {
+        return this.joy;
     }
 
-    public String bEY() {
-        return this.eLv;
+    public String bFc() {
+        return this.eMW;
     }
 
-    public List<MediaData> cFk() {
-        return this.jmQ;
+    public List<MediaData> cFq() {
+        return this.joz;
     }
 
     public void qT(boolean z) {
-        this.jbD = z;
+        this.jdm = z;
     }
 
-    public boolean cFl() {
-        return this.jbD;
+    public boolean cFr() {
+        return this.jdm;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return jmN;
+        return jow;
     }
 }

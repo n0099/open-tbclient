@@ -17,7 +17,7 @@ import com.baidu.tbadk.mutiprocess.competetask.CompeteTaskEvent;
 import com.baidu.tbadk.mutiprocess.g;
 /* loaded from: classes.dex */
 public class b {
-    private h eFS;
+    private h eHt;
     private a mData;
 
     public void a(a aVar) {
@@ -26,31 +26,31 @@ public class b {
 
     public void show() {
         if (this.mData != null) {
-            if (this.mData.showType == a.eFv) {
-                this.eFS = h.b(TbadkCoreApplication.getInst().getCurrentActivity(), this.mData).bqM();
-            } else if (this.mData.showType == a.eFw) {
+            if (this.mData.showType == a.eGW) {
+                this.eHt = h.b(TbadkCoreApplication.getInst().getCurrentActivity(), this.mData).bqN();
+            } else if (this.mData.showType == a.eGX) {
                 Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
                 com.baidu.tbadk.core.business.c cVar = new com.baidu.tbadk.core.business.c(currentActivity);
                 cVar.a(currentActivity, this.mData);
                 cVar.show();
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                com.baidu.tbadk.core.business.b.blh().putInt("business_count_hint" + currentAccount + this.mData.activityId, com.baidu.tbadk.core.business.b.blh().getInt("business_count_hint" + currentAccount + this.mData.activityId) - 1);
-            } else if (this.mData.showType == a.eFx) {
-                if (this.mData.eFC == a.eFA) {
+                com.baidu.tbadk.core.business.b.blj().putInt("business_count_hint" + currentAccount + this.mData.activityId, com.baidu.tbadk.core.business.b.blj().getInt("business_count_hint" + currentAccount + this.mData.activityId) - 1);
+            } else if (this.mData.showType == a.eGY) {
+                if (this.mData.eHd == a.eHb) {
                     if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), this.mData.schema) && !au.isEmpty(this.mData.url)) {
                         dealJump(this.mData.url + "?page_type=open_full_screen_opacity_web_page");
                     }
-                } else if (this.mData.eFC == a.eFB && !au.isEmpty(this.mData.url)) {
+                } else if (this.mData.eHd == a.eHc && !au.isEmpty(this.mData.url)) {
                     dealJump(this.mData.url + "?page_type=open_full_screen_opacity_web_page");
                 }
-            } else if (this.mData.showType == a.eFy && !TextUtils.isEmpty(this.mData.message)) {
+            } else if (this.mData.showType == a.eGZ && !TextUtils.isEmpty(this.mData.message)) {
                 CompleteTaskToastData completeTaskToastData = new CompleteTaskToastData();
                 completeTaskToastData.activityId = this.mData.activityId;
                 completeTaskToastData.missionId = this.mData.missionId;
                 completeTaskToastData.duration = this.mData.duration;
                 completeTaskToastData.message = this.mData.message;
                 completeTaskToastData.url = this.mData.url;
-                completeTaskToastData.pageId = com.baidu.tbadk.BdToken.c.bhn().bhx();
+                completeTaskToastData.pageId = com.baidu.tbadk.BdToken.c.bhp().bhz();
                 CompeteTaskEvent competeTaskEvent = new CompeteTaskEvent();
                 competeTaskEvent.taskToastData = completeTaskToastData;
                 g.publishEvent(competeTaskEvent);
@@ -68,9 +68,9 @@ public class b {
     }
 
     public void clearData() {
-        if (this.eFS != null) {
-            this.eFS.hide();
-            this.eFS = null;
+        if (this.eHt != null) {
+            this.eHt.hide();
+            this.eHt = null;
         }
     }
 

@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.webkit.internal.WebResourceRequestAdapter;
 import androidx.webkit.internal.WebViewFeatureInternal;
 import androidx.webkit.internal.WebViewGlueCommunicator;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public class WebResourceRequestCompat {
     private WebResourceRequestCompat() {
     }

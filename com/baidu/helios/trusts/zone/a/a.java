@@ -23,33 +23,33 @@ import java.util.HashSet;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private static final String[] aub = {"f0fb772cce0da4ed791213b800defea286494ab98d00e1101cbf78a35e70ec4b"};
-    private a.C0133a atY;
-    private ZipFile atZ;
-    private PackageManager aua;
+    private static final String[] avB = {"f0fb772cce0da4ed791213b800defea286494ab98d00e1101cbf78a35e70ec4b"};
+    private PackageManager avA;
+    private a.C0139a avy;
+    private ZipFile avz;
     private String k;
     private Context l;
 
     /* renamed from: com.baidu.helios.trusts.zone.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    static class C0143a {
+    /* loaded from: classes4.dex */
+    static class C0149a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f2467a;
+        public long f1864a;
 
-        C0143a() {
+        C0149a() {
         }
 
-        public static C0143a a(a aVar) {
+        public static C0149a a(a aVar) {
             try {
                 String a2 = aVar.a("info");
                 if (!TextUtils.isEmpty(a2)) {
                     JSONObject jSONObject = new JSONObject(a2);
-                    C0143a c0143a = new C0143a();
-                    c0143a.f2467a = jSONObject.getLong("version");
-                    return c0143a;
+                    C0149a c0149a = new C0149a();
+                    c0149a.f1864a = jSONObject.getLong("version");
+                    return c0149a;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -60,19 +60,19 @@ public class a {
 
     private InputStream b(String str) {
         try {
-            return this.atZ.getInputStream(new ZipEntry(str));
+            return this.avz.getInputStream(new ZipEntry(str));
         } catch (Exception e) {
             throw new TrustSubject.ConfigNotFoundException(e);
         }
     }
 
-    private File h() {
-        return this.atY.getFile("c.dat");
+    private File vz() {
+        return this.avy.getFile("c.dat");
     }
 
     public long a() {
         try {
-            Bundle bundle = this.aua.getPackageInfo(this.k, 128).applicationInfo.metaData;
+            Bundle bundle = this.avA.getPackageInfo(this.k, 128).applicationInfo.metaData;
             if (bundle != null) {
                 String string = bundle.getString("com.baidu.helios.tc.qver");
                 if (!TextUtils.isEmpty(string) && string.startsWith("v")) {
@@ -94,15 +94,15 @@ public class a {
                 throw new TrustSubject.ConfigNotFoundException(e);
             }
         } finally {
-            c.c(inputStream);
+            c.b(inputStream);
         }
     }
 
-    public void a(String str, Context context, a.C0133a c0133a) {
+    public void a(String str, Context context, a.C0139a c0139a) {
         this.k = str;
         this.l = context;
-        this.atY = c0133a;
-        this.aua = context.getPackageManager();
+        this.avy = c0139a;
+        this.avA = context.getPackageManager();
     }
 
     public int b() {
@@ -113,11 +113,11 @@ public class a {
         FileOutputStream fileOutputStream2;
         try {
             AssetManager assets = this.l.createPackageContext(this.k, 0).getAssets();
-            this.atY.vi();
-            File h = h();
+            this.avy.vl();
+            File vz = vz();
             try {
-                h.delete();
-                file = File.createTempFile("cfg", ".cfgtmp", h.getParentFile());
+                vz.delete();
+                file = File.createTempFile("cfg", ".cfgtmp", vz.getParentFile());
                 try {
                     fileOutputStream = new FileOutputStream(file);
                     try {
@@ -129,8 +129,8 @@ public class a {
                                 try {
                                     X509Certificate[][] m = b.m(file);
                                     if (m.length == 0) {
-                                        c.c(inputStream);
-                                        c.c(fileOutputStream);
+                                        c.b(inputStream);
+                                        c.b(fileOutputStream);
                                         if (file != null) {
                                             try {
                                                 file.delete();
@@ -144,16 +144,16 @@ public class a {
                                         if (x509CertificateArr2 != null) {
                                             for (X509Certificate x509Certificate : x509CertificateArr2) {
                                                 if (x509Certificate != null) {
-                                                    hashSet.add(f.z(x509Certificate.getSignature()));
+                                                    hashSet.add(f.B(x509Certificate.getSignature()));
                                                 }
                                             }
                                         }
                                     }
                                     HashSet hashSet2 = new HashSet();
-                                    Collections.addAll(hashSet2, aub);
+                                    Collections.addAll(hashSet2, avB);
                                     if (!hashSet2.equals(hashSet)) {
-                                        c.c(inputStream);
-                                        c.c(fileOutputStream);
+                                        c.b(inputStream);
+                                        c.b(fileOutputStream);
                                         if (file != null) {
                                             try {
                                                 file.delete();
@@ -162,9 +162,9 @@ public class a {
                                         }
                                         return 3;
                                     }
-                                    file.renameTo(h);
-                                    c.c(inputStream);
-                                    c.c(fileOutputStream);
+                                    file.renameTo(vz);
+                                    c.b(inputStream);
+                                    c.b(fileOutputStream);
                                     if (file != null) {
                                         try {
                                             file.delete();
@@ -173,8 +173,8 @@ public class a {
                                     }
                                     return 0;
                                 } catch (Exception e4) {
-                                    c.c(inputStream);
-                                    c.c(fileOutputStream);
+                                    c.b(inputStream);
+                                    c.b(fileOutputStream);
                                     if (file != null) {
                                         try {
                                             file.delete();
@@ -185,8 +185,8 @@ public class a {
                                 }
                             } catch (Throwable th) {
                                 th = th;
-                                c.c(inputStream);
-                                c.c(fileOutputStream);
+                                c.b(inputStream);
+                                c.b(fileOutputStream);
                                 if (file != null) {
                                     try {
                                         file.delete();
@@ -198,8 +198,8 @@ public class a {
                         } catch (FileNotFoundException e7) {
                             file2 = file;
                             fileOutputStream2 = fileOutputStream;
-                            c.c(inputStream);
-                            c.c(fileOutputStream2);
+                            c.b(inputStream);
+                            c.b(fileOutputStream2);
                             if (file2 != null) {
                                 try {
                                     file2.delete();
@@ -210,8 +210,8 @@ public class a {
                             }
                             return 5;
                         } catch (IOException e9) {
-                            c.c(inputStream);
-                            c.c(fileOutputStream);
+                            c.b(inputStream);
+                            c.b(fileOutputStream);
                             if (file != null) {
                                 try {
                                     file.delete();
@@ -222,8 +222,8 @@ public class a {
                             }
                             return 2;
                         } catch (Exception e11) {
-                            c.c(inputStream);
-                            c.c(fileOutputStream);
+                            c.b(inputStream);
+                            c.b(fileOutputStream);
                             if (file != null) {
                                 try {
                                     file.delete();
@@ -285,11 +285,11 @@ public class a {
     }
 
     public boolean c() {
-        return h().delete();
+        return vz().delete();
     }
 
     public boolean d() {
-        File[] listFiles = this.atY.vj().listFiles(new FilenameFilter() { // from class: com.baidu.helios.trusts.zone.a.a.1
+        File[] listFiles = this.avy.vm().listFiles(new FilenameFilter() { // from class: com.baidu.helios.trusts.zone.a.a.1
             @Override // java.io.FilenameFilter
             public boolean accept(File file, String str) {
                 return str.endsWith(".cfgtmp");
@@ -307,13 +307,13 @@ public class a {
     }
 
     public boolean e() {
-        if (this.atZ != null) {
+        if (this.avz != null) {
             return true;
         }
-        File h = h();
-        if (h.exists()) {
+        File vz = vz();
+        if (vz.exists()) {
             try {
-                this.atZ = new ZipFile(h);
+                this.avz = new ZipFile(vz);
                 return true;
             } catch (IOException e) {
                 e.printStackTrace();
@@ -323,18 +323,18 @@ public class a {
     }
 
     public boolean f() {
-        if (this.atZ != null) {
-            c.a(this.atZ);
-            this.atZ = null;
+        if (this.avz != null) {
+            c.a(this.avz);
+            this.avz = null;
             return true;
         }
         return false;
     }
 
     public long g() {
-        C0143a a2 = C0143a.a(this);
+        C0149a a2 = C0149a.a(this);
         if (a2 != null) {
-            return a2.f2467a;
+            return a2.f1864a;
         }
         return 0L;
     }

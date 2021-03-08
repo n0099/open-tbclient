@@ -10,59 +10,57 @@ import android.provider.MediaStore;
 import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.sapi2.shell.listener.IScreenShotListener;
 import com.baidu.sapi2.utils.Log;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static final String g = "screen_shot_observer";
     private static final String[] h = {StatisticConstants.SCREENSHOT, "screen_shot", "screen-shot", "screen shot", "screencapture", "screen_capture", "screen-capture", "screen capture", "screencap", "screen_cap", "screen-cap", "screen cap"};
     private static final String[] i = {"_data", "datetaken"};
 
     /* renamed from: a  reason: collision with root package name */
-    private ContentResolver f5076a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private IScreenShotListener f5077b;
+    private ContentResolver f3429a;
+    private IScreenShotListener b;
     private HandlerThread c;
     private Handler d;
-    private C0330a e;
-    private C0330a f;
+    private C0336a e;
+    private C0336a f;
 
     /* renamed from: com.baidu.sapi2.shell.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
-    private class C0330a extends ContentObserver {
+    /* loaded from: classes3.dex */
+    private class C0336a extends ContentObserver {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Uri f5078a;
+        private final Uri f3430a;
 
-        public C0330a(Uri uri, Handler handler) {
+        public C0336a(Uri uri, Handler handler) {
             super(handler);
-            this.f5078a = uri;
+            this.f3430a = uri;
         }
 
         @Override // android.database.ContentObserver
         public void onChange(boolean z) {
             super.onChange(z);
-            a.this.a(this.f5078a);
+            a.this.a(this.f3430a);
         }
     }
 
     public void b() {
-        this.f5076a.unregisterContentObserver(this.e);
-        this.f5076a.unregisterContentObserver(this.f);
+        this.f3429a.unregisterContentObserver(this.e);
+        this.f3429a.unregisterContentObserver(this.f);
     }
 
     public void a(ContentResolver contentResolver, IScreenShotListener iScreenShotListener) {
-        this.f5076a = contentResolver;
-        this.f5077b = iScreenShotListener;
+        this.f3429a = contentResolver;
+        this.b = iScreenShotListener;
         this.c = new HandlerThread(g);
         this.c.start();
         this.d = new Handler(this.c.getLooper());
-        this.e = new C0330a(MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.d);
-        this.f = new C0330a(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.d);
+        this.e = new C0336a(MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.d);
+        this.f = new C0336a(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.d);
     }
 
     public void a() {
-        this.f5076a.registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, false, this.e);
-        this.f5076a.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, false, this.f);
+        this.f3429a.registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, false, this.e);
+        this.f3429a.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, false, this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -73,7 +71,7 @@ public class a {
         Cursor cursor3;
         try {
             try {
-                cursor2 = this.f5076a.query(uri, i, null, null, "date_added desc limit 1");
+                cursor2 = this.f3429a.query(uri, i, null, null, "date_added desc limit 1");
             } catch (Throwable th2) {
                 th = th2;
                 cursor = cursor3;
@@ -129,7 +127,7 @@ public class a {
                 Log.e(e);
             }
         }
-        if (!a(str) || (iScreenShotListener = this.f5077b) == null) {
+        if (!a(str) || (iScreenShotListener = this.b) == null) {
             return;
         }
         iScreenShotListener.onScreenShot();

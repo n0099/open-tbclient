@@ -83,10 +83,8 @@ public final class BDLocation implements Parcelable {
     private int Q;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2516a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f2517b;
+    private int f1895a;
+    private String b;
     private double c;
     private double d;
     private boolean e;
@@ -113,8 +111,8 @@ public final class BDLocation implements Parcelable {
     private int z;
 
     public BDLocation() {
-        this.f2516a = 0;
-        this.f2517b = null;
+        this.f1895a = 0;
+        this.b = null;
         this.c = Double.MIN_VALUE;
         this.d = Double.MIN_VALUE;
         this.e = false;
@@ -158,8 +156,8 @@ public final class BDLocation implements Parcelable {
     }
 
     private BDLocation(Parcel parcel) {
-        this.f2516a = 0;
-        this.f2517b = null;
+        this.f1895a = 0;
+        this.b = null;
         this.c = Double.MIN_VALUE;
         this.d = Double.MIN_VALUE;
         this.e = false;
@@ -200,8 +198,8 @@ public final class BDLocation implements Parcelable {
         this.O = new Bundle();
         this.P = 0;
         this.Q = 0;
-        this.f2516a = parcel.readInt();
-        this.f2517b = parcel.readString();
+        this.f1895a = parcel.readInt();
+        this.b = parcel.readString();
         this.c = parcel.readDouble();
         this.d = parcel.readDouble();
         this.f = parcel.readDouble();
@@ -270,8 +268,8 @@ public final class BDLocation implements Parcelable {
 
     public BDLocation(BDLocation bDLocation) {
         int i = 0;
-        this.f2516a = 0;
-        this.f2517b = null;
+        this.f1895a = 0;
+        this.b = null;
         this.c = Double.MIN_VALUE;
         this.d = Double.MIN_VALUE;
         this.e = false;
@@ -312,8 +310,8 @@ public final class BDLocation implements Parcelable {
         this.O = new Bundle();
         this.P = 0;
         this.Q = 0;
-        this.f2516a = bDLocation.f2516a;
-        this.f2517b = bDLocation.f2517b;
+        this.f1895a = bDLocation.f1895a;
+        this.b = bDLocation.b;
         this.c = bDLocation.c;
         this.d = bDLocation.d;
         this.e = bDLocation.e;
@@ -373,8 +371,8 @@ public final class BDLocation implements Parcelable {
 
     public BDLocation(String str) {
         JSONObject jSONObject;
-        this.f2516a = 0;
-        this.f2517b = null;
+        this.f1895a = 0;
+        this.b = null;
         this.c = Double.MIN_VALUE;
         this.d = Double.MIN_VALUE;
         this.e = false;
@@ -653,12 +651,12 @@ public final class BDLocation implements Parcelable {
                 }
             } catch (Exception e8) {
                 e8.printStackTrace();
-                this.f2516a = 0;
+                this.f1895a = 0;
                 this.o = false;
             }
         } catch (Error e9) {
             e9.printStackTrace();
-            this.f2516a = 0;
+            this.f1895a = 0;
             this.o = false;
         }
     }
@@ -784,7 +782,7 @@ public final class BDLocation implements Parcelable {
     }
 
     public int getLocType() {
-        return this.f2516a;
+        return this.f1895a;
     }
 
     public String getLocTypeDescription() {
@@ -854,7 +852,7 @@ public final class BDLocation implements Parcelable {
     }
 
     public String getTime() {
-        return this.f2517b;
+        return this.b;
     }
 
     public int getUserIndoorState() {
@@ -983,7 +981,7 @@ public final class BDLocation implements Parcelable {
     }
 
     public void setLocType(int i) {
-        this.f2516a = i;
+        this.f1895a = i;
         switch (i) {
             case 61:
                 setLocTypeDescription("GPS location successful!");
@@ -1075,7 +1073,7 @@ public final class BDLocation implements Parcelable {
     }
 
     public void setTime(String str) {
-        this.f2517b = str;
+        this.b = str;
         setLocationID(j.a(str));
     }
 
@@ -1085,8 +1083,8 @@ public final class BDLocation implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f2516a);
-        parcel.writeString(this.f2517b);
+        parcel.writeInt(this.f1895a);
+        parcel.writeString(this.b);
         parcel.writeDouble(this.c);
         parcel.writeDouble(this.d);
         parcel.writeDouble(this.f);

@@ -4,7 +4,7 @@ import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class l {
     private static char[] ye = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     private static MessageDigest yf;
@@ -18,9 +18,9 @@ public class l {
         }
     }
 
-    private static void a(byte b2, StringBuffer stringBuffer) {
-        char c = ye[(b2 & 240) >> 4];
-        char c2 = ye[b2 & 15];
+    private static void a(byte b, StringBuffer stringBuffer) {
+        char c = ye[(b & 240) >> 4];
+        char c2 = ye[b & 15];
         stringBuffer.append(c);
         stringBuffer.append(c2);
     }
@@ -43,8 +43,8 @@ public class l {
             }
             byte[] digest = messageDigest.digest(bArr);
             StringBuffer stringBuffer = new StringBuffer();
-            for (byte b2 : digest) {
-                int i2 = b2 & 255;
+            for (byte b : digest) {
+                int i2 = b & 255;
                 if (i2 < 16) {
                     stringBuffer.append("0");
                 }

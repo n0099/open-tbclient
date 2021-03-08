@@ -7,11 +7,11 @@ import java.net.URL;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
 public final class q implements Runnable {
-    final /* synthetic */ Context aqM;
+    final /* synthetic */ Context asl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(Context context) {
-        this.aqM = context;
+        this.asl = context;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:36:0x00b8 A[Catch: Exception -> 0x00bc, TRY_LEAVE, TryCatch #3 {Exception -> 0x00bc, blocks: (B:34:0x00b3, B:36:0x00b8), top: B:53:0x00b3, outer: #9 }] */
@@ -27,8 +27,8 @@ public final class q implements Runnable {
         Exception e;
         try {
             try {
-                String uu = g.uu();
-                com.baidu.crabsdk.c.a.v("sync json is " + uu);
+                String Y = g.Y();
+                com.baidu.crabsdk.c.a.v("sync json is " + Y);
                 HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(com.baidu.crabsdk.a.c()).openConnection();
                 try {
                     httpURLConnection2.setRequestMethod("POST");
@@ -50,14 +50,14 @@ public final class q implements Runnable {
                     dataOutputStream = null;
                 }
                 try {
-                    dataOutputStream.writeBytes(uu);
+                    dataOutputStream.writeBytes(Y);
                     dataOutputStream.flush();
                     dataOutputStream.close();
                     if (httpURLConnection2.getResponseCode() == 200) {
                         com.baidu.crabsdk.b.n.clear();
-                        com.baidu.crabsdk.c.a.ds("#### ^@^ sync ok!");
+                        com.baidu.crabsdk.c.a.dw("#### ^@^ sync ok!");
                     } else {
-                        com.baidu.crabsdk.c.a.ds("#### T^T sync failed!");
+                        com.baidu.crabsdk.c.a.dw("#### T^T sync failed!");
                     }
                     httpURLConnection2.disconnect();
                     try {

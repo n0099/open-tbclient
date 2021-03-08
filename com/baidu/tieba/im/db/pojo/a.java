@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.db.pojo;
 /* loaded from: classes.dex */
 public class a {
-    private long cZf;
+    private long daH;
     private String forumName;
     private String gid;
     private String groupHead;
@@ -24,11 +24,11 @@ public class a {
         this.unReadCount = i;
     }
 
-    public String cVY() {
+    public String cWf() {
         return this.groupHead;
     }
 
-    public void MU(String str) {
+    public void Na(String str) {
         this.groupHead = str;
     }
 
@@ -48,11 +48,11 @@ public class a {
         this.userType = i;
     }
 
-    public long cUZ() {
-        return this.cZf;
+    public long cVg() {
+        return this.daH;
     }
 
     public void gP(long j) {
-        this.cZf = j;
+        this.daH = j;
     }
 }

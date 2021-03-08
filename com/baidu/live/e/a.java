@@ -4,21 +4,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.live.data.ab;
 import com.baidu.live.im.d;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
 
     /* renamed from: com.baidu.live.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0167a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0173a {
     }
 
-    boolean Aq();
+    boolean At();
 
-    void Ar();
+    void Au();
 
-    void As();
+    void Av();
 
-    void a(InterfaceC0167a interfaceC0167a);
+    void a(InterfaceC0173a interfaceC0173a);
 
     void a(d dVar, boolean z, boolean z2);
 
@@ -28,7 +28,7 @@ public interface a {
 
     void c(ViewGroup viewGroup, ab abVar);
 
-    void cu(int i);
+    void cv(int i);
 
     View getRootView();
 

@@ -26,49 +26,49 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
-    private RelativeLayout ikz;
-    private int loX;
-    private GridView lpA;
-    private LinearLayout lpB;
-    private TextView lpC;
-    private NoNetworkView lpD;
-    private TextView lpE;
-    private c lpF;
-    private e lpG;
-    private f.g lpH;
-    private f.b lpI;
-    private f.c lpJ;
-    private f.a lpK;
-    private String lpL;
-    private String lpM;
-    private String lpN;
-    private long lpO;
-    private Boolean lpa;
-    private int lpk;
-    private HListView lpw;
-    private ImageView lpx;
-    private TextView lpy;
-    private TextView lpz;
+    private RelativeLayout imj;
+    private int lqZ;
+    private TextView lrA;
+    private TextView lrB;
+    private GridView lrC;
+    private LinearLayout lrD;
+    private TextView lrE;
+    private NoNetworkView lrF;
+    private TextView lrG;
+    private c lrH;
+    private e lrI;
+    private f.g lrJ;
+    private f.b lrK;
+    private f.c lrL;
+    private f.a lrM;
+    private String lrN;
+    private String lrO;
+    private String lrP;
+    private long lrQ;
+    private Boolean lrc;
+    private int lrm;
+    private HListView lry;
+    private ImageView lrz;
     private String mClickZone;
     private f mData;
     private String mReferPage;
     private TbPageContext mTbPageContext;
     private String mTitle;
     private View view;
-    private static String lpd = "https://tieba.baidu.com/tb/eula_mobile.html?";
-    private static String loA = "https://tieba.baidu.com/tb/vip_eula_mobile.html";
-    private static String lpe = "https://tieba.baidu.com/tb/viprenew_eula_mobile.html";
-    AdapterView.c lpP = new AdapterView.c() { // from class: com.baidu.tieba.memberCenter.memberpay.b.1
+    private static String lrf = "https://tieba.baidu.com/tb/eula_mobile.html?";
+    private static String lqC = "https://tieba.baidu.com/tb/vip_eula_mobile.html";
+    private static String lrg = "https://tieba.baidu.com/tb/viprenew_eula_mobile.html";
+    AdapterView.c lrR = new AdapterView.c() { // from class: com.baidu.tieba.memberCenter.memberpay.b.1
         @Override // com.baidu.tieba.horizonalList.widget.AdapterView.c
         public void a(AdapterView<?> adapterView, View view, int i, long j) {
-            f.d item = b.this.lpF.getItem(i);
+            f.d item = b.this.lrH.getItem(i);
             if (item != null) {
                 item.isChecked = true;
-                b.this.lpF.a(item);
-                b.this.Ez(item.isAutoPay);
-                b.this.hk(item.lqq);
+                b.this.lrH.a(item);
+                b.this.EC(item.isAutoPay);
+                b.this.hk(item.lss);
             }
         }
     };
@@ -77,75 +77,75 @@ public class b {
         public void onClick(View view) {
             int i = 2;
             int i2 = 1;
-            if (view == b.this.lpC) {
-                b.this.dfI();
-                if (b.this.loX != 1) {
-                    i = b.this.loX == 2 ? 1 : 1;
+            if (view == b.this.lrE) {
+                b.this.dfR();
+                if (b.this.lqZ != 1) {
+                    i = b.this.lqZ == 2 ? 1 : 1;
                 }
-                f.d dfK = b.this.lpF.dfK();
-                if (dfK != null) {
-                    if (dfK.isAutoPay == 1) {
+                f.d dfT = b.this.lrH.dfT();
+                if (dfT != null) {
+                    if (dfT.isAutoPay == 1) {
                         i2 = 0;
-                    } else if (dfK.lqs != 1) {
-                        if (dfK.lqs == 3) {
+                    } else if (dfT.lsu != 1) {
+                        if (dfT.lsu == 3) {
                             i2 = 3;
-                        } else if (dfK.lqs == 6) {
+                        } else if (dfT.lsu == 6) {
                             i2 = 6;
-                        } else if (dfK.lqs == 12) {
+                        } else if (dfT.lsu == 12) {
                             i2 = 12;
                         }
                     }
-                    TiebaStatic.log(new ar("c13200").ap("obj_type", i).ap("obj_locate", i2));
+                    TiebaStatic.log(new ar("c13200").aq("obj_type", i).aq("obj_locate", i2));
                 }
                 i2 = 0;
-                TiebaStatic.log(new ar("c13200").ap("obj_type", i).ap("obj_locate", i2));
-            } else if (view != b.this.lpx) {
-                if (view == b.this.lpz) {
-                    bf.bsV().b(b.this.mTbPageContext, new String[]{b.loA});
+                TiebaStatic.log(new ar("c13200").aq("obj_type", i).aq("obj_locate", i2));
+            } else if (view != b.this.lrz) {
+                if (view == b.this.lrB) {
+                    bf.bsY().b(b.this.mTbPageContext, new String[]{b.lqC});
                 }
             } else {
-                bf.bsV().b(b.this.mTbPageContext, new String[]{b.lpe});
+                bf.bsY().b(b.this.mTbPageContext, new String[]{b.lrg});
             }
         }
     };
 
     public b(TbPageContext tbPageContext, View view, int i, String str, String str2, boolean z, int i2) {
-        this.loX = 2;
-        this.lpa = false;
+        this.lqZ = 2;
+        this.lrc = false;
         this.view = view;
         this.mTbPageContext = tbPageContext;
-        this.loX = i;
-        this.lpa = Boolean.valueOf(z);
+        this.lqZ = i;
+        this.lrc = Boolean.valueOf(z);
         this.mReferPage = str;
         this.mClickZone = str2;
-        this.lpk = i2;
+        this.lrm = i2;
         initView();
     }
 
     private void initView() {
-        this.ikz = (RelativeLayout) this.view.findViewById(R.id.root);
-        this.lpw = (HListView) this.view.findViewById(R.id.price_listview);
-        this.lpB = (LinearLayout) this.view.findViewById(R.id.renew_layout);
-        this.lpx = (ImageView) this.view.findViewById(R.id.renew_tip_img);
-        this.lpy = (TextView) this.view.findViewById(R.id.privilege_title);
-        this.lpz = (TextView) this.view.findViewById(R.id.privilege_rule);
-        this.lpA = (GridView) this.view.findViewById(R.id.privilege_container);
-        this.lpD = (NoNetworkView) this.view.findViewById(R.id.view_no_network);
-        this.lpC = (TextView) this.view.findViewById(R.id.member_pay_button);
-        this.lpE = (TextView) this.view.findViewById(R.id.tv_member_auto_pay_cancel_tip);
-        this.lpw.setBackgroundResource(R.drawable.transparent_bg);
-        this.lpw.setOnItemClickListener(this.lpP);
-        this.lpw.setSelector(this.mTbPageContext.getPageActivity().getResources().getDrawable(R.drawable.transparent_bg));
-        this.lpA.setVerticalSpacing(this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds58));
-        this.lpA.setHorizontalSpacing(this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds108));
-        this.lpC.setOnClickListener(this.onClickListener);
-        this.lpx.setOnClickListener(this.onClickListener);
-        this.lpz.setOnClickListener(this.onClickListener);
+        this.imj = (RelativeLayout) this.view.findViewById(R.id.root);
+        this.lry = (HListView) this.view.findViewById(R.id.price_listview);
+        this.lrD = (LinearLayout) this.view.findViewById(R.id.renew_layout);
+        this.lrz = (ImageView) this.view.findViewById(R.id.renew_tip_img);
+        this.lrA = (TextView) this.view.findViewById(R.id.privilege_title);
+        this.lrB = (TextView) this.view.findViewById(R.id.privilege_rule);
+        this.lrC = (GridView) this.view.findViewById(R.id.privilege_container);
+        this.lrF = (NoNetworkView) this.view.findViewById(R.id.view_no_network);
+        this.lrE = (TextView) this.view.findViewById(R.id.member_pay_button);
+        this.lrG = (TextView) this.view.findViewById(R.id.tv_member_auto_pay_cancel_tip);
+        this.lry.setBackgroundResource(R.drawable.transparent_bg);
+        this.lry.setOnItemClickListener(this.lrR);
+        this.lry.setSelector(this.mTbPageContext.getPageActivity().getResources().getDrawable(R.drawable.transparent_bg));
+        this.lrC.setVerticalSpacing(this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds58));
+        this.lrC.setHorizontalSpacing(this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds108));
+        this.lrE.setOnClickListener(this.onClickListener);
+        this.lrz.setOnClickListener(this.onClickListener);
+        this.lrB.setOnClickListener(this.onClickListener);
     }
 
     public void setDataAndRefreshUI(f fVar) {
         if (fVar == null) {
-            this.ikz.setVisibility(8);
+            this.imj.setVisibility(8);
             return;
         }
         this.mData = fVar;
@@ -155,17 +155,17 @@ public class b {
 
     private void initData() {
         if (this.mData != null) {
-            this.lpI = this.mData.lpI;
-            this.lpH = this.mData.lpH;
-            if (this.lpI != null && this.lpH != null && this.lpH.lqz != null) {
-                this.lpO = this.lpH.lqz.lqu;
-                this.lpK = this.lpI.lqk;
-                if (this.lpK != null) {
-                    this.lpL = this.lpK.mContent;
+            this.lrK = this.mData.lrK;
+            this.lrJ = this.mData.lrJ;
+            if (this.lrK != null && this.lrJ != null && this.lrJ.lsB != null) {
+                this.lrQ = this.lrJ.lsB.lsw;
+                this.lrM = this.lrK.lsm;
+                if (this.lrM != null) {
+                    this.lrN = this.lrM.mContent;
                 }
-                this.lpJ = this.lpI.lqj;
-                if (this.lpJ != null) {
-                    this.lpM = this.lpJ.mContent;
+                this.lrL = this.lrK.lsl;
+                if (this.lrL != null) {
+                    this.lrO = this.lrL.mContent;
                 }
             }
         }
@@ -174,14 +174,14 @@ public class b {
     public void tU(boolean z) {
         List<f.d> list;
         if (this.mData != null) {
-            if (2 == this.loX) {
-                if (this.lpK != null && this.lpK.lqf != null) {
-                    list = this.lpK.lqf;
+            if (2 == this.lqZ) {
+                if (this.lrM != null && this.lrM.lsh != null) {
+                    list = this.lrM.lsh;
                 }
                 list = null;
             } else {
-                if (this.lpJ != null && this.lpJ.lqf != null) {
-                    list = this.lpJ.lqf;
+                if (this.lrL != null && this.lrL.lsh != null) {
+                    list = this.lrL.lsh;
                 }
                 list = null;
             }
@@ -191,10 +191,10 @@ public class b {
                     int i2 = i;
                     if (i2 < list.size()) {
                         f.d dVar = list.get(i2);
-                        if (dVar == null || dVar.lqq < 0 || dVar.isAutoPay != 1) {
+                        if (dVar == null || dVar.lss < 0 || dVar.isAutoPay != 1) {
                             i = i2 + 1;
                         } else {
-                            dVar.lqt = z;
+                            dVar.lsv = z;
                             return;
                         }
                     } else {
@@ -207,95 +207,95 @@ public class b {
 
     private void refreshUI() {
         if (this.mData == null) {
-            this.ikz.setVisibility(8);
-        } else if (this.lpI == null || this.lpH == null) {
-            this.ikz.setVisibility(8);
-        } else if (this.lpH.lqz == null) {
-            this.ikz.setVisibility(8);
-        } else if (this.lpK == null && this.lpJ == null) {
-            this.ikz.setVisibility(8);
-        } else if (this.loX == 2 && (this.lpK == null || y.isEmpty(this.lpK.lqf))) {
-            this.ikz.setVisibility(8);
+            this.imj.setVisibility(8);
+        } else if (this.lrK == null || this.lrJ == null) {
+            this.imj.setVisibility(8);
+        } else if (this.lrJ.lsB == null) {
+            this.imj.setVisibility(8);
+        } else if (this.lrM == null && this.lrL == null) {
+            this.imj.setVisibility(8);
+        } else if (this.lqZ == 2 && (this.lrM == null || y.isEmpty(this.lrM.lsh))) {
+            this.imj.setVisibility(8);
         } else {
-            this.ikz.setVisibility(0);
-            dfE();
-            dfF();
-            dfG();
+            this.imj.setVisibility(0);
+            dfN();
+            dfO();
+            dfP();
         }
     }
 
-    private void dfE() {
+    private void dfN() {
         List<f.d> list;
-        if (2 == this.loX) {
-            if (this.lpK != null && this.lpK.lqf != null) {
-                list = this.lpK.lqf;
+        if (2 == this.lqZ) {
+            if (this.lrM != null && this.lrM.lsh != null) {
+                list = this.lrM.lsh;
             }
             list = null;
         } else {
-            if (this.lpJ != null && this.lpJ.lqf != null) {
-                list = this.lpJ.lqf;
+            if (this.lrL != null && this.lrL.lsh != null) {
+                list = this.lrL.lsh;
             }
             list = null;
         }
         if (!y.isEmpty(list)) {
             for (f.d dVar : list) {
                 if (dVar.isChecked) {
-                    Ez(dVar.isAutoPay);
-                    hk(dVar.lqq);
+                    EC(dVar.isAutoPay);
+                    hk(dVar.lss);
                 }
             }
-            if (this.lpF == null) {
-                this.lpF = new c(this.mTbPageContext);
-                this.lpF.setData(list);
-                this.lpw.setAdapter((ListAdapter) this.lpF);
+            if (this.lrH == null) {
+                this.lrH = new c(this.mTbPageContext);
+                this.lrH.setData(list);
+                this.lry.setAdapter((ListAdapter) this.lrH);
             }
-            this.lpF.setData(list);
-            this.lpF.notifyDataSetChanged();
+            this.lrH.setData(list);
+            this.lrH.notifyDataSetChanged();
         }
     }
 
-    private void dfF() {
-        if (this.lpG == null) {
-            ArrayList<d> dfH = dfH();
-            this.lpG = new e(this.mTbPageContext.getPageActivity());
-            this.lpG.setData(dfH);
-            this.lpA.setAdapter((ListAdapter) this.lpG);
+    private void dfO() {
+        if (this.lrI == null) {
+            ArrayList<d> dfQ = dfQ();
+            this.lrI = new e(this.mTbPageContext.getPageActivity());
+            this.lrI.setData(dfQ);
+            this.lrC.setAdapter((ListAdapter) this.lrI);
         }
     }
 
-    private void dfG() {
+    private void dfP() {
         String str = null;
-        if (2 == this.loX) {
-            if (this.lpO == 2) {
-                str = this.mTbPageContext.getPageActivity().getString(R.string.continue_dredge, new Object[]{this.lpL});
+        if (2 == this.lqZ) {
+            if (this.lrQ == 2) {
+                str = this.mTbPageContext.getPageActivity().getString(R.string.continue_dredge, new Object[]{this.lrN});
             } else {
-                str = this.mTbPageContext.getPageActivity().getString(R.string.dredge, new Object[]{this.lpL});
+                str = this.mTbPageContext.getPageActivity().getString(R.string.dredge, new Object[]{this.lrN});
             }
-            this.lpN = this.lpL;
-        } else if (1 == this.loX) {
-            if (this.lpO == 1) {
-                str = this.mTbPageContext.getPageActivity().getString(R.string.continue_dredge, new Object[]{this.lpM});
-            } else if (this.lpO == 0) {
-                str = this.mTbPageContext.getPageActivity().getString(R.string.dredge, new Object[]{this.lpM});
+            this.lrP = this.lrN;
+        } else if (1 == this.lqZ) {
+            if (this.lrQ == 1) {
+                str = this.mTbPageContext.getPageActivity().getString(R.string.continue_dredge, new Object[]{this.lrO});
+            } else if (this.lrQ == 0) {
+                str = this.mTbPageContext.getPageActivity().getString(R.string.dredge, new Object[]{this.lrO});
             }
-            this.lpN = this.lpM;
+            this.lrP = this.lrO;
         } else {
-            str = this.mTbPageContext.getPageActivity().getString(R.string.dredge, new Object[]{this.lpM});
-            this.lpN = this.lpM;
+            str = this.mTbPageContext.getPageActivity().getString(R.string.dredge, new Object[]{this.lrO});
+            this.lrP = this.lrO;
         }
         this.mTitle = str;
     }
 
-    private ArrayList<d> dfH() {
+    private ArrayList<d> dfQ() {
         ArrayList<d> arrayList = new ArrayList<>();
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        if (this.loX == 1) {
+        if (this.lqZ == 1) {
             linkedHashMap.put(this.mTbPageContext.getPageActivity().getResources().getString(R.string.member_privilege_update_name), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_nickname24_svg));
             linkedHashMap.put(this.mTbPageContext.getPageActivity().getResources().getString(R.string.member_privilege_special_identity), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_member24_svg));
             linkedHashMap.put(this.mTbPageContext.getPageActivity().getResources().getString(R.string.member_privilege_patch_card), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_remedy24_svg));
             linkedHashMap.put(this.mTbPageContext.getPageActivity().getResources().getString(R.string.member_privilege_write_pop), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_qipao24_svg));
             linkedHashMap.put(this.mTbPageContext.getPageActivity().getResources().getString(R.string.member_privilege_tail), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_tail24_1x));
-        } else if (this.loX == 2) {
+        } else if (this.lqZ == 2) {
             linkedHashMap.put(this.mTbPageContext.getPageActivity().getResources().getString(R.string.member_privilege_update_name), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_nickname24_svg));
             linkedHashMap.put(this.mTbPageContext.getPageActivity().getResources().getString(R.string.member_privilege_special_identity), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_member24_svg));
             linkedHashMap.put(this.mTbPageContext.getPageActivity().getResources().getString(R.string.member_privilege_forbid_adv), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_advertising24_svg));
@@ -311,61 +311,61 @@ public class b {
         for (Map.Entry entry : linkedHashMap.entrySet()) {
             d dVar = new d();
             dVar.name = (String) entry.getKey();
-            dVar.lpZ = ((Integer) entry.getValue()).intValue();
+            dVar.lsb = ((Integer) entry.getValue()).intValue();
             arrayList.add(dVar);
         }
         return arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ez(int i) {
+    public void EC(int i) {
         if (i == 1) {
-            this.lpB.setVisibility(0);
+            this.lrD.setVisibility(0);
         } else {
-            this.lpB.setVisibility(8);
+            this.lrD.setVisibility(8);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hk(long j) {
-        this.lpC.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.tb_member_need_pay_money, "" + (j / 100)));
+        this.lrE.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.tb_member_need_pay_money, "" + (j / 100)));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dfI() {
-        f.d dfK = this.lpF.dfK();
-        if (dfK == null) {
+    public void dfR() {
+        f.d dfT = this.lrH.dfT();
+        if (dfT == null) {
             l.showToast(this.mTbPageContext.getPageActivity(), R.string.tb_member_select_money_tip);
-        } else if (dfK.isAutoPay == 1 && dfK.lqt) {
+        } else if (dfT.isAutoPay == 1 && dfT.lsv) {
             l.showToast(this.mTbPageContext.getPageActivity(), R.string.tips_auto_pay_succ);
         } else {
-            b(dfK.lqp, dfK.lqq / 100, dfK.lqs, dfK.isAutoPay);
-            if (this.lpk == 26) {
-                TiebaStatic.log(new ar("c13748").ap("obj_source", 1));
+            b(dfT.lsr, dfT.lss / 100, dfT.lsu, dfT.isAutoPay);
+            if (this.lrm == 26) {
+                TiebaStatic.log(new ar("c13748").aq("obj_source", 1));
             }
         }
     }
 
     private void b(long j, long j2, long j3, int i) {
-        PayConfig payConfig = new PayConfig(1, "0", String.valueOf(j), String.valueOf(j2), String.valueOf(j3), true, this.lpa.booleanValue(), PageDialogHelper.PayForm.NOT_SET, this.mReferPage, this.mClickZone);
+        PayConfig payConfig = new PayConfig(1, "0", String.valueOf(j), String.valueOf(j2), String.valueOf(j3), true, this.lrc.booleanValue(), PageDialogHelper.PayForm.NOT_SET, this.mReferPage, this.mClickZone);
         payConfig.setTitle(this.mTitle);
-        payConfig.setOrderName(this.lpN + this.mTbPageContext.getPageActivity().getString(R.string.member_month, new Object[]{String.valueOf(j3)}));
+        payConfig.setOrderName(this.lrP + this.mTbPageContext.getPageActivity().getString(R.string.member_month, new Object[]{String.valueOf(j3)}));
         payConfig.setAutoPay(i);
-        if (this.lpk == 23) {
+        if (this.lrm == 23) {
             payConfig.paymentPosKey = PayConfig.PAYMENT_POS_KEY_MANGA;
         }
-        com.baidu.tbadk.pay.c.bDV().a(payConfig, this.mTbPageContext.getPageActivity());
+        com.baidu.tbadk.pay.c.bDZ().a(payConfig, this.mTbPageContext.getPageActivity());
     }
 
     public void onChangeSkinType(int i) {
-        this.lpD.onChangeSkinType(this.mTbPageContext, i);
-        ap.setBackgroundColor(this.ikz, R.color.CAM_X0201);
-        ap.setViewTextColor(this.lpE, R.color.CAM_X0107);
-        ap.setViewTextColor(this.lpy, R.color.CAM_X0105);
-        ap.setViewTextColor(this.lpz, R.color.CAM_X0107);
-        this.lpz.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_tbvip_arrow_right), (Drawable) null);
-        ap.setViewTextColor(this.lpC, R.color.CAM_X0101);
-        ap.setBackgroundResource(this.lpC, R.drawable.member_price_btn_bg);
-        ap.setImageResource(this.lpx, R.drawable.icon_tbvip_attention);
+        this.lrF.onChangeSkinType(this.mTbPageContext, i);
+        ap.setBackgroundColor(this.imj, R.color.CAM_X0201);
+        ap.setViewTextColor(this.lrG, R.color.CAM_X0107);
+        ap.setViewTextColor(this.lrA, R.color.CAM_X0105);
+        ap.setViewTextColor(this.lrB, R.color.CAM_X0107);
+        this.lrB.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_tbvip_arrow_right), (Drawable) null);
+        ap.setViewTextColor(this.lrE, R.color.CAM_X0101);
+        ap.setBackgroundResource(this.lrE, R.drawable.member_price_btn_bg);
+        ap.setImageResource(this.lrz, R.drawable.icon_tbvip_attention);
     }
 }

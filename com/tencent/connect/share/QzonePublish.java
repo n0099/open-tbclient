@@ -26,7 +26,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class QzonePublish extends BaseApi {
     public static final String HULIAN_CALL_BACK = "hulian_call_back";
     public static final String HULIAN_EXTRA_SCENE = "hulian_extra_scene";
@@ -51,12 +51,12 @@ public class QzonePublish extends BaseApi {
         if (bundle == null) {
             iUiListener.onError(new UiError(-6, Constants.MSG_PARAM_NULL_ERROR, null));
             f.e("openSDK_LOG.QzonePublish", "-->publishToQzone, params is null");
-            d.a().a(1, "SHARE_CHECK_SDK", "1000", this.f13328b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, Constants.MSG_PARAM_NULL_ERROR);
+            d.a().a(1, "SHARE_CHECK_SDK", "1000", this.b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, Constants.MSG_PARAM_NULL_ERROR);
         } else if (!j.e(activity)) {
             iUiListener.onError(new UiError(-15, Constants.MSG_PARAM_VERSION_TOO_LOW, null));
             f.e("openSDK_LOG.QzonePublish", "-->publishToQzone, this is not support below qq 5.9.5");
-            d.a().a(1, "SHARE_CHECK_SDK", "1000", this.f13328b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "publicToQzone, this is not support below qq 5.9.5");
-            new TDialog(activity, "", a(""), null, this.f13328b).show();
+            d.a().a(1, "SHARE_CHECK_SDK", "1000", this.b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "publicToQzone, this is not support below qq 5.9.5");
+            new TDialog(activity, "", a(""), null, this.b).show();
         } else {
             String a2 = j.a(activity);
             if (a2 == null) {
@@ -120,7 +120,7 @@ public class QzonePublish extends BaseApi {
             } else {
                 iUiListener.onError(new UiError(-5, Constants.MSG_SHARE_TYPE_ERROR, null));
                 f.e("openSDK_LOG.QzonePublish", "publishToQzone() error--end请选择支持的分享类型");
-                d.a().a(1, "SHARE_CHECK_SDK", "1000", this.f13328b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "publishToQzone() 请选择支持的分享类型");
+                d.a().a(1, "SHARE_CHECK_SDK", "1000", this.b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "publishToQzone() 请选择支持的分享类型");
             }
         }
     }
@@ -175,8 +175,8 @@ public class QzonePublish extends BaseApi {
             if (jSONObject.length() > 0) {
                 str2 = jSONObject.toString();
                 str3 = str2;
-                appId = this.f13328b.getAppId();
-                openId = this.f13328b.getOpenId();
+                appId = this.b.getAppId();
+                openId = this.b.getOpenId();
                 f.a("openSDK_LOG.QzonePublish", "openId:" + openId);
                 str = "";
                 if (3 == i3 && stringArrayList != null) {
@@ -221,26 +221,26 @@ public class QzonePublish extends BaseApi {
                 }
                 stringBuffer.append("&req_type=" + Base64.encodeToString(j.i(String.valueOf(i3)), 2));
                 f.a("openSDK_LOG.QzonePublish", "doPublishToQzone, url: " + stringBuffer.toString());
-                com.tencent.connect.a.a.a(e.a(), this.f13328b, "requireApi", "shareToNativeQQ");
+                com.tencent.connect.a.a.a(e.a(), this.b, "requireApi", "shareToNativeQQ");
                 intent = new Intent("android.intent.action.VIEW");
                 intent.setData(Uri.parse(stringBuffer.toString()));
                 intent.putExtra("pkg_name", activity.getPackageName());
                 if (!a(intent)) {
                     a(activity, 10104, intent, false);
-                    d.a().a(0, "SHARE_CHECK_SDK", "1000", this.f13328b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "hasActivityForIntent success");
-                    d.a().a(this.f13328b.getOpenId(), this.f13328b.getAppId(), Constants.VIA_SHARE_TO_QZONE, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, "3", "1", str5, "0", "1", "0");
+                    d.a().a(0, "SHARE_CHECK_SDK", "1000", this.b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "hasActivityForIntent success");
+                    d.a().a(this.b.getOpenId(), this.b.getAppId(), Constants.VIA_SHARE_TO_QZONE, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, "3", "1", str5, "0", "1", "0");
                 } else {
                     f.e("openSDK_LOG.QzonePublish", "doPublishToQzone() target activity not found");
-                    d.a().a(1, "SHARE_CHECK_SDK", "1000", this.f13328b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "hasActivityForIntent fail");
-                    d.a().a(this.f13328b.getOpenId(), this.f13328b.getAppId(), Constants.VIA_SHARE_TO_QZONE, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, "3", "1", str5, "0", "1", "0");
+                    d.a().a(1, "SHARE_CHECK_SDK", "1000", this.b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "hasActivityForIntent fail");
+                    d.a().a(this.b.getOpenId(), this.b.getAppId(), Constants.VIA_SHARE_TO_QZONE, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, "3", "1", str5, "0", "1", "0");
                 }
                 f.c("openSDK_LOG", "doPublishToQzone() --end");
             }
         }
         str2 = "";
         str3 = str2;
-        appId = this.f13328b.getAppId();
-        openId = this.f13328b.getOpenId();
+        appId = this.b.getAppId();
+        openId = this.b.getOpenId();
         f.a("openSDK_LOG.QzonePublish", "openId:" + openId);
         str = "";
         if (3 == i3) {
@@ -271,7 +271,7 @@ public class QzonePublish extends BaseApi {
         }
         stringBuffer.append("&req_type=" + Base64.encodeToString(j.i(String.valueOf(i3)), 2));
         f.a("openSDK_LOG.QzonePublish", "doPublishToQzone, url: " + stringBuffer.toString());
-        com.tencent.connect.a.a.a(e.a(), this.f13328b, "requireApi", "shareToNativeQQ");
+        com.tencent.connect.a.a.a(e.a(), this.b, "requireApi", "shareToNativeQQ");
         intent = new Intent("android.intent.action.VIEW");
         intent.setData(Uri.parse(stringBuffer.toString()));
         intent.putExtra("pkg_name", activity.getPackageName());

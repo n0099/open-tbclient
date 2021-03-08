@@ -19,8 +19,8 @@ public class i {
     @NonNull
     public static String a() {
         String str = "DU:MM:YA:DD:RE:SS";
-        TTCustomController d = com.bytedance.sdk.openadsdk.core.i.c().d();
-        if (d != null && d.isCanUseWifiState() && d.isCanUseLocation()) {
+        TTCustomController e = com.bytedance.sdk.openadsdk.core.i.d().e();
+        if (e != null && e.isCanUseWifiState() && e.isCanUseLocation()) {
             str = a("wlan0");
             if (TextUtils.isEmpty(str)) {
                 str = a("eth0");
@@ -139,8 +139,9 @@ public class i {
             jSONObject.put("screen_width", ak.c(context));
             jSONObject.put("screen_height", ak.d(context));
             jSONObject.put("oaid", y.a());
-            jSONObject.put("free_space", m.f7595a);
+            jSONObject.put("free_space", m.f5144a);
             jSONObject.put("applog_did", com.bytedance.embedapplog.b.getDid());
+            jSONObject.put("sec_did", com.bytedance.sdk.openadsdk.core.s.b(com.bytedance.sdk.openadsdk.core.k.a(context)).a());
         } catch (Throwable th) {
         }
         return jSONObject;

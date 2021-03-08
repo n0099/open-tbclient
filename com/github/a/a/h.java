@@ -1,10 +1,10 @@
 package com.github.a.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class h extends a {
     private int mPid;
-    private StringBuffer pRo;
-    private long pRp;
-    private long pRq;
+    private StringBuffer pSd;
+    private long pSe;
+    private long pSf;
 
     @Override // com.github.a.a.a
     public /* bridge */ /* synthetic */ void stop() {
@@ -13,10 +13,10 @@ public class h extends a {
 
     public h(long j) {
         super(j);
-        this.pRo = new StringBuffer();
+        this.pSd = new StringBuffer();
         this.mPid = 0;
-        this.pRp = 0L;
-        this.pRq = 0L;
+        this.pSe = 0L;
+        this.pSf = 0L;
     }
 
     @Override // com.github.a.a.a
@@ -26,7 +26,7 @@ public class h extends a {
     }
 
     public String getCpuRateInfo() {
-        return this.pRo.toString();
+        return this.pSd.toString();
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
@@ -38,11 +38,11 @@ public class h extends a {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
     @Override // com.github.a.a.a
-    protected void eAC() {
+    protected void eAI() {
         /*
             r8 = this;
             r2 = 0
-            java.lang.StringBuffer r0 = r8.pRo
+            java.lang.StringBuffer r0 = r8.pSd
             r1 = 0
             r0.setLength(r1)
             java.io.BufferedReader r3 = new java.io.BufferedReader     // Catch: java.lang.Throwable -> L7f
@@ -153,12 +153,12 @@ public class h extends a {
             r4 = r0
             goto L25
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.github.a.a.h.eAC():void");
+        throw new UnsupportedOperationException("Method not decompiled: com.github.a.a.h.eAI():void");
     }
 
     private void reset() {
-        this.pRp = 0L;
-        this.pRq = 0L;
+        this.pSe = 0L;
+        this.pSf = 0L;
     }
 
     private void hx(String str, String str2) {
@@ -172,11 +172,11 @@ public class h extends a {
             long parseLong6 = parseLong5 + parseLong + parseLong2 + parseLong3 + parseLong4 + Long.parseLong(split[6]) + Long.parseLong(split[7]);
             if (str2.split(" ").length >= 17) {
                 if (parseLong6 != 0) {
-                    long j = parseLong6 - this.pRq;
-                    this.pRo.append(((j - (parseLong4 - this.pRp)) * 100) / j);
+                    long j = parseLong6 - this.pSf;
+                    this.pSd.append(((j - (parseLong4 - this.pSe)) * 100) / j);
                 }
-                this.pRp = parseLong4;
-                this.pRq = parseLong6;
+                this.pSe = parseLong4;
+                this.pSf = parseLong6;
             }
         }
     }

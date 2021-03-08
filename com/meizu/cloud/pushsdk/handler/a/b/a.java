@@ -23,18 +23,16 @@ public class a implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private int f11309a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f11310b;
+    private int f7427a;
+    private int b;
     private int c;
 
     public a() {
     }
 
     protected a(Parcel parcel) {
-        this.f11309a = parcel.readInt();
-        this.f11310b = parcel.readInt();
+        this.f7427a = parcel.readInt();
+        this.b = parcel.readInt();
         this.c = parcel.readInt();
     }
 
@@ -61,15 +59,15 @@ public class a implements Parcelable {
     }
 
     public int a() {
-        return this.f11309a;
+        return this.f7427a;
     }
 
     public void a(int i) {
-        this.f11309a = i;
+        this.f7427a = i;
     }
 
     public void b(int i) {
-        this.f11310b = i;
+        this.b = i;
     }
 
     public void c(int i) {
@@ -82,13 +80,13 @@ public class a implements Parcelable {
     }
 
     public String toString() {
-        return "Control{pushType=" + this.f11309a + ", cached=" + this.f11310b + ", cacheNum=" + this.c + '}';
+        return "Control{pushType=" + this.f7427a + ", cached=" + this.b + ", cacheNum=" + this.c + '}';
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f11309a);
-        parcel.writeInt(this.f11310b);
+        parcel.writeInt(this.f7427a);
+        parcel.writeInt(this.b);
         parcel.writeInt(this.c);
     }
 }

@@ -14,7 +14,7 @@ import com.yy.mediaframework.screenshot.ScreenShot;
 import com.yy.mediaframework.screenshot.ScreenShotCallback;
 import com.yy.mediaframework.utils.YMFLog;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ScreenLiveSession extends AbstractLiveSession {
     private ClipFilter mCliperFilter;
     private VideoEndPointFilter mEndPointFilter;

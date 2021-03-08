@@ -7,11 +7,11 @@ import com.baidu.tieba.interestlabel.b.b;
 import tbclient.CommonReq;
 import tbclient.GetTagList.DataReq;
 import tbclient.GetTagList.GetTagListReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class RequestGetLabelMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f5343common;
+    private CommonReq f3596common;
     private int from;
     private b mLabelDataSet;
 
@@ -20,7 +20,7 @@ public class RequestGetLabelMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f5343common = commonReq;
+        this.f3596common = commonReq;
     }
 
     public void setFrom(int i) {
@@ -38,7 +38,7 @@ public class RequestGetLabelMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f14586common = this.f5343common;
+        builder.f8816common = this.f3596common;
         builder.from = Integer.valueOf(this.from);
         if (z) {
             v.b(builder, true);

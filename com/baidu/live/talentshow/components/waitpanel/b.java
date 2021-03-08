@@ -3,33 +3,33 @@ package com.baidu.live.talentshow.components.waitpanel;
 import com.baidu.live.talentshow.components.waitpanel.a;
 import com.baidu.live.talentshow.components.waitpanel.c;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, LiveVideoBCPanelData> implements a {
-    private a.InterfaceC0203a bEe;
+    private a.InterfaceC0209a bFE;
 
     public b(TbPageContext tbPageContext, LiveVideoBCPanelData liveVideoBCPanelData) {
         super(tbPageContext, new c(tbPageContext), liveVideoBCPanelData);
-        ((c) this.bJy).a(this);
-        eM(80);
+        ((c) this.bKY).a(this);
+        eN(80);
         de(true);
         df(true);
-        ((c) this.bJy).a(new c.a() { // from class: com.baidu.live.talentshow.components.waitpanel.b.1
+        ((c) this.bKY).a(new c.a() { // from class: com.baidu.live.talentshow.components.waitpanel.b.1
             @Override // com.baidu.live.talentshow.components.waitpanel.c.a
             public void c(LiveVideoBCPanelData liveVideoBCPanelData2) {
-                if (b.this.bEe != null) {
-                    b.this.bEe.a(liveVideoBCPanelData2);
+                if (b.this.bFE != null) {
+                    b.this.bFE.a(liveVideoBCPanelData2);
                 }
             }
         });
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.c
-    public boolean Ss() {
+    public boolean Sv() {
         return true;
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.c
-    public boolean St() {
+    public boolean Sw() {
         return true;
     }
 
@@ -41,13 +41,13 @@ public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, LiveV
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.a
     public void show() {
         super.show();
-        ((c) this.bJy).startLoading();
+        ((c) this.bKY).startLoading();
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.a, com.baidu.live.tieba.pb.interactionpopupwindow.c
     public void dismiss() {
         super.dismiss();
-        ((c) this.bJy).stopLoading();
+        ((c) this.bKY).stopLoading();
     }
 
     public void b(LiveVideoBCPanelData liveVideoBCPanelData) {
@@ -55,7 +55,7 @@ public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, LiveV
         show();
     }
 
-    public void a(a.InterfaceC0203a interfaceC0203a) {
-        this.bEe = interfaceC0203a;
+    public void a(a.InterfaceC0209a interfaceC0209a) {
+        this.bFE = interfaceC0209a;
     }
 }

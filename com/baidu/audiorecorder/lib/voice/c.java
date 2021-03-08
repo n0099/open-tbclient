@@ -1,29 +1,29 @@
 package com.baidu.audiorecorder.lib.voice;
 
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
-    private static int[] acA = {8000, RequestResponseCode.REQUEST_LOGIN_PB_AT, 16000, 22050, 32000, 44100, 47250, 48000};
-    private static short[] acB = {2, 3};
-    private static short[] acC = {2, 16, 12, 3};
-    private static c acz;
-    private int acv;
-    private short acx;
-    private short acy;
+    private static c adS;
+    private static int[] adT = {8000, RequestResponseCode.REQUEST_LOGIN_PB_AT, 16000, 22050, 32000, 44100, 47250, 48000};
+    private static short[] adU = {2, 3};
+    private static short[] adV = {2, 16, 12, 3};
+    private int adP;
+    private short adQ;
+    private short adR;
     private int mBufferSize = -2;
 
     public static c rL() {
         c cVar;
-        if (acz == null) {
+        if (adS == null) {
             synchronized (c.class) {
-                if (acz == null) {
-                    acz = new c();
+                if (adS == null) {
+                    adS = new c();
                 }
-                cVar = acz;
+                cVar = adS;
             }
             return cVar;
         }
-        return acz;
+        return adS;
     }
 
     private c() {
@@ -42,22 +42,22 @@ public class c {
         /*
             r18 = this;
             r0 = r18
-            int r1 = r0.acv
+            int r1 = r0.adP
             if (r1 <= 0) goto L29
             r0 = r18
-            short r1 = r0.acx
+            short r1 = r0.adQ
             if (r1 <= 0) goto L29
             r0 = r18
-            short r1 = r0.acy
+            short r1 = r0.adR
             if (r1 <= 0) goto L29
             android.media.AudioRecord r1 = new android.media.AudioRecord
             r2 = 1
             r0 = r18
-            int r3 = r0.acv
+            int r3 = r0.adP
             r0 = r18
-            short r4 = r0.acy
+            short r4 = r0.adR
             r0 = r18
-            short r5 = r0.acx
+            short r5 = r0.adQ
             r0 = r18
             int r6 = r0.mBufferSize
             r1.<init>(r2, r3, r4, r5, r6)
@@ -65,21 +65,21 @@ public class c {
             return r1
         L29:
             r2 = 0
-            int[] r12 = com.baidu.audiorecorder.lib.voice.c.acA
+            int[] r12 = com.baidu.audiorecorder.lib.voice.c.adT
             int r13 = r12.length
             r1 = 0
             r9 = r1
         L2f:
             if (r9 >= r13) goto L10f
             r3 = r12[r9]
-            short[] r14 = com.baidu.audiorecorder.lib.voice.c.acB
+            short[] r14 = com.baidu.audiorecorder.lib.voice.c.adU
             int r15 = r14.length
             r1 = 0
             r10 = r1
         L38:
             if (r10 >= r15) goto L10a
             short r5 = r14[r10]
-            short[] r16 = com.baidu.audiorecorder.lib.voice.c.acC
+            short[] r16 = com.baidu.audiorecorder.lib.voice.c.adV
             r0 = r16
             int r0 = r0.length
             r17 = r0
@@ -122,11 +122,11 @@ public class c {
             r2 = 1
             if (r1 != r2) goto La5
             r0 = r18
-            r0.acv = r3     // Catch: java.lang.Throwable -> Le1
+            r0.adP = r3     // Catch: java.lang.Throwable -> Le1
             r0 = r18
-            r0.acx = r5     // Catch: java.lang.Throwable -> Le1
+            r0.adQ = r5     // Catch: java.lang.Throwable -> Le1
             r0 = r18
-            r0.acy = r4     // Catch: java.lang.Throwable -> Le1
+            r0.adR = r4     // Catch: java.lang.Throwable -> Le1
             r0 = r18
             r0.mBufferSize = r6     // Catch: java.lang.Throwable -> Le1
             if (r8 == 0) goto La3
@@ -148,11 +148,11 @@ public class c {
             r6 = 1
             if (r2 != r6) goto Ld3
             r0 = r18
-            r0.acv = r3     // Catch: java.lang.Throwable -> L122
+            r0.adP = r3     // Catch: java.lang.Throwable -> L122
             r0 = r18
-            r0.acx = r5     // Catch: java.lang.Throwable -> L122
+            r0.adQ = r5     // Catch: java.lang.Throwable -> L122
             r0 = r18
-            r0.acy = r4     // Catch: java.lang.Throwable -> L122
+            r0.adR = r4     // Catch: java.lang.Throwable -> L122
             if (r1 == 0) goto L28
             int r2 = r1.getState()
             r3 = 1

@@ -13,7 +13,7 @@ import io.flutter.plugin.platform.SingleViewPresentation;
 import io.flutter.view.TextureRegistry;
 /* JADX INFO: Access modifiers changed from: package-private */
 @TargetApi(20)
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class VirtualDisplayController {
     private final AccessibilityEventsDelegate accessibilityEventsDelegate;
     private final Context context;
@@ -122,7 +122,7 @@ public class VirtualDisplayController {
     }
 
     @TargetApi(16)
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     static class OneTimeOnDrawListener implements ViewTreeObserver.OnDrawListener {
         Runnable mOnDrawRunnable;
         final View mView;

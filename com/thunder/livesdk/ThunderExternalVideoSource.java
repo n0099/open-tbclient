@@ -1,5 +1,5 @@
 package com.thunder.livesdk;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class ThunderExternalVideoSource implements ThunderCustomVideoSource {
     public static final int THUNDER_EXTERNAL_VIDEO_TYPE_BUFFER = 1;
     public static final int THUNDER_EXTERNAL_VIDEO_TYPE_TEXTURE = 2;

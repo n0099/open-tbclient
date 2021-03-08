@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a extends com.baidu.mobads.production.a {
     private Object A;
     private HashMap<String, Object> B;
@@ -65,7 +65,7 @@ public class a extends com.baidu.mobads.production.a {
             Context applicationContext = getApplicationContext();
             Activity activity = getActivity();
             l lVar = new l(this.f, this);
-            this.k = new C0265a(applicationContext, activity, IXAdConstants4PDK.SlotType.SLOT_TYPE_CPU);
+            this.k = new C0271a(applicationContext, activity, IXAdConstants4PDK.SlotType.SLOT_TYPE_CPU);
             k kVar = new k(this.f, activity, this.k.d(), null, lVar, getAdResponseInfo(), null);
             this.z = c.a(this.f, "com.baidu.mobads.container.nativecpu.interfaces.RCPUAdProd");
             this.A = this.z.a(new Class[]{IXAdContainerContext.class, String.class}, kVar, this.I);
@@ -173,9 +173,9 @@ public class a extends com.baidu.mobads.production.a {
     }
 
     /* renamed from: com.baidu.mobads.nativecpu.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    class C0265a extends d {
-        public C0265a(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType) {
+    /* loaded from: classes4.dex */
+    class C0271a extends d {
+        public C0271a(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType) {
             super(context, activity, slotType);
         }
 

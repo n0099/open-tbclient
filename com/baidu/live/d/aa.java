@@ -2,7 +2,7 @@ package com.baidu.live.d;
 
 import android.content.Context;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class aa extends IntentConfig {
     public aa(Context context) {
         super(context);
@@ -13,7 +13,7 @@ public class aa extends IntentConfig {
         getIntent().putExtra("room_id", str2);
     }
 
-    public void fk(String str) {
+    public void fq(String str) {
         getIntent().putExtra("user_key", str);
     }
 }

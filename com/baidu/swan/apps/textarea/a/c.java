@@ -9,7 +9,7 @@ import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c extends aa {
     public c(j jVar) {
         super(jVar, "/swanAPI/updateTextarea");
@@ -35,15 +35,15 @@ public class c extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str);
             return false;
         }
-        com.baidu.swan.apps.component.components.textarea.b bVar = (com.baidu.swan.apps.component.components.textarea.b) aVar.alf();
-        bVar.bb(optParamsAsJo);
+        com.baidu.swan.apps.component.components.textarea.b bVar = (com.baidu.swan.apps.component.components.textarea.b) aVar.ali();
+        bVar.bd(optParamsAsJo);
         com.baidu.swan.apps.component.b.c a2 = aVar.a((com.baidu.swan.apps.component.components.textarea.a) bVar);
         if (!a2.isSuccess()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, a2.msg);
             return false;
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-        aVar.lN(optString2);
+        aVar.lU(optString2);
         return true;
     }
 }

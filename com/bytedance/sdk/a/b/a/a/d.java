@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 public final class d implements Closeable, Flushable {
 
     /* renamed from: a  reason: collision with root package name */
-    static final Pattern f5858a;
+    static final Pattern f3947a;
     static final /* synthetic */ boolean j;
     final int c;
     int f;
@@ -22,92 +22,92 @@ public final class d implements Closeable, Flushable {
     private long l;
     private long m;
     private final Runnable o;
-    com.bytedance.sdk.a.a.d poG;
-    final com.bytedance.sdk.a.b.a.f.a poO;
-    final LinkedHashMap<String, b> poP;
-    private final Executor poQ;
+    com.bytedance.sdk.a.a.d pqN;
+    final com.bytedance.sdk.a.b.a.f.a pqV;
+    final LinkedHashMap<String, b> pqW;
+    private final Executor pqX;
 
     static {
         j = !d.class.desiredAssertionStatus();
-        f5858a = Pattern.compile("[a-z0-9_-]{1,120}");
+        f3947a = Pattern.compile("[a-z0-9_-]{1,120}");
     }
 
     synchronized void a(a aVar, boolean z) throws IOException {
         synchronized (this) {
-            b bVar = aVar.poR;
-            if (bVar.poW != aVar) {
+            b bVar = aVar.pqY;
+            if (bVar.prd != aVar) {
                 throw new IllegalStateException();
             }
             if (z && !bVar.e) {
                 for (int i = 0; i < this.c; i++) {
-                    if (!aVar.poS[i]) {
+                    if (!aVar.pqZ[i]) {
                         aVar.b();
                         throw new IllegalStateException("Newly created entry didn't create value for index " + i);
-                    } else if (!this.poO.b(bVar.poV[i])) {
+                    } else if (!this.pqV.b(bVar.prc[i])) {
                         aVar.b();
                         break;
                     }
                 }
             }
             for (int i2 = 0; i2 < this.c; i2++) {
-                File file = bVar.poV[i2];
+                File file = bVar.prc[i2];
                 if (z) {
-                    if (this.poO.b(file)) {
-                        File file2 = bVar.poU[i2];
-                        this.poO.a(file, file2);
-                        long j2 = bVar.pnM[i2];
-                        long aj = this.poO.aj(file2);
-                        bVar.pnM[i2] = aj;
+                    if (this.pqV.b(file)) {
+                        File file2 = bVar.prb[i2];
+                        this.pqV.a(file, file2);
+                        long j2 = bVar.ppW[i2];
+                        long aj = this.pqV.aj(file2);
+                        bVar.ppW[i2] = aj;
                         this.l = (this.l - j2) + aj;
                     }
                 } else {
-                    this.poO.a(file);
+                    this.pqV.a(file);
                 }
             }
             this.f++;
-            bVar.poW = null;
+            bVar.prd = null;
             if (bVar.e | z) {
                 bVar.e = true;
-                this.poG.YM("CLEAN").OB(32);
-                this.poG.YM(bVar.f5859a);
-                bVar.a(this.poG);
-                this.poG.OB(10);
+                this.pqN.YT("CLEAN").OF(32);
+                this.pqN.YT(bVar.f3948a);
+                bVar.a(this.pqN);
+                this.pqN.OF(10);
                 if (z) {
                     long j3 = this.m;
                     this.m = 1 + j3;
                     bVar.g = j3;
                 }
             } else {
-                this.poP.remove(bVar.f5859a);
-                this.poG.YM("REMOVE").OB(32);
-                this.poG.YM(bVar.f5859a);
-                this.poG.OB(10);
+                this.pqW.remove(bVar.f3948a);
+                this.pqN.YT("REMOVE").OF(32);
+                this.pqN.YT(bVar.f3948a);
+                this.pqN.OF(10);
             }
-            this.poG.flush();
+            this.pqN.flush();
             if (this.l > this.k || a()) {
-                this.poQ.execute(this.o);
+                this.pqX.execute(this.o);
             }
         }
     }
 
     boolean a() {
-        return this.f >= 2000 && this.f >= this.poP.size();
+        return this.f >= 2000 && this.f >= this.pqW.size();
     }
 
     boolean a(b bVar) throws IOException {
-        if (bVar.poW != null) {
-            bVar.poW.a();
+        if (bVar.prd != null) {
+            bVar.prd.a();
         }
         for (int i = 0; i < this.c; i++) {
-            this.poO.a(bVar.poU[i]);
-            this.l -= bVar.pnM[i];
-            bVar.pnM[i] = 0;
+            this.pqV.a(bVar.prb[i]);
+            this.l -= bVar.ppW[i];
+            bVar.ppW[i] = 0;
         }
         this.f++;
-        this.poG.YM("REMOVE").OB(32).YM(bVar.f5859a).OB(10);
-        this.poP.remove(bVar.f5859a);
+        this.pqN.YT("REMOVE").OF(32).YT(bVar.f3948a).OF(10);
+        this.pqW.remove(bVar.f3948a);
         if (a()) {
-            this.poQ.execute(this.o);
+            this.pqX.execute(this.o);
             return true;
         }
         return true;
@@ -128,7 +128,7 @@ public final class d implements Closeable, Flushable {
         if (this.g) {
             d();
             c();
-            this.poG.flush();
+            this.pqN.flush();
         }
     }
 
@@ -138,21 +138,21 @@ public final class d implements Closeable, Flushable {
         if (!this.g || this.h) {
             this.h = true;
         } else {
-            for (b bVar : (b[]) this.poP.values().toArray(new b[this.poP.size()])) {
-                if (bVar.poW != null) {
-                    bVar.poW.b();
+            for (b bVar : (b[]) this.pqW.values().toArray(new b[this.pqW.size()])) {
+                if (bVar.prd != null) {
+                    bVar.prd.b();
                 }
             }
             c();
-            this.poG.close();
-            this.poG = null;
+            this.pqN.close();
+            this.pqN = null;
             this.h = true;
         }
     }
 
     void c() throws IOException {
         while (this.l > this.k) {
-            a(this.poP.values().iterator().next());
+            a(this.pqW.values().iterator().next());
         }
         this.i = false;
     }
@@ -160,29 +160,29 @@ public final class d implements Closeable, Flushable {
     /* loaded from: classes6.dex */
     public final class a {
         private boolean d;
-        final b poR;
-        final boolean[] poS;
-        final /* synthetic */ d poT;
+        final b pqY;
+        final boolean[] pqZ;
+        final /* synthetic */ d pra;
 
         void a() {
-            if (this.poR.poW == this) {
-                for (int i = 0; i < this.poT.c; i++) {
+            if (this.pqY.prd == this) {
+                for (int i = 0; i < this.pra.c; i++) {
                     try {
-                        this.poT.poO.a(this.poR.poV[i]);
+                        this.pra.pqV.a(this.pqY.prc[i]);
                     } catch (IOException e) {
                     }
                 }
-                this.poR.poW = null;
+                this.pqY.prd = null;
             }
         }
 
         public void b() throws IOException {
-            synchronized (this.poT) {
+            synchronized (this.pra) {
                 if (this.d) {
                     throw new IllegalStateException();
                 }
-                if (this.poR.poW == this) {
-                    this.poT.a(this, false);
+                if (this.pqY.prd == this) {
+                    this.pra.a(this, false);
                 }
                 this.d = true;
             }
@@ -194,17 +194,17 @@ public final class d implements Closeable, Flushable {
     public final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        final String f5859a;
+        final String f3948a;
         boolean e;
         long g;
-        final long[] pnM;
-        final File[] poU;
-        final File[] poV;
-        a poW;
+        final long[] ppW;
+        final File[] prb;
+        final File[] prc;
+        a prd;
 
         void a(com.bytedance.sdk.a.a.d dVar) throws IOException {
-            for (long j : this.pnM) {
-                dVar.OB(32).io(j);
+            for (long j : this.ppW) {
+                dVar.OF(32).io(j);
             }
         }
     }

@@ -10,10 +10,10 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d {
     public static Spannable a(Context context, Spannable spannable, int i, int i2, int i3) {
-        b.bw(context);
+        b.bv(context);
         int length = spannable.length();
         HashMap hashMap = new HashMap();
         c[] cVarArr = (c[]) spannable.getSpans(0, length, c.class);
@@ -26,14 +26,14 @@ public class d {
             if (num == null || num.intValue() != matcher.end()) {
                 String group = matcher.group();
                 String str = "";
-                Integer num2 = b.XP().get(group);
+                Integer num2 = b.XS().get(group);
                 int i5 = -1;
                 if (num2 != null && num2.intValue() >= 0) {
                     i5 = num2.intValue();
                 } else {
-                    String str2 = b.XQ().get(group);
+                    String str2 = b.XT().get(group);
                     if (TextUtils.isEmpty(str2)) {
-                        i5 = iq(group.replaceAll("\\[jx]|\\[/jx]", ""));
+                        i5 = iw(group.replaceAll("\\[jx]|\\[/jx]", ""));
                         str = str2;
                     } else {
                         str = str2;
@@ -64,7 +64,7 @@ public class d {
         editText.dispatchKeyEvent(new KeyEvent(0L, 0L, 0, 67, 0, 0, 0, 0, 6));
     }
 
-    public static int iq(String str) {
+    public static int iw(String str) {
         Resources resources = TbadkCoreApplication.getInst().getApp().getResources();
         if (TbadkCoreApplication.getInst().isQuanmin()) {
             return resources.getIdentifier(str, "drawable", "com.baidu.minivideo.live");
@@ -72,7 +72,7 @@ public class d {
         return resources.getIdentifier(str, "drawable", TbadkCoreApplication.getInst().getApp().getApplicationInfo().packageName);
     }
 
-    public static int ir(String str) {
+    public static int ix(String str) {
         return str.replaceAll("\\[([一-龥\\w])+\\]", "1").length();
     }
 }

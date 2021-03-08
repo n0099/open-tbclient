@@ -1,12 +1,12 @@
 package com.yy.videoplayer;
 
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoPlayer implements IVideoPlayerInfo {
     private static VideoPlayer mInstance;
     private HashMap<Long, VideoPlayerInfo> mHashMap = new HashMap<>();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum VideoPlayerInfoEnum {
         RESOLUTION,
         FRAME,

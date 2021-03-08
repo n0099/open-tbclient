@@ -13,17 +13,17 @@ public class bs implements Application.ActivityLifecycleCallbacks {
     private static String g;
     private static Object i;
     private static Object j;
-    private static aj pnB;
-    private static aj pnC;
-    private final j pnD;
+    private static aj ppL;
+    private static aj ppM;
+    private final j ppN;
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f5813a = 0;
+    private static int f3923a = 0;
     private static int h = -1;
-    private static final HashSet<Integer> pnE = new HashSet<>(8);
+    private static final HashSet<Integer> ppO = new HashSet<>(8);
 
     public bs(j jVar) {
-        this.pnD = jVar;
+        this.ppN = jVar;
     }
 
     public static void b(Object obj) {
@@ -31,8 +31,8 @@ public class bs implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityResumed(Activity activity) {
-        pnB = b(activity.getClass().getName(), "", System.currentTimeMillis(), e);
-        pnB.k = !pnE.remove(Integer.valueOf(activity.hashCode())) ? 1 : 0;
+        ppL = b(activity.getClass().getName(), "", System.currentTimeMillis(), e);
+        ppL.k = !ppO.remove(Integer.valueOf(activity.hashCode())) ? 1 : 0;
         if (!activity.isChild()) {
             try {
                 h = activity.getWindow().getDecorView().hashCode();
@@ -45,14 +45,14 @@ public class bs implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityPaused(Activity activity) {
-        if (pnC != null) {
+        if (ppM != null) {
             b(j);
         }
-        if (pnB != null) {
-            e = pnB.j;
+        if (ppL != null) {
+            e = ppL.j;
             d = System.currentTimeMillis();
-            a(pnB, d);
-            pnB = null;
+            a(ppL, d);
+            ppL = null;
             if (!activity.isChild()) {
                 h = -1;
                 i = null;
@@ -67,7 +67,7 @@ public class bs implements Application.ActivityLifecycleCallbacks {
         } else {
             ajVar.j = str;
         }
-        ajVar.f5776a = j2;
+        ajVar.f3899a = j2;
         ajVar.h = -1L;
         if (str3 == null) {
             str3 = "";
@@ -79,8 +79,8 @@ public class bs implements Application.ActivityLifecycleCallbacks {
 
     public static aj a(aj ajVar, long j2) {
         aj ajVar2 = (aj) ajVar.clone();
-        ajVar2.f5776a = j2;
-        long j3 = j2 - ajVar.f5776a;
+        ajVar2.f3899a = j2;
+        long j3 = j2 - ajVar.f3899a;
         if (j3 >= 0) {
             ajVar2.h = j3;
         } else {
@@ -92,23 +92,23 @@ public class bs implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStarted(Activity activity) {
-        f5813a++;
-        if (f5813a == 1 && this.pnD != null) {
-            this.pnD.show(true);
+        f3923a++;
+        if (f3923a == 1 && this.ppN != null) {
+            this.ppN.show(true);
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStopped(Activity activity) {
         if (e != null) {
-            f5813a--;
-            if (f5813a <= 0) {
+            f3923a--;
+            if (f3923a <= 0) {
                 e = null;
                 g = null;
                 f = 0L;
                 d = 0L;
-                if (this.pnD != null) {
-                    this.pnD.show(false);
+                if (this.ppN != null) {
+                    this.ppN.show(false);
                 }
             }
         }
@@ -120,11 +120,11 @@ public class bs implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityDestroyed(Activity activity) {
-        pnE.remove(Integer.valueOf(activity.hashCode()));
+        ppO.remove(Integer.valueOf(activity.hashCode()));
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityCreated(Activity activity, Bundle bundle) {
-        pnE.add(Integer.valueOf(activity.hashCode()));
+        ppO.add(Integer.valueOf(activity.hashCode()));
     }
 }

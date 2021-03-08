@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ar;
 /* loaded from: classes.dex */
 public class f {
-    public static void Eq(String str) {
+    public static void Ex(String str) {
         ar arVar = new ar("c14075");
         arVar.dR("obj_type", str);
         TiebaStatic.log(arVar);

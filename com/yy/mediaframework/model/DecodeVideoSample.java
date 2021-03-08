@@ -1,7 +1,7 @@
 package com.yy.mediaframework.model;
 
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class DecodeVideoSample {
     public byte[] data;
     public int dataLenght;

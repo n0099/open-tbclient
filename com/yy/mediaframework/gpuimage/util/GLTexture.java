@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GLTexture {
     private int mTarget;
     private int mTextureID = -1;

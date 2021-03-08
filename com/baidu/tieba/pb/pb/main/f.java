@@ -7,39 +7,39 @@ import com.baidu.tbadk.core.data.cb;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class f extends aq {
-    private TextView lNv;
+    private TextView lPx;
 
     public f(BaseFragmentActivity baseFragmentActivity, View view) {
         super(baseFragmentActivity, view);
-        this.lNv = null;
+        this.lPx = null;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.aq
     protected void a(e eVar) {
-        this.lNv = (TextView) this.mRootView.findViewById(R.id.icon_push);
-        this.lNv.setVisibility(8);
+        this.lPx = (TextView) this.mRootView.findViewById(R.id.icon_push);
+        this.lPx.setVisibility(8);
     }
 
     public void uO(boolean z) {
-        if (this.lNv != null) {
+        if (this.lPx != null) {
             if (z) {
-                this.lNv.setText(R.string.push);
-                com.baidu.tbadk.core.util.ap.setViewTextColor(this.lNv, R.drawable.push_text_selector);
-                com.baidu.tbadk.core.util.ap.setBackgroundResource(this.lNv, R.drawable.push_bg_selector);
-                this.lNv.setClickable(true);
+                this.lPx.setText(R.string.push);
+                com.baidu.tbadk.core.util.ap.setViewTextColor(this.lPx, R.drawable.push_text_selector);
+                com.baidu.tbadk.core.util.ap.setBackgroundResource(this.lPx, R.drawable.push_bg_selector);
+                this.lPx.setClickable(true);
             } else {
-                this.lNv.setText(R.string.already_push);
-                com.baidu.tbadk.core.util.ap.setBackgroundResource(this.lNv, R.drawable.label_bg_gray80);
-                com.baidu.tbadk.core.util.ap.setViewTextColor(this.lNv, R.color.CAM_X0109);
-                this.lNv.setClickable(false);
+                this.lPx.setText(R.string.already_push);
+                com.baidu.tbadk.core.util.ap.setBackgroundResource(this.lPx, R.drawable.label_bg_gray80);
+                com.baidu.tbadk.core.util.ap.setViewTextColor(this.lPx, R.color.CAM_X0109);
+                this.lPx.setClickable(false);
             }
-            this.lNv.setVisibility(0);
+            this.lPx.setVisibility(0);
         }
     }
 
     public void aK(cb cbVar) {
-        if (cbVar != null && cbVar.bok() != null) {
-            int status = cbVar.bok().getStatus();
+        if (cbVar != null && cbVar.bom() != null) {
+            int status = cbVar.bom().getStatus();
             if (status == 1) {
                 uO(true);
             } else if (status == 2) {
@@ -48,7 +48,7 @@ public class f extends aq {
         }
     }
 
-    public TextView dmH() {
-        return this.lNv;
+    public TextView dmQ() {
+        return this.lPx;
     }
 }

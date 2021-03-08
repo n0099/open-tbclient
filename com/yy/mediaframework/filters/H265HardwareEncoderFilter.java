@@ -12,7 +12,7 @@ import com.yy.mediaframework.model.YYMediaSampleAlloc;
 import com.yy.mediaframework.stat.YMFLiveUsrBehaviorStat;
 import com.yy.mediaframework.utils.YMFLog;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class H265HardwareEncoderFilter extends H264HardwareEncoderFilter {
     public static final int SLICE_I = 2;
     public static final int SLICE_IDR = 1;

@@ -5,13 +5,13 @@ import com.baidu.ubc.ae;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class e {
-    private static final HashMap<d, b<?>> ctb = new HashMap<>();
+    private static final HashMap<d, b<?>> cuG = new HashMap<>();
 
     static {
-        aev();
+        aey();
     }
 
-    private static void aev() {
+    private static void aey() {
         a("ubc", UBC.TAG, ae.class);
     }
 
@@ -26,15 +26,15 @@ public class e {
     }
 
     public static <T> void a(d dVar, b<T> bVar) {
-        synchronized (ctb) {
-            ctb.put(dVar, bVar);
+        synchronized (cuG) {
+            cuG.put(dVar, bVar);
         }
     }
 
     public static <T> T a(d dVar) {
-        b<?> bVar = ctb.get(dVar);
+        b<?> bVar = cuG.get(dVar);
         if (bVar != null) {
-            return (T) bVar.aet();
+            return (T) bVar.aew();
         }
         return null;
     }

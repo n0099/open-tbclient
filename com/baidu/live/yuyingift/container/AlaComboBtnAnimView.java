@@ -18,23 +18,23 @@ import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.live.gift.g;
 import com.baidu.live.lottie.LottieAnimationView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaComboBtnAnimView extends FrameLayout {
-    private RelativeLayout aZo;
-    private View aZp;
-    private Animation aZq;
-    private LottieAnimationView aZs;
-    private View aZt;
-    private ObjectAnimator aZu;
-    private AnimatorSet aZw;
-    private a bYo;
-    private AlaRoundProgress bYp;
-    private final int bYq;
-    private g bYr;
+    private a bZO;
+    private AlaRoundProgress bZP;
+    private final int bZQ;
+    private g bZR;
+    private RelativeLayout baP;
+    private View baQ;
+    private Animation baR;
+    private LottieAnimationView baT;
+    private View baU;
+    private ObjectAnimator baV;
+    private AnimatorSet baX;
     private Context mContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void j(g gVar);
     }
@@ -49,114 +49,114 @@ public class AlaComboBtnAnimView extends FrameLayout {
 
     public AlaComboBtnAnimView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bYq = 3000;
+        this.bZQ = 3000;
         this.mContext = context;
         initView();
     }
 
     private void initView() {
         LayoutInflater.from(this.mContext).inflate(a.g.yuyin_ala_combo_btn_anim_view, this);
-        this.aZt = findViewById(a.f.combo_container);
-        this.bYp = (AlaRoundProgress) findViewById(a.f.ala_round_progress);
-        this.aZo = (RelativeLayout) findViewById(a.f.combo_btn);
-        this.aZo.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.live.yuyingift.container.AlaComboBtnAnimView.1
+        this.baU = findViewById(a.f.combo_container);
+        this.bZP = (AlaRoundProgress) findViewById(a.f.ala_round_progress);
+        this.baP = (RelativeLayout) findViewById(a.f.combo_btn);
+        this.baP.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.live.yuyingift.container.AlaComboBtnAnimView.1
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
                 return true;
             }
         });
-        this.aZp = findViewById(a.f.combo_bg);
-        this.aZq = AnimationUtils.loadAnimation(this.mContext, a.C0195a.yuyin_ala_gift_rotate_anim);
-        this.aZq.setInterpolator(new LinearInterpolator());
-        this.aZs = (LottieAnimationView) findViewById(a.f.lottie_balloon);
-        this.aZs.setAnimation("yuyin_ala_gift_combo_balloon.json");
-        this.aZs.loop(false);
-        this.bYp.setMax(100);
-        this.bYp.setProgress(0);
-        this.aZu = ObjectAnimator.ofInt(this.bYp, "progress", 100).setDuration(IMConnection.RETRY_DELAY_TIMES);
-        this.aZu.setInterpolator(new LinearInterpolator());
-        this.aZu.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.live.yuyingift.container.AlaComboBtnAnimView.2
+        this.baQ = findViewById(a.f.combo_bg);
+        this.baR = AnimationUtils.loadAnimation(this.mContext, a.C0201a.yuyin_ala_gift_rotate_anim);
+        this.baR.setInterpolator(new LinearInterpolator());
+        this.baT = (LottieAnimationView) findViewById(a.f.lottie_balloon);
+        this.baT.setAnimation("yuyin_ala_gift_combo_balloon.json");
+        this.baT.loop(false);
+        this.bZP.setMax(100);
+        this.bZP.setProgress(0);
+        this.baV = ObjectAnimator.ofInt(this.bZP, "progress", 100).setDuration(IMConnection.RETRY_DELAY_TIMES);
+        this.baV.setInterpolator(new LinearInterpolator());
+        this.baV.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.live.yuyingift.container.AlaComboBtnAnimView.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 ((Integer) valueAnimator.getAnimatedValue()).intValue();
             }
         });
-        this.aZu.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.live.yuyingift.container.AlaComboBtnAnimView.3
+        this.baV.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.live.yuyingift.container.AlaComboBtnAnimView.3
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
                 if (((Integer) ((ValueAnimator) animator).getAnimatedValue()).intValue() == 100) {
-                    AlaComboBtnAnimView.this.aZt.setVisibility(8);
+                    AlaComboBtnAnimView.this.baU.setVisibility(8);
                 }
-                if (AlaComboBtnAnimView.this.bYo != null) {
-                    AlaComboBtnAnimView.this.bYo.j(AlaComboBtnAnimView.this.bYr);
+                if (AlaComboBtnAnimView.this.bZO != null) {
+                    AlaComboBtnAnimView.this.bZO.j(AlaComboBtnAnimView.this.bZR);
                 }
             }
         });
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.aZo, "scaleX", 1.0f, 0.8f, 1.0f);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.baP, "scaleX", 1.0f, 0.8f, 1.0f);
         ofFloat.setRepeatCount(-1);
         ofFloat.setDuration(IMConnection.RETRY_DELAY_TIMES);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.aZo, "scaleY", 1.0f, 0.8f, 1.0f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.baP, "scaleY", 1.0f, 0.8f, 1.0f);
         ofFloat2.setRepeatCount(-1);
         ofFloat2.setDuration(IMConnection.RETRY_DELAY_TIMES);
-        this.aZw = new AnimatorSet();
-        this.aZw.play(ofFloat).with(ofFloat2);
+        this.baX = new AnimatorSet();
+        this.baX.play(ofFloat).with(ofFloat2);
     }
 
     public void h(g gVar) {
-        this.bYr = gVar;
-        if (this.aZw.isRunning()) {
-            this.aZw.cancel();
+        this.bZR = gVar;
+        if (this.baX.isRunning()) {
+            this.baX.cancel();
         }
-        this.aZw.start();
-        this.aZs.playAnimation();
-        this.aZu.start();
+        this.baX.start();
+        this.baT.playAnimation();
+        this.baV.start();
     }
 
     public void i(g gVar) {
-        this.bYr = gVar;
-        this.aZt.setVisibility(0);
-        this.aZp.startAnimation(this.aZq);
-        this.aZw.start();
-        this.aZu.start();
+        this.bZR = gVar;
+        this.baU.setVisibility(0);
+        this.baQ.startAnimation(this.baR);
+        this.baX.start();
+        this.baV.start();
     }
 
     public void setComboClickListener(View.OnClickListener onClickListener) {
-        if (this.aZo != null) {
-            this.aZo.setOnClickListener(onClickListener);
+        if (this.baP != null) {
+            this.baP.setOnClickListener(onClickListener);
         }
     }
 
-    public void FS() {
-        this.aZq.cancel();
-        if (this.aZu.isRunning()) {
-            this.aZu.cancel();
+    public void FV() {
+        this.baR.cancel();
+        if (this.baV.isRunning()) {
+            this.baV.cancel();
         }
-        if (this.aZw.isRunning()) {
-            this.aZw.cancel();
+        if (this.baX.isRunning()) {
+            this.baX.cancel();
         }
-        if (this.aZs.isAnimating()) {
-            this.aZs.cancelAnimation();
+        if (this.baT.isAnimating()) {
+            this.baT.cancelAnimation();
         }
-        this.aZt.setVisibility(8);
-        if (this.bYo != null) {
-            this.bYo.j(this.bYr);
+        this.baU.setVisibility(8);
+        if (this.bZO != null) {
+            this.bZO.j(this.bZR);
         }
     }
 
     public void setComboListener(a aVar) {
-        this.bYo = aVar;
+        this.bZO = aVar;
     }
 
-    public boolean FT() {
-        return this.aZt == null || this.aZt.getVisibility() == 0;
+    public boolean FW() {
+        return this.baU == null || this.baU.getVisibility() == 0;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         try {
-            FS();
+            FV();
         } catch (Exception e) {
         }
     }

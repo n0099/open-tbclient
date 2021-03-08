@@ -11,7 +11,7 @@ import javax.net.ssl.X509TrustManager;
 import okhttp3.Protocol;
 import okhttp3.internal.Util;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class Jdk9Platform extends Platform {
     final Method getProtocolMethod;
     final Method setProtocolMethod;

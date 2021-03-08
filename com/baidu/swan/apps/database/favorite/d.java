@@ -3,9 +3,9 @@ package com.baidu.swan.apps.database.favorite;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import androidx.annotation.NonNull;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d {
-    private static Uri cYW;
+    private static Uri dax;
 
     public static void y(@NonNull SQLiteDatabase sQLiteDatabase) {
         try {
@@ -16,13 +16,13 @@ public class d {
     }
 
     @NonNull
-    public static synchronized Uri atr() {
+    public static synchronized Uri atu() {
         Uri uri;
         synchronized (d.class) {
-            if (cYW == null) {
-                cYW = b.CONTENT_URI.buildUpon().appendPath("user_behavior").build();
+            if (dax == null) {
+                dax = b.CONTENT_URI.buildUpon().appendPath("user_behavior").build();
             }
-            uri = cYW;
+            uri = dax;
         }
         return uri;
     }

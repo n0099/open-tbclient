@@ -1,12 +1,11 @@
 package com.thunder.livesdk.video;
 
-import androidx.core.internal.view.SupportMenu;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mobstat.Config;
 import com.yy.videoplayer.VideoPlayer;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoDecodeRuntimeInfo {
     private static VideoDecodeRuntimeInfo mInstance;
     private Map<Long, DecodeRuntimeInfo> mDecodeRuntimeInfoMap = new ConcurrentHashMap();
@@ -59,7 +58,7 @@ public class VideoDecodeRuntimeInfo {
                 value.decoderType = (int) VideoPlayer.getInstance().getPlayerInfo(key.longValue(), VideoPlayer.VideoPlayerInfoEnum.DECODERTYPE);
                 value.resolution = (int) VideoPlayer.getInstance().getPlayerInfo(key.longValue(), VideoPlayer.VideoPlayerInfoEnum.RESOLUTION);
                 if (value.fps != -1) {
-                    str = str2 + "\r\nuid: " + value.strUid + "\r\nfps: " + value.fps + "\r\nbitrate: " + value.bitrate + "kb/s \r\ndecoderType: " + getDecodeTypeName(value.decoderType) + "\r\nresolution: " + (value.resolution >> 16) + Config.EVENT_HEAT_X + (value.resolution & SupportMenu.USER_MASK) + "\r\n";
+                    str = str2 + "\r\nuid: " + value.strUid + "\r\nfps: " + value.fps + "\r\nbitrate: " + value.bitrate + "kb/s \r\ndecoderType: " + getDecodeTypeName(value.decoderType) + "\r\nresolution: " + (value.resolution >> 16) + Config.EVENT_HEAT_X + (value.resolution & 65535) + "\r\n";
                 }
             } else {
                 str = str2;
@@ -69,7 +68,7 @@ public class VideoDecodeRuntimeInfo {
         return str2;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private class DecodeRuntimeInfo {
         public int bitrate;
         public int decoderType;

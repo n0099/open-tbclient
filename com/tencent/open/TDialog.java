@@ -30,7 +30,7 @@ import com.tencent.tauth.UiError;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class TDialog extends b {
     static final FrameLayout.LayoutParams c = new FrameLayout.LayoutParams(-1, -1);
     static Toast d = null;
@@ -45,15 +45,13 @@ public class TDialog extends b {
     private boolean m;
     private QQToken n;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private class THandler extends Handler {
-
-        /* renamed from: b  reason: collision with root package name */
-        private OnTimeListener f13367b;
+        private OnTimeListener b;
 
         public THandler(OnTimeListener onTimeListener, Looper looper) {
             super(looper);
-            this.f13367b = onTimeListener;
+            this.b = onTimeListener;
         }
 
         @Override // android.os.Handler
@@ -61,10 +59,10 @@ public class TDialog extends b {
             f.b("openSDK_LOG.TDialog", "--handleMessage--msg.WHAT = " + message.what);
             switch (message.what) {
                 case 1:
-                    this.f13367b.a((String) message.obj);
+                    this.b.a((String) message.obj);
                     return;
                 case 2:
-                    this.f13367b.onCancel();
+                    this.b.onCancel();
                     return;
                 case 3:
                     if (TDialog.this.e != null && TDialog.this.e.get() != null) {
@@ -85,14 +83,12 @@ public class TDialog extends b {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static class OnTimeListener implements IUiListener {
 
         /* renamed from: a  reason: collision with root package name */
-        String f13364a;
-
-        /* renamed from: b  reason: collision with root package name */
-        String f13365b;
+        String f7946a;
+        String b;
         private WeakReference<Context> c;
         private String d;
         private IUiListener e;
@@ -100,8 +96,8 @@ public class TDialog extends b {
         public OnTimeListener(Context context, String str, String str2, String str3, IUiListener iUiListener) {
             this.c = new WeakReference<>(context);
             this.d = str;
-            this.f13364a = str2;
-            this.f13365b = str3;
+            this.f7946a = str2;
+            this.b = str3;
             this.e = iUiListener;
         }
 
@@ -118,7 +114,7 @@ public class TDialog extends b {
         @Override // com.tencent.tauth.IUiListener
         public void onComplete(Object obj) {
             JSONObject jSONObject = (JSONObject) obj;
-            g.a().a(this.d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, jSONObject.optInt(Constants.KEYS.RET, -6), this.f13364a, false);
+            g.a().a(this.d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, jSONObject.optInt(Constants.KEYS.RET, -6), this.f7946a, false);
             if (this.e != null) {
                 this.e.onComplete(jSONObject);
                 this.e = null;
@@ -127,7 +123,7 @@ public class TDialog extends b {
 
         @Override // com.tencent.tauth.IUiListener
         public void onError(UiError uiError) {
-            g.a().a(this.d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, uiError.errorCode, uiError.errorMessage != null ? uiError.errorMessage + this.f13364a : this.f13364a, false);
+            g.a().a(this.d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, uiError.errorCode, uiError.errorMessage != null ? uiError.errorMessage + this.f7946a : this.f7946a, false);
             if (this.e != null) {
                 this.e.onError(uiError);
                 this.e = null;
@@ -188,7 +184,7 @@ public class TDialog extends b {
     protected void a(String str) {
         f.b("openSDK_LOG.TDialog", "--onConsoleMessage--");
         try {
-            this.f13387a.a(this.k, str);
+            this.f7959a.a(this.k, str);
         } catch (Exception e) {
         }
     }
@@ -198,7 +194,7 @@ public class TDialog extends b {
         this.k.setVerticalScrollBarEnabled(false);
         this.k.setHorizontalScrollBarEnabled(false);
         this.k.setWebViewClient(new FbWebViewClient());
-        this.k.setWebChromeClient(this.f13388b);
+        this.k.setWebChromeClient(this.b);
         this.k.clearFormData();
         WebSettings settings = this.k.getSettings();
         if (settings != null) {
@@ -215,7 +211,7 @@ public class TDialog extends b {
                 settings.setDatabasePath(this.e.get().getApplicationContext().getDir(NgWebView.APP_DATABASE_PATH, 0).getPath());
             }
             settings.setDomStorageEnabled(true);
-            this.f13387a.a(new JsListener(), "sdk_js_if");
+            this.f7959a.a(new JsListener(), "sdk_js_if");
             this.k.loadUrl(this.g);
             this.k.setLayoutParams(c);
             this.k.setVisibility(4);
@@ -224,7 +220,7 @@ public class TDialog extends b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class JsListener extends a.b {
         private JsListener() {
         }
@@ -274,7 +270,7 @@ public class TDialog extends b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class FbWebViewClient extends WebViewClient {
         private FbWebViewClient() {
         }

@@ -15,18 +15,18 @@ import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class BarImageView extends TbClipImageView {
-    private boolean bKA;
-    private boolean bKB;
-    private Bitmap bKC;
-    private Bitmap bKD;
-    private Bitmap bKE;
-    private Canvas bKF;
-    private PaintFlagsDrawFilter bKG;
-    private PorterDuffXfermode bKH;
-    private PorterDuffXfermode bKI;
-    private Path bKx;
-    private int bKy;
-    private boolean bKz;
+    private Path bLX;
+    private int bLY;
+    private boolean bLZ;
+    private boolean bMa;
+    private boolean bMb;
+    private Bitmap bMc;
+    private Bitmap bMd;
+    private Bitmap bMe;
+    private Canvas bMf;
+    private PaintFlagsDrawFilter bMg;
+    private PorterDuffXfermode bMh;
+    private PorterDuffXfermode bMi;
     private int mDefaultBgId;
     private int mDefaultId;
     private Path mPath;
@@ -45,14 +45,14 @@ public class BarImageView extends TbClipImageView {
         this.mDefaultId = ap.getColor(R.color.CAM_X0209);
         this.mDefaultBgId = R.drawable.pic_use_header_28_n;
         this.mPath = new Path();
-        this.bKx = new Path();
-        this.bKy = 0;
+        this.bLX = new Path();
+        this.bLY = 0;
         this.strokeColor = 0;
-        this.bKz = false;
-        this.bKA = false;
-        this.bKB = true;
-        this.bKH = new PorterDuffXfermode(PorterDuff.Mode.SRC_IN);
-        this.bKI = new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT);
+        this.bLZ = false;
+        this.bMa = false;
+        this.bMb = true;
+        this.bMh = new PorterDuffXfermode(PorterDuff.Mode.SRC_IN);
+        this.bMi = new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT);
         init();
     }
 
@@ -66,16 +66,16 @@ public class BarImageView extends TbClipImageView {
 
     private Bitmap f(int i, int i2, boolean z) {
         Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
-        new Canvas(createBitmap).drawPath(this.mPath, z ? this.St.mBorderPaint : this.St.mPaint);
+        new Canvas(createBitmap).drawPath(this.mPath, z ? this.TR.mBorderPaint : this.TR.mPaint);
         return createBitmap;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        if (this.St == null || this.St.mPaint == null) {
+        if (this.TR == null || this.TR.mPaint == null) {
             super.onDraw(canvas);
-        } else if (!this.bKz) {
+        } else if (!this.bLZ) {
             super.onDraw(canvas);
         } else {
             int measuredWidth = getMeasuredWidth();
@@ -92,9 +92,9 @@ public class BarImageView extends TbClipImageView {
             this.mPath.cubicTo(f, measuredWidth, 0.0f, measuredWidth - f, 0.0f, f5);
             this.mPath.cubicTo(0.0f, f, f, 0.0f, f3, 0.0f);
             this.mPath.close();
-            this.St.mBorderPaint.setStyle(Paint.Style.FILL);
-            this.St.mBorderPaint.setColor(ap.getColor(this.strokeColor));
-            this.bKE = f(measuredWidth, measuredHeight, true);
+            this.TR.mBorderPaint.setStyle(Paint.Style.FILL);
+            this.TR.mBorderPaint.setColor(ap.getColor(this.strokeColor));
+            this.bMe = f(measuredWidth, measuredHeight, true);
             this.mPath.reset();
             float strokeWith = getStrokeWith();
             float f6 = measuredWidth / 2;
@@ -104,51 +104,51 @@ public class BarImageView extends TbClipImageView {
             this.mPath.cubicTo(strokeWith + f, measuredWidth - strokeWith, strokeWith, (measuredWidth - strokeWith) - f, strokeWith, f6);
             this.mPath.cubicTo(strokeWith, strokeWith + f, strokeWith + f, strokeWith, f6, strokeWith);
             this.mPath.close();
-            if (this.bKG == null) {
-                this.bKG = new PaintFlagsDrawFilter(0, 3);
+            if (this.bMg == null) {
+                this.bMg = new PaintFlagsDrawFilter(0, 3);
             }
-            canvas.setDrawFilter(this.bKG);
-            if (this.bKC == null) {
-                this.bKC = Bitmap.createBitmap(measuredWidth, measuredHeight, Bitmap.Config.ARGB_8888);
+            canvas.setDrawFilter(this.bMg);
+            if (this.bMc == null) {
+                this.bMc = Bitmap.createBitmap(measuredWidth, measuredHeight, Bitmap.Config.ARGB_8888);
             }
-            if (this.bKF == null) {
-                this.bKF = new Canvas(this.bKC);
+            if (this.bMf == null) {
+                this.bMf = new Canvas(this.bMc);
             }
-            this.St.mBorderPaint.setStyle(Paint.Style.STROKE);
-            super.onDraw(this.bKF);
-            this.bKD = f(measuredWidth, measuredHeight, false);
-            if (this.bKB) {
+            this.TR.mBorderPaint.setStyle(Paint.Style.STROKE);
+            super.onDraw(this.bMf);
+            this.bMd = f(measuredWidth, measuredHeight, false);
+            if (this.bMb) {
                 int saveLayer = canvas.saveLayer(0.0f, 0.0f, measuredWidth, measuredHeight, null, 31);
-                this.St.mBorderPaint.setStyle(Paint.Style.FILL);
-                this.St.mBorderPaint.setColor(ap.getColor(this.strokeColor));
-                canvas.drawBitmap(this.bKD, 0.0f, 0.0f, this.St.mBorderPaint);
-                this.St.mBorderPaint.setXfermode(this.bKI);
-                canvas.drawBitmap(this.bKE, 0.0f, 0.0f, this.St.mBorderPaint);
-                this.St.mBorderPaint.setXfermode(null);
+                this.TR.mBorderPaint.setStyle(Paint.Style.FILL);
+                this.TR.mBorderPaint.setColor(ap.getColor(this.strokeColor));
+                canvas.drawBitmap(this.bMd, 0.0f, 0.0f, this.TR.mBorderPaint);
+                this.TR.mBorderPaint.setXfermode(this.bMi);
+                canvas.drawBitmap(this.bMe, 0.0f, 0.0f, this.TR.mBorderPaint);
+                this.TR.mBorderPaint.setXfermode(null);
                 if (saveLayer >= 1 && saveLayer <= canvas.getSaveCount()) {
                     canvas.restoreToCount(saveLayer);
                 }
             }
             int saveLayer2 = canvas.saveLayer(0.0f, 0.0f, measuredWidth, measuredHeight, null, 31);
-            canvas.drawBitmap(this.bKD, 0.0f, 0.0f, this.St.mPaint);
-            this.St.mPaint.setXfermode(this.bKH);
-            canvas.drawBitmap(this.bKC, 0.0f, 0.0f, this.St.mPaint);
-            this.St.mPaint.setXfermode(null);
+            canvas.drawBitmap(this.bMd, 0.0f, 0.0f, this.TR.mPaint);
+            this.TR.mPaint.setXfermode(this.bMh);
+            canvas.drawBitmap(this.bMc, 0.0f, 0.0f, this.TR.mPaint);
+            this.TR.mPaint.setXfermode(null);
             if (saveLayer2 >= 1 && saveLayer2 <= canvas.getSaveCount()) {
                 canvas.restoreToCount(saveLayer2);
             }
-            if (this.bKA) {
+            if (this.bMa) {
                 a(canvas, measuredWidth, f);
             }
         }
     }
 
     public void setStrokeWith(int i) {
-        this.bKy = i;
+        this.bLY = i;
     }
 
     public int getStrokeWith() {
-        return this.bKy;
+        return this.bLY;
     }
 
     private int getStrokeColorResId() {
@@ -160,32 +160,32 @@ public class BarImageView extends TbClipImageView {
     }
 
     public void setShowOval(boolean z) {
-        this.bKz = z;
+        this.bLZ = z;
     }
 
     public void setShowInnerBorder(boolean z) {
-        this.bKA = z;
+        this.bMa = z;
     }
 
     public void setShowOuterBorder(boolean z) {
-        this.bKB = z;
+        this.bMb = z;
     }
 
     private void a(Canvas canvas, int i, float f) {
-        this.bKx.reset();
+        this.bLX.reset();
         float strokeWith = ((getStrokeWith() * 3.0f) / 2.0f) - 0.5f;
         float f2 = i / 2;
-        this.bKx.moveTo(f2, strokeWith);
-        this.bKx.cubicTo((i - strokeWith) - f, strokeWith, i - strokeWith, strokeWith + f, i - strokeWith, f2);
-        this.bKx.cubicTo(i - strokeWith, (i - strokeWith) - f, (i - strokeWith) - f, i - strokeWith, f2, i - strokeWith);
-        this.bKx.cubicTo(strokeWith + f, i - strokeWith, strokeWith, (i - strokeWith) - f, strokeWith, f2);
-        this.bKx.cubicTo(strokeWith, strokeWith + f, strokeWith + f, strokeWith, f2, strokeWith);
-        this.bKx.close();
-        float strokeWidth = this.St.mBorderPaint.getStrokeWidth();
-        this.St.mBorderPaint.setStyle(Paint.Style.STROKE);
-        this.St.mBorderPaint.setStrokeWidth(getStrokeWith() + 0.5f);
-        this.St.mBorderPaint.setColor(ap.getColor(getStrokeColorResId()));
-        canvas.drawPath(this.bKx, this.St.mBorderPaint);
-        this.St.mBorderPaint.setStrokeWidth(strokeWidth);
+        this.bLX.moveTo(f2, strokeWith);
+        this.bLX.cubicTo((i - strokeWith) - f, strokeWith, i - strokeWith, strokeWith + f, i - strokeWith, f2);
+        this.bLX.cubicTo(i - strokeWith, (i - strokeWith) - f, (i - strokeWith) - f, i - strokeWith, f2, i - strokeWith);
+        this.bLX.cubicTo(strokeWith + f, i - strokeWith, strokeWith, (i - strokeWith) - f, strokeWith, f2);
+        this.bLX.cubicTo(strokeWith, strokeWith + f, strokeWith + f, strokeWith, f2, strokeWith);
+        this.bLX.close();
+        float strokeWidth = this.TR.mBorderPaint.getStrokeWidth();
+        this.TR.mBorderPaint.setStyle(Paint.Style.STROKE);
+        this.TR.mBorderPaint.setStrokeWidth(getStrokeWith() + 0.5f);
+        this.TR.mBorderPaint.setColor(ap.getColor(getStrokeColorResId()));
+        canvas.drawPath(this.bLX, this.TR.mBorderPaint);
+        this.TR.mBorderPaint.setStrokeWidth(strokeWidth);
     }
 }

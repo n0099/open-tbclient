@@ -34,11 +34,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class a extends com.baidu.mobads.openad.a.c implements IXNonLinearAdSlot {
-
-    /* renamed from: b  reason: collision with root package name */
-    public static IXAdContainerFactory f3435b;
+    public static IXAdContainerFactory b;
     private static final String[] z = {"android.permission.ACCESS_COARSE_LOCATION", "android.permission.WRITE_EXTERNAL_STORAGE"};
     private IXAdResponseInfo B;
     private String C;
@@ -222,7 +220,7 @@ public abstract class a extends com.baidu.mobads.openad.a.c implements IXNonLine
                 }
             }
         }
-        if (f3435b != null) {
+        if (b != null) {
             b();
         } else if (BaiduXAdSDKContext.mApkLoader != null) {
             this.v.d("XAbstractAdProdTemplate", "BaiduXAdSDKContext.mApkLoader != null,load apk");
@@ -437,7 +435,7 @@ public abstract class a extends com.baidu.mobads.openad.a.c implements IXNonLine
         this.c = false;
         String b2 = this.i == null ? dVar.b() : this.i;
         this.j = new p();
-        com.baidu.mobads.b.a.f3292b = b2;
+        com.baidu.mobads.b.a.b = b2;
         com.baidu.mobads.openad.b.b bVar = new com.baidu.mobads.openad.b.b(b2, "");
         bVar.e = 1;
         this.j.addEventListener("URLLoader.Load.Complete", this.F);
@@ -524,7 +522,7 @@ public abstract class a extends com.baidu.mobads.openad.a.c implements IXNonLine
 
     @Override // com.baidu.mobads.interfaces.IXAdProd
     public IXAdContainerFactory getAdContainerFactory() {
-        return f3435b;
+        return b;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -579,14 +577,14 @@ public abstract class a extends com.baidu.mobads.openad.a.c implements IXNonLine
     private IXAdContainer b(IXAdContainerContext iXAdContainerContext) {
         IXAdContainer iXAdContainer = null;
         this.v.d("XAbstractAdProdTemplate", "createAdContainer");
-        if (f3435b != null) {
+        if (b != null) {
             if (this.u != null && this.u.containsKey("Display_Down_Info")) {
-                iXAdContainer = f3435b.createXAdContainer(iXAdContainerContext, this.u);
+                iXAdContainer = b.createXAdContainer(iXAdContainerContext, this.u);
             } else {
-                iXAdContainer = f3435b.createXAdContainer(iXAdContainerContext, null);
+                iXAdContainer = b.createXAdContainer(iXAdContainerContext, null);
             }
             if (iXAdContainer != null) {
-                this.v.d("XAbstractAdProdTemplate", "createAdContainer() apk.version=" + f3435b.getRemoteVersion());
+                this.v.d("XAbstractAdProdTemplate", "createAdContainer() apk.version=" + b.getRemoteVersion());
             }
         }
         return iXAdContainer;

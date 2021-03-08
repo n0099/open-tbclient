@@ -11,11 +11,9 @@ import java.io.File;
 final class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final File f10290a = new File("/proc/self/fd");
+    private static final File f6794a = new File("/proc/self/fd");
     private static volatile p d;
-
-    /* renamed from: b  reason: collision with root package name */
-    private volatile int f10291b;
+    private volatile int b;
     private volatile boolean c = true;
 
     private p() {
@@ -36,11 +34,11 @@ final class p {
     private synchronized boolean b() {
         boolean z;
         synchronized (this) {
-            int i = this.f10291b + 1;
-            this.f10291b = i;
+            int i = this.b + 1;
+            this.b = i;
             if (i >= 50) {
-                this.f10291b = 0;
-                int length = f10290a.list().length;
+                this.b = 0;
+                int length = f6794a.list().length;
                 this.c = length < 700;
                 if (!this.c && Log.isLoggable("Downsampler", 5)) {
                     Log.w("Downsampler", "Excluding HARDWARE bitmap config because we're over the file descriptor limit, file descriptors " + length + ", limit 700");

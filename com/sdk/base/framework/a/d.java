@@ -11,15 +11,13 @@ public final class d {
     private static final ConcurrentHashMap<String, Boolean> d;
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.sdk.base.framework.a.a.c<String, String> f12796a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f12797b;
+    private final com.sdk.base.framework.a.a.c<String, String> f7618a;
+    private int b;
 
     static {
         ConcurrentHashMap<String, Boolean> concurrentHashMap = new ConcurrentHashMap<>(10);
         d = concurrentHashMap;
-        concurrentHashMap.put(i.f12803a.toString(), true);
+        concurrentHashMap.put(i.f7621a.toString(), true);
         new ConcurrentHashMap(10);
     }
 
@@ -28,10 +26,10 @@ public final class d {
     }
 
     private d(int i, long j) {
-        this.f12797b = BdStatsConstant.MAX_WRITE_LOG_SIZE;
-        this.f12797b = BdStatsConstant.MAX_WRITE_LOG_SIZE;
+        this.b = BdStatsConstant.MAX_WRITE_LOG_SIZE;
+        this.b = BdStatsConstant.MAX_WRITE_LOG_SIZE;
         c = AppStatusRules.DEFAULT_GRANULARITY;
-        this.f12796a = new e(this, this.f12797b);
+        this.f7618a = new e(this, this.b);
     }
 
     public static long a() {
@@ -49,7 +47,7 @@ public final class d {
 
     public final String a(String str) {
         if (str != null) {
-            return this.f12796a.a((com.sdk.base.framework.a.a.c<String, String>) str);
+            return this.f7618a.a((com.sdk.base.framework.a.a.c<String, String>) str);
         }
         return null;
     }
@@ -58,6 +56,6 @@ public final class d {
         if (str == null || str2 == null || j < 1) {
             return;
         }
-        this.f12796a.a((com.sdk.base.framework.a.a.c<String, String>) str, str2, System.currentTimeMillis() + j);
+        this.f7618a.a((com.sdk.base.framework.a.a.c<String, String>) str, str2, System.currentTimeMillis() + j);
     }
 }

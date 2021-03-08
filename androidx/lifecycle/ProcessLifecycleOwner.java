@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.ReportFragment;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ProcessLifecycleOwner implements LifecycleOwner {
     @VisibleForTesting
     static final long TIMEOUT_MS = 700;

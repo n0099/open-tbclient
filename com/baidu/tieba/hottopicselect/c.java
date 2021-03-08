@@ -6,11 +6,11 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
     private String title;
     private int type = -1;
-    private List<d> jzV = new ArrayList();
+    private List<d> jBE = new ArrayList();
 
     public int getType() {
         return this.type;
@@ -20,7 +20,7 @@ public class c {
         this.type = i;
     }
 
-    public String cUe() {
+    public String cUl() {
         return this.title;
     }
 
@@ -29,7 +29,7 @@ public class c {
     }
 
     public List<d> getList() {
-        return this.jzV;
+        return this.jBE;
     }
 
     public void a(TopicListModule topicListModule) {
@@ -43,7 +43,7 @@ public class c {
                     if (topicList != null) {
                         dVar.a(topicList);
                         if (!k.isEmptyStringAfterTrim(dVar.getTopicName())) {
-                            this.jzV.add(dVar);
+                            this.jBE.add(dVar);
                         }
                     }
                 }

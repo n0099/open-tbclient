@@ -15,7 +15,7 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.core.provider.FontsContractCompat;
 import com.xiaomi.mipush.sdk.Constants;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class TypefaceCompat {
     private static final String TAG = "TypefaceCompat";
     private static final LruCache<String, Typeface> sTypefaceCache;

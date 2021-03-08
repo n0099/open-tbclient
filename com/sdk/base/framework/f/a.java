@@ -10,10 +10,8 @@ import java.lang.reflect.Method;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f12829a = a.class.getSimpleName();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final boolean f12830b = f.f12821b;
+    private static final String f7636a = a.class.getSimpleName();
+    private static final boolean b = f.b;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static Object a(Context context, String str, Boolean bool, Class<?>[] clsArr, Object[] objArr) {
@@ -44,7 +42,7 @@ public class a {
             declaredMethod.setAccessible(true);
             return bool.booleanValue() ? declaredMethod.invoke(null, objArr) : declaredMethod.invoke(telephonyManager, objArr);
         } catch (Exception e) {
-            c.b(f12829a, e.getMessage(), Boolean.valueOf(f12830b));
+            c.b(f7636a, e.getMessage(), Boolean.valueOf(b));
             return null;
         }
     }

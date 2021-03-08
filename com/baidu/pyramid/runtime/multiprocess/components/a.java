@@ -17,11 +17,11 @@ import android.os.ParcelFileDescriptor;
 import android.os.Process;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public abstract class a {
-    private ContentProvider csR;
-    private final int csS;
-    public final int csT;
+    private ContentProvider cuw;
+    private final int cux;
+    public final int cuy;
 
     public abstract int a(int i, Uri uri, ContentValues contentValues, String str, String[] strArr);
 
@@ -38,21 +38,21 @@ public abstract class a {
     public abstract boolean onCreate();
 
     public a(int i, int i2) {
-        this.csS = i;
-        this.csT = i2;
+        this.cux = i;
+        this.cuy = i2;
     }
 
-    public final int aen() {
-        return this.csS;
+    public final int aeq() {
+        return this.cux;
     }
 
-    public final int aeo() {
-        return this.csT;
+    public final int aer() {
+        return this.cuy;
     }
 
     public void a(ContentProvider contentProvider) {
-        if (this.csR == null) {
-            this.csR = contentProvider;
+        if (this.cuw == null) {
+            this.cuw = contentProvider;
         }
     }
 
@@ -90,7 +90,7 @@ public abstract class a {
         int size = arrayList.size();
         ContentProviderResult[] contentProviderResultArr = new ContentProviderResult[size];
         for (int i = 0; i < size; i++) {
-            contentProviderResultArr[i] = arrayList.get(i).apply(this.csR, contentProviderResultArr, i);
+            contentProviderResultArr[i] = arrayList.get(i).apply(this.cuw, contentProviderResultArr, i);
         }
         return contentProviderResultArr;
     }

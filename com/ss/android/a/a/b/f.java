@@ -6,10 +6,8 @@ import org.json.JSONObject;
 public class f implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f12889a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private boolean f12890b;
+    private String f7669a;
+    private boolean b;
     private String c;
     private String d;
     private String e;
@@ -30,8 +28,8 @@ public class f implements b {
     }
 
     private f(a aVar) {
-        this.f12889a = aVar.f12891a;
-        this.f12890b = aVar.f12892b;
+        this.f7669a = aVar.f7670a;
+        this.b = aVar.b;
         this.c = aVar.c;
         this.d = aVar.d;
         this.e = aVar.e;
@@ -56,7 +54,7 @@ public class f implements b {
 
     @Override // com.ss.android.a.a.b.b
     public String b() {
-        return this.f12889a;
+        return this.f7669a;
     }
 
     @Override // com.ss.android.a.a.b.b
@@ -95,7 +93,7 @@ public class f implements b {
     }
 
     @Override // com.ss.android.a.a.b.b
-    public Object eEb() {
+    public Object eEh() {
         return this.l;
     }
 
@@ -106,7 +104,7 @@ public class f implements b {
 
     @Override // com.ss.android.a.a.b.b
     public boolean l() {
-        return this.f12890b;
+        return this.b;
     }
 
     @Override // com.ss.android.a.a.b.b
@@ -115,7 +113,7 @@ public class f implements b {
     }
 
     @Override // com.ss.android.a.a.b.b
-    public JSONObject eEc() {
+    public JSONObject n() {
         return null;
     }
 
@@ -123,10 +121,8 @@ public class f implements b {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f12891a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private boolean f12892b;
+        private String f7670a;
+        private boolean b;
         private String c;
         private String d;
         private String e;
@@ -143,7 +139,7 @@ public class f implements b {
         private String p;
         private String q;
 
-        public f eEi() {
+        public f eEm() {
             return new f(this);
         }
     }

@@ -1,7 +1,7 @@
 package com.baidubce.services.bos.model;
 
 import java.util.Date;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CopyObjectResponse extends BosResponse {
     private String eTag;
     private Date lastModified;

@@ -8,19 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class WrapLineLayout extends ViewGroup {
-    private List<List<View>> fmF;
-    private List<Integer> fmG;
+    private List<List<View>> foe;
+    private List<Integer> fof;
 
     public WrapLineLayout(Context context) {
         super(context);
-        this.fmF = new ArrayList();
-        this.fmG = new ArrayList();
+        this.foe = new ArrayList();
+        this.fof = new ArrayList();
     }
 
     public WrapLineLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fmF = new ArrayList();
-        this.fmG = new ArrayList();
+        this.foe = new ArrayList();
+        this.fof = new ArrayList();
     }
 
     @Override // android.view.ViewGroup
@@ -88,8 +88,8 @@ public class WrapLineLayout extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        this.fmF.clear();
-        this.fmG.clear();
+        this.foe.clear();
+        this.fof.clear();
         int width = (getWidth() - getPaddingLeft()) - getPaddingRight();
         int i5 = 0;
         int i6 = 0;
@@ -101,8 +101,8 @@ public class WrapLineLayout extends ViewGroup {
             int measuredWidth = childAt.getMeasuredWidth();
             int measuredHeight = childAt.getMeasuredHeight();
             if (marginLayoutParams.leftMargin + measuredWidth + marginLayoutParams.rightMargin + i5 > width) {
-                this.fmG.add(Integer.valueOf(i6));
-                this.fmF.add(arrayList);
+                this.fof.add(Integer.valueOf(i6));
+                this.foe.add(arrayList);
                 i5 = 0;
                 arrayList = new ArrayList();
             }
@@ -110,16 +110,16 @@ public class WrapLineLayout extends ViewGroup {
             i6 = Math.max(i6, marginLayoutParams.bottomMargin + marginLayoutParams.topMargin + measuredHeight);
             arrayList.add(childAt);
         }
-        this.fmG.add(Integer.valueOf(i6));
-        this.fmF.add(arrayList);
+        this.fof.add(Integer.valueOf(i6));
+        this.foe.add(arrayList);
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
-        int size = this.fmF.size();
+        int size = this.foe.size();
         int i8 = 0;
         int i9 = paddingTop;
         while (i8 < size) {
-            List<View> list = this.fmF.get(i8);
-            int intValue = this.fmG.get(i8).intValue();
+            List<View> list = this.foe.get(i8);
+            int intValue = this.fof.get(i8).intValue();
             int i10 = 0;
             while (true) {
                 int i11 = i10;

@@ -24,7 +24,7 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
     public static final String TAG = "LivenessVideoLoadingActivity";
 
     /* renamed from: a  reason: collision with root package name */
-    private LoadingDialog f2261a;
+    private LoadingDialog f1747a;
 
     @Override // com.baidu.fsg.face.liveness.activity.LivenessBaseActivity, com.baidu.fsg.base.activity.BeanActivity, com.baidu.fsg.base.activity.BaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
@@ -47,20 +47,20 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
     }
 
     private void a(Context context) {
-        if (this.f2261a == null) {
-            this.f2261a = new LoadingDialog(context);
-            this.f2261a.setMessage(context.getString(R.string.sapi_liveness_recog_loading));
-            this.f2261a.setCancelable(false);
+        if (this.f1747a == null) {
+            this.f1747a = new LoadingDialog(context);
+            this.f1747a.setMessage(context.getString(R.string.sapi_liveness_recog_loading));
+            this.f1747a.setCancelable(false);
         }
-        if (!((Activity) context).isFinishing() && this.f2261a != null && !this.f2261a.isShowing()) {
-            this.f2261a.show();
+        if (!((Activity) context).isFinishing() && this.f1747a != null && !this.f1747a.isShowing()) {
+            this.f1747a.show();
         }
     }
 
     private void b() {
-        if (this.f2261a != null) {
-            if (!isFinishing() || !this.f2261a.isShowing()) {
-                this.f2261a.dismiss();
+        if (this.f1747a != null) {
+            if (!isFinishing() || !this.f1747a.isShowing()) {
+                this.f1747a.dismiss();
                 finish();
             }
         }

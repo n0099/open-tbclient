@@ -3,10 +3,8 @@ package com.baidu.mapapi.synchronization.histroytrace;
 public class HistoryTraceQueryOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2954a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f2955b = 0;
+    private String f2160a = null;
+    private int b = 0;
     private String c = null;
     private String d = null;
     private int e = 4;
@@ -21,7 +19,7 @@ public class HistoryTraceQueryOptions {
     }
 
     public String getOrderId() {
-        return this.f2954a;
+        return this.f2160a;
     }
 
     public int getQueryOrderState() {
@@ -29,7 +27,7 @@ public class HistoryTraceQueryOptions {
     }
 
     public int getRoleType() {
-        return this.f2955b;
+        return this.b;
     }
 
     public String getUserId() {
@@ -47,7 +45,7 @@ public class HistoryTraceQueryOptions {
     }
 
     public HistoryTraceQueryOptions setOrderId(String str) {
-        this.f2954a = str;
+        this.f2160a = str;
         return this;
     }
 
@@ -57,7 +55,7 @@ public class HistoryTraceQueryOptions {
     }
 
     public HistoryTraceQueryOptions setRoleType(int i) {
-        this.f2955b = i;
+        this.b = i;
         return this;
     }
 

@@ -19,7 +19,7 @@ public class OfficialNotificationTextItemAdapter extends MsgCommonItemAdapter<a>
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ci */
+    /* renamed from: ch */
     public MsgCommonItemAdapter.MsgViewHolder<a> e(ViewGroup viewGroup) {
         a aVar = new a(this.mPageContext, viewGroup, this.mOnClickListener);
         return new MsgCommonItemAdapter.MsgViewHolder<>(aVar.getView(), aVar);
@@ -30,10 +30,10 @@ public class OfficialNotificationTextItemAdapter extends MsgCommonItemAdapter<a>
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<a> msgViewHolder) {
         super.a(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) msgViewHolder);
-        a cUM = msgViewHolder.cUM();
-        cUM.onChangeSkinType();
-        if (cUM != null) {
-            cUM.setData(chatMessage);
+        a cUT = msgViewHolder.cUT();
+        cUT.onChangeSkinType();
+        if (cUT != null) {
+            cUT.setData(chatMessage);
         }
         return view;
     }

@@ -1,7 +1,7 @@
 package com.baidu.h.a.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public interface a {
-    b ZN();
+    b ZQ();
 
     void a(c cVar);
 

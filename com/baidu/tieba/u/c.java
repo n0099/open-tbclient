@@ -5,7 +5,7 @@ import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static boolean f(byte[] bArr, String str) {
         if (bArr == null) {
@@ -45,7 +45,7 @@ public class c {
         return sb.toString().getBytes();
     }
 
-    public static byte[] eN(JSONObject jSONObject) {
+    public static byte[] eQ(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }

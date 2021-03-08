@@ -2,7 +2,7 @@ package com.baidu.yuyinala.privatemessage.session.view.smrlistview;
 
 import android.content.Context;
 import android.util.AttributeSet;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class SMRListView extends SMListView implements a {
     public SMRListView(Context context) {
         super(context);
@@ -17,7 +17,7 @@ public class SMRListView extends SMListView implements a {
     }
 
     @Override // com.baidu.yuyinala.privatemessage.session.view.smrlistview.a
-    public boolean eng() {
+    public boolean enq() {
         if (getCount() == 0) {
             return true;
         }
@@ -25,7 +25,7 @@ public class SMRListView extends SMListView implements a {
     }
 
     @Override // com.baidu.yuyinala.privatemessage.session.view.smrlistview.a
-    public boolean enh() {
+    public boolean enr() {
         return getLastVisiblePosition() == getCount() + (-1) && getChildAt(getLastVisiblePosition() - getFirstVisiblePosition()) != null && getChildAt(getLastVisiblePosition() - getFirstVisiblePosition()).getBottom() == getMeasuredHeight();
     }
 }

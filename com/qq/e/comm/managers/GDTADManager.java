@@ -16,41 +16,39 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class GDTADManager {
     public static final ExecutorService INIT_EXECUTOR = Executors.newSingleThreadExecutor();
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile Boolean f11546a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private volatile Context f11547b;
+    private volatile Boolean f7561a;
+    private volatile Context b;
     private volatile SM c;
     private volatile PM d;
     private volatile DevTools e;
     private volatile APPStatus f;
     private volatile DeviceStatus g;
     private volatile String h;
-    private PM.a.InterfaceC1187a i;
+    private PM.a.InterfaceC1204a i;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes4.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static GDTADManager f11548a = new GDTADManager((byte) 0);
+        private static GDTADManager f7562a = new GDTADManager((byte) 0);
     }
 
     private GDTADManager() {
-        this.f11546a = Boolean.FALSE;
+        this.f7561a = Boolean.FALSE;
     }
 
-    /* synthetic */ GDTADManager(byte b2) {
+    /* synthetic */ GDTADManager(byte b) {
         this();
     }
 
     public static GDTADManager getInstance() {
-        return a.f11548a;
+        return a.f7562a;
     }
 
     public JSONObject buildS2SSBaseInfo() throws JSONException {
@@ -69,7 +67,7 @@ public class GDTADManager {
     }
 
     public Context getAppContext() {
-        return this.f11547b;
+        return this.b;
     }
 
     public APPStatus getAppStatus() {
@@ -119,43 +117,41 @@ public class GDTADManager {
         return this.c;
     }
 
-    public boolean initWith(Context context, String str) {
+    public synchronized boolean initWith(Context context, String str) {
         boolean z;
-        synchronized (this) {
-            if (Build.VERSION.SDK_INT < 14) {
-                GDTLogger.e("system version not support !");
-                z = false;
-            } else if (this.f11546a.booleanValue()) {
-                z = true;
-            } else if (context == null || StringUtil.isEmpty(str)) {
-                GDTLogger.e("Context And APPID should Never Be NULL while init GDTADManager");
-                z = false;
-            } else {
-                long nanoTime = System.nanoTime();
-                this.h = SystemUtil.getProcessName(context);
-                this.f11547b = context.getApplicationContext();
-                this.c = new SM(this.f11547b);
-                this.d = new PM(this.f11547b, this.i);
-                this.f = new APPStatus(str, this.f11547b);
-                this.g = new DeviceStatus(this.f11547b);
-                if (Build.VERSION.SDK_INT > 7) {
-                    com.qq.e.comm.services.a.a().a(this.f11547b, this.c, this.d, this.g, this.f, nanoTime);
-                }
-                this.f11546a = Boolean.TRUE;
-                z = true;
+        if (Build.VERSION.SDK_INT < 14) {
+            GDTLogger.e("system version not support !");
+            z = false;
+        } else if (this.f7561a.booleanValue()) {
+            z = true;
+        } else if (context == null || StringUtil.isEmpty(str)) {
+            GDTLogger.e("Context And APPID should Never Be NULL while init GDTADManager");
+            z = false;
+        } else {
+            long nanoTime = System.nanoTime();
+            this.h = SystemUtil.getProcessName(context);
+            this.b = context.getApplicationContext();
+            this.c = new SM(this.b);
+            this.d = new PM(this.b, this.i);
+            this.f = new APPStatus(str, this.b);
+            this.g = new DeviceStatus(this.b);
+            if (Build.VERSION.SDK_INT > 7) {
+                com.qq.e.comm.services.a.a().a(this.b, this.c, this.d, this.g, this.f, nanoTime);
             }
+            this.f7561a = Boolean.TRUE;
+            z = true;
         }
         return z;
     }
 
     public boolean isInitialized() {
-        if (this.f11546a == null) {
+        if (this.f7561a == null) {
             return false;
         }
-        return this.f11546a.booleanValue();
+        return this.f7561a.booleanValue();
     }
 
-    public void setPluginLoadListener(PM.a.InterfaceC1187a interfaceC1187a) {
-        this.i = interfaceC1187a;
+    public void setPluginLoadListener(PM.a.InterfaceC1204a interfaceC1204a) {
+        this.i = interfaceC1204a;
     }
 }

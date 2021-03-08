@@ -9,13 +9,11 @@ import java.util.concurrent.Future;
 class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final ExecutorService f8210a = Executors.newSingleThreadExecutor();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final Handler f8211b = new Handler(Looper.getMainLooper());
+    private static final ExecutorService f5469a = Executors.newSingleThreadExecutor();
+    private static final Handler b = new Handler(Looper.getMainLooper());
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static Future<?> a(Runnable runnable) {
-        return f8210a.submit(runnable);
+        return f5469a.submit(runnable);
     }
 }

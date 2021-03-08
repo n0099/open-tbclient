@@ -27,7 +27,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.forum
     public ForumRuleDetailBottomVH e(ViewGroup viewGroup) {
         ForumRuleDetailBottomVH forumRuleDetailBottomVH = new ForumRuleDetailBottomVH(LayoutInflater.from(this.mContext).inflate(R.layout.forum_rules_bottom, viewGroup, false));
         a(forumRuleDetailBottomVH);
-        this.Wo = forumRuleDetailBottomVH;
+        this.XI = forumRuleDetailBottomVH;
         return forumRuleDetailBottomVH;
     }
 
@@ -43,17 +43,17 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.forum
 
     private void a(ForumRuleDetailBottomVH forumRuleDetailBottomVH, com.baidu.tieba.frs.forumRule.b.a aVar) {
         if (forumRuleDetailBottomVH != null) {
-            forumRuleDetailBottomVH.juW.setDefaultBgResource(R.drawable.img_default_100);
-            forumRuleDetailBottomVH.juW.startLoad(aVar.getAvatar(), 10, false);
-            forumRuleDetailBottomVH.juY.setText(aVar.bnU() + TbadkApplication.getInst().getResources().getString(R.string.forum_rules_bar_management_group));
-            forumRuleDetailBottomVH.jva.setDefaultBgResource(R.drawable.img_default_100);
-            forumRuleDetailBottomVH.jva.startLoad(aVar.getPortrait(), 12, false);
-            forumRuleDetailBottomVH.jvb.setText(aVar.getName_show());
+            forumRuleDetailBottomVH.jwF.setDefaultBgResource(R.drawable.img_default_100);
+            forumRuleDetailBottomVH.jwF.startLoad(aVar.getAvatar(), 10, false);
+            forumRuleDetailBottomVH.jwH.setText(aVar.bnW() + TbadkApplication.getInst().getResources().getString(R.string.forum_rules_bar_management_group));
+            forumRuleDetailBottomVH.jwJ.setDefaultBgResource(R.drawable.img_default_100);
+            forumRuleDetailBottomVH.jwJ.startLoad(aVar.getPortrait(), 12, false);
+            forumRuleDetailBottomVH.jwK.setText(aVar.getName_show());
             if (ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.mFrom)) {
-                forumRuleDetailBottomVH.Kv(String.valueOf(System.currentTimeMillis() / 1000));
+                forumRuleDetailBottomVH.KE(String.valueOf(System.currentTimeMillis() / 1000));
             } else {
-                forumRuleDetailBottomVH.jvc.setText(String.format(TbadkApplication.getInst().getString(R.string.forum_rules_revise_time), aVar.cHe()));
-                forumRuleDetailBottomVH.juZ.setText(String.format(TbadkApplication.getInst().getString(R.string.forum_rules_revise_time), aVar.cHe()));
+                forumRuleDetailBottomVH.jwL.setText(String.format(TbadkApplication.getInst().getString(R.string.forum_rules_revise_time), aVar.cHk()));
+                forumRuleDetailBottomVH.jwI.setText(String.format(TbadkApplication.getInst().getString(R.string.forum_rules_revise_time), aVar.cHk()));
             }
             forumRuleDetailBottomVH.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }

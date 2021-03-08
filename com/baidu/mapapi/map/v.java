@@ -8,10 +8,8 @@ import java.util.HashSet;
 public class v implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f2813a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ int f2814b;
+    final /* synthetic */ int f2081a;
+    final /* synthetic */ int b;
     final /* synthetic */ int c;
     final /* synthetic */ String d;
     final /* synthetic */ TileOverlay e;
@@ -19,8 +17,8 @@ public class v implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(TileOverlay tileOverlay, int i, int i2, int i3, String str) {
         this.e = tileOverlay;
-        this.f2813a = i;
-        this.f2814b = i2;
+        this.f2081a = i;
+        this.b = i2;
         this.c = i3;
         this.d = str;
     }
@@ -32,14 +30,14 @@ public class v implements Runnable {
         HashSet hashSet;
         String str2;
         tileProvider = this.e.g;
-        Tile tile = ((FileTileProvider) tileProvider).getTile(this.f2813a, this.f2814b, this.c);
+        Tile tile = ((FileTileProvider) tileProvider).getTile(this.f2081a, this.b, this.c);
         if (tile == null) {
-            str = TileOverlay.f2774b;
+            str = TileOverlay.b;
             Log.e(str, "FileTile pic is null");
         } else if (tile.width == 256 && tile.height == 256) {
-            this.e.a(this.f2813a + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.f2814b + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.c, tile);
+            this.e.a(this.f2081a + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.b + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.c, tile);
         } else {
-            str2 = TileOverlay.f2774b;
+            str2 = TileOverlay.b;
             Log.e(str2, "FileTile pic must be 256 * 256");
         }
         hashSet = this.e.e;

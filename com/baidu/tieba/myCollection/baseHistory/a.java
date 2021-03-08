@@ -22,7 +22,7 @@ public class a implements f {
     private String liveId = "";
     private String userName = "";
     private String description = "";
-    private boolean lxO = true;
+    private boolean lzR = true;
 
     public boolean equals(Object obj) {
         if (obj == null || !(obj instanceof a)) {
@@ -80,7 +80,7 @@ public class a implements f {
         return (((this.isHostOnly ? 1 : 0) + (hashCode6 * 7)) * 7) + (this.isSquence ? 1 : 0);
     }
 
-    public boolean eF(JSONObject jSONObject) {
+    public boolean eH(JSONObject jSONObject) {
         String optString = jSONObject.optString("forum_name");
         String optString2 = jSONObject.optString("thread_id");
         String optString3 = jSONObject.optString("thread_name");
@@ -178,7 +178,7 @@ public class a implements f {
         return this.threadId;
     }
 
-    public String dhT() {
+    public String dic() {
         return this.threadName;
     }
 
@@ -202,15 +202,15 @@ public class a implements f {
         this.forumName = str;
     }
 
-    public String bBJ() {
+    public String bBM() {
         return this.postID;
     }
 
-    public void OO(String str) {
+    public void OU(String str) {
         this.postID = str;
     }
 
-    public boolean dhU() {
+    public boolean did() {
         return this.isHostOnly;
     }
 
@@ -218,7 +218,7 @@ public class a implements f {
         this.isHostOnly = z;
     }
 
-    public boolean dhV() {
+    public boolean die() {
         return this.isSquence;
     }
 
@@ -251,11 +251,11 @@ public class a implements f {
     }
 
     public boolean isLive() {
-        return this.lxO;
+        return this.lzR;
     }
 
     public void un(boolean z) {
-        this.lxO = z;
+        this.lzR = z;
     }
 
     @Override // com.baidu.tbadk.mvc.b.d
@@ -264,15 +264,15 @@ public class a implements f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String bDj() {
+    public String bDm() {
         return toJsonObject().toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean Dm(String str) {
+    public boolean Dt(String str) {
         if (str != null) {
             try {
-                return eF(new JSONObject(str));
+                return eH(new JSONObject(str));
             } catch (JSONException e) {
                 e.printStackTrace();
             }

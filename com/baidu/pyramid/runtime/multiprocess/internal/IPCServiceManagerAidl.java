@@ -5,7 +5,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public interface IPCServiceManagerAidl extends IInterface {
     void addService(String str, IBinder iBinder, boolean z) throws RemoteException;
 
@@ -13,7 +13,7 @@ public interface IPCServiceManagerAidl extends IInterface {
 
     boolean removeService(String str) throws RemoteException;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static abstract class Stub extends Binder implements IPCServiceManagerAidl {
         private static final String DESCRIPTOR = "com.baidu.pyramid.runtime.multiprocess.internal.IPCServiceManagerAidl";
         static final int TRANSACTION_addService = 3;
@@ -68,7 +68,7 @@ public interface IPCServiceManagerAidl extends IInterface {
             }
         }
 
-        /* loaded from: classes15.dex */
+        /* loaded from: classes14.dex */
         private static class Proxy implements IPCServiceManagerAidl {
             private IBinder mRemote;
 

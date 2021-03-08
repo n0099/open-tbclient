@@ -58,15 +58,15 @@ public interface ICommonPermissionListener extends IInterface {
         private static class a implements ICommonPermissionListener {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f6075a;
+            private IBinder f4066a;
 
             a(IBinder iBinder) {
-                this.f6075a = iBinder;
+                this.f4066a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f6075a;
+                return this.f4066a;
             }
 
             @Override // com.bytedance.sdk.openadsdk.ICommonPermissionListener
@@ -75,7 +75,7 @@ public interface ICommonPermissionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonPermissionListener");
-                    this.f6075a.transact(1, obtain, obtain2, 0);
+                    this.f4066a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -90,7 +90,7 @@ public interface ICommonPermissionListener extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonPermissionListener");
                     obtain.writeString(str);
-                    this.f6075a.transact(2, obtain, obtain2, 0);
+                    this.f4066a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();

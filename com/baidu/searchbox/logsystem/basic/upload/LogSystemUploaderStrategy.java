@@ -48,7 +48,7 @@ import java.util.regex.Matcher;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     private static final boolean DEBUG = LLog.sDebug;
     private static final String TAG = "LSStrategy";
@@ -57,7 +57,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     private boolean mInvalidDirDeleted;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public enum Type {
         CONTENT,
         ATTACHMENT
@@ -525,7 +525,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     private static final class Constants {
         private static final int KEEP_ALIVE_TIME = 60000;
         private static final int MAX_COUNT_ATTACHMENT = 100;
@@ -540,7 +540,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class TrimConfig {
         private long mLifeTime;
         private int mMaxCount;
@@ -552,7 +552,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class StoreUtil {
         private static final String BASE_GZIP_TMP = ".gz.tmp";
         private static final String BASE_TMP = ".tmp";
@@ -602,7 +602,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class FileEntity implements Comparable<FileEntity> {
         @NonNull
         private File mFile;
@@ -637,7 +637,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class FileName {
         private static final String FILE_ID_SEPARATOR = "_";
         private static final String SEPARATOR = "#";
@@ -718,7 +718,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class CrashPadUtil {
         private static final int MAX_READ_BDMP = 102400;
         private static final int MAX_READ_EXTRA = 20480;
@@ -819,7 +819,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class ContentUtil {
         private static final byte GZIP_HEAD_1 = 117;
         private static final byte GZIP_HEAD_2 = 123;

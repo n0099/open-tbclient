@@ -24,9 +24,9 @@ public class c {
         if (hotThreadListResIdl == null || hotThreadListResIdl.data == null || y.isEmpty(hotThreadListResIdl.data.thread_info)) {
             return null;
         }
-        boolean biQ = d.biQ();
+        boolean biS = d.biS();
         List<ThreadInfo> list = hotThreadListResIdl.data.thread_info;
-        if (biQ) {
+        if (biS) {
             return dW(list);
         }
         return dV(list);
@@ -62,7 +62,7 @@ public class c {
         ArrayList arrayList = new ArrayList(list.size());
         for (ThreadInfo threadInfo : list) {
             cb cbVar = new cb();
-            cbVar.eTJ = true;
+            cbVar.eVk = true;
             cbVar.a(threadInfo);
             aD(cbVar);
             arrayList.add(cbVar);
@@ -71,12 +71,12 @@ public class c {
     }
 
     private static void aD(cb cbVar) {
-        String bnn = cbVar.bnn();
-        String dZ = au.dZ(cbVar.bnJ() * 1000);
-        if (!TextUtils.isEmpty(bnn) && !TextUtils.isEmpty(dZ)) {
-            bnn = bnn + "   " + dZ;
+        String bnp = cbVar.bnp();
+        String dZ = au.dZ(cbVar.bnL() * 1000);
+        if (!TextUtils.isEmpty(bnp) && !TextUtils.isEmpty(dZ)) {
+            bnp = bnp + "   " + dZ;
         }
-        cbVar.Af(bnn);
+        cbVar.Am(bnp);
     }
 
     public static List<n> dX(List<cb> list) {
@@ -87,54 +87,54 @@ public class c {
         int i = 0;
         for (cb cbVar : list) {
             int[] imageWidthAndHeight = cbVar.getImageWidthAndHeight();
-            if (cbVar.getType() == cb.eQm) {
+            if (cbVar.getType() == cb.eRN) {
                 cbVar.position = i;
                 ca caVar = new ca();
-                caVar.eJQ = cbVar;
+                caVar.eLr = cbVar;
                 caVar.position = i;
-                caVar.eQi = true;
+                caVar.eRJ = true;
                 caVar.setSupportType(BaseCardInfo.SupportType.TOP);
                 arrayList.add(caVar);
                 ca caVar2 = new ca();
-                caVar2.eJQ = cbVar;
+                caVar2.eLr = cbVar;
                 caVar2.position = i;
-                if (cbVar.bpN()) {
-                    caVar2.ePW = true;
-                } else if (cbVar.boX() == 1) {
-                    caVar2.ePU = true;
-                    caVar2.eQj = imageWidthAndHeight[0];
-                    caVar2.eQk = imageWidthAndHeight[1];
-                } else if (cbVar.boX() >= 2) {
-                    caVar2.ePV = true;
+                if (cbVar.bpP()) {
+                    caVar2.eRx = true;
+                } else if (cbVar.boZ() == 1) {
+                    caVar2.eRv = true;
+                    caVar2.eRK = imageWidthAndHeight[0];
+                    caVar2.eRL = imageWidthAndHeight[1];
+                } else if (cbVar.boZ() >= 2) {
+                    caVar2.eRw = true;
                 } else {
-                    caVar2.ePS = true;
+                    caVar2.eRt = true;
                 }
                 caVar2.setSupportType(BaseCardInfo.SupportType.CONTENT);
                 arrayList.add(caVar2);
                 ca caVar3 = new ca();
-                caVar3.ePX = true;
-                caVar3.eJQ = cbVar;
+                caVar3.eRy = true;
+                caVar3.eLr = cbVar;
                 caVar3.position = i;
                 caVar3.setSupportType(BaseCardInfo.SupportType.BOTTOM);
                 arrayList.add(caVar3);
                 i++;
-            } else if (cbVar.getType() == cb.eQK) {
+            } else if (cbVar.getType() == cb.eSl) {
                 cbVar.position = i;
                 ca caVar4 = new ca();
-                caVar4.eJQ = cbVar;
+                caVar4.eLr = cbVar;
                 caVar4.position = i;
-                caVar4.eQi = true;
+                caVar4.eRJ = true;
                 caVar4.setSupportType(BaseCardInfo.SupportType.TOP);
                 arrayList.add(caVar4);
                 ca caVar5 = new ca();
-                caVar5.eJQ = cbVar;
+                caVar5.eLr = cbVar;
                 caVar5.position = i;
-                caVar5.ePZ = true;
+                caVar5.eRA = true;
                 caVar5.setSupportType(BaseCardInfo.SupportType.CONTENT);
                 arrayList.add(caVar5);
                 ca caVar6 = new ca();
-                caVar6.ePX = true;
-                caVar6.eJQ = cbVar;
+                caVar6.eRy = true;
+                caVar6.eLr = cbVar;
                 caVar6.position = i;
                 caVar6.setSupportType(BaseCardInfo.SupportType.BOTTOM);
                 arrayList.add(caVar6);

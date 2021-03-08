@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class d {
     public static boolean a(String str, OutputStream outputStream) {
         BufferedInputStream bufferedInputStream;

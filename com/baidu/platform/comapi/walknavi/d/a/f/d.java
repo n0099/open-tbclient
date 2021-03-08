@@ -17,14 +17,12 @@ import org.json.JSONObject;
 public class d extends AsyncTask<String, Void, String> implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    f.a<JSONObject> f4240a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f4241b;
+    f.a<JSONObject> f2933a;
+    private String b;
 
     public d(String str, f.a<JSONObject> aVar) {
-        this.f4240a = aVar;
-        this.f4241b = str;
+        this.f2933a = aVar;
+        this.b = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,7 +31,7 @@ public class d extends AsyncTask<String, Void, String> implements c {
     /* renamed from: a */
     public String doInBackground(String... strArr) {
         try {
-            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f4241b).openConnection();
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.b).openConnection();
             httpURLConnection.setConnectTimeout(20000);
             httpURLConnection.setReadTimeout(30000);
             httpURLConnection.setDoOutput(true);
@@ -63,15 +61,15 @@ public class d extends AsyncTask<String, Void, String> implements c {
     /* renamed from: a */
     public void onPostExecute(String str) {
         if (TextUtils.isEmpty(str)) {
-            if (this.f4240a != null) {
-                this.f4240a.b("http error! result is null");
+            if (this.f2933a != null) {
+                this.f2933a.b("http error! result is null");
                 return;
             }
             return;
         }
         try {
-            if (this.f4240a != null) {
-                this.f4240a.a(new JSONObject(str));
+            if (this.f2933a != null) {
+                this.f2933a.a(new JSONObject(str));
             }
         } catch (JSONException e) {
         }
@@ -80,6 +78,6 @@ public class d extends AsyncTask<String, Void, String> implements c {
     @Override // com.baidu.platform.comapi.walknavi.d.a.f.c
     public void a() {
         cancel(true);
-        this.f4240a = null;
+        this.f2933a = null;
     }
 }

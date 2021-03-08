@@ -7,26 +7,26 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.a.a.a implements Runnable {
-    private a Iz;
+    private a JW;
     private int mUid;
 
     public a kH() throws IOException {
         a aVar = new a();
-        aVar.IC = bp("/proc/uid_stat/" + this.mUid + "/tcp_rcv");
-        aVar.IE = bp("/proc/uid_stat/" + this.mUid + "/tcp_snd");
-        aVar.IB = d.g(aVar.IC + aVar.IE);
+        aVar.JY = bt("/proc/uid_stat/" + this.mUid + "/tcp_rcv");
+        aVar.JZ = bt("/proc/uid_stat/" + this.mUid + "/tcp_snd");
+        aVar.JX = d.g(aVar.JY + aVar.JZ);
         return aVar;
     }
 
     public a kI() throws IOException {
         a kH = kH();
-        this.Iz.IC = d.g(kH.IC - d.kG().IC);
-        this.Iz.IE = d.g(kH.IE - d.kG().IE);
-        this.Iz.IB = d.g(kH.IB - d.kG().IB);
-        return this.Iz;
+        this.JW.JY = d.g(kH.JY - d.kG().JY);
+        this.JW.JZ = d.g(kH.JZ - d.kG().JZ);
+        this.JW.JX = d.g(kH.JX - d.kG().JX);
+        return this.JW;
     }
 
-    public double bp(String str) {
+    public double bt(String str) {
         BufferedReader bufferedReader;
         double d = 0.0d;
         try {
@@ -72,9 +72,9 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
 
     /* loaded from: classes.dex */
     public class a {
-        double IB = 0.0d;
-        double IC = 0.0d;
-        double IE = 0.0d;
+        double JX = 0.0d;
+        double JY = 0.0d;
+        double JZ = 0.0d;
 
         public a() {
         }

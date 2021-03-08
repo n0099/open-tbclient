@@ -7,7 +7,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class t extends aa {
     public t(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/performancePanel");
@@ -15,7 +15,7 @@ public class t extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        if (!com.baidu.swan.apps.v.f.aAl().azP() && !DEBUG) {
+        if (!com.baidu.swan.apps.v.f.aAo().azS() && !DEBUG) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not debug app model");
             return false;
         } else if (eVar == null) {
@@ -41,7 +41,7 @@ public class t extends aa {
                     if (DEBUG) {
                         Log.i("performancePanel", "slaveId: " + optString + ", actionName: " + optString2 + ", timestamp: " + optLong);
                     }
-                    com.baidu.swan.apps.performance.e.d.aEJ().f(optString, optString2, optLong);
+                    com.baidu.swan.apps.performance.e.d.aEM().f(optString, optString2, optLong);
                 }
             }
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);

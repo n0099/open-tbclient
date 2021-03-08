@@ -5,44 +5,44 @@ import androidx.annotation.Nullable;
 import com.airbnb.lottie.a.b.a;
 import com.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
-/* loaded from: classes4.dex */
-public class p implements l, a.InterfaceC0007a {
-    private final com.airbnb.lottie.f BH;
+/* loaded from: classes5.dex */
+public class p implements l, a.InterfaceC0013a {
+    private final com.airbnb.lottie.f Df;
     @Nullable
-    private r DC;
-    private boolean DJ;
-    private final com.airbnb.lottie.a.b.a<?, Path> Em;
+    private r EY;
+    private final com.airbnb.lottie.a.b.a<?, Path> FF;
+    private boolean Fe;
     private final String name;
     private final Path path = new Path();
 
     public p(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar, com.airbnb.lottie.model.content.k kVar) {
         this.name = kVar.getName();
-        this.BH = fVar;
-        this.Em = kVar.jO().jb();
-        aVar.a(this.Em);
-        this.Em.b(this);
+        this.Df = fVar;
+        this.FF = kVar.jO().jb();
+        aVar.a(this.FF);
+        this.FF.b(this);
     }
 
-    @Override // com.airbnb.lottie.a.b.a.InterfaceC0007a
+    @Override // com.airbnb.lottie.a.b.a.InterfaceC0013a
     public void ir() {
         invalidate();
     }
 
     private void invalidate() {
-        this.DJ = false;
-        this.BH.invalidateSelf();
+        this.Fe = false;
+        this.Df.invalidateSelf();
     }
 
     @Override // com.airbnb.lottie.a.a.b
-    public void c(List<b> list, List<b> list2) {
+    public void b(List<b> list, List<b> list2) {
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
                 if ((bVar instanceof r) && ((r) bVar).iB() == ShapeTrimPath.Type.Simultaneously) {
-                    this.DC = (r) bVar;
-                    this.DC.a(this);
+                    this.EY = (r) bVar;
+                    this.EY.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -53,14 +53,14 @@ public class p implements l, a.InterfaceC0007a {
 
     @Override // com.airbnb.lottie.a.a.l
     public Path iu() {
-        if (this.DJ) {
+        if (this.Fe) {
             return this.path;
         }
         this.path.reset();
-        this.path.set(this.Em.getValue());
+        this.path.set(this.FF.getValue());
         this.path.setFillType(Path.FillType.EVEN_ODD);
-        com.airbnb.lottie.d.f.a(this.path, this.DC);
-        this.DJ = true;
+        com.airbnb.lottie.d.f.a(this.path, this.EY);
+        this.Fe = true;
         return this.path;
     }
 

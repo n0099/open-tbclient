@@ -11,8 +11,8 @@ public class a<T> extends com.sdk.base.framework.d.a<T> {
     public a(Context context, com.sdk.base.framework.b.a<T> aVar, e eVar) {
         super(context, aVar, eVar);
         if (!f.d) {
-            this.f12825b = g.f12823b.a();
-            this.c = g.f12822a.a();
+            this.b = g.b.a();
+            this.c = g.f7632a.a();
             return;
         }
         String testHost = SDKManager.getTestHost();
@@ -20,12 +20,12 @@ public class a<T> extends com.sdk.base.framework.d.a<T> {
         if (c.b(statisticalTestHost).booleanValue()) {
             this.c = statisticalTestHost;
         } else {
-            this.c = g.f12822a.a();
+            this.c = g.f7632a.a();
         }
         if (c.b(testHost).booleanValue()) {
-            this.f12825b = testHost;
+            this.b = testHost;
         } else {
-            this.f12825b = g.f12823b.a();
+            this.b = g.b.a();
         }
     }
 }

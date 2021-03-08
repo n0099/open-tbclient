@@ -10,10 +10,10 @@ import io.flutter.embedding.engine.plugins.activity.ActivityAware;
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class a implements FlutterPlugin, ActivityAware, MethodChannel.MethodCallHandler {
     private static Activity activity;
-    static final long aqX = System.currentTimeMillis();
+    static final long asx = System.currentTimeMillis();
     private MethodChannel channel;
 
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
@@ -31,7 +31,7 @@ public class a implements FlutterPlugin, ActivityAware, MethodChannel.MethodCall
             String str3 = (String) methodCall.argument(Constant.KEY_BUSINESS);
             PerfFrame create = new PerfFrame.Builder().setNeedStaticperf(true).setNeedPageTrace(true).setNeedMainStackTrace(true).setNeedDynamicperf(true).create();
             if (create != null) {
-                create.submitPerformanceData("2301", "flutter", longValue, aqX, str2, str, str3);
+                create.submitPerformanceData("2301", "flutter", longValue, asx, str2, str, str3);
                 result.success(true);
                 return;
             }

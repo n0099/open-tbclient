@@ -25,7 +25,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends aa {
     private String mName;
 
@@ -54,14 +54,14 @@ public class a extends aa {
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.l.a.1
             @Override // java.lang.Runnable
             public void run() {
-                final Bitmap aOe = ah.aOe();
-                if (aOe == null) {
+                final Bitmap aOh = ah.aOh();
+                if (aOh == null) {
                     a.this.d(unitedSchemeEntity, callbackHandler, "can't get screenshot");
                 } else {
                     p.a(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.l.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.a(aOe, unitedSchemeEntity, callbackHandler, eVar);
+                            a.this.a(aOh, unitedSchemeEntity, callbackHandler, eVar);
                         }
                     }, "savescreenshot");
                 }
@@ -92,9 +92,9 @@ public class a extends aa {
     */
     public void a(@NonNull Bitmap bitmap, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, @NonNull e eVar) {
         FileOutputStream fileOutputStream;
-        String tc = b.tc(eVar.id);
-        if (tc != null) {
-            String str = tc + File.separator + StatisticConstants.SCREENSHOT;
+        String tj = b.tj(eVar.id);
+        if (tj != null) {
+            String str = tj + File.separator + StatisticConstants.SCREENSHOT;
             File file = new File(str);
             if (!file.exists() || !file.isDirectory()) {
                 file.delete();

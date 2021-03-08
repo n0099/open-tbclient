@@ -5,7 +5,7 @@ import kotlin.coroutines.experimental.jvm.internal.CoroutineImpl;
 import kotlin.h;
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implements kotlin.jvm.a.c<kotlin.coroutines.experimental.f<? super R>, kotlin.coroutines.experimental.b<? super h>, Object> {
     final /* synthetic */ kotlin.jvm.a.c $transform;
     Object L$0;
@@ -28,8 +28,8 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
     }
 
     public final kotlin.coroutines.experimental.b<h> create(kotlin.coroutines.experimental.f<? super R> fVar, kotlin.coroutines.experimental.b<? super h> bVar) {
-        p.o(fVar, "$receiver");
-        p.o(bVar, "continuation");
+        p.p(fVar, "$receiver");
+        p.p(bVar, "continuation");
         SequencesKt___SequencesKt$zipWithNext$2 sequencesKt___SequencesKt$zipWithNext$2 = new SequencesKt___SequencesKt$zipWithNext$2(this.receiver$0, this.$transform, bVar);
         sequencesKt___SequencesKt$zipWithNext$2.p$ = fVar;
         return sequencesKt___SequencesKt$zipWithNext$2;
@@ -38,9 +38,9 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.c
     public final Object invoke(kotlin.coroutines.experimental.f<? super R> fVar, kotlin.coroutines.experimental.b<? super h> bVar) {
-        p.o(fVar, "$receiver");
-        p.o(bVar, "continuation");
-        return ((SequencesKt___SequencesKt$zipWithNext$2) create((kotlin.coroutines.experimental.f) fVar, bVar)).doResume(h.qto, null);
+        p.p(fVar, "$receiver");
+        p.p(bVar, "continuation");
+        return ((SequencesKt___SequencesKt$zipWithNext$2) create((kotlin.coroutines.experimental.f) fVar, bVar)).doResume(h.qtQ, null);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:15:0x0031  */
@@ -56,7 +56,7 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
         kotlin.coroutines.experimental.f fVar;
         Object obj3;
         Iterator it2;
-        Object eLq = kotlin.coroutines.experimental.a.a.eLq();
+        Object eKY = kotlin.coroutines.experimental.a.a.eKY();
         switch (this.label) {
             case 0:
                 if (th == null) {
@@ -67,7 +67,7 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
                         fVar = fVar2;
                         break;
                     } else {
-                        return h.qto;
+                        return h.qtQ;
                     }
                 } else {
                     throw th;
@@ -97,14 +97,14 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
             this.L$2 = obj3;
             this.L$3 = obj2;
             this.label = 1;
-            if (fVar.a(invoke, this) == eLq) {
-                return eLq;
+            if (fVar.a(invoke, this) == eKY) {
+                return eKY;
             }
             it = it2;
             obj3 = obj2;
             it2 = it;
             if (!it2.hasNext()) {
-                return h.qto;
+                return h.qtQ;
             }
         }
     }

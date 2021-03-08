@@ -8,9 +8,9 @@ import tbclient.ZoneRight.ZoneRightResIdl;
 public class b implements j {
     public int errorCode;
     public String errorString;
-    public boolean jGp;
-    public int jGq;
-    public String jGr;
+    public boolean jHY;
+    public int jHZ;
+    public String jIa;
 
     @Override // com.baidu.tbadk.mvc.b.j
     public void initByJson(JSONObject jSONObject) {
@@ -25,10 +25,10 @@ public class b implements j {
                 this.errorString = zoneRightResIdl.error.usermsg;
             }
             if (zoneRightResIdl.data != null) {
-                this.jGp = zoneRightResIdl.data.has_right.intValue() == 1;
+                this.jHY = zoneRightResIdl.data.has_right.intValue() == 1;
                 if (zoneRightResIdl.data.toast != null) {
-                    this.jGq = zoneRightResIdl.data.toast.type.intValue();
-                    this.jGr = zoneRightResIdl.data.toast.content;
+                    this.jHZ = zoneRightResIdl.data.toast.type.intValue();
+                    this.jIa = zoneRightResIdl.data.toast.content;
                 }
             }
         }

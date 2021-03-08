@@ -2,65 +2,65 @@ package com.baidu.tieba.ala.data;
 
 import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c {
-    public i gSr;
-    public a gSs;
+    public i gUa;
+    public a gUb;
 
     public void parserJson(JSONObject jSONObject) {
         JSONObject optJSONObject = jSONObject.optJSONObject("red_packet_info");
         if (optJSONObject != null) {
-            this.gSr = new i();
-            this.gSr.parserJson(optJSONObject);
+            this.gUa = new i();
+            this.gUa.parserJson(optJSONObject);
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("user_cond");
         if (optJSONObject2 != null) {
-            this.gSs = new a();
-            this.gSs.parserJson(optJSONObject2);
+            this.gUb = new a();
+            this.gUb.parserJson(optJSONObject2);
         }
     }
 
-    public boolean bUi() {
-        return this.gSr != null && this.gSr.status == 5;
+    public boolean bUo() {
+        return this.gUa != null && this.gUa.status == 5;
     }
 
-    public boolean bUj() {
-        return this.gSr != null && this.gSr.status == 4;
+    public boolean bUp() {
+        return this.gUa != null && this.gUa.status == 4;
     }
 
     public boolean isValid() {
-        return this.gSr != null && (this.gSr.status == 2 || this.gSr.status == 3);
+        return this.gUa != null && (this.gUa.status == 2 || this.gUa.status == 3);
     }
 
-    public boolean bUk() {
-        return (this.gSr == null || this.gSs == null || this.gSr.status != 2) ? false : true;
+    public boolean bUq() {
+        return (this.gUa == null || this.gUb == null || this.gUa.status != 2) ? false : true;
     }
 
-    public boolean bUl() {
-        return this.gSs != null && this.gSs.gSt == 1;
+    public boolean bUr() {
+        return this.gUb != null && this.gUb.gUc == 1;
     }
 
-    public long bUm() {
-        if (this.gSs != null) {
-            return this.gSs.gSu;
+    public long bUs() {
+        if (this.gUb != null) {
+            return this.gUb.gUd;
         }
         return 0L;
     }
 
-    public boolean bUn() {
-        return this.gSs != null && ((this.gSs.gSv && !this.gSs.isFollowed) || (this.gSs.gSw && !this.gSs.gSx));
+    public boolean bUt() {
+        return this.gUb != null && ((this.gUb.gUe && !this.gUb.isFollowed) || (this.gUb.gUf && !this.gUb.gUg));
     }
 
-    public boolean bUo() {
-        return this.gSs != null && (this.gSs.gSv || this.gSs.gSw);
+    public boolean bUu() {
+        return this.gUb != null && (this.gUb.gUe || this.gUb.gUf);
     }
 
-    public boolean bUp() {
-        return (this.gSs == null || !this.gSs.gSv || this.gSs.isFollowed) ? false : true;
+    public boolean bUv() {
+        return (this.gUb == null || !this.gUb.gUe || this.gUb.isFollowed) ? false : true;
     }
 
-    public boolean bUq() {
-        return (this.gSs == null || !this.gSs.gSw || this.gSs.gSx) ? false : true;
+    public boolean bUw() {
+        return (this.gUb == null || !this.gUb.gUf || this.gUb.gUg) ? false : true;
     }
 
     public int fk(long j) {
@@ -96,28 +96,28 @@ public class c {
         return strArr;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        public boolean gSA;
-        public int gSt;
-        public long gSu;
-        public boolean gSv;
-        public boolean gSw;
-        public boolean gSx;
-        public boolean gSy;
-        public String gSz;
+        public int gUc;
+        public long gUd;
+        public boolean gUe;
+        public boolean gUf;
+        public boolean gUg;
+        public boolean gUh;
+        public String gUi;
+        public boolean gUj;
         public boolean isFollowed;
 
         public void parserJson(JSONObject jSONObject) {
-            this.gSv = jSONObject.optInt("need_follow") == 1;
-            this.gSw = jSONObject.optInt("need_send_gift") == 1;
+            this.gUe = jSONObject.optInt("need_follow") == 1;
+            this.gUf = jSONObject.optInt("need_send_gift") == 1;
             this.isFollowed = jSONObject.optInt("follow") == 1;
-            this.gSx = jSONObject.optInt("send_gift") == 1;
-            this.gSy = jSONObject.optInt("need_follow_sender") == 1;
-            this.gSz = jSONObject.optString("sender_user_id");
-            this.gSA = jSONObject.optInt("follow_sender") == 1;
-            this.gSt = jSONObject.optInt("loot_result");
-            this.gSu = jSONObject.optLong(LogConfig.LOG_AMOUNT);
+            this.gUg = jSONObject.optInt("send_gift") == 1;
+            this.gUh = jSONObject.optInt("need_follow_sender") == 1;
+            this.gUi = jSONObject.optString("sender_user_id");
+            this.gUj = jSONObject.optInt("follow_sender") == 1;
+            this.gUc = jSONObject.optInt("loot_result");
+            this.gUd = jSONObject.optLong(LogConfig.LOG_AMOUNT);
         }
     }
 }

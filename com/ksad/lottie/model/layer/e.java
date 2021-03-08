@@ -20,7 +20,7 @@ public class e extends a {
     @Override // com.ksad.lottie.model.layer.a, com.ksad.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
         super.a(rectF, matrix);
-        this.e.a(rectF, this.f8095a);
+        this.e.a(rectF, this.f5400a);
     }
 
     @Override // com.ksad.lottie.model.layer.a

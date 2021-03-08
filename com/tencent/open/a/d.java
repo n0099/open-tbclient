@@ -5,10 +5,10 @@ import android.os.Environment;
 import android.os.StatFs;
 import java.io.File;
 import java.text.SimpleDateFormat;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class d {
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class a {
         public static final boolean a(int i, int i2) {
             return i2 == (i & i2);
@@ -16,15 +16,15 @@ public class d {
     }
 
     /* renamed from: com.tencent.open.a.d$d  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
-    public static final class C1270d {
+    /* loaded from: classes14.dex */
+    public static final class C1260d {
         @SuppressLint({"SimpleDateFormat"})
         public static SimpleDateFormat a(String str) {
             return new SimpleDateFormat(str);
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class b {
         public static boolean a() {
             String externalStorageState = Environment.getExternalStorageState();
@@ -39,30 +39,28 @@ public class d {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        private File f13377a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private long f13378b;
+        private File f7953a;
+        private long b;
         private long c;
 
         public File a() {
-            return this.f13377a;
+            return this.f7953a;
         }
 
         public void a(File file) {
-            this.f13377a = file;
+            this.f7953a = file;
         }
 
         public long b() {
-            return this.f13378b;
+            return this.b;
         }
 
         public void a(long j) {
-            this.f13378b = j;
+            this.b = j;
         }
 
         public long c() {

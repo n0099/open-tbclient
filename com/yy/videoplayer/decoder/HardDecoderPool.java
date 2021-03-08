@@ -4,7 +4,7 @@ import com.yy.videoplayer.decoder.VideoDecoderCenterExt;
 import com.yy.videoplayer.utils.YMFLog;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class HardDecoderPool {
     private static final String TAG = "HardDecoderPool";
     static int mInitialCapacity;

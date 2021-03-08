@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class CPUTool {
     private static final String TAG = "CPUTool";
     private static final String kCpuInfoCurFreqFilePath = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq";

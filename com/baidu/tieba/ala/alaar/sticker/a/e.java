@@ -7,12 +7,12 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e {
     private static File cacheFile = i.getPrivateCaptureRootChildDir("duFilter");
-    private static List<String> gtv = Collections.synchronizedList(new ArrayList());
+    private static List<String> gve = Collections.synchronizedList(new ArrayList());
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void onCompleted(String str);
 
@@ -23,38 +23,38 @@ public class e {
         void onStarted();
     }
 
-    public static String FB(String str) {
-        File FD;
-        if (TextUtils.isEmpty(str) || (FD = FD(Md5.toMd5(str))) == null || !FD.exists()) {
+    public static String FK(String str) {
+        File FM;
+        if (TextUtils.isEmpty(str) || (FM = FM(Md5.toMd5(str))) == null || !FM.exists()) {
             return null;
         }
-        return FD.getAbsolutePath();
+        return FM.getAbsolutePath();
     }
 
-    public static boolean FC(String str) {
-        return !TextUtils.isEmpty(FB(str));
+    public static boolean FL(String str) {
+        return !TextUtils.isEmpty(FK(str));
     }
 
-    public static boolean cE(String str) {
+    public static boolean cI(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return com.baidu.tieba.ala.alaar.sticker.download.b.bPQ().isRunning(str);
+        return com.baidu.tieba.ala.alaar.sticker.download.b.bPW().isRunning(str);
     }
 
     public static void a(final String str, final a aVar) {
         if (!TextUtils.isEmpty(str)) {
-            String FB = FB(str);
-            if (!TextUtils.isEmpty(FB)) {
+            String FK = FK(str);
+            if (!TextUtils.isEmpty(FK)) {
                 if (aVar != null) {
-                    aVar.onCompleted(FB);
+                    aVar.onCompleted(FK);
                     return;
                 }
                 return;
             }
             final String md5 = Md5.toMd5(str);
-            gtv.add(str);
-            com.baidu.tieba.ala.alaar.sticker.download.b.bPQ().a(str, cacheFile, md5 + ".tmp", new com.baidu.tieba.ala.alaar.sticker.download.a.a() { // from class: com.baidu.tieba.ala.alaar.sticker.a.e.1
+            gve.add(str);
+            com.baidu.tieba.ala.alaar.sticker.download.b.bPW().a(str, cacheFile, md5 + ".tmp", new com.baidu.tieba.ala.alaar.sticker.download.a.a() { // from class: com.baidu.tieba.ala.alaar.sticker.a.e.1
                 @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
                 public void onStarted() {
                     super.onStarted();
@@ -84,12 +84,12 @@ public class e {
                 @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
                 public void onCompleted(String str2) {
                     super.onCompleted(str2);
-                    e.gtv.remove(str);
+                    e.gve.remove(str);
                     if (!TextUtils.isEmpty(str2) && a.this != null) {
                         File file = new File(str2);
-                        File FD = e.FD(md5);
-                        if (file.exists() && file.renameTo(FD) && FD != null) {
-                            a.this.onCompleted(FD.getAbsolutePath());
+                        File FM = e.FM(md5);
+                        if (file.exists() && file.renameTo(FM) && FM != null) {
+                            a.this.onCompleted(FM.getAbsolutePath());
                             return;
                         }
                     }
@@ -109,7 +109,7 @@ public class e {
                 @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
                 public void a(DownloadException downloadException) {
                     int i;
-                    e.gtv.remove(str);
+                    e.gve.remove(str);
                     super.a(downloadException);
                     if (a.this != null) {
                         String str2 = null;
@@ -127,7 +127,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static File FD(String str) {
+    public static File FM(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

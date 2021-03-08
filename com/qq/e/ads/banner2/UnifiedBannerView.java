@@ -18,14 +18,12 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class UnifiedBannerView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private UBVI f11426a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private boolean f11427b;
+    private UBVI f7495a;
+    private boolean b;
     private boolean c;
     private boolean d;
     private DownAPPConfirmPolicy e;
@@ -39,7 +37,7 @@ public class UnifiedBannerView extends FrameLayout {
 
     public UnifiedBannerView(Activity activity, String str, UnifiedBannerADListener unifiedBannerADListener, Map map) {
         super(activity);
-        this.f11427b = false;
+        this.b = false;
         this.c = false;
         this.d = false;
         this.f = new AtomicInteger(0);
@@ -61,7 +59,7 @@ public class UnifiedBannerView extends FrameLayout {
     @Deprecated
     public UnifiedBannerView(Activity activity, String str, String str2, UnifiedBannerADListener unifiedBannerADListener, Map map) {
         super(activity);
-        this.f11427b = false;
+        this.b = false;
         this.c = false;
         this.d = false;
         this.f = new AtomicInteger(0);
@@ -76,7 +74,7 @@ public class UnifiedBannerView extends FrameLayout {
             GDTLogger.e(String.format("UnifiedBannerView Constructor params error, appid=%s,posId=%s,context=%s,listener=%s", str, str2, activity, unifiedBannerADListener));
             return;
         }
-        this.f11427b = true;
+        this.b = true;
         if (!a.a(activity)) {
             GDTLogger.e("Required Activity/Service/Permission Not Declared in AndroidManifest.xml");
             return;
@@ -97,7 +95,7 @@ public class UnifiedBannerView extends FrameLayout {
                         public void run() {
                             try {
                                 if (pOFactory != null) {
-                                    UnifiedBannerView.this.f11426a = pOFactory.getUnifiedBannerViewDelegate(UnifiedBannerView.this, activity, str, str2, unifiedBannerADListener);
+                                    UnifiedBannerView.this.f7495a = pOFactory.getUnifiedBannerViewDelegate(UnifiedBannerView.this, activity, str, str2, unifiedBannerADListener);
                                     UnifiedBannerView.this.d = true;
                                     UnifiedBannerView.a(UnifiedBannerView.this, map, str2);
                                     if (UnifiedBannerView.this.e != null) {
@@ -138,14 +136,14 @@ public class UnifiedBannerView extends FrameLayout {
     }
 
     public void destroy() {
-        if (this.f11426a != null) {
-            this.f11426a.destroy();
+        if (this.f7495a != null) {
+            this.f7495a.destroy();
         }
     }
 
     public Map getExt() {
         try {
-            if (this.f11426a != null) {
+            if (this.f7495a != null) {
                 return UBVI.ext;
             }
         } catch (Exception e) {
@@ -155,12 +153,12 @@ public class UnifiedBannerView extends FrameLayout {
     }
 
     public void loadAD() {
-        if (!this.f11427b || !this.c) {
+        if (!this.b || !this.c) {
             GDTLogger.e("UnifiedBannerView init Paras OR Context error,See More logs while new BannerView");
         } else if (!this.d) {
             this.f.incrementAndGet();
-        } else if (this.f11426a != null) {
-            this.f11426a.fetchAd();
+        } else if (this.f7495a != null) {
+            this.f7495a.fetchAd();
         } else {
             GDTLogger.e("UnifiedBannerView Init error,See More Logs");
         }
@@ -169,30 +167,30 @@ public class UnifiedBannerView extends FrameLayout {
     @Override // android.view.View
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        if (this.f11426a != null) {
-            this.f11426a.onWindowFocusChanged(z);
+        if (this.f7495a != null) {
+            this.f7495a.onWindowFocusChanged(z);
         }
     }
 
     public void setDownConfirmPolicy(DownAPPConfirmPolicy downAPPConfirmPolicy) {
         this.e = downAPPConfirmPolicy;
-        if (downAPPConfirmPolicy == null || this.f11426a == null) {
+        if (downAPPConfirmPolicy == null || this.f7495a == null) {
             return;
         }
-        this.f11426a.setDownAPPConfirmPolicy(downAPPConfirmPolicy);
+        this.f7495a.setDownAPPConfirmPolicy(downAPPConfirmPolicy);
     }
 
     public void setLoadAdParams(LoadAdParams loadAdParams) {
         this.h = loadAdParams;
-        if (this.f11426a != null) {
-            this.f11426a.setLoadAdParams(this.h);
+        if (this.f7495a != null) {
+            this.f7495a.setLoadAdParams(this.h);
         }
     }
 
     public void setRefresh(int i) {
         this.g = i;
-        if (this.f11426a != null) {
-            this.f11426a.setRefresh(i);
+        if (this.f7495a != null) {
+            this.f7495a.setRefresh(i);
         }
     }
 }

@@ -225,7 +225,7 @@ abstract class DelegateDialogFragment extends DialogFragment implements IDelegat
         this.mBase.onPrepareOptionsMenu(menu);
     }
 
-    @Override // androidx.fragment.app.Fragment, com.baidu.l.a.a.InterfaceC0148a
+    @Override // androidx.fragment.app.Fragment, com.baidu.l.a.a.InterfaceC0154a
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
         this.mBase.onRequestPermissionsResult(i, strArr, iArr);

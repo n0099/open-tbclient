@@ -2,9 +2,9 @@ package com.baidu.tieba.ala.liveroom.challenge.message;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaStartRandomChallengeResponseMessage extends JsonHttpResponsedMessage {
-    private com.baidu.live.challenge.a hvr;
+    private com.baidu.live.challenge.a hxa;
 
     public AlaStartRandomChallengeResponseMessage() {
         super(1021110);
@@ -16,12 +16,12 @@ public class AlaStartRandomChallengeResponseMessage extends JsonHttpResponsedMes
         JSONObject optJSONObject2;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null && (optJSONObject2 = optJSONObject.optJSONObject("match_info")) != null) {
-            this.hvr = new com.baidu.live.challenge.a();
-            this.hvr.parseJson(optJSONObject2);
+            this.hxa = new com.baidu.live.challenge.a();
+            this.hxa.parseJson(optJSONObject2);
         }
     }
 
-    public com.baidu.live.challenge.a ccU() {
-        return this.hvr;
+    public com.baidu.live.challenge.a cda() {
+        return this.hxa;
     }
 }

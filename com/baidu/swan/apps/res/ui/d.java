@@ -17,24 +17,24 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import com.baidu.ar.constants.HttpConstants;
 import java.lang.reflect.Method;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d {
-    private static String dxF;
-    private final a dxG;
-    private boolean dxH;
-    private boolean dxI;
-    private boolean dxJ;
-    private View dxK;
-    private View dxL;
+    private static String dzg;
+    private final a dzh;
+    private boolean dzi;
+    private boolean dzj;
+    private boolean dzk;
+    private View dzl;
+    private View dzm;
 
     static {
         if (Build.VERSION.SDK_INT >= 19) {
             try {
                 Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class);
                 declaredMethod.setAccessible(true);
-                dxF = (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
+                dzg = (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
             } catch (Throwable th) {
-                dxF = null;
+                dzg = null;
             }
         }
     }
@@ -46,96 +46,96 @@ public class d {
         if (Build.VERSION.SDK_INT >= 19) {
             TypedArray obtainStyledAttributes = activity.obtainStyledAttributes(new int[]{16843759, 16843760});
             try {
-                this.dxH = obtainStyledAttributes.getBoolean(0, false);
-                this.dxI = obtainStyledAttributes.getBoolean(1, false);
+                this.dzi = obtainStyledAttributes.getBoolean(0, false);
+                this.dzj = obtainStyledAttributes.getBoolean(1, false);
                 obtainStyledAttributes.recycle();
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 if ((67108864 & attributes.flags) != 0) {
-                    this.dxH = true;
+                    this.dzi = true;
                 }
                 if ((attributes.flags & 134217728) != 0) {
-                    this.dxI = true;
+                    this.dzj = true;
                 }
             } catch (Throwable th) {
                 obtainStyledAttributes.recycle();
                 throw th;
             }
         }
-        this.dxG = new a(activity, this.dxH, this.dxI);
-        if (!this.dxG.hasNavigtionBar()) {
-            this.dxI = false;
+        this.dzh = new a(activity, this.dzi, this.dzj);
+        if (!this.dzh.hasNavigtionBar()) {
+            this.dzj = false;
         }
-        if (this.dxH) {
+        if (this.dzi) {
             d(activity, viewGroup);
         }
-        if (this.dxI) {
+        if (this.dzj) {
             e(activity, viewGroup);
         }
     }
 
     public void setStatusBarTintEnabled(boolean z) {
-        this.dxJ = z;
-        if (this.dxH) {
-            this.dxK.setVisibility(z ? 0 : 8);
+        this.dzk = z;
+        if (this.dzi) {
+            this.dzl.setVisibility(z ? 0 : 8);
         }
     }
 
     private void d(Context context, ViewGroup viewGroup) {
-        this.dxK = new View(context);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, this.dxG.getStatusBarHeight());
+        this.dzl = new View(context);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, this.dzh.getStatusBarHeight());
         layoutParams.gravity = 48;
-        if (this.dxI && !this.dxG.isNavigationAtBottom()) {
-            layoutParams.rightMargin = this.dxG.getNavigationBarWidth();
+        if (this.dzj && !this.dzh.isNavigationAtBottom()) {
+            layoutParams.rightMargin = this.dzh.getNavigationBarWidth();
         }
-        this.dxK.setLayoutParams(layoutParams);
-        this.dxK.setBackgroundColor(-1728053248);
-        this.dxK.setVisibility(8);
-        viewGroup.addView(this.dxK);
+        this.dzl.setLayoutParams(layoutParams);
+        this.dzl.setBackgroundColor(-1728053248);
+        this.dzl.setVisibility(8);
+        viewGroup.addView(this.dzl);
     }
 
     private void e(Context context, ViewGroup viewGroup) {
         FrameLayout.LayoutParams layoutParams;
-        this.dxL = new View(context);
-        if (this.dxG.isNavigationAtBottom()) {
-            layoutParams = new FrameLayout.LayoutParams(-1, this.dxG.getNavigationBarHeight());
+        this.dzm = new View(context);
+        if (this.dzh.isNavigationAtBottom()) {
+            layoutParams = new FrameLayout.LayoutParams(-1, this.dzh.getNavigationBarHeight());
             layoutParams.gravity = 80;
         } else {
-            layoutParams = new FrameLayout.LayoutParams(this.dxG.getNavigationBarWidth(), -1);
+            layoutParams = new FrameLayout.LayoutParams(this.dzh.getNavigationBarWidth(), -1);
             layoutParams.gravity = 5;
         }
-        this.dxL.setLayoutParams(layoutParams);
-        this.dxL.setBackgroundColor(-1728053248);
-        this.dxL.setVisibility(8);
-        viewGroup.addView(this.dxL);
+        this.dzm.setLayoutParams(layoutParams);
+        this.dzm.setBackgroundColor(-1728053248);
+        this.dzm.setVisibility(8);
+        viewGroup.addView(this.dzm);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a {
-        private final int abW;
-        private final boolean dxM;
-        private final boolean dxN;
-        private final boolean dxO;
-        private final int dxP;
-        private final boolean dxQ;
-        private final float dxR;
+        private final int adt;
+        private final boolean dzn;
+        private final boolean dzo;
+        private final boolean dzp;
+        private final int dzq;
+        private final boolean dzr;
+        private final float dzs;
         private final int mActionBarHeight;
         private final int mStatusBarHeight;
 
         private a(Activity activity, boolean z, boolean z2) {
             Resources resources = activity.getResources();
-            this.dxQ = resources.getConfiguration().orientation == 1;
-            this.dxR = D(activity);
+            this.dzr = resources.getConfiguration().orientation == 1;
+            this.dzs = D(activity);
             this.mStatusBarHeight = b(resources, "status_bar_height");
-            this.mActionBarHeight = df(activity);
-            this.abW = getNavigationBarHeight(activity);
-            this.dxP = dg(activity);
-            this.dxO = this.abW > 0;
-            this.dxM = z;
-            this.dxN = z2;
+            this.mActionBarHeight = de(activity);
+            this.adt = getNavigationBarHeight(activity);
+            this.dzq = df(activity);
+            this.dzp = this.adt > 0;
+            this.dzn = z;
+            this.dzo = z2;
         }
 
         @TargetApi(14)
-        private int df(Context context) {
+        private int de(Context context) {
             if (Build.VERSION.SDK_INT < 14) {
                 return 0;
             }
@@ -151,7 +151,7 @@ public class d {
             if (Build.VERSION.SDK_INT < 14 || !hasNavBar(context)) {
                 return 0;
             }
-            if (this.dxQ) {
+            if (this.dzr) {
                 str = "navigation_bar_height";
             } else {
                 str = "navigation_bar_height_landscape";
@@ -160,11 +160,11 @@ public class d {
         }
 
         public int getNavigationBarHeight() {
-            return this.abW;
+            return this.adt;
         }
 
         @TargetApi(14)
-        private int dg(Context context) {
+        private int df(Context context) {
             Resources resources = context.getResources();
             if (Build.VERSION.SDK_INT < 14 || !hasNavBar(context)) {
                 return 0;
@@ -173,7 +173,7 @@ public class d {
         }
 
         public int getNavigationBarWidth() {
-            return this.dxP;
+            return this.dzq;
         }
 
         @TargetApi(14)
@@ -182,10 +182,10 @@ public class d {
             int identifier = resources.getIdentifier("config_showNavigationBar", "bool", HttpConstants.OS_TYPE_VALUE);
             if (identifier != 0) {
                 boolean z = resources.getBoolean(identifier);
-                if ("1".equals(d.dxF)) {
+                if ("1".equals(d.dzg)) {
                     return false;
                 }
-                if ("0".equals(d.dxF)) {
+                if ("0".equals(d.dzg)) {
                     return true;
                 }
                 return z;
@@ -213,7 +213,7 @@ public class d {
         }
 
         public boolean isNavigationAtBottom() {
-            return this.dxR >= 600.0f || this.dxQ;
+            return this.dzs >= 600.0f || this.dzr;
         }
 
         public int getStatusBarHeight() {
@@ -221,7 +221,7 @@ public class d {
         }
 
         public boolean hasNavigtionBar() {
-            return this.dxO;
+            return this.dzp;
         }
     }
 }

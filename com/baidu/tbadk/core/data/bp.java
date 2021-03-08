@@ -1,12 +1,12 @@
 package com.baidu.tbadk.core.data;
 /* loaded from: classes.dex */
 public class bp extends w {
-    private boolean ePo;
+    private boolean eQP;
     private String title;
 
     public bp(String str, boolean z) {
-        mU(7);
-        this.ePo = z;
+        mV(7);
+        this.eQP = z;
         this.title = str;
     }
 

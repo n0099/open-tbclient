@@ -5,10 +5,10 @@ import android.util.AttributeSet;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.ao.ah;
 import com.baidu.swan.apps.res.ui.DrawableCenterTextView;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class HeaderRefreshIndicator extends DrawableCenterTextView {
-    private int dyj;
-    private boolean dyk;
+    private int dzK;
+    private boolean dzL;
     public boolean isInited;
 
     public HeaderRefreshIndicator(Context context) {
@@ -18,26 +18,26 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
     public HeaderRefreshIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.isInited = false;
-        this.dyj = -1;
-        this.dyk = false;
+        this.dzK = -1;
+        this.dzL = false;
     }
 
-    public void aer() {
+    public void aeu() {
         if (!this.isInited) {
             this.isInited = true;
-            this.dyk = com.baidu.swan.apps.t.a.axs().aii();
-            aHh();
+            this.dzL = com.baidu.swan.apps.t.a.axv().ail();
+            aHk();
             setTextSize(1, 11.0f);
             setCompoundDrawablePadding(ah.dip2px(getContext(), 5.0f));
-            ix(0);
+            iy(0);
         }
     }
 
-    public void aHg() {
-        boolean aii = com.baidu.swan.apps.t.a.axs().aii();
-        if (this.dyk != aii) {
-            aHh();
-            this.dyk = aii;
+    public void aHj() {
+        boolean ail = com.baidu.swan.apps.t.a.axv().ail();
+        if (this.dzL != ail) {
+            aHk();
+            this.dzL = ail;
         }
     }
 
@@ -49,10 +49,10 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
     @Override // android.widget.TextView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        aHg();
+        aHj();
     }
 
-    public void aHh() {
+    public void aHk() {
         setBackground(getResources().getDrawable(a.e.aiapps_pull_refresh_success_tip_bg));
         setTextColor(getResources().getColor(a.c.aiapps_pull_refresh_result_text_color));
         a(getResources().getDrawable(a.e.aiapps_pull_refresh_success_tip_icon), 0, ah.dip2px(getContext(), 11.0f), ah.dip2px(getContext(), 11.0f));

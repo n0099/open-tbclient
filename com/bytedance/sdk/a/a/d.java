@@ -4,19 +4,19 @@ import java.io.IOException;
 import java.nio.channels.WritableByteChannel;
 /* loaded from: classes6.dex */
 public interface d extends r, WritableByteChannel {
-    d OA(int i) throws IOException;
+    d OD(int i) throws IOException;
 
-    d OB(int i) throws IOException;
+    d OE(int i) throws IOException;
 
-    d Oz(int i) throws IOException;
+    d OF(int i) throws IOException;
 
-    d YM(String str) throws IOException;
+    d YT(String str) throws IOException;
 
-    d ah(byte[] bArr) throws IOException;
+    d aj(byte[] bArr) throws IOException;
 
-    d eoI() throws IOException;
+    c eoG();
 
-    c eoz();
+    d eoP() throws IOException;
 
     @Override // com.bytedance.sdk.a.a.r, java.io.Flushable
     void flush() throws IOException;

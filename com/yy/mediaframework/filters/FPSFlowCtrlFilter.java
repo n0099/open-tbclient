@@ -4,7 +4,7 @@ import com.yy.mediaframework.model.YYMediaSample;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FPSFlowCtrlFilter extends AbstractYYMediaFilter {
     private VideoLiveFilterContext mFilterContext;
     private Timer mFPSTimer = null;

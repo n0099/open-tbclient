@@ -1,5 +1,5 @@
 package com.baidu.tieba.a;
 /* loaded from: classes.dex */
 public interface f {
-    void Ew(String str);
+    void ED(String str);
 }

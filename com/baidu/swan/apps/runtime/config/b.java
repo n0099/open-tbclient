@@ -2,40 +2,40 @@ package com.baidu.swan.apps.runtime.config;
 
 import android.util.Log;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class b {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a {
-        public int dEL;
-        public int dEM;
-        public int dEN;
-        public int dEO;
+        public int dGm;
+        public int dGn;
+        public int dGo;
+        public int dGp;
 
-        public static a bz(JSONObject jSONObject) {
+        public static a bB(JSONObject jSONObject) {
             if (jSONObject == null) {
-                return aJw();
+                return aJz();
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("networkTimeout");
             if (optJSONObject == null) {
-                return aJw();
+                return aJz();
             }
             a aVar = new a();
-            aVar.dEL = optJSONObject.optInt("request", com.baidu.swan.apps.t.a.awZ().agE());
-            aVar.dEM = optJSONObject.optInt("connectSocket", 60000);
-            aVar.dEN = optJSONObject.optInt("uploadFile");
-            aVar.dEO = optJSONObject.optInt("downloadFile");
+            aVar.dGm = optJSONObject.optInt("request", com.baidu.swan.apps.t.a.axc().agH());
+            aVar.dGn = optJSONObject.optInt("connectSocket", 60000);
+            aVar.dGo = optJSONObject.optInt("uploadFile");
+            aVar.dGp = optJSONObject.optInt("downloadFile");
             return aVar;
         }
 
-        private static a aJw() {
+        private static a aJz() {
             if (b.DEBUG) {
                 Log.e("SwanAppCommonConfigData", "NetworkConfig createNullObject() " + Log.getStackTraceString(new Exception()));
             }
             a aVar = new a();
-            aVar.dEL = 60000;
-            aVar.dEM = 60000;
+            aVar.dGm = 60000;
+            aVar.dGn = 60000;
             return aVar;
         }
     }

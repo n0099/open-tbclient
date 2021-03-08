@@ -5,17 +5,17 @@ import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class UbcFlowEvent {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public final String id;
     private long mTime = System.currentTimeMillis();
     private String mValue = "";
-    private String drd = "NA";
-    private RecordType dre = RecordType.KEEP;
-    private boolean drf = false;
+    private String dsG = "NA";
+    private RecordType dsH = RecordType.KEEP;
+    private boolean dsI = false;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public enum RecordType {
         KEEP,
         UPDATE,
@@ -35,7 +35,7 @@ public class UbcFlowEvent {
         return this;
     }
 
-    public long aEf() {
+    public long aEi() {
         return this.mTime;
     }
 
@@ -43,39 +43,39 @@ public class UbcFlowEvent {
         return this.mValue;
     }
 
-    public UbcFlowEvent qB(String str) {
-        this.drd = str;
+    public UbcFlowEvent qI(String str) {
+        this.dsG = str;
         return this;
     }
 
-    public String aEg() {
-        return this.drd;
+    public String aEj() {
+        return this.dsG;
     }
 
     public UbcFlowEvent gr(boolean z) {
-        this.drf = z;
+        this.dsI = z;
         return this;
     }
 
-    public boolean aEh() {
-        return this.drf;
+    public boolean aEk() {
+        return this.dsI;
     }
 
     public UbcFlowEvent a(RecordType recordType) {
-        this.dre = recordType;
+        this.dsH = recordType;
         return this;
     }
 
-    public RecordType aEi() {
-        return this.dre;
+    public RecordType aEl() {
+        return this.dsH;
     }
 
     public String toString() {
         Locale locale = Locale.getDefault();
         Object[] objArr = new Object[3];
-        objArr[0] = Long.valueOf(aEf());
+        objArr[0] = Long.valueOf(aEi());
         objArr[1] = this.id;
-        objArr[2] = aEh() ? "(justLocalRecord)" : "";
+        objArr[2] = aEk() ? "(justLocalRecord)" : "";
         return String.format(locale, "Event at %d id = %s %s", objArr);
     }
 

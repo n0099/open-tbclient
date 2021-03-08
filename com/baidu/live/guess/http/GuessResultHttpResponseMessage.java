@@ -3,9 +3,9 @@ package com.baidu.live.guess.http;
 import com.baidu.live.data.o;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class GuessResultHttpResponseMessage extends JsonHttpResponsedMessage {
-    private o bjR;
+    private o blr;
 
     public GuessResultHttpResponseMessage() {
         super(1021239);
@@ -16,14 +16,14 @@ public class GuessResultHttpResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            if (this.bjR == null) {
-                this.bjR = new o();
+            if (this.blr == null) {
+                this.blr = new o();
             }
-            this.bjR.parserJson(optJSONObject);
+            this.blr.parserJson(optJSONObject);
         }
     }
 
-    public o Jn() {
-        return this.bjR;
+    public o Jq() {
+        return this.blr;
     }
 }

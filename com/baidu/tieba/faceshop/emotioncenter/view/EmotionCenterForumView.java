@@ -15,17 +15,17 @@ import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.emotioncenter.data.EmotionCenterData;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class EmotionCenterForumView extends RelativeLayout implements View.OnClickListener {
-    private TbPageContext eUY;
-    private TextView iYW;
-    private TextView iYX;
-    private EmotionCenterData.EmotionForumData iYY;
+    private TbPageContext eWx;
+    private TextView jaF;
+    private TextView jaG;
+    private EmotionCenterData.EmotionForumData jaH;
     private ImageView mArrow;
 
     public EmotionCenterForumView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
-        this.eUY = tbPageContext;
+        this.eWx = tbPageContext;
         initView();
     }
 
@@ -41,27 +41,27 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(R.layout.emotion_forum_layout, this);
-        this.iYW = (TextView) findViewById(R.id.forum_title_tv);
-        this.iYX = (TextView) findViewById(R.id.forum_recommend_tv);
+        this.jaF = (TextView) findViewById(R.id.forum_title_tv);
+        this.jaG = (TextView) findViewById(R.id.forum_recommend_tv);
         this.mArrow = (ImageView) findViewById(R.id.forum_arrow);
         setOnClickListener(this);
     }
 
     public void setData(EmotionCenterData.EmotionForumData emotionForumData) {
         onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
-        this.iYY = emotionForumData;
+        this.jaH = emotionForumData;
     }
 
     public void onChangeSkin(int i) {
-        ap.setViewTextColor(this.iYW, R.color.CAM_X0105, i);
-        ap.setViewTextColor(this.iYX, R.color.cp_cont_r, i);
+        ap.setViewTextColor(this.jaF, R.color.CAM_X0105, i);
+        ap.setViewTextColor(this.jaG, R.color.cp_cont_r, i);
         ap.setBackgroundResource(this.mArrow, R.drawable.emotion_center_arrow, i);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this && this.iYY != null) {
-            this.eUY.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.eUY.getPageActivity()).createNormalCfg(this.iYY.forum_name, null)));
+        if (view == this && this.jaH != null) {
+            this.eWx.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.eWx.getPageActivity()).createNormalCfg(this.jaH.forum_name, null)));
         }
     }
 }

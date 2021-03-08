@@ -24,7 +24,7 @@ public abstract class h extends a<com.baidu.tbadk.core.data.a> {
         return this.bottomMargin;
     }
 
-    public void bt(int i) {
+    public void bu(int i) {
         this.bottomMargin = i;
     }
 }

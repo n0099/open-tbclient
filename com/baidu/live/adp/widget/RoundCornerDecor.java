@@ -2,7 +2,7 @@ package com.baidu.live.adp.widget;
 
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface RoundCornerDecor {
     void draw(Canvas canvas);
 

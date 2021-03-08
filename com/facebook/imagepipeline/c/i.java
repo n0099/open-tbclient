@@ -7,18 +7,18 @@ import com.facebook.imagepipeline.b.p;
 import com.facebook.imagepipeline.c.h;
 /* loaded from: classes5.dex */
 public class i {
-    private final com.facebook.common.internal.j<Boolean> pIT;
-    private final int pJA;
-    private boolean pJB;
-    private final boolean pJC;
-    private final c pJD;
-    private final boolean pJt;
-    private final b.a pJu;
-    private final boolean pJv;
-    private final com.facebook.common.g.b pJw;
-    private final boolean pJx;
-    private final boolean pJy;
-    private final int pJz;
+    private final com.facebook.common.internal.j<Boolean> pKY;
+    private final boolean pLA;
+    private final com.facebook.common.g.b pLB;
+    private final boolean pLC;
+    private final boolean pLD;
+    private final int pLE;
+    private final int pLF;
+    private boolean pLG;
+    private final boolean pLH;
+    private final c pLI;
+    private final boolean pLy;
+    private final b.a pLz;
 
     /* loaded from: classes5.dex */
     public interface c {
@@ -26,93 +26,93 @@ public class i {
     }
 
     private i(a aVar) {
-        this.pJt = aVar.pJt;
-        this.pJu = aVar.pJu;
-        this.pJv = aVar.pJv;
-        this.pJw = aVar.pJw;
-        this.pJx = aVar.pJx;
-        this.pJy = aVar.pJy;
-        this.pJz = aVar.pJz;
-        this.pJA = aVar.pJA;
-        this.pJB = aVar.pJB;
-        this.pJC = aVar.pJC;
-        if (aVar.pJD == null) {
-            this.pJD = new b();
+        this.pLy = aVar.pLy;
+        this.pLz = aVar.pLz;
+        this.pLA = aVar.pLA;
+        this.pLB = aVar.pLB;
+        this.pLC = aVar.pLC;
+        this.pLD = aVar.pLD;
+        this.pLE = aVar.pLE;
+        this.pLF = aVar.pLF;
+        this.pLG = aVar.pLG;
+        this.pLH = aVar.pLH;
+        if (aVar.pLI == null) {
+            this.pLI = new b();
         } else {
-            this.pJD = aVar.pJD;
+            this.pLI = aVar.pLI;
         }
-        this.pIT = aVar.pIT;
+        this.pKY = aVar.pKY;
     }
 
-    public boolean exg() {
-        return this.pJx;
-    }
-
-    public boolean exh() {
-        return this.pJt;
-    }
-
-    public boolean exi() {
-        return this.pJv;
-    }
-
-    public b.a exj() {
-        return this.pJu;
-    }
-
-    public com.facebook.common.g.b exk() {
-        return this.pJw;
-    }
-
-    public boolean exl() {
-        return this.pJy;
-    }
-
-    public int exm() {
-        return this.pJz;
-    }
-
-    public int exn() {
-        return this.pJA;
-    }
-
-    public boolean exo() {
-        return this.pJC;
-    }
-
-    public c exp() {
-        return this.pJD;
+    public boolean exp() {
+        return this.pLC;
     }
 
     public boolean exq() {
-        return this.pJB;
+        return this.pLy;
     }
 
-    public com.facebook.common.internal.j<Boolean> exr() {
-        return this.pIT;
+    public boolean exr() {
+        return this.pLA;
+    }
+
+    public b.a exs() {
+        return this.pLz;
+    }
+
+    public com.facebook.common.g.b ext() {
+        return this.pLB;
+    }
+
+    public boolean exu() {
+        return this.pLD;
+    }
+
+    public int exv() {
+        return this.pLE;
+    }
+
+    public int exw() {
+        return this.pLF;
+    }
+
+    public boolean exx() {
+        return this.pLH;
+    }
+
+    public c exy() {
+        return this.pLI;
+    }
+
+    public boolean exz() {
+        return this.pLG;
+    }
+
+    public com.facebook.common.internal.j<Boolean> exA() {
+        return this.pKY;
     }
 
     /* loaded from: classes5.dex */
     public static class a {
-        public com.facebook.common.internal.j<Boolean> pIT;
-        private c pJD;
-        private final h.a pJE;
-        private b.a pJu;
-        private com.facebook.common.g.b pJw;
-        private boolean pJt = false;
-        private boolean pJv = false;
-        private boolean pJx = false;
-        private boolean pJy = false;
-        private int pJz = 0;
-        private int pJA = 0;
-        public boolean pJB = false;
-        private boolean pJC = false;
+        public com.facebook.common.internal.j<Boolean> pKY;
+        private com.facebook.common.g.b pLB;
+        private c pLI;
+        private final h.a pLJ;
+        private b.a pLz;
+        private boolean pLy = false;
+        private boolean pLA = false;
+        private boolean pLC = false;
+        private boolean pLD = false;
+        private int pLE = 0;
+        private int pLF = 0;
+        public boolean pLG = false;
+        private boolean pLH = false;
 
         public a(h.a aVar) {
-            this.pJE = aVar;
+            this.pLJ = aVar;
         }
 
-        public i exs() {
+        public i exB() {
             return new i(this);
         }
     }

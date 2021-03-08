@@ -13,7 +13,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
 import java.util.Iterator;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class StandardGifDecoder implements GifDecoder {
     private static final int BYTES_PER_INTEGER = 4;
     @ColorInt
@@ -188,6 +188,9 @@ public class StandardGifDecoder implements GifDecoder {
                     System.arraycopy(this.act, 0, this.pct, 0, this.act.length);
                     this.act = this.pct;
                     this.act[gifFrame.transIndex] = 0;
+                    if (gifFrame.dispose == 2 && this.framePointer == 0) {
+                        this.isFirstFrameTransparent = true;
+                    }
                 }
                 bitmap = setPixels(gifFrame, gifFrame2);
             }
@@ -325,16 +328,13 @@ public class StandardGifDecoder implements GifDecoder {
         }
         if (gifFrame2 != null && gifFrame2.dispose > 0) {
             if (gifFrame2.dispose == 2) {
-                if (!gifFrame.transparency) {
+                if (gifFrame.transparency) {
+                    i = 0;
+                } else {
                     i = this.header.bgColor;
                     if (gifFrame.lct != null && this.header.bgIndex == gifFrame.transIndex) {
                         i = 0;
                     }
-                } else {
-                    if (this.framePointer == 0) {
-                        this.isFirstFrameTransparent = true;
-                    }
-                    i = 0;
                 }
                 int i2 = gifFrame2.ih / this.sampleSize;
                 int i3 = gifFrame2.iy / this.sampleSize;
@@ -379,7 +379,7 @@ public class StandardGifDecoder implements GifDecoder {
         int i5 = this.downsampledWidth;
         byte[] bArr = this.mainPixels;
         int[] iArr2 = this.act;
-        byte b2 = -1;
+        byte b = -1;
         for (int i6 = 0; i6 < i; i6++) {
             int i7 = (i6 + i2) * i5;
             int i8 = i7 + i4;
@@ -389,21 +389,21 @@ public class StandardGifDecoder implements GifDecoder {
             }
             int i10 = gifFrame.iw * i6;
             while (i8 < i9) {
-                byte b3 = bArr[i10];
-                int i11 = b3 & 255;
-                if (i11 != b2) {
+                byte b2 = bArr[i10];
+                int i11 = b2 & 255;
+                if (i11 != b) {
                     int i12 = iArr2[i11];
                     if (i12 != 0) {
                         iArr[i8] = i12;
                     } else {
-                        b2 = b3;
+                        b = b2;
                     }
                 }
                 i8++;
                 i10++;
             }
         }
-        this.isFirstFrameTransparent = Boolean.valueOf(this.isFirstFrameTransparent == null && z && b2 != -1);
+        this.isFirstFrameTransparent = Boolean.valueOf((this.isFirstFrameTransparent != null && this.isFirstFrameTransparent.booleanValue()) || (this.isFirstFrameTransparent == null && z && b != -1));
     }
 
     private void copyCopyIntoScratchRobust(GifFrame gifFrame) {

@@ -3,9 +3,9 @@ package com.baidu.live.l;
 import android.view.ViewGroup;
 import com.baidu.live.data.ab;
 import com.baidu.live.data.v;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
-    void Jo();
+    void Jr();
 
     void a(ab abVar);
 
@@ -19,5 +19,5 @@ public interface a {
 
     void setCanVisible(boolean z);
 
-    void xh();
+    void xk();
 }

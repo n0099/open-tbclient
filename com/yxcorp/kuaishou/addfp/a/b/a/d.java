@@ -6,10 +6,10 @@ import android.os.Parcel;
 final class d implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private IBinder f14343a;
+    private IBinder f8597a;
 
     public d(IBinder iBinder) {
-        this.f14343a = iBinder;
+        this.f8597a = iBinder;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a.b
@@ -18,7 +18,7 @@ final class d implements b {
         Parcel obtain2 = Parcel.obtain();
         try {
             obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-            this.f14343a.transact(1, obtain, obtain2, 0);
+            this.f8597a.transact(1, obtain, obtain2, 0);
             obtain2.readException();
             r0 = obtain2.readInt() != 0;
             obtain2.recycle();
@@ -32,7 +32,7 @@ final class d implements b {
 
     @Override // android.os.IInterface
     public final IBinder asBinder() {
-        return this.f14343a;
+        return this.f8597a;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a.b
@@ -42,7 +42,7 @@ final class d implements b {
         Parcel obtain2 = Parcel.obtain();
         try {
             obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-            this.f14343a.transact(2, obtain, obtain2, 0);
+            this.f8597a.transact(2, obtain, obtain2, 0);
             obtain2.readException();
             str = obtain2.readString();
         } catch (Throwable th) {
@@ -64,7 +64,7 @@ final class d implements b {
         Parcel obtain2 = Parcel.obtain();
         try {
             obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-            this.f14343a.transact(3, obtain, obtain2, 0);
+            this.f8597a.transact(3, obtain, obtain2, 0);
             obtain2.readException();
             str = obtain2.readString();
         } catch (Throwable th) {
@@ -86,7 +86,7 @@ final class d implements b {
         Parcel obtain2 = Parcel.obtain();
         try {
             obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-            this.f14343a.transact(4, obtain, obtain2, 0);
+            this.f8597a.transact(4, obtain, obtain2, 0);
             obtain2.readException();
             str = obtain2.readString();
         } catch (Throwable th) {
@@ -108,7 +108,7 @@ final class d implements b {
         Parcel obtain2 = Parcel.obtain();
         try {
             obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-            this.f14343a.transact(5, obtain, obtain2, 0);
+            this.f8597a.transact(5, obtain, obtain2, 0);
             obtain2.readException();
             str = obtain2.readString();
         } catch (Throwable th) {

@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class SelectRuleView extends LinearLayout {
-    List<String> fOJ;
-    private int fOP;
-    List<String> fOQ;
+    List<String> fQj;
+    private int fQp;
+    List<String> fQq;
     List<String> mContent;
     private int mSkinType;
     private int mType;
@@ -28,7 +28,7 @@ public class SelectRuleView extends LinearLayout {
     public SelectRuleView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mType = 0;
-        this.fOP = 2;
+        this.fQp = 2;
         this.mSkinType = 3;
         initUI();
     }
@@ -41,8 +41,8 @@ public class SelectRuleView extends LinearLayout {
 
     public void setData(List<String> list, List<String> list2) {
         if (!y.isEmpty(list) || !y.isEmpty(list2)) {
-            bGi();
-            this.fOQ = list;
+            bGm();
+            this.fQq = list;
             this.mContent = list2;
             List<String> arrayList = new ArrayList<>();
             arrayList.addAll(list);
@@ -55,11 +55,11 @@ public class SelectRuleView extends LinearLayout {
             while (arrayList.size() < size) {
                 arrayList.add("");
             }
-            for (int i = 0; i < ((this.fOP + size) - 1) / this.fOP; i++) {
+            for (int i = 0; i < ((this.fQp + size) - 1) / this.fQp; i++) {
                 SelectRuleRowItem selectRuleRowItem = new SelectRuleRowItem(getContext());
                 selectRuleRowItem.setType(this.mType);
-                int i2 = this.fOP * i;
-                int i3 = (i + 1) * this.fOP;
+                int i2 = this.fQp * i;
+                int i3 = (i + 1) * this.fQp;
                 selectRuleRowItem.setData(d(arrayList, i2, i3), d(arrayList2, i2, i3));
                 addView(selectRuleRowItem);
             }
@@ -68,10 +68,10 @@ public class SelectRuleView extends LinearLayout {
 
     public void setData(List<String> list, List<String> list2, List<String> list3) {
         if (!y.isEmpty(list2) || !y.isEmpty(list3) || !y.isEmpty(list)) {
-            bGi();
-            this.fOQ = list2;
+            bGm();
+            this.fQq = list2;
             this.mContent = list3;
-            this.fOJ = list;
+            this.fQj = list;
             List<String> arrayList = new ArrayList<>();
             arrayList.addAll(list2);
             List<String> arrayList2 = new ArrayList<>();
@@ -91,11 +91,11 @@ public class SelectRuleView extends LinearLayout {
             while (arrayList3.size() < size) {
                 arrayList3.add("");
             }
-            for (int i = 0; i < ((this.fOP + size) - 1) / this.fOP; i++) {
+            for (int i = 0; i < ((this.fQp + size) - 1) / this.fQp; i++) {
                 SelectRuleRowItem selectRuleRowItem = new SelectRuleRowItem(getContext());
                 selectRuleRowItem.setType(this.mType);
-                int i2 = this.fOP * i;
-                int i3 = (i + 1) * this.fOP;
+                int i2 = this.fQp * i;
+                int i3 = (i + 1) * this.fQp;
                 selectRuleRowItem.setData(d(arrayList3, i2, i3), d(arrayList, i2, i3), d(arrayList2, i2, i3));
                 addView(selectRuleRowItem);
             }
@@ -103,7 +103,7 @@ public class SelectRuleView extends LinearLayout {
     }
 
     public void setColumn(int i) {
-        this.fOP = i;
+        this.fQp = i;
     }
 
     public void setType(int i) {
@@ -124,16 +124,16 @@ public class SelectRuleView extends LinearLayout {
         return arrayList;
     }
 
-    private void bGi() {
+    private void bGm() {
         removeAllViews();
     }
 
-    public void rH(int i) {
+    public void rJ(int i) {
         if (this.mSkinType != i) {
             if (this.mType == 0) {
-                setData(this.fOQ, this.mContent);
+                setData(this.fQq, this.mContent);
             } else if (this.mType == 1) {
-                setData(this.fOJ, this.fOQ, this.mContent);
+                setData(this.fQj, this.fQq, this.mContent);
             }
         }
     }

@@ -6,28 +6,28 @@ import com.baidu.yuyinala.privatemessage.implugin.util.c;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ThemeManager {
-    private static ThemeMode phn = ThemeMode.DAY;
-    private static List<a> pho = new LinkedList();
-    private static HashMap<String, HashMap<String, Integer>> php = new HashMap<>();
+    private static ThemeMode pjv = ThemeMode.DAY;
+    private static List<a> pjw = new LinkedList();
+    private static HashMap<String, HashMap<String, Integer>> pjx = new HashMap<>();
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public enum ThemeMode {
         DAY,
         NIGHT
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
     }
 
     public static int U(Context context, int i) {
         try {
-            if (emw() != ThemeMode.DAY && context != null) {
+            if (emG() != ThemeMode.DAY && context != null) {
                 String resourceEntryName = context.getResources().getResourceEntryName(i);
                 String resourceTypeName = context.getResources().getResourceTypeName(i);
-                HashMap<String, Integer> hashMap = php.get(resourceTypeName);
+                HashMap<String, Integer> hashMap = pjx.get(resourceTypeName);
                 HashMap<String, Integer> hashMap2 = hashMap == null ? new HashMap<>() : hashMap;
                 Integer num = hashMap2.get(resourceEntryName + "_night");
                 if (num != null && num.intValue() != 0) {
@@ -36,7 +36,7 @@ public class ThemeManager {
                 try {
                     int identifier = context.getResources().getIdentifier(resourceEntryName + "_night", resourceTypeName, "com.baidu.sumeru.implugin");
                     hashMap2.put(resourceEntryName + "_night", Integer.valueOf(identifier));
-                    php.put(resourceTypeName, hashMap2);
+                    pjx.put(resourceTypeName, hashMap2);
                     return identifier;
                 } catch (Resources.NotFoundException e) {
                     e.printStackTrace();
@@ -51,18 +51,18 @@ public class ThemeManager {
     }
 
     public static void a(a aVar) {
-        if (!pho.contains(aVar)) {
-            pho.add(aVar);
+        if (!pjw.contains(aVar)) {
+            pjw.add(aVar);
         }
     }
 
     public static void b(a aVar) {
-        if (pho.contains(aVar)) {
-            pho.remove(aVar);
+        if (pjw.contains(aVar)) {
+            pjw.remove(aVar);
         }
     }
 
-    public static ThemeMode emw() {
-        return phn;
+    public static ThemeMode emG() {
+        return pjv;
     }
 }

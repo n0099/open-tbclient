@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class StreamLocalUriFetcher extends LocalUriFetcher<InputStream> {
     private static final int ID_CONTACTS_CONTACT = 3;
     private static final int ID_CONTACTS_LOOKUP = 1;

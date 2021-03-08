@@ -9,22 +9,22 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class e implements com.baidu.swan.apps.al.b, d {
     private static Handler sHandler = new Handler(Looper.getMainLooper());
-    private final Map<c<?>, Set<a>> dOi = new HashMap();
+    private final Map<c<?>, Set<a>> dPJ = new HashMap();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a extends com.baidu.swan.apps.ao.e.b<Set<c<?>>> {
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     private static class b {
-        private static final e dOm = new e();
+        private static final e dPN = new e();
     }
 
-    public static e aNj() {
-        return b.dOm;
+    public static e aNm() {
+        return b.dPN;
     }
 
     public e j(com.baidu.swan.apps.al.a aVar) {
@@ -38,10 +38,10 @@ public final class e implements com.baidu.swan.apps.al.b, d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e a(c<?>... cVarArr) {
-        synchronized (this.dOi) {
+        synchronized (this.dPJ) {
             for (c<?> cVar : cVarArr) {
-                if (!this.dOi.containsKey(cVar)) {
-                    this.dOi.put(cVar, new HashSet());
+                if (!this.dPJ.containsKey(cVar)) {
+                    this.dPJ.put(cVar, new HashSet());
                 }
             }
         }
@@ -50,24 +50,24 @@ public final class e implements com.baidu.swan.apps.al.b, d {
 
     public e a(a aVar, c<?>... cVarArr) {
         if (aVar != null) {
-            synchronized (this.dOi) {
-                HashSet keySet = n(cVarArr) ? this.dOi.keySet() : i.R(cVarArr);
+            synchronized (this.dPJ) {
+                HashSet keySet = m(cVarArr) ? this.dPJ.keySet() : i.Q(cVarArr);
                 for (c<?> cVar : keySet) {
                     if (cVar != null) {
                         a(cVar).add(aVar);
                     }
                 }
-                b(i.R(aVar), keySet);
+                b(i.Q(aVar), keySet);
             }
         }
         return this;
     }
 
     private Set<a> a(@NonNull c<?> cVar) {
-        Set<a> set = this.dOi.get(cVar);
+        Set<a> set = this.dPJ.get(cVar);
         if (set == null) {
             HashSet hashSet = new HashSet();
-            this.dOi.put(cVar, hashSet);
+            this.dPJ.put(cVar, hashSet);
             return hashSet;
         }
         return set;
@@ -75,8 +75,8 @@ public final class e implements com.baidu.swan.apps.al.b, d {
 
     public e b(a aVar, c<?>... cVarArr) {
         if (aVar != null) {
-            synchronized (this.dOi) {
-                for (c<?> cVar : n(cVarArr) ? this.dOi.keySet() : i.R(cVarArr)) {
+            synchronized (this.dPJ) {
+                for (c<?> cVar : m(cVarArr) ? this.dPJ.keySet() : i.Q(cVarArr)) {
                     if (cVar != null) {
                         a(cVar).remove(aVar);
                     }
@@ -86,19 +86,19 @@ public final class e implements com.baidu.swan.apps.al.b, d {
         return this;
     }
 
-    private <T> boolean n(T... tArr) {
+    private <T> boolean m(T... tArr) {
         return tArr == null || tArr.length < 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e b(c<?>... cVarArr) {
-        return f(i.R(cVarArr));
+        return f(i.Q(cVarArr));
     }
 
     protected e f(Set<c<?>> set) {
         if (!set.isEmpty()) {
             HashSet hashSet = new HashSet();
-            synchronized (this.dOi) {
+            synchronized (this.dPJ) {
                 for (c<?> cVar : set) {
                     hashSet.addAll(a(cVar));
                 }
@@ -113,7 +113,7 @@ public final class e implements com.baidu.swan.apps.al.b, d {
             @Override // java.lang.Runnable
             public void run() {
                 for (a aVar : set) {
-                    aVar.L(set2);
+                    aVar.N(set2);
                 }
             }
         });

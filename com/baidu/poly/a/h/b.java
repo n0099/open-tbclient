@@ -6,19 +6,24 @@ import com.baidu.poly.util.f;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class b {
     private String action;
-    private long cnZ = System.currentTimeMillis();
-    private String coa = f.getNetworkType();
-    private JSONObject cob;
     private String content;
+    private long cpC = System.currentTimeMillis();
+    private String cpD = f.getNetworkType();
+    private JSONObject cpE;
 
     public b(String str) {
         this.action = str;
     }
 
-    public JSONObject adx() {
+    public b aB(JSONObject jSONObject) {
+        this.cpE = jSONObject;
+        return this;
+    }
+
+    public JSONObject adA() {
         if (TextUtils.isEmpty(this.action)) {
             com.baidu.poly.util.d.a("statistics action can not null");
             return null;
@@ -26,10 +31,10 @@ public class b {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("a", this.action);
-            jSONObject.put("t", this.cnZ);
-            jSONObject.put(Config.EXCEPTION_CRASH_TYPE, this.coa);
-            if (this.cob != null) {
-                jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.cob);
+            jSONObject.put("t", this.cpC);
+            jSONObject.put(Config.EXCEPTION_CRASH_TYPE, this.cpD);
+            if (this.cpE != null) {
+                jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.cpE);
             } else if (!TextUtils.isEmpty(this.content)) {
                 try {
                     jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, new JSONObject(this.content));
@@ -39,7 +44,7 @@ public class b {
             }
             return jSONObject;
         } catch (JSONException e2) {
-            if (com.baidu.poly.util.d.cpa) {
+            if (com.baidu.poly.util.d.cqC) {
                 e2.printStackTrace();
                 return jSONObject;
             }
@@ -47,12 +52,7 @@ public class b {
         }
     }
 
-    public b az(JSONObject jSONObject) {
-        this.cob = jSONObject;
-        return this;
-    }
-
-    public b jr(String str) {
+    public b jx(String str) {
         this.content = str;
         return this;
     }

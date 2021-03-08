@@ -6,10 +6,10 @@ import android.content.SharedPreferences;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f4237a;
+    private final Context f2931a;
 
     public f(Context context) {
-        this.f4237a = context;
+        this.f2931a = context;
     }
 
     public void a(String str, String str2) {
@@ -25,6 +25,6 @@ public class f {
     }
 
     private SharedPreferences a() {
-        return this.f4237a.getSharedPreferences("ar_resource_info", 0);
+        return this.f2931a.getSharedPreferences("ar_resource_info", 0);
     }
 }

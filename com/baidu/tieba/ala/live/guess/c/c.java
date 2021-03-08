@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c {
     private static final String TAG = c.class.getSimpleName();
 
@@ -17,19 +17,19 @@ public class c {
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
         if (layoutParams != null) {
             if (i != -1 && i != -2 && i != -1) {
-                layoutParams.width = a.bXR().uL(i);
+                layoutParams.width = a.bXX().uN(i);
             } else {
                 layoutParams.width = i;
             }
             if (i2 != -1 && i2 != -2 && i2 != -1) {
-                layoutParams.height = a.bXR().uM(i2);
+                layoutParams.height = a.bXX().uO(i2);
             } else {
                 layoutParams.height = i2;
             }
-            layoutParams.topMargin = a.bXR().uM(i3);
-            layoutParams.bottomMargin = a.bXR().uM(i4);
-            layoutParams.leftMargin = a.bXR().uL(i5);
-            layoutParams.rightMargin = a.bXR().uL(i6);
+            layoutParams.topMargin = a.bXX().uO(i3);
+            layoutParams.bottomMargin = a.bXX().uO(i4);
+            layoutParams.leftMargin = a.bXX().uN(i5);
+            layoutParams.rightMargin = a.bXX().uN(i6);
             view.setLayoutParams(layoutParams);
         }
     }
@@ -38,36 +38,36 @@ public class c {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view.getLayoutParams();
         if (layoutParams != null) {
             if (i != -1 && i != -2 && i != -1) {
-                layoutParams.width = a.bXR().uL(i);
+                layoutParams.width = a.bXX().uN(i);
             } else {
                 layoutParams.width = i;
             }
             if (i2 != -1 && i2 != -2 && i2 != -1) {
-                layoutParams.height = a.bXR().uM(i2);
+                layoutParams.height = a.bXX().uO(i2);
             } else {
                 layoutParams.height = i2;
             }
-            layoutParams.topMargin = a.bXR().uM(i3);
-            layoutParams.bottomMargin = a.bXR().uM(i4);
-            layoutParams.leftMargin = a.bXR().uL(i5);
-            layoutParams.rightMargin = a.bXR().uL(i6);
+            layoutParams.topMargin = a.bXX().uO(i3);
+            layoutParams.bottomMargin = a.bXX().uO(i4);
+            layoutParams.leftMargin = a.bXX().uN(i5);
+            layoutParams.rightMargin = a.bXX().uN(i6);
             view.setLayoutParams(layoutParams);
         }
     }
 
     public static void c(TextView textView, int i) {
-        textView.setTextSize(0, a.bXR().uM(i));
+        textView.setTextSize(0, a.bXX().uO(i));
     }
 
     public static void o(View view, int i, int i2) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view.getLayoutParams();
         if (i != -1 && i != -2 && i != -1) {
-            layoutParams.width = a.bXR().uL(i);
+            layoutParams.width = a.bXX().uN(i);
         } else {
             layoutParams.width = i;
         }
         if (i2 != -1 && i2 != -2 && i2 != -1) {
-            layoutParams.height = a.bXR().uM(i2);
+            layoutParams.height = a.bXX().uO(i2);
         } else {
             layoutParams.height = i2;
         }
@@ -77,12 +77,12 @@ public class c {
     public static void p(View view, int i, int i2) {
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         if (i != -1 && i != -2 && i != -1) {
-            layoutParams.width = a.bXR().uL(i);
+            layoutParams.width = a.bXX().uN(i);
         } else {
             layoutParams.width = i;
         }
         if (i2 != -1 && i2 != -2 && i2 != -1) {
-            layoutParams.height = a.bXR().uM(i2);
+            layoutParams.height = a.bXX().uO(i2);
         } else {
             layoutParams.height = i2;
         }

@@ -19,15 +19,13 @@ import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 public class a implements k, d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3079a = a.class.getSimpleName();
-
-    /* renamed from: b  reason: collision with root package name */
-    private l f3080b;
+    private static final String f2237a = a.class.getSimpleName();
+    private l b;
     private e c;
     private SynchronizationDisplayListener d;
 
     public a(Context context, BaiduMap baiduMap, RoleOptions roleOptions, DisplayOptions displayOptions) {
-        this.f3080b = null;
+        this.b = null;
         this.c = null;
         if (context == null) {
             throw new IllegalArgumentException("Context invalid, please check!");
@@ -38,8 +36,8 @@ public class a implements k, d {
         if (!b(roleOptions)) {
             throw new IllegalArgumentException("RoleOptions is invalid, please check!");
         }
-        this.f3080b = new l(roleOptions, displayOptions);
-        this.f3080b.a(this);
+        this.b = new l(roleOptions, displayOptions);
+        this.b.a(this);
         this.c = new e(context, baiduMap);
         this.c.a(this);
     }
@@ -76,9 +74,9 @@ public class a implements k, d {
     private boolean b(RoleOptions roleOptions) {
         if (roleOptions == null || roleOptions.getOrderId() == null || roleOptions.getOrderId().equals("") || roleOptions.getRoleType() != 0 || roleOptions.getDriverId() == null || roleOptions.getDriverId().equals("") || roleOptions.getUserId() == null || roleOptions.getUserId().equals("") || !a(roleOptions.getCoordType()) || !a(roleOptions.getStartPosition(), roleOptions)) {
             if (roleOptions == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3079a, "The roleOptions is null");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2237a, "The roleOptions is null");
             } else {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3079a, "The roleOptions content is: OrderId = " + roleOptions.getOrderId() + "; DriverId = " + roleOptions.getDriverId() + "; UserId = " + roleOptions.getUserId() + "; StartPosition = " + roleOptions.getStartPosition() + "; EndPosition = " + roleOptions.getEndPosition() + "; DriverPosition = " + roleOptions.getDriverPosition() + "; CoordType = " + roleOptions.getCoordType());
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2237a, "The roleOptions content is: OrderId = " + roleOptions.getOrderId() + "; DriverId = " + roleOptions.getDriverId() + "; UserId = " + roleOptions.getUserId() + "; StartPosition = " + roleOptions.getStartPosition() + "; EndPosition = " + roleOptions.getEndPosition() + "; DriverPosition = " + roleOptions.getDriverPosition() + "; CoordType = " + roleOptions.getCoordType());
             }
             return false;
         }
@@ -90,9 +88,9 @@ public class a implements k, d {
     }
 
     public void a() {
-        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3079a, MissionEvent.MESSAGE_RESUME);
-        if (this.f3080b != null) {
-            this.f3080b.a();
+        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2237a, MissionEvent.MESSAGE_RESUME);
+        if (this.b != null) {
+            this.b.a();
         }
         if (this.c != null) {
             this.c.a();
@@ -107,7 +105,7 @@ public class a implements k, d {
     }
 
     public void a(int i) {
-        com.baidu.mapsdkplatform.comapi.synchronization.d.a.c(f3079a, "The order state = " + i);
+        com.baidu.mapsdkplatform.comapi.synchronization.d.a.c(f2237a, "The order state = " + i);
         if (!e(i)) {
             if (this.d != null) {
                 this.d.onSynchronizationProcessResult(1002, SynchronizationConstants.LBS_STATUS_MESSAGE_ORDER_STATE_INVALID);
@@ -117,8 +115,8 @@ public class a implements k, d {
         if (this.c != null) {
             this.c.a(i);
         }
-        if (this.f3080b != null) {
-            this.f3080b.a(i);
+        if (this.b != null) {
+            this.b.a(i);
         }
     }
 
@@ -130,16 +128,16 @@ public class a implements k, d {
     }
 
     public void a(View view) {
-        if (this.f3080b != null) {
-            this.f3080b.a(view);
+        if (this.b != null) {
+            this.b.a(view);
         }
     }
 
     public void a(DisplayOptions displayOptions) {
-        if (this.f3080b == null || displayOptions == null) {
+        if (this.b == null || displayOptions == null) {
             return;
         }
-        this.f3080b.a(displayOptions);
+        this.b.a(displayOptions);
     }
 
     public void a(RoleOptions roleOptions) {
@@ -147,14 +145,14 @@ public class a implements k, d {
             if (this.d != null) {
                 this.d.onSynchronizationProcessResult(1003, SynchronizationConstants.LBS_STATUS_MESSAGE_ORDER_PARAM_INVALID);
             }
-        } else if (this.f3080b != null) {
-            this.f3080b.a(roleOptions);
+        } else if (this.b != null) {
+            this.b.a(roleOptions);
         }
     }
 
     public void a(SynchronizationDisplayListener synchronizationDisplayListener) {
         if (synchronizationDisplayListener == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3079a, "SynchronizationDisplayListener is null, must be applied.");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2237a, "SynchronizationDisplayListener is null, must be applied.");
             throw new IllegalArgumentException("synchronizationDisplayListener is null");
         } else {
             this.d = synchronizationDisplayListener;
@@ -162,9 +160,9 @@ public class a implements k, d {
     }
 
     public void b() {
-        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3079a, MissionEvent.MESSAGE_PAUSE);
-        if (this.f3080b != null) {
-            this.f3080b.b();
+        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2237a, MissionEvent.MESSAGE_PAUSE);
+        if (this.b != null) {
+            this.b.b();
         }
         if (this.c != null) {
             this.c.b();
@@ -174,8 +172,8 @@ public class a implements k, d {
     public void b(int i) {
         int i2 = i >= 5 ? i : 5;
         int i3 = i2 <= 30 ? i2 : 30;
-        if (this.f3080b != null) {
-            this.f3080b.b(i3);
+        if (this.b != null) {
+            this.b.b(i3);
         }
         if (this.c != null) {
             this.c.b(i3);
@@ -190,8 +188,8 @@ public class a implements k, d {
     }
 
     public void b(View view) {
-        if (this.f3080b != null) {
-            this.f3080b.b(view);
+        if (this.b != null) {
+            this.b.b(view);
         }
     }
 
@@ -202,9 +200,9 @@ public class a implements k, d {
     }
 
     public void c() {
-        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3079a, "release");
-        if (this.f3080b != null) {
-            this.f3080b.c();
+        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2237a, "release");
+        if (this.b != null) {
+            this.b.c();
         }
         if (this.c != null) {
             this.c.f();
@@ -230,14 +228,14 @@ public class a implements k, d {
     }
 
     public void c(View view) {
-        if (this.f3080b != null) {
-            this.f3080b.c(view);
+        if (this.b != null) {
+            this.b.c(view);
         }
     }
 
     public Marker d() {
         if (this.c == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3079a, "Data manager instance is null");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2237a, "Data manager instance is null");
             return null;
         }
         return this.c.c();
@@ -253,7 +251,7 @@ public class a implements k, d {
 
     public Marker e() {
         if (this.c == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3079a, "Data manager instance is null");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2237a, "Data manager instance is null");
             return null;
         }
         return this.c.d();
@@ -261,7 +259,7 @@ public class a implements k, d {
 
     public Marker f() {
         if (this.c == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3079a, "Data manager instance is null");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2237a, "Data manager instance is null");
             return null;
         }
         return this.c.e();

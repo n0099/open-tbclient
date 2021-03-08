@@ -53,7 +53,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class CoordinatorLayout extends ViewGroup implements NestedScrollingParent2 {
     static final Class<?>[] CONSTRUCTOR_PARAMS;
     static final int EVENT_NESTED_SCROLL = 1;
@@ -86,7 +86,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     private final int[] mTempIntPair;
     private final List<View> mTempList1;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes4.dex */
     public interface AttachedBehavior {
         @NonNull
         Behavior getBehavior();
@@ -94,14 +94,14 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
 
     @Retention(RetentionPolicy.RUNTIME)
     @Deprecated
-    /* loaded from: classes15.dex */
+    /* loaded from: classes4.dex */
     public @interface DefaultBehavior {
         Class<? extends Behavior> value();
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes15.dex */
+    /* loaded from: classes4.dex */
     public @interface DispatchChangeEvent {
     }
 
@@ -1510,7 +1510,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes4.dex */
     public class OnPreDrawListener implements ViewTreeObserver.OnPreDrawListener {
         OnPreDrawListener() {
         }
@@ -1522,7 +1522,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes4.dex */
     static class ViewElevationComparator implements Comparator<View> {
         ViewElevationComparator() {
         }
@@ -1542,7 +1542,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes4.dex */
     public static abstract class Behavior<V extends View> {
         public Behavior() {
         }
@@ -1688,7 +1688,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes4.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         public int anchorGravity;
         public int dodgeInsetEdges;
@@ -1965,7 +1965,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes4.dex */
     private class HierarchyChangeListener implements ViewGroup.OnHierarchyChangeListener {
         HierarchyChangeListener() {
         }
@@ -2054,7 +2054,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes4.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: androidx.coordinatorlayout.widget.CoordinatorLayout.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */

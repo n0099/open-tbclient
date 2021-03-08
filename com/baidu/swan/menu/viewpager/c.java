@@ -1,32 +1,32 @@
 package com.baidu.swan.menu.viewpager;
 
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c<T> {
-    private ArrayList<T> etu = new ArrayList<>();
-    private final int etv;
+    private ArrayList<T> euV = new ArrayList<>();
+    private final int euW;
 
     public c(int i) {
-        this.etv = i;
+        this.euW = i;
     }
 
-    public synchronized void aj(T t) {
+    public synchronized void al(T t) {
         if (t != null) {
-            if (this.etu.size() >= this.etv) {
-                this.etu.remove(this.etu.size() - 1);
+            if (this.euV.size() >= this.euW) {
+                this.euV.remove(this.euV.size() - 1);
             }
-            this.etu.add(t);
+            this.euV.add(t);
         }
     }
 
     public synchronized T get() {
         T t;
         while (true) {
-            if (this.etu.size() <= 0) {
+            if (this.euV.size() <= 0) {
                 t = null;
                 break;
             }
-            t = this.etu.remove(this.etu.size() - 1);
+            t = this.euV.remove(this.euV.size() - 1);
             if (t != null) {
                 break;
             }

@@ -15,37 +15,37 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a TP = null;
-    private HashMap<String, Integer> TO = new HashMap<>();
+    private static volatile a Vl = null;
+    private HashMap<String, Integer> Vk = new HashMap<>();
 
     public static synchronized a pe() {
         a aVar;
         synchronized (a.class) {
-            if (TP == null) {
+            if (Vl == null) {
                 synchronized (a.class) {
-                    if (TP == null) {
-                        TP = new a();
+                    if (Vl == null) {
+                        Vl = new a();
                     }
                 }
             }
-            aVar = TP;
+            aVar = Vl;
         }
         return aVar;
     }
 
-    public void cr(String str) {
+    public void cv(String str) {
         if (str != null) {
-            Integer num = this.TO.get(str);
+            Integer num = this.Vk.get(str);
             if (num == null) {
                 num = 0;
             }
-            this.TO.put(str, Integer.valueOf(num.intValue() + 1));
+            this.Vk.put(str, Integer.valueOf(num.intValue() + 1));
         }
     }
 
     public void A(String str, String str2) {
         if (str != null && str2 != null) {
-            cr(str);
+            cv(str);
         }
     }
 
@@ -158,7 +158,7 @@ public class a {
     }
 
     public void pf() {
-        if (this.TO.size() != 0) {
+        if (this.Vk.size() != 0) {
             com.baidu.adp.lib.stats.a pg = pg();
             d(pg);
             pg.append("appver", BdStatisticsManager.getInstance().getAppVersion());
@@ -206,10 +206,10 @@ public class a {
 
     private void d(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
-            for (Map.Entry<String, Integer> entry : this.TO.entrySet()) {
+            for (Map.Entry<String, Integer> entry : this.Vk.entrySet()) {
                 aVar.append(entry.getKey() + "_count", String.valueOf(entry.getValue()));
             }
-            this.TO.clear();
+            this.Vk.clear();
         }
     }
 

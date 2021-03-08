@@ -5,13 +5,11 @@ import android.util.Log;
 public class au {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f5787a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f5788b = false;
+    public static boolean f3906a;
+    public static boolean b = false;
 
     public static void a(String str, Throwable th) {
-        if (f5788b) {
+        if (b) {
             Log.d("TeaLog", str, th);
         }
     }

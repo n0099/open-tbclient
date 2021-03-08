@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class HardDecRender {
     private static final int MEDIA_CODEC_RELEASE_TIMEOUT_MS = 4000;
     private static final String TAG = "HardDecRender";
@@ -60,12 +60,12 @@ public abstract class HardDecRender {
     private IDecoderDataOutCallBack decoderDataOutCallBack = null;
     private boolean mEndOfStream = false;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface IDecoderDataOutCallBack {
         void onFirstDecodedDataOut();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class MediaCodecErrorType {
         public static final int MEDIA_CODEC_DECODING_ERROR = 2;
         public static final int MEDIA_CODEC_INIT_ERROR = 1;
@@ -74,7 +74,7 @@ public abstract class HardDecRender {
         public static final int MEDIA_CODEC_STOP_BLOCK_ERROR = 3;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface OnDecoderYUVListener {
         void OnDecoderYUVListener(int i, int i2, ByteBuffer byteBuffer, int i3, VideoConstant.ExtraData extraData, long j, int i4, int i5, MediaFormat mediaFormat);
     }

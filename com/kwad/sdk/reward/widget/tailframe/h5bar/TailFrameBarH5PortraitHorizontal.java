@@ -16,10 +16,8 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public class TailFrameBarH5PortraitHorizontal extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f10710a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private TextView f10711b;
+    private TextView f7071a;
+    private TextView b;
     private ValueAnimator c;
 
     public TailFrameBarH5PortraitHorizontal(Context context) {
@@ -37,8 +35,8 @@ public class TailFrameBarH5PortraitHorizontal extends LinearLayout {
 
     private void a(Context context) {
         inflate(context, R.layout.ksad_video_tf_bar_h5_portrait_horizontal, this);
-        this.f10710a = (TextView) findViewById(R.id.ksad_tf_h5_ad_desc);
-        this.f10711b = (TextView) findViewById(R.id.ksad_tf_h5_open_btn);
+        this.f7071a = (TextView) findViewById(R.id.ksad_tf_h5_ad_desc);
+        this.b = (TextView) findViewById(R.id.ksad_tf_h5_open_btn);
     }
 
     private void b() {
@@ -54,8 +52,8 @@ public class TailFrameBarH5PortraitHorizontal extends LinearLayout {
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                TailFrameBarH5PortraitHorizontal.this.f10711b.setScaleY(floatValue);
-                TailFrameBarH5PortraitHorizontal.this.f10711b.setScaleX(floatValue);
+                TailFrameBarH5PortraitHorizontal.this.b.setScaleY(floatValue);
+                TailFrameBarH5PortraitHorizontal.this.b.setScaleX(floatValue);
             }
         });
         this.c.start();
@@ -71,8 +69,8 @@ public class TailFrameBarH5PortraitHorizontal extends LinearLayout {
 
     public void setModel(@NonNull AdTemplate adTemplate) {
         AdInfo j = c.j(adTemplate);
-        this.f10710a.setText(a.n(j));
-        this.f10711b.setText(a.w(j));
+        this.f7071a.setText(a.n(j));
+        this.b.setText(a.w(j));
         b();
     }
 }

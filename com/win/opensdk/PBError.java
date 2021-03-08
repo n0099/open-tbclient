@@ -1,12 +1,10 @@
 package com.win.opensdk;
-
-import androidx.annotation.NonNull;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class PBError {
-    private int java;
 
-    /* renamed from: java  reason: collision with other field name */
-    private String f6java;
+    /* renamed from: a  reason: collision with root package name */
+    public int f8100a;
+    public String b;
     public static final PBError NO_FILL = new PBError(2001, "NO FILL");
     public static final PBError TIMEOUT = new PBError(2002, "TIME OUT");
     public static final PBError LOAD_TOO_FREQUENTLY = new PBError(2003, "LOAD TOO FREQUENTLY");
@@ -21,28 +19,27 @@ public class PBError {
     public static final PBError LOAD_TYPE_ERROR = new PBError(2031, "Load Type error");
 
     public PBError(int i, String str) {
-        this.java = i;
-        this.f6java = str;
+        this.f8100a = i;
+        this.b = str;
     }
 
     public int getCode() {
-        return this.java;
-    }
-
-    public void setCode(int i) {
-        this.java = i;
+        return this.f8100a;
     }
 
     public String getMsg() {
-        return this.f6java;
+        return this.b;
+    }
+
+    public void setCode(int i) {
+        this.f8100a = i;
     }
 
     public void setMsg(String str) {
-        this.f6java = str;
+        this.b = str;
     }
 
-    @NonNull
     public String toString() {
-        return "PBError{code=" + this.java + ", msg='" + this.f6java + "'}";
+        return "PBError{code=" + this.f8100a + ", msg='" + this.b + "'}";
     }
 }

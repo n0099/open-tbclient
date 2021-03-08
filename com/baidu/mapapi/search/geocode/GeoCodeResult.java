@@ -9,10 +9,8 @@ public class GeoCodeResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<GeoCodeResult> CREATOR = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    private LatLng f2864a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f2865b;
+    private LatLng f2110a;
+    private String b;
     private int c;
     private int d;
     private String e;
@@ -22,8 +20,8 @@ public class GeoCodeResult extends SearchResult implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public GeoCodeResult(Parcel parcel) {
-        this.f2864a = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
-        this.f2865b = parcel.readString();
+        this.f2110a = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
+        this.b = parcel.readString();
         this.c = parcel.readInt();
         this.d = parcel.readInt();
         this.e = parcel.readString();
@@ -36,7 +34,7 @@ public class GeoCodeResult extends SearchResult implements Parcelable {
 
     @Deprecated
     public String getAddress() {
-        return this.f2865b;
+        return this.b;
     }
 
     public int getConfidence() {
@@ -48,7 +46,7 @@ public class GeoCodeResult extends SearchResult implements Parcelable {
     }
 
     public LatLng getLocation() {
-        return this.f2864a;
+        return this.f2110a;
     }
 
     public int getPrecise() {
@@ -57,7 +55,7 @@ public class GeoCodeResult extends SearchResult implements Parcelable {
 
     @Deprecated
     public void setAddress(String str) {
-        this.f2865b = str;
+        this.b = str;
     }
 
     public void setConfidence(int i) {
@@ -69,7 +67,7 @@ public class GeoCodeResult extends SearchResult implements Parcelable {
     }
 
     public void setLocation(LatLng latLng) {
-        this.f2864a = latLng;
+        this.f2110a = latLng;
     }
 
     public void setPrecise(int i) {
@@ -78,7 +76,7 @@ public class GeoCodeResult extends SearchResult implements Parcelable {
 
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer("GeoCodeResult: \n");
-        stringBuffer.append("location = ").append(this.f2864a);
+        stringBuffer.append("location = ").append(this.f2110a);
         stringBuffer.append("; precise = ").append(this.c);
         stringBuffer.append("; confidence = ").append(this.d);
         stringBuffer.append("; level = ").append(this.e);
@@ -87,8 +85,8 @@ public class GeoCodeResult extends SearchResult implements Parcelable {
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeValue(this.f2864a);
-        parcel.writeString(this.f2865b);
+        parcel.writeValue(this.f2110a);
+        parcel.writeString(this.b);
         parcel.writeInt(this.c);
         parcel.writeInt(this.d);
         parcel.writeString(this.e);

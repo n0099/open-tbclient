@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.liveroom.messages;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.mobstat.Config;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d extends HttpMessage {
     public int pn;
     public int ps;

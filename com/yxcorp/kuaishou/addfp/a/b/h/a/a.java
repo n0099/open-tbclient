@@ -5,23 +5,21 @@ import android.database.ContentObserver;
 public final class a extends ContentObserver {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f14370a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f14371b;
-    private b qmq;
+    private String f8613a;
+    private int b;
+    private b qmS;
 
     public a(b bVar, int i, String str) {
         super(null);
-        this.qmq = bVar;
-        this.f14371b = i;
-        this.f14370a = str;
+        this.qmS = bVar;
+        this.b = i;
+        this.f8613a = str;
     }
 
     @Override // android.database.ContentObserver
     public final void onChange(boolean z) {
-        if (this.qmq != null) {
-            this.qmq.a(this.f14371b, this.f14370a);
+        if (this.qmS != null) {
+            this.qmS.a(this.b, this.f8613a);
         }
     }
 }

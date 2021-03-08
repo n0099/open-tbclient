@@ -28,17 +28,17 @@ import com.baidu.tieba.forbidden.fans.b;
 import com.baidu.tieba.forbidden.fans.d;
 import com.baidu.tieba.view.NavigationBarCoverTip;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MyForbiddenFansActivity extends BaseActivity {
-    private PbListView gAw;
-    private BdRecyclerView ipI;
-    private NavigationBarCoverTip jbd;
-    private TextView jbe;
-    private MyForbiddenFansListAdapter jbf;
-    private b jbg;
-    private d jbh;
-    private TextView jbi;
-    private b.a jbj = new b.a() { // from class: com.baidu.tieba.forbidden.fans.MyForbiddenFansActivity.1
+    private PbListView gCf;
+    private BdRecyclerView irr;
+    private NavigationBarCoverTip jcM;
+    private TextView jcN;
+    private MyForbiddenFansListAdapter jcO;
+    private b jcP;
+    private d jcQ;
+    private TextView jcR;
+    private b.a jcS = new b.a() { // from class: com.baidu.tieba.forbidden.fans.MyForbiddenFansActivity.1
         @Override // com.baidu.tieba.forbidden.fans.b.a
         public void b(int i, String str, ArrayList<a> arrayList) {
             if (MyForbiddenFansActivity.this.isProgressBarShown()) {
@@ -52,18 +52,18 @@ public class MyForbiddenFansActivity extends BaseActivity {
             } else if (i == 0) {
                 MyForbiddenFansActivity.this.hideNoDataView();
                 MyForbiddenFansActivity.this.ap(arrayList);
-                MyForbiddenFansActivity.this.jbf.aq(arrayList);
-                MyForbiddenFansActivity.this.jbf.notifyDataSetChanged();
+                MyForbiddenFansActivity.this.jcO.aq(arrayList);
+                MyForbiddenFansActivity.this.jcO.notifyDataSetChanged();
             }
         }
     };
-    private View.OnClickListener jbk = new View.OnClickListener() { // from class: com.baidu.tieba.forbidden.fans.MyForbiddenFansActivity.2
+    private View.OnClickListener jcT = new View.OnClickListener() { // from class: com.baidu.tieba.forbidden.fans.MyForbiddenFansActivity.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (l.isNetOk()) {
-                if (view == MyForbiddenFansActivity.this.jbe) {
-                    TiebaStatic.log(new ar("c13104").ap("obj_locate", 2));
-                    MyForbiddenFansActivity.this.jbh.removeAll();
+                if (view == MyForbiddenFansActivity.this.jcN) {
+                    TiebaStatic.log(new ar("c13104").aq("obj_locate", 2));
+                    MyForbiddenFansActivity.this.jcQ.removeAll();
                     return;
                 }
                 return;
@@ -71,18 +71,18 @@ public class MyForbiddenFansActivity extends BaseActivity {
             MyForbiddenFansActivity.this.showToast(MyForbiddenFansActivity.this.getString(R.string.neterror));
         }
     };
-    private View.OnClickListener jbl = new View.OnClickListener() { // from class: com.baidu.tieba.forbidden.fans.MyForbiddenFansActivity.3
+    private View.OnClickListener jcU = new View.OnClickListener() { // from class: com.baidu.tieba.forbidden.fans.MyForbiddenFansActivity.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (!l.isNetOk()) {
                 MyForbiddenFansActivity.this.showToast(MyForbiddenFansActivity.this.getString(R.string.neterror));
             } else if (view.getTag() instanceof a) {
                 TiebaStatic.log(new ar("c13105"));
-                MyForbiddenFansActivity.this.jbh.gn(((a) view.getTag()).id);
+                MyForbiddenFansActivity.this.jcQ.gn(((a) view.getTag()).id);
             }
         }
     };
-    private View.OnClickListener jbm = new View.OnClickListener() { // from class: com.baidu.tieba.forbidden.fans.MyForbiddenFansActivity.4
+    private View.OnClickListener jcV = new View.OnClickListener() { // from class: com.baidu.tieba.forbidden.fans.MyForbiddenFansActivity.4
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getTag() instanceof a) {
@@ -100,41 +100,41 @@ public class MyForbiddenFansActivity extends BaseActivity {
         super.onCreate(bundle);
         setContentView(R.layout.forbidden_fans_list_layout);
         this.mRootView = (LinearLayout) findViewById(R.id.container_forbidden_fans);
-        this.jbg = new b();
+        this.jcP = new b();
         this.mNavigationBar = (NavigationBar) findViewById(R.id.navi_forbidden_fans);
         this.mNavigationBar.setCenterTextTitle(getResources().getString(R.string.forbidden_fans));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.showBottomLine();
-        this.jbe = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.remove_all_forbidden_fans));
-        this.jbd = (NavigationBarCoverTip) findViewById(R.id.navi_cover_tip_forbidden);
-        this.ipI = (BdRecyclerView) findViewById(R.id.listview_forbidden_fans);
-        this.ipI.setLayoutManager(new LinearLayoutManager(this));
-        this.ipI.setOnSrollToBottomListener(new BdListView.e() { // from class: com.baidu.tieba.forbidden.fans.MyForbiddenFansActivity.5
+        this.jcN = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.remove_all_forbidden_fans));
+        this.jcM = (NavigationBarCoverTip) findViewById(R.id.navi_cover_tip_forbidden);
+        this.irr = (BdRecyclerView) findViewById(R.id.listview_forbidden_fans);
+        this.irr.setLayoutManager(new LinearLayoutManager(this));
+        this.irr.setOnSrollToBottomListener(new BdListView.e() { // from class: com.baidu.tieba.forbidden.fans.MyForbiddenFansActivity.5
             @Override // com.baidu.adp.widget.ListView.BdListView.e
             public void onScrollToBottom() {
-                if (MyForbiddenFansActivity.this.jbg.hasMore() && MyForbiddenFansActivity.this.gAw != null && !MyForbiddenFansActivity.this.gAw.isLoading()) {
-                    MyForbiddenFansActivity.this.gAw.startLoadData();
+                if (MyForbiddenFansActivity.this.jcP.hasMore() && MyForbiddenFansActivity.this.gCf != null && !MyForbiddenFansActivity.this.gCf.isLoading()) {
+                    MyForbiddenFansActivity.this.gCf.startLoadData();
                 }
-                MyForbiddenFansActivity.this.jbg.cAH();
+                MyForbiddenFansActivity.this.jcP.cAN();
             }
         });
-        this.gAw = new PbListView(getActivity());
-        this.gAw.getView();
-        this.gAw.setContainerBackgroundColorResId(R.color.CAM_X0205);
-        this.gAw.setLineGone();
-        this.gAw.setTextColor(ap.getColor(R.color.CAM_X0107));
-        this.gAw.setTextSize(R.dimen.tbfontsize33);
-        this.gAw.setNoMoreTextColorId(R.color.CAM_X0110);
-        this.gAw.setHeight(l.getDimens(getActivity(), R.dimen.tbds182));
-        this.gAw.bud();
-        this.jbf = new MyForbiddenFansListAdapter(this);
-        this.ipI.setAdapter(this.jbf);
-        this.jbg.a(this.jbj);
-        this.jbh = new d(getPageContext(), getUniqueId());
-        this.jbe.setOnClickListener(this.jbk);
-        this.jbf.p(this.jbm);
-        this.jbf.z(this.jbl);
-        this.jbh.a(new d.a() { // from class: com.baidu.tieba.forbidden.fans.MyForbiddenFansActivity.6
+        this.gCf = new PbListView(getActivity());
+        this.gCf.getView();
+        this.gCf.setContainerBackgroundColorResId(R.color.CAM_X0205);
+        this.gCf.setLineGone();
+        this.gCf.setTextColor(ap.getColor(R.color.CAM_X0107));
+        this.gCf.setTextSize(R.dimen.tbfontsize33);
+        this.gCf.setNoMoreTextColorId(R.color.CAM_X0110);
+        this.gCf.setHeight(l.getDimens(getActivity(), R.dimen.tbds182));
+        this.gCf.bug();
+        this.jcO = new MyForbiddenFansListAdapter(this);
+        this.irr.setAdapter(this.jcO);
+        this.jcP.a(this.jcS);
+        this.jcQ = new d(getPageContext(), getUniqueId());
+        this.jcN.setOnClickListener(this.jcT);
+        this.jcO.p(this.jcV);
+        this.jcO.z(this.jcU);
+        this.jcQ.a(new d.a() { // from class: com.baidu.tieba.forbidden.fans.MyForbiddenFansActivity.6
             @Override // com.baidu.tieba.forbidden.fans.d.a
             public void a(int i, String str, boolean z, int i2, long j) {
                 if (z) {
@@ -145,33 +145,33 @@ public class MyForbiddenFansActivity extends BaseActivity {
                         } else if (i == 2260104) {
                             return;
                         }
-                        if (MyForbiddenFansActivity.this.jbi == null) {
-                            MyForbiddenFansActivity.this.jbi = new TextView(MyForbiddenFansActivity.this.getActivity());
-                            MyForbiddenFansActivity.this.jbi.setGravity(19);
-                            MyForbiddenFansActivity.this.jbi.setPadding(l.getDimens(MyForbiddenFansActivity.this.getActivity(), R.dimen.ds34), 0, 0, 0);
-                            MyForbiddenFansActivity.this.jbi.setLayoutParams(new ViewGroup.LayoutParams(-1, l.getDimens(MyForbiddenFansActivity.this.getActivity(), R.dimen.tbds112)));
-                            MyForbiddenFansActivity.this.jbi.setTextSize(0, l.getDimens(MyForbiddenFansActivity.this.getActivity(), R.dimen.fontsize30));
-                            MyForbiddenFansActivity.this.jbi.setTextColor(MyForbiddenFansActivity.this.getResources().getColor(R.color.CAM_X0101));
+                        if (MyForbiddenFansActivity.this.jcR == null) {
+                            MyForbiddenFansActivity.this.jcR = new TextView(MyForbiddenFansActivity.this.getActivity());
+                            MyForbiddenFansActivity.this.jcR.setGravity(19);
+                            MyForbiddenFansActivity.this.jcR.setPadding(l.getDimens(MyForbiddenFansActivity.this.getActivity(), R.dimen.ds34), 0, 0, 0);
+                            MyForbiddenFansActivity.this.jcR.setLayoutParams(new ViewGroup.LayoutParams(-1, l.getDimens(MyForbiddenFansActivity.this.getActivity(), R.dimen.tbds112)));
+                            MyForbiddenFansActivity.this.jcR.setTextSize(0, l.getDimens(MyForbiddenFansActivity.this.getActivity(), R.dimen.fontsize30));
+                            MyForbiddenFansActivity.this.jcR.setTextColor(MyForbiddenFansActivity.this.getResources().getColor(R.color.CAM_X0101));
                         }
-                        MyForbiddenFansActivity.this.jbi.setText(str);
+                        MyForbiddenFansActivity.this.jcR.setText(str);
                         if (i == 0) {
-                            MyForbiddenFansActivity.this.jbd.setBackgroundColor(MyForbiddenFansActivity.this.getResources().getColor(R.color.cp_link_tip_a_alpha95));
+                            MyForbiddenFansActivity.this.jcM.setBackgroundColor(MyForbiddenFansActivity.this.getResources().getColor(R.color.cp_link_tip_a_alpha95));
                         } else {
-                            MyForbiddenFansActivity.this.jbd.setBackgroundColor(MyForbiddenFansActivity.this.getResources().getColor(R.color.nav_bar_tip_error));
+                            MyForbiddenFansActivity.this.jcM.setBackgroundColor(MyForbiddenFansActivity.this.getResources().getColor(R.color.nav_bar_tip_error));
                         }
-                        MyForbiddenFansActivity.this.jbd.a(MyForbiddenFansActivity.this.getActivity(), MyForbiddenFansActivity.this.jbi, 3000);
+                        MyForbiddenFansActivity.this.jcM.a(MyForbiddenFansActivity.this.getActivity(), MyForbiddenFansActivity.this.jcR, 3000);
                     } else if (i2 == 1 && i != 2260104) {
                         if (i == 0) {
-                            if (MyForbiddenFansActivity.this.jbf.gm(j)) {
-                                if (MyForbiddenFansActivity.this.jbf.cAF()) {
+                            if (MyForbiddenFansActivity.this.jcO.gm(j)) {
+                                if (MyForbiddenFansActivity.this.jcO.cAL()) {
                                     MyForbiddenFansActivity.this.showNoDataView();
                                     return;
-                                } else if (MyForbiddenFansActivity.this.jbf.getItemCount() > 20 || !MyForbiddenFansActivity.this.jbg.hasMore()) {
-                                    MyForbiddenFansActivity.this.ap(MyForbiddenFansActivity.this.jbf.getFansList());
-                                    MyForbiddenFansActivity.this.jbf.notifyDataSetChanged();
+                                } else if (MyForbiddenFansActivity.this.jcO.getItemCount() > 20 || !MyForbiddenFansActivity.this.jcP.hasMore()) {
+                                    MyForbiddenFansActivity.this.ap(MyForbiddenFansActivity.this.jcO.getFansList());
+                                    MyForbiddenFansActivity.this.jcO.notifyDataSetChanged();
                                     return;
                                 } else {
-                                    MyForbiddenFansActivity.this.jbg.cAH();
+                                    MyForbiddenFansActivity.this.jcP.cAN();
                                     return;
                                 }
                             }
@@ -179,38 +179,38 @@ public class MyForbiddenFansActivity extends BaseActivity {
                         }
                         l.showToast(MyForbiddenFansActivity.this.getActivity(), str);
                     }
-                } else if (i == 0 && i2 == 1 && MyForbiddenFansActivity.this.jbf.gm(j)) {
-                    if (MyForbiddenFansActivity.this.jbf.cAF()) {
+                } else if (i == 0 && i2 == 1 && MyForbiddenFansActivity.this.jcO.gm(j)) {
+                    if (MyForbiddenFansActivity.this.jcO.cAL()) {
                         MyForbiddenFansActivity.this.showNoDataView();
-                    } else if (MyForbiddenFansActivity.this.jbf.getItemCount() > 20 || !MyForbiddenFansActivity.this.jbg.hasMore()) {
-                        MyForbiddenFansActivity.this.ap(MyForbiddenFansActivity.this.jbf.getFansList());
-                        MyForbiddenFansActivity.this.jbf.notifyDataSetChanged();
+                    } else if (MyForbiddenFansActivity.this.jcO.getItemCount() > 20 || !MyForbiddenFansActivity.this.jcP.hasMore()) {
+                        MyForbiddenFansActivity.this.ap(MyForbiddenFansActivity.this.jcO.getFansList());
+                        MyForbiddenFansActivity.this.jcO.notifyDataSetChanged();
                     } else {
-                        MyForbiddenFansActivity.this.jbg.cAH();
+                        MyForbiddenFansActivity.this.jcP.cAN();
                     }
                 }
             }
 
             @Override // com.baidu.tieba.forbidden.fans.d.a
-            public void cAE() {
+            public void cAK() {
                 MyForbiddenFansActivity.this.showLoadingDialog(MyForbiddenFansActivity.this.getString(R.string.remove_fans_loading));
             }
         });
         showProgressBar(true, 0, 0);
-        this.jbg.cAG();
+        this.jcP.cAM();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ap(ArrayList<a> arrayList) {
         if (!y.isEmpty(arrayList)) {
-            this.ipI.setNextPage(this.gAw);
-            if (this.jbg.hasMore()) {
-                this.gAw.setText(getString(R.string.pb_load_more));
-                this.gAw.endLoadData();
+            this.irr.setNextPage(this.gCf);
+            if (this.jcP.hasMore()) {
+                this.gCf.setText(getString(R.string.pb_load_more));
+                this.gCf.endLoadData();
                 return;
             }
-            this.gAw.setText(getString(R.string.no_more_data_tip));
-            this.gAw.endLoadData();
+            this.gCf.setText(getString(R.string.no_more_data_tip));
+            this.gCf.endLoadData();
         }
     }
 
@@ -219,36 +219,36 @@ public class MyForbiddenFansActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        ap.setViewTextColor(this.jbe, R.color.color_remove_all_title);
-        this.jbf.notifyDataSetChanged();
-        this.jbh.onChangeSkinType();
+        ap.setViewTextColor(this.jcN, R.color.color_remove_all_title);
+        this.jcO.notifyDataSetChanged();
+        this.jcQ.onChangeSkinType();
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(getPageContext(), i);
         }
-        this.gAw.setTextColor(ap.getColor(R.color.CAM_X0109));
-        this.gAw.changeSkin(i);
-        ap.setViewTextColor(this.jbi, R.color.CAM_X0101);
+        this.gCf.setTextColor(ap.getColor(R.color.CAM_X0109));
+        this.gCf.changeSkin(i);
+        ap.setViewTextColor(this.jcR, R.color.CAM_X0101);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.jbg.onDestroy();
-        this.jbd.onDestroy();
+        this.jcP.onDestroy();
+        this.jcM.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showNoDataView() {
         if (this.mNoDataView == null) {
             this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(getActivity(), R.dimen.ds120)), null, null);
-            this.mNoDataView.setTextOption(NoDataViewFactory.d.pz(R.string.no_forbidden_fans));
+            this.mNoDataView.setTextOption(NoDataViewFactory.d.pA(R.string.no_forbidden_fans));
             this.mNoDataView.setSubTitleTextColor(R.color.CAM_X0106);
             this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
         this.mNoDataView.setVisibility(0);
-        this.ipI.setVisibility(8);
-        this.jbe.setEnabled(false);
+        this.irr.setVisibility(8);
+        this.jcN.setEnabled(false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -256,7 +256,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
         if (this.mNoDataView != null) {
             this.mNoDataView.setVisibility(8);
         }
-        this.ipI.setVisibility(0);
-        this.jbe.setEnabled(true);
+        this.irr.setVisibility(0);
+        this.jcN.setEnabled(true);
     }
 }

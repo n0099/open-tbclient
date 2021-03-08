@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class UserDefineConfirmBottomView extends LinearLayout {
     private Context mContext;
     private View.OnClickListener mOnClickListener;
@@ -19,8 +19,8 @@ public class UserDefineConfirmBottomView extends LinearLayout {
     private RelativeLayout mRlConfirmBtnRoot;
     private TextView mTvBigTbeanToast;
     private TextView mTvBuyTbeanConfirm;
-    private TextView nDf;
-    private String nDg;
+    private TextView nFk;
+    private String nFl;
 
     public UserDefineConfirmBottomView(Context context) {
         super(context);
@@ -44,12 +44,12 @@ public class UserDefineConfirmBottomView extends LinearLayout {
         this.mRlConfirmBtnRoot = (RelativeLayout) findViewById(R.id.confirm_btn_root);
         this.mRlBigTBeanRoot = (LinearLayout) findViewById(R.id.big_tbean_root);
         this.mTvBigTbeanToast = (TextView) findViewById(R.id.big_tbean_toast_tv);
-        this.nDf = (TextView) findViewById(R.id.big_tbean_jump_tv);
+        this.nFk = (TextView) findViewById(R.id.big_tbean_jump_tv);
         this.mTvBuyTbeanConfirm = (TextView) findViewById(R.id.user_define_confirm_tv);
         this.mRlConfirmBtnRoot.setOnClickListener(null);
     }
 
-    public void yG(boolean z) {
+    public void yF(boolean z) {
         if (z) {
             this.mRlBigTBeanRoot.setVisibility(0);
         } else {
@@ -59,30 +59,30 @@ public class UserDefineConfirmBottomView extends LinearLayout {
 
     public void setClickListener(View.OnClickListener onClickListener) {
         this.mOnClickListener = onClickListener;
-        this.nDf.setOnClickListener(this.mOnClickListener);
+        this.nFk.setOnClickListener(this.mOnClickListener);
         this.mTvBuyTbeanConfirm.setOnClickListener(this.mOnClickListener);
     }
 
     public void setBigTbeanToastText(int i) {
-        this.nDg = String.format(this.mContext.getString(R.string.big_tbean_toast), au.numberUniform(i));
-        this.mTvBigTbeanToast.setText(this.nDg);
+        this.nFl = String.format(this.mContext.getString(R.string.big_tbean_toast), au.numberUniform(i));
+        this.mTvBigTbeanToast.setText(this.nFl);
     }
 
     public void setPayEnabled(boolean z) {
         if (z) {
-            this.mTvBigTbeanToast.setText(this.nDg);
+            this.mTvBigTbeanToast.setText(this.nFl);
             this.mTvBigTbeanToast.setGravity(3);
-            yG(true);
+            yF(true);
             this.mTvBuyTbeanConfirm.setEnabled(true);
             this.mRlBigTBeanRoot.setVisibility(0);
-            this.nDf.setVisibility(0);
+            this.nFk.setVisibility(0);
             return;
         }
         this.mTvBigTbeanToast.setText(R.string.user_define_max_money);
         this.mTvBigTbeanToast.setGravity(17);
         this.mTvBuyTbeanConfirm.setEnabled(false);
-        yG(false);
+        yF(false);
         this.mRlBigTBeanRoot.setVisibility(0);
-        this.nDf.setVisibility(8);
+        this.nFk.setVisibility(8);
     }
 }

@@ -9,14 +9,12 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3166a = a.class.getSimpleName();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static SparseArray<List<Handler>> f3167b = new SparseArray<>();
+    private static final String f2288a = a.class.getSimpleName();
+    private static SparseArray<List<Handler>> b = new SparseArray<>();
 
     public static void a(int i, int i2, int i3, long j) {
-        synchronized (f3167b) {
-            List<Handler> list = f3167b.get(i);
+        synchronized (b) {
+            List<Handler> list = b.get(i);
             if (list != null && !list.isEmpty()) {
                 for (Handler handler : list) {
                     Message.obtain(handler, i, i2, i3, Long.valueOf(j)).sendToTarget();
@@ -26,15 +24,15 @@ public class a {
     }
 
     public static void a(int i, Handler handler) {
-        synchronized (f3167b) {
+        synchronized (b) {
             if (handler == null) {
                 return;
             }
-            List<Handler> list = f3167b.get(i);
+            List<Handler> list = b.get(i);
             if (list == null) {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(handler);
-                f3167b.put(i, arrayList);
+                b.put(i, arrayList);
             } else if (!list.contains(handler)) {
                 list.add(handler);
             }
@@ -42,10 +40,10 @@ public class a {
     }
 
     public static void b(int i, Handler handler) {
-        synchronized (f3167b) {
+        synchronized (b) {
             if (handler != null) {
                 handler.removeCallbacksAndMessages(null);
-                List<Handler> list = f3167b.get(i);
+                List<Handler> list = b.get(i);
                 if (list != null) {
                     list.remove(handler);
                 }

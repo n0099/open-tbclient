@@ -17,9 +17,7 @@ import com.kwad.sdk.widget.AnimatedImageView;
 import java.io.InputStream;
 /* loaded from: classes3.dex */
 public class c extends d implements View.OnClickListener {
-
-    /* renamed from: b  reason: collision with root package name */
-    private ViewGroup f10634b;
+    private ViewGroup b;
     private ImageView c;
     private AnimatedImageView d;
     private AnimatedImageView e;
@@ -34,7 +32,7 @@ public class c extends d implements View.OnClickListener {
         if (ag.a(str) || !FrameSequence.isEnable()) {
             animatedImageView.setImageResource(R.drawable.ksad_reward_icon_end);
         } else {
-            KSImageLoader.loadImage(str, this.f10652a.f, KSImageLoader.IMGOPTION_ENTRY, new SimpleImageLoadingListener() { // from class: com.kwad.sdk.reward.b.c.b.c.2
+            KSImageLoader.loadImage(str, this.f7028a.f, KSImageLoader.IMGOPTION_ENTRY, new SimpleImageLoadingListener() { // from class: com.kwad.sdk.reward.b.c.b.c.2
                 @Override // com.kwad.sdk.core.imageloader.core.listener.SimpleImageLoadingListener, com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
                 public boolean onDecode(String str2, InputStream inputStream, DecodedResult decodedResult) {
                     try {
@@ -66,47 +64,47 @@ public class c extends d implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        if (!this.f10652a.q) {
+        if (!this.f7028a.q) {
             this.d.setVisibility(8);
             this.e.setVisibility(8);
             this.c.setVisibility(0);
             this.c.setOnClickListener(this);
-            this.f10634b.setVisibility(0);
+            this.b.setVisibility(0);
             return;
         }
         this.c.setVisibility(8);
-        String d = com.kwad.sdk.core.response.b.b.d(this.f10652a.f);
-        if (this.f10652a.e == 1) {
+        String d = com.kwad.sdk.core.response.b.b.d(this.f7028a.f);
+        if (this.f7028a.e == 1) {
             a(this.d, d);
             this.d.setVisibility(0);
             this.d.setOnClickListener(this);
-            this.f10634b.setVisibility(0);
+            this.b.setVisibility(0);
             return;
         }
         a(this.e, d);
         this.e.setVisibility(0);
         this.e.setOnClickListener(this);
-        this.f10634b.setVisibility(8);
+        this.b.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        com.kwad.sdk.core.report.b.a(this.f10652a.f, 41, this.f10652a.h.getTouchCoords(), this.f10652a.d);
-        this.f10652a.f10527b.a();
+        com.kwad.sdk.core.report.b.a(this.f7028a.f, 41, this.f7028a.h.getTouchCoords(), this.f7028a.d);
+        this.f7028a.b.a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f10652a.n.add(this.f);
+        this.f7028a.n.add(this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f10652a.n.remove(this.f);
+        this.f7028a.n.remove(this.f);
         this.d.b();
         this.e.b();
     }
@@ -115,7 +113,7 @@ public class c extends d implements View.OnClickListener {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f10634b = (ViewGroup) b(R.id.ksad_end_reward_icon_layout);
+        this.b = (ViewGroup) b(R.id.ksad_end_reward_icon_layout);
         this.c = (ImageView) b(R.id.ksad_end_reward_icon);
         this.d = (AnimatedImageView) b(R.id.ksad_end_reward_icon_new_left);
         this.e = (AnimatedImageView) b(R.id.ksad_end_reward_icon_new_right);
@@ -124,12 +122,12 @@ public class c extends d implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.c || view == this.d || view == this.e) {
-            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f10652a.f, new a.InterfaceC1094a() { // from class: com.kwad.sdk.reward.b.c.b.c.3
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
+            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f7028a.f, new a.InterfaceC1111a() { // from class: com.kwad.sdk.reward.b.c.b.c.3
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1111a
                 public void a() {
                     c.this.f();
                 }
-            }, this.f10652a.j);
+            }, this.f7028a.j);
         }
     }
 }

@@ -15,7 +15,7 @@ import java.util.List;
 public class c extends com.kwad.sdk.core.e.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public h f8404a;
+    public h f5600a;
     public boolean g;
     public boolean h;
     public int i;
@@ -32,9 +32,7 @@ public class c extends com.kwad.sdk.core.e.b {
     public com.kwad.sdk.contentalliance.detail.b.b q;
     @Nullable
     public com.kwad.sdk.live.slide.detail.a.a r;
-
-    /* renamed from: b  reason: collision with root package name */
-    public List<com.kwad.sdk.contentalliance.a.a> f8405b = new LinkedList();
+    public List<com.kwad.sdk.contentalliance.a.a> b = new LinkedList();
     public List<com.kwad.sdk.contentalliance.a.c> c = new ArrayList();
     public List<e> d = new ArrayList();
     public List<com.kwad.sdk.contentalliance.home.swipe.a> e = new LinkedList();
@@ -55,17 +53,17 @@ public class c extends com.kwad.sdk.core.e.b {
     }
 
     public void a(com.kwad.sdk.contentalliance.trends.view.c cVar) {
-        if (!com.kwad.sdk.core.response.b.c.B(this.j) || this.f8404a == null) {
+        if (!com.kwad.sdk.core.response.b.c.B(this.j) || this.f5600a == null) {
             return;
         }
-        this.f8404a.e.add(cVar);
+        this.f5600a.e.add(cVar);
     }
 
     public void b(com.kwad.sdk.contentalliance.trends.view.c cVar) {
-        if (!com.kwad.sdk.core.response.b.c.B(this.j) || this.f8404a == null) {
+        if (!com.kwad.sdk.core.response.b.c.B(this.j) || this.f5600a == null) {
             return;
         }
-        this.f8404a.e.remove(cVar);
+        this.f5600a.e.remove(cVar);
     }
 
     public boolean b() {

@@ -7,18 +7,18 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
-    private BdUniqueId agC;
-    private a neh;
+    private BdUniqueId ahU;
+    private a ngm;
     private d pageData;
     private int mPageNum = 1;
-    private com.baidu.adp.framework.listener.a eDt = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_FORBIDDEN_FORUM, 309692) { // from class: com.baidu.tieba.setting.forbiddenforum.c.1
+    private com.baidu.adp.framework.listener.a eEU = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_FORBIDDEN_FORUM, 309692) { // from class: com.baidu.tieba.setting.forbiddenforum.c.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             d pageData;
             if (responsedMessage != null) {
-                if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == c.this.agC) {
+                if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == c.this.ahU) {
                     if (responsedMessage instanceof ForbiddenForumHttpResMsg) {
                         pageData = ((ForbiddenForumHttpResMsg) responsedMessage).getPageData();
                     } else {
@@ -26,8 +26,8 @@ public class c {
                     }
                     if (responsedMessage.getError() == 0) {
                         if (c.this.mPageNum == 1 && (pageData == null || y.isEmpty(pageData.dataList))) {
-                            if (c.this.neh != null) {
-                                c.this.neh.a(null);
+                            if (c.this.ngm != null) {
+                                c.this.ngm.a(null);
                             }
                         } else if (pageData != null) {
                             c.this.pageData.dataList.addAll(pageData.dataList);
@@ -37,19 +37,19 @@ public class c {
                                 c.this.pageData.hasMore = pageData.hasMore;
                                 c.e(c.this);
                             }
-                            if (c.this.neh != null) {
-                                c.this.neh.a(pageData);
+                            if (c.this.ngm != null) {
+                                c.this.ngm.a(pageData);
                             }
                         }
-                    } else if (c.this.neh != null) {
-                        c.this.neh.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+                    } else if (c.this.ngm != null) {
+                        c.this.ngm.onError(responsedMessage.getError(), responsedMessage.getErrorString());
                     }
                 }
             }
         }
     };
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(d dVar);
 
@@ -63,19 +63,19 @@ public class c {
     }
 
     public c(BdUniqueId bdUniqueId) {
-        this.agC = bdUniqueId;
-        this.eDt.setTag(this.agC);
-        MessageManager.getInstance().registerListener(this.eDt);
-        brf();
+        this.ahU = bdUniqueId;
+        this.eEU.setTag(this.ahU);
+        MessageManager.getInstance().registerListener(this.eEU);
         brg();
+        brh();
         this.pageData = new d();
     }
 
-    public void bEN() {
+    public void bER() {
         ForbiddenForumReqMsg forbiddenForumReqMsg = new ForbiddenForumReqMsg();
         forbiddenForumReqMsg.pageSize = 20;
         forbiddenForumReqMsg.pageNum = this.mPageNum;
-        forbiddenForumReqMsg.setTag(this.agC);
+        forbiddenForumReqMsg.setTag(this.ahU);
         MessageManager.getInstance().sendMessage(forbiddenForumReqMsg);
     }
 
@@ -83,7 +83,7 @@ public class c {
         return this.pageData;
     }
 
-    private void brf() {
+    private void brg() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(309692);
         bVar.setResponsedClass(ForbiddenForumSocketResMsg.class);
         bVar.setNeedAck(true);
@@ -91,7 +91,7 @@ public class c {
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    private void brg() {
+    private void brh() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FORBIDDEN_FORUM, com.baidu.tieba.tbadkCore.a.a.bV(TbConfig.URL_GET_FORBIDDEN_FORUM, 309692));
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
         tbHttpMessageTask.setResponsedClass(ForbiddenForumHttpResMsg.class);
@@ -99,7 +99,7 @@ public class c {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void Sv(String str) {
+    public void SB(String str) {
         if (this.pageData != null && !y.isEmpty(this.pageData.dataList)) {
             for (b bVar : this.pageData.dataList) {
                 if (bVar != null && bVar.forumId != null && bVar.forumId.equals(str)) {
@@ -111,6 +111,6 @@ public class c {
     }
 
     public void a(a aVar) {
-        this.neh = aVar;
+        this.ngm = aVar;
     }
 }

@@ -12,10 +12,8 @@ import org.json.JSONObject;
 public class l implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.kwad.sdk.core.webview.a f9597a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private com.kwad.sdk.core.download.b.b f9598b;
+    private final com.kwad.sdk.core.webview.a f6355a;
+    private com.kwad.sdk.core.download.b.b b;
     @Nullable
     private com.kwad.sdk.core.webview.a.c c;
     @Nullable
@@ -26,20 +24,16 @@ public class l implements com.kwad.sdk.core.webview.a.a {
     public static final class a extends com.kwad.sdk.core.response.a.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public double f9600a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f9601b;
+        public double f6357a;
+        public int b;
     }
 
     /* loaded from: classes3.dex */
     public static final class b extends com.kwad.sdk.core.response.a.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f9602a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f9603b;
+        public String f6358a;
+        public String b;
         public String c;
         public int d;
         public long e;
@@ -50,10 +44,10 @@ public class l implements com.kwad.sdk.core.webview.a.a {
     }
 
     public l(com.kwad.sdk.core.webview.a aVar) {
-        this.f9597a = aVar;
+        this.f6355a = aVar;
         try {
             this.e = new AdTemplate();
-            this.e.parseJson(new JSONObject(this.f9597a.f9539b.mOriginJString));
+            this.e.parseJson(new JSONObject(this.f6355a.b.mOriginJString));
         } catch (Exception e) {
             com.kwad.sdk.core.d.a.a(e);
         }
@@ -63,16 +57,16 @@ public class l implements com.kwad.sdk.core.webview.a.a {
     public void a(int i, float f) {
         if (this.c != null) {
             a aVar = new a();
-            aVar.f9600a = f;
-            aVar.f9601b = i;
+            aVar.f6357a = f;
+            aVar.b = i;
             this.c.a(aVar);
         }
     }
 
     private static void a(@NonNull AdInfo adInfo, @NonNull b bVar) {
         adInfo.adBaseInfo.adOperationType = 1;
-        adInfo.adBaseInfo.appPackageName = bVar.f9603b;
-        adInfo.adBaseInfo.appName = bVar.f9602a;
+        adInfo.adBaseInfo.appPackageName = bVar.b;
+        adInfo.adBaseInfo.appName = bVar.f6358a;
         adInfo.adBaseInfo.appVersion = bVar.c;
         adInfo.adBaseInfo.packageSize = bVar.e;
         adInfo.adBaseInfo.appIconUrl = bVar.h;
@@ -123,11 +117,11 @@ public class l implements com.kwad.sdk.core.webview.a.a {
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
-        if (this.f9597a.f9539b == null) {
+        if (this.f6355a.b == null) {
             cVar.a(-1, "native photo is null");
             return;
         }
-        if (this.f9598b == null) {
+        if (this.b == null) {
             AdInfo j = com.kwad.sdk.core.response.b.c.j(this.e);
             b bVar = new b();
             try {
@@ -136,25 +130,25 @@ public class l implements com.kwad.sdk.core.webview.a.a {
                 com.kwad.sdk.core.d.a.a(e);
             }
             a(j, bVar);
-            this.f9598b = new com.kwad.sdk.core.download.b.b(this.e);
-            this.f9598b.a(1);
+            this.b = new com.kwad.sdk.core.download.b.b(this.e);
+            this.b.a(1);
         }
         this.c = cVar;
         if (this.d != null) {
-            this.f9598b.c(this.d);
+            this.b.c(this.d);
             return;
         }
         this.d = c();
-        this.f9598b.a(this.d);
+        this.b.a(this.d);
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void b() {
         this.c = null;
-        if (this.f9598b == null || this.d == null) {
+        if (this.b == null || this.d == null) {
             return;
         }
-        this.f9598b.b(this.d);
+        this.b.b(this.d);
         this.d = null;
     }
 }

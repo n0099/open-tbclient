@@ -3,7 +3,7 @@ package com.baidu.tieba.newinterest.data;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GetVerticalForumList.GetVerticalForumListResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class InterestedForumSocketResMsg extends SocketResponsedMessage {
     private c pageData;
 

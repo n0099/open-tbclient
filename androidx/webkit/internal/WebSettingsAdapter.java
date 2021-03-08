@@ -1,7 +1,7 @@
 package androidx.webkit.internal;
 
 import org.chromium.support_lib_boundary.WebSettingsBoundaryInterface;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public class WebSettingsAdapter {
     private WebSettingsBoundaryInterface mBoundaryInterface;
 

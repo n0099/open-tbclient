@@ -2,7 +2,7 @@ package com.yy.mediaframework.gles;
 
 import android.graphics.SurfaceTexture;
 import android.view.Surface;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class WindowSurface extends EglSurfaceBase implements IWindowSurface {
     private boolean mReleaseSurface;
     private Surface mSurface;

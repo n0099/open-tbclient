@@ -5,7 +5,7 @@ import android.os.Build;
 import android.view.SurfaceHolder;
 import com.yy.mediaframework.model.AbstractSurfaceInfo;
 import com.yy.mediaframework.model.SurfaceHolderInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class EglFactory {
     private static IEglCore mIEglCore;
 

@@ -5,25 +5,25 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Set<String> dah = new HashSet();
-    private final Map<String, a<Boolean>> dai = new HashMap();
-    private final Map<String, a<b>> daj = new HashMap();
-    private a<Exception> dak = new a<>();
+    private final Set<String> dbK = new HashSet();
+    private final Map<String, a<Boolean>> dbL = new HashMap();
+    private final Map<String, a<b>> dbM = new HashMap();
+    private a<Exception> dbN = new a<>();
 
     public d z(String... strArr) {
-        this.dah.addAll(Arrays.asList(strArr));
+        this.dbK.addAll(Arrays.asList(strArr));
         return this;
     }
 
     public d a(String str, com.baidu.swan.apps.ao.e.b<Boolean> bVar) {
-        return a(this.dai, str, bVar);
+        return a(this.dbL, str, bVar);
     }
 
     public d h(com.baidu.swan.apps.ao.e.b<Exception> bVar) {
-        this.dak.i(bVar);
+        this.dbN.i(bVar);
         return this;
     }
 
@@ -34,28 +34,28 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public HashSet<String> atT() {
-        return new HashSet<>(this.dah);
+    public HashSet<String> atW() {
+        return new HashSet<>(this.dbK);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str, b bVar) {
         if (bVar == null || bVar.valid()) {
-            b(this.daj, str).V(bVar);
+            b(this.dbM, str).X(bVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void V(String str, boolean z) {
-        a b2 = b(this.dai, str);
-        b2.V(Boolean.valueOf(z));
+        a b2 = b(this.dbL, str);
+        b2.X(Boolean.valueOf(z));
         b2.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void r(Exception exc) {
-        this.dak.V(exc);
-        this.dak.clear();
+        this.dbN.X(exc);
+        this.dbN.clear();
     }
 
     private static <T> a<T> b(Map<String, a<T>> map, String str) {
@@ -68,45 +68,45 @@ public class d {
         return aVar;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a<T> {
-        private Set<com.baidu.swan.apps.ao.e.b<T>> dal = new HashSet();
+        private Set<com.baidu.swan.apps.ao.e.b<T>> dbO = new HashSet();
 
         public void i(com.baidu.swan.apps.ao.e.b<T> bVar) {
             if (bVar != null) {
-                this.dal.add(bVar);
+                this.dbO.add(bVar);
             }
         }
 
         public void clear() {
-            this.dal.clear();
+            this.dbO.clear();
         }
 
-        public void V(T t) {
-            for (com.baidu.swan.apps.ao.e.b<T> bVar : this.dal) {
-                bVar.L(t);
+        public void X(T t) {
+            for (com.baidu.swan.apps.ao.e.b<T> bVar : this.dbO) {
+                bVar.N(t);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         public final long current;
-        public final long dam;
-        public final double dan;
+        public final long dbP;
+        public final double dbQ;
 
         public b(long j, long j2) {
             this.current = j;
-            this.dam = j2;
+            this.dbP = j2;
             if (j2 == 0) {
-                this.dan = 0.0d;
+                this.dbQ = 0.0d;
             } else {
-                this.dan = j / j2;
+                this.dbQ = j / j2;
             }
         }
 
         public boolean valid() {
-            return this.dam > 0;
+            return this.dbP > 0;
         }
     }
 }

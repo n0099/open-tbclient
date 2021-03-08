@@ -1,7 +1,7 @@
 package com.yy.mediaframework.beautystyle;
 
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface IBeautyStyle {
     void changeParams(int i, float f);
 

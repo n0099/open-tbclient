@@ -13,16 +13,16 @@ import com.baidu.tieba.R;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AlbumImagePagerAdapter extends PagerAdapter {
-    private Map<Integer, Boolean> bLC = new HashMap();
-    private BaseFragmentActivity iKH;
+    private Map<Integer, Boolean> bNc = new HashMap();
+    private BaseFragmentActivity iMq;
     private LayoutInflater mLayoutInflater;
     private List<ImageFileInfo> mList;
 
     public AlbumImagePagerAdapter(BaseFragmentActivity baseFragmentActivity) {
-        this.iKH = baseFragmentActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.iKH.getPageContext().getPageActivity());
+        this.iMq = baseFragmentActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.iMq.getPageContext().getPageActivity());
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -45,15 +45,15 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         viewGroup.removeView((View) obj);
     }
 
-    public ImageFileInfo Fh(int i) {
+    public ImageFileInfo Fk(int i) {
         return (ImageFileInfo) y.getItem(this.mList, i);
     }
 
-    public boolean eR(int i) {
-        if (this.bLC.get(Integer.valueOf(i)) == null) {
+    public boolean eS(int i) {
+        if (this.bNc.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.bLC.get(Integer.valueOf(i)).booleanValue();
+        return this.bNc.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -71,11 +71,11 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         tbImageView2.setDefaultResource(0);
         tbImageView2.setGifIconSupport(false);
         tbImageView2.setLongIconSupport(false);
-        ImageFileInfo Fh = Fh(i);
-        if (Fh != null) {
-            tbImageView2.startLoad(Fh.getFilePath(), 35, false, true);
-            tbImageView.startLoad(Fh.getFilePath(), 36, false);
-            this.bLC.put(Integer.valueOf(i), true);
+        ImageFileInfo Fk = Fk(i);
+        if (Fk != null) {
+            tbImageView2.startLoad(Fk.getFilePath(), 35, false, true);
+            tbImageView.startLoad(Fk.getFilePath(), 36, false);
+            this.bNc.put(Integer.valueOf(i), true);
         }
         viewGroup.addView(inflate, 0);
         ap.setBackgroundColor(inflate, R.color.CAM_X0201);

@@ -32,7 +32,7 @@ public class LooperMonitor implements ILooperMonitor {
         }
         b.init(context, sLooperContextDispatcher, i);
         c.a(b.get());
-        this.mBlockCanaryCore = c.eAG();
+        this.mBlockCanaryCore = c.eAM();
         this.mBlockCanaryCore.addBlockInterceptor(b.get());
         startLooperPrint();
         startTrack(context);
@@ -42,16 +42,16 @@ public class LooperMonitor implements ILooperMonitor {
     public void stopLooperMonitor() {
         if (this.mMonitorStarted) {
             this.mMonitorStarted = false;
-            sLooperContextDispatcher.removeLooperPrinter(this.mBlockCanaryCore.eAD());
-            this.mBlockCanaryCore.eAE().stop();
-            this.mBlockCanaryCore.eAF().stop();
+            sLooperContextDispatcher.removeLooperPrinter(this.mBlockCanaryCore.eAJ());
+            this.mBlockCanaryCore.eAK().stop();
+            this.mBlockCanaryCore.eAL().stop();
         }
     }
 
     private void startLooperPrint() {
         if (!this.mMonitorStarted) {
             this.mMonitorStarted = true;
-            sLooperContextDispatcher.addLooperPrinter(this.mBlockCanaryCore.eAD());
+            sLooperContextDispatcher.addLooperPrinter(this.mBlockCanaryCore.eAJ());
         }
     }
 

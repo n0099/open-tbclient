@@ -1,8 +1,8 @@
 package com.baidu.live.data;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ae {
-    public String aJA;
-    public String aJB;
+    public String aLa;
+    public String aLb;
     public String dialogTitle;
     public String iconUrl;
 }

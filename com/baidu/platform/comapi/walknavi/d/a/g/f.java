@@ -18,14 +18,14 @@ import java.util.Iterator;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f4246a = null;
+    private static String f2937a = null;
 
     public static void a(String str) {
-        f4246a = str;
+        f2937a = str;
     }
 
     public static String a() {
-        return f4246a;
+        return f2937a;
     }
 
     public static String b() {
@@ -36,25 +36,25 @@ public final class f {
     }
 
     public static String a(String str, int i) {
-        String b2 = b();
+        String b = b();
         String str2 = null;
-        if (b2 != null) {
+        if (b != null) {
             switch (i) {
                 case 0:
-                    str2 = b2 + "/track";
+                    str2 = b + "/track";
                     break;
                 case 1:
                 default:
-                    str2 = b2 + "/normal";
+                    str2 = b + "/normal";
                     break;
                 case 2:
-                    str2 = b2 + "/track";
+                    str2 = b + "/track";
                     break;
                 case 3:
-                    str2 = b2 + "/udt";
+                    str2 = b + "/udt";
                     break;
                 case 4:
-                    str2 = b2 + "/npc";
+                    str2 = b + "/npc";
                     break;
             }
         }
@@ -225,9 +225,9 @@ public final class f {
     }
 
     public static boolean b(String str, String str2) {
-        HashSet<String> b2 = b(b() + File.separator + str2);
-        if (b2 != null) {
-            Iterator<String> it = b2.iterator();
+        HashSet<String> b = b(b() + File.separator + str2);
+        if (b != null) {
+            Iterator<String> it = b.iterator();
             while (it.hasNext()) {
                 String next = it.next();
                 boolean equals = str.equals(next);

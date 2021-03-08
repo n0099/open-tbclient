@@ -3,14 +3,12 @@ package com.baidu.sofire.n;
 import android.content.Context;
 import android.util.Log;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    Object f5314a;
-
-    /* renamed from: b  reason: collision with root package name */
-    Class<?> f5315b;
+    Object f3571a;
+    Class<?> b;
     Method c;
     Method d;
     Method e;
@@ -18,9 +16,9 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final String a(Context context, Method method) {
-        if (this.f5314a != null && method != null) {
+        if (this.f3571a != null && method != null) {
             try {
-                Object invoke = method.invoke(this.f5314a, context);
+                Object invoke = method.invoke(this.f3571a, context);
                 if (invoke != null) {
                     return (String) invoke;
                 }

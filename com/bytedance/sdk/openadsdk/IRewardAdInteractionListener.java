@@ -15,7 +15,7 @@ public interface IRewardAdInteractionListener extends IInterface {
 
     void onDestroy() throws RemoteException;
 
-    void onRewardVerify(boolean z, int i, String str) throws RemoteException;
+    void onRewardVerify(boolean z, int i, String str, int i2, String str2) throws RemoteException;
 
     void onSkippedVideo() throws RemoteException;
 
@@ -80,7 +80,7 @@ public interface IRewardAdInteractionListener extends IInterface {
                     return true;
                 case 7:
                     parcel.enforceInterface("com.bytedance.sdk.openadsdk.IRewardAdInteractionListener");
-                    onRewardVerify(parcel.readInt() != 0, parcel.readInt(), parcel.readString());
+                    onRewardVerify(parcel.readInt() != 0, parcel.readInt(), parcel.readString(), parcel.readInt(), parcel.readString());
                     parcel2.writeNoException();
                     return true;
                 case 8:
@@ -100,15 +100,15 @@ public interface IRewardAdInteractionListener extends IInterface {
         private static class a implements IRewardAdInteractionListener {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f6078a;
+            private IBinder f4069a;
 
             a(IBinder iBinder) {
-                this.f6078a = iBinder;
+                this.f4069a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f6078a;
+                return this.f4069a;
             }
 
             @Override // com.bytedance.sdk.openadsdk.IRewardAdInteractionListener
@@ -117,7 +117,7 @@ public interface IRewardAdInteractionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IRewardAdInteractionListener");
-                    this.f6078a.transact(1, obtain, obtain2, 0);
+                    this.f4069a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -131,7 +131,7 @@ public interface IRewardAdInteractionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IRewardAdInteractionListener");
-                    this.f6078a.transact(2, obtain, obtain2, 0);
+                    this.f4069a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -145,7 +145,7 @@ public interface IRewardAdInteractionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IRewardAdInteractionListener");
-                    this.f6078a.transact(3, obtain, obtain2, 0);
+                    this.f4069a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -159,7 +159,7 @@ public interface IRewardAdInteractionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IRewardAdInteractionListener");
-                    this.f6078a.transact(4, obtain, obtain2, 0);
+                    this.f4069a.transact(4, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -173,7 +173,7 @@ public interface IRewardAdInteractionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IRewardAdInteractionListener");
-                    this.f6078a.transact(5, obtain, obtain2, 0);
+                    this.f4069a.transact(5, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -187,7 +187,7 @@ public interface IRewardAdInteractionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IRewardAdInteractionListener");
-                    this.f6078a.transact(6, obtain, obtain2, 0);
+                    this.f4069a.transact(6, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -196,7 +196,7 @@ public interface IRewardAdInteractionListener extends IInterface {
             }
 
             @Override // com.bytedance.sdk.openadsdk.IRewardAdInteractionListener
-            public void onRewardVerify(boolean z, int i, String str) throws RemoteException {
+            public void onRewardVerify(boolean z, int i, String str, int i2, String str2) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
@@ -204,7 +204,9 @@ public interface IRewardAdInteractionListener extends IInterface {
                     obtain.writeInt(z ? 1 : 0);
                     obtain.writeInt(i);
                     obtain.writeString(str);
-                    this.f6078a.transact(7, obtain, obtain2, 0);
+                    obtain.writeInt(i2);
+                    obtain.writeString(str2);
+                    this.f4069a.transact(7, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -218,7 +220,7 @@ public interface IRewardAdInteractionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IRewardAdInteractionListener");
-                    this.f6078a.transact(8, obtain, obtain2, 0);
+                    this.f4069a.transact(8, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();

@@ -6,18 +6,18 @@ import java.util.List;
 public class f implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f2488a;
+    final /* synthetic */ e f1878a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.f2488a = eVar;
+        this.f1878a = eVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         List list;
-        e eVar = this.f2488a;
-        list = this.f2488a.f2487b;
+        e eVar = this.f1878a;
+        list = this.f1878a.b;
         eVar.a(list);
     }
 }

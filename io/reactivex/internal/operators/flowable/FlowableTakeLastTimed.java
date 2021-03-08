@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class FlowableTakeLastTimed<T> extends a<T, T> {
     final int bufferSize;
     final long count;
@@ -18,10 +18,10 @@ public final class FlowableTakeLastTimed<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.qow.a((j) new TakeLastTimedSubscriber(cVar, this.count, this.time, this.unit, this.scheduler, this.bufferSize, this.delayError));
+        this.qoY.a((j) new TakeLastTimedSubscriber(cVar, this.count, this.time, this.unit, this.scheduler, this.bufferSize, this.delayError));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class TakeLastTimedSubscriber<T> extends AtomicInteger implements j<T>, d {
         private static final long serialVersionUID = -5677354903406201275L;
         final org.a.c<? super T> actual;
@@ -59,15 +59,15 @@ public final class FlowableTakeLastTimed<T> extends a<T, T> {
         @Override // org.a.c
         public void onNext(T t) {
             io.reactivex.internal.queue.a<Object> aVar = this.queue;
-            long a2 = this.scheduler.a(this.unit);
-            aVar.offer(Long.valueOf(a2), t);
-            trim(a2, aVar);
+            long b = this.scheduler.b(this.unit);
+            aVar.offer(Long.valueOf(b), t);
+            trim(b, aVar);
         }
 
         @Override // org.a.c
         public void onError(Throwable th) {
             if (this.delayError) {
-                trim(this.scheduler.a(this.unit), this.queue);
+                trim(this.scheduler.b(this.unit), this.queue);
             }
             this.error = th;
             this.done = true;
@@ -76,7 +76,7 @@ public final class FlowableTakeLastTimed<T> extends a<T, T> {
 
         @Override // org.a.c
         public void onComplete() {
-            trim(this.scheduler.a(this.unit), this.queue);
+            trim(this.scheduler.b(this.unit), this.queue);
             this.done = true;
             drain();
         }

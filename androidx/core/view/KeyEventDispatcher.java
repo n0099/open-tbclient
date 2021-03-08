@@ -15,14 +15,14 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class KeyEventDispatcher {
     private static boolean sActionBarFieldsFetched = false;
     private static Method sActionBarOnMenuKeyMethod = null;
     private static boolean sDialogFieldsFetched = false;
     private static Field sDialogKeyListenerField = null;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public interface Component {
         boolean superDispatchKeyEvent(KeyEvent keyEvent);
     }

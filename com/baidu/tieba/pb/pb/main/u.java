@@ -7,20 +7,20 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class u extends l<v, PbImageAlaRecommendVH> {
-    private BdUniqueId khT;
+    private BdUniqueId kjW;
     private com.baidu.tieba.pb.data.f pbData;
 
     public u(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
-        super(bVar, v.lUh);
-        this.khT = bdUniqueId;
+        super(bVar, v.lWj);
+        this.kjW = bdUniqueId;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cv */
+    /* renamed from: cu */
     public PbImageAlaRecommendVH e(ViewGroup viewGroup) {
-        return new PbImageAlaRecommendVH(LayoutInflater.from(this.mContext).inflate(R.layout.pb_image_ala_recomment_layout, viewGroup, false), this.lQj.getPageContext(), this.khT);
+        return new PbImageAlaRecommendVH(LayoutInflater.from(this.mContext).inflate(R.layout.pb_image_ala_recomment_layout, viewGroup, false), this.lSl.getPageContext(), this.kjW);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

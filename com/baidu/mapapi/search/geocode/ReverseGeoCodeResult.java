@@ -11,10 +11,8 @@ public class ReverseGeoCodeResult extends SearchResult {
     public static final Parcelable.Creator<ReverseGeoCodeResult> CREATOR = new b();
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2870a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f2871b;
+    private String f2113a;
+    private String b;
     private AddressComponent c;
     private LatLng d;
     private int e;
@@ -160,8 +158,8 @@ public class ReverseGeoCodeResult extends SearchResult {
     /* JADX INFO: Access modifiers changed from: protected */
     public ReverseGeoCodeResult(Parcel parcel) {
         super(parcel);
-        this.f2870a = parcel.readString();
-        this.f2871b = parcel.readString();
+        this.f2113a = parcel.readString();
+        this.b = parcel.readString();
         this.c = (AddressComponent) parcel.readParcelable(AddressComponent.class.getClassLoader());
         this.d = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
         this.f = parcel.createTypedArrayList(PoiInfo.CREATOR);
@@ -179,7 +177,7 @@ public class ReverseGeoCodeResult extends SearchResult {
     }
 
     public String getAddress() {
-        return this.f2871b;
+        return this.b;
     }
 
     public AddressComponent getAddressDetail() {
@@ -187,7 +185,7 @@ public class ReverseGeoCodeResult extends SearchResult {
     }
 
     public String getBusinessCircle() {
-        return this.f2870a;
+        return this.f2113a;
     }
 
     public int getCityCode() {
@@ -215,7 +213,7 @@ public class ReverseGeoCodeResult extends SearchResult {
     }
 
     public void setAddress(String str) {
-        this.f2871b = str;
+        this.b = str;
     }
 
     public void setAddressDetail(AddressComponent addressComponent) {
@@ -223,7 +221,7 @@ public class ReverseGeoCodeResult extends SearchResult {
     }
 
     public void setBusinessCircle(String str) {
-        this.f2870a = str;
+        this.f2113a = str;
     }
 
     public void setCityCode(int i) {
@@ -248,8 +246,8 @@ public class ReverseGeoCodeResult extends SearchResult {
 
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer("ReverseGeoCodeResult: \n");
-        stringBuffer.append("businessCircle = ").append(this.f2870a);
-        stringBuffer.append("; address = ").append(this.f2871b);
+        stringBuffer.append("businessCircle = ").append(this.f2113a);
+        stringBuffer.append("; address = ").append(this.b);
         stringBuffer.append("; location = ").append(this.d);
         stringBuffer.append("; sematicDescription = ").append(this.g);
         if (this.c != null) {
@@ -312,8 +310,8 @@ public class ReverseGeoCodeResult extends SearchResult {
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         super.writeToParcel(parcel, i);
-        parcel.writeString(this.f2870a);
-        parcel.writeString(this.f2871b);
+        parcel.writeString(this.f2113a);
+        parcel.writeString(this.b);
         parcel.writeParcelable(this.c, 0);
         parcel.writeValue(this.d);
         parcel.writeTypedList(this.f);

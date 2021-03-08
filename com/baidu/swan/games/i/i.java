@@ -7,33 +7,33 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class i {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile i egI;
-    private ArrayList<h> egG = new ArrayList<>();
-    private g egH = new g();
+    private static volatile i eij;
+    private ArrayList<h> eih = new ArrayList<>();
+    private g eii = new g();
 
     private i() {
     }
 
-    public static i aWu() {
-        if (egI == null) {
+    public static i aWx() {
+        if (eij == null) {
             synchronized (i.class) {
-                if (egI == null) {
-                    egI = new i();
+                if (eij == null) {
+                    eij = new i();
                 }
             }
         }
-        return egI;
+        return eij;
     }
 
     public synchronized void a(@NonNull Runnable runnable, String str, String... strArr) {
         h hVar = new h(this, runnable, str, strArr);
-        ArrayList<h> H = this.egH.H(strArr);
-        this.egH.a(hVar, strArr);
+        ArrayList<h> H = this.eii.H(strArr);
+        this.eii.a(hVar, strArr);
         if (H == null || H.size() == 0) {
-            hVar.aWp();
+            hVar.aWs();
         } else {
             a(hVar, H);
         }
@@ -41,17 +41,17 @@ public class i {
 
     public synchronized void c(h hVar) {
         if (hVar != null) {
-            this.egH.b(hVar, hVar.aWq());
-            if (hVar.aWr()) {
+            this.eii.b(hVar, hVar.aWt());
+            if (hVar.aWu()) {
                 if (DEBUG) {
-                    Log.i("FileSystemTaskManager", "onTaskComplete: " + hVar + "," + this.egG.size());
+                    Log.i("FileSystemTaskManager", "onTaskComplete: " + hVar + "," + this.eih.size());
                 }
-                for (int size = this.egG.size() - 1; size >= 0; size--) {
-                    h hVar2 = this.egG.get(size);
+                for (int size = this.eih.size() - 1; size >= 0; size--) {
+                    h hVar2 = this.eih.get(size);
                     hVar2.b(hVar);
-                    if (hVar2.aWt()) {
-                        this.egG.remove(size);
-                        hVar2.aWp();
+                    if (hVar2.aWw()) {
+                        this.eih.remove(size);
+                        hVar2.aWs();
                     }
                 }
             }
@@ -59,22 +59,22 @@ public class i {
     }
 
     private synchronized void onDestroy() {
-        this.egH.aww();
-        Iterator<h> it = this.egG.iterator();
+        this.eii.awz();
+        Iterator<h> it = this.eih.iterator();
         while (it.hasNext()) {
             h next = it.next();
             if (d(next)) {
-                next.aWo();
+                next.aWr();
             }
         }
-        this.egG.clear();
+        this.eih.clear();
     }
 
     public static synchronized void release() {
         synchronized (i.class) {
-            if (egI != null) {
-                egI.onDestroy();
-                egI = null;
+            if (eij != null) {
+                eij.onDestroy();
+                eij = null;
             }
         }
     }
@@ -91,7 +91,7 @@ public class i {
 
     private synchronized boolean a(Semaphore semaphore, String... strArr) {
         boolean z;
-        ArrayList<h> H = this.egH.H(strArr);
+        ArrayList<h> H = this.eii.H(strArr);
         if (H == null || H.size() == 0) {
             z = false;
         } else {
@@ -103,15 +103,15 @@ public class i {
 
     private void a(@NonNull h hVar, @NonNull ArrayList<h> arrayList) {
         if (DEBUG) {
-            Log.i("FileSystemTaskManager", "addToWaitList: " + hVar + "," + arrayList.size() + "," + this.egG.size());
+            Log.i("FileSystemTaskManager", "addToWaitList: " + hVar + "," + arrayList.size() + "," + this.eih.size());
         }
         Iterator<h> it = arrayList.iterator();
         while (it.hasNext()) {
             h next = it.next();
-            next.aWs();
+            next.aWv();
             hVar.a(next);
         }
-        this.egG.add(hVar);
+        this.eih.add(hVar);
     }
 
     private void a(Semaphore semaphore) {

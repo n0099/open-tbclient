@@ -18,7 +18,7 @@ import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.plugins.pathprovider.PathProviderPlugin;
 import io.flutter.plugins.webviewflutter.WebViewFlutterPlugin;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class GeneratedPluginRegistrant {
     public static void registerWith(@NonNull FlutterEngine flutterEngine) {
         flutterEngine.getPlugins().add(new a());

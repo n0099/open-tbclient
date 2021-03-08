@@ -5,44 +5,44 @@ import android.content.Context;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c {
-    public static c oyQ;
-    private a oyR;
-    private CustomMessageListener oyS = new CustomMessageListener(2501061) { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.c.1
+    public static c oAV;
+    private a oAW;
+    private CustomMessageListener oAX = new CustomMessageListener(2501061) { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501061) {
-                if (c.this.oyR != null) {
-                    c.this.oyR.zW(true);
+                if (c.this.oAW != null) {
+                    c.this.oAW.zV(true);
                 }
-                MessageManager.getInstance().unRegisterListener(c.this.oyS);
+                MessageManager.getInstance().unRegisterListener(c.this.oAX);
             }
         }
     };
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void zW(boolean z);
+        void zV(boolean z);
     }
 
-    public static c ebQ() {
-        if (oyQ == null) {
-            oyQ = new c();
+    public static c ebY() {
+        if (oAV == null) {
+            oAV = new c();
         }
-        return oyQ;
+        return oAV;
     }
 
     public void a(Context context, Activity activity, a aVar) {
         if (i.a(context, activity)) {
             if (aVar != null) {
-                aVar.zW(true);
+                aVar.zV(true);
                 return;
             }
             return;
         }
-        this.oyR = aVar;
-        MessageManager.getInstance().registerListener(this.oyS);
+        this.oAW = aVar;
+        MessageManager.getInstance().registerListener(this.oAX);
     }
 }

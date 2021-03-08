@@ -24,30 +24,30 @@ public class b extends d {
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        final View b2 = b(R.id.ksad_play_detail_top_toolbar);
-        this.f10652a.o.add(new com.kwad.sdk.reward.a.d() { // from class: com.kwad.sdk.reward.b.b.b.1
+        final View b = b(R.id.ksad_play_detail_top_toolbar);
+        this.f7028a.o.add(new com.kwad.sdk.reward.a.d() { // from class: com.kwad.sdk.reward.b.b.b.1
             @Override // com.kwad.sdk.reward.a.d
             public void a() {
-                b2.setVisibility(0);
-                b2.setAlpha(1.0f);
-                b2.animate().alpha(0.0f).setListener(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.reward.b.b.b.1.1
+                b.setVisibility(0);
+                b.setAlpha(1.0f);
+                b.animate().alpha(0.0f).setListener(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.reward.b.b.b.1.1
                     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
                         super.onAnimationEnd(animator);
-                        b2.setVisibility(8);
+                        b.setVisibility(8);
                     }
                 }).setDuration(300L).start();
             }
 
             @Override // com.kwad.sdk.reward.a.d
             public void b() {
-                b2.setVisibility(0);
-                b2.setAlpha(0.0f);
-                b2.animate().alpha(1.0f).setListener(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.reward.b.b.b.1.2
+                b.setVisibility(0);
+                b.setAlpha(0.0f);
+                b.animate().alpha(1.0f).setListener(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.reward.b.b.b.1.2
                     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
                         super.onAnimationEnd(animator);
-                        b2.setVisibility(0);
+                        b.setVisibility(0);
                     }
                 }).setDuration(300L).start();
             }

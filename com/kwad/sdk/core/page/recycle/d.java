@@ -9,12 +9,12 @@ import java.util.List;
 public abstract class d extends RecyclerView.Adapter<c> {
 
     /* renamed from: a  reason: collision with root package name */
-    private List<Presenter> f9360a = new ArrayList();
+    private List<Presenter> f6212a = new ArrayList();
 
     protected abstract c a(ViewGroup viewGroup, int i);
 
     public void a() {
-        for (Presenter presenter : this.f9360a) {
+        for (Presenter presenter : this.f6212a) {
             presenter.j();
         }
     }
@@ -24,14 +24,14 @@ public abstract class d extends RecyclerView.Adapter<c> {
     /* renamed from: a */
     public void onViewRecycled(c cVar) {
         super.onViewRecycled(cVar);
-        cVar.f9358a.i();
+        cVar.f6211a.i();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(c cVar, int i) {
-        cVar.f9358a.a(cVar.f9359b);
+        cVar.f6211a.a(cVar.b);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,7 +39,7 @@ public abstract class d extends RecyclerView.Adapter<c> {
     /* renamed from: b */
     public final c onCreateViewHolder(ViewGroup viewGroup, int i) {
         c a2 = a(viewGroup, i);
-        this.f9360a.add(a2.f9358a);
+        this.f6212a.add(a2.f6211a);
         return a2;
     }
 

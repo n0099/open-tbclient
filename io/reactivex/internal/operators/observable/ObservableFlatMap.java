@@ -14,7 +14,7 @@ import java.util.Queue;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ObservableFlatMap<T, U> extends a<T, U> {
     final int bufferSize;
     final boolean delayErrors;
@@ -28,7 +28,7 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class MergeObserver<T, U> extends AtomicInteger implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = -2117620485640801370L;
         final u<? super U> actual;
@@ -74,7 +74,7 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
         public void onNext(T t) {
             if (!this.done) {
                 try {
-                    t<? extends U> tVar = (t) io.reactivex.internal.functions.a.m(this.mapper.apply(t), "The mapper returned a null ObservableSource");
+                    t<? extends U> tVar = (t) io.reactivex.internal.functions.a.n(this.mapper.apply(t), "The mapper returned a null ObservableSource");
                     if (this.maxConcurrency != Integer.MAX_VALUE) {
                         synchronized (this) {
                             if (this.wip == this.maxConcurrency) {
@@ -439,7 +439,7 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class InnerObserver<T, U> extends AtomicReference<io.reactivex.disposables.b> implements u<U> {
         private static final long serialVersionUID = -4606175640614850599L;
         volatile boolean done;

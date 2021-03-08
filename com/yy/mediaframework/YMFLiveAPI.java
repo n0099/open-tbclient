@@ -35,7 +35,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLContext;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFLiveAPI implements CameraListener, IEncoderListener, IYMFDeliverCallback {
     private static final String TAG = "[YMFLiveAPI]";
     private static YMFLiveAPI mInstance;
@@ -74,7 +74,7 @@ public class YMFLiveAPI implements CameraListener, IEncoderListener, IYMFDeliver
     private boolean mOriginCaptureInputTexture = false;
     private long mOriginFrameLastTimeStamp = -1;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum VideoPublishInfoEnum {
         FRAME,
         BITRATE,

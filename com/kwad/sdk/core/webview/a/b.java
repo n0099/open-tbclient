@@ -8,26 +8,24 @@ import org.json.JSONObject;
 public class b implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f9540a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f9541b;
+    public String f6321a;
+    public String b;
     public String c;
 
     public void a(@Nullable JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        this.f9540a = jSONObject.optString("action");
-        this.f9541b = jSONObject.optString("data");
+        this.f6321a = jSONObject.optString("action");
+        this.b = jSONObject.optString("data");
         this.c = jSONObject.optString(BuyTBeanActivityConfig.CALLBACK);
     }
 
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, "action", this.f9540a);
-        o.a(jSONObject, "data", this.f9541b);
+        o.a(jSONObject, "action", this.f6321a);
+        o.a(jSONObject, "data", this.b);
         o.a(jSONObject, BuyTBeanActivityConfig.CALLBACK, this.c);
         return jSONObject;
     }

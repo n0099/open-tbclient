@@ -24,14 +24,12 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class b {
     private com.baidu.ar.filter.a B;
     private c.a C;
     private g D;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Looper f1488b;
+    private Looper b;
     private a c;
     private DefaultParams d;
     private com.baidu.ar.mdl.b e;
@@ -57,7 +55,7 @@ public class b {
     private boolean A = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);
@@ -72,8 +70,8 @@ public class b {
                         b.this.a(cVar.mClassName, cVar.H, cVar.I, cVar.G, cVar.J, cVar.K);
                         break;
                     case 1002:
-                        C0074b c0074b = (C0074b) message.obj;
-                        b.this.a(c0074b.mClassName, c0074b.G);
+                        C0080b c0080b = (C0080b) message.obj;
+                        b.this.a(c0080b.mClassName, c0080b.G);
                         break;
                     case 1003:
                         d dVar = (d) message.obj;
@@ -89,19 +87,19 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.ar.b$b  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class C0074b {
+    /* loaded from: classes3.dex */
+    public class C0080b {
         HashMap<String, Object> G;
         String mClassName;
 
-        C0074b(String str, HashMap<String, Object> hashMap) {
+        C0080b(String str, HashMap<String, Object> hashMap) {
             this.mClassName = str;
             this.G = hashMap;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public class c {
         HashMap<String, Object> G;
         List<String> H;
@@ -134,7 +132,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public class d {
         String J;
         com.baidu.ar.d.e K;
@@ -154,7 +152,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(Context context, Looper looper, DefaultParams defaultParams, com.baidu.ar.a.b bVar, com.baidu.ar.filter.a aVar) {
         this.mContext = context;
-        this.f1488b = looper;
+        this.b = looper;
         this.c = new a(looper);
         this.d = defaultParams;
         setMdlModelPath(this.d.getMdlAlgoModelPath());
@@ -371,7 +369,7 @@ public class b {
             return null;
         }
         this.l.put(str, cVar);
-        cVar.a(this.mContext, this.f1488b);
+        cVar.a(this.mContext, this.b);
         cVar.a(this.h, this.g, this.B);
         cVar.a(this.f);
         cVar.a(this.i);
@@ -569,7 +567,7 @@ public class b {
         this.g = cVar;
         this.g.d(this.u);
         l();
-        this.h = new com.baidu.ar.d.g(cVar, this.f1488b);
+        this.h = new com.baidu.ar.d.g(cVar, this.b);
         this.i = com.baidu.ar.a.a();
         try {
             if (this.i != null) {
@@ -648,7 +646,7 @@ public class b {
             com.baidu.ar.h.b.b("AbilityManager", "adjustAbility abilityType = " + str + " not start!!!");
             return false;
         } else if (this.c != null) {
-            this.c.sendMessage(this.c.obtainMessage(1002, new C0074b(this.j.get(str), hashMap)));
+            this.c.sendMessage(this.c.obtainMessage(1002, new C0080b(this.j.get(str), hashMap)));
             return true;
         } else {
             return false;
@@ -852,7 +850,7 @@ public class b {
             this.v = null;
         }
         this.mContext = null;
-        this.f1488b = null;
+        this.b = null;
         this.d = null;
         this.e = null;
         this.B = null;

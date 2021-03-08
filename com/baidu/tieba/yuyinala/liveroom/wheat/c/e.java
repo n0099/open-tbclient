@@ -15,31 +15,31 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e {
-    public static e oGu;
-    private FrameLayout iSP;
+    public static e oIz;
+    private FrameLayout iUy;
     private View mView;
-    private long nWt;
-    private long oGv = -1;
+    private long nYx;
+    private long oIA = -1;
 
     private e() {
     }
 
-    public static e edq() {
-        if (oGu == null) {
+    public static e edy() {
+        if (oIz == null) {
             synchronized (e.class) {
-                if (oGu == null) {
-                    oGu = new e();
+                if (oIz == null) {
+                    oIz = new e();
                 }
             }
         }
-        return oGu;
+        return oIz;
     }
 
     public void a(final View view, TextView textView, String str, final BdPageContext bdPageContext) {
         JSONObject optJSONObject;
-        if (q.edM().Yk() || q.edM().iJ(q.edM().Yp())) {
+        if (q.edU().Yn() || q.edU().iP(q.edU().Ys())) {
             if (!TextUtils.isEmpty(str)) {
                 if (TextUtils.equals("hide_dot", str)) {
                     hide();
@@ -51,7 +51,7 @@ public class e {
                     JSONObject jSONObject = new JSONObject(str);
                     final String optString = jSONObject.optString("user_name");
                     String optString2 = jSONObject.optString("room_id");
-                    if (com.baidu.live.ao.a.Yj().Yq() != null && com.baidu.live.ao.a.Yj().Yq().aIU != null && TextUtils.equals(optString2, com.baidu.live.ao.a.Yj().Yq().aIU.aTK) && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
+                    if (com.baidu.live.ao.a.Ym().Yt() != null && com.baidu.live.ao.a.Ym().Yt().aKu != null && TextUtils.equals(optString2, com.baidu.live.ao.a.Ym().Yt().aKu.aVk) && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
                         final String optString3 = optJSONObject.optString("msg");
                         int optInt = optJSONObject.optInt("count");
                         if (optInt > 0) {
@@ -67,7 +67,7 @@ public class e {
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     e.this.a(optString + " " + optString3, 0L, 5000, bdPageContext, view);
-                                    e.this.oGv = 0L;
+                                    e.this.oIA = 0L;
                                 }
                             }, C(0, 5000L));
                             return;
@@ -89,15 +89,15 @@ public class e {
 
     public void a(final View view, final int i, final BdPageContext bdPageContext, ab abVar) {
         final int i2 = 5;
-        if (abVar != null && abVar.aJv != 0) {
-            if (abVar != null && abVar.aJu > 0) {
-                i2 = abVar.aJu;
+        if (abVar != null && abVar.aKV != 0) {
+            if (abVar != null && abVar.aKU > 0) {
+                i2 = abVar.aKU;
             }
             SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.e.2
                 @Override // java.lang.Runnable
                 public void run() {
                     e.this.a(String.format("查看%d个新麦位框", Integer.valueOf(i)), 0L, i2 * 1000, bdPageContext, view);
-                    e.this.oGv = 1L;
+                    e.this.oIA = 1L;
                 }
             }, C(1, i2 * 1000));
         }
@@ -105,16 +105,16 @@ public class e {
 
     private long C(int i, long j) {
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.oGv == -1 || this.oGv == i || currentTimeMillis - this.nWt >= j) {
+        if (this.oIA == -1 || this.oIA == i || currentTimeMillis - this.nYx >= j) {
             return 0L;
         }
-        return (j - (currentTimeMillis - this.nWt)) + 1000;
+        return (j - (currentTimeMillis - this.nYx)) + 1000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, long j, int i, final BdPageContext bdPageContext, final View view) {
         if (bdPageContext != null && bdPageContext.getPageActivity() != null && view != null) {
-            this.nWt = System.currentTimeMillis();
+            this.nYx = System.currentTimeMillis();
             hide();
             this.mView = bdPageContext.getPageActivity().getLayoutInflater().inflate(a.g.toast_gift_guide, (ViewGroup) null);
             TextView textView = (TextView) this.mView.findViewById(a.f.textView);
@@ -127,13 +127,13 @@ public class e {
                 textView.setBackgroundResource(a.e.bg_guide_gift_toast_qm);
                 imageView.setImageResource(a.e.bg_guide_gift_toast_arrow_qm);
             }
-            this.iSP = (FrameLayout) bdPageContext.getPageActivity().getWindow().getDecorView();
-            if (this.iSP != null) {
-                this.iSP.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.e.3
+            this.iUy = (FrameLayout) bdPageContext.getPageActivity().getWindow().getDecorView();
+            if (this.iUy != null) {
+                this.iUy.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.e.3
                     @Override // java.lang.Runnable
                     public void run() {
                         Activity pageActivity;
-                        if (e.this.iSP != null && (pageActivity = bdPageContext.getPageActivity()) != null && !pageActivity.isFinishing()) {
+                        if (e.this.iUy != null && (pageActivity = bdPageContext.getPageActivity()) != null && !pageActivity.isFinishing()) {
                             View view2 = view;
                             int[] iArr = new int[2];
                             view2.getLocationOnScreen(iArr);
@@ -148,15 +148,15 @@ public class e {
                             if (viewGroup != null) {
                                 viewGroup.removeView(e.this.mView);
                             }
-                            e.this.iSP.addView(e.this.mView, layoutParams);
+                            e.this.iUy.addView(e.this.mView, layoutParams);
                         }
                     }
                 }, j);
-                this.iSP.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.e.4
+                this.iUy.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.e.4
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (e.this.iSP != null) {
-                            e.this.iSP.removeView(e.this.mView);
+                        if (e.this.iUy != null) {
+                            e.this.iUy.removeView(e.this.mView);
                         }
                     }
                 }, i + j);
@@ -172,8 +172,8 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hide() {
-        if (this.iSP != null && this.mView != null) {
-            this.iSP.removeView(this.mView);
+        if (this.iUy != null && this.mView != null) {
+            this.iUy.removeView(this.mView);
         }
     }
 }

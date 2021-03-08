@@ -1,7 +1,7 @@
 package com.yy.mediaframework;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoLibAPI {
     private static final String ASSETS_PATH = "baseoppo.png";
     private static VideoLibAPI sInstance = null;

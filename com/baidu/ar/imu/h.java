@@ -4,7 +4,7 @@ import android.hardware.SensorManager;
 import com.baidu.ar.arplay.representation.Matrix;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class h implements Observer {
     private static final String TAG = h.class.getSimpleName();
     private static final float[] sf = {-1.0f, 0.0f, 0.0f, 0.0f, 0.0f, -1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f};

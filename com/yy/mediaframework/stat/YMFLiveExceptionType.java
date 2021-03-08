@@ -1,5 +1,5 @@
 package com.yy.mediaframework.stat;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public enum YMFLiveExceptionType {
     AnchorStatus_CAPTURE_ERROR(1),
     AnchorStatus_ENCODE_ERROR(2),

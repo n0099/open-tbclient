@@ -3,15 +3,15 @@ package com.baidu.ufosdk.ui;
 import android.content.Context;
 import android.os.Handler;
 import com.baidu.ufosdk.UfoSDK;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 final class cp implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ co f5504a;
+    final /* synthetic */ co f3716a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cp(co coVar) {
-        this.f5504a = coVar;
+        this.f3716a = coVar;
     }
 
     @Override // java.lang.Runnable
@@ -21,16 +21,16 @@ final class cp implements Runnable {
         String str3;
         Handler handler;
         int i;
-        this.f5504a.f5503b.f5491a.B = false;
-        FeedbackInputActivity feedbackInputActivity = this.f5504a.f5503b.f5491a;
-        Context applicationContext = this.f5504a.f5503b.f5491a.getApplicationContext();
+        this.f3716a.b.f3707a.B = false;
+        FeedbackInputActivity feedbackInputActivity = this.f3716a.b.f3707a;
+        Context applicationContext = this.f3716a.b.f3707a.getApplicationContext();
         String str4 = UfoSDK.clientid;
-        String str5 = this.f5504a.f5503b.f5491a.e;
-        str = this.f5504a.f5503b.f5491a.ar;
-        str2 = this.f5504a.d;
-        str3 = this.f5504a.f5503b.f5491a.aA;
-        handler = this.f5504a.f5503b.f5491a.aK;
-        i = this.f5504a.c;
+        String str5 = this.f3716a.b.f3707a.e;
+        str = this.f3716a.b.f3707a.ar;
+        str2 = this.f3716a.d;
+        str3 = this.f3716a.b.f3707a.aA;
+        handler = this.f3716a.b.f3707a.aK;
+        i = this.f3716a.c;
         feedbackInputActivity.a(applicationContext, str4, str5, str, str2, str3, (String) null, handler, i);
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.utils.h;
 import com.baidu.mobads.utils.q;
 import com.baidu.mobads.vo.XAdInstanceInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c extends com.baidu.mobads.command.b {
     public String f;
     public String g;
@@ -31,7 +31,7 @@ public class c extends com.baidu.mobads.command.b {
         try {
             h commonUtils = XAdSDKFoundationFacade.getInstance().getCommonUtils();
             IXAdActivityUtils activityUtils = XAdSDKFoundationFacade.getInstance().getActivityUtils();
-            XAdLandingPageExtraInfo xAdLandingPageExtraInfo = new XAdLandingPageExtraInfo(this.f3307b.getProdInfo().getProdType(), this.c);
+            XAdLandingPageExtraInfo xAdLandingPageExtraInfo = new XAdLandingPageExtraInfo(this.b.getProdInfo().getProdType(), this.c);
             xAdLandingPageExtraInfo.mIntTesting4LM = 999;
             xAdLandingPageExtraInfo.mStringTesting4LM = "this is the test string";
             xAdLandingPageExtraInfo.url = this.h;
@@ -39,17 +39,17 @@ public class c extends com.baidu.mobads.command.b {
             xAdLandingPageExtraInfo.from = 0;
             xAdLandingPageExtraInfo.adid = this.c.getAdId();
             xAdLandingPageExtraInfo.qk = this.c.getQueryKey();
-            xAdLandingPageExtraInfo.packageNameOfPubliser = this.f3306a.getPackageName();
-            xAdLandingPageExtraInfo.appsid = commonUtils.getAppId(this.f3306a);
-            xAdLandingPageExtraInfo.appsec = commonUtils.getAppSec(this.f3306a);
+            xAdLandingPageExtraInfo.packageNameOfPubliser = this.f2366a.getPackageName();
+            xAdLandingPageExtraInfo.appsid = commonUtils.getAppId(this.f2366a);
+            xAdLandingPageExtraInfo.appsec = commonUtils.getAppSec(this.f2366a);
             xAdLandingPageExtraInfo.title = this.c.getTitle();
             xAdLandingPageExtraInfo.lpShoubaiStyle = this.f;
             xAdLandingPageExtraInfo.lpMurl = this.g;
-            Intent intent = new Intent(this.f3306a, AppActivity.getActivityClass());
-            if (this.f3307b.getActivity() != null) {
-                xAdLandingPageExtraInfo.isFullScreen = activityUtils.isFullScreen(this.f3307b.getActivity()).booleanValue();
+            Intent intent = new Intent(this.f2366a, AppActivity.getActivityClass());
+            if (this.b.getActivity() != null) {
+                xAdLandingPageExtraInfo.isFullScreen = activityUtils.isFullScreen(this.b.getActivity()).booleanValue();
             }
-            xAdLandingPageExtraInfo.orientation = this.f3306a.getResources().getConfiguration().orientation;
+            xAdLandingPageExtraInfo.orientation = this.f2366a.getResources().getConfiguration().orientation;
             if (AppActivity.isAnti()) {
                 intent.putExtra(AppActivityImp.EXTRA_LANDINGPAGE_EXTRA_INFO, AppActivityImp.classToString(XAdLandingPageExtraInfo.class, xAdLandingPageExtraInfo));
                 intent.putExtra(AppActivityImp.EXTRA_COMMAND_EXTRA_INFO, AppActivityImp.classToString(XAdCommandExtraInfo.class, xAdLandingPageExtraInfo));
@@ -61,7 +61,7 @@ public class c extends com.baidu.mobads.command.b {
             intent.putExtra("showWhenLocked", AppActivity.getLpShowWhenLocked());
             intent.addFlags(268435456);
             intent.addFlags(536870912);
-            this.f3306a.startActivity(intent);
+            this.f2366a.startActivity(intent);
         } catch (Exception e) {
             q.a().e(e);
         }

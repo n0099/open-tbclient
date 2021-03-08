@@ -20,9 +20,7 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class j extends l {
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f2276b;
+    private String b;
     private String c;
     private String d;
     private String e;
@@ -39,7 +37,7 @@ public class j extends l {
     }
 
     public void b(String str) {
-        this.f2276b = str;
+        this.b = str;
     }
 
     public void a(boolean z) {
@@ -90,9 +88,9 @@ public class j extends l {
             arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.h.serviceType));
         }
         String randomString = RandomUtils.getRandomString(4096);
-        arrayList.add(new RestNameValuePair("imgdigests", this.f2276b));
+        arrayList.add(new RestNameValuePair("imgdigests", this.b));
         try {
-            arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f2278a, randomString).getBytes("UTF-8"))));
+            arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f1755a, randomString).getBytes("UTF-8"))));
         } catch (UnsupportedEncodingException e2) {
             e2.printStackTrace();
         }

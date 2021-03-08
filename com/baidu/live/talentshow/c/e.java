@@ -1,11 +1,11 @@
 package com.baidu.live.talentshow.c;
 
 import com.baidu.live.data.ab;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface e {
-    void SI();
+    void SL();
 
-    void SJ();
+    void SM();
 
     void a(c cVar);
 

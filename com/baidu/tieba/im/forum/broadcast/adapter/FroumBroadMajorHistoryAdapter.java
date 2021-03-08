@@ -25,10 +25,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.forum.broadcast.data.b;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class FroumBroadMajorHistoryAdapter extends RecyclerView.Adapter<FroumBroadMajorHistoryItemViewHolder> {
-    private List<b> knD = new ArrayList();
-    private f<b> knE;
+    private List<b> kpF = new ArrayList();
+    private f<b> kpG;
     private final Context mContext;
 
     public FroumBroadMajorHistoryAdapter(Context context) {
@@ -47,126 +47,126 @@ public class FroumBroadMajorHistoryAdapter extends RecyclerView.Adapter<FroumBro
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(@NonNull FroumBroadMajorHistoryItemViewHolder froumBroadMajorHistoryItemViewHolder, final int i) {
-        final b bVar = this.knD.get(i);
+        final b bVar = this.kpF.get(i);
         if (bVar != null) {
             if (i == 0) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) froumBroadMajorHistoryItemViewHolder.kFw.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) froumBroadMajorHistoryItemViewHolder.kHy.getLayoutParams();
                 layoutParams.topMargin = this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds62);
-                froumBroadMajorHistoryItemViewHolder.kFw.setLayoutParams(layoutParams);
+                froumBroadMajorHistoryItemViewHolder.kHy.setLayoutParams(layoutParams);
             }
-            if (be.eh(bVar.cWc() * 1000)) {
-                froumBroadMajorHistoryItemViewHolder.kFw.setText(au.dS(bVar.cWc() * 1000));
+            if (be.eh(bVar.cWj() * 1000)) {
+                froumBroadMajorHistoryItemViewHolder.kHy.setText(au.dS(bVar.cWj() * 1000));
             } else {
-                froumBroadMajorHistoryItemViewHolder.kFw.setText(au.dT(bVar.cWc() * 1000));
+                froumBroadMajorHistoryItemViewHolder.kHy.setText(au.dT(bVar.cWj() * 1000));
             }
             if (StringUtils.isNull(bVar.getPicUrl())) {
-                froumBroadMajorHistoryItemViewHolder.kFP.setVisibility(8);
-                froumBroadMajorHistoryItemViewHolder.kFE.setVisibility(0);
-                froumBroadMajorHistoryItemViewHolder.kFE.setText(bVar.getTitle());
+                froumBroadMajorHistoryItemViewHolder.kHR.setVisibility(8);
+                froumBroadMajorHistoryItemViewHolder.kHG.setVisibility(0);
+                froumBroadMajorHistoryItemViewHolder.kHG.setText(bVar.getTitle());
             } else {
-                froumBroadMajorHistoryItemViewHolder.kFP.setVisibility(0);
-                froumBroadMajorHistoryItemViewHolder.kFE.setVisibility(8);
-                froumBroadMajorHistoryItemViewHolder.kFy.setText(bVar.getTitle());
-                froumBroadMajorHistoryItemViewHolder.kFK.setConrers(15);
-                froumBroadMajorHistoryItemViewHolder.kFK.setRadius(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds21));
-                froumBroadMajorHistoryItemViewHolder.kFK.setDrawCorner(true);
-                froumBroadMajorHistoryItemViewHolder.kFK.setPlaceHolder(2);
-                froumBroadMajorHistoryItemViewHolder.kFK.startLoad(bVar.getPicUrl(), 10, false);
-                froumBroadMajorHistoryItemViewHolder.kFK.setGifIconSupport(false);
+                froumBroadMajorHistoryItemViewHolder.kHR.setVisibility(0);
+                froumBroadMajorHistoryItemViewHolder.kHG.setVisibility(8);
+                froumBroadMajorHistoryItemViewHolder.kHA.setText(bVar.getTitle());
+                froumBroadMajorHistoryItemViewHolder.kHM.setConrers(15);
+                froumBroadMajorHistoryItemViewHolder.kHM.setRadius(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds21));
+                froumBroadMajorHistoryItemViewHolder.kHM.setDrawCorner(true);
+                froumBroadMajorHistoryItemViewHolder.kHM.setPlaceHolder(2);
+                froumBroadMajorHistoryItemViewHolder.kHM.startLoad(bVar.getPicUrl(), 10, false);
+                froumBroadMajorHistoryItemViewHolder.kHM.setGifIconSupport(false);
             }
             if (StringUtils.isNull(bVar.getContent())) {
-                froumBroadMajorHistoryItemViewHolder.kFz.setVisibility(8);
+                froumBroadMajorHistoryItemViewHolder.kHB.setVisibility(8);
             } else {
-                froumBroadMajorHistoryItemViewHolder.kFz.setVisibility(0);
-                froumBroadMajorHistoryItemViewHolder.kFz.setText(bVar.getContent());
+                froumBroadMajorHistoryItemViewHolder.kHB.setVisibility(0);
+                froumBroadMajorHistoryItemViewHolder.kHB.setText(bVar.getContent());
             }
-            froumBroadMajorHistoryItemViewHolder.kFx.setText(bVar.cWh().forum_name);
-            froumBroadMajorHistoryItemViewHolder.kFJ.setShowOval(true);
-            froumBroadMajorHistoryItemViewHolder.kFJ.setAutoChangeStyle(true);
-            froumBroadMajorHistoryItemViewHolder.kFJ.setStrokeWith(l.getDimens(this.mContext, R.dimen.tbds1));
-            froumBroadMajorHistoryItemViewHolder.kFJ.setStrokeColorResId(R.color.CAM_X0401);
-            froumBroadMajorHistoryItemViewHolder.kFJ.setShowOuterBorder(false);
-            froumBroadMajorHistoryItemViewHolder.kFJ.setShowInnerBorder(true);
-            froumBroadMajorHistoryItemViewHolder.kFJ.setPlaceHolder(1);
-            froumBroadMajorHistoryItemViewHolder.kFJ.startLoad(bVar.cWh().avatar, 10, false);
-            froumBroadMajorHistoryItemViewHolder.kFA.setText(this.mContext.getString(R.string.forum_broadcast_major_history_reacht_number, au.ee(bVar.cWd())));
-            froumBroadMajorHistoryItemViewHolder.kFB.setText(this.mContext.getString(R.string.forum_broadcast_major_history_read_number, au.ee(bVar.cWe())));
-            int parseFloat = (int) (Float.parseFloat(bVar.cWf()) * 100.0f);
+            froumBroadMajorHistoryItemViewHolder.kHz.setText(bVar.cWo().forum_name);
+            froumBroadMajorHistoryItemViewHolder.kHL.setShowOval(true);
+            froumBroadMajorHistoryItemViewHolder.kHL.setAutoChangeStyle(true);
+            froumBroadMajorHistoryItemViewHolder.kHL.setStrokeWith(l.getDimens(this.mContext, R.dimen.tbds1));
+            froumBroadMajorHistoryItemViewHolder.kHL.setStrokeColorResId(R.color.CAM_X0401);
+            froumBroadMajorHistoryItemViewHolder.kHL.setShowOuterBorder(false);
+            froumBroadMajorHistoryItemViewHolder.kHL.setShowInnerBorder(true);
+            froumBroadMajorHistoryItemViewHolder.kHL.setPlaceHolder(1);
+            froumBroadMajorHistoryItemViewHolder.kHL.startLoad(bVar.cWo().avatar, 10, false);
+            froumBroadMajorHistoryItemViewHolder.kHC.setText(this.mContext.getString(R.string.forum_broadcast_major_history_reacht_number, au.ee(bVar.cWk())));
+            froumBroadMajorHistoryItemViewHolder.kHD.setText(this.mContext.getString(R.string.forum_broadcast_major_history_read_number, au.ee(bVar.cWl())));
+            int parseFloat = (int) (Float.parseFloat(bVar.cWm()) * 100.0f);
             if (parseFloat < 0) {
                 parseFloat = 0;
             } else if (parseFloat > 100) {
                 parseFloat = 100;
             }
-            if (!StringUtils.isNull(bVar.cWf())) {
-                froumBroadMajorHistoryItemViewHolder.kFC.setText(this.mContext.getString(R.string.forum_broadcast_major_history_ctr_number, Integer.valueOf(parseFloat), "%"));
+            if (!StringUtils.isNull(bVar.cWm())) {
+                froumBroadMajorHistoryItemViewHolder.kHE.setText(this.mContext.getString(R.string.forum_broadcast_major_history_ctr_number, Integer.valueOf(parseFloat), "%"));
             } else {
-                froumBroadMajorHistoryItemViewHolder.kFC.setText("0%");
+                froumBroadMajorHistoryItemViewHolder.kHE.setText("0%");
             }
-            if (bVar.cWi() != null) {
-                if (bVar.cWi().is_deleted.intValue() != 1) {
-                    if (bVar.cHh() != 1) {
-                        if (bVar.cHh() != 6) {
-                            if (bVar.cHh() == 10) {
-                                froumBroadMajorHistoryItemViewHolder.kFI.setVisibility(0);
-                                froumBroadMajorHistoryItemViewHolder.kFL.setVisibility(0);
-                                froumBroadMajorHistoryItemViewHolder.kFH.setVisibility(8);
+            if (bVar.cWp() != null) {
+                if (bVar.cWp().is_deleted.intValue() != 1) {
+                    if (bVar.cHn() != 1) {
+                        if (bVar.cHn() != 6) {
+                            if (bVar.cHn() == 10) {
+                                froumBroadMajorHistoryItemViewHolder.kHK.setVisibility(0);
+                                froumBroadMajorHistoryItemViewHolder.kHN.setVisibility(0);
+                                froumBroadMajorHistoryItemViewHolder.kHJ.setVisibility(8);
                             }
                         } else {
-                            froumBroadMajorHistoryItemViewHolder.kFI.setVisibility(8);
-                            froumBroadMajorHistoryItemViewHolder.kFL.setVisibility(8);
-                            froumBroadMajorHistoryItemViewHolder.kFH.setVisibility(0);
-                            froumBroadMajorHistoryItemViewHolder.kFO.setVisibility(0);
-                            froumBroadMajorHistoryItemViewHolder.kFD.setText(this.mContext.getString(R.string.forum_broadcast_major_history_check_failed));
-                            froumBroadMajorHistoryItemViewHolder.kFO.setText(this.mContext.getString(R.string.edit));
-                            froumBroadMajorHistoryItemViewHolder.kFO.setTextSize(R.dimen.tbds34);
+                            froumBroadMajorHistoryItemViewHolder.kHK.setVisibility(8);
+                            froumBroadMajorHistoryItemViewHolder.kHN.setVisibility(8);
+                            froumBroadMajorHistoryItemViewHolder.kHJ.setVisibility(0);
+                            froumBroadMajorHistoryItemViewHolder.kHQ.setVisibility(0);
+                            froumBroadMajorHistoryItemViewHolder.kHF.setText(this.mContext.getString(R.string.forum_broadcast_major_history_check_failed));
+                            froumBroadMajorHistoryItemViewHolder.kHQ.setText(this.mContext.getString(R.string.edit));
+                            froumBroadMajorHistoryItemViewHolder.kHQ.setTextSize(R.dimen.tbds34);
                             com.baidu.tbadk.core.view.commonBtn.b bVar2 = new com.baidu.tbadk.core.view.commonBtn.b();
-                            bVar2.pR(R.color.CAM_X0302);
-                            froumBroadMajorHistoryItemViewHolder.kFO.setConfig(bVar2);
-                            froumBroadMajorHistoryItemViewHolder.kFO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.forum.broadcast.adapter.FroumBroadMajorHistoryAdapter.1
+                            bVar2.pS(R.color.CAM_X0302);
+                            froumBroadMajorHistoryItemViewHolder.kHQ.setConfig(bVar2);
+                            froumBroadMajorHistoryItemViewHolder.kHQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.forum.broadcast.adapter.FroumBroadMajorHistoryAdapter.1
                                 @Override // android.view.View.OnClickListener
                                 public void onClick(View view) {
-                                    if (FroumBroadMajorHistoryAdapter.this.knE != null) {
-                                        FroumBroadMajorHistoryAdapter.this.knE.a(view, bVar, i, i);
+                                    if (FroumBroadMajorHistoryAdapter.this.kpG != null) {
+                                        FroumBroadMajorHistoryAdapter.this.kpG.a(view, bVar, i, i);
                                     }
                                 }
                             });
                         }
                     } else {
-                        froumBroadMajorHistoryItemViewHolder.kFI.setVisibility(8);
-                        froumBroadMajorHistoryItemViewHolder.kFL.setVisibility(8);
-                        froumBroadMajorHistoryItemViewHolder.kFH.setVisibility(0);
-                        froumBroadMajorHistoryItemViewHolder.kFO.setVisibility(8);
-                        froumBroadMajorHistoryItemViewHolder.kFD.setText(this.mContext.getString(R.string.video_review_state));
+                        froumBroadMajorHistoryItemViewHolder.kHK.setVisibility(8);
+                        froumBroadMajorHistoryItemViewHolder.kHN.setVisibility(8);
+                        froumBroadMajorHistoryItemViewHolder.kHJ.setVisibility(0);
+                        froumBroadMajorHistoryItemViewHolder.kHQ.setVisibility(8);
+                        froumBroadMajorHistoryItemViewHolder.kHF.setText(this.mContext.getString(R.string.video_review_state));
                     }
                 } else {
-                    froumBroadMajorHistoryItemViewHolder.kFH.setVisibility(0);
-                    froumBroadMajorHistoryItemViewHolder.kFO.setVisibility(8);
-                    froumBroadMajorHistoryItemViewHolder.kFD.setText(this.mContext.getString(R.string.forum_broadcast_major_history_pb_deleted));
-                    if (bVar.cHh() == 1 || bVar.cHh() == 6) {
-                        froumBroadMajorHistoryItemViewHolder.kFI.setVisibility(8);
-                        froumBroadMajorHistoryItemViewHolder.kFL.setVisibility(8);
+                    froumBroadMajorHistoryItemViewHolder.kHJ.setVisibility(0);
+                    froumBroadMajorHistoryItemViewHolder.kHQ.setVisibility(8);
+                    froumBroadMajorHistoryItemViewHolder.kHF.setText(this.mContext.getString(R.string.forum_broadcast_major_history_pb_deleted));
+                    if (bVar.cHn() == 1 || bVar.cHn() == 6) {
+                        froumBroadMajorHistoryItemViewHolder.kHK.setVisibility(8);
+                        froumBroadMajorHistoryItemViewHolder.kHN.setVisibility(8);
                     } else {
-                        froumBroadMajorHistoryItemViewHolder.kFI.setVisibility(0);
-                        froumBroadMajorHistoryItemViewHolder.kFL.setVisibility(0);
+                        froumBroadMajorHistoryItemViewHolder.kHK.setVisibility(0);
+                        froumBroadMajorHistoryItemViewHolder.kHN.setVisibility(0);
                     }
                 }
             } else {
-                froumBroadMajorHistoryItemViewHolder.kFH.setVisibility(0);
-                froumBroadMajorHistoryItemViewHolder.kFO.setVisibility(8);
-                froumBroadMajorHistoryItemViewHolder.kFD.setText(this.mContext.getString(R.string.forum_broadcast_major_history_pb_deleted));
-                if (bVar.cHh() == 1 || bVar.cHh() == 6) {
-                    froumBroadMajorHistoryItemViewHolder.kFI.setVisibility(8);
-                    froumBroadMajorHistoryItemViewHolder.kFL.setVisibility(8);
+                froumBroadMajorHistoryItemViewHolder.kHJ.setVisibility(0);
+                froumBroadMajorHistoryItemViewHolder.kHQ.setVisibility(8);
+                froumBroadMajorHistoryItemViewHolder.kHF.setText(this.mContext.getString(R.string.forum_broadcast_major_history_pb_deleted));
+                if (bVar.cHn() == 1 || bVar.cHn() == 6) {
+                    froumBroadMajorHistoryItemViewHolder.kHK.setVisibility(8);
+                    froumBroadMajorHistoryItemViewHolder.kHN.setVisibility(8);
                 } else {
-                    froumBroadMajorHistoryItemViewHolder.kFI.setVisibility(0);
-                    froumBroadMajorHistoryItemViewHolder.kFL.setVisibility(0);
+                    froumBroadMajorHistoryItemViewHolder.kHK.setVisibility(0);
+                    froumBroadMajorHistoryItemViewHolder.kHN.setVisibility(0);
                 }
             }
-            froumBroadMajorHistoryItemViewHolder.kFG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.forum.broadcast.adapter.FroumBroadMajorHistoryAdapter.2
+            froumBroadMajorHistoryItemViewHolder.kHI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.forum.broadcast.adapter.FroumBroadMajorHistoryAdapter.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (FroumBroadMajorHistoryAdapter.this.knE != null) {
-                        FroumBroadMajorHistoryAdapter.this.knE.a(view, bVar, i, i);
+                    if (FroumBroadMajorHistoryAdapter.this.kpG != null) {
+                        FroumBroadMajorHistoryAdapter.this.kpG.a(view, bVar, i, i);
                     }
                 }
             });
@@ -175,117 +175,117 @@ public class FroumBroadMajorHistoryAdapter extends RecyclerView.Adapter<FroumBro
     }
 
     private void a(FroumBroadMajorHistoryItemViewHolder froumBroadMajorHistoryItemViewHolder, b bVar, int i) {
-        ap.setViewTextColor(froumBroadMajorHistoryItemViewHolder.kFw, R.color.CAM_X0109);
-        ap.setViewTextColor(froumBroadMajorHistoryItemViewHolder.kFx, R.color.CAM_X0105);
-        ap.setViewTextColor(froumBroadMajorHistoryItemViewHolder.kFy, R.color.CAM_X0101);
-        ap.setViewTextColor(froumBroadMajorHistoryItemViewHolder.kFz, R.color.CAM_X0107);
-        ap.setViewTextColor(froumBroadMajorHistoryItemViewHolder.kFA, R.color.CAM_X0107);
-        ap.setViewTextColor(froumBroadMajorHistoryItemViewHolder.kFB, R.color.CAM_X0107);
-        ap.setViewTextColor(froumBroadMajorHistoryItemViewHolder.kFC, R.color.CAM_X0107);
-        ap.setBackgroundColor(froumBroadMajorHistoryItemViewHolder.kFL, R.color.CAM_X0203);
-        ap.setViewTextColor(froumBroadMajorHistoryItemViewHolder.kFE, R.color.CAM_X0105);
-        a.btv().oO(0).m(R.color.CAM_X0601, R.color.CAM_X0606).aj(l.getDimens(this.mContext, R.dimen.tbds21)).ai(l.getDimens(this.mContext, R.dimen.tbds21)).bv(froumBroadMajorHistoryItemViewHolder.kFM);
+        ap.setViewTextColor(froumBroadMajorHistoryItemViewHolder.kHy, R.color.CAM_X0109);
+        ap.setViewTextColor(froumBroadMajorHistoryItemViewHolder.kHz, R.color.CAM_X0105);
+        ap.setViewTextColor(froumBroadMajorHistoryItemViewHolder.kHA, R.color.CAM_X0101);
+        ap.setViewTextColor(froumBroadMajorHistoryItemViewHolder.kHB, R.color.CAM_X0107);
+        ap.setViewTextColor(froumBroadMajorHistoryItemViewHolder.kHC, R.color.CAM_X0107);
+        ap.setViewTextColor(froumBroadMajorHistoryItemViewHolder.kHD, R.color.CAM_X0107);
+        ap.setViewTextColor(froumBroadMajorHistoryItemViewHolder.kHE, R.color.CAM_X0107);
+        ap.setBackgroundColor(froumBroadMajorHistoryItemViewHolder.kHN, R.color.CAM_X0203);
+        ap.setViewTextColor(froumBroadMajorHistoryItemViewHolder.kHG, R.color.CAM_X0105);
+        a.bty().oP(0).m(R.color.CAM_X0601, R.color.CAM_X0606).an(l.getDimens(this.mContext, R.dimen.tbds21)).am(l.getDimens(this.mContext, R.dimen.tbds21)).bv(froumBroadMajorHistoryItemViewHolder.kHO);
         if (TbadkCoreApplication.getInst().getSkinType() == 0) {
             if (i != 0) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) froumBroadMajorHistoryItemViewHolder.kFw.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) froumBroadMajorHistoryItemViewHolder.kHy.getLayoutParams();
                 layoutParams.topMargin = this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds57);
-                froumBroadMajorHistoryItemViewHolder.kFw.setLayoutParams(layoutParams);
+                froumBroadMajorHistoryItemViewHolder.kHy.setLayoutParams(layoutParams);
             }
-            froumBroadMajorHistoryItemViewHolder.kFG.setPadding(this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds23), this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds21), this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds21), this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds75));
-            froumBroadMajorHistoryItemViewHolder.kFN.setVisibility(0);
-            a.btu().pg(R.color.CAM_X0205).pb(l.getDimens(this.mContext, R.dimen.tbds31)).pc(R.color.CAM_X0804).pa(4369).pd(l.getDimens(this.mContext, R.dimen.tbds10)).pe(0).pf(l.getDimens(this.mContext, R.dimen.tbds5)).bv(froumBroadMajorHistoryItemViewHolder.kFN);
+            froumBroadMajorHistoryItemViewHolder.kHI.setPadding(this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds23), this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds21), this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds21), this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds75));
+            froumBroadMajorHistoryItemViewHolder.kHP.setVisibility(0);
+            a.btx().ph(R.color.CAM_X0205).pc(l.getDimens(this.mContext, R.dimen.tbds31)).pd(R.color.CAM_X0804).pb(4369).pe(l.getDimens(this.mContext, R.dimen.tbds10)).pf(0).pg(l.getDimens(this.mContext, R.dimen.tbds5)).bv(froumBroadMajorHistoryItemViewHolder.kHP);
         } else {
-            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) froumBroadMajorHistoryItemViewHolder.kFG.getLayoutParams();
+            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) froumBroadMajorHistoryItemViewHolder.kHI.getLayoutParams();
             layoutParams2.leftMargin = l.getDimens(this.mContext, R.dimen.tbds21);
             layoutParams2.rightMargin = l.getDimens(this.mContext, R.dimen.tbds21);
             layoutParams2.topMargin = l.getDimens(this.mContext, R.dimen.tbds21);
-            froumBroadMajorHistoryItemViewHolder.kFG.setLayoutParams(layoutParams2);
-            froumBroadMajorHistoryItemViewHolder.kFG.setPadding(0, 0, 0, this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds54));
-            froumBroadMajorHistoryItemViewHolder.kFN.setVisibility(8);
-            a.btv().oO(0).oV(l.getDimens(this.mContext, R.dimen.tbds31)).oP(R.color.CAM_X0205).bv(froumBroadMajorHistoryItemViewHolder.kFG);
+            froumBroadMajorHistoryItemViewHolder.kHI.setLayoutParams(layoutParams2);
+            froumBroadMajorHistoryItemViewHolder.kHI.setPadding(0, 0, 0, this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds54));
+            froumBroadMajorHistoryItemViewHolder.kHP.setVisibility(8);
+            a.bty().oP(0).oW(l.getDimens(this.mContext, R.dimen.tbds31)).oQ(R.color.CAM_X0205).bv(froumBroadMajorHistoryItemViewHolder.kHI);
         }
-        if (bVar.cWi() != null) {
-            if (bVar.cWi().is_deleted.intValue() != 1) {
-                if (bVar.cHh() != 1) {
-                    if (bVar.cHh() != 6) {
+        if (bVar.cWp() != null) {
+            if (bVar.cWp().is_deleted.intValue() != 1) {
+                if (bVar.cHn() != 1) {
+                    if (bVar.cHn() != 6) {
                         return;
                     }
-                    ap.setViewTextColor(froumBroadMajorHistoryItemViewHolder.kFD, R.color.CAM_X0301);
+                    ap.setViewTextColor(froumBroadMajorHistoryItemViewHolder.kHF, R.color.CAM_X0301);
                     return;
                 }
-                ap.setViewTextColor(froumBroadMajorHistoryItemViewHolder.kFD, R.color.CAM_X0107);
+                ap.setViewTextColor(froumBroadMajorHistoryItemViewHolder.kHF, R.color.CAM_X0107);
                 return;
             }
-            ap.setViewTextColor(froumBroadMajorHistoryItemViewHolder.kFD, R.color.CAM_X0109);
+            ap.setViewTextColor(froumBroadMajorHistoryItemViewHolder.kHF, R.color.CAM_X0109);
             return;
         }
-        ap.setViewTextColor(froumBroadMajorHistoryItemViewHolder.kFD, R.color.CAM_X0109);
+        ap.setViewTextColor(froumBroadMajorHistoryItemViewHolder.kHF, R.color.CAM_X0109);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class FroumBroadMajorHistoryItemViewHolder extends RecyclerView.ViewHolder {
-        private TextView kFA;
-        private TextView kFB;
-        private TextView kFC;
-        private TextView kFD;
-        private TextView kFE;
-        private LinearLayout kFF;
-        private LinearLayout kFG;
-        private LinearLayout kFH;
-        private LinearLayout kFI;
-        private BarImageView kFJ;
-        private TbImageView kFK;
-        private View kFL;
-        private View kFM;
-        private View kFN;
-        private TBSpecificationBtn kFO;
-        private RelativeLayout kFP;
-        private TextView kFw;
-        private TextView kFx;
-        private TextView kFy;
-        private TextView kFz;
+        private TextView kHA;
+        private TextView kHB;
+        private TextView kHC;
+        private TextView kHD;
+        private TextView kHE;
+        private TextView kHF;
+        private TextView kHG;
+        private LinearLayout kHH;
+        private LinearLayout kHI;
+        private LinearLayout kHJ;
+        private LinearLayout kHK;
+        private BarImageView kHL;
+        private TbImageView kHM;
+        private View kHN;
+        private View kHO;
+        private View kHP;
+        private TBSpecificationBtn kHQ;
+        private RelativeLayout kHR;
+        private TextView kHy;
+        private TextView kHz;
 
         public FroumBroadMajorHistoryItemViewHolder(View view) {
             super(view);
-            this.kFw = (TextView) view.findViewById(R.id.bcast_time);
-            this.kFx = (TextView) view.findViewById(R.id.forum_name);
-            this.kFy = (TextView) view.findViewById(R.id.bcast_title);
-            this.kFz = (TextView) view.findViewById(R.id.bcast_content);
-            this.kFA = (TextView) view.findViewById(R.id.publish_number);
-            this.kFB = (TextView) view.findViewById(R.id.pv_number);
-            this.kFC = (TextView) view.findViewById(R.id.ctr_number);
-            this.kFF = (LinearLayout) view.findViewById(R.id.bcast_item_ll);
-            this.kFG = (LinearLayout) view.findViewById(R.id.bcast_main);
-            this.kFJ = (BarImageView) view.findViewById(R.id.forum_avatar);
-            this.kFK = (TbImageView) view.findViewById(R.id.iv_imageView);
-            this.kFL = view.findViewById(R.id.forum_bg_line);
-            this.kFH = (LinearLayout) view.findViewById(R.id.forum_bcast_status_ll);
-            this.kFD = (TextView) view.findViewById(R.id.forum_bcast_status);
-            this.kFO = (TBSpecificationBtn) view.findViewById(R.id.forum_fail_edit);
-            this.kFI = (LinearLayout) view.findViewById(R.id.forum_pv_uv_item_ll);
-            this.kFP = (RelativeLayout) view.findViewById(R.id.container_image);
-            this.kFE = (TextView) view.findViewById(R.id.bcast_no_image_title);
-            this.kFN = view.findViewById(R.id.bg_item_mian_view);
-            this.kFM = view.findViewById(R.id.gradient_cover);
+            this.kHy = (TextView) view.findViewById(R.id.bcast_time);
+            this.kHz = (TextView) view.findViewById(R.id.forum_name);
+            this.kHA = (TextView) view.findViewById(R.id.bcast_title);
+            this.kHB = (TextView) view.findViewById(R.id.bcast_content);
+            this.kHC = (TextView) view.findViewById(R.id.publish_number);
+            this.kHD = (TextView) view.findViewById(R.id.pv_number);
+            this.kHE = (TextView) view.findViewById(R.id.ctr_number);
+            this.kHH = (LinearLayout) view.findViewById(R.id.bcast_item_ll);
+            this.kHI = (LinearLayout) view.findViewById(R.id.bcast_main);
+            this.kHL = (BarImageView) view.findViewById(R.id.forum_avatar);
+            this.kHM = (TbImageView) view.findViewById(R.id.iv_imageView);
+            this.kHN = view.findViewById(R.id.forum_bg_line);
+            this.kHJ = (LinearLayout) view.findViewById(R.id.forum_bcast_status_ll);
+            this.kHF = (TextView) view.findViewById(R.id.forum_bcast_status);
+            this.kHQ = (TBSpecificationBtn) view.findViewById(R.id.forum_fail_edit);
+            this.kHK = (LinearLayout) view.findViewById(R.id.forum_pv_uv_item_ll);
+            this.kHR = (RelativeLayout) view.findViewById(R.id.container_image);
+            this.kHG = (TextView) view.findViewById(R.id.bcast_no_image_title);
+            this.kHP = view.findViewById(R.id.bg_item_mian_view);
+            this.kHO = view.findViewById(R.id.gradient_cover);
         }
     }
 
     public void ey(List<b> list) {
         if (list != null) {
-            this.knD = list;
+            this.kpF = list;
             notifyDataSetChanged();
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.knD != null) {
-            return this.knD.size();
+        if (this.kpF != null) {
+            return this.kpF.size();
         }
         return 0;
     }
 
     public void a(f<b> fVar) {
-        this.knE = fVar;
+        this.kpG = fVar;
     }
 }

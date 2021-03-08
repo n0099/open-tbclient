@@ -28,10 +28,8 @@ import java.io.InputStream;
 public class GifView extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private Movie f6817a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private long f6818b;
+    private Movie f4621a;
+    private long b;
     private int c;
     private AnimatedImageDrawable d;
     private boolean e;
@@ -90,7 +88,7 @@ public class GifView extends ImageView {
         this.l = z;
         if (bArr != null) {
             if (!this.e) {
-                this.f6817a = a(bArr);
+                this.f4621a = a(bArr);
             } else {
                 this.d = b(bArr);
             }
@@ -202,9 +200,9 @@ public class GifView extends ImageView {
         int size;
         int size2;
         super.onMeasure(i, i2);
-        if (!this.e && this.f6817a != null) {
-            int width = this.f6817a.width();
-            int height = this.f6817a.height();
+        if (!this.e && this.f4621a != null) {
+            int width = this.f4621a.width();
+            int height = this.f4621a.height();
             this.i = 1.0f / Math.max((View.MeasureSpec.getMode(i) == 0 || width <= (size2 = View.MeasureSpec.getSize(i))) ? 1.0f : width / size2, (View.MeasureSpec.getMode(i2) == 0 || height <= (size = View.MeasureSpec.getSize(i2))) ? 1.0f : height / size);
             this.j = (int) (width * this.i);
             this.k = (int) (height * this.i);
@@ -222,7 +220,7 @@ public class GifView extends ImageView {
     @Override // android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (this.f6817a != null && !this.e) {
+        if (this.f4621a != null && !this.e) {
             this.g = (getWidth() - this.j) / 2.0f;
             this.h = (getHeight() - this.k) / 2.0f;
         }
@@ -231,7 +229,7 @@ public class GifView extends ImageView {
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
-        if (this.f6817a != null && !this.e) {
+        if (this.f4621a != null && !this.e) {
             try {
                 if (!this.l) {
                     c();
@@ -250,7 +248,7 @@ public class GifView extends ImageView {
     }
 
     private void b() {
-        if (this.f6817a != null && !this.e && this.m) {
+        if (this.f4621a != null && !this.e && this.m) {
             if (Build.VERSION.SDK_INT >= 16) {
                 postInvalidateOnAnimation();
             } else {
@@ -260,24 +258,24 @@ public class GifView extends ImageView {
     }
 
     private void c() {
-        if (this.f6817a != null) {
+        if (this.f4621a != null) {
             long uptimeMillis = SystemClock.uptimeMillis();
-            if (this.f6818b == 0) {
-                this.f6818b = uptimeMillis;
+            if (this.b == 0) {
+                this.b = uptimeMillis;
             }
-            int duration = this.f6817a.duration();
+            int duration = this.f4621a.duration();
             if (duration == 0) {
                 duration = 1000;
             }
-            this.c = (int) ((uptimeMillis - this.f6818b) % duration);
+            this.c = (int) ((uptimeMillis - this.b) % duration);
         }
     }
 
     private void a(Canvas canvas) {
-        if (this.f6817a != null) {
-            this.f6817a.setTime(this.c);
+        if (this.f4621a != null) {
+            this.f4621a.setTime(this.c);
             canvas.scale(this.i, this.i);
-            this.f6817a.draw(canvas, this.g / this.i, this.h / this.i);
+            this.f4621a.draw(canvas, this.g / this.i, this.h / this.i);
             canvas.restore();
         }
     }
@@ -286,7 +284,7 @@ public class GifView extends ImageView {
     @SuppressLint({"NewApi"})
     public void onScreenStateChanged(int i) {
         super.onScreenStateChanged(i);
-        if (this.f6817a != null) {
+        if (this.f4621a != null) {
             this.m = i == 1;
             b();
         }
@@ -296,7 +294,7 @@ public class GifView extends ImageView {
     @SuppressLint({"NewApi"})
     protected void onVisibilityChanged(View view, int i) {
         super.onVisibilityChanged(view, i);
-        if (this.f6817a != null) {
+        if (this.f4621a != null) {
             this.m = i == 0;
             b();
         }
@@ -305,7 +303,7 @@ public class GifView extends ImageView {
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
-        if (this.f6817a != null) {
+        if (this.f4621a != null) {
             this.m = i == 0;
             b();
         }

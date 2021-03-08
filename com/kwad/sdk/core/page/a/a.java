@@ -22,12 +22,12 @@ public class a extends Presenter {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (com.kwad.sdk.core.response.b.a.y(c.j(eVar.c))) {
-                    if (eVar.f9361a != null) {
-                        eVar.f9361a.a(a.this.m());
+                    if (eVar.f6213a != null) {
+                        eVar.f6213a.a(a.this.m());
                     }
-                } else if (eVar.f9362b == null || eVar.f9362b.getAdapter() == null || eVar.f9362b.getAdapter().getItemCount() <= 1) {
+                } else if (eVar.b == null || eVar.b.getAdapter() == null || eVar.b.getAdapter().getItemCount() <= 1) {
                 } else {
-                    eVar.f9362b.scrollToPosition(1);
+                    eVar.b.scrollToPosition(1);
                 }
             }
         });

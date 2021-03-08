@@ -8,7 +8,7 @@ import com.baidu.ar.record.EncoderParams;
 import com.kwai.video.player.KsMediaMeta;
 import com.kwai.video.player.misc.IMediaFormat;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class a extends b {
     private static final String TAG = a.class.getSimpleName();
     private long uM = 0;

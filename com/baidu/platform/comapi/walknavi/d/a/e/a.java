@@ -15,10 +15,8 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f4235a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    private d f4236b;
+    private static a f2930a = null;
+    private d b;
     private com.baidu.platform.comapi.walknavi.d.a.a.a c;
     private String d;
     private Context e;
@@ -27,14 +25,14 @@ public class a {
     }
 
     public static a a() {
-        if (f4235a == null) {
+        if (f2930a == null) {
             synchronized (a.class) {
-                if (f4235a == null) {
-                    f4235a = new a();
+                if (f2930a == null) {
+                    f2930a = new a();
                 }
             }
         }
-        return f4235a;
+        return f2930a;
     }
 
     public void a(Context context, com.baidu.platform.comapi.walknavi.d.a.a.a aVar) {
@@ -61,7 +59,7 @@ public class a {
     }
 
     private void a(Context context, Map<String, String> map) {
-        String str = com.baidu.platform.comapi.walknavi.d.a.g.d.f4243a + com.baidu.platform.comapi.walknavi.d.a.g.d.c + "/count_ar";
+        String str = com.baidu.platform.comapi.walknavi.d.a.g.d.f2935a + com.baidu.platform.comapi.walknavi.d.a.g.d.c + "/count_ar";
         String uuid = new e(context).a().toString();
         JSONObject jSONObject = new JSONObject();
         try {
@@ -89,17 +87,17 @@ public class a {
             jSONObject.put(HttpConstants.HTTP_SYSTEM_VERSION, Build.VERSION.SDK_INT);
         } catch (Exception e) {
         }
-        this.f4236b = new d(str, null);
-        this.f4236b.execute(jSONObject.toString());
+        this.b = new d(str, null);
+        this.b.execute(jSONObject.toString());
     }
 
     public void b() {
-        if (this.f4236b != null && !this.f4236b.isCancelled()) {
-            this.f4236b.cancel(true);
-            this.f4236b = null;
+        if (this.b != null && !this.b.isCancelled()) {
+            this.b.cancel(true);
+            this.b = null;
         }
-        if (f4235a != null) {
-            f4235a = null;
+        if (f2930a != null) {
+            f2930a = null;
         }
         this.d = null;
     }

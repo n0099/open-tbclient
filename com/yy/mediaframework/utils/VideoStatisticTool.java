@@ -3,7 +3,7 @@ package com.yy.mediaframework.utils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoStatisticTool {
     public static final int TIME = 60;
     private int mCounter = 0;
@@ -125,7 +125,7 @@ public class VideoStatisticTool {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class VideoStatisticResult {
         public boolean isValid = false;
         public int minDeal = -1;
@@ -153,7 +153,7 @@ public class VideoStatisticTool {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class StallingModel {
         private static final float alpha = 0.999f;
         private static final float k = 3.5E-4f;

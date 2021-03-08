@@ -1,7 +1,7 @@
 package com.baidu.ar.databasic;
 
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class ReserveHandleData {
     private List<byte[]> mByteArrayListData;
     private int mByteDataSize;

@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.utils.LogUtils;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BIMCloseRoomRtcInfo extends BIMRtcInfo {
     private static final String TAG = "IMCloseRoomRtcInfo";
     private long mRoomDuration;

@@ -2,7 +2,7 @@ package com.baidubce.services.bos.model;
 
 import com.baidubce.auth.BceCredentials;
 import com.baidubce.model.AbstractBceRequest;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ResponseHeaderOverrides extends AbstractBceRequest {
     private String cacheControl;
     private String contentDisposition;

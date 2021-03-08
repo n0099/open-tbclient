@@ -4,27 +4,27 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.RelativeLayout;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ExpandViewRelativeLayout extends RelativeLayout {
-    private float bMr;
+    private float bNR;
     private float mLastY;
-    private a nMh;
-    private boolean nMi;
-    private boolean nMj;
+    private a nOm;
+    private boolean nOn;
+    private boolean nOo;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void bc(float f);
+        void bg(float f);
 
         void d(float f, float f2, int i);
 
-        void dSy();
+        void dSG();
 
         boolean e(float f, float f2, int i);
     }
 
     public void setScrollCallBack(a aVar) {
-        this.nMh = aVar;
+        this.nOm = aVar;
     }
 
     public ExpandViewRelativeLayout(Context context) {
@@ -43,17 +43,17 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     }
 
     private void init(Context context) {
-        this.nMj = true;
+        this.nOo = true;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.bMr = motionEvent.getY();
+                this.bNR = motionEvent.getY();
                 this.mLastY = motionEvent.getY();
-                if (this.nMh != null) {
-                    this.nMh.bc(motionEvent.getY());
+                if (this.nOm != null) {
+                    this.nOm.bg(motionEvent.getY());
                     break;
                 }
                 break;
@@ -65,16 +65,16 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                if (this.nMh != null) {
-                    this.nMi = this.nMh.e(0.0f, motionEvent.getY(), 0);
-                    return this.nMi;
+                if (this.nOm != null) {
+                    this.nOn = this.nOm.e(0.0f, motionEvent.getY(), 0);
+                    return this.nOn;
                 }
                 break;
             case 2:
-                if (this.nMh != null) {
-                    this.bMr = motionEvent.getY();
-                    this.nMi = this.nMh.e(motionEvent.getY() - this.bMr, motionEvent.getY(), motionEvent.getY() - this.mLastY > 0.0f ? 1 : 2);
-                    return this.nMi;
+                if (this.nOm != null) {
+                    this.bNR = motionEvent.getY();
+                    this.nOn = this.nOm.e(motionEvent.getY() - this.bNR, motionEvent.getY(), motionEvent.getY() - this.mLastY > 0.0f ? 1 : 2);
+                    return this.nOn;
                 }
                 break;
         }
@@ -83,7 +83,7 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (this.nMj) {
+        if (this.nOo) {
             super.onLayout(z, i, i2, i3, i4);
         }
     }
@@ -92,17 +92,17 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 1:
-                this.nMi = false;
-                if (this.nMh != null) {
-                    this.nMh.dSy();
+                this.nOn = false;
+                if (this.nOm != null) {
+                    this.nOm.dSG();
                     break;
                 }
                 break;
             case 2:
-                float y = motionEvent.getY() - this.bMr;
+                float y = motionEvent.getY() - this.bNR;
                 int i = motionEvent.getY() - this.mLastY > 0.0f ? 1 : 2;
-                if (this.nMi && this.nMh != null) {
-                    this.nMh.d(motionEvent.getY(), y, i);
+                if (this.nOn && this.nOm != null) {
+                    this.nOm.d(motionEvent.getY(), y, i);
                     return true;
                 }
                 break;
@@ -111,7 +111,7 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     }
 
     public void setIsCanLayout(boolean z) {
-        this.nMj = z;
+        this.nOo = z;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent

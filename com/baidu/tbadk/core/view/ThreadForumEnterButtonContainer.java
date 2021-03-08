@@ -9,13 +9,13 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ThreadForumEnterButtonContainer extends RelativeLayout {
-    private final int fkI;
-    private ThreadForumEnterButton fkJ;
-    private ThreadForumEnterButton fkK;
-    private ThreadForumEnterButton fkL;
-    private View fkM;
-    private int fkN;
-    private int fkO;
+    private final int fmh;
+    private ThreadForumEnterButton fmi;
+    private ThreadForumEnterButton fmj;
+    private ThreadForumEnterButton fmk;
+    private View fml;
+    private int fmm;
+    private int fmn;
 
     public ThreadForumEnterButtonContainer(Context context) {
         this(context, null);
@@ -27,53 +27,53 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
 
     public ThreadForumEnterButtonContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fkI = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds22);
+        this.fmh = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds22);
         LayoutInflater.from(context).inflate(R.layout.thread_forum_enter_button_container_layout, this);
-        this.fkJ = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_one);
-        this.fkK = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_two);
-        this.fkL = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_three);
-        this.fkM = findViewById(R.id.bottom_placeholder);
-        this.fkN = (((com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) - getPaddingLeft()) - getPaddingRight()) - this.fkI) / 2;
-        this.fkO = (((com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) - getPaddingLeft()) - getPaddingRight()) - (this.fkI * 2)) / 3;
+        this.fmi = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_one);
+        this.fmj = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_two);
+        this.fmk = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_three);
+        this.fml = findViewById(R.id.bottom_placeholder);
+        this.fmm = (((com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) - getPaddingLeft()) - getPaddingRight()) - this.fmh) / 2;
+        this.fmn = (((com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) - getPaddingLeft()) - getPaddingRight()) - (this.fmh * 2)) / 3;
     }
 
     public void setBottomPlaceHolderVisibility(boolean z) {
-        this.fkM.setVisibility(z ? 0 : 8);
+        this.fml.setVisibility(z ? 0 : 8);
     }
 
     public void onChangeSkinType() {
-        if (this.fkJ != null) {
-            this.fkJ.onChangeSkinType();
+        if (this.fmi != null) {
+            this.fmi.onChangeSkinType();
         }
-        if (this.fkK != null) {
-            this.fkK.onChangeSkinType();
+        if (this.fmj != null) {
+            this.fmj.onChangeSkinType();
         }
-        if (this.fkL != null) {
-            this.fkL.onChangeSkinType();
+        if (this.fmk != null) {
+            this.fmk.onChangeSkinType();
         }
     }
 
     public void setAfterItemClickListener(View.OnClickListener onClickListener) {
-        if (this.fkJ != null) {
-            this.fkJ.setAfterClickListener(onClickListener);
+        if (this.fmi != null) {
+            this.fmi.setAfterClickListener(onClickListener);
         }
-        if (this.fkK != null) {
-            this.fkK.setAfterClickListener(onClickListener);
+        if (this.fmj != null) {
+            this.fmj.setAfterClickListener(onClickListener);
         }
-        if (this.fkL != null) {
-            this.fkL.setAfterClickListener(onClickListener);
+        if (this.fmk != null) {
+            this.fmk.setAfterClickListener(onClickListener);
         }
     }
 
     public void setFrom(int i) {
-        if (this.fkJ != null) {
-            this.fkJ.setFrom(i);
+        if (this.fmi != null) {
+            this.fmi.setFrom(i);
         }
-        if (this.fkK != null) {
-            this.fkK.setFrom(i);
+        if (this.fmj != null) {
+            this.fmj.setFrom(i);
         }
-        if (this.fkL != null) {
-            this.fkL.setFrom(i);
+        if (this.fmk != null) {
+            this.fmk.setFrom(i);
         }
     }
 }

@@ -15,12 +15,12 @@ public class Prefetch {
         if (str == null || str.length() <= 0) {
             return;
         }
-        String b2 = Utils.b();
-        if (b2 == null) {
-            b2 = "";
+        String b = Utils.b();
+        if (b == null) {
+            b = "";
         }
-        if (Utils.a() > Utils.f3195b) {
-            nativeAdd(str, str2 != null ? str2 : "", str3 != null ? str3 : "", b2, i, i2, i4, str4);
+        if (Utils.a() > Utils.b) {
+            nativeAdd(str, str2 != null ? str2 : "", str3 != null ? str3 : "", b, i, i2, i4, str4);
         }
     }
 
@@ -32,12 +32,12 @@ public class Prefetch {
         if (str == null || str.length() <= 0) {
             return;
         }
-        String b2 = Utils.b();
-        if (b2 == null) {
-            b2 = "";
+        String b = Utils.b();
+        if (b == null) {
+            b = "";
         }
-        if (Utils.a() > Utils.f3195b) {
-            nativeAdd(str, str2 != null ? str2 : "", str3 != null ? str3 : "", b2, i, 0, i3, str4);
+        if (Utils.a() > Utils.b) {
+            nativeAdd(str, str2 != null ? str2 : "", str3 != null ? str3 : "", b, i, 0, i3, str4);
         }
     }
 

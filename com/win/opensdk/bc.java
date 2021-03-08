@@ -1,38 +1,36 @@
 package com.win.opensdk;
 
+import android.content.Context;
+import android.location.Location;
+import android.location.LocationManager;
+import android.net.http.Headers;
+import android.os.Looper;
 import android.text.TextUtils;
-/* loaded from: classes3.dex */
-public final class bc {
-    public static byte[] abX(String str) {
-        int length = str.length();
-        byte[] bArr = new byte[length / 2];
-        for (int i = 0; i < length; i += 2) {
-            bArr[i / 2] = (byte) ((Character.digit(str.charAt(i), 16) << 4) + Character.digit(str.charAt(i + 1), 16));
-        }
-        return bArr;
-    }
-
-    public static String abU(String str) {
-        return TextUtils.isEmpty(str) ? str : new aq(ap.java() + "4c6k", ap.eJe() + "o7my").hE(str, "CBC");
-    }
-
-    public static String abV(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            String hE = an.hE(ap.a() + "mloo0ks9", str);
-            if (!TextUtils.isEmpty(hE)) {
-                hE = "KL_".concat(String.valueOf(hE));
+import java.util.List;
+/* loaded from: classes14.dex */
+public class bc {
+    public static void a(Context context) {
+        String str = null;
+        as asVar = new as(null);
+        try {
+            LocationManager locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
+            List<String> providers = locationManager.getProviders(true);
+            if (providers.contains("network")) {
+                str = "network";
+            } else if (providers.contains("gps")) {
+                str = "gps";
             }
-            return hE;
-        }
-        return str;
-    }
-
-    public static boolean c(String[] strArr, String str) {
-        for (String str2 : strArr) {
-            if (TextUtils.equals(str2, str)) {
-                return true;
+            if (TextUtils.isEmpty(str)) {
+                return;
             }
+            Location lastKnownLocation = locationManager.getLastKnownLocation(str);
+            if (lastKnownLocation != null) {
+                asVar.onLocationChanged(lastKnownLocation);
+            } else {
+                locationManager.requestLocationUpdates(str, 1000L, 0.0f, asVar, Looper.getMainLooper());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return false;
     }
 }

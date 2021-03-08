@@ -16,10 +16,8 @@ import java.util.HashSet;
 public class aa {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final boolean f6449a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final boolean f6450b;
+    private static final boolean f4358a;
+    private static final boolean b;
     private static int c;
     private static int d;
     private static int e;
@@ -28,8 +26,8 @@ public class aa {
     private static final HashSet<String> h;
 
     static {
-        f6449a = Build.VERSION.SDK_INT >= 16 && ad.e();
-        f6450b = a();
+        f4358a = Build.VERSION.SDK_INT >= 16 && ad.e();
+        b = a();
         c = -1;
         d = -1;
         e = -1;
@@ -78,7 +76,7 @@ public class aa {
     }
 
     private static boolean a() {
-        return f6449a || (Build.VERSION.SDK_INT == 16 && "ZTE N5".equals(Build.MODEL));
+        return f4358a || (Build.VERSION.SDK_INT == 16 && "ZTE N5".equals(Build.MODEL));
     }
 
     public static void a(WebView webView) {

@@ -21,10 +21,8 @@ import com.baidu.sapi2.biometrics.liveness.R;
 public class LivenessVideoXfordView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final float f2356a = 230.0f;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final float f2357b = 20.0f;
+    private static final float f1801a = 230.0f;
+    private static final float b = 20.0f;
     private float c;
     private float d;
     private int e;
@@ -67,15 +65,15 @@ public class LivenessVideoXfordView extends FrameLayout {
 
     public LivenessVideoXfordView(@NonNull Context context) {
         super(context);
-        this.c = f2356a;
-        this.d = f2357b;
+        this.c = f1801a;
+        this.d = b;
         a();
     }
 
     public LivenessVideoXfordView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.c = f2356a;
-        this.d = f2357b;
+        this.c = f1801a;
+        this.d = b;
         a();
     }
 
@@ -136,8 +134,8 @@ public class LivenessVideoXfordView extends FrameLayout {
                     return;
                 }
                 LivenessVideoXfordView.this.v += 2;
-                LivenessVideoXfordView.this.d = LivenessVideoXfordView.f2357b + LivenessVideoXfordView.this.v;
-                LivenessVideoXfordView.this.c = (LivenessVideoXfordView.f2356a + (LivenessVideoXfordView.this.v * 1)) % 360.0f;
+                LivenessVideoXfordView.this.d = LivenessVideoXfordView.b + LivenessVideoXfordView.this.v;
+                LivenessVideoXfordView.this.c = (LivenessVideoXfordView.f1801a + (LivenessVideoXfordView.this.v * 1)) % 360.0f;
                 LivenessVideoXfordView.this.invalidate();
                 LivenessVideoXfordView.this.t.postDelayed(LivenessVideoXfordView.this.u, 3L);
             }
@@ -187,8 +185,8 @@ public class LivenessVideoXfordView extends FrameLayout {
                 b();
             } else if (this.n == VideoXfordViewState.SUCCESSING) {
                 this.w = aVar;
-                this.c = f2357b;
-                this.d = f2357b;
+                this.c = b;
+                this.d = b;
                 this.q.removeCallbacksAndMessages(null);
                 c();
             } else if (this.n == VideoXfordViewState.SUCCESSED) {

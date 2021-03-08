@@ -1,5 +1,5 @@
 package com.yy.videoplayer.videoview;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoPosition {
     public int mIndex = 0;
     public int mX = 0;

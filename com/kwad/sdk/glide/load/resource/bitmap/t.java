@@ -26,10 +26,8 @@ public final class t {
     private static final Lock e;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Paint f10300a = new Paint(6);
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final Paint f10301b = new Paint(7);
+    private static final Paint f6799a = new Paint(6);
+    private static final Paint b = new Paint(7);
     private static final Set<String> d = new HashSet(Arrays.asList("XT1085", "XT1092", "XT1093", "XT1094", "XT1095", "XT1096", "XT1097", "XT1098", "XT1031", "XT1028", "XT937C", "XT1032", "XT1008", "XT1033", "XT1035", "XT1034", "XT939G", "XT1039", "XT1040", "XT1042", "XT1045", "XT1063", "XT1064", "XT1068", "XT1069", "XT1072", "XT1077", "XT1078", "XT1079"));
 
     /* loaded from: classes3.dex */
@@ -187,7 +185,7 @@ public final class t {
         e.lock();
         try {
             Canvas canvas = new Canvas(bitmap2);
-            canvas.drawBitmap(bitmap, matrix, f10300a);
+            canvas.drawBitmap(bitmap, matrix, f6799a);
             a(canvas);
         } finally {
             e.unlock();
@@ -281,7 +279,7 @@ public final class t {
         e.lock();
         try {
             Canvas canvas = new Canvas(a3);
-            canvas.drawCircle(f, f, f, f10301b);
+            canvas.drawCircle(f, f, f, b);
             canvas.drawBitmap(a2, (Rect) null, rectF, c);
             a(canvas);
             e.unlock();

@@ -19,10 +19,8 @@ import java.util.concurrent.locks.ReentrantLock;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1836a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f1837b = null;
+    private String f1472a = null;
+    private String b = null;
     private String c;
 
     public d() {
@@ -171,15 +169,15 @@ public class d {
     }
 
     public void a() {
-        if (TextUtils.isEmpty(this.f1836a) || TextUtils.isEmpty(this.f1837b)) {
+        if (TextUtils.isEmpty(this.f1472a) || TextUtils.isEmpty(this.b)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
-            String str = this.f1836a;
+            String str = this.f1472a;
             if (b(str)) {
-                String str2 = this.f1837b;
+                String str2 = this.b;
                 a(str2);
                 if (b(str, str2)) {
                     a(str);
@@ -196,24 +194,24 @@ public class d {
     }
 
     public void a(Context context) {
-        String b2;
-        if (context == null || (b2 = n.b(context)) == null) {
+        String b;
+        if (context == null || (b = n.b(context)) == null) {
             return;
         }
-        new File(b2).mkdirs();
+        new File(b).mkdirs();
         String coreVersion = CyberPlayerManager.getCoreVersion();
-        this.f1836a = b2 + File.separator + this.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + coreVersion + ".bak";
-        this.f1837b = b2 + File.separator + this.c + "_log_" + coreVersion + ".tmp";
+        this.f1472a = b + File.separator + this.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + coreVersion + ".bak";
+        this.b = b + File.separator + this.c + "_log_" + coreVersion + ".tmp";
     }
 
     public void a(byte[] bArr) {
-        if (bArr == null || TextUtils.isEmpty(this.f1836a)) {
+        if (bArr == null || TextUtils.isEmpty(this.f1472a)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
-            a(this.f1836a, bArr, "\r\n");
+            a(this.f1472a, bArr, "\r\n");
         } catch (AssertionError e) {
             CyberLog.e("DpStatFileWriter", "write data to file fail");
         } finally {

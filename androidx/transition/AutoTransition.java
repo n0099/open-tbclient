@@ -2,7 +2,7 @@ package androidx.transition;
 
 import android.content.Context;
 import android.util.AttributeSet;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public class AutoTransition extends TransitionSet {
     public AutoTransition() {
         init();

@@ -19,35 +19,35 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
-    private int abv;
-    private int ffA;
-    private int ffB;
-    private LinearLayout.LayoutParams fff;
-    private LinearLayout.LayoutParams ffg;
-    private final b ffh;
-    public ViewPager.OnPageChangeListener ffi;
-    private LinearLayout ffj;
-    private ViewPager ffk;
-    private int ffl;
-    private float ffm;
-    private Paint ffn;
-    private boolean ffo;
-    private int ffp;
-    private int ffq;
-    private int ffr;
-    private int ffs;
-    private int fft;
-    private int ffu;
-    private int ffv;
-    private int ffw;
-    private int ffx;
-    private int ffy;
-    private Typeface ffz;
+    private int acR;
+    private LinearLayout.LayoutParams fgE;
+    private LinearLayout.LayoutParams fgF;
+    private final b fgG;
+    public ViewPager.OnPageChangeListener fgH;
+    private LinearLayout fgI;
+    private ViewPager fgJ;
+    private int fgK;
+    private float fgL;
+    private Paint fgM;
+    private boolean fgN;
+    private int fgO;
+    private int fgP;
+    private int fgQ;
+    private int fgR;
+    private int fgS;
+    private int fgT;
+    private int fgU;
+    private int fgV;
+    private int fgW;
+    private int fgX;
+    private Typeface fgY;
+    private int fgZ;
+    private int fha;
     private int tabBackgroundResId;
 
     /* loaded from: classes.dex */
     public interface a {
-        int po(int i);
+        int pp(int i);
     }
 
     public CommonPagerSlidingTabStrip(Context context) {
@@ -60,23 +60,23 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
 
     public CommonPagerSlidingTabStrip(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ffh = new b();
-        this.abv = 0;
-        this.ffm = 0.0f;
-        this.ffo = false;
-        this.ffp = ap.getColor(R.color.CAM_X0105);
-        this.ffq = ap.getColor(R.color.CAM_X0107);
-        this.ffr = 52;
-        this.ffs = 4;
-        this.fft = 24;
-        this.ffu = 24;
-        this.ffv = 24;
-        this.ffw = 24;
-        this.ffx = 40;
-        this.ffy = 12;
-        this.ffz = null;
-        this.ffA = 0;
-        this.ffB = 0;
+        this.fgG = new b();
+        this.acR = 0;
+        this.fgL = 0.0f;
+        this.fgN = false;
+        this.fgO = ap.getColor(R.color.CAM_X0105);
+        this.fgP = ap.getColor(R.color.CAM_X0107);
+        this.fgQ = 52;
+        this.fgR = 4;
+        this.fgS = 24;
+        this.fgT = 24;
+        this.fgU = 24;
+        this.fgV = 24;
+        this.fgW = 40;
+        this.fgX = 12;
+        this.fgY = null;
+        this.fgZ = 0;
+        this.fha = 0;
         this.tabBackgroundResId = R.drawable.pager_sliding_view;
         init();
     }
@@ -84,53 +84,53 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
     private void init() {
         setFillViewport(true);
         setWillNotDraw(false);
-        this.ffj = new LinearLayout(getContext());
-        this.ffj.setOrientation(0);
-        this.ffj.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        addView(this.ffj);
-        this.ffn = new Paint();
-        this.ffn.setAntiAlias(true);
-        this.ffn.setStyle(Paint.Style.FILL);
-        this.fff = new LinearLayout.LayoutParams(-2, -1);
-        this.ffg = new LinearLayout.LayoutParams(0, -1, 1.0f);
+        this.fgI = new LinearLayout(getContext());
+        this.fgI.setOrientation(0);
+        this.fgI.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        addView(this.fgI);
+        this.fgM = new Paint();
+        this.fgM.setAntiAlias(true);
+        this.fgM.setStyle(Paint.Style.FILL);
+        this.fgE = new LinearLayout.LayoutParams(-2, -1);
+        this.fgF = new LinearLayout.LayoutParams(0, -1, 1.0f);
     }
 
     public void a(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
-        this.ffy = i;
-        this.fft = i2;
-        this.ffu = i3;
-        this.ffv = i4;
-        this.ffw = i5;
-        this.ffs = i6;
-        this.ffx = i7;
-        this.ffq = i8;
-        this.ffp = i9;
+        this.fgX = i;
+        this.fgS = i2;
+        this.fgT = i3;
+        this.fgU = i4;
+        this.fgV = i5;
+        this.fgR = i6;
+        this.fgW = i7;
+        this.fgP = i8;
+        this.fgO = i9;
     }
 
     public void setViewPager(ViewPager viewPager) {
-        this.ffk = viewPager;
+        this.fgJ = viewPager;
         if (viewPager.getAdapter() != null) {
-            viewPager.setOnPageChangeListener(this.ffh);
+            viewPager.setOnPageChangeListener(this.fgG);
             notifyDataSetChanged();
         }
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        this.ffi = onPageChangeListener;
+        this.fgH = onPageChangeListener;
     }
 
     public void notifyDataSetChanged() {
-        if (this.ffk != null && this.ffk.getAdapter() != null && this.ffk.getAdapter().getCount() != 0) {
-            this.ffj.removeAllViews();
-            this.ffl = this.ffk.getAdapter().getCount();
+        if (this.fgJ != null && this.fgJ.getAdapter() != null && this.fgJ.getAdapter().getCount() != 0) {
+            this.fgI.removeAllViews();
+            this.fgK = this.fgJ.getAdapter().getCount();
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.ffl) {
-                    if (this.ffk.getAdapter() instanceof a) {
-                        aP(i2, ((a) this.ffk.getAdapter()).po(i2));
+                if (i2 < this.fgK) {
+                    if (this.fgJ.getAdapter() instanceof a) {
+                        aP(i2, ((a) this.fgJ.getAdapter()).pp(i2));
                     } else {
-                        aK(i2, this.ffk.getAdapter().getPageTitle(i2).toString());
+                        aK(i2, this.fgJ.getAdapter().getPageTitle(i2).toString());
                     }
                     i = i2 + 1;
                 } else {
@@ -139,8 +139,8 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
                         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                         public void onGlobalLayout() {
                             CommonPagerSlidingTabStrip.this.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                            CommonPagerSlidingTabStrip.this.abv = CommonPagerSlidingTabStrip.this.ffk.getCurrentItem();
-                            CommonPagerSlidingTabStrip.this.scrollToChild(CommonPagerSlidingTabStrip.this.abv, 0);
+                            CommonPagerSlidingTabStrip.this.acR = CommonPagerSlidingTabStrip.this.fgJ.getCurrentItem();
+                            CommonPagerSlidingTabStrip.this.scrollToChild(CommonPagerSlidingTabStrip.this.acR, 0);
                         }
                     });
                     return;
@@ -168,28 +168,28 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
         view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.CommonPagerSlidingTabStrip.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                CommonPagerSlidingTabStrip.this.ffk.setCurrentItem(i);
+                CommonPagerSlidingTabStrip.this.fgJ.setCurrentItem(i);
                 CommonPagerSlidingTabStrip.this.updateTabStyles();
             }
         });
-        view.setPadding(this.fft, this.ffu, this.ffv, this.ffw);
-        this.ffj.addView(view, i, this.ffo ? this.ffg : this.fff);
+        view.setPadding(this.fgS, this.fgT, this.fgU, this.fgV);
+        this.fgI.addView(view, i, this.fgN ? this.fgF : this.fgE);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void updateTabStyles() {
-        for (int i = 0; i < this.ffl; i++) {
-            View childAt = this.ffj.getChildAt(i);
+        for (int i = 0; i < this.fgK; i++) {
+            View childAt = this.fgI.getChildAt(i);
             if (childAt != null) {
                 childAt.setBackgroundResource(this.tabBackgroundResId);
                 if (childAt instanceof TextView) {
                     TextView textView = (TextView) childAt;
-                    textView.setTextSize(0, this.ffy);
-                    textView.setTypeface(this.ffz, this.ffA);
-                    if (i == this.ffk.getCurrentItem()) {
-                        textView.setTextColor(this.ffp);
+                    textView.setTextSize(0, this.fgX);
+                    textView.setTypeface(this.fgY, this.fgZ);
+                    if (i == this.fgJ.getCurrentItem()) {
+                        textView.setTextColor(this.fgO);
                     } else {
-                        textView.setTextColor(this.ffq);
+                        textView.setTextColor(this.fgP);
                     }
                 }
             }
@@ -198,13 +198,13 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void scrollToChild(int i, int i2) {
-        if (this.ffl != 0) {
-            int left = this.ffj.getChildAt(i).getLeft() + i2;
+        if (this.fgK != 0) {
+            int left = this.fgI.getChildAt(i).getLeft() + i2;
             if (i > 0 || i2 > 0) {
-                left -= this.ffr;
+                left -= this.fgQ;
             }
-            if (left != this.ffB) {
-                this.ffB = left;
+            if (left != this.fha) {
+                this.fha = left;
                 scrollTo(left, 0);
             }
         }
@@ -213,28 +213,28 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (!isInEditMode() && this.ffl != 0 && this.ffj.getChildCount() > 1) {
+        if (!isInEditMode() && this.fgK != 0 && this.fgI.getChildCount() > 1) {
             int height = getHeight();
-            this.ffn.setColor(this.ffp);
-            View childAt = this.ffj.getChildAt(this.abv);
+            this.fgM.setColor(this.fgO);
+            View childAt = this.fgI.getChildAt(this.acR);
             float left = childAt.getLeft();
             float right = childAt.getRight();
-            if (this.ffm > 0.0f && this.abv < this.ffl - 1) {
-                View childAt2 = this.ffj.getChildAt(this.abv + 1);
-                left = (left * (1.0f - this.ffm)) + (childAt2.getLeft() * this.ffm);
-                right = (right * (1.0f - this.ffm)) + (childAt2.getRight() * this.ffm);
+            if (this.fgL > 0.0f && this.acR < this.fgK - 1) {
+                View childAt2 = this.fgI.getChildAt(this.acR + 1);
+                left = (left * (1.0f - this.fgL)) + (childAt2.getLeft() * this.fgL);
+                right = (right * (1.0f - this.fgL)) + (childAt2.getRight() * this.fgL);
             }
-            if (right - left < this.ffx) {
-                canvas.drawRect(left, height - this.ffs, right, height, this.ffn);
+            if (right - left < this.fgW) {
+                canvas.drawRect(left, height - this.fgR, right, height, this.fgM);
             } else {
-                canvas.drawRect(left + (((right - left) - this.ffx) / 2.0f), height - this.ffs, right - (((right - left) - this.ffx) / 2.0f), height, this.ffn);
+                canvas.drawRect(left + (((right - left) - this.fgW) / 2.0f), height - this.fgR, right - (((right - left) - this.fgW) / 2.0f), height, this.fgM);
             }
         }
     }
 
     public void onChangeSkinType(int i) {
-        this.ffp = ap.getColor(i, this.ffp);
-        this.ffq = ap.getColor(i, this.ffq);
+        this.fgO = ap.getColor(i, this.fgO);
+        this.fgP = ap.getColor(i, this.fgP);
         updateTabStyles();
     }
 
@@ -245,33 +245,33 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
-            if (CommonPagerSlidingTabStrip.this.ffj.getChildCount() != 0) {
-                CommonPagerSlidingTabStrip.this.abv = i;
-                CommonPagerSlidingTabStrip.this.ffm = f;
-                CommonPagerSlidingTabStrip.this.scrollToChild(i, (int) (CommonPagerSlidingTabStrip.this.ffj.getChildAt(i).getWidth() * f));
+            if (CommonPagerSlidingTabStrip.this.fgI.getChildCount() != 0) {
+                CommonPagerSlidingTabStrip.this.acR = i;
+                CommonPagerSlidingTabStrip.this.fgL = f;
+                CommonPagerSlidingTabStrip.this.scrollToChild(i, (int) (CommonPagerSlidingTabStrip.this.fgI.getChildAt(i).getWidth() * f));
                 CommonPagerSlidingTabStrip.this.invalidate();
-                if (CommonPagerSlidingTabStrip.this.ffi != null) {
-                    CommonPagerSlidingTabStrip.this.ffi.onPageScrolled(i, f, i2);
+                if (CommonPagerSlidingTabStrip.this.fgH != null) {
+                    CommonPagerSlidingTabStrip.this.fgH.onPageScrolled(i, f, i2);
                 }
             }
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i) {
-            if (CommonPagerSlidingTabStrip.this.ffj.getChildCount() != 0) {
+            if (CommonPagerSlidingTabStrip.this.fgI.getChildCount() != 0) {
                 if (i == 0) {
-                    CommonPagerSlidingTabStrip.this.scrollToChild(CommonPagerSlidingTabStrip.this.ffk.getCurrentItem(), 0);
+                    CommonPagerSlidingTabStrip.this.scrollToChild(CommonPagerSlidingTabStrip.this.fgJ.getCurrentItem(), 0);
                 }
-                if (CommonPagerSlidingTabStrip.this.ffi != null) {
-                    CommonPagerSlidingTabStrip.this.ffi.onPageScrollStateChanged(i);
+                if (CommonPagerSlidingTabStrip.this.fgH != null) {
+                    CommonPagerSlidingTabStrip.this.fgH.onPageScrollStateChanged(i);
                 }
             }
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            if (CommonPagerSlidingTabStrip.this.ffi != null) {
-                CommonPagerSlidingTabStrip.this.ffi.onPageSelected(i);
+            if (CommonPagerSlidingTabStrip.this.fgH != null) {
+                CommonPagerSlidingTabStrip.this.fgH.onPageSelected(i);
             }
             CommonPagerSlidingTabStrip.this.updateTabStyles();
         }
@@ -281,14 +281,14 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
     public void onRestoreInstanceState(Parcelable parcelable) {
         SavedState savedState = (SavedState) parcelable;
         super.onRestoreInstanceState(savedState.getSuperState());
-        this.abv = savedState.abv;
+        this.acR = savedState.acR;
         requestLayout();
     }
 
     @Override // android.widget.HorizontalScrollView, android.view.View
     public Parcelable onSaveInstanceState() {
         SavedState savedState = new SavedState(super.onSaveInstanceState());
-        savedState.abv = this.abv;
+        savedState.acR = this.acR;
         return savedState;
     }
 
@@ -305,12 +305,12 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: pp */
+            /* renamed from: pq */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }
         };
-        int abv;
+        int acR;
 
         public SavedState(Parcelable parcelable) {
             super(parcelable);
@@ -318,13 +318,13 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
 
         private SavedState(Parcel parcel) {
             super(parcel);
-            this.abv = parcel.readInt();
+            this.acR = parcel.readInt();
         }
 
         @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             super.writeToParcel(parcel, i);
-            parcel.writeInt(this.abv);
+            parcel.writeInt(this.acR);
         }
     }
 }

@@ -3,7 +3,7 @@ package com.yy.mediaframework.gles;
 import android.graphics.SurfaceTexture;
 import android.view.Surface;
 import android.view.SurfaceHolder;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class WindowSurfaceKhronos extends EglSurfaceBaseKhronos implements IWindowSurface {
     private boolean mReleaseSurface;
     private SurfaceHolder mSurfaceHolder;

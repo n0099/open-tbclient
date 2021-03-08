@@ -1,5 +1,5 @@
 package cn.com.chinatelecom.account.api;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CtSetting {
     private static final int DEFAULT_CONN_TIMEOUT = 3000;
     private static final int DEFAULT_READ_TIMEOUT = 3000;

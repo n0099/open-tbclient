@@ -6,81 +6,81 @@ import androidx.annotation.RestrictTo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class e {
-    private final List<String> Fl;
+    private final List<String> GG;
     @Nullable
-    private f btm;
+    private f buO;
 
     public e(String... strArr) {
-        this.Fl = Arrays.asList(strArr);
+        this.GG = Arrays.asList(strArr);
     }
 
     private e(e eVar) {
-        this.Fl = new ArrayList(eVar.Fl);
-        this.btm = eVar.btm;
+        this.GG = new ArrayList(eVar.GG);
+        this.buO = eVar.buO;
     }
 
     @CheckResult
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public e hn(String str) {
+    public e ht(String str) {
         e eVar = new e(this);
-        eVar.Fl.add(str);
+        eVar.GG.add(str);
         return eVar;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public e a(f fVar) {
         e eVar = new e(this);
-        eVar.btm = fVar;
+        eVar.buO = fVar;
         return eVar;
     }
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public f Nq() {
-        return this.btm;
+    public f Nt() {
+        return this.buO;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public boolean h(String str, int i) {
-        if (bl(str)) {
+        if (bp(str)) {
             return true;
         }
-        if (i >= this.Fl.size()) {
+        if (i >= this.GG.size()) {
             return false;
         }
-        return this.Fl.get(i).equals(str) || this.Fl.get(i).equals("**") || this.Fl.get(i).equals("*");
+        return this.GG.get(i).equals(str) || this.GG.get(i).equals("**") || this.GG.get(i).equals("*");
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public int i(String str, int i) {
-        if (bl(str)) {
+        if (bp(str)) {
             return 0;
         }
-        if (this.Fl.get(i).equals("**")) {
-            return (i != this.Fl.size() + (-1) && this.Fl.get(i + 1).equals(str)) ? 2 : 0;
+        if (this.GG.get(i).equals("**")) {
+            return (i != this.GG.size() + (-1) && this.GG.get(i + 1).equals(str)) ? 2 : 0;
         }
         return 1;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public boolean j(String str, int i) {
-        if (i >= this.Fl.size()) {
+        if (i >= this.GG.size()) {
             return false;
         }
-        boolean z = i == this.Fl.size() + (-1);
-        String str2 = this.Fl.get(i);
+        boolean z = i == this.GG.size() + (-1);
+        String str2 = this.GG.get(i);
         if (!str2.equals("**")) {
-            return (z || (i == this.Fl.size() + (-2) && iZ())) && (str2.equals(str) || str2.equals("*"));
+            return (z || (i == this.GG.size() + (-2) && iZ())) && (str2.equals(str) || str2.equals("*"));
         }
-        if (!z && this.Fl.get(i + 1).equals(str)) {
-            return i == this.Fl.size() + (-2) || (i == this.Fl.size() + (-3) && iZ());
+        if (!z && this.GG.get(i + 1).equals(str)) {
+            return i == this.GG.size() + (-2) || (i == this.GG.size() + (-3) && iZ());
         } else if (z) {
             return true;
         } else {
-            if (i + 1 >= this.Fl.size() - 1) {
-                return this.Fl.get(i + 1).equals(str);
+            if (i + 1 >= this.GG.size() - 1) {
+                return this.GG.get(i + 1).equals(str);
             }
             return false;
         }
@@ -91,18 +91,18 @@ public class e {
         if (str.equals("__container")) {
             return true;
         }
-        return i < this.Fl.size() + (-1) || this.Fl.get(i).equals("**");
+        return i < this.GG.size() + (-1) || this.GG.get(i).equals("**");
     }
 
-    private boolean bl(String str) {
+    private boolean bp(String str) {
         return str.equals("__container");
     }
 
     private boolean iZ() {
-        return this.Fl.get(this.Fl.size() - 1).equals("**");
+        return this.GG.get(this.GG.size() - 1).equals("**");
     }
 
     public String toString() {
-        return "KeyPath{keys=" + this.Fl + ",resolved=" + (this.btm != null) + '}';
+        return "KeyPath{keys=" + this.GG + ",resolved=" + (this.buO != null) + '}';
     }
 }

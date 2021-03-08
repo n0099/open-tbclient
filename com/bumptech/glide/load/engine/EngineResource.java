@@ -1,35 +1,30 @@
 package com.bumptech.glide.load.engine;
 
-import android.os.Looper;
 import androidx.annotation.NonNull;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 class EngineResource<Z> implements Resource<Z> {
     private int acquired;
-    private final boolean isCacheable;
+    private final boolean isMemoryCacheable;
     private final boolean isRecyclable;
     private boolean isRecycled;
-    private Key key;
-    private ResourceListener listener;
+    private final Key key;
+    private final ResourceListener listener;
     private final Resource<Z> resource;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     interface ResourceListener {
         void onResourceReleased(Key key, EngineResource<?> engineResource);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public EngineResource(Resource<Z> resource, boolean z, boolean z2) {
+    public EngineResource(Resource<Z> resource, boolean z, boolean z2, Key key, ResourceListener resourceListener) {
         this.resource = (Resource) Preconditions.checkNotNull(resource);
-        this.isCacheable = z;
+        this.isMemoryCacheable = z;
         this.isRecyclable = z2;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setResourceListener(Key key, ResourceListener resourceListener) {
         this.key = key;
-        this.listener = resourceListener;
+        this.listener = (ResourceListener) Preconditions.checkNotNull(resourceListener);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -38,8 +33,8 @@ class EngineResource<Z> implements Resource<Z> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isCacheable() {
-        return this.isCacheable;
+    public boolean isMemoryCacheable() {
+        return this.isMemoryCacheable;
     }
 
     @Override // com.bumptech.glide.load.engine.Resource
@@ -60,7 +55,7 @@ class EngineResource<Z> implements Resource<Z> {
     }
 
     @Override // com.bumptech.glide.load.engine.Resource
-    public void recycle() {
+    public synchronized void recycle() {
         if (this.acquired > 0) {
             throw new IllegalStateException("Cannot recycle a resource while it is still acquired");
         }
@@ -74,32 +69,32 @@ class EngineResource<Z> implements Resource<Z> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void acquire() {
+    public synchronized void acquire() {
         if (this.isRecycled) {
             throw new IllegalStateException("Cannot acquire a recycled resource");
-        }
-        if (!Looper.getMainLooper().equals(Looper.myLooper())) {
-            throw new IllegalThreadStateException("Must call acquire on the main thread");
         }
         this.acquired++;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void release() {
-        if (this.acquired <= 0) {
-            throw new IllegalStateException("Cannot release a recycled or not yet acquired resource");
+        boolean z = false;
+        synchronized (this) {
+            if (this.acquired <= 0) {
+                throw new IllegalStateException("Cannot release a recycled or not yet acquired resource");
+            }
+            int i = this.acquired - 1;
+            this.acquired = i;
+            if (i == 0) {
+                z = true;
+            }
         }
-        if (!Looper.getMainLooper().equals(Looper.myLooper())) {
-            throw new IllegalThreadStateException("Must call release on the main thread");
-        }
-        int i = this.acquired - 1;
-        this.acquired = i;
-        if (i == 0) {
+        if (z) {
             this.listener.onResourceReleased(this.key, this);
         }
     }
 
-    public String toString() {
-        return "EngineResource{isCacheable=" + this.isCacheable + ", listener=" + this.listener + ", key=" + this.key + ", acquired=" + this.acquired + ", isRecycled=" + this.isRecycled + ", resource=" + this.resource + '}';
+    public synchronized String toString() {
+        return "EngineResource{isMemoryCacheable=" + this.isMemoryCacheable + ", listener=" + this.listener + ", key=" + this.key + ", acquired=" + this.acquired + ", isRecycled=" + this.isRecycled + ", resource=" + this.resource + '}';
     }
 }

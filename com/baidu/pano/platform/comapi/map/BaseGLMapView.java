@@ -8,13 +8,11 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 /* loaded from: classes4.dex */
 public abstract class BaseGLMapView extends GLSurfaceView implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener {
-
-    /* renamed from: b  reason: collision with root package name */
-    protected static Context f3924b;
+    protected static Context b;
     private static final String d = BaseGLMapView.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    protected e f3925a;
+    protected e f2729a;
     public GLSurfaceView.Renderer c;
     private GestureDetector e;
     private boolean f;
@@ -23,7 +21,7 @@ public abstract class BaseGLMapView extends GLSurfaceView implements GestureDete
         super(context, attributeSet);
         this.f = false;
         this.c = new a(this);
-        f3924b = context;
+        b = context;
         a();
         b();
         setZOrderMediaOverlay(true);
@@ -31,25 +29,25 @@ public abstract class BaseGLMapView extends GLSurfaceView implements GestureDete
     }
 
     private void a() {
-        if (this.f3925a == null) {
-            this.f3925a = new e(f3924b);
+        if (this.f2729a == null) {
+            this.f2729a = new e(b);
         }
     }
 
     private void b() {
-        this.e = new GestureDetector(f3924b, this);
+        this.e = new GestureDetector(b, this);
         this.e.setOnDoubleTapListener(this);
         setLongClickable(true);
     }
 
     @Override // android.opengl.GLSurfaceView
     public void onResume() {
-        this.f3925a.d();
+        this.f2729a.d();
     }
 
     @Override // android.opengl.GLSurfaceView
     public void onPause() {
-        this.f3925a.e();
+        this.f2729a.e();
     }
 
     @Override // android.opengl.GLSurfaceView, android.view.SurfaceHolder.Callback
@@ -64,7 +62,7 @@ public abstract class BaseGLMapView extends GLSurfaceView implements GestureDete
 
     @Override // android.opengl.GLSurfaceView, android.view.SurfaceHolder.Callback
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
-        this.f3925a.a(surfaceHolder.getSurface(), i2, i3, com.baidu.pano.platform.c.h.b(f3924b));
+        this.f2729a.a(surfaceHolder.getSurface(), i2, i3, com.baidu.pano.platform.c.h.b(b));
     }
 
     @Override // android.view.View
@@ -72,11 +70,11 @@ public abstract class BaseGLMapView extends GLSurfaceView implements GestureDete
         boolean z;
         boolean z2;
         if ((motionEvent.getAction() & 255) == 5) {
-            z = this.f3925a.c(motionEvent);
+            z = this.f2729a.c(motionEvent);
             z2 = false;
         } else if (this.e != null) {
             z2 = this.e.onTouchEvent(motionEvent);
-            z = this.f3925a.c(motionEvent);
+            z = this.f2729a.c(motionEvent);
         } else {
             z = false;
             z2 = false;
@@ -86,8 +84,8 @@ public abstract class BaseGLMapView extends GLSurfaceView implements GestureDete
 
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onDown(MotionEvent motionEvent) {
-        if (this.f3925a != null) {
-            return this.f3925a.a(motionEvent);
+        if (this.f2729a != null) {
+            return this.f2729a.a(motionEvent);
         }
         return false;
     }
@@ -103,8 +101,8 @@ public abstract class BaseGLMapView extends GLSurfaceView implements GestureDete
 
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        if (this.f3925a != null) {
-            return this.f3925a.a(motionEvent, motionEvent2, f, f2);
+        if (this.f2729a != null) {
+            return this.f2729a.a(motionEvent, motionEvent2, f, f2);
         }
         return false;
     }
@@ -115,22 +113,22 @@ public abstract class BaseGLMapView extends GLSurfaceView implements GestureDete
 
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        if (this.f3925a != null) {
-            return this.f3925a.b(motionEvent, motionEvent2, f, f2);
+        if (this.f2729a != null) {
+            return this.f2729a.b(motionEvent, motionEvent2, f, f2);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        this.f3925a.c(motionEvent.getX(), motionEvent.getY());
+        this.f2729a.c(motionEvent.getX(), motionEvent.getY());
         return true;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.f3925a != null) {
-            return this.f3925a.b(motionEvent);
+        if (this.f2729a != null) {
+            return this.f2729a.b(motionEvent);
         }
         return false;
     }

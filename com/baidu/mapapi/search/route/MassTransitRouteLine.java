@@ -19,9 +19,7 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public final class MassTransitRouteLine extends RouteLine<TransitStep> implements Parcelable {
     public static final Parcelable.Creator<MassTransitRouteLine> CREATOR = new i();
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f2904b;
+    private String b;
     private double c;
     private List<PriceInfo> d;
     private List<List<TransitStep>> e;
@@ -51,15 +49,15 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             
 
             /* renamed from: a  reason: collision with root package name */
-            private int f2905a;
+            private int f2134a;
 
             StepVehicleInfoType(int i) {
-                this.f2905a = 0;
-                this.f2905a = i;
+                this.f2134a = 0;
+                this.f2134a = i;
             }
 
             public int getInt() {
-                return this.f2905a;
+                return this.f2134a;
             }
         }
 
@@ -68,18 +66,16 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             public static final Parcelable.Creator<TrafficCondition> CREATOR = new k();
 
             /* renamed from: a  reason: collision with root package name */
-            private int f2906a;
-
-            /* renamed from: b  reason: collision with root package name */
-            private int f2907b;
+            private int f2135a;
+            private int b;
 
             public TrafficCondition() {
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
             public TrafficCondition(Parcel parcel) {
-                this.f2906a = parcel.readInt();
-                this.f2907b = parcel.readInt();
+                this.f2135a = parcel.readInt();
+                this.b = parcel.readInt();
             }
 
             @Override // android.os.Parcelable
@@ -88,25 +84,25 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             }
 
             public int getTrafficGeoCnt() {
-                return this.f2907b;
+                return this.b;
             }
 
             public int getTrafficStatus() {
-                return this.f2906a;
+                return this.f2135a;
             }
 
             public void setTrafficGeoCnt(int i) {
-                this.f2907b = i;
+                this.b = i;
             }
 
             public void setTrafficStatus(int i) {
-                this.f2906a = i;
+                this.f2135a = i;
             }
 
             @Override // android.os.Parcelable
             public void writeToParcel(Parcel parcel, int i) {
-                parcel.writeInt(this.f2906a);
-                parcel.writeInt(this.f2907b);
+                parcel.writeInt(this.f2135a);
+                parcel.writeInt(this.b);
             }
         }
 
@@ -279,7 +275,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
         super(parcel);
         this.e = null;
         int readInt = parcel.readInt();
-        this.f2904b = parcel.readString();
+        this.b = parcel.readString();
         this.c = parcel.readDouble();
         this.d = parcel.createTypedArrayList(PriceInfo.CREATOR);
         if (readInt > 0) {
@@ -296,7 +292,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
     }
 
     public String getArriveTime() {
-        return this.f2904b;
+        return this.b;
     }
 
     public List<List<TransitStep>> getNewSteps() {
@@ -312,7 +308,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
     }
 
     public void setArriveTime(String str) {
-        this.f2904b = str;
+        this.b = str;
     }
 
     public void setNewSteps(List<List<TransitStep>> list) {
@@ -331,7 +327,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
     public void writeToParcel(Parcel parcel, int i) {
         super.writeToParcel(parcel, i);
         parcel.writeInt(this.e == null ? 0 : this.e.size());
-        parcel.writeString(this.f2904b);
+        parcel.writeString(this.b);
         parcel.writeDouble(this.c);
         parcel.writeTypedList(this.d);
         for (List<TransitStep> list : this.e) {

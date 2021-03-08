@@ -4,7 +4,7 @@ import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.SecureHelper;
 import java.security.PublicKey;
 import javax.crypto.SecretKey;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class CoderSecretManager {
     private static volatile CoderSecretManager sInstance = null;
     private SecretKey mSecretKey = null;

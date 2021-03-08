@@ -5,7 +5,7 @@ import java.io.IOException;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 final class FilesKt__UtilsKt$copyRecursively$2 extends Lambda implements kotlin.jvm.a.c<File, IOException, kotlin.h> {
     final /* synthetic */ kotlin.jvm.a.c $onError;
 
@@ -20,13 +20,13 @@ final class FilesKt__UtilsKt$copyRecursively$2 extends Lambda implements kotlin.
     @Override // kotlin.jvm.a.c
     public /* bridge */ /* synthetic */ kotlin.h invoke(File file, IOException iOException) {
         invoke2(file, iOException);
-        return kotlin.h.qto;
+        return kotlin.h.qtQ;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final void invoke2(File file, IOException iOException) {
-        p.o(file, "f");
-        p.o(iOException, "e");
+        p.p(file, "f");
+        p.p(iOException, "e");
         if (p.l((OnErrorAction) this.$onError.invoke(file, iOException), OnErrorAction.TERMINATE)) {
             throw new TerminateException(file);
         }

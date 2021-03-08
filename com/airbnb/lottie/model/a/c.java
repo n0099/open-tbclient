@@ -1,7 +1,7 @@
 package com.airbnb.lottie.model.a;
 
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c extends n<com.airbnb.lottie.model.content.c, com.airbnb.lottie.model.content.c> {
     @Override // com.airbnb.lottie.model.a.n
     public /* bridge */ /* synthetic */ String toString() {
@@ -14,6 +14,6 @@ public class c extends n<com.airbnb.lottie.model.content.c, com.airbnb.lottie.mo
 
     @Override // com.airbnb.lottie.model.a.m
     public com.airbnb.lottie.a.b.a<com.airbnb.lottie.model.content.c, com.airbnb.lottie.model.content.c> jb() {
-        return new com.airbnb.lottie.a.b.d(this.Es);
+        return new com.airbnb.lottie.a.b.d(this.FL);
     }
 }

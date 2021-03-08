@@ -12,60 +12,60 @@ import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.runtime.f;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends f {
-    private final com.baidu.swan.apps.ao.d.c cCt;
-    private String cCu;
-    private boolean cCv;
+    private final com.baidu.swan.apps.ao.d.c cDT;
+    private String cDU;
+    private boolean cDV;
 
     public b(e eVar) {
         super(eVar);
-        this.cCt = new com.baidu.swan.apps.ao.d.c();
-        this.cCv = false;
+        this.cDT = new com.baidu.swan.apps.ao.d.c();
+        this.cDV = false;
     }
 
     private void a(a aVar) {
-        this.cCt.b(aVar);
+        this.cDT.b(aVar);
     }
 
     public void a(final Activity activity, final Bundle bundle, com.baidu.swan.apps.a.a aVar) {
         a(new a(aVar) { // from class: com.baidu.swan.apps.a.b.1
             @Override // com.baidu.swan.apps.a.b.a
             protected void a(com.baidu.swan.apps.a.a aVar2) {
-                com.baidu.swan.apps.t.a.axb().a(activity, bundle, aVar2);
+                com.baidu.swan.apps.t.a.axe().a(activity, bundle, aVar2);
             }
         });
     }
 
     public boolean isLogin(Context context) {
-        return com.baidu.swan.apps.t.a.axb().bZ(context);
+        return com.baidu.swan.apps.t.a.axe().bY(context);
     }
 
     public String getUid(@NonNull Context context) {
-        String ca = com.baidu.swan.apps.t.a.axb().ca(context);
-        setUid(ca);
-        return ca;
+        String bZ = com.baidu.swan.apps.t.a.axe().bZ(context);
+        setUid(bZ);
+        return bZ;
     }
 
     @NonNull
-    public String ago() {
-        if (this.cCv) {
-            return TextUtils.isEmpty(this.cCu) ? "" : this.cCu;
+    public String agr() {
+        if (this.cDV) {
+            return TextUtils.isEmpty(this.cDU) ? "" : this.cDU;
         }
         return getUid(AppRuntime.getAppContext());
     }
 
     public void setUid(String str) {
-        this.cCu = str;
-        this.cCv = true;
+        this.cDU = str;
+        this.cDV = true;
     }
 
     public synchronized void clear() {
-        this.cCt.clear();
+        this.cDT.clear();
     }
 
     public static void a(String str, final e.a aVar) {
-        com.baidu.swan.a.c.a.bbY().getRequest().url("https://mbd.baidu.com/ma/relate2user").cookieManager(com.baidu.swan.apps.t.a.axv().aiy()).addUrlParam("app_key", str).build().executeAsyncOnUIBack(new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.apps.a.b.2
+        com.baidu.swan.a.c.a.bca().getRequest().url("https://mbd.baidu.com/ma/relate2user").cookieManager(com.baidu.swan.apps.t.a.axy().aiB()).addUrlParam("app_key", str).build().executeAsyncOnUIBack(new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.apps.a.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: a */
@@ -101,14 +101,14 @@ public class b extends f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public abstract class a extends com.baidu.swan.apps.ao.d.a implements com.baidu.swan.apps.a.a {
-        private final com.baidu.swan.apps.a.a cCz;
+        private final com.baidu.swan.apps.a.a cDZ;
 
         protected abstract void a(com.baidu.swan.apps.a.a aVar);
 
         private a(com.baidu.swan.apps.a.a aVar) {
-            this.cCz = aVar;
+            this.cDZ = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -118,8 +118,8 @@ public class b extends f {
 
         @Override // com.baidu.swan.apps.a.a
         public void onResult(int i) {
-            if (this.cCz != null) {
-                this.cCz.onResult(i);
+            if (this.cDZ != null) {
+                this.cDZ.onResult(i);
             }
             finish();
         }

@@ -24,7 +24,7 @@ import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.ripple.RippleUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class MaterialButtonHelper {
     private static final float CORNER_RADIUS_ADJUSTMENT = 1.0E-5f;
     private static final int DEFAULT_BACKGROUND_COLOR = -1;

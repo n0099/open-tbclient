@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.security.MessageDigest;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class TbMd5 {
     private static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
@@ -54,11 +54,11 @@ public class TbMd5 {
                 if (i3 >= 16) {
                     return new String(cArr);
                 }
-                byte b2 = digest[i3];
+                byte b = digest[i3];
                 int i4 = i2 + 1;
-                cArr[i2] = HEX_DIGITS[(b2 >>> 4) & 15];
+                cArr[i2] = HEX_DIGITS[(b >>> 4) & 15];
                 i2 = i4 + 1;
-                cArr[i4] = HEX_DIGITS[b2 & 15];
+                cArr[i4] = HEX_DIGITS[b & 15];
                 i = i3 + 1;
             }
         } catch (Exception e) {

@@ -2,21 +2,21 @@ package com.baidu.n.a;
 
 import android.text.TextUtils;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class b {
     static String manufacturer;
-    static ArrayList<Integer> oVx = new ArrayList<>(4);
+    static ArrayList<Integer> oXC = new ArrayList<>(4);
 
     static {
-        oVx.add(10000);
-        oVx.add(10001);
-        oVx.add(10002);
-        oVx.add(20001);
-        oVx.add(-1);
+        oXC.add(10000);
+        oXC.add(10001);
+        oXC.add(10002);
+        oXC.add(20001);
+        oXC.add(-1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static int eiE() {
+    public static int eiO() {
         if (TextUtils.isEmpty(manufacturer)) {
             manufacturer = com.baidu.n.a.c.d.getManufacturer();
         }

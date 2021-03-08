@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 final class ConsoleKt$stdin$2 extends Lambda implements kotlin.jvm.a.a<BufferedReader> {
     public static final ConsoleKt$stdin$2 INSTANCE = new ConsoleKt$stdin$2();
 
@@ -31,7 +31,7 @@ final class ConsoleKt$stdin$2 extends Lambda implements kotlin.jvm.a.a<BufferedR
 
             @Override // java.io.InputStream
             public int read(byte[] bArr) {
-                p.o(bArr, com.baidu.pass.biometrics.face.liveness.d.b.f4046a);
+                p.p(bArr, com.baidu.pass.biometrics.face.liveness.d.b.f2804a);
                 return System.in.read(bArr);
             }
 
@@ -62,7 +62,7 @@ final class ConsoleKt$stdin$2 extends Lambda implements kotlin.jvm.a.a<BufferedR
 
             @Override // java.io.InputStream
             public int read(byte[] bArr, int i, int i2) {
-                p.o(bArr, com.baidu.pass.biometrics.face.liveness.d.b.f4046a);
+                p.p(bArr, com.baidu.pass.biometrics.face.liveness.d.b.f2804a);
                 return System.in.read(bArr, i, i2);
             }
         }));

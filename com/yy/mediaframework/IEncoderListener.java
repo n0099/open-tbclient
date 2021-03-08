@@ -2,7 +2,7 @@ package com.yy.mediaframework;
 
 import com.yy.mediaframework.api.YMFEncoderStatisticInfo;
 import com.yy.mediaframework.api.YMFVideoEncodeFrame;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface IEncoderListener {
     void onEncodeEncParam(String str);
 

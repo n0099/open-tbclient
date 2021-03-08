@@ -25,7 +25,7 @@ import com.google.android.material.shadow.ShadowDrawableWrapper;
 import com.google.android.material.shadow.ShadowViewDelegate;
 import java.util.ArrayList;
 @RequiresApi(21)
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
     private InsetDrawable insetDrawable;
 
@@ -177,7 +177,7 @@ class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
         rect.set(0, 0, 0, 0);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     static class AlwaysStatefulGradientDrawable extends GradientDrawable {
         AlwaysStatefulGradientDrawable() {
         }

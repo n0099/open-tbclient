@@ -3,17 +3,17 @@ package com.thunder.livesdk;
 import com.thunder.livesdk.ThunderConstant;
 import com.thunder.livesdk.video.ThunderVideoLogCallback;
 import com.yy.mediaframework.utils.YMFLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderPublisher {
     private ThunderDefaultMic mDefaultMic = new ThunderDefaultMic();
     private ThunderDefaultCamera mDefaultCamera = new ThunderDefaultCamera();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface IAudioPublisher {
         void pushAudioData(byte[] bArr, long j);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface IVideoPublisher {
         void pushVideoData(byte[] bArr, int i, int i2, int i3, int i4, long j);
 

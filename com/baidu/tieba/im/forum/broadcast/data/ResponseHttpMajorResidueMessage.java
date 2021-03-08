@@ -3,7 +3,7 @@ package com.baidu.tieba.im.forum.broadcast.data;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ResponseHttpMajorResidueMessage extends JsonHttpResponsedMessage {
     ForumBroadcastMajorResidueData majorHistoryData;
 
@@ -20,9 +20,9 @@ public class ResponseHttpMajorResidueMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         if (jSONObject != null && jSONObject.optInt("error_code", -1) == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             this.majorHistoryData = new ForumBroadcastMajorResidueData();
-            this.majorHistoryData.CV(optJSONObject.optInt("used_cnt"));
-            this.majorHistoryData.CW(optJSONObject.optInt("has_cnt"));
-            this.majorHistoryData.CX(optJSONObject.optInt("predict_push_usercnt"));
+            this.majorHistoryData.CY(optJSONObject.optInt("used_cnt"));
+            this.majorHistoryData.CZ(optJSONObject.optInt("has_cnt"));
+            this.majorHistoryData.Da(optJSONObject.optInt("predict_push_usercnt"));
         }
     }
 }

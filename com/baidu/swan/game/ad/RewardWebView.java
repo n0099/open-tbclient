@@ -19,7 +19,7 @@ public class RewardWebView extends WebView {
         super(context);
         this.mIsDestroy = false;
         this.mHandler = new Handler(Looper.getMainLooper());
-        aRm();
+        aRp();
         setClickable(true);
         setBackgroundColor(0);
         setFocusable(true);
@@ -39,7 +39,7 @@ public class RewardWebView extends WebView {
         settings.setAppCacheEnabled(true);
         settings.setAppCachePath(path);
         settings.setAppCacheMaxSize(ImageUploadStrategy.FILE_SIZE_5M);
-        aRl();
+        aRo();
         try {
             settings.setGeolocationEnabled(true);
             settings.setGeolocationDatabasePath(path);
@@ -50,9 +50,9 @@ public class RewardWebView extends WebView {
         }
     }
 
-    private void aRl() {
+    private void aRo() {
         WebSettings settings = getSettings();
-        settings.setUserAgentString(com.baidu.swan.apps.am.a.tI(settings.getUserAgentString()));
+        settings.setUserAgentString(com.baidu.swan.apps.am.a.tP(settings.getUserAgentString()));
     }
 
     @Override // android.webkit.WebView
@@ -116,7 +116,7 @@ public class RewardWebView extends WebView {
         }
     }
 
-    private void aRm() {
+    private void aRp() {
         try {
             if (Build.VERSION.SDK_INT >= 11 && Build.VERSION.SDK_INT <= 17) {
                 Method declaredMethod = Class.forName("android.webkit.WebView").getDeclaredMethod("removeJavascriptInterface", String.class);

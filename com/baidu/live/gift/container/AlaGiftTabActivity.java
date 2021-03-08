@@ -56,33 +56,33 @@ import com.baidu.live.view.input.AlaLiveInputEditView;
 import com.baidu.live.view.input.c;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.util.Locale;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnTouchListener, AlaGiftTabView.a, b.a {
-    private AlaLiveInputEditView baA;
-    private GiftPanelDrawContainerView baB;
-    private TextView baC;
-    private ViewTreeObserver.OnGlobalLayoutListener baD;
-    private int baE;
-    private int baF;
-    private int baK;
-    private com.baidu.live.gift.panel.b baL;
-    private Runnable baM;
-    private Runnable baN;
-    private SupportXFragment[] baO;
-    private RoundRectFrameLayout bat;
-    private View bau;
-    private TextView bav;
-    private GiftPanelCountBadgeView baw;
-    private NobleGiftEntryView bax;
-    private ScrollEnableViewPager bay;
-    private FrameLayout baz;
+    private RoundRectFrameLayout bbT;
+    private View bbU;
+    private TextView bbV;
+    private GiftPanelCountBadgeView bbW;
+    private NobleGiftEntryView bbX;
+    private ScrollEnableViewPager bbY;
+    private FrameLayout bbZ;
+    private AlaLiveInputEditView bca;
+    private GiftPanelDrawContainerView bcb;
+    private TextView bcc;
+    private ViewTreeObserver.OnGlobalLayoutListener bcd;
+    private int bce;
+    private int bcf;
+    private int bck;
+    private com.baidu.live.gift.panel.b bcl;
+    private Runnable bcm;
+    private Runnable bcn;
+    private SupportXFragment[] bco;
     private boolean mIsKeyboardOpen;
     private View mRootView;
-    private boolean baG = false;
-    private boolean aWt = false;
-    private boolean baH = false;
-    private boolean baI = false;
-    private boolean baJ = true;
+    private boolean bcg = false;
+    private boolean aXT = false;
+    private boolean bch = false;
+    private boolean bci = false;
+    private boolean bcj = true;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
@@ -95,9 +95,9 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
             if (str != null && str.contains("Flyme")) {
                 getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(a.c.sdk_transparent)));
             }
-            Gd();
+            Gg();
             initView();
-            this.baL.a(this, this);
+            this.bcl.a(this, this);
         }
     }
 
@@ -128,15 +128,15 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
     protected void addGlobalLayoutListener() {
-        this.baD = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.1
+        this.bcd = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.1
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
                 Rect rect = new Rect();
                 AlaGiftTabActivity.this.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
                 int statusBarHeight = BdUtilHelper.getStatusBarHeight(AlaGiftTabActivity.this.getPageContext().getPageActivity());
                 int[] screenDimensions = BdUtilHelper.getScreenDimensions(AlaGiftTabActivity.this.getPageContext().getPageActivity());
-                boolean z = AlaGiftTabActivity.this.baE != rect.bottom;
-                AlaGiftTabActivity.this.baE = rect.bottom;
+                boolean z = AlaGiftTabActivity.this.bce != rect.bottom;
+                AlaGiftTabActivity.this.bce = rect.bottom;
                 if (screenDimensions[1] - rect.bottom > screenDimensions[1] / 4 && (!AlaGiftTabActivity.this.mIsKeyboardOpen || z)) {
                     AlaGiftTabActivity.this.mIsKeyboardOpen = true;
                     AlaGiftTabActivity.this.onKeyboardVisibilityChanged(true);
@@ -146,20 +146,20 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
                 }
             }
         };
-        getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.baD);
+        getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.bcd);
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.baA != null && this.baA.getVisibility() == 0) {
+            if (this.bca != null && this.bca.getVisibility() == 0) {
                 AsyncTask.execute(new Runnable() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.5
                     @Override // java.lang.Runnable
                     public void run() {
                         try {
                             new Instrumentation().sendKeyDownUpSync(4);
                         } catch (Exception e) {
-                            AlaGiftTabActivity.this.baA.post(new Runnable() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.5.1
+                            AlaGiftTabActivity.this.bca.post(new Runnable() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.5.1
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     AlaGiftTabActivity.this.c(false, 0);
@@ -170,7 +170,7 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
                     }
                 });
                 return true;
-            } else if (view == this.bat) {
+            } else if (view == this.bbT) {
                 return true;
             } else {
                 finish();
@@ -187,28 +187,28 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
             this.mRootView.getWindowVisibleDisplayFrame(rect);
             int dimensionPixelSize = rect.bottom - getResources().getDimensionPixelSize(a.d.sdk_ds120);
             int statusBarHeight = !UtilHelper.canUseStyleImmersiveSticky() ? dimensionPixelSize - UtilHelper.getStatusBarHeight() : dimensionPixelSize;
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.baA.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.bca.getLayoutParams();
             layoutParams.topMargin = statusBarHeight;
-            this.baA.setLayoutParams(layoutParams);
-            if (!this.baJ) {
-                this.baA.setVisibility(0);
+            this.bca.setLayoutParams(layoutParams);
+            if (!this.bcj) {
+                this.bca.setVisibility(0);
                 return;
             }
             return;
         }
-        if (this.baO != null) {
-            for (SupportXFragment supportXFragment : this.baO) {
-                if ((supportXFragment instanceof com.baidu.live.gift.panel.c) && ((com.baidu.live.gift.panel.c) supportXFragment).bgI != null) {
-                    ((com.baidu.live.gift.panel.c) supportXFragment).bgI.Gz();
+        if (this.bco != null) {
+            for (SupportXFragment supportXFragment : this.bco) {
+                if ((supportXFragment instanceof com.baidu.live.gift.panel.c) && ((com.baidu.live.gift.panel.c) supportXFragment).bik != null) {
+                    ((com.baidu.live.gift.panel.c) supportXFragment).bik.GC();
                 }
             }
         }
-        Gn();
+        Gq();
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onBackPressed() {
-        if (this.baA != null && this.baA.getVisibility() == 0) {
+        if (this.bca != null && this.bca.getVisibility() == 0) {
             c(false, 0);
         } else {
             super.onBackPressed();
@@ -221,11 +221,11 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
             if (UtilHelper.getRealScreenOrientation(getActivity()) == 2 || TextUtils.isEmpty(alaLiveGiftUIInfo.getVerticalBgUrl())) {
                 b(alaLiveGiftUIInfo);
                 c(alaLiveGiftUIInfo);
-                if (this.bat != null && alaLiveGiftUIInfo.getBgColor() != 0) {
-                    Drawable background = this.bat.getBackground();
+                if (this.bbT != null && alaLiveGiftUIInfo.getBgColor() != 0) {
+                    Drawable background = this.bbT.getBackground();
                     if (background instanceof GradientDrawable) {
                         ((GradientDrawable) background).setColor(alaLiveGiftUIInfo.getBgColor());
-                        this.bat.setBackgroundDrawable(background);
+                        this.bbT.setBackgroundDrawable(background);
                         return;
                     }
                     return;
@@ -239,110 +239,110 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
     @Override // com.baidu.live.gift.panel.b.a
     public void a(int i, SupportXFragment... supportXFragmentArr) {
         SupportXFragment[] supportXFragmentArr2;
-        this.baO = supportXFragmentArr;
-        if (this.baz != null) {
-            this.baz.removeAllViews();
-            if (this.baO != null) {
-                for (SupportXFragment supportXFragment : this.baO) {
+        this.bco = supportXFragmentArr;
+        if (this.bbZ != null) {
+            this.bbZ.removeAllViews();
+            if (this.bco != null) {
+                for (SupportXFragment supportXFragment : this.bco) {
                     supportXFragment.onCreateView(null, null, null);
                     supportXFragment.onActivityCreated(null);
-                    this.baz.addView(supportXFragment.getView(), new ViewGroup.LayoutParams(-1, -1));
+                    this.bbZ.addView(supportXFragment.getView(), new ViewGroup.LayoutParams(-1, -1));
                 }
             }
         }
-        cV(i);
+        cW(i);
     }
 
     @Override // com.baidu.live.gift.container.AlaGiftTabView.a
-    public void FZ() {
-        cV(0);
+    public void Gc() {
+        cW(0);
     }
 
     @Override // com.baidu.live.gift.container.AlaGiftTabView.a
-    public void cU(int i) {
-        if (this.baw != null) {
-            if (Gk() instanceof com.baidu.live.gift.panel.e) {
-                com.baidu.live.d.xc().putInt("gift_package_list_flag", 0);
+    public void cV(int i) {
+        if (this.bbW != null) {
+            if (Gn() instanceof com.baidu.live.gift.panel.e) {
+                com.baidu.live.d.xf().putInt("gift_package_list_flag", 0);
                 i = 0;
             }
             if (i > 0) {
-                this.baw.setCount(i);
-                this.baw.setVisibility(0);
+                this.bbW.setCount(i);
+                this.bbW.setVisibility(0);
                 return;
             }
-            this.baw.setVisibility(4);
+            this.bbW.setVisibility(4);
         }
     }
 
     @Override // com.baidu.live.gift.container.AlaGiftTabView.a
     public void c(boolean z, int i) {
-        if (this.baA != null && this.baA.getEditView() != null) {
+        if (this.bca != null && this.bca.getEditView() != null) {
             if (z) {
-                this.baA.setMaxText(String.valueOf(i));
-                this.baA.setHintText(String.format(Locale.getDefault(), getString(a.h.ala_send_gift_count_hint), Integer.valueOf(i)));
-                this.baA.Ma();
-                this.baA.getEditView().setFocusable(true);
-                this.baA.getEditView().setFocusableInTouchMode(true);
-                this.baA.getEditView().postDelayed(Gl(), 100L);
+                this.bca.setMaxText(String.valueOf(i));
+                this.bca.setHintText(String.format(Locale.getDefault(), getString(a.h.ala_send_gift_count_hint), Integer.valueOf(i)));
+                this.bca.Md();
+                this.bca.getEditView().setFocusable(true);
+                this.bca.getEditView().setFocusableInTouchMode(true);
+                this.bca.getEditView().postDelayed(Go(), 100L);
                 return;
             }
-            Gn();
-            this.baA.getEditView().post(Gm());
+            Gq();
+            this.bca.getEditView().post(Gp());
         }
     }
 
     @Override // com.baidu.live.gift.container.AlaGiftTabView.a
     public void j(boolean z, String str) {
-        if (this.baB != null) {
+        if (this.bcb != null) {
             if (z) {
                 if (Build.VERSION.SDK_INT != 26) {
                     setRequestedOrientation(1);
-                    this.baG = true;
+                    this.bcg = true;
                 }
-                this.baB.setVisibility(0);
+                this.bcb.setVisibility(0);
             } else {
-                if (Build.VERSION.SDK_INT != 26 && this.baG) {
+                if (Build.VERSION.SDK_INT != 26 && this.bcg) {
                     setRequestedOrientation(3);
-                    this.baG = false;
+                    this.bcg = false;
                 }
-                this.baB.setVisibility(8);
+                this.bcb.setVisibility(8);
             }
-            this.baB.l(z, str);
+            this.bcb.l(z, str);
         }
     }
 
     @Override // com.baidu.live.gift.container.AlaGiftTabView.a
     public void a(g gVar) {
-        if (this.baB != null) {
-            this.baB.setGiftItem(gVar);
+        if (this.bcb != null) {
+            this.bcb.setGiftItem(gVar);
         }
     }
 
     @Override // com.baidu.live.gift.panel.b.a
-    public k Ga() {
-        if (this.baB != null) {
-            return this.baB.getGraffitiData();
+    public k Gd() {
+        if (this.bcb != null) {
+            return this.bcb.getGraffitiData();
         }
         return null;
     }
 
     @Override // com.baidu.live.gift.panel.b.a
     public void a(NobleUserInfo.a aVar) {
-        if (this.bax != null) {
-            this.bax.setData(aVar);
+        if (this.bbX != null) {
+            this.bbX.setData(aVar);
         }
     }
 
     @Override // com.baidu.live.gift.container.AlaGiftTabView.a
     public void g(String str, String str2, boolean z) {
         int dimensionPixelOffset;
-        if (this.baC != null) {
+        if (this.bcc != null) {
             if (TextUtils.isEmpty(str)) {
-                this.baC.setText("");
-                this.baC.setVisibility(8);
+                this.bcc.setText("");
+                this.bcc.setVisibility(8);
                 return;
             }
-            Drawable background = this.baC.getBackground();
+            Drawable background = this.bcc.getBackground();
             if (background instanceof GradientDrawable) {
                 if (z) {
                     if (Build.VERSION.SDK_INT >= 16) {
@@ -356,12 +356,12 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
                 } else {
                     ((GradientDrawable) background).setColor(-1560281088);
                 }
-                this.baC.setBackgroundDrawable(background);
+                this.bcc.setBackgroundDrawable(background);
             }
-            this.baC.setText(str);
-            this.baC.setTag(str2);
-            this.baC.setVisibility(0);
-            ViewGroup.LayoutParams layoutParams = this.baC.getLayoutParams();
+            this.bcc.setText(str);
+            this.bcc.setTag(str2);
+            this.bcc.setVisibility(0);
+            ViewGroup.LayoutParams layoutParams = this.bcc.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 if (UtilHelper.getRealScreenOrientation(this) == 2) {
                     if (z) {
@@ -374,7 +374,7 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
                 }
                 if (((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin != dimensionPixelOffset) {
                     ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = dimensionPixelOffset;
-                    this.baC.setLayoutParams(layoutParams);
+                    this.bcc.setLayoutParams(layoutParams);
                 }
             }
         }
@@ -382,8 +382,8 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
 
     @Override // com.baidu.live.gift.container.AlaGiftTabView.a
     public void u(int i, String str) {
-        if (this.baL != null) {
-            this.baL.u(i, str);
+        if (this.bcl != null) {
+            this.bcl.u(i, str);
         }
     }
 
@@ -397,12 +397,12 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
     public void onDestroy() {
         SupportXFragment[] supportXFragmentArr;
         super.onDestroy();
-        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.baD);
-        if (this.baL != null) {
-            this.baL.release();
+        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.bcd);
+        if (this.bcl != null) {
+            this.bcl.release();
         }
-        if (this.baO != null) {
-            for (SupportXFragment supportXFragment : this.baO) {
+        if (this.bco != null) {
+            for (SupportXFragment supportXFragment : this.bco) {
                 supportXFragment.onDestroyView();
                 supportXFragment.onDestroy();
             }
@@ -417,10 +417,10 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (!this.aWt) {
+        if (!this.aXT) {
             this.mRootView.setVisibility(0);
-            Gb();
-            this.aWt = true;
+            Ge();
+            this.aXT = true;
         }
     }
 
@@ -428,14 +428,14 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.baJ = false;
-        if (this.baO != null) {
-            for (SupportXFragment supportXFragment : this.baO) {
+        this.bcj = false;
+        if (this.bco != null) {
+            for (SupportXFragment supportXFragment : this.bco) {
                 supportXFragment.onResume();
             }
         }
-        if (this.baL != null) {
-            this.baL.onResume();
+        if (this.bcl != null) {
+            this.bcl.onResume();
         }
     }
 
@@ -443,24 +443,24 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.baJ = true;
-        if (this.baO != null) {
-            for (SupportXFragment supportXFragment : this.baO) {
+        this.bcj = true;
+        if (this.bco != null) {
+            for (SupportXFragment supportXFragment : this.bco) {
                 supportXFragment.onPause();
             }
         }
-        if (this.baL != null) {
-            this.baL.onPause();
+        if (this.bcl != null) {
+            this.bcl.onPause();
         }
     }
 
-    private void Gb() {
+    private void Ge() {
         Animation loadAnimation;
-        this.baH = true;
+        this.bch = true;
         if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_in_from_right);
+            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0201a.sdk_in_from_right);
         } else {
-            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_in_from_bottom);
+            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0201a.sdk_in_from_bottom);
         }
         loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.6
             @Override // android.view.animation.Animation.AnimationListener
@@ -469,7 +469,7 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                AlaGiftTabActivity.this.baH = false;
+                AlaGiftTabActivity.this.bch = false;
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -481,13 +481,13 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
         }
     }
 
-    private void Gc() {
+    private void Gf() {
         Animation loadAnimation;
-        if (!this.baI && !this.baH) {
+        if (!this.bci && !this.bch) {
             if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_out_to_right);
+                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0201a.sdk_out_to_right);
             } else {
-                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_out_to_bottom);
+                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0201a.sdk_out_to_bottom);
             }
             loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.7
                 @Override // android.view.animation.Animation.AnimationListener
@@ -505,7 +505,7 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
                 public void onAnimationRepeat(Animation animation) {
                 }
             });
-            this.baI = true;
+            this.bci = true;
             if (this.mRootView != null) {
                 this.mRootView.startAnimation(loadAnimation);
             }
@@ -514,12 +514,12 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, android.app.Activity
     public void finish() {
-        Gc();
+        Gf();
     }
 
-    private void Gd() {
-        this.baL = new com.baidu.live.gift.panel.b(getPageContext());
-        this.baL.init(getIntent());
+    private void Gg() {
+        this.bcl = new com.baidu.live.gift.panel.b(getPageContext());
+        this.bcl.init(getIntent());
     }
 
     private void initView() {
@@ -532,87 +532,87 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
         }
         addGlobalLayoutListener();
         ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
-        this.baH = false;
+        this.bch = false;
         this.mRootView.setVisibility(4);
-        Ge();
+        Gh();
         bG(z);
         bH(z);
         bI(z);
         bJ(z);
         bK(z);
-        Gf();
-        Gg();
+        Gi();
+        Gj();
         bL(z);
     }
 
-    private void Ge() {
-        this.bat = (RoundRectFrameLayout) findViewById(a.f.layout_content);
-        this.bau = findViewById(a.f.layout_tab);
-        this.bav = (TextView) findViewById(a.f.tv_tab_text);
-        this.baw = (GiftPanelCountBadgeView) findViewById(a.f.layout_tab_badge_count);
-        this.bax = (NobleGiftEntryView) findViewById(a.f.noble_entry);
-        this.bay = (ScrollEnableViewPager) findViewById(a.f.vp);
-        this.baz = (FrameLayout) findViewById(a.f.layout_supportx);
-        this.baA = (AlaLiveInputEditView) findViewById(a.f.edit_num);
-        this.baB = (GiftPanelDrawContainerView) findViewById(a.f.container_draw);
-        this.baC = (TextView) findViewById(a.f.gift_toast);
+    private void Gh() {
+        this.bbT = (RoundRectFrameLayout) findViewById(a.f.layout_content);
+        this.bbU = findViewById(a.f.layout_tab);
+        this.bbV = (TextView) findViewById(a.f.tv_tab_text);
+        this.bbW = (GiftPanelCountBadgeView) findViewById(a.f.layout_tab_badge_count);
+        this.bbX = (NobleGiftEntryView) findViewById(a.f.noble_entry);
+        this.bbY = (ScrollEnableViewPager) findViewById(a.f.vp);
+        this.bbZ = (FrameLayout) findViewById(a.f.layout_supportx);
+        this.bca = (AlaLiveInputEditView) findViewById(a.f.edit_num);
+        this.bcb = (GiftPanelDrawContainerView) findViewById(a.f.container_draw);
+        this.bcc = (TextView) findViewById(a.f.gift_toast);
     }
 
     private void bG(boolean z) {
-        this.bat.setClickable(true);
+        this.bbT.setClickable(true);
         if (Build.VERSION.SDK_INT >= 26) {
-            this.bat.setDefaultFocusHighlightEnabled(false);
+            this.bbT.setDefaultFocusHighlightEnabled(false);
         }
-        this.bat.setBackgroundColor(getResources().getColor(a.c.live_gift_panel_primary));
+        this.bbT.setBackgroundColor(getResources().getColor(a.c.live_gift_panel_primary));
         float dimensionPixelOffset = getResources().getDimensionPixelOffset(a.d.sdk_ds26);
         if (z) {
-            this.bat.setCornerRadius(dimensionPixelOffset, 0.0f, 0.0f, dimensionPixelOffset);
+            this.bbT.setCornerRadius(dimensionPixelOffset, 0.0f, 0.0f, dimensionPixelOffset);
         } else {
-            this.bat.setCornerRadius(dimensionPixelOffset, dimensionPixelOffset, 0.0f, 0.0f);
+            this.bbT.setCornerRadius(dimensionPixelOffset, dimensionPixelOffset, 0.0f, 0.0f);
         }
         if (z) {
-            ViewGroup.LayoutParams layoutParams = this.bat.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.bbT.getLayoutParams();
             layoutParams.width = ScreenHelper.getRealScreenHeight(this);
-            this.bat.setLayoutParams(layoutParams);
+            this.bbT.setLayoutParams(layoutParams);
         }
     }
 
     private void bH(boolean z) {
         if (!z) {
-            ViewGroup.LayoutParams layoutParams = this.bau.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.bbU.getLayoutParams();
             if (layoutParams instanceof FrameLayout.LayoutParams) {
                 ((FrameLayout.LayoutParams) layoutParams).gravity |= 80;
-                ((FrameLayout.LayoutParams) layoutParams).bottomMargin = Gh();
-                this.bau.setLayoutParams(layoutParams);
+                ((FrameLayout.LayoutParams) layoutParams).bottomMargin = Gk();
+                this.bbU.setLayoutParams(layoutParams);
             }
         }
-        this.bau.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.8
+        this.bbU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.8
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaGiftTabActivity.this.cV(1);
+                AlaGiftTabActivity.this.cW(1);
             }
         });
-        this.baw.setPlusThreshold(99, false);
+        this.bbW.setPlusThreshold(99, false);
     }
 
     private void bI(boolean z) {
-        if (this.baL == null || !this.baL.HN()) {
-            this.bax.setVisibility(8);
+        if (this.bcl == null || !this.bcl.HQ()) {
+            this.bbX.setVisibility(8);
             return;
         }
-        ViewGroup.LayoutParams layoutParams = this.bax.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.bbX.getLayoutParams();
         if (layoutParams instanceof FrameLayout.LayoutParams) {
             if (z) {
-                ((FrameLayout.LayoutParams) layoutParams).topMargin = Gi();
+                ((FrameLayout.LayoutParams) layoutParams).topMargin = Gl();
             } else {
                 ((FrameLayout.LayoutParams) layoutParams).gravity = 80;
-                ((FrameLayout.LayoutParams) layoutParams).bottomMargin = getDataPagerHeight() + Gj();
+                ((FrameLayout.LayoutParams) layoutParams).bottomMargin = getDataPagerHeight() + Gm();
             }
-            this.bax.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.9
+            this.bbX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.9
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (AlaGiftTabActivity.this.baL != null) {
-                        AlaGiftTabActivity.this.baL.HO();
+                    if (AlaGiftTabActivity.this.bcl != null) {
+                        AlaGiftTabActivity.this.bcl.HR();
                     }
                 }
             });
@@ -620,39 +620,39 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
     }
 
     private void bJ(boolean z) {
-        this.bay.setScrollEnabled(false);
-        ViewGroup.LayoutParams layoutParams = this.bay.getLayoutParams();
+        this.bbY.setScrollEnabled(false);
+        ViewGroup.LayoutParams layoutParams = this.bbY.getLayoutParams();
         if (layoutParams != null) {
             if (z) {
                 layoutParams.height = -1;
             } else {
-                layoutParams.height = Gi() + Gh();
+                layoutParams.height = Gl() + Gk();
             }
-            this.bay.setLayoutParams(layoutParams);
+            this.bbY.setLayoutParams(layoutParams);
         }
     }
 
     private void bK(boolean z) {
-        ViewGroup.LayoutParams layoutParams = this.baz.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.bbZ.getLayoutParams();
         if (layoutParams != null) {
             if (z) {
                 layoutParams.height = -1;
             } else {
-                layoutParams.height = getResources().getDimensionPixelOffset(a.d.sdk_ds116) + Gh();
+                layoutParams.height = getResources().getDimensionPixelOffset(a.d.sdk_ds116) + Gk();
             }
-            this.baz.setLayoutParams(layoutParams);
+            this.bbZ.setLayoutParams(layoutParams);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.live.gift.container.AlaGiftTabActivity$10  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public class AnonymousClass10 implements c.a {
         AnonymousClass10() {
         }
 
         @Override // com.baidu.live.view.input.c.a
-        public void gz(String str) {
+        public void gF(String str) {
             String str2;
             AsyncTask.execute(new Runnable() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.10.1
                 @Override // java.lang.Runnable
@@ -660,7 +660,7 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
                     try {
                         new Instrumentation().sendKeyDownUpSync(4);
                     } catch (Exception e) {
-                        AlaGiftTabActivity.this.baA.post(new Runnable() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.10.1.1
+                        AlaGiftTabActivity.this.bca.post(new Runnable() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.10.1.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 AlaGiftTabActivity.this.c(false, 0);
@@ -676,29 +676,29 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
             } else {
                 str2 = i + "";
             }
-            com.baidu.live.gift.panel.c Gk = AlaGiftTabActivity.this.Gk();
-            if ((!(Gk instanceof com.baidu.live.gift.panel.e) || !((com.baidu.live.gift.panel.e) Gk).gQ(str2)) && Gk != null && Gk.bgI != null) {
-                Gk.bgI.gC(str2);
+            com.baidu.live.gift.panel.c Gn = AlaGiftTabActivity.this.Gn();
+            if ((!(Gn instanceof com.baidu.live.gift.panel.e) || !((com.baidu.live.gift.panel.e) Gn).gW(str2)) && Gn != null && Gn.bik != null) {
+                Gn.bik.gI(str2);
             }
         }
     }
 
-    private void Gf() {
-        this.baA.setEditViewConfirmCallBack(new AnonymousClass10());
+    private void Gi() {
+        this.bca.setEditViewConfirmCallBack(new AnonymousClass10());
     }
 
-    private void Gg() {
-        this.baB.setCallback(new GiftPanelDrawContainerView.a() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.11
+    private void Gj() {
+        this.bcb.setCallback(new GiftPanelDrawContainerView.a() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.11
             @Override // com.baidu.live.gift.widget.panel.GiftPanelDrawContainerView.a
-            public void cW(int i) {
-                com.baidu.live.gift.panel.c Gk = AlaGiftTabActivity.this.Gk();
-                if (Gk != null && Gk.bgI != null) {
-                    Gk.bgI.df(i);
+            public void cX(int i) {
+                com.baidu.live.gift.panel.c Gn = AlaGiftTabActivity.this.Gn();
+                if (Gn != null && Gn.bik != null) {
+                    Gn.bik.dg(i);
                 }
             }
 
             @Override // com.baidu.live.gift.widget.panel.GiftPanelDrawContainerView.a
-            public void Go() {
+            public void Gr() {
                 AlaGiftTabActivity.this.finish();
             }
         });
@@ -707,141 +707,141 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
     private void bL(boolean z) {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setCornerRadius(BdUtilHelper.dip2px(this, 5.0f));
-        this.baC.setBackgroundDrawable(gradientDrawable);
+        this.bcc.setBackgroundDrawable(gradientDrawable);
         if (z) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.baC.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.bcc.getLayoutParams();
             layoutParams.width = -1;
             layoutParams.height = -2;
-            layoutParams.addRule(5, this.bat.getId());
+            layoutParams.addRule(5, this.bbT.getId());
             layoutParams.addRule(2, 0);
             layoutParams.rightMargin = 0;
             layoutParams.addRule(12);
-            this.baC.setLayoutParams(layoutParams);
-            this.baC.setGravity(17);
+            this.bcc.setLayoutParams(layoutParams);
+            this.bcc.setGravity(17);
             int dimens = BdUtilHelper.getDimens(this, a.d.sdk_ds12);
-            this.baC.setPadding(dimens, dimens, dimens, dimens);
+            this.bcc.setPadding(dimens, dimens, dimens, dimens);
         }
-        this.baC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.12
+        this.bcc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.12
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AlaGiftTabActivity.this.baL != null) {
-                    Object tag = AlaGiftTabActivity.this.baC.getTag();
+                if (AlaGiftTabActivity.this.bcl != null) {
+                    Object tag = AlaGiftTabActivity.this.bcc.getTag();
                     if ((tag instanceof String) && !TextUtils.isEmpty((String) tag)) {
-                        AlaGiftTabActivity.this.baL.gP((String) tag);
+                        AlaGiftTabActivity.this.bcl.gV((String) tag);
                     }
                 }
             }
         });
     }
 
-    private int Gh() {
-        if (this.baF <= 0) {
-            this.baF = getDataPagerHeight();
-            if (this.baL != null && this.baL.HN()) {
-                this.baF += Gj() + getResources().getDimensionPixelOffset(a.d.sdk_ds72);
+    private int Gk() {
+        if (this.bcf <= 0) {
+            this.bcf = getDataPagerHeight();
+            if (this.bcl != null && this.bcl.HQ()) {
+                this.bcf += Gm() + getResources().getDimensionPixelOffset(a.d.sdk_ds72);
             }
         }
-        return this.baF;
+        return this.bcf;
     }
 
     private int getDataPagerHeight() {
         return (getResources().getDimensionPixelOffset(a.d.sdk_ds192) * 2) + getResources().getDimensionPixelOffset(a.d.sdk_ds4) + getResources().getDimensionPixelOffset(a.d.sdk_ds12) + getResources().getDimensionPixelOffset(a.d.sdk_ds116);
     }
 
-    private int Gi() {
+    private int Gl() {
         return getResources().getDimensionPixelOffset(a.d.sdk_ds116);
     }
 
-    private int Gj() {
+    private int Gm() {
         return getResources().getDimensionPixelOffset(a.d.sdk_ds24);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.live.gift.panel.c Gk() {
-        if (this.baO == null || this.baO.length <= this.baK || !(this.baO[this.baK] instanceof com.baidu.live.gift.panel.c)) {
+    public com.baidu.live.gift.panel.c Gn() {
+        if (this.bco == null || this.bco.length <= this.bck || !(this.bco[this.bck] instanceof com.baidu.live.gift.panel.c)) {
             return null;
         }
-        return (com.baidu.live.gift.panel.c) this.baO[this.baK];
+        return (com.baidu.live.gift.panel.c) this.bco[this.bck];
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cV(int i) {
-        this.baK = i;
-        if (this.bau != null) {
-            this.bau.setVisibility(i == 1 ? 4 : 0);
+    public void cW(int i) {
+        this.bck = i;
+        if (this.bbU != null) {
+            this.bbU.setVisibility(i == 1 ? 4 : 0);
             AlaGiftTabView.page = i;
         }
-        if (this.baO != null) {
+        if (this.bco != null) {
             int i2 = 0;
-            while (i2 < this.baO.length) {
-                this.baO[i2].setUserVisibleHint(i2 == i);
-                if ((this.baO[i2] instanceof com.baidu.live.gift.panel.c) && ((com.baidu.live.gift.panel.c) this.baO[i2]).bgI != null) {
-                    ((com.baidu.live.gift.panel.c) this.baO[i2]).bgI.bO(i2 == i);
+            while (i2 < this.bco.length) {
+                this.bco[i2].setUserVisibleHint(i2 == i);
+                if ((this.bco[i2] instanceof com.baidu.live.gift.panel.c) && ((com.baidu.live.gift.panel.c) this.bco[i2]).bik != null) {
+                    ((com.baidu.live.gift.panel.c) this.bco[i2]).bik.bO(i2 == i);
                 }
-                if (this.baO[i2].getView() != null) {
-                    this.baO[i2].getView().setVisibility(i2 == i ? 0 : 8);
+                if (this.bco[i2].getView() != null) {
+                    this.bco[i2].getView().setVisibility(i2 == i ? 0 : 8);
                 }
                 i2++;
             }
-            cU(0);
+            cV(0);
         }
     }
 
-    private Runnable Gl() {
-        if (this.baM == null) {
-            this.baM = new Runnable() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.2
+    private Runnable Go() {
+        if (this.bcm == null) {
+            this.bcm = new Runnable() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (AlaGiftTabActivity.this.baA != null && AlaGiftTabActivity.this.baA.getEditView() != null) {
-                        AlaGiftTabActivity.this.baA.getEditView().requestFocus();
-                        BdUtilHelper.showSoftKeyPad(AlaGiftTabActivity.this, AlaGiftTabActivity.this.baA.getEditView());
+                    if (AlaGiftTabActivity.this.bca != null && AlaGiftTabActivity.this.bca.getEditView() != null) {
+                        AlaGiftTabActivity.this.bca.getEditView().requestFocus();
+                        BdUtilHelper.showSoftKeyPad(AlaGiftTabActivity.this, AlaGiftTabActivity.this.bca.getEditView());
                     }
                 }
             };
         }
-        return this.baM;
+        return this.bcm;
     }
 
-    private Runnable Gm() {
-        if (this.baN == null) {
-            this.baN = new Runnable() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.3
+    private Runnable Gp() {
+        if (this.bcn == null) {
+            this.bcn = new Runnable() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (AlaGiftTabActivity.this.baA != null && AlaGiftTabActivity.this.baA.getEditView() != null) {
-                        BdUtilHelper.hideSoftKeyPad(AlaGiftTabActivity.this, AlaGiftTabActivity.this.baA.getEditView());
+                    if (AlaGiftTabActivity.this.bca != null && AlaGiftTabActivity.this.bca.getEditView() != null) {
+                        BdUtilHelper.hideSoftKeyPad(AlaGiftTabActivity.this, AlaGiftTabActivity.this.bca.getEditView());
                     }
                 }
             };
         }
-        return this.baN;
+        return this.bcn;
     }
 
-    private void Gn() {
-        if (this.baA != null) {
-            this.baA.setVisibility(8);
+    private void Gq() {
+        if (this.bca != null) {
+            this.bca.setVisibility(8);
         }
     }
 
     private void b(AlaLiveGiftUIInfo alaLiveGiftUIInfo) {
-        if (alaLiveGiftUIInfo != null && this.bav != null) {
-            this.bav.setTextColor(alaLiveGiftUIInfo.getTabTextUnSelectedColor());
+        if (alaLiveGiftUIInfo != null && this.bbV != null) {
+            this.bbV.setTextColor(alaLiveGiftUIInfo.getTabTextUnSelectedColor());
         }
     }
 
     private void c(AlaLiveGiftUIInfo alaLiveGiftUIInfo) {
         SupportXFragment[] supportXFragmentArr;
-        if (alaLiveGiftUIInfo != null && alaLiveGiftUIInfo.getCategoryTextSelectedColor() != 0 && (this.bay.getAdapter() instanceof GiftPanelFragmentPagerAdapter) && ((GiftPanelFragmentPagerAdapter) this.bay.getAdapter()).HW() != null && this.baO != null) {
-            for (SupportXFragment supportXFragment : this.baO) {
+        if (alaLiveGiftUIInfo != null && alaLiveGiftUIInfo.getCategoryTextSelectedColor() != 0 && (this.bbY.getAdapter() instanceof GiftPanelFragmentPagerAdapter) && ((GiftPanelFragmentPagerAdapter) this.bbY.getAdapter()).HZ() != null && this.bco != null) {
+            for (SupportXFragment supportXFragment : this.bco) {
                 if (supportXFragment instanceof com.baidu.live.gift.panel.c) {
-                    ((com.baidu.live.gift.panel.c) supportXFragment).cX(alaLiveGiftUIInfo.getCategoryTextSelectedColor());
+                    ((com.baidu.live.gift.panel.c) supportXFragment).cY(alaLiveGiftUIInfo.getCategoryTextSelectedColor());
                 }
             }
         }
     }
 
     private void d(final AlaLiveGiftUIInfo alaLiveGiftUIInfo) {
-        if (alaLiveGiftUIInfo != null && !TextUtils.isEmpty(alaLiveGiftUIInfo.getVerticalBgUrl()) && this.bat != null) {
-            LinearLayout linearLayout = new LinearLayout(this.bat.getContext());
+        if (alaLiveGiftUIInfo != null && !TextUtils.isEmpty(alaLiveGiftUIInfo.getVerticalBgUrl()) && this.bbT != null) {
+            LinearLayout linearLayout = new LinearLayout(this.bbT.getContext());
             linearLayout.setBackgroundColor(0);
             linearLayout.setOrientation(1);
             SimpleDraweeView simpleDraweeView = new SimpleDraweeView(linearLayout.getContext());
@@ -849,11 +849,11 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
             linearLayout.addView(simpleDraweeView, new LinearLayout.LayoutParams(-1, -1));
             View view = new View(linearLayout.getContext());
             view.setBackgroundColor(0);
-            linearLayout.addView(view, new LinearLayout.LayoutParams(-1, Gh()));
-            this.bat.addView(linearLayout, 0);
-            simpleDraweeView.setController(com.facebook.drawee.a.a.c.etw().c(simpleDraweeView.getController()).bo(ImageRequestBuilder.ag(Uri.parse(alaLiveGiftUIInfo.getVerticalBgUrl())).a(com.facebook.imagepipeline.common.e.ewv()).a(com.facebook.imagepipeline.common.b.ewl().e(Bitmap.Config.RGB_565).ewt()).eAq()).Bm(true).c(new com.facebook.drawee.controller.c<com.facebook.imagepipeline.f.f>() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.4
+            linearLayout.addView(view, new LinearLayout.LayoutParams(-1, Gk()));
+            this.bbT.addView(linearLayout, 0);
+            simpleDraweeView.setController(com.facebook.drawee.a.a.c.etF().c(simpleDraweeView.getController()).bq(ImageRequestBuilder.ag(Uri.parse(alaLiveGiftUIInfo.getVerticalBgUrl())).a(com.facebook.imagepipeline.common.e.ewE()).a(com.facebook.imagepipeline.common.b.ewu().e(Bitmap.Config.RGB_565).ewC()).eAz()).Bk(true).c(new com.facebook.drawee.controller.c<com.facebook.imagepipeline.f.f>() { // from class: com.baidu.live.gift.container.AlaGiftTabActivity.4
                 @Override // com.facebook.drawee.controller.c
-                public void f(String str, Object obj) {
+                public void g(String str, Object obj) {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -867,7 +867,7 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.facebook.drawee.controller.c
                 /* renamed from: a */
-                public void g(String str, com.facebook.imagepipeline.f.f fVar) {
+                public void h(String str, com.facebook.imagepipeline.f.f fVar) {
                 }
 
                 @Override // com.facebook.drawee.controller.c
@@ -879,16 +879,16 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
                 }
 
                 @Override // com.facebook.drawee.controller.c
-                public void gy(String str) {
+                public void gE(String str) {
                 }
-            }).eun());
+            }).euw());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AlaLiveGiftUIInfo alaLiveGiftUIInfo, int i, int i2) {
-        if (this.bat != null && i != 0 && i2 != 0) {
-            View childAt = this.bat.getChildAt(0);
+        if (this.bbT != null && i != 0 && i2 != 0) {
+            View childAt = this.bbT.getChildAt(0);
             if (childAt instanceof LinearLayout) {
                 LinearLayout linearLayout = (LinearLayout) childAt;
                 if (linearLayout.getChildCount() > 1) {
@@ -903,7 +903,7 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
                             b(alaLiveGiftUIInfo);
                             c(alaLiveGiftUIInfo);
                             if (alaLiveGiftUIInfo.getBgColor() != 0) {
-                                this.bat.setBackgroundColor(0);
+                                this.bbT.setBackgroundColor(0);
                                 linearLayout.getChildAt(1).setBackgroundColor(alaLiveGiftUIInfo.getBgColor());
                             }
                         }

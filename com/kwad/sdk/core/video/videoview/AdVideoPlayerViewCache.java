@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class AdVideoPlayerViewCache {
 
     /* renamed from: a  reason: collision with root package name */
-    private HashMap<String, WeakReference<b>> f9460a;
+    private HashMap<String, WeakReference<b>> f6271a;
 
     /* loaded from: classes3.dex */
     private enum Holder {
@@ -23,7 +23,7 @@ public class AdVideoPlayerViewCache {
     }
 
     private AdVideoPlayerViewCache() {
-        this.f9460a = new HashMap<>(1);
+        this.f6271a = new HashMap<>(1);
     }
 
     public static AdVideoPlayerViewCache a() {
@@ -31,21 +31,21 @@ public class AdVideoPlayerViewCache {
     }
 
     public void a(String str) {
-        this.f9460a.remove(str);
+        this.f6271a.remove(str);
     }
 
     public void a(String str, b bVar) {
-        this.f9460a.put(str, new WeakReference<>(bVar));
+        this.f6271a.put(str, new WeakReference<>(bVar));
     }
 
     public b b(String str) {
-        WeakReference<b> weakReference = this.f9460a.get(str);
+        WeakReference<b> weakReference = this.f6271a.get(str);
         if (weakReference != null) {
             b bVar = weakReference.get();
             if (bVar != null) {
                 return bVar;
             }
-            this.f9460a.remove(str);
+            this.f6271a.remove(str);
             return null;
         }
         return null;

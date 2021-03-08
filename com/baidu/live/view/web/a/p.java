@@ -13,9 +13,9 @@ import com.baidu.live.tbadk.pay.channel.interfaces.IChannelPayController;
 import com.baidu.live.tbadk.scheme.SchemeCallback;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class p extends com.baidu.live.view.web.a {
-    private IChannelPayController bWg;
+    private IChannelPayController bXG;
     private BaseActivity baseActivity;
     private SchemeCallback schemeCallback;
 
@@ -34,7 +34,7 @@ public class p extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void is(String str) {
+    public void iy(String str) {
         CustomResponsedMessage runTask;
         Log.d(IChannelPayController.TAG, "@@ PersonalCenterBridgeJsInterface params = " + str);
         try {
@@ -44,11 +44,11 @@ public class p extends com.baidu.live.view.web.a {
             }
             PayChannelData payChannelData = new PayChannelData(this.baseActivity, jSONObject.optString("channel"), jSONObject.optString("icon_id"), jSONObject.optString("price"), jSONObject.optString("from"), jSONObject.optString("live_id"), 14);
             payChannelData.setShowToast(false);
-            if (this.bWg == null && (runTask = MessageManager.getInstance().runTask(2913197, IChannelPayController.class, payChannelData)) != null && runTask.getData() != null) {
-                this.bWg = (IChannelPayController) runTask.getData();
+            if (this.bXG == null && (runTask = MessageManager.getInstance().runTask(2913197, IChannelPayController.class, payChannelData)) != null && runTask.getData() != null) {
+                this.bXG = (IChannelPayController) runTask.getData();
             }
-            if (this.bWg != null) {
-                this.bWg.pay(payChannelData);
+            if (this.bXG != null) {
+                this.bXG.pay(payChannelData);
             }
             if (this.schemeCallback != null) {
                 ExtraParamsManager.addEnterBuyTBeanCallback(new ResultCallback() { // from class: com.baidu.live.view.web.a.p.1

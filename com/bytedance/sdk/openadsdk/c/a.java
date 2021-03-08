@@ -10,15 +10,13 @@ import org.json.JSONObject;
 public class a implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f6218a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final JSONObject f6219b;
+    public final String f4194a;
+    public final JSONObject b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(String str, JSONObject jSONObject) {
-        this.f6218a = str;
-        this.f6219b = jSONObject;
+        this.f4194a = str;
+        this.b = jSONObject;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -45,7 +43,7 @@ public class a implements i {
             }
             jSONObject2.putOpt("is_ad_event", "1");
             jSONObject2.putOpt("nt", Integer.valueOf(x.c(context)));
-            jSONObject2.putOpt("tob_ab_sdk_version", com.bytedance.sdk.openadsdk.core.i.c().t());
+            jSONObject2.putOpt("tob_ab_sdk_version", com.bytedance.sdk.openadsdk.core.i.d().u());
             if (jSONObject != null) {
                 Iterator<String> keys = jSONObject.keys();
                 while (keys.hasNext()) {
@@ -68,7 +66,7 @@ public class a implements i {
             jSONObject2.putOpt("value", Long.valueOf(j));
             jSONObject2.putOpt("is_ad_event", "1");
             jSONObject2.putOpt("ext_value", Long.valueOf(j2));
-            jSONObject2.putOpt("tob_ab_sdk_version", com.bytedance.sdk.openadsdk.core.i.c().t());
+            jSONObject2.putOpt("tob_ab_sdk_version", com.bytedance.sdk.openadsdk.core.i.d().u());
             if (jSONObject != null) {
                 Iterator<String> keys = jSONObject.keys();
                 while (keys.hasNext()) {
@@ -99,13 +97,13 @@ public class a implements i {
     }
 
     public String a() {
-        if (TextUtils.isEmpty(this.f6218a) || this.f6219b == null) {
+        if (TextUtils.isEmpty(this.f4194a) || this.b == null) {
             return null;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("localId", this.f6218a);
-            jSONObject.put("event", this.f6219b);
+            jSONObject.put("localId", this.f4194a);
+            jSONObject.put("event", this.b);
         } catch (Throwable th) {
         }
         return jSONObject.toString();
@@ -113,6 +111,6 @@ public class a implements i {
 
     @Override // com.bytedance.sdk.openadsdk.c.i
     public String b() {
-        return this.f6218a;
+        return this.f4194a;
     }
 }

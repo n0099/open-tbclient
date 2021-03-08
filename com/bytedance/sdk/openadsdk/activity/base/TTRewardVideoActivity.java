@@ -18,12 +18,12 @@ import com.bytedance.sdk.openadsdk.component.reward.f;
 import com.bytedance.sdk.openadsdk.component.reward.g;
 import com.bytedance.sdk.openadsdk.core.c;
 import com.bytedance.sdk.openadsdk.core.d.l;
-import com.bytedance.sdk.openadsdk.core.e;
 import com.bytedance.sdk.openadsdk.core.q;
 import com.bytedance.sdk.openadsdk.core.r;
 import com.bytedance.sdk.openadsdk.core.video.nativevideo.c;
 import com.bytedance.sdk.openadsdk.core.widget.c;
-import com.bytedance.sdk.openadsdk.k.a;
+import com.bytedance.sdk.openadsdk.downloadnew.a;
+import com.bytedance.sdk.openadsdk.j.e;
 import com.bytedance.sdk.openadsdk.multipro.b;
 import com.bytedance.sdk.openadsdk.utils.ac;
 import com.bytedance.sdk.openadsdk.utils.aj;
@@ -52,27 +52,28 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
     private AtomicBoolean aX = new AtomicBoolean(false);
     protected final AtomicBoolean bc = new AtomicBoolean(false);
     private boolean aY = false;
+    private int bd = -1;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
-        P();
+        R();
         if (a(bundle)) {
             b();
-            L();
+            N();
             f();
-            M();
+            O();
             d();
-            x();
-            B();
+            y();
+            C();
             a();
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity
     p r() {
-        return new p(l.a(this.s) ? 3 : 2, "rewarded_video", this.s);
+        return new p(l.b(this.s) ? 3 : 2, "rewarded_video", this.s);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -83,9 +84,9 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
         }
         aW = this.bb;
         try {
-            bundle.putString("material_meta", this.s != null ? this.s.am().toString() : null);
+            bundle.putString("material_meta", this.s != null ? this.s.aE().toString() : null);
             bundle.putString("multi_process_meta_md5", this.u);
-            bundle.putLong("video_current", this.D == null ? this.w : this.D.m());
+            bundle.putLong("video_current", this.D == null ? this.w : this.D.n());
             bundle.putString("video_cache_url", this.x);
             bundle.putInt("orientation", this.y);
             bundle.putBoolean("is_mute", this.P);
@@ -97,8 +98,8 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void d(String str) {
-        a(str, false, 0, "");
+    public void e(String str) {
+        a(str, false, 0, "", 0, "");
     }
 
     protected void finalize() throws Throwable {
@@ -107,12 +108,12 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(final String str, final boolean z, final int i, final String str2) {
-        a.a().a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTRewardVideoActivity.1
+    public void a(final String str, final boolean z, final int i, final String str2, final int i2, final String str3) {
+        e.b(new Runnable() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTRewardVideoActivity.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    TTRewardVideoActivity.this.b(0).executeRewardVideoCallback(TTRewardVideoActivity.this.u, str, z, i, str2);
+                    TTRewardVideoActivity.this.b(0).executeRewardVideoCallback(TTRewardVideoActivity.this.u, str, z, i, str2, i2, str3);
                 } catch (Throwable th) {
                     u.c("TTRewardVideoActivity", "executeRewardVideoCallback execute throw Exception : ", th);
                 }
@@ -121,14 +122,14 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void L() {
+    public void N() {
         if (this.s == null) {
             finish();
-        } else if (this.s.h() == 0) {
+        } else if (this.s.n() == 0) {
             setContentView(ac.f(this, "tt_activity_rewardvideo"));
-        } else if (this.s.h() == 1) {
+        } else if (this.s.n() == 1) {
             setContentView(ac.f(this, "tt_activity_reward_video_newstyle"));
-        } else if (this.s.h() == 3) {
+        } else if (this.s.n() == 3) {
             setContentView(ac.f(this, "tt_activity_rewardvideo_new_bar_3_style"));
         } else {
             setContentView(ac.f(this, "tt_activity_rewardvideo"));
@@ -149,8 +150,8 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
                     }
                 }
             }
-            if (this.s != null && this.s.H() == 4) {
-                this.E = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.e, this.s, "rewarded_video");
+            if (this.s != null && this.s.T() == 4) {
+                this.E = a.a(this.e, this.s, "rewarded_video");
             }
         } else {
             this.s = com.bytedance.sdk.openadsdk.core.u.a().c();
@@ -179,42 +180,42 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
                 }
             } catch (Throwable th) {
             }
-            if (this.E == null && this.s != null && this.s.H() == 4) {
-                this.E = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.e, this.s, "rewarded_video");
+            if (this.E == null && this.s != null && this.s.T() == 4) {
+                this.E = a.a(this.e, this.s, "rewarded_video");
             }
         }
-        e.a().a(this.s);
+        com.bytedance.sdk.openadsdk.core.e.a().a(this.s);
         if (this.s == null) {
             u.f("TTRewardVideoActivity", "mMaterialMeta is null , no data to display ,the TTRewardVideoActivity finished !!");
             finish();
             return false;
         }
-        this.ag = this.s.h() == 1;
-        this.ah = this.s.h() == 3;
-        if (this.s == null || this.s.F() != null) {
+        this.ag = this.s.n() == 1;
+        this.ah = this.s.n() == 3;
+        if (this.s == null || this.s.R() != null) {
         }
         return true;
     }
 
-    private void M() {
+    private void O() {
         this.aR = com.bytedance.sdk.openadsdk.core.p.f();
         if (this.s == null) {
             u.f("TTRewardVideoActivity", "mMaterialMeta is null , no data to display ,the TTRewardVideoActivity finished !!");
             finish();
             return;
         }
-        if (this.s.s() && this.s.c() == 1) {
+        if (this.s.C() && this.s.i() == 1) {
             a(getApplicationContext());
         }
         this.at = 7;
-        this.T = aj.d(this.s.W());
+        this.T = aj.d(this.s.aj());
         this.P = com.bytedance.sdk.openadsdk.core.p.h().b(this.T);
-        this.R = this.s.X();
-        this.K = this.s.T();
-        this.L = this.s.W();
-        this.Q = (int) J();
+        this.R = this.s.ak();
+        this.K = this.s.ag();
+        this.L = this.s.aj();
+        this.Q = (int) K();
         this.M = 7;
-        this.N = 3251;
+        this.N = 3401;
         m();
         a(this.P);
         e();
@@ -225,12 +226,12 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
         n();
         j();
         a("reward_endcard");
-        N();
+        P();
         b("rewarded_video");
         p();
     }
 
-    private void N() {
+    private void P() {
         if (this.j != null) {
             this.j.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTRewardVideoActivity.2
                 @Override // android.view.View.OnClickListener
@@ -238,13 +239,13 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
                     if (TTRewardVideoActivity.this.aJ != null) {
                         TTRewardVideoActivity.this.aJ.i();
                     }
-                    TTRewardVideoActivity.this.W();
+                    TTRewardVideoActivity.this.Y();
                     l lVar = TTRewardVideoActivity.this.s;
-                    if (l.b(TTRewardVideoActivity.this.s)) {
-                        TTRewardVideoActivity.this.e(true);
+                    if (l.d(TTRewardVideoActivity.this.s)) {
+                        TTRewardVideoActivity.this.f(true);
                         return;
                     }
-                    TTRewardVideoActivity.this.X();
+                    TTRewardVideoActivity.this.Z();
                     TTRewardVideoActivity.this.finish();
                 }
             });
@@ -253,12 +254,12 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
             this.c.setListener(new com.bytedance.sdk.openadsdk.component.reward.top.b() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTRewardVideoActivity.3
                 @Override // com.bytedance.sdk.openadsdk.component.reward.top.b
                 public void a(View view) {
-                    TTRewardVideoActivity.this.W();
-                    TTRewardVideoActivity.this.X();
-                    if (TTRewardVideoActivity.this.s != null && TTRewardVideoActivity.this.s.s() && TTRewardVideoActivity.this.s.c() == 1) {
-                        TTRewardVideoActivity.this.e(true);
+                    TTRewardVideoActivity.this.Y();
+                    TTRewardVideoActivity.this.Z();
+                    if (TTRewardVideoActivity.this.s != null && TTRewardVideoActivity.this.s.C() && TTRewardVideoActivity.this.s.i() == 1) {
+                        TTRewardVideoActivity.this.f(true);
                     } else {
-                        TTRewardVideoActivity.this.e(false);
+                        TTRewardVideoActivity.this.f(false);
                     }
                 }
 
@@ -269,33 +270,36 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
                     if (TTRewardVideoActivity.this.D != null) {
                         TTRewardVideoActivity.this.D.c(TTRewardVideoActivity.this.P);
                     }
-                    if (l.a(TTRewardVideoActivity.this.s)) {
-                        TTRewardVideoActivity.this.au.a(TTRewardVideoActivity.this.P, true);
+                    if (!l.e(TTRewardVideoActivity.this.s) || TTRewardVideoActivity.this.U.get()) {
+                        if (l.b(TTRewardVideoActivity.this.s)) {
+                            TTRewardVideoActivity.this.au.a(TTRewardVideoActivity.this.P, true);
+                        }
+                        TTRewardVideoActivity.this.c(TTRewardVideoActivity.this.P);
                     }
-                    TTRewardVideoActivity.this.c(TTRewardVideoActivity.this.P);
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.component.reward.top.b
                 public void c(View view) {
-                    TTRewardVideoActivity.this.K();
+                    TTRewardVideoActivity.this.L();
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void e(final boolean z) {
+    public void f(final boolean z) {
+        String str;
         if (!com.bytedance.sdk.openadsdk.core.p.h().d(String.valueOf(this.T))) {
             if (z) {
                 finish();
             } else {
-                O();
+                Q();
             }
         } else if (this.aX.get()) {
             if (z) {
                 finish();
             } else {
-                O();
+                Q();
             }
         } else {
             this.aa.set(true);
@@ -303,11 +307,18 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
                 this.D.h();
             }
             if (z) {
-                E();
+                F();
             }
             this.ab = new com.bytedance.sdk.openadsdk.core.widget.c(this);
             if (z) {
-                this.ab.a("试玩后才可领取奖励").b("继续试玩").c("放弃奖励");
+                if (com.bytedance.sdk.openadsdk.core.p.h().m(String.valueOf(this.T)) == 1) {
+                    str = "试玩时长达标才能领取奖励";
+                } else if (this.F != null && !this.F.e()) {
+                    str = "试玩后才能领取奖励";
+                } else {
+                    str = "试玩时长达标才能领取奖励";
+                }
+                this.ab.a(str).b("继续试玩").c("放弃奖励");
             } else {
                 this.ab.a("观看完整视频才能获得奖励").b("继续观看").c("放弃奖励");
             }
@@ -315,10 +326,10 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
                 @Override // com.bytedance.sdk.openadsdk.core.widget.c.a
                 public void a() {
                     if (TTRewardVideoActivity.this.D != null) {
-                        TTRewardVideoActivity.this.D.j();
+                        TTRewardVideoActivity.this.D.k();
                     }
                     if (z) {
-                        TTRewardVideoActivity.this.F();
+                        TTRewardVideoActivity.this.G();
                     }
                     TTRewardVideoActivity.this.ab.dismiss();
                     TTRewardVideoActivity.this.aa.set(false);
@@ -328,21 +339,22 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
                 public void b() {
                     TTRewardVideoActivity.this.ab.dismiss();
                     TTRewardVideoActivity.this.aa.set(false);
+                    TTRewardVideoActivity.this.ay = Integer.MAX_VALUE;
                     if (z) {
-                        TTRewardVideoActivity.this.X();
+                        TTRewardVideoActivity.this.Z();
                         TTRewardVideoActivity.this.finish();
                         return;
                     }
-                    TTRewardVideoActivity.this.O();
+                    TTRewardVideoActivity.this.Q();
                 }
             }).show();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void O() {
+    public void Q() {
         if (this.D != null) {
-            this.D.l();
+            this.D.m();
         }
         a("rewarded_video", FreeSpaceBox.TYPE, (Map<String, Object>) null);
         HashMap hashMap = new HashMap();
@@ -351,15 +363,15 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
         }
         hashMap.put("play_type", Integer.valueOf(aj.a(this.D, this.z)));
         a("rewarded_video", "feed_break", hashMap);
-        G();
+        H();
         if (b.b()) {
-            d("onSkippedVideo");
+            e("onSkippedVideo");
         } else if (this.bb != null) {
             this.bb.onSkippedVideo();
         }
     }
 
-    private void P() {
+    private void R() {
         Intent intent = getIntent();
         if (intent != null) {
             this.aS = intent.getStringExtra("reward_name");
@@ -370,6 +382,20 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
             this.x = intent.getStringExtra("video_cache_url");
             this.y = intent.getIntExtra("orientation", 2);
             this.af = intent.getStringExtra("rit_scene");
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(long j, long j2) {
+        if (this.bd == -1) {
+            this.bd = com.bytedance.sdk.openadsdk.core.p.h().r(String.valueOf(this.T)).g;
+        }
+        if (j2 > 0) {
+            if (j2 >= 30000 && j >= 27000) {
+                T();
+            } else if (((float) (100 * j)) / ((float) j2) >= this.bd) {
+                T();
+            }
         }
     }
 
@@ -390,11 +416,12 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
             public void a(long j2, int i) {
                 if (TTRewardVideoActivity.this.I != null) {
                     TTRewardVideoActivity.this.I.removeMessages(300);
+                    TTRewardVideoActivity.this.M();
                 }
-                TTRewardVideoActivity.this.U();
+                TTRewardVideoActivity.this.W();
                 TTRewardVideoActivity.this.t();
                 TTRewardVideoActivity.this.ba = (int) (System.currentTimeMillis() / 1000);
-                TTRewardVideoActivity.this.R();
+                TTRewardVideoActivity.this.T();
             }
 
             @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.a
@@ -403,14 +430,17 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
                     TTRewardVideoActivity.this.I.removeMessages(300);
                 }
                 if (b.b()) {
-                    TTRewardVideoActivity.this.d("onVideoError");
+                    TTRewardVideoActivity.this.e("onVideoError");
                 } else if (TTRewardVideoActivity.this.bb != null) {
                     TTRewardVideoActivity.this.bb.onVideoError();
                 }
+                TTRewardVideoActivity.this.e(true);
                 if (!TTRewardVideoActivity.this.u()) {
+                    TTRewardVideoActivity.this.M();
                     if (TTRewardVideoActivity.this.D != null) {
-                        TTRewardVideoActivity.this.D.l();
+                        TTRewardVideoActivity.this.D.m();
                     }
+                    TTRewardVideoActivity.this.T();
                     TTRewardVideoActivity.this.t();
                     HashMap hashMap2 = new HashMap();
                     hashMap2.put("vbtt_skip_type", 1);
@@ -422,13 +452,14 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
             public void a() {
                 if (TTRewardVideoActivity.this.I != null) {
                     TTRewardVideoActivity.this.I.removeMessages(300);
+                    TTRewardVideoActivity.this.M();
                 }
                 TTRewardVideoActivity.this.t();
                 HashMap hashMap2 = new HashMap();
                 hashMap2.put("vbtt_skip_type", 0);
                 TTRewardVideoActivity.this.a("rewarded_video", hashMap2);
                 if (TTRewardVideoActivity.this.D != null) {
-                    TTRewardVideoActivity.this.D.l();
+                    TTRewardVideoActivity.this.D.m();
                 }
             }
 
@@ -436,24 +467,22 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
             public void a(long j2, long j3) {
                 if (TTRewardVideoActivity.this.I != null) {
                     TTRewardVideoActivity.this.I.removeMessages(300);
+                    TTRewardVideoActivity.this.M();
                 }
-                int i = com.bytedance.sdk.openadsdk.core.p.h().r(String.valueOf(TTRewardVideoActivity.this.T)).g;
-                if (j3 > 0 && ((float) (100 * j2)) / Float.valueOf((float) j3).floatValue() >= i) {
-                    TTRewardVideoActivity.this.R();
-                }
-                TTRewardVideoActivity.this.Q = (int) (TTRewardVideoActivity.this.J() - (j2 / 1000));
+                TTRewardVideoActivity.this.a(j2, j3);
+                TTRewardVideoActivity.this.Q = (int) (TTRewardVideoActivity.this.K() - (j2 / 1000));
                 if (TTRewardVideoActivity.this.Q >= 0 && TTRewardVideoActivity.this.c != null) {
                     TTRewardVideoActivity.this.c.setShowSkip(true);
                     TTRewardVideoActivity.this.c.a(String.valueOf(TTRewardVideoActivity.this.Q), (CharSequence) null);
                 }
-                int i2 = (int) (j2 / 1000);
-                if (TTRewardVideoActivity.this.S != -1 && i2 == TTRewardVideoActivity.this.S && !TTRewardVideoActivity.this.bc.get()) {
+                int i = (int) (j2 / 1000);
+                if (TTRewardVideoActivity.this.S != -1 && i == TTRewardVideoActivity.this.S && !TTRewardVideoActivity.this.bc.get()) {
                     TTRewardVideoActivity.this.d.setVisibility(0);
                     TTRewardVideoActivity.this.bc.set(true);
                     TTRewardVideoActivity.this.q();
                 }
                 int g = com.bytedance.sdk.openadsdk.core.p.h().g(String.valueOf(TTRewardVideoActivity.this.T));
-                if ((g != -1 && g >= 0) && i2 >= g) {
+                if ((g != -1 && g >= 0) && i >= g) {
                     if (!TTRewardVideoActivity.this.W.getAndSet(true) && TTRewardVideoActivity.this.c != null) {
                         TTRewardVideoActivity.this.c.setShowSkip(true);
                     }
@@ -470,15 +499,15 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
                 }
             }
         });
-        String h = this.s.F() != null ? this.s.F().h() : null;
+        String i = this.s.R() != null ? this.s.R().i() : null;
         if (this.x != null) {
             File file = new File(this.x);
             if (file.exists() && file.length() > 0) {
-                h = this.x;
+                i = this.x;
                 this.z = true;
             }
         }
-        String str = h;
+        String str = i;
         u.f("wzj", "videoUrl:" + str);
         if (this.D == null) {
             return false;
@@ -487,76 +516,77 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
         message.what = 300;
         message.arg1 = 1;
         this.I.sendMessageDelayed(message, 5000L);
-        boolean a2 = this.D.a(str, this.s.T(), this.o.getWidth(), this.o.getHeight(), null, this.s.W(), j, this.P);
+        boolean a2 = this.D.a(str, this.s.ag(), this.o.getWidth(), this.o.getHeight(), null, this.s.aj(), j, this.P);
         if (a2 && !z) {
+            u.e("AdEvent", "pangolin ad show " + aj.a(this.s, (View) null));
             d.a(this.e, this.s, "rewarded_video", hashMap);
-            Q();
+            S();
             this.aZ = (int) (System.currentTimeMillis() / 1000);
         }
         return a2;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.core.video.b.b
+    @Override // com.bytedance.sdk.openadsdk.core.video.c.b
     public void a(View view, int i, int i2, int i3, int i4) {
         if (b.b()) {
-            d("onAdVideoBarClick");
+            e("onAdVideoBarClick");
         } else if (this.bb != null) {
             this.bb.onAdVideoBarClick();
         }
     }
 
-    public void Q() {
+    public void S() {
         if (b.b()) {
-            d("onAdShow");
+            e("onAdShow");
         } else if (this.bb != null) {
             this.bb.onAdShow();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void R() {
+    public void T() {
         if (!this.aX.get()) {
             this.aX.set(true);
             if (com.bytedance.sdk.openadsdk.core.p.h().n(String.valueOf(this.T))) {
                 if (b.b()) {
-                    a("onRewardVerify", true, this.aT, this.aS);
+                    a("onRewardVerify", true, this.aT, this.aS, 0, "");
                     return;
                 } else if (this.bb != null) {
-                    this.bb.onRewardVerify(true, this.aT, this.aS);
+                    this.bb.onRewardVerify(true, this.aT, this.aS, 0, "");
                     return;
                 } else {
                     return;
                 }
             }
-            this.aR.a(V(), new q.c() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTRewardVideoActivity.6
+            this.aR.a(X(), new q.c() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTRewardVideoActivity.6
                 @Override // com.bytedance.sdk.openadsdk.core.q.c
                 public void a(int i, String str) {
                     if (b.b()) {
-                        TTRewardVideoActivity.this.a("onRewardVerify", false, 0, "");
+                        TTRewardVideoActivity.this.a("onRewardVerify", false, 0, "", i, str);
                     } else if (TTRewardVideoActivity.this.bb != null) {
-                        TTRewardVideoActivity.this.bb.onRewardVerify(false, 0, "");
+                        TTRewardVideoActivity.this.bb.onRewardVerify(false, 0, "", i, str);
                     }
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.q.c
                 public void a(r.c cVar) {
                     int a2 = cVar.c.a();
-                    String b2 = cVar.c.b();
+                    String b = cVar.c.b();
                     if (b.b()) {
-                        TTRewardVideoActivity.this.a("onRewardVerify", cVar.f6678b, a2, b2);
+                        TTRewardVideoActivity.this.a("onRewardVerify", cVar.b, a2, b, 0, "");
                     } else if (TTRewardVideoActivity.this.bb != null) {
-                        TTRewardVideoActivity.this.bb.onRewardVerify(cVar.f6678b, a2, b2);
+                        TTRewardVideoActivity.this.bb.onRewardVerify(cVar.b, a2, b, 0, "");
                     }
                 }
             });
         }
     }
 
-    private JSONObject V() {
+    private JSONObject X() {
         JSONObject jSONObject = new JSONObject();
-        float f = com.bytedance.sdk.openadsdk.utils.d.a(this.e) == null ? 0.0f : com.bytedance.sdk.openadsdk.utils.d.a(this.e).f7566a;
-        float f2 = com.bytedance.sdk.openadsdk.utils.d.a(this.e) != null ? com.bytedance.sdk.openadsdk.utils.d.a(this.e).f7567b : 0.0f;
-        int r = this.D != null ? (int) this.D.r() : 0;
+        float f = com.bytedance.sdk.openadsdk.utils.d.a(this.e) == null ? 0.0f : com.bytedance.sdk.openadsdk.utils.d.a(this.e).f5126a;
+        float f2 = com.bytedance.sdk.openadsdk.utils.d.a(this.e) != null ? com.bytedance.sdk.openadsdk.utils.d.a(this.e).b : 0.0f;
+        int s = this.D != null ? (int) this.D.s() : 0;
         try {
             jSONObject.put("oversea_version_type", 0);
             jSONObject.put("reward_name", this.aS);
@@ -564,14 +594,14 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
             jSONObject.put("network", x.c(this.e));
             jSONObject.put("latitude", f);
             jSONObject.put("longitude", f2);
-            jSONObject.put(SapiContext.KEY_SDK_VERSION, "3.2.5.1");
-            jSONObject.put("user_agent", aj.a());
+            jSONObject.put(SapiContext.KEY_SDK_VERSION, "3.4.0.1");
+            jSONObject.put("user_agent", aj.b());
             jSONObject.put("extra", new JSONObject(this.L));
             jSONObject.put("media_extra", this.aU);
-            jSONObject.put(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, J());
+            jSONObject.put(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, K());
             jSONObject.put("play_start_ts", this.aZ);
             jSONObject.put("play_end_ts", this.ba);
-            jSONObject.put("duration", r);
+            jSONObject.put("duration", s);
             jSONObject.put("user_id", this.aV);
             jSONObject.put("trans_id", UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, ""));
             return jSONObject;
@@ -580,35 +610,35 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.core.video.b.b
-    public void S() {
+    @Override // com.bytedance.sdk.openadsdk.core.video.c.b
+    public void U() {
         if (b.b()) {
-            d("onAdVideoBarClick");
+            e("onAdVideoBarClick");
         } else if (this.bb != null) {
             this.bb.onAdVideoBarClick();
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.core.video.b.b
+    @Override // com.bytedance.sdk.openadsdk.core.video.c.b
     public void f(int i) {
         if (i == 10000) {
-            R();
+            T();
         } else if (i == 10001) {
-            U();
+            W();
         }
     }
 
     @Override // android.app.Activity
     public void finish() {
-        T();
+        V();
         super.finish();
     }
 
-    public void T() {
+    public void V() {
         if (!this.aY) {
             this.aY = true;
             if (b.b()) {
-                d("onAdClose");
+                e("onAdClose");
             } else if (this.bb != null) {
                 this.bb.onAdClose();
             }
@@ -645,9 +675,9 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
     @Override // com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        T();
+        V();
         if (b.b()) {
-            d("recycleRes");
+            e("recycleRes");
         }
         if (this.bb != null) {
             this.bb = null;
@@ -665,28 +695,28 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void U() {
+    public void W() {
         if (b.b()) {
-            d("onVideoComplete");
+            e("onVideoComplete");
         } else if (this.bb != null) {
             this.bb.onVideoComplete();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void W() {
+    public void Y() {
         HashMap hashMap = new HashMap();
-        if (this.s != null && this.s.c() == 1 && this.s.s()) {
+        if (this.s != null && this.s.i() == 1 && this.s.C()) {
             hashMap.put("duration", Long.valueOf(System.currentTimeMillis() - this.ax));
         }
         d.g(this.e, this.s, "rewarded_video", "click_close", null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void X() {
-        Bitmap b2;
-        if (this.s != null && this.f != null && this.s.s() && (b2 = ak.b((WebView) this.f)) != null) {
-            ak.a(com.bytedance.sdk.openadsdk.core.p.a(), this.s, "rewarded_video", "playable_show_status", b2, false, 1);
+    public void Z() {
+        Bitmap b;
+        if (this.s != null && this.f != null && this.s.C() && (b = ak.b((WebView) this.f)) != null) {
+            ak.a(com.bytedance.sdk.openadsdk.core.p.a(), this.s, "rewarded_video", "playable_show_status", b, false, 1);
         }
     }
 }

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class StateMonitor implements Runnable {
     private static final int DEC_TYPE_H264_HW_OFFSCREEEN = 0;
     private static final int DEC_TYPE_H264_SW_FFMPEG = 2;
@@ -65,7 +65,7 @@ public class StateMonitor implements Runnable {
     public int mCurrentHeight = 0;
     private HashMap<Long, PlayerState> mPlayerStateMap = new HashMap<>();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface DecoderType {
         public static final int DEFAULT = -1;
         public static final int HARD_DECODER_H264 = 1;
@@ -76,7 +76,7 @@ public class StateMonitor implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class streamInfo {
         int bHardDecoder;
         int fps;
@@ -90,7 +90,7 @@ public class StateMonitor implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class MutiVideoPositionInfo {
         YMFVideoPosition backgroundPosition;
         YMFVideoPosition[] videoPositions;
@@ -100,7 +100,7 @@ public class StateMonitor implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class frameRateInfo {
         int mFrameRate;
         int mFrameRateDecoder;
@@ -111,7 +111,7 @@ public class StateMonitor implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class DecodeLatencyInfo {
         int latency;
         long mStreamId;
@@ -121,7 +121,7 @@ public class StateMonitor implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class FramePtsInfo {
         long mStreamId;
         long pts;
@@ -131,7 +131,7 @@ public class StateMonitor implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class ViewStateInfo {
         long mStreamId;
         int viewState;
@@ -141,7 +141,7 @@ public class StateMonitor implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class resolutionInfo {
         int mHeight;
         long mStreamId;
@@ -152,7 +152,7 @@ public class StateMonitor implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class VideoPlayerBitRateInfo {
         int mBitRate;
         long mStreamId;
@@ -162,7 +162,7 @@ public class StateMonitor implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class LostRenderInfo {
         float mFrameRate;
         long mStreamId;
@@ -172,7 +172,7 @@ public class StateMonitor implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class BlueRayInfo {
         int mIsBlueRay;
         long mStreamId;
@@ -182,7 +182,7 @@ public class StateMonitor implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class BitRateInfo {
         String mBitRate;
         long mStreamId;
@@ -192,7 +192,7 @@ public class StateMonitor implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class DecodeDelayFrameInfo {
         int mCount;
         long mStreamId;
@@ -201,7 +201,7 @@ public class StateMonitor implements Runnable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private class RenderTimeInfo {
         String mRenderMaxTime;
         String mRenderTime;
@@ -1022,7 +1022,7 @@ public class StateMonitor implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class DecoderState {
         private long mBitrate;
         private long mCreateDecoderTime;
@@ -1048,7 +1048,7 @@ public class StateMonitor implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class RenderState {
         private long mException;
         private List<Integer> mFrameRateList;
@@ -1065,7 +1065,7 @@ public class StateMonitor implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class ViewState {
         private String mName;
         private long mStreamId;
@@ -1077,7 +1077,7 @@ public class StateMonitor implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class PlayerState {
         private DecoderState mDecoderState;
         private long mFirstFrameArrivedTime;
@@ -1102,7 +1102,7 @@ public class StateMonitor implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class StreamTimeInfo {
         private long mStreamId;
         private long mTimeStamp;
@@ -1114,7 +1114,7 @@ public class StateMonitor implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class LostFrameRender {
         private int mCount;
         private long mStreamID;
@@ -1126,7 +1126,7 @@ public class StateMonitor implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class StateMonitorHandler extends Handler {
         private WeakReference<StateMonitor> mWeakWay;
 

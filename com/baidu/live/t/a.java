@@ -2,13 +2,13 @@ package com.baidu.live.t;
 
 import android.view.ViewGroup;
 import com.baidu.live.data.ab;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
-    boolean Aq();
+    boolean At();
 
     boolean J(com.baidu.live.im.data.b bVar);
 
-    boolean Pi();
+    boolean Pl();
 
     void a(ViewGroup viewGroup, ab abVar);
 
@@ -20,5 +20,5 @@ public interface a {
 
     void setIsHost(boolean z);
 
-    void xh();
+    void xk();
 }

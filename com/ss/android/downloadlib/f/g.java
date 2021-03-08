@@ -9,7 +9,7 @@ import java.util.Map;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Map<String, a> f12989a = Collections.synchronizedMap(new HashMap());
+    private static Map<String, a> f7733a = Collections.synchronizedMap(new HashMap());
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -27,33 +27,33 @@ public class g {
     }
 
     public static void a(String str) {
-        a aaY;
-        if (!TextUtils.isEmpty(str) && (aaY = aaY(str)) != null) {
-            aaY.a();
+        a abd;
+        if (!TextUtils.isEmpty(str) && (abd = abd(str)) != null) {
+            abd.a();
         }
     }
 
     public static void a(String str, String str2) {
-        a aaY;
-        if (!TextUtils.isEmpty(str) && (aaY = aaY(str)) != null) {
-            aaY.a(str2);
+        a abd;
+        if (!TextUtils.isEmpty(str) && (abd = abd(str)) != null) {
+            abd.a(str2);
         }
     }
 
     private static void a(String str, a aVar) {
         if (!TextUtils.isEmpty(str) && aVar != null) {
-            f12989a.put(str, aVar);
+            f7733a.put(str, aVar);
         }
     }
 
-    private static a aaY(String str) {
+    private static a abd(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return f12989a.remove(str);
+        return f7733a.remove(str);
     }
 
     public static boolean b(String str) {
-        return com.ss.android.downloadlib.a.j.eEP().a(com.ss.android.downloadlib.a.j.a(), str);
+        return com.ss.android.downloadlib.a.j.eET().a(com.ss.android.downloadlib.a.j.a(), str);
     }
 }

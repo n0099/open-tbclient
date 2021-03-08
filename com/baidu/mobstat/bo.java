@@ -17,14 +17,12 @@ import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.URL;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class bo {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Proxy f3771a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final Proxy f3772b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
+    private static final Proxy f2642a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
+    private static final Proxy b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
 
     public static String a() {
         try {
@@ -211,9 +209,9 @@ public final class bo {
                 String extraInfo = networkInfo.getExtraInfo();
                 String lowerCase = extraInfo != null ? extraInfo.toLowerCase() : "";
                 if (lowerCase.startsWith("cmwap") || lowerCase.startsWith("uniwap") || lowerCase.startsWith("3gwap")) {
-                    httpURLConnection = (HttpURLConnection) url.openConnection(f3771a);
+                    httpURLConnection = (HttpURLConnection) url.openConnection(f2642a);
                 } else if (lowerCase.startsWith("ctwap")) {
-                    httpURLConnection = (HttpURLConnection) url.openConnection(f3772b);
+                    httpURLConnection = (HttpURLConnection) url.openConnection(b);
                 }
             }
             httpURLConnection = null;

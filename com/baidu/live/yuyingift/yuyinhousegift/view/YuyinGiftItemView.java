@@ -24,23 +24,23 @@ import com.baidu.live.yuyingift.yuyinhousegift.a.f;
 import com.baidu.live.yuyingift.yuyinhousegift.a.g;
 import com.baidu.live.yuyingift.yuyinhousegift.a.h;
 import com.baidu.live.yuyingift.yuyinhousegift.a.i;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class YuyinGiftItemView extends RelativeLayout {
-    private final int ccm;
-    private RelativeLayout ccn;
-    private TbImageView cco;
-    private LottieAnimationView ccp;
-    private TextView ccq;
-    private TextView ccr;
-    private com.baidu.live.yuyingift.yuyinhousegift.a.a cct;
-    private c ccu;
-    private a ccv;
-    private AlaWheatInfoData ccw;
-    private float ccx;
-    private final int ccy;
-    private final int ccz;
+    private final int cdP;
+    private RelativeLayout cdQ;
+    private TbImageView cdR;
+    private LottieAnimationView cdS;
+    private TextView cdT;
+    private TextView cdU;
+    private com.baidu.live.yuyingift.yuyinhousegift.a.a cdV;
+    private c cdW;
+    private a cdX;
+    private AlaWheatInfoData cdY;
+    private float cdZ;
+    private final int cea;
+    private final int ceb;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void A(c cVar);
 
@@ -60,11 +60,11 @@ public class YuyinGiftItemView extends RelativeLayout {
     }
 
     public AlaWheatInfoData getWheatInfoData() {
-        return this.ccw;
+        return this.cdY;
     }
 
     public void setWheatInfoData(AlaWheatInfoData alaWheatInfoData) {
-        this.ccw = alaWheatInfoData;
+        this.cdY = alaWheatInfoData;
     }
 
     public YuyinGiftItemView(Context context) {
@@ -73,34 +73,34 @@ public class YuyinGiftItemView extends RelativeLayout {
 
     public YuyinGiftItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ccm = 4;
-        this.ccy = Color.parseColor("#FFEAAA");
-        this.ccz = Color.parseColor("#FFFFFF");
+        this.cdP = 4;
+        this.cea = Color.parseColor("#FFEAAA");
+        this.ceb = Color.parseColor("#FFFFFF");
         init();
     }
 
     private void init() {
         inflate(getContext(), a.g.yuyin_ala_item_room_gift_view, this);
-        this.ccn = (RelativeLayout) findViewById(a.f.yuyin_ala_rl_gift_count);
-        this.cco = (TbImageView) findViewById(a.f.yuyin_ala_iv_gift_animal_icon);
-        this.ccp = (LottieAnimationView) findViewById(a.f.yuyin_ala_wheat_gift_lottie);
-        this.ccq = (TextView) findViewById(a.f.yuyin_ala_tv_gift_animal_count);
-        this.ccr = (TextView) findViewById(a.f.yuyin_ala_tv_gift_animal_userhint);
-        this.ccx = BdUtilHelper.dip2px(getContext(), 64.0f);
-        this.ccp.setAnimation("yuyin_ala_wheat_gift_dbclick.json");
-        this.ccp.setImageAssetsFolder("wheatgift");
-        this.ccp.loop(false);
+        this.cdQ = (RelativeLayout) findViewById(a.f.yuyin_ala_rl_gift_count);
+        this.cdR = (TbImageView) findViewById(a.f.yuyin_ala_iv_gift_animal_icon);
+        this.cdS = (LottieAnimationView) findViewById(a.f.yuyin_ala_wheat_gift_lottie);
+        this.cdT = (TextView) findViewById(a.f.yuyin_ala_tv_gift_animal_count);
+        this.cdU = (TextView) findViewById(a.f.yuyin_ala_tv_gift_animal_userhint);
+        this.cdZ = BdUtilHelper.dip2px(getContext(), 64.0f);
+        this.cdS.setAnimation("yuyin_ala_wheat_gift_dbclick.json");
+        this.cdS.setImageAssetsFolder("wheatgift");
+        this.cdS.loop(false);
     }
 
     public void setAnimalCallback(a aVar) {
-        this.ccv = aVar;
+        this.cdX = aVar;
     }
 
     public void G(c cVar) {
         if (cVar != null) {
-            this.cco.startLoad(cVar.bcO == null ? com.baidu.pass.biometrics.face.liveness.c.a.p : cVar.bcO.getThumbnail_url(), 12, false);
-            this.ccq.setText(String.valueOf(cVar.bZe + cVar.bcT));
-            this.ccu = cVar;
+            this.cdR.startLoad(cVar.bep == null ? com.baidu.pass.biometrics.face.liveness.c.a.p : cVar.bep.getThumbnail_url(), 12, false);
+            this.cdT.setText(String.valueOf(cVar.caE + cVar.bev));
+            this.cdW = cVar;
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(cVar.userName);
             if (TextUtils.isEmpty(spannableStringBuilder)) {
                 spannableStringBuilder.append((CharSequence) "某人");
@@ -110,73 +110,73 @@ public class YuyinGiftItemView extends RelativeLayout {
                 spannableStringBuilder.append((CharSequence) StringHelper.STRING_MORE);
             }
             spannableStringBuilder.append((CharSequence) " ");
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.ccy), 0, spannableStringBuilder.length(), 17);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.cea), 0, spannableStringBuilder.length(), 17);
             spannableStringBuilder.append((CharSequence) "送");
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.ccz), spannableStringBuilder.length() - 1, spannableStringBuilder.length(), 33);
-            this.ccr.setText(spannableStringBuilder);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.ceb), spannableStringBuilder.length() - 1, spannableStringBuilder.length(), 33);
+            this.cdU.setText(spannableStringBuilder);
             setVisibility(4);
         }
     }
 
     public com.baidu.live.yuyingift.yuyinhousegift.a.a n(final float f, final float f2) {
-        this.cct = new com.baidu.live.yuyingift.yuyinhousegift.a.c(this);
-        ((com.baidu.live.yuyingift.yuyinhousegift.a.c) this.cct).a(new c.a() { // from class: com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.1
+        this.cdV = new com.baidu.live.yuyingift.yuyinhousegift.a.c(this);
+        ((com.baidu.live.yuyingift.yuyinhousegift.a.c) this.cdV).a(new c.a() { // from class: com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.1
             @Override // com.baidu.live.yuyingift.yuyinhousegift.a.c.a
-            public void Zx() {
+            public void ZA() {
                 YuyinGiftItemView.this.setX(f - (YuyinGiftItemView.this.getWidth() / 2));
                 YuyinGiftItemView.this.setY(f2);
                 YuyinGiftItemView.this.setVisibility(0);
             }
         });
-        this.cct.cbU.addListener(new b() { // from class: com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.4
+        this.cdV.cdx.addListener(new b() { // from class: com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.4
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (!this.MD && YuyinGiftItemView.this.ccv != null) {
-                    YuyinGiftItemView.this.ccv.y(YuyinGiftItemView.this.ccu);
+                if (!this.Od && YuyinGiftItemView.this.cdX != null) {
+                    YuyinGiftItemView.this.cdX.y(YuyinGiftItemView.this.cdW);
                 }
             }
         });
-        this.cct.bZu = this.ccu;
-        this.cct.cbU.start();
-        return this.cct;
+        this.cdV.caU = this.cdW;
+        this.cdV.cdx.start();
+        return this.cdV;
     }
 
-    public com.baidu.live.yuyingift.yuyinhousegift.a.a ZE() {
-        if (this.ccw == null || this.ccw.locationCenterX == 0.0f) {
+    public com.baidu.live.yuyingift.yuyinhousegift.a.a ZH() {
+        if (this.cdY == null || this.cdY.locationCenterX == 0.0f) {
             return null;
         }
-        this.cct = new e(this, getX(), getY(), this.ccw.locationCenterX - (getWidth() / 2), this.ccw.locationCenterY - this.ccx);
-        this.cct.cbU.addListener(new b() { // from class: com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.5
+        this.cdV = new e(this, getX(), getY(), this.cdY.locationCenterX - (getWidth() / 2), this.cdY.locationCenterY - this.cdZ);
+        this.cdV.cdx.addListener(new b() { // from class: com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.5
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (!this.MD && YuyinGiftItemView.this.ccv != null) {
-                    YuyinGiftItemView.this.ccv.z(YuyinGiftItemView.this.ccu);
+                if (!this.Od && YuyinGiftItemView.this.cdX != null) {
+                    YuyinGiftItemView.this.cdX.z(YuyinGiftItemView.this.cdW);
                 }
             }
         });
-        this.cct.bZu = this.ccu;
-        this.cct.cbU.start();
-        return this.cct;
+        this.cdV.caU = this.cdW;
+        this.cdV.cdx.start();
+        return this.cdV;
     }
 
-    public com.baidu.live.yuyingift.yuyinhousegift.a.a ZF() {
-        this.cct = new d(this);
-        this.cct.cbU.addListener(new b() { // from class: com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.6
+    public com.baidu.live.yuyingift.yuyinhousegift.a.a ZI() {
+        this.cdV = new d(this);
+        this.cdV.cdx.addListener(new b() { // from class: com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.6
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (!this.MD && YuyinGiftItemView.this.ccv != null) {
-                    YuyinGiftItemView.this.ccv.A(YuyinGiftItemView.this.ccu);
+                if (!this.Od && YuyinGiftItemView.this.cdX != null) {
+                    YuyinGiftItemView.this.cdX.A(YuyinGiftItemView.this.cdW);
                 }
             }
         });
-        this.cct.bZu = this.ccu;
-        this.cct.cbU.start();
-        return this.cct;
+        this.cdV.caU = this.cdW;
+        this.cdV.cdx.start();
+        return this.cdV;
     }
 
     public com.baidu.live.yuyingift.yuyinhousegift.a.a H(final com.baidu.live.yuyingift.a.c cVar) {
-        this.cct = new com.baidu.live.yuyingift.yuyinhousegift.a.b(this);
-        this.cct.cbU.addListener(new b() { // from class: com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.7
+        this.cdV = new com.baidu.live.yuyingift.yuyinhousegift.a.b(this);
+        this.cdV.cdx.addListener(new b() { // from class: com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.7
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
                 super();
@@ -184,25 +184,25 @@ public class YuyinGiftItemView extends RelativeLayout {
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (!this.MD && YuyinGiftItemView.this.ccv != null) {
-                    YuyinGiftItemView.this.ccv.C(cVar);
+                if (!this.Od && YuyinGiftItemView.this.cdX != null) {
+                    YuyinGiftItemView.this.cdX.C(cVar);
                 }
             }
         });
-        this.ccu = cVar;
-        this.cct.bZu = this.ccu;
-        this.cct.cbU.start();
-        return this.cct;
+        this.cdW = cVar;
+        this.cdV.caU = this.cdW;
+        this.cdV.cdx.start();
+        return this.cdV;
     }
 
     public String I(com.baidu.live.yuyingift.a.c cVar) {
         if (cVar != null) {
-            if (cVar.aYl > 0) {
-                return String.valueOf(cVar.bZe + cVar.bcT);
+            if (cVar.aZL > 0) {
+                return String.valueOf(cVar.caE + cVar.bev);
             }
             long j = 1;
             try {
-                j = cVar.bcT + Integer.parseInt(this.ccq.getText().toString());
+                j = cVar.bev + Integer.parseInt(this.cdT.getText().toString());
             } catch (Exception e) {
             }
             return String.valueOf(j);
@@ -212,7 +212,7 @@ public class YuyinGiftItemView extends RelativeLayout {
 
     public int getNowShowCount() {
         try {
-            return Integer.parseInt(this.ccq.getText().toString());
+            return Integer.parseInt(this.cdT.getText().toString());
         } catch (Exception e) {
             return 1;
         }
@@ -224,21 +224,21 @@ public class YuyinGiftItemView extends RelativeLayout {
                 return null;
             }
             setX(f - (getWidth() / 2));
-            if (this.ccw != null && this.ccw.locationCenterY != 0.0f) {
-                setY(f2 - this.ccx);
+            if (this.cdY != null && this.cdY.locationCenterY != 0.0f) {
+                setY(f2 - this.cdZ);
             } else {
                 setY(f2);
             }
-            if (this.ccn != null) {
-                this.cct = new i(this.ccn);
-                ((i) this.cct).a(new i.a() { // from class: com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.8
+            if (this.cdQ != null) {
+                this.cdV = new i(this.cdQ);
+                ((i) this.cdV).a(new i.a() { // from class: com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.8
                     @Override // com.baidu.live.yuyingift.yuyinhousegift.a.i.a
-                    public void Zx() {
-                        YuyinGiftItemView.this.ccp.playAnimation();
-                        YuyinGiftItemView.this.ccq.setText(YuyinGiftItemView.this.I(cVar));
+                    public void ZA() {
+                        YuyinGiftItemView.this.cdS.playAnimation();
+                        YuyinGiftItemView.this.cdT.setText(YuyinGiftItemView.this.I(cVar));
                     }
                 });
-                this.cct.cbU.addListener(new b() { // from class: com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.9
+                this.cdV.cdx.addListener(new b() { // from class: com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.9
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
                         super();
@@ -246,15 +246,15 @@ public class YuyinGiftItemView extends RelativeLayout {
 
                     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
-                        if (!this.MD && YuyinGiftItemView.this.ccv != null) {
-                            YuyinGiftItemView.this.ccv.B(cVar);
+                        if (!this.Od && YuyinGiftItemView.this.cdX != null) {
+                            YuyinGiftItemView.this.cdX.B(cVar);
                         }
                     }
                 });
-                this.ccu = cVar;
-                this.cct.bZu = cVar;
-                this.cct.cbU.start();
-                return this.cct;
+                this.cdW = cVar;
+                this.cdV.caU = cVar;
+                this.cdV.cdx.start();
+                return this.cdV;
             }
             return null;
         }
@@ -263,25 +263,25 @@ public class YuyinGiftItemView extends RelativeLayout {
 
     public com.baidu.live.yuyingift.yuyinhousegift.a.a b(final com.baidu.live.yuyingift.a.c cVar, final float f, final float f2) {
         if (cVar != null) {
-            if ((f == 0.0f && f2 == 0.0f) || this.ccq == null) {
+            if ((f == 0.0f && f2 == 0.0f) || this.cdT == null) {
                 return null;
             }
-            this.cct = new g(this);
-            ((g) this.cct).a(new g.a() { // from class: com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.10
+            this.cdV = new g(this);
+            ((g) this.cdV).a(new g.a() { // from class: com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.10
                 @Override // com.baidu.live.yuyingift.yuyinhousegift.a.g.a
-                public void Zx() {
+                public void ZA() {
                     YuyinGiftItemView.this.setX(f - (YuyinGiftItemView.this.getWidth() / 2));
-                    if (YuyinGiftItemView.this.ccw != null && YuyinGiftItemView.this.ccw.locationCenterY != 0.0f) {
-                        YuyinGiftItemView.this.setY(f2 - YuyinGiftItemView.this.ccx);
+                    if (YuyinGiftItemView.this.cdY != null && YuyinGiftItemView.this.cdY.locationCenterY != 0.0f) {
+                        YuyinGiftItemView.this.setY(f2 - YuyinGiftItemView.this.cdZ);
                     } else {
                         YuyinGiftItemView.this.setY(f2);
                     }
                     YuyinGiftItemView.this.setVisibility(0);
-                    YuyinGiftItemView.this.ccp.playAnimation();
-                    YuyinGiftItemView.this.ccq.setText(YuyinGiftItemView.this.I(cVar));
+                    YuyinGiftItemView.this.cdS.playAnimation();
+                    YuyinGiftItemView.this.cdT.setText(YuyinGiftItemView.this.I(cVar));
                 }
             });
-            this.cct.cbU.addListener(new b() { // from class: com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.11
+            this.cdV.cdx.addListener(new b() { // from class: com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.11
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
                     super();
@@ -289,22 +289,22 @@ public class YuyinGiftItemView extends RelativeLayout {
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    if (!this.MD && YuyinGiftItemView.this.ccv != null) {
-                        YuyinGiftItemView.this.ccv.D(cVar);
+                    if (!this.Od && YuyinGiftItemView.this.cdX != null) {
+                        YuyinGiftItemView.this.cdX.D(cVar);
                     }
                 }
             });
-            this.ccu = cVar;
-            this.cct.bZu = this.ccu;
-            this.cct.cbU.start();
-            return this.cct;
+            this.cdW = cVar;
+            this.cdV.caU = this.cdW;
+            this.cdV.cdx.start();
+            return this.cdV;
         }
         return null;
     }
 
     public com.baidu.live.yuyingift.yuyinhousegift.a.a J(final com.baidu.live.yuyingift.a.c cVar) {
-        this.cct = new h(this);
-        this.cct.cbU.addListener(new b() { // from class: com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.2
+        this.cdV = new h(this);
+        this.cdV.cdx.addListener(new b() { // from class: com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.2
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
                 super();
@@ -312,20 +312,20 @@ public class YuyinGiftItemView extends RelativeLayout {
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (!this.MD && YuyinGiftItemView.this.ccv != null) {
-                    YuyinGiftItemView.this.ccv.E(cVar);
+                if (!this.Od && YuyinGiftItemView.this.cdX != null) {
+                    YuyinGiftItemView.this.cdX.E(cVar);
                 }
             }
         });
-        this.ccu = cVar;
-        this.cct.bZu = this.ccu;
-        this.cct.cbU.start();
-        return this.cct;
+        this.cdW = cVar;
+        this.cdV.caU = this.cdW;
+        this.cdV.cdx.start();
+        return this.cdV;
     }
 
     public com.baidu.live.yuyingift.yuyinhousegift.a.a K(final com.baidu.live.yuyingift.a.c cVar) {
-        this.cct = new f(this);
-        this.cct.cbU.addListener(new b() { // from class: com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.3
+        this.cdV = new f(this);
+        this.cdV.cdx.addListener(new b() { // from class: com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.3
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
                 super();
@@ -333,33 +333,33 @@ public class YuyinGiftItemView extends RelativeLayout {
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (!this.MD && YuyinGiftItemView.this.ccv != null) {
-                    YuyinGiftItemView.this.ccv.F(cVar);
+                if (!this.Od && YuyinGiftItemView.this.cdX != null) {
+                    YuyinGiftItemView.this.cdX.F(cVar);
                 }
             }
         });
-        this.ccu = cVar;
-        this.cct.bZu = this.ccu;
-        this.cct.cbU.start();
-        return this.cct;
+        this.cdW = cVar;
+        this.cdV.caU = this.cdW;
+        this.cdV.cdx.start();
+        return this.cdV;
     }
 
     public void cancel() {
-        if (this.cct != null) {
-            this.cct.cancel();
+        if (this.cdV != null) {
+            this.cdV.cancel();
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     private class b extends AnimatorListenerAdapter {
-        protected boolean MD;
+        protected boolean Od;
 
         private b() {
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
-            this.MD = true;
+            this.Od = true;
         }
     }
 }

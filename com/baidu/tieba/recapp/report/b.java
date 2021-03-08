@@ -13,44 +13,44 @@ import tbclient.Abstract;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class b {
-    private static b mXt;
-    private ConcurrentHashMap<String, List<JSONObject>> mXu = new ConcurrentHashMap<>();
-    private ConcurrentHashMap<String, Integer> mXv = new ConcurrentHashMap<>();
+    private static b mZD;
+    private ConcurrentHashMap<String, List<JSONObject>> mZE = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, Integer> mZF = new ConcurrentHashMap<>();
 
     private b() {
     }
 
-    public static b dEt() {
-        if (mXt == null) {
+    public static b dEB() {
+        if (mZD == null) {
             synchronized (b.class) {
-                if (mXt == null) {
-                    mXt = new b();
+                if (mZD == null) {
+                    mZD = new b();
                 }
             }
         }
-        return mXt;
+        return mZD;
     }
 
     public void q(String str, List<JSONObject> list) {
         ArrayList arrayList = new ArrayList();
         arrayList.addAll(list);
-        this.mXu.put(str, arrayList);
+        this.mZE.put(str, arrayList);
     }
 
-    public String RR(String str) {
-        return fM(this.mXu.get(str));
+    public String RX(String str) {
+        return fM(this.mZE.get(str));
     }
 
-    public void RS(String str) {
-        this.mXu.put(str, new ArrayList());
+    public void RY(String str) {
+        this.mZE.put(str, new ArrayList());
     }
 
     public void bO(String str, int i) {
-        this.mXv.put(str, Integer.valueOf(i));
+        this.mZF.put(str, Integer.valueOf(i));
     }
 
-    public int RT(String str) {
-        Integer num = this.mXv.get(str);
+    public int RZ(String str) {
+        Integer num = this.mZF.get(str);
         if (num == null) {
             return 0;
         }

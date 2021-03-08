@@ -1,17 +1,17 @@
 package com.baidu.live.x;
 
 import android.view.View;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface c {
-    void PA();
+    View PA();
 
-    void PB();
+    b PB();
 
-    View Px();
+    b PC();
 
-    b Py();
+    void PD();
 
-    b Pz();
+    void PE();
 
     void destory();
 

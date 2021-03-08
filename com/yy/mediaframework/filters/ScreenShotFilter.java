@@ -3,7 +3,7 @@ package com.yy.mediaframework.filters;
 import android.opengl.GLES20;
 import com.yy.mediaframework.model.YYMediaSample;
 import com.yy.mediaframework.utils.GLUtil;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ScreenShotFilter extends AbstractYYMediaFilter {
     private static final String TAG = "ScreenShotFilter";
     private VideoLiveFilterContext mFilterContext;

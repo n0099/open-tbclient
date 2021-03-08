@@ -2,7 +2,7 @@ package com.yy.mediaframework.gpuimage;
 
 import android.opengl.GLES20;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GPUImageSTBeautyFilter1 extends GPUImageFilter implements IFilterParams {
     private static final float ratio = 0.004f;
     private float mContrast;

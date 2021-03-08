@@ -3,7 +3,7 @@ package io.flutter.plugin.common;
 import android.util.Log;
 import androidx.annotation.Nullable;
 import io.flutter.plugin.common.MethodChannel;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ErrorLogResult implements MethodChannel.Result {
     private int level;
     private String tag;

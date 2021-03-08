@@ -18,18 +18,15 @@ import java.lang.reflect.Method;
 public class v implements TTAdManager {
 
     /* renamed from: a  reason: collision with root package name */
-    String f6687a = "com.union_test.toutiao";
-
-    /* renamed from: b  reason: collision with root package name */
-    String f6688b = "5001121";
+    String f4518a = "com.union_test.toutiao";
+    String b = "5001121";
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     /* renamed from: a */
     public v setAppId(String str) {
-        i.c().a(str);
-        com.bytedance.sdk.openadsdk.core.h.h.a(p.i()).a();
-        com.bytedance.sdk.openadsdk.core.h.i.a(p.h()).c();
+        i.d().a(str);
+        com.bytedance.sdk.openadsdk.core.h.f.a(p.h()).c();
         return this;
     }
 
@@ -37,7 +34,7 @@ public class v implements TTAdManager {
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     /* renamed from: b */
     public v setName(String str) {
-        i.c().b(str);
+        i.d().b(str);
         return this;
     }
 
@@ -45,7 +42,7 @@ public class v implements TTAdManager {
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     /* renamed from: a */
     public v setPaid(boolean z) {
-        i.c().a(z);
+        i.d().a(z);
         return this;
     }
 
@@ -53,7 +50,7 @@ public class v implements TTAdManager {
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     /* renamed from: c */
     public v setKeywords(String str) {
-        i.c().c(str);
+        i.d().c(str);
         return this;
     }
 
@@ -61,19 +58,19 @@ public class v implements TTAdManager {
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     /* renamed from: d */
     public v setData(String str) {
-        i.c().d(str);
+        i.d().d(str);
         return this;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     public TTAdManager setTitleBarTheme(int i) {
-        i.c().a(i);
+        i.d().a(i);
         return this;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     public TTAdManager setAllowShowNotifiFromSDK(boolean z) {
-        i.c().b(z);
+        i.d().b(z);
         return this;
     }
 
@@ -86,13 +83,13 @@ public class v implements TTAdManager {
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     public TTAdManager setAllowLandingPageShowWhenScreenLock(boolean z) {
-        i.c().c(z);
+        i.d().c(z);
         return this;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     public TTAdManager setGlobalAppDownloadListener(TTGlobalAppDownloadListener tTGlobalAppDownloadListener) {
-        i.c().a(tTGlobalAppDownloadListener);
+        i.d().a(tTGlobalAppDownloadListener);
         return this;
     }
 
@@ -103,53 +100,53 @@ public class v implements TTAdManager {
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     public TTAdManager setDirectDownloadNetworkType(int... iArr) {
-        i.c().a(iArr);
+        i.d().a(iArr);
         return this;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     public TTAdNative createAdNative(Context context) {
-        i.c().n();
+        i.d().o();
         return new w(context);
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     public TTAdManager isUseTextureView(boolean z) {
-        i.c().d(z);
+        i.d().d(z);
         return this;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     public TTAdManager setTTDownloadEventLogger(TTDownloadEventLogger tTDownloadEventLogger) {
-        i.c().a(tTDownloadEventLogger);
+        i.d().a(tTDownloadEventLogger);
         return this;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     public TTAdManager setTTSecAbs(TTSecAbs tTSecAbs) {
-        i.c().a(tTSecAbs);
+        i.d().a(tTSecAbs);
         return this;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     public TTAdManager setCustomController(TTCustomController tTCustomController) {
-        i.c().a(tTCustomController);
+        i.d().a(tTCustomController);
         return this;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     public TTAdManager setNeedClearTaskReset(String[] strArr) {
-        i.c().a(strArr);
+        i.d().a(strArr);
         return this;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     public void requestPermissionIfNecessary(Context context) {
-        TTCustomController d = i.c().d();
-        if (d != null) {
-            boolean isCanUseLocation = d.isCanUseLocation();
-            boolean isCanUsePhoneState = d.isCanUsePhoneState();
-            boolean isCanUseWriteExternal = d.isCanUseWriteExternal();
+        TTCustomController e = i.d().e();
+        if (e != null) {
+            boolean isCanUseLocation = e.isCanUseLocation();
+            boolean isCanUsePhoneState = e.isCanUsePhoneState();
+            boolean isCanUseWriteExternal = e.isCanUseWriteExternal();
             if (!isCanUseLocation && !isCanUsePhoneState && !isCanUseWriteExternal) {
                 return;
             }
@@ -169,12 +166,12 @@ public class v implements TTAdManager {
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     public String getSDKVersion() {
-        return "3.2.5.1";
+        return "3.4.0.1";
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     public boolean onlyVerityPlayable(String str, int i, String str2, String str3, String str4) {
-        if (this.f6687a.equals(p.a().getPackageName()) && this.f6688b.equals(i.c().e()) && !TextUtils.isEmpty(str)) {
+        if (this.f4518a.equals(p.a().getPackageName()) && this.b.equals(i.d().f()) && !TextUtils.isEmpty(str)) {
             try {
                 Method a2 = ah.a("com.bytedance.sdk.openadsdk.TTC3Proxy", "verityPlayable", String.class, Integer.TYPE, String.class, String.class, String.class);
                 if (a2 != null) {

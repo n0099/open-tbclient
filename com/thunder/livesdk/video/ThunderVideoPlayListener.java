@@ -7,7 +7,7 @@ import com.yy.videoplayer.VideoDecodeEventNotify;
 import com.yy.videoplayer.VideoRenderNotify;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderVideoPlayListener implements IVideoInfoCallback, IVideoLibInfoExt {
     private Context mAppContext;
     private IThunderVideoPlay mVideoPlayEngine;

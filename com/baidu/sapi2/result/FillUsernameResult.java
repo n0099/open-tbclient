@@ -1,7 +1,7 @@
 package com.baidu.sapi2.result;
 
 import com.baidu.sapi2.SapiAccount;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class FillUsernameResult extends SapiResult {
     public static final String ERROR_MSG_UNKNOWN = "用户名设置失败";
     public static final int RESULT_CODE_BDUSS_EXPIRED = 160103;

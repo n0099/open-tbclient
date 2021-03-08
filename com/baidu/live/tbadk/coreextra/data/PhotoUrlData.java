@@ -6,7 +6,7 @@ import com.baidu.live.adp.lib.util.StringUtils;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class PhotoUrlData implements Serializable {
     private static final long serialVersionUID = -6994746964706195260L;
     private String bigurl;

@@ -4,70 +4,70 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static final a gbP = new a();
-    private AtomicBoolean gbQ = new AtomicBoolean(false);
-    private int gbR = 0;
-    private int gbS;
-    private int gbT;
-    private int gbU;
-    private String gbV;
-    private int gbW;
-    private int gbX;
-    private int gbY;
-    private int gbZ;
+    private static final a gdq = new a();
+    private int gdA;
+    private AtomicBoolean gdr = new AtomicBoolean(false);
+    private int gds = 0;
+    private int gdt;
+    private int gdu;
+    private int gdv;
+    private String gdw;
+    private int gdx;
+    private int gdy;
+    private int gdz;
 
     private a() {
     }
 
-    public static a bJg() {
-        return gbP;
+    public static a bJk() {
+        return gdq;
     }
 
     public void parse(JSONObject jSONObject) {
-        boolean z = this.gbQ.get();
+        boolean z = this.gdr.get();
         if (jSONObject != null && !z) {
-            this.gbQ.set(true);
-            this.gbR = jSONObject.optInt("tieba_landing_page_type_switch", -1);
-            this.gbS = jSONObject.optInt("tieba_fix_apk_install_status_switch", 1);
-            this.gbT = jSONObject.optInt("tieba_12.2_download_ad_discard", -1);
-            this.gbU = jSONObject.optInt("tieba_12.3_ad_discard_optimize", -1);
-            this.gbV = jSONObject.optString("tieba_follow_up_cmatch_switchs", "");
-            this.gbW = jSONObject.optInt("tieba_follow_up_expire_time", 7);
-            this.gbX = jSONObject.optInt("tieba_follow_up_max_remind_times", 3);
-            this.gbY = jSONObject.optInt("tieba_follow_up_gap_time", 5);
-            this.gbZ = jSONObject.optInt("tieba_12.4_download_path", 0);
+            this.gdr.set(true);
+            this.gds = jSONObject.optInt("tieba_landing_page_type_switch", -1);
+            this.gdt = jSONObject.optInt("tieba_fix_apk_install_status_switch", 1);
+            this.gdu = jSONObject.optInt("tieba_12.2_download_ad_discard", -1);
+            this.gdv = jSONObject.optInt("tieba_12.3_ad_discard_optimize", -1);
+            this.gdw = jSONObject.optString("tieba_follow_up_cmatch_switchs", "");
+            this.gdx = jSONObject.optInt("tieba_follow_up_expire_time", 7);
+            this.gdy = jSONObject.optInt("tieba_follow_up_max_remind_times", 3);
+            this.gdz = jSONObject.optInt("tieba_follow_up_gap_time", 5);
+            this.gdA = jSONObject.optInt("tieba_12.4_download_path", 0);
         }
     }
 
-    public boolean bJh() {
-        return this.gbS == 1;
+    public boolean bJl() {
+        return this.gdt == 1;
     }
 
-    public boolean bJi() {
-        return this.gbT == 1;
+    public boolean bJm() {
+        return this.gdu == 1;
     }
 
-    public boolean bJj() {
-        return this.gbU == 1;
+    public boolean bJn() {
+        return this.gdv == 1;
     }
 
-    public String bJk() {
-        return this.gbV;
+    public String bJo() {
+        return this.gdw;
     }
 
-    public int bJl() {
-        return this.gbW;
+    public int bJp() {
+        return this.gdx;
     }
 
-    public int bJm() {
-        return this.gbX;
+    public int bJq() {
+        return this.gdy;
     }
 
-    public int bJn() {
-        return this.gbY;
+    public int bJr() {
+        return this.gdz;
     }
 
-    public boolean bJo() {
-        return this.gbZ == 1;
+    public boolean bJs() {
+        return this.gdA == 1;
     }
 }

@@ -17,10 +17,8 @@ import java.util.Map;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile g f1803a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private c f1804b;
+    private static volatile g f1449a;
+    private c b;
     private String c;
     private int d;
     private Class<?> e;
@@ -30,28 +28,28 @@ public class g {
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             CyberLog.i("RemotePlayer", "RemotePlayer service connected");
-            g.this.f1804b = c.a.a(iBinder);
+            g.this.b = c.a.a(iBinder);
             try {
-                g.this.f1804b.asBinder().linkToDeath(g.this.i, 0);
+                g.this.b.asBinder().linkToDeath(g.this.i, 0);
             } catch (RemoteException e) {
                 e.printStackTrace();
-                g.this.f1804b = null;
+                g.this.b = null;
             }
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
             CyberLog.e("RemotePlayer", "RemotePlayer service disconnected");
-            g.this.f1804b = null;
+            g.this.b = null;
         }
     };
     private IBinder.DeathRecipient i = new IBinder.DeathRecipient() { // from class: com.baidu.cyberplayer.sdk.remote.g.2
         @Override // android.os.IBinder.DeathRecipient
         public void binderDied() {
             CyberLog.i("RemotePlayer", "RemotePlayer service binder died");
-            if (g.this.f1804b != null) {
-                g.this.f1804b.asBinder().unlinkToDeath(g.this.i, 0);
-                g.this.f1804b = null;
+            if (g.this.b != null) {
+                g.this.b.asBinder().unlinkToDeath(g.this.i, 0);
+                g.this.b = null;
             }
             synchronized (g.this.f) {
                 Iterator it = g.this.g.iterator();
@@ -72,16 +70,16 @@ public class g {
     public static class a extends c.a {
 
         /* renamed from: a  reason: collision with root package name */
-        RemotePlayerService f1807a;
+        RemotePlayerService f1452a;
 
         public a(RemotePlayerService remotePlayerService) {
-            this.f1807a = remotePlayerService;
+            this.f1452a = remotePlayerService;
         }
 
         @Override // com.baidu.cyberplayer.sdk.remote.c
         public IBinder a() {
             if (CyberPlayerManager.isCoreLoaded(1)) {
-                return new com.baidu.cyberplayer.sdk.extractor.c(this.f1807a);
+                return new com.baidu.cyberplayer.sdk.extractor.c(this.f1452a);
             }
             CyberLog.w("RemotePlayer", "RemoteExtractor has not load kernel, create failed!");
             return null;
@@ -90,7 +88,7 @@ public class g {
         @Override // com.baidu.cyberplayer.sdk.remote.c
         public IBinder a(int i) {
             if (CyberPlayerManager.isCoreLoaded(1)) {
-                return new f(i, this.f1807a);
+                return new f(i, this.f1452a);
             }
             CyberLog.w("RemotePlayer", "RemotePlayer has not load kernel, create failed!");
             return null;
@@ -122,18 +120,18 @@ public class g {
     }
 
     public static g a() {
-        if (f1803a == null) {
-            f1803a = new g();
+        if (f1449a == null) {
+            f1449a = new g();
         }
-        return f1803a;
+        return f1449a;
     }
 
     public int a(String str) {
-        if (this.f1804b == null) {
+        if (this.b == null) {
             return -1;
         }
         try {
-            return this.f1804b.a(str) ? 1 : 0;
+            return this.b.a(str) ? 1 : 0;
         } catch (RemoteException e) {
             e.printStackTrace();
             return 0;
@@ -141,9 +139,9 @@ public class g {
     }
 
     public IBinder a(int i) {
-        if (this.f1804b != null) {
+        if (this.b != null) {
             try {
-                return this.f1804b.a(i);
+                return this.b.a(i);
             } catch (RemoteException e) {
                 e.printStackTrace();
                 return null;
@@ -183,11 +181,11 @@ public class g {
     }
 
     public boolean a(String str, String str2, String str3, int i, int i2, int i3) {
-        if (this.f1804b == null) {
+        if (this.b == null) {
             return false;
         }
         try {
-            this.f1804b.a(str, str2, str3, i, i2, i3);
+            this.b.a(str, str2, str3, i, i2, i3);
             return true;
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -196,9 +194,9 @@ public class g {
     }
 
     public IBinder b() {
-        if (this.f1804b != null) {
+        if (this.b != null) {
             try {
-                return this.f1804b.a();
+                return this.b.a();
             } catch (RemoteException e) {
                 e.printStackTrace();
                 return null;

@@ -19,29 +19,29 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.data.p;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
-    private View iVX;
+    private View iXG;
     private boolean isShow = false;
-    private Animation kyM;
-    private Animation kyN;
-    private ViewGroup kyR;
-    private a kyS;
-    private b kyT;
+    private Animation kAO;
+    private Animation kAP;
+    private ViewGroup kAT;
+    private a kAU;
+    private b kAV;
     private View rootView;
     private int topHeight;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void cTG();
+        void cTN();
     }
 
     public c(ViewGroup viewGroup) {
-        this.kyR = viewGroup;
+        this.kAT = viewGroup;
     }
 
     public void a(a aVar) {
-        this.kyS = aVar;
+        this.kAU = aVar;
     }
 
     public boolean isShowing() {
@@ -52,72 +52,72 @@ public class c {
         if (!this.isShow) {
             this.isShow = true;
             this.rootView = b(context, list, i);
-            this.kyR.addView(this.rootView);
+            this.kAT.addView(this.rootView);
             if (1 == TbadkCoreApplication.getInst().getSkinType() || 4 == TbadkCoreApplication.getInst().getSkinType()) {
                 this.rootView.setBackgroundColor(this.rootView.getContext().getResources().getColor(R.color.topic_more_background_1));
             } else {
                 this.rootView.setBackgroundColor(this.rootView.getContext().getResources().getColor(R.color.topic_more_background));
             }
-            this.rootView.startAnimation(go(context));
+            this.rootView.startAnimation(gn(context));
         }
     }
 
-    public void gn(Context context) {
+    public void gm(Context context) {
         if (this.rootView != null) {
-            this.rootView.startAnimation(gp(context));
+            this.rootView.startAnimation(go(context));
         }
     }
 
     private View b(final Context context, List<p> list, int i) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.topic_scroll_fragment_more, (ViewGroup) null);
-        this.iVX = inflate.findViewById(R.id.topic_more_top_view);
-        CC(this.topHeight);
+        this.iXG = inflate.findViewById(R.id.topic_more_top_view);
+        CF(this.topHeight);
         GridView gridView = (GridView) inflate.findViewById(R.id.topic_scroll_fragment_more_content);
         gridView.setSelector(new ColorDrawable(17170445));
-        this.kyT = new b(context, i);
-        this.kyT.setTagList(list);
-        gridView.setAdapter((ListAdapter) this.kyT);
+        this.kAV = new b(context, i);
+        this.kAV.setTagList(list);
+        gridView.setAdapter((ListAdapter) this.kAV);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.hottopic.view.indicator.c.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TOPIC_SWITCH_TAB_FROM_POP_WINDOW, c.this.kyT.getItem(i2)));
-                c.this.gn(context);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TOPIC_SWITCH_TAB_FROM_POP_WINDOW, c.this.kAV.getItem(i2)));
+                c.this.gm(context);
             }
         });
         return inflate;
     }
 
-    public void CC(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.iVX.getLayoutParams();
+    public void CF(int i) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.iXG.getLayoutParams();
         layoutParams.height = i;
-        this.iVX.setLayoutParams(layoutParams);
+        this.iXG.setLayoutParams(layoutParams);
+    }
+
+    private Animation gn(Context context) {
+        if (this.kAO == null) {
+            this.kAO = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_enter);
+        }
+        return this.kAO;
     }
 
     private Animation go(Context context) {
-        if (this.kyM == null) {
-            this.kyM = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_enter);
+        if (this.kAP == null) {
+            this.kAP = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_exit);
         }
-        return this.kyM;
-    }
-
-    private Animation gp(Context context) {
-        if (this.kyN == null) {
-            this.kyN = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_exit);
-        }
-        this.kyN.setAnimationListener(new d() { // from class: com.baidu.tieba.hottopic.view.indicator.c.2
+        this.kAP.setAnimationListener(new d() { // from class: com.baidu.tieba.hottopic.view.indicator.c.2
             @Override // com.baidu.adp.lib.f.d, android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
                 c.this.isShow = false;
-                if (c.this.kyS != null) {
-                    c.this.kyS.cTG();
+                if (c.this.kAU != null) {
+                    c.this.kAU.cTN();
                 }
-                c.this.kyR.removeView(c.this.rootView);
+                c.this.kAT.removeView(c.this.rootView);
             }
         });
-        return this.kyN;
+        return this.kAP;
     }
 
-    public void CD(int i) {
+    public void CG(int i) {
         this.topHeight = i;
     }
 }

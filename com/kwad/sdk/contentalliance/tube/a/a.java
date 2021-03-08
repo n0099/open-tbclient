@@ -15,9 +15,7 @@ import com.kwad.sdk.utils.ag;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
 public class a extends com.kwad.sdk.contentalliance.detail.b implements View.OnClickListener {
-
-    /* renamed from: b  reason: collision with root package name */
-    private FrameLayout f8906b;
+    private FrameLayout b;
     private TextView c;
     private TextView d;
     private TextView e;
@@ -32,7 +30,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
             if (a.this.i.getAndSet(true)) {
                 return;
             }
-            z = (!com.kwad.sdk.core.response.b.d.x(com.kwad.sdk.core.response.b.c.k(a.this.f)) || a.this.f8395a.j.mIsTubeEpisodeList) ? false : false;
+            z = (!com.kwad.sdk.core.response.b.d.x(com.kwad.sdk.core.response.b.c.k(a.this.f)) || a.this.f5594a.j.mIsTubeEpisodeList) ? false : false;
             com.kwad.sdk.core.d.a.a("PhotoTubeEnterPresenter", ">> isShowTubeEnter() isShowTubeEnter =" + z);
             if (z) {
                 e.k(a.this.f);
@@ -54,8 +52,8 @@ public class a extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f = this.f8395a.j;
-        if (com.kwad.sdk.core.response.b.d.x(com.kwad.sdk.core.response.b.c.k(this.f)) && !this.f8395a.j.mIsTubeEpisodeList) {
+        this.f = this.f5594a.j;
+        if (com.kwad.sdk.core.response.b.d.x(com.kwad.sdk.core.response.b.c.k(this.f)) && !this.f5594a.j.mIsTubeEpisodeList) {
             b(com.kwad.sdk.core.response.b.d.B(com.kwad.sdk.core.response.b.c.k(this.f)));
             a(com.kwad.sdk.core.response.b.d.C(com.kwad.sdk.core.response.b.c.k(this.f)));
             this.h = new TranslateAnimation(-5.0f, 5.0f, 0.0f, 0.0f);
@@ -65,15 +63,15 @@ public class a extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
             this.h.setRepeatMode(2);
             this.h.startNow();
             a(com.kwad.sdk.core.response.b.d.A(com.kwad.sdk.core.response.b.c.k(this.f)));
-            this.f8906b.setOnClickListener(this);
-            this.f8906b.setVisibility(0);
+            this.b.setOnClickListener(this);
+            this.b.setVisibility(0);
         } else {
-            this.f8906b.setVisibility(8);
+            this.b.setVisibility(8);
         }
-        if (this.f8395a.m != null) {
-            this.f8395a.m.a(this.j);
+        if (this.f5594a.m != null) {
+            this.f5594a.m.a(this.j);
         }
-        this.f8395a.f8405b.add(this.k);
+        this.f5594a.b.add(this.k);
     }
 
     public void a(String str) {
@@ -91,9 +89,9 @@ public class a extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
         if (this.h != null) {
             this.h.cancel();
         }
-        this.f8395a.f8405b.remove(this.k);
-        if (this.f8395a.m != null) {
-            this.f8395a.m.b(this.j);
+        this.f5594a.b.remove(this.k);
+        if (this.f5594a.m != null) {
+            this.f5594a.m.b(this.j);
         }
     }
 
@@ -101,7 +99,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f8906b = (FrameLayout) b(R.id.ksad_tube_enter_container);
+        this.b = (FrameLayout) b(R.id.ksad_tube_enter_container);
         this.c = (TextView) b(R.id.ksad_tube_enter_name);
         this.d = (TextView) b(R.id.ksad_tube_enter_episode_name);
         this.e = (TextView) b(R.id.ksad_tube_enter_play_count);
@@ -115,10 +113,10 @@ public class a extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
             PhotoInfo.TubeEpisode y = com.kwad.sdk.core.response.b.d.y(com.kwad.sdk.core.response.b.c.k(this.f));
             TubeProfileParam tubeProfileParam = new TubeProfileParam();
             tubeProfileParam.mTubeEpisode = y;
-            if (this.f8395a.j != null && this.f8395a.j.mAdScene != null) {
-                tubeProfileParam.mEntryScene = this.f8395a.j.mAdScene.entryScene;
+            if (this.f5594a.j != null && this.f5594a.j.mAdScene != null) {
+                tubeProfileParam.mEntryScene = this.f5594a.j.mAdScene.entryScene;
             }
-            tubeProfileParam.mAdTemplate = this.f8395a.j;
+            tubeProfileParam.mAdTemplate = this.f5594a.j;
             com.kwad.sdk.contentalliance.tube.profile.b.a(o(), tubeProfileParam);
         }
     }

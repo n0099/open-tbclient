@@ -28,9 +28,9 @@ public abstract class TTSecAbs {
     }
 
     public Map<String, Object> NM_getCustomInfo() {
-        if (i.c().e() != null) {
+        if (i.d().f() != null) {
             HashMap hashMap = new HashMap();
-            hashMap.put("app_id", i.c().e());
+            hashMap.put("app_id", i.d().f());
             return hashMap;
         }
         return null;

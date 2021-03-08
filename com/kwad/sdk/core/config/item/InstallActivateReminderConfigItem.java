@@ -34,9 +34,9 @@ public class InstallActivateReminderConfigItem extends a<InstallActivateReminder
     @Override // com.kwad.sdk.core.config.item.a
     public void a(@NonNull SharedPreferences sharedPreferences) {
         JSONObject jSONObject;
-        InstallActivateReminderConfig b2 = b();
-        if (b2 == null) {
-            b2 = new InstallActivateReminderConfig();
+        InstallActivateReminderConfig b = b();
+        if (b == null) {
+            b = new InstallActivateReminderConfig();
         }
         try {
             jSONObject = new JSONObject(sharedPreferences.getString(a(), ""));
@@ -45,9 +45,9 @@ public class InstallActivateReminderConfigItem extends a<InstallActivateReminder
             jSONObject = null;
         }
         if (jSONObject != null) {
-            b2.parseJson(jSONObject);
+            b.parseJson(jSONObject);
         }
-        a((InstallActivateReminderConfigItem) b2);
+        a((InstallActivateReminderConfigItem) b);
     }
 
     @Override // com.kwad.sdk.core.config.item.a

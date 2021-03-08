@@ -17,9 +17,9 @@ import com.baidu.tieba.R;
 public class g extends a {
     private final int arrayLength;
     private int currentIndex;
-    private ContinuousAnimationView fGQ;
-    private ValueAnimator.AnimatorUpdateListener fGR;
-    private boolean fja;
+    private ContinuousAnimationView fIp;
+    private ValueAnimator.AnimatorUpdateListener fIq;
+    private boolean fkz;
     private final Animator.AnimatorListener loadViewAnimListener;
     private TextView loadingTextView;
     private int mSkinType;
@@ -55,18 +55,18 @@ public class g extends a {
                 TbadkCoreApplication.getInst().handler.postDelayed(g.this.runnable, 200L);
             }
         };
-        this.fGR = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.l.g.2
+        this.fIq = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.l.g.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (!g.this.fja) {
-                    g.this.fGQ.setAlpha(Math.min(1.0f, (valueAnimator.getAnimatedFraction() * 24.0f) / 6.0f));
+                if (!g.this.fkz) {
+                    g.this.fIp.setAlpha(Math.min(1.0f, (valueAnimator.getAnimatedFraction() * 24.0f) / 6.0f));
                 }
             }
         };
         this.loadViewAnimListener = new Animator.AnimatorListener() { // from class: com.baidu.tbadk.l.g.3
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                g.this.fja = false;
+                g.this.fkz = false;
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -79,24 +79,24 @@ public class g extends a {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
-                g.this.fja = true;
+                g.this.fkz = true;
             }
         };
-        this.fGQ = (ContinuousAnimationView) this.attachedView.findViewById(R.id.common_loading_view);
+        this.fIp = (ContinuousAnimationView) this.attachedView.findViewById(R.id.common_loading_view);
         if (i > 0) {
-            ViewGroup.LayoutParams layoutParams = this.fGQ.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.fIp.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.fGQ.setLayoutParams(marginLayoutParams);
+                this.fIp.setLayoutParams(marginLayoutParams);
             }
         }
-        ap.a(this.fGQ, R.raw.lottie_full_screen_refresh);
-        this.fGQ.setMinAndMaxProgress(0.0f, 1.0f);
-        this.fGQ.setRepeatMode(1);
-        this.fGQ.addAnimatorUpdateListener(this.fGR);
-        this.fGQ.addAnimatorListener(this.loadViewAnimListener);
-        this.fGQ.setSpeed(1.2f);
+        ap.a(this.fIp, R.raw.lottie_full_screen_refresh);
+        this.fIp.setMinAndMaxProgress(0.0f, 1.0f);
+        this.fIp.setRepeatMode(1);
+        this.fIp.addAnimatorUpdateListener(this.fIq);
+        this.fIp.addAnimatorListener(this.loadViewAnimListener);
+        this.fIp.setSpeed(1.2f);
         this.textView = (TextView) this.attachedView.findViewById(R.id.loading_anim_ellipsis);
         this.loadingTextView = (TextView) this.attachedView.findViewById(R.id.loading_text);
         this.textArray = context.getResources().getStringArray(R.array.loading_anim_text_array);
@@ -104,14 +104,14 @@ public class g extends a {
     }
 
     private void startLoadingAnimation() {
-        if (this.fGQ != null) {
-            this.fGQ.playAnimation();
+        if (this.fIp != null) {
+            this.fIp.playAnimation();
         }
     }
 
     private void stopLoadingAnimation() {
-        if (this.fGQ != null) {
-            this.fGQ.pauseAnimation();
+        if (this.fIp != null) {
+            this.fIp.pauseAnimation();
         }
     }
 
@@ -125,7 +125,7 @@ public class g extends a {
         if (this.mSkinType == -1) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         }
-        ap.a(this.fGQ, R.raw.lottie_full_screen_refresh);
+        ap.a(this.fIp, R.raw.lottie_full_screen_refresh);
         startLoadingAnimation();
         ap.setViewTextColor(this.textView, R.color.CAM_X0108, 1, this.mSkinType);
         ap.setViewTextColor(this.loadingTextView, R.color.CAM_X0108, 1, this.mSkinType);
@@ -161,7 +161,7 @@ public class g extends a {
     public void onChangeSkinType(int i) {
         ap.setViewTextColor(this.textView, R.color.CAM_X0108, 1, i);
         ap.setViewTextColor(this.loadingTextView, R.color.CAM_X0108, 1, i);
-        ap.a(this.fGQ, R.raw.lottie_full_screen_refresh);
+        ap.a(this.fIp, R.raw.lottie_full_screen_refresh);
         if (isViewAttached()) {
             startLoadingAnimation();
         }
@@ -176,8 +176,8 @@ public class g extends a {
 
     @Override // com.baidu.tbadk.l.a
     public void dettachView(View view) {
-        if (this.fGQ != null) {
-            this.fGQ.cancelAnimation();
+        if (this.fIp != null) {
+            this.fIp.cancelAnimation();
         }
         TbadkCoreApplication.getInst().handler.removeCallbacks(this.runnable);
         super.dettachView(view);
@@ -190,24 +190,24 @@ public class g extends a {
     }
 
     public void setTopMargin(int i) {
-        if (this.fGQ != null) {
-            ViewGroup.LayoutParams layoutParams = this.fGQ.getLayoutParams();
+        if (this.fIp != null) {
+            ViewGroup.LayoutParams layoutParams = this.fIp.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.fGQ.setLayoutParams(marginLayoutParams);
+                this.fIp.setLayoutParams(marginLayoutParams);
             }
         }
     }
 
-    public void bt(int i) {
-        if (this.fGQ != null && this.loadingTextView != null) {
+    public void bu(int i) {
+        if (this.fIp != null && this.loadingTextView != null) {
             if (this.loadingTextView.getVisibility() == 8) {
-                ViewGroup.LayoutParams layoutParams = this.fGQ.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = this.fIp.getLayoutParams();
                 if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                     ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                     marginLayoutParams.bottomMargin = i;
-                    this.fGQ.setLayoutParams(marginLayoutParams);
+                    this.fIp.setLayoutParams(marginLayoutParams);
                     return;
                 }
                 return;
@@ -221,9 +221,9 @@ public class g extends a {
         }
     }
 
-    public void bCS() {
-        if (this.fGQ != null) {
-            ((RelativeLayout.LayoutParams) this.fGQ.getLayoutParams()).addRule(15, 0);
+    public void bCV() {
+        if (this.fIp != null) {
+            ((RelativeLayout.LayoutParams) this.fIp.getLayoutParams()).addRule(15, 0);
         }
     }
 

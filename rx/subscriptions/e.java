@@ -1,16 +1,16 @@
 package rx.subscriptions;
 
 import rx.k;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class e {
-    private static final a qFu = new a();
+    private static final a qFW = new a();
 
-    public static k eOu() {
-        return rx.subscriptions.a.eOo();
+    public static k eOc() {
+        return rx.subscriptions.a.eNW();
     }
 
-    public static k eOv() {
-        return qFu;
+    public static k eOd() {
+        return qFW;
     }
 
     public static k l(rx.functions.a aVar) {
@@ -18,7 +18,7 @@ public final class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class a implements k {
         a() {
         }

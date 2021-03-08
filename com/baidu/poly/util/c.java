@@ -9,7 +9,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class c {
     public static String a(InputStream inputStream) {
         if (inputStream == null) {

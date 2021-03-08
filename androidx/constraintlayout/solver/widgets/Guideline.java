@@ -5,7 +5,7 @@ import androidx.constraintlayout.solver.SolverVariable;
 import androidx.constraintlayout.solver.widgets.ConstraintAnchor;
 import androidx.constraintlayout.solver.widgets.ConstraintWidget;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class Guideline extends ConstraintWidget {
     public static final int HORIZONTAL = 0;
     public static final int RELATIVE_BEGIN = 1;

@@ -5,8 +5,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.TYPE})
-@Retention(RetentionPolicy.SOURCE)
-/* loaded from: classes6.dex */
+@Retention(RetentionPolicy.CLASS)
+/* loaded from: classes3.dex */
 public @interface GlideModule {
     String glideName() default "GlideApp";
 }

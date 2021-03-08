@@ -20,32 +20,32 @@ import com.baidu.live.lottie.model.layer.Layer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes10.dex */
-public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0186a, com.baidu.live.lottie.model.f {
-    private List<a> GD;
-    private final String Gw;
-    final o bsN;
-    final Layer buc;
+/* loaded from: classes9.dex */
+public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0192a, com.baidu.live.lottie.model.f {
+    private final String HS;
+    private List<a> Ia;
+    final o bup;
+    final Layer bvD;
     @Nullable
-    private com.baidu.live.lottie.a.b.g bud;
+    private com.baidu.live.lottie.a.b.g bvE;
     @Nullable
-    private a bue;
+    private a bvF;
     @Nullable
-    private a bug;
+    private a bvG;
     final h lottieDrawable;
     private final Path path = new Path();
     private final Matrix matrix = new Matrix();
-    private final Paint Go = new Paint(1);
-    private final Paint Gp = new Paint(1);
-    private final Paint Gq = new Paint(1);
-    private final Paint Gr = new Paint(1);
-    private final Paint Gs = new Paint();
+    private final Paint HK = new Paint(1);
+    private final Paint HL = new Paint(1);
+    private final Paint HM = new Paint(1);
+    private final Paint HN = new Paint(1);
+    private final Paint HO = new Paint();
     private final RectF rect = new RectF();
-    private final RectF Gt = new RectF();
-    private final RectF Gu = new RectF();
-    private final RectF Gv = new RectF();
-    final Matrix Gx = new Matrix();
-    private final List<com.baidu.live.lottie.a.b.a<?, ?>> GF = new ArrayList();
+    private final RectF HP = new RectF();
+    private final RectF HQ = new RectF();
+    private final RectF HR = new RectF();
+    final Matrix HU = new Matrix();
+    private final List<com.baidu.live.lottie.a.b.a<?, ?>> Ib = new ArrayList();
     private boolean visible = true;
 
     abstract void d(Canvas canvas, Matrix matrix, int i);
@@ -53,11 +53,11 @@ public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0186
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
     public static a a(Layer layer, h hVar, com.baidu.live.lottie.e eVar) {
-        switch (layer.Od()) {
+        switch (layer.Og()) {
             case Shape:
                 return new e(hVar, layer);
             case PreComp:
-                return new b(hVar, layer, eVar.bd(layer.getRefId()), eVar);
+                return new b(hVar, layer, eVar.bh(layer.getRefId()), eVar);
             case Solid:
                 return new f(hVar, layer);
             case Image:
@@ -67,7 +67,7 @@ public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0186
             case Text:
                 return new g(hVar, layer);
             default:
-                com.baidu.live.lottie.d.warn("Unknown layer type " + layer.Od());
+                com.baidu.live.lottie.d.warn("Unknown layer type " + layer.Og());
                 return null;
         }
     }
@@ -75,24 +75,24 @@ public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0186
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(h hVar, Layer layer) {
         this.lottieDrawable = hVar;
-        this.buc = layer;
-        this.Gw = layer.getName() + "#draw";
-        this.Gs.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
-        this.Gp.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
-        this.Gq.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
-        if (layer.Oe() == Layer.MatteType.Invert) {
-            this.Gr.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.bvD = layer;
+        this.HS = layer.getName() + "#draw";
+        this.HO.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.HL.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+        this.HM.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        if (layer.Oh() == Layer.MatteType.Invert) {
+            this.HN.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         } else {
-            this.Gr.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+            this.HN.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
         }
-        this.bsN = layer.NX().NB();
-        this.bsN.a((a.InterfaceC0186a) this);
+        this.bup = layer.Oa().NE();
+        this.bup.a((a.InterfaceC0192a) this);
         if (layer.iL() != null && !layer.iL().isEmpty()) {
-            this.bud = new com.baidu.live.lottie.a.b.g(layer.iL());
-            for (com.baidu.live.lottie.a.b.a<com.baidu.live.lottie.model.content.h, Path> aVar : this.bud.iM()) {
+            this.bvE = new com.baidu.live.lottie.a.b.g(layer.iL());
+            for (com.baidu.live.lottie.a.b.a<com.baidu.live.lottie.model.content.h, Path> aVar : this.bvE.iM()) {
                 aVar.b(this);
             }
-            for (com.baidu.live.lottie.a.b.a<Integer, Integer> aVar2 : this.bud.iN()) {
+            for (com.baidu.live.lottie.a.b.a<Integer, Integer> aVar2 : this.bvE.iN()) {
                 a(aVar2);
                 aVar2.b(this);
             }
@@ -100,37 +100,37 @@ public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0186
         jT();
     }
 
-    @Override // com.baidu.live.lottie.a.b.a.InterfaceC0186a
+    @Override // com.baidu.live.lottie.a.b.a.InterfaceC0192a
     public void ir() {
         invalidateSelf();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Layer Oc() {
-        return this.buc;
+    public Layer Of() {
+        return this.bvD;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(@Nullable a aVar) {
-        this.bue = aVar;
+        this.bvF = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean jS() {
-        return this.bue != null;
+        return this.bvF != null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c(@Nullable a aVar) {
-        this.bug = aVar;
+        this.bvG = aVar;
     }
 
     private void jT() {
-        if (!this.buc.jY().isEmpty()) {
-            final com.baidu.live.lottie.a.b.c cVar = new com.baidu.live.lottie.a.b.c(this.buc.jY());
+        if (!this.bvD.jY().isEmpty()) {
+            final com.baidu.live.lottie.a.b.c cVar = new com.baidu.live.lottie.a.b.c(this.bvD.jY());
             cVar.iF();
-            cVar.b(new a.InterfaceC0186a() { // from class: com.baidu.live.lottie.model.layer.a.1
-                @Override // com.baidu.live.lottie.a.b.a.InterfaceC0186a
+            cVar.b(new a.InterfaceC0192a() { // from class: com.baidu.live.lottie.model.layer.a.1
+                @Override // com.baidu.live.lottie.a.b.a.InterfaceC0192a
                 public void ir() {
                     a.this.setVisible(cVar.getValue().floatValue() == 1.0f);
                 }
@@ -156,114 +156,114 @@ public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0186
     }
 
     public void a(com.baidu.live.lottie.a.b.a<?, ?> aVar) {
-        this.GF.add(aVar);
+        this.Ib.add(aVar);
     }
 
     @Override // com.baidu.live.lottie.a.a.d
     @CallSuper
     public void d(RectF rectF, Matrix matrix) {
-        this.Gx.set(matrix);
-        this.Gx.preConcat(this.bsN.getMatrix());
+        this.HU.set(matrix);
+        this.HU.preConcat(this.bup.getMatrix());
     }
 
     @Override // com.baidu.live.lottie.a.a.d
     public void c(Canvas canvas, Matrix matrix, int i) {
-        com.baidu.live.lottie.d.beginSection(this.Gw);
+        com.baidu.live.lottie.d.beginSection(this.HS);
         if (!this.visible) {
-            com.baidu.live.lottie.d.bb(this.Gw);
+            com.baidu.live.lottie.d.bf(this.HS);
             return;
         }
         jV();
         com.baidu.live.lottie.d.beginSection("Layer#parentMatrix");
         this.matrix.reset();
         this.matrix.set(matrix);
-        for (int size = this.GD.size() - 1; size >= 0; size--) {
-            this.matrix.preConcat(this.GD.get(size).bsN.getMatrix());
+        for (int size = this.Ia.size() - 1; size >= 0; size--) {
+            this.matrix.preConcat(this.Ia.get(size).bup.getMatrix());
         }
-        com.baidu.live.lottie.d.bb("Layer#parentMatrix");
-        int intValue = (int) (((this.bsN.Nn().getValue().intValue() * (i / 255.0f)) / 100.0f) * 255.0f);
+        com.baidu.live.lottie.d.bf("Layer#parentMatrix");
+        int intValue = (int) (((this.bup.Nq().getValue().intValue() * (i / 255.0f)) / 100.0f) * 255.0f);
         if (!jS() && !jU()) {
-            this.matrix.preConcat(this.bsN.getMatrix());
+            this.matrix.preConcat(this.bup.getMatrix());
             com.baidu.live.lottie.d.beginSection("Layer#drawLayer");
             d(canvas, this.matrix, intValue);
-            com.baidu.live.lottie.d.bb("Layer#drawLayer");
-            i(com.baidu.live.lottie.d.bb(this.Gw));
+            com.baidu.live.lottie.d.bf("Layer#drawLayer");
+            m(com.baidu.live.lottie.d.bf(this.HS));
             return;
         }
         com.baidu.live.lottie.d.beginSection("Layer#computeBounds");
         this.rect.set(0.0f, 0.0f, 0.0f, 0.0f);
         d(this.rect, this.matrix);
         f(this.rect, this.matrix);
-        this.matrix.preConcat(this.bsN.getMatrix());
+        this.matrix.preConcat(this.bup.getMatrix());
         e(this.rect, this.matrix);
         this.rect.set(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight());
-        com.baidu.live.lottie.d.bb("Layer#computeBounds");
+        com.baidu.live.lottie.d.bf("Layer#computeBounds");
         com.baidu.live.lottie.d.beginSection("Layer#saveLayer");
-        b(canvas, this.rect, this.Go, true);
-        com.baidu.live.lottie.d.bb("Layer#saveLayer");
+        b(canvas, this.rect, this.HK, true);
+        com.baidu.live.lottie.d.bf("Layer#saveLayer");
         f(canvas);
         com.baidu.live.lottie.d.beginSection("Layer#drawLayer");
         d(canvas, this.matrix, intValue);
-        com.baidu.live.lottie.d.bb("Layer#drawLayer");
+        com.baidu.live.lottie.d.bf("Layer#drawLayer");
         if (jU()) {
             b(canvas, this.matrix);
         }
         if (jS()) {
             com.baidu.live.lottie.d.beginSection("Layer#drawMatte");
             com.baidu.live.lottie.d.beginSection("Layer#saveLayer");
-            b(canvas, this.rect, this.Gr, false);
-            com.baidu.live.lottie.d.bb("Layer#saveLayer");
+            b(canvas, this.rect, this.HN, false);
+            com.baidu.live.lottie.d.bf("Layer#saveLayer");
             f(canvas);
-            this.bue.c(canvas, matrix, intValue);
+            this.bvF.c(canvas, matrix, intValue);
             com.baidu.live.lottie.d.beginSection("Layer#restoreLayer");
             canvas.restore();
-            com.baidu.live.lottie.d.bb("Layer#restoreLayer");
-            com.baidu.live.lottie.d.bb("Layer#drawMatte");
+            com.baidu.live.lottie.d.bf("Layer#restoreLayer");
+            com.baidu.live.lottie.d.bf("Layer#drawMatte");
         }
         com.baidu.live.lottie.d.beginSection("Layer#restoreLayer");
         canvas.restore();
-        com.baidu.live.lottie.d.bb("Layer#restoreLayer");
-        i(com.baidu.live.lottie.d.bb(this.Gw));
+        com.baidu.live.lottie.d.bf("Layer#restoreLayer");
+        m(com.baidu.live.lottie.d.bf(this.HS));
     }
 
-    private void i(float f) {
-        this.lottieDrawable.getComposition().getPerformanceTracker().c(this.buc.getName(), f);
+    private void m(float f) {
+        this.lottieDrawable.getComposition().getPerformanceTracker().c(this.bvD.getName(), f);
     }
 
     private void f(Canvas canvas) {
         com.baidu.live.lottie.d.beginSection("Layer#clearLayer");
-        canvas.drawRect(this.rect.left - 1.0f, this.rect.top - 1.0f, this.rect.right + 1.0f, 1.0f + this.rect.bottom, this.Gs);
-        com.baidu.live.lottie.d.bb("Layer#clearLayer");
+        canvas.drawRect(this.rect.left - 1.0f, this.rect.top - 1.0f, this.rect.right + 1.0f, 1.0f + this.rect.bottom, this.HO);
+        com.baidu.live.lottie.d.bf("Layer#clearLayer");
     }
 
     private void e(RectF rectF, Matrix matrix) {
-        this.Gt.set(0.0f, 0.0f, 0.0f, 0.0f);
+        this.HP.set(0.0f, 0.0f, 0.0f, 0.0f);
         if (jU()) {
-            int size = this.bud.iL().size();
+            int size = this.bvE.iL().size();
             for (int i = 0; i < size; i++) {
-                this.path.set(this.bud.iM().get(i).getValue());
+                this.path.set(this.bvE.iM().get(i).getValue());
                 this.path.transform(matrix);
-                switch (this.bud.iL().get(i).NL()) {
+                switch (this.bvE.iL().get(i).NO()) {
                     case MaskModeSubtract:
                     case MaskModeIntersect:
                         return;
                     default:
-                        this.path.computeBounds(this.Gv, false);
+                        this.path.computeBounds(this.HR, false);
                         if (i == 0) {
-                            this.Gt.set(this.Gv);
+                            this.HP.set(this.HR);
                         } else {
-                            this.Gt.set(Math.min(this.Gt.left, this.Gv.left), Math.min(this.Gt.top, this.Gv.top), Math.max(this.Gt.right, this.Gv.right), Math.max(this.Gt.bottom, this.Gv.bottom));
+                            this.HP.set(Math.min(this.HP.left, this.HR.left), Math.min(this.HP.top, this.HR.top), Math.max(this.HP.right, this.HR.right), Math.max(this.HP.bottom, this.HR.bottom));
                         }
                 }
             }
-            rectF.set(Math.max(rectF.left, this.Gt.left), Math.max(rectF.top, this.Gt.top), Math.min(rectF.right, this.Gt.right), Math.min(rectF.bottom, this.Gt.bottom));
+            rectF.set(Math.max(rectF.left, this.HP.left), Math.max(rectF.top, this.HP.top), Math.min(rectF.right, this.HP.right), Math.min(rectF.bottom, this.HP.bottom));
         }
     }
 
     private void f(RectF rectF, Matrix matrix) {
-        if (jS() && this.buc.Oe() != Layer.MatteType.Invert) {
-            this.bue.d(this.Gu, matrix);
-            rectF.set(Math.max(rectF.left, this.Gu.left), Math.max(rectF.top, this.Gu.top), Math.min(rectF.right, this.Gu.right), Math.min(rectF.bottom, this.Gu.bottom));
+        if (jS() && this.bvD.Oh() != Layer.MatteType.Invert) {
+            this.bvF.d(this.HQ, matrix);
+            rectF.set(Math.max(rectF.left, this.HQ.left), Math.max(rectF.top, this.HQ.top), Math.min(rectF.right, this.HQ.right), Math.min(rectF.bottom, this.HQ.bottom));
         }
     }
 
@@ -278,18 +278,18 @@ public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0186
         boolean z;
         switch (maskMode) {
             case MaskModeSubtract:
-                paint = this.Gq;
+                paint = this.HM;
                 break;
             default:
-                paint = this.Gp;
+                paint = this.HL;
                 break;
         }
-        int size = this.bud.iL().size();
+        int size = this.bvE.iL().size();
         int i = 0;
         while (true) {
             if (i >= size) {
                 z = false;
-            } else if (this.bud.iL().get(i).NL() != maskMode) {
+            } else if (this.bvE.iL().get(i).NO() != maskMode) {
                 i++;
             } else {
                 z = true;
@@ -299,28 +299,28 @@ public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0186
             com.baidu.live.lottie.d.beginSection("Layer#drawMask");
             com.baidu.live.lottie.d.beginSection("Layer#saveLayer");
             b(canvas, this.rect, paint, false);
-            com.baidu.live.lottie.d.bb("Layer#saveLayer");
+            com.baidu.live.lottie.d.bf("Layer#saveLayer");
             f(canvas);
             for (int i2 = 0; i2 < size; i2++) {
-                if (this.bud.iL().get(i2).NL() == maskMode) {
-                    this.path.set(this.bud.iM().get(i2).getValue());
+                if (this.bvE.iL().get(i2).NO() == maskMode) {
+                    this.path.set(this.bvE.iM().get(i2).getValue());
                     this.path.transform(matrix);
-                    int alpha = this.Go.getAlpha();
-                    this.Go.setAlpha((int) (this.bud.iN().get(i2).getValue().intValue() * 2.55f));
-                    canvas.drawPath(this.path, this.Go);
-                    this.Go.setAlpha(alpha);
+                    int alpha = this.HK.getAlpha();
+                    this.HK.setAlpha((int) (this.bvE.iN().get(i2).getValue().intValue() * 2.55f));
+                    canvas.drawPath(this.path, this.HK);
+                    this.HK.setAlpha(alpha);
                 }
             }
             com.baidu.live.lottie.d.beginSection("Layer#restoreLayer");
             canvas.restore();
-            com.baidu.live.lottie.d.bb("Layer#restoreLayer");
-            com.baidu.live.lottie.d.bb("Layer#drawMask");
+            com.baidu.live.lottie.d.bf("Layer#restoreLayer");
+            com.baidu.live.lottie.d.bf("Layer#drawMask");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean jU() {
-        return (this.bud == null || this.bud.iM().isEmpty()) ? false : true;
+        return (this.bvE == null || this.bvE.iM().isEmpty()) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -333,50 +333,50 @@ public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0186
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        this.bsN.setProgress(f);
-        if (this.bud != null) {
-            for (int i = 0; i < this.bud.iM().size(); i++) {
-                this.bud.iM().get(i).setProgress(f);
+        this.bup.setProgress(f);
+        if (this.bvE != null) {
+            for (int i = 0; i < this.bvE.iM().size(); i++) {
+                this.bvE.iM().get(i).setProgress(f);
             }
         }
-        if (this.buc.jW() != 0.0f) {
-            f /= this.buc.jW();
+        if (this.bvD.jW() != 0.0f) {
+            f /= this.bvD.jW();
         }
-        if (this.bue != null) {
-            this.bue.setProgress(this.bue.buc.jW() * f);
+        if (this.bvF != null) {
+            this.bvF.setProgress(this.bvF.bvD.jW() * f);
         }
-        for (int i2 = 0; i2 < this.GF.size(); i2++) {
-            this.GF.get(i2).setProgress(f);
+        for (int i2 = 0; i2 < this.Ib.size(); i2++) {
+            this.Ib.get(i2).setProgress(f);
         }
     }
 
     private void jV() {
-        if (this.GD == null) {
-            if (this.bug == null) {
-                this.GD = Collections.emptyList();
+        if (this.Ia == null) {
+            if (this.bvG == null) {
+                this.Ia = Collections.emptyList();
                 return;
             }
-            this.GD = new ArrayList();
-            for (a aVar = this.bug; aVar != null; aVar = aVar.bug) {
-                this.GD.add(aVar);
+            this.Ia = new ArrayList();
+            for (a aVar = this.bvG; aVar != null; aVar = aVar.bvG) {
+                this.Ia.add(aVar);
             }
         }
     }
 
     @Override // com.baidu.live.lottie.a.a.b
     public String getName() {
-        return this.buc.getName();
+        return this.bvD.getName();
     }
 
     @Override // com.baidu.live.lottie.a.a.b
-    public void c(List<com.baidu.live.lottie.a.a.b> list, List<com.baidu.live.lottie.a.a.b> list2) {
+    public void b(List<com.baidu.live.lottie.a.a.b> list, List<com.baidu.live.lottie.a.a.b> list2) {
     }
 
     @Override // com.baidu.live.lottie.model.f
     public void a(com.baidu.live.lottie.model.e eVar, int i, List<com.baidu.live.lottie.model.e> list, com.baidu.live.lottie.model.e eVar2) {
         if (eVar.h(getName(), i)) {
             if (!"__container".equals(getName())) {
-                eVar2 = eVar2.hn(getName());
+                eVar2 = eVar2.ht(getName());
                 if (eVar.j(getName(), i)) {
                     list.add(eVar2.a(this));
                 }
@@ -393,6 +393,6 @@ public abstract class a implements com.baidu.live.lottie.a.a.d, a.InterfaceC0186
     @Override // com.baidu.live.lottie.model.f
     @CallSuper
     public <T> void a(T t, @Nullable com.baidu.live.lottie.e.c<T> cVar) {
-        this.bsN.b(t, cVar);
+        this.bup.b(t, cVar);
     }
 }

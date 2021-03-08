@@ -9,10 +9,8 @@ public class MapRenderer implements GLSurfaceView.Renderer {
     private static final String d = MapRenderer.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    public int f3034a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f3035b;
+    public int f2212a;
+    public int b;
     public int c;
     private long e;
     private a f;
@@ -54,7 +52,7 @@ public class MapRenderer implements GLSurfaceView.Renderer {
             return;
         }
         if (this.c <= 1) {
-            nativeResize(this.e, this.f3034a, this.f3035b);
+            nativeResize(this.e, this.f2212a, this.b);
             this.c++;
         }
         this.f.f();

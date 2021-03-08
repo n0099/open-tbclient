@@ -8,7 +8,7 @@ import com.yy.mediaframework.model.YYMediaSample;
 import com.yy.mediaframework.utils.ImageUtil;
 import com.yy.mediaframework.utils.YMFLog;
 import com.yy.mediaframework.watermark.WaterMark;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFBitmapWaterMarkFilter extends AbstractYYMediaFilter {
     private static final String TAG = "YMFI420WaterMarkFilter";
     private VideoLiveFilterContext mFilterContex;

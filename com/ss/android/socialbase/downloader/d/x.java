@@ -3,47 +3,47 @@ package com.ss.android.socialbase.downloader.d;
 public abstract class x implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f13124a = x.class.getSimpleName();
+    private static final String f7813a = x.class.getSimpleName();
 
     @Override // com.ss.android.socialbase.downloader.d.b
     public void a(com.ss.android.socialbase.downloader.g.c cVar) {
         if (com.ss.android.socialbase.downloader.f.a.a() && cVar != null) {
-            com.ss.android.socialbase.downloader.f.a.b(f13124a, " onPrepare -- " + cVar.h());
+            com.ss.android.socialbase.downloader.f.a.b(f7813a, " onPrepare -- " + cVar.h());
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.d.b
     public void b(com.ss.android.socialbase.downloader.g.c cVar) {
         if (com.ss.android.socialbase.downloader.f.a.a() && cVar != null) {
-            com.ss.android.socialbase.downloader.f.a.b(f13124a, " onStart -- " + cVar.h());
+            com.ss.android.socialbase.downloader.f.a.b(f7813a, " onStart -- " + cVar.h());
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.d.b
     public void c(com.ss.android.socialbase.downloader.g.c cVar) {
-        if (com.ss.android.socialbase.downloader.f.a.a() && cVar != null && cVar.eir() != 0) {
-            com.ss.android.socialbase.downloader.f.a.b(f13124a, cVar.h() + " onProgress -- %" + ((int) ((((float) cVar.eHi()) / ((float) cVar.eir())) * 100.0f)));
+        if (com.ss.android.socialbase.downloader.f.a.a() && cVar != null && cVar.am() != 0) {
+            com.ss.android.socialbase.downloader.f.a.b(f7813a, cVar.h() + " onProgress -- %" + ((int) ((((float) cVar.eHm()) / ((float) cVar.am())) * 100.0f)));
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.d.b
     public void d(com.ss.android.socialbase.downloader.g.c cVar) {
         if (com.ss.android.socialbase.downloader.f.a.a() && cVar != null) {
-            com.ss.android.socialbase.downloader.f.a.b(f13124a, " onPause -- " + cVar.h());
+            com.ss.android.socialbase.downloader.f.a.b(f7813a, " onPause -- " + cVar.h());
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.d.b
     public void e(com.ss.android.socialbase.downloader.g.c cVar) {
         if (com.ss.android.socialbase.downloader.f.a.a() && cVar != null) {
-            com.ss.android.socialbase.downloader.f.a.b(f13124a, " onSuccessed -- " + cVar.h());
+            com.ss.android.socialbase.downloader.f.a.b(f7813a, " onSuccessed -- " + cVar.h());
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.d.b
     public void a(com.ss.android.socialbase.downloader.g.c cVar, com.ss.android.socialbase.downloader.e.a aVar) {
         if (com.ss.android.socialbase.downloader.f.a.a() && cVar != null) {
-            String str = f13124a;
+            String str = f7813a;
             Object[] objArr = new Object[2];
             objArr[0] = cVar.h();
             objArr[1] = aVar != null ? aVar.b() : "unkown";
@@ -54,28 +54,28 @@ public abstract class x implements b {
     @Override // com.ss.android.socialbase.downloader.d.b
     public void f(com.ss.android.socialbase.downloader.g.c cVar) {
         if (com.ss.android.socialbase.downloader.f.a.a() && cVar != null) {
-            com.ss.android.socialbase.downloader.f.a.b(f13124a, " onCanceled -- " + cVar.h());
+            com.ss.android.socialbase.downloader.f.a.b(f7813a, " onCanceled -- " + cVar.h());
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.d.b
     public void h(com.ss.android.socialbase.downloader.g.c cVar) {
         if (com.ss.android.socialbase.downloader.f.a.a() && cVar != null) {
-            com.ss.android.socialbase.downloader.f.a.b(f13124a, " onFirstStart -- " + cVar.h());
+            com.ss.android.socialbase.downloader.f.a.b(f7813a, " onFirstStart -- " + cVar.h());
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.d.b
     public void i(com.ss.android.socialbase.downloader.g.c cVar) {
         if (com.ss.android.socialbase.downloader.f.a.a() && cVar != null) {
-            com.ss.android.socialbase.downloader.f.a.b(f13124a, " onFirstSuccess -- " + cVar.h());
+            com.ss.android.socialbase.downloader.f.a.b(f7813a, " onFirstSuccess -- " + cVar.h());
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.d.b
     public void b(com.ss.android.socialbase.downloader.g.c cVar, com.ss.android.socialbase.downloader.e.a aVar) {
         if (com.ss.android.socialbase.downloader.f.a.a() && cVar != null) {
-            String str = f13124a;
+            String str = f7813a;
             Object[] objArr = new Object[2];
             objArr[0] = cVar.h();
             objArr[1] = aVar != null ? aVar.b() : "unkown";
@@ -86,7 +86,7 @@ public abstract class x implements b {
     @Override // com.ss.android.socialbase.downloader.d.b
     public void c(com.ss.android.socialbase.downloader.g.c cVar, com.ss.android.socialbase.downloader.e.a aVar) {
         if (com.ss.android.socialbase.downloader.f.a.a() && cVar != null) {
-            String str = f13124a;
+            String str = f7813a;
             Object[] objArr = new Object[2];
             objArr[0] = cVar.h();
             objArr[1] = aVar != null ? aVar.b() : "unkown";
@@ -96,7 +96,7 @@ public abstract class x implements b {
 
     public void p(com.ss.android.socialbase.downloader.g.c cVar) {
         if (com.ss.android.socialbase.downloader.f.a.a() && cVar != null) {
-            com.ss.android.socialbase.downloader.f.a.b(f13124a, " onIntercept -- " + cVar.h());
+            com.ss.android.socialbase.downloader.f.a.b(f7813a, " onIntercept -- " + cVar.h());
         }
     }
 }

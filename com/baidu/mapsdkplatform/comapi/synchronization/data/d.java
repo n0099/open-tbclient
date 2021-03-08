@@ -15,10 +15,8 @@ public class d {
     private boolean k;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3114a = d.class.getSimpleName();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static int f3115b = 0;
+    private static final String f2257a = d.class.getSimpleName();
+    private static int b = 0;
     private static volatile boolean e = true;
     private static volatile long g = 5000;
     private static long h = 5000;
@@ -29,7 +27,7 @@ public class d {
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final d f3116a = new d();
+        private static final d f2258a = new d();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -37,17 +35,17 @@ public class d {
     public static class b implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f3117a;
+        private String f2259a;
 
         b(String str) {
-            this.f3117a = str;
+            this.f2259a = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             while (!d.e) {
                 if (d.c != null) {
-                    d.c.a(d.f3115b, d.i);
+                    d.c.a(d.b, d.i);
                     boolean unused = d.i = false;
                 }
                 try {
@@ -82,7 +80,7 @@ public class d {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(d.f3114a, "The order state is: " + message.what);
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(d.f2257a, "The order state is: " + message.what);
             a(message.what);
             switch (message.what) {
                 case 0:
@@ -96,7 +94,7 @@ public class d {
                     d.q();
                     return;
                 default:
-                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(d.f3114a, "The order state is undefined");
+                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(d.f2257a, "The order state is undefined");
                     return;
             }
         }
@@ -108,7 +106,7 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static d a() {
-        return a.f3116a;
+        return a.f2258a;
     }
 
     private void o() {
@@ -145,10 +143,10 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void a(int i2) {
-        com.baidu.mapsdkplatform.comapi.synchronization.d.a.c(f3114a, "The order state = " + i2);
-        f3115b = i2;
+        com.baidu.mapsdkplatform.comapi.synchronization.d.a.c(f2257a, "The order state = " + i2);
+        b = i2;
         if (this.f == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3114a, "SyncDataRequestHandler is null");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2257a, "SyncDataRequestHandler is null");
         } else {
             Message obtainMessage = this.f.obtainMessage();
             obtainMessage.what = i2;
@@ -230,7 +228,7 @@ public class d {
     public void d() {
         o();
         this.f.removeCallbacksAndMessages(null);
-        f3115b = 0;
+        b = 0;
         h = 5000L;
         i = false;
         j = 1000;

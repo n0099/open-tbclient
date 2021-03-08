@@ -52,7 +52,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class BaseActivity extends TitleActivity {
     public static final String EXTRA_PARAM_BUSINESS_FROM = "extra_params_business_from";
     public static final int EXTRA_PARAM_FROM_ACCOUNT_CENTER = 2003;
@@ -71,10 +71,8 @@ public class BaseActivity extends TitleActivity {
     private static final int o = 1003;
 
     /* renamed from: a  reason: collision with root package name */
-    private ValueCallback<Uri> f4771a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private ValueCallback<Uri[]> f4772b;
+    private ValueCallback<Uri> f3226a;
+    private ValueCallback<Uri[]> b;
     private SapiWebView.PickPhotoResult c;
     private SapiWebView.BiometricsIdentifyResult d;
     private a e;
@@ -152,19 +150,19 @@ public class BaseActivity extends TitleActivity {
             activityResultCallback.onActivityResult(i, i2, intent);
         }
         if (i == 1010) {
-            if (this.f4771a != null) {
-                this.f4771a.onReceiveValue((intent == null || i2 != -1) ? null : intent.getData());
-                this.f4771a = null;
+            if (this.f3226a != null) {
+                this.f3226a.onReceiveValue((intent == null || i2 != -1) ? null : intent.getData());
+                this.f3226a = null;
             }
         } else if (i == 1011) {
-            if (this.f4772b != null) {
+            if (this.b != null) {
                 Uri data = (intent == null || i2 != -1) ? null : intent.getData();
                 if (data != null) {
-                    this.f4772b.onReceiveValue(new Uri[]{data});
+                    this.b.onReceiveValue(new Uri[]{data});
                 } else {
-                    this.f4772b.onReceiveValue(new Uri[0]);
+                    this.b.onReceiveValue(new Uri[0]);
                 }
-                this.f4772b = null;
+                this.b = null;
             }
         } else if (i == 1001) {
             if (this.c != null) {
@@ -473,7 +471,7 @@ public class BaseActivity extends TitleActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(ValueCallback<Uri[]> valueCallback) {
-        this.f4772b = valueCallback;
+        this.b = valueCallback;
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.addCategory("android.intent.category.OPENABLE");
         intent.setType("image/*");
@@ -485,7 +483,7 @@ public class BaseActivity extends TitleActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ValueCallback<Uri> valueCallback) {
-        this.f4771a = valueCallback;
+        this.f3226a = valueCallback;
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.addCategory("android.intent.category.OPENABLE");
         intent.setType("image/*");

@@ -6,7 +6,7 @@ import android.util.JsonToken;
 import android.util.Log;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static com.baidu.live.lottie.model.a.l e(JsonReader jsonReader, com.baidu.live.lottie.e eVar) throws IOException {
         com.baidu.live.lottie.model.a.e eVar2;
@@ -99,7 +99,7 @@ public class c {
                     continue;
                     gVar2 = gVar;
                 case 3:
-                    eVar.bc("Lottie doesn't support 3D layers.");
+                    eVar.bg("Lottie doesn't support 3D layers.");
                     break;
                 case 4:
                     break;

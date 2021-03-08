@@ -5,10 +5,10 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import io.flutter.plugin.common.PluginRegistry;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public interface ActivityPluginBinding {
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface OnSaveInstanceStateListener {
         void onRestoreInstanceState(@Nullable Bundle bundle);
 

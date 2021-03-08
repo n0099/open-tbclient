@@ -28,12 +28,12 @@ import com.baidu.tbadk.core.view.f;
 /* loaded from: classes2.dex */
 public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrollingChild, NestedScrollingParent {
     private static final int[] LAYOUT_ATTRS = {16842766};
-    private int fib;
-    Runnable klA;
-    a klw;
-    private boolean klx;
-    private int kly;
-    private final Animation klz;
+    private int fjD;
+    private int knA;
+    private final Animation knB;
+    Runnable knC;
+    a kny;
+    private boolean knz;
     private int mActivePointerId;
     private final Animation mAnimateToCorrectPosition;
     private final Animation mAnimateToStartPosition;
@@ -66,24 +66,24 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
 
     /* loaded from: classes2.dex */
     public interface a extends BdSwipeRefreshLayout.b {
-        int cRD();
+        int cRK();
 
-        void cRE();
+        void cRL();
 
-        void cRF();
+        void cRM();
 
-        void cRG();
+        void cRN();
     }
 
     void reset() {
         finish();
         if (getLayoutParams() instanceof FrameLayout.LayoutParams) {
-            ((FrameLayout.LayoutParams) getLayoutParams()).topMargin = this.fib;
+            ((FrameLayout.LayoutParams) getLayoutParams()).topMargin = this.fjD;
         }
-        if (this.klw != null) {
-            this.klw.getView().setVisibility(8);
-            if (this.klw instanceof f) {
-                ((f) this.klw).buw();
+        if (this.kny != null) {
+            this.kny.getView().setVisibility(8);
+            if (this.kny instanceof f) {
+                ((f) this.kny).buz();
             }
             setColorViewAlpha(255);
             X(this.mOriginalOffsetTop - this.mCurrentTargetOffsetTop, true);
@@ -107,8 +107,8 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
 
     @SuppressLint({"NewApi"})
     private void setColorViewAlpha(int i) {
-        if (this.klw != null && this.klw.getView() != null && this.klw.getView().getBackground() != null) {
-            this.klw.getView().getBackground().setAlpha(i);
+        if (this.kny != null && this.kny.getView() != null && this.kny.getView().getBackground() != null) {
+            this.kny.getView().getBackground().setAlpha(i);
         }
     }
 
@@ -125,7 +125,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         this.mParentOffsetInWindow = new int[2];
         this.mActivePointerId = -1;
         this.mCircleViewIndex = -1;
-        this.klx = false;
+        this.knz = false;
         this.mRefreshListener = new Animation.AnimationListener() { // from class: com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
@@ -140,7 +140,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             public void onAnimationEnd(Animation animation) {
                 if (BigdaySwipeRefreshLayout.this.mRefreshing) {
                     BigdaySwipeRefreshLayout.this.refreshing();
-                    BigdaySwipeRefreshLayout.this.mCurrentTargetOffsetTop = BigdaySwipeRefreshLayout.this.klw.getView().getTop();
+                    BigdaySwipeRefreshLayout.this.mCurrentTargetOffsetTop = BigdaySwipeRefreshLayout.this.kny.getView().getTop();
                     return;
                 }
                 BigdaySwipeRefreshLayout.this.reset();
@@ -150,21 +150,21 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             @Override // android.view.animation.Animation
             public void applyTransformation(float f, Transformation transformation) {
                 int i;
-                if (BigdaySwipeRefreshLayout.this.klw != null) {
+                if (BigdaySwipeRefreshLayout.this.kny != null) {
                     if (!BigdaySwipeRefreshLayout.this.mUsingCustomStart) {
                         i = BigdaySwipeRefreshLayout.this.mSpinnerOffsetEnd - Math.abs(BigdaySwipeRefreshLayout.this.mOriginalOffsetTop);
                     } else {
                         i = BigdaySwipeRefreshLayout.this.mSpinnerOffsetEnd;
                     }
-                    BigdaySwipeRefreshLayout.this.X((((int) ((i - BigdaySwipeRefreshLayout.this.mFrom) * f)) + BigdaySwipeRefreshLayout.this.mFrom) - BigdaySwipeRefreshLayout.this.klw.getView().getTop(), false);
+                    BigdaySwipeRefreshLayout.this.X((((int) ((i - BigdaySwipeRefreshLayout.this.mFrom) * f)) + BigdaySwipeRefreshLayout.this.mFrom) - BigdaySwipeRefreshLayout.this.kny.getView().getTop(), false);
                 }
             }
         };
-        this.klz = new Animation() { // from class: com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.8
+        this.knB = new Animation() { // from class: com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.8
             @Override // android.view.animation.Animation
             public void applyTransformation(float f, Transformation transformation) {
-                if (BigdaySwipeRefreshLayout.this.klw != null) {
-                    BigdaySwipeRefreshLayout.this.X((BigdaySwipeRefreshLayout.this.mFrom + ((int) ((-BigdaySwipeRefreshLayout.this.mFrom) * f))) - BigdaySwipeRefreshLayout.this.klw.getView().getTop(), false);
+                if (BigdaySwipeRefreshLayout.this.kny != null) {
+                    BigdaySwipeRefreshLayout.this.X((BigdaySwipeRefreshLayout.this.mFrom + ((int) ((-BigdaySwipeRefreshLayout.this.mFrom) * f))) - BigdaySwipeRefreshLayout.this.kny.getView().getTop(), false);
                 }
             }
         };
@@ -174,11 +174,11 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
                 BigdaySwipeRefreshLayout.this.moveToStart(f);
             }
         };
-        this.klA = new Runnable() { // from class: com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.10
+        this.knC = new Runnable() { // from class: com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.10
             @Override // java.lang.Runnable
             public void run() {
-                if (BigdaySwipeRefreshLayout.this.klx) {
-                    BigdaySwipeRefreshLayout.this.klx = false;
+                if (BigdaySwipeRefreshLayout.this.knz) {
+                    BigdaySwipeRefreshLayout.this.knz = false;
                     BigdaySwipeRefreshLayout.this.mOriginalOffsetTop = -BigdaySwipeRefreshLayout.this.mCircleDiameter;
                     BigdaySwipeRefreshLayout.this.requestLayout();
                     BigdaySwipeRefreshLayout.this.a(BigdaySwipeRefreshLayout.this.mCurrentTargetOffsetTop, BigdaySwipeRefreshLayout.this.mRefreshListener, 200);
@@ -194,7 +194,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, LAYOUT_ATTRS);
         setEnabled(obtainStyledAttributes.getBoolean(0, true));
         obtainStyledAttributes.recycle();
-        this.fib = 0;
+        this.fjD = 0;
     }
 
     public void setCustomDistances(int i, int i2, int i3) {
@@ -222,26 +222,26 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
     }
 
     public void setProgressView(a aVar) {
-        if (aVar != null && aVar.getView() != null && aVar != this.klw) {
+        if (aVar != null && aVar.getView() != null && aVar != this.kny) {
             if (this.mState == 4 || this.mState == 6) {
-                if (this.klw != null) {
-                    removeView(this.klw.getView());
+                if (this.kny != null) {
+                    removeView(this.kny.getView());
                 }
-                this.klw = aVar;
-                this.klw.getView().setVisibility(8);
-                addView(this.klw.getView(), 0);
+                this.kny = aVar;
+                this.kny.getView().setVisibility(8);
+                addView(this.kny.getView(), 0);
                 if (aVar instanceof com.baidu.tieba.homepage.personalize.bigday.a) {
-                    ((com.baidu.tieba.homepage.personalize.bigday.a) aVar).a(new f.InterfaceC0564f() { // from class: com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.3
-                        @Override // com.baidu.tbadk.core.view.f.InterfaceC0564f
-                        public void pH(int i) {
-                            BigdaySwipeRefreshLayout.this.kly = i;
-                            BigdaySwipeRefreshLayout.this.klx = true;
-                            BigdaySwipeRefreshLayout.this.mCurrentTargetOffsetTop = (BigdaySwipeRefreshLayout.this.mCurrentTargetOffsetTop - BigdaySwipeRefreshLayout.this.mOriginalOffsetTop) - BigdaySwipeRefreshLayout.this.kly;
-                            BigdaySwipeRefreshLayout.this.mOriginalOffsetTop = -BigdaySwipeRefreshLayout.this.kly;
+                    ((com.baidu.tieba.homepage.personalize.bigday.a) aVar).a(new f.InterfaceC0570f() { // from class: com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.3
+                        @Override // com.baidu.tbadk.core.view.f.InterfaceC0570f
+                        public void pI(int i) {
+                            BigdaySwipeRefreshLayout.this.knA = i;
+                            BigdaySwipeRefreshLayout.this.knz = true;
+                            BigdaySwipeRefreshLayout.this.mCurrentTargetOffsetTop = (BigdaySwipeRefreshLayout.this.mCurrentTargetOffsetTop - BigdaySwipeRefreshLayout.this.mOriginalOffsetTop) - BigdaySwipeRefreshLayout.this.knA;
+                            BigdaySwipeRefreshLayout.this.mOriginalOffsetTop = -BigdaySwipeRefreshLayout.this.knA;
                             BigdaySwipeRefreshLayout.this.X(BigdaySwipeRefreshLayout.this.mOriginalOffsetTop - BigdaySwipeRefreshLayout.this.mCurrentTargetOffsetTop, false);
                         }
 
-                        @Override // com.baidu.tbadk.core.view.f.InterfaceC0564f
+                        @Override // com.baidu.tbadk.core.view.f.InterfaceC0570f
                         public void onAnimationEnd() {
                             BigdaySwipeRefreshLayout.this.setRefreshing(false);
                         }
@@ -262,32 +262,32 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
     public void c(f.e eVar) {
         if (eVar == null) {
             setRefreshing(false);
-        } else if (!buu()) {
+        } else if (!bux()) {
             setRefreshing(false);
         } else {
             a(false, false, eVar);
         }
     }
 
-    public boolean buu() {
-        if (this.klw != null && (this.klw instanceof f)) {
-            return ((f) this.klw).buu();
+    public boolean bux() {
+        if (this.kny != null && (this.kny instanceof f)) {
+            return ((f) this.kny).bux();
         }
         return false;
     }
 
     public void setExecuteMsgAnimation(boolean z) {
-        if (this.klw != null && (this.klw instanceof f)) {
-            ((f) this.klw).setExecuteMsgAnimation(z);
+        if (this.kny != null && (this.kny instanceof f)) {
+            ((f) this.kny).setExecuteMsgAnimation(z);
         }
     }
 
     void setAnimationProgress(float f) {
         if (isAlphaUsedForScale()) {
             setColorViewAlpha((int) (255.0f * f));
-        } else if (this.klw != null) {
-            ViewCompat.setScaleX(this.klw.getView(), f);
-            ViewCompat.setScaleY(this.klw.getView(), f);
+        } else if (this.kny != null) {
+            ViewCompat.setScaleX(this.kny.getView(), f);
+            ViewCompat.setScaleY(this.kny.getView(), f);
         }
     }
 
@@ -318,9 +318,9 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         };
         this.mScaleDownAnimation.setDuration(150L);
         this.mScaleDownAnimation.setAnimationListener(animationListener);
-        if (this.klw != null) {
-            this.klw.getView().clearAnimation();
-            this.klw.getView().startAnimation(this.mScaleDownAnimation);
+        if (this.kny != null) {
+            this.kny.getView().clearAnimation();
+            this.kny.getView().startAnimation(this.mScaleDownAnimation);
         }
     }
 
@@ -332,7 +332,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         if (this.mTarget == null) {
             for (int i = 0; i < getChildCount(); i++) {
                 View childAt = getChildAt(i);
-                if (this.klw == null || !childAt.equals(this.klw.getView())) {
+                if (this.kny == null || !childAt.equals(this.kny.getView())) {
                     this.mTarget = childAt;
                     return;
                 }
@@ -352,20 +352,20 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             if (this.mTarget != null) {
                 View view = this.mTarget;
                 int paddingLeft = getPaddingLeft();
-                if (this.klx) {
-                    paddingTop = getPaddingTop() + this.kly;
+                if (this.knz) {
+                    paddingTop = getPaddingTop() + this.knA;
                 } else {
                     paddingTop = (getPaddingTop() + this.mCurrentTargetOffsetTop) - this.mOriginalOffsetTop;
                 }
                 view.layout(paddingLeft, paddingTop, ((measuredWidth - getPaddingLeft()) - getPaddingRight()) + paddingLeft, ((measuredHeight - getPaddingTop()) - getPaddingBottom()) + paddingTop);
-                if (this.klw != null) {
-                    int measuredWidth2 = this.klw.getView().getMeasuredWidth();
-                    int measuredHeight2 = this.klw.getView().getMeasuredHeight();
-                    if (this.klw != null) {
-                        if (this.klx) {
-                            this.klw.getView().layout(paddingLeft, 0, measuredWidth2 + paddingLeft, measuredHeight2);
+                if (this.kny != null) {
+                    int measuredWidth2 = this.kny.getView().getMeasuredWidth();
+                    int measuredHeight2 = this.kny.getView().getMeasuredHeight();
+                    if (this.kny != null) {
+                        if (this.knz) {
+                            this.kny.getView().layout(paddingLeft, 0, measuredWidth2 + paddingLeft, measuredHeight2);
                         } else {
-                            this.klw.getView().layout(paddingLeft, this.mCurrentTargetOffsetTop, measuredWidth2 + paddingLeft, measuredHeight2 + this.mCurrentTargetOffsetTop);
+                            this.kny.getView().layout(paddingLeft, this.mCurrentTargetOffsetTop, measuredWidth2 + paddingLeft, measuredHeight2 + this.mCurrentTargetOffsetTop);
                         }
                     }
                 }
@@ -381,17 +381,17 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         }
         if (this.mTarget != null) {
             this.mTarget.measure(View.MeasureSpec.makeMeasureSpec((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight(), 1073741824), View.MeasureSpec.makeMeasureSpec((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom(), 1073741824));
-            if (this.klw != null) {
-                if (this.klx) {
-                    this.klw.getView().measure(View.MeasureSpec.makeMeasureSpec(l.getEquipmentWidth(getContext()), 1073741824), View.MeasureSpec.makeMeasureSpec(this.kly, 1073741824));
-                    this.mOriginalOffsetTop = -this.kly;
+            if (this.kny != null) {
+                if (this.knz) {
+                    this.kny.getView().measure(View.MeasureSpec.makeMeasureSpec(l.getEquipmentWidth(getContext()), 1073741824), View.MeasureSpec.makeMeasureSpec(this.knA, 1073741824));
+                    this.mOriginalOffsetTop = -this.knA;
                 } else {
-                    this.klw.getView().measure(View.MeasureSpec.makeMeasureSpec(l.getEquipmentWidth(getContext()), 1073741824), View.MeasureSpec.makeMeasureSpec(this.mCircleDiameter, 1073741824));
+                    this.kny.getView().measure(View.MeasureSpec.makeMeasureSpec(l.getEquipmentWidth(getContext()), 1073741824), View.MeasureSpec.makeMeasureSpec(this.mCircleDiameter, 1073741824));
                     this.mOriginalOffsetTop = -this.mCircleDiameter;
                 }
                 this.mCircleViewIndex = -1;
                 for (int i3 = 0; i3 < getChildCount(); i3++) {
-                    if (getChildAt(i3) == this.klw.getView()) {
+                    if (getChildAt(i3) == this.kny.getView()) {
                         this.mCircleViewIndex = i3;
                         return;
                     }
@@ -480,8 +480,8 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             }
             moveSpinner(this.mTotalUnconsumed);
         }
-        if (this.klw != null && this.mUsingCustomStart && i2 > 0 && this.mTotalUnconsumed == 0.0f && Math.abs(i2 - iArr[1]) > 0) {
-            this.klw.getView().setVisibility(8);
+        if (this.kny != null && this.mUsingCustomStart && i2 > 0 && this.mTotalUnconsumed == 0.0f && Math.abs(i2 - iArr[1]) > 0) {
+            this.kny.getView().setVisibility(8);
         }
         int[] iArr2 = this.mParentScrollConsumed;
         if (dispatchNestedPreScroll(i - iArr[0], i2 - iArr[1], iArr2, null)) {
@@ -525,7 +525,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
     public boolean onNestedPreFling(View view, float f, float f2) {
-        if (this.mState == 3 || this.mState == 2 || this.klw == null || this.klw.getView() == null || this.klw.getView().getBottom() <= 0) {
+        if (this.mState == 3 || this.mState == 2 || this.kny == null || this.kny.getView() == null || this.kny.getView().getBottom() <= 0) {
             return dispatchNestedPreFling(f, f2);
         }
         return true;
@@ -586,47 +586,47 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
 
     @SuppressLint({"NewApi"})
     private void moveSpinner(float f) {
-        if (this.klw != null) {
+        if (this.kny != null) {
             float min = Math.min(1.0f, Math.abs(f / this.mTotalDragDistance));
             float max = (((float) Math.max(min - 0.4d, 0.0d)) * 5.0f) / 3.0f;
             float abs = Math.abs(f) - this.mTotalDragDistance;
             int i = this.mSpinnerOffsetEnd;
-            if (this.klw.cRD() > 0) {
-                i = this.klw.cRD();
+            if (this.kny.cRK() > 0) {
+                i = this.kny.cRK();
             }
             float f2 = this.mUsingCustomStart ? i - this.mOriginalOffsetTop : i;
             float max2 = Math.max(0.0f, Math.min(abs, f2 * 2.0f) / f2);
             float pow = ((float) ((max2 / 4.0f) - Math.pow(max2 / 4.0f, 2.0d))) * 2.0f;
             int i2 = ((int) ((f2 * min) + (f2 * pow * 2.0f))) + this.mOriginalOffsetTop;
-            if (this.klw.getView().getVisibility() != 0) {
-                this.klw.getView().setVisibility(0);
+            if (this.kny.getView().getVisibility() != 0) {
+                this.kny.getView().setVisibility(0);
             }
-            ViewCompat.setScaleX(this.klw.getView(), 1.0f);
-            ViewCompat.setScaleY(this.klw.getView(), 1.0f);
+            ViewCompat.setScaleX(this.kny.getView(), 1.0f);
+            ViewCompat.setScaleY(this.kny.getView(), 1.0f);
             if (!this.mRefreshing && this.mState != 3 && this.mState != 6) {
                 if (this.mOriginalOffsetTop < this.mCurrentTargetOffsetTop) {
                     if (this.mCurrentTargetOffsetTop - this.mOriginalOffsetTop < this.mSpinnerOffsetEnd) {
                         if (this.mState != 0) {
                             pullToRefresh();
                         }
-                    } else if (this.klw.cRD() > 0 && this.mCurrentTargetOffsetTop - this.mOriginalOffsetTop > this.klw.cRD()) {
+                    } else if (this.kny.cRK() > 0 && this.mCurrentTargetOffsetTop - this.mOriginalOffsetTop > this.kny.cRK()) {
                         this.mState = 5;
-                        this.klw.cRE();
+                        this.kny.cRL();
                     } else if (this.mState != 1) {
                         releaseToRefresh();
                     }
                 }
-                this.klw.onPullPercentChange((this.mCurrentTargetOffsetTop - this.mOriginalOffsetTop) / this.mSpinnerOffsetEnd, pow);
+                this.kny.onPullPercentChange((this.mCurrentTargetOffsetTop - this.mOriginalOffsetTop) / this.mSpinnerOffsetEnd, pow);
             }
             X(i2 - this.mCurrentTargetOffsetTop, true);
         }
     }
 
     private void finishSpinner(float f) {
-        if (this.klw != null) {
-            if (this.klw.cRD() > 0 && this.mCurrentTargetOffsetTop - this.mOriginalOffsetTop > this.klw.cRD()) {
+        if (this.kny != null) {
+            if (this.kny.cRK() > 0 && this.mCurrentTargetOffsetTop - this.mOriginalOffsetTop > this.kny.cRK()) {
                 this.mState = 6;
-                this.klw.cRF();
+                this.kny.cRM();
                 ((FrameLayout.LayoutParams) getLayoutParams()).topMargin = 0;
                 this.mRefreshing = false;
                 c(this.mCurrentTargetOffsetTop, new Animation.AnimationListener() { // from class: com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.5
@@ -636,7 +636,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationEnd(Animation animation) {
-                        BigdaySwipeRefreshLayout.this.klw.cRG();
+                        BigdaySwipeRefreshLayout.this.kny.cRN();
                     }
 
                     @Override // android.view.animation.Animation.AnimationListener
@@ -669,13 +669,13 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             }
         }, 200);
         if ((getLayoutParams() instanceof FrameLayout.LayoutParams) && ((FrameLayout.LayoutParams) getLayoutParams()).topMargin == 0) {
-            ((FrameLayout.LayoutParams) getLayoutParams()).topMargin = this.fib;
+            ((FrameLayout.LayoutParams) getLayoutParams()).topMargin = this.fjD;
         }
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.klw.getView().getAnimation() != null && !this.klw.getView().getAnimation().hasEnded()) {
+        if (this.kny.getView().getAnimation() != null && !this.kny.getView().getAnimation().hasEnded()) {
             return super.onTouchEvent(motionEvent);
         }
         int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
@@ -744,7 +744,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
     }
 
     private void animateOffsetToCorrectPosition(int i, Animation.AnimationListener animationListener) {
-        if (this.klw != null) {
+        if (this.kny != null) {
             this.mFrom = i;
             this.mAnimateToCorrectPosition.reset();
             this.mAnimateToCorrectPosition.setDuration(200L);
@@ -752,16 +752,16 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             if (animationListener != null) {
                 this.mAnimateToCorrectPosition.setAnimationListener(animationListener);
             }
-            if (this.klw.getView().getVisibility() != 0) {
-                this.klw.getView().setVisibility(0);
+            if (this.kny.getView().getVisibility() != 0) {
+                this.kny.getView().setVisibility(0);
             }
-            this.klw.getView().clearAnimation();
-            this.klw.getView().startAnimation(this.mAnimateToCorrectPosition);
+            this.kny.getView().clearAnimation();
+            this.kny.getView().startAnimation(this.mAnimateToCorrectPosition);
         }
     }
 
     protected void a(int i, Animation.AnimationListener animationListener, int i2) {
-        if (this.klw != null) {
+        if (this.kny != null) {
             this.mFrom = i;
             this.mAnimateToStartPosition.reset();
             this.mAnimateToStartPosition.setDuration(i2);
@@ -769,39 +769,39 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             if (animationListener != null) {
                 this.mAnimateToStartPosition.setAnimationListener(animationListener);
             }
-            this.klw.getView().clearAnimation();
-            this.klw.getView().startAnimation(this.mAnimateToStartPosition);
+            this.kny.getView().clearAnimation();
+            this.kny.getView().startAnimation(this.mAnimateToStartPosition);
         }
     }
 
     private void c(int i, Animation.AnimationListener animationListener) {
-        if (this.klw != null) {
+        if (this.kny != null) {
             this.mFrom = i;
-            this.klz.reset();
-            this.klz.setDuration(500L);
-            this.klz.setInterpolator(this.mDecelerateInterpolator);
+            this.knB.reset();
+            this.knB.setDuration(500L);
+            this.knB.setInterpolator(this.mDecelerateInterpolator);
             if (animationListener != null) {
-                this.klz.setAnimationListener(animationListener);
+                this.knB.setAnimationListener(animationListener);
             }
-            this.klw.getView().clearAnimation();
-            this.klw.getView().startAnimation(this.klz);
+            this.kny.getView().clearAnimation();
+            this.kny.getView().startAnimation(this.knB);
         }
     }
 
     void moveToStart(float f) {
-        if (this.klw != null) {
-            X((this.mFrom + ((int) ((this.mOriginalOffsetTop - this.mFrom) * f))) - this.klw.getView().getTop(), false);
+        if (this.kny != null) {
+            X((this.mFrom + ((int) ((this.mOriginalOffsetTop - this.mFrom) * f))) - this.kny.getView().getTop(), false);
         }
     }
 
     void X(int i, boolean z) {
-        if (this.klw != null) {
-            this.klw.getView().bringToFront();
-            ViewCompat.offsetTopAndBottom(this.klw.getView(), i);
+        if (this.kny != null) {
+            this.kny.getView().bringToFront();
+            ViewCompat.offsetTopAndBottom(this.kny.getView(), i);
             if (this.mTarget != null) {
                 ViewCompat.offsetTopAndBottom(this.mTarget, i);
             }
-            this.mCurrentTargetOffsetTop = this.klw.getView().getTop();
+            this.mCurrentTargetOffsetTop = this.kny.getView().getTop();
             if (z && Build.VERSION.SDK_INT < 11) {
                 invalidate();
             }
@@ -816,62 +816,62 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
     }
 
     private void pullToRefresh() {
-        if (this.klw != null) {
+        if (this.kny != null) {
             this.mState = 0;
-            this.klw.onPullToRefresh();
+            this.kny.onPullToRefresh();
         }
     }
 
     private void releaseToRefresh() {
-        if (this.klw != null) {
+        if (this.kny != null) {
             this.mState = 1;
-            this.klw.onReleaseToRefresh();
+            this.kny.onReleaseToRefresh();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void refreshing() {
-        if (this.klw != null) {
+        if (this.kny != null) {
             this.mState = 2;
-            this.klw.onRefreshing();
+            this.kny.onRefreshing();
         }
     }
 
     private void so(boolean z) {
-        if (z && this.klw != null) {
-            if (this.klx) {
+        if (z && this.kny != null) {
+            if (this.knz) {
                 this.mOriginalOffsetTop = -this.mCircleDiameter;
             }
-            this.klx = false;
-            if (buu() && (this.klw instanceof f)) {
-                ((f) this.klw).buw();
+            this.knz = false;
+            if (bux() && (this.kny instanceof f)) {
+                ((f) this.kny).buz();
             }
         }
     }
 
     private void d(f.e eVar) {
-        if (this.klw != null) {
+        if (this.kny != null) {
             this.mState = 3;
-            if (eVar != null && buu() && (this.klw instanceof f)) {
-                ((f) this.klw).a(eVar);
+            if (eVar != null && bux() && (this.kny instanceof f)) {
+                ((f) this.kny).a(eVar);
                 setExecuteMsgAnimation(true);
-                this.klw.onCompleteRefresh();
-                e.mA().removeCallbacks(this.klA);
-                e.mA().postDelayed(this.klA, IMConnection.RETRY_DELAY_TIMES);
+                this.kny.onCompleteRefresh();
+                e.mA().removeCallbacks(this.knC);
+                e.mA().postDelayed(this.knC, IMConnection.RETRY_DELAY_TIMES);
                 return;
             }
             setExecuteMsgAnimation(false);
-            this.klw.onCompleteRefresh();
+            this.kny.onCompleteRefresh();
             postDelayed(new Runnable() { // from class: com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (BigdaySwipeRefreshLayout.this.klx) {
+                    if (BigdaySwipeRefreshLayout.this.knz) {
                         BigdaySwipeRefreshLayout.this.mOriginalOffsetTop = -BigdaySwipeRefreshLayout.this.mCircleDiameter;
                     }
-                    BigdaySwipeRefreshLayout.this.klx = false;
+                    BigdaySwipeRefreshLayout.this.knz = false;
                     BigdaySwipeRefreshLayout.this.a(BigdaySwipeRefreshLayout.this.mCurrentTargetOffsetTop, BigdaySwipeRefreshLayout.this.mRefreshListener, 200);
                 }
-            }, this.klw.getCompleteAnimTime());
+            }, this.kny.getCompleteAnimTime());
         }
     }
 
@@ -883,16 +883,16 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
     }
 
     protected void finish() {
-        if (this.klw != null) {
+        if (this.kny != null) {
             this.mState = 4;
             this.mRefreshing = false;
-            this.klw.getView().clearAnimation();
-            this.klw.onFinish();
-            if (this.klx) {
+            this.kny.getView().clearAnimation();
+            this.kny.onFinish();
+            if (this.knz) {
                 this.mOriginalOffsetTop = -this.mCircleDiameter;
-                this.mCurrentTargetOffsetTop = (this.mCurrentTargetOffsetTop - this.mCircleDiameter) + this.kly;
+                this.mCurrentTargetOffsetTop = (this.mCurrentTargetOffsetTop - this.mCircleDiameter) + this.knA;
             }
-            this.klx = false;
+            this.knz = false;
             requestLayout();
         }
     }
@@ -900,7 +900,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
     public void resume() {
         if (this.mState == 6) {
             if (getLayoutParams() instanceof FrameLayout.LayoutParams) {
-                ((FrameLayout.LayoutParams) getLayoutParams()).topMargin = this.fib;
+                ((FrameLayout.LayoutParams) getLayoutParams()).topMargin = this.fjD;
             }
             a(this.mCurrentTargetOffsetTop, (Animation.AnimationListener) null, 400);
             this.mRefreshing = false;
@@ -909,6 +909,6 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
     }
 
     public a getProgressView() {
-        return this.klw;
+        return this.kny;
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.android.common.security;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class RC4 {
     private static final int STATE_LENGTH = 256;
     private byte[] workingKey;
@@ -22,9 +22,9 @@ public class RC4 {
         for (int i4 = 0; i4 < i2; i4++) {
             this.x = (this.x + 1) & 255;
             this.y = (this.engineState[this.x] + this.y) & 255;
-            byte b2 = this.engineState[this.x];
+            byte b = this.engineState[this.x];
             this.engineState[this.x] = this.engineState[this.y];
-            this.engineState[this.y] = b2;
+            this.engineState[this.y] = b;
             bArr2[i4 + i3] = (byte) (bArr[i4 + i] ^ this.engineState[(this.engineState[this.x] + this.engineState[this.y]) & 255]);
         }
     }
@@ -43,9 +43,9 @@ public class RC4 {
         int i4 = 0;
         while (i2 < 256) {
             int i5 = ((bArr[i4] & 255) + this.engineState[i2] + i3) & 255;
-            byte b2 = this.engineState[i2];
+            byte b = this.engineState[i2];
             this.engineState[i2] = this.engineState[i5];
-            this.engineState[i5] = b2;
+            this.engineState[i5] = b;
             i4 = (i4 + 1) % bArr.length;
             i2++;
             i3 = i5;

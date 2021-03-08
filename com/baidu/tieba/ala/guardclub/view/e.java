@@ -12,9 +12,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.RoundImageView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e {
-    Dialog biA;
+    Dialog bka;
 
     public void v(Context context, String str, String str2) {
         if (context != null && (context instanceof Activity)) {
@@ -26,13 +26,13 @@ public class e {
             } else if (activity.isFinishing()) {
                 return;
             }
-            if (this.biA == null || !this.biA.isShowing()) {
+            if (this.bka == null || !this.bka.isShowing()) {
                 View inflate = LayoutInflater.from(context).inflate(a.g.alal_sdk_dialog_guard, (ViewGroup) null, false);
-                this.biA = new Dialog(context, a.i.FlowerGuideDialogStyle);
-                this.biA.requestWindowFeature(1);
-                this.biA.setCancelable(true);
-                this.biA.setContentView(inflate);
-                this.biA.setCanceledOnTouchOutside(false);
+                this.bka = new Dialog(context, a.i.FlowerGuideDialogStyle);
+                this.bka.requestWindowFeature(1);
+                this.bka.setCancelable(true);
+                this.bka.setContentView(inflate);
+                this.bka.setCanceledOnTouchOutside(false);
                 RoundImageView roundImageView = (RoundImageView) inflate.findViewById(a.f.ala_sdk_guard_top_tv);
                 roundImageView.setRadius(context.getResources().getDimension(a.d.sdk_ds36));
                 roundImageView.setTop(true);
@@ -47,18 +47,18 @@ public class e {
                 ((ImageView) inflate.findViewById(a.f.close_imageView)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.view.e.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        e.this.FA();
+                        e.this.FD();
                     }
                 });
-                this.biA.show();
+                this.bka.show();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void FA() {
-        if (this.biA != null && this.biA.isShowing()) {
-            Context context = this.biA.getContext();
+    public void FD() {
+        if (this.bka != null && this.bka.isShowing()) {
+            Context context = this.bka.getContext();
             if (context != null && (context instanceof Activity)) {
                 Activity activity = (Activity) context;
                 if (Build.VERSION.SDK_INT >= 17) {
@@ -70,11 +70,11 @@ public class e {
                 }
             }
             try {
-                this.biA.dismiss();
+                this.bka.dismiss();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        this.biA = null;
+        this.bka = null;
     }
 }

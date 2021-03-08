@@ -7,10 +7,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private final m f9505a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final com.kwad.sdk.core.videocache.a f9506b;
+    private final m f6300a;
+    private final com.kwad.sdk.core.videocache.a b;
     private volatile Thread f;
     private volatile boolean g;
     private final Object c = new Object();
@@ -31,8 +29,8 @@ public class k {
     }
 
     public k(m mVar, com.kwad.sdk.core.videocache.a aVar) {
-        this.f9505a = (m) j.a(mVar);
-        this.f9506b = (com.kwad.sdk.core.videocache.a) j.a(aVar);
+        this.f6300a = (m) j.a(mVar);
+        this.b = (com.kwad.sdk.core.videocache.a) j.a(aVar);
     }
 
     private void b() {
@@ -52,8 +50,8 @@ public class k {
 
     private synchronized void c() {
         boolean z = (this.f == null || this.f.getState() == Thread.State.TERMINATED) ? false : true;
-        if (!this.g && !this.f9506b.d() && !z) {
-            this.f = new Thread(new a(), "Source reader for " + this.f9505a);
+        if (!this.g && !this.b.d() && !z) {
+            this.f = new Thread(new a(), "Source reader for " + this.f6300a);
             this.f.start();
         }
     }
@@ -71,12 +69,12 @@ public class k {
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
         try {
-            long a2 = this.f9506b.a();
-            this.f9505a.a(a2);
-            long a3 = this.f9505a.a();
+            long a2 = this.b.a();
+            this.f6300a.a(a2);
+            long a3 = this.f6300a.a();
             byte[] bArr = new byte[8192];
             while (true) {
-                int a4 = this.f9505a.a(bArr);
+                int a4 = this.f6300a.a(bArr);
                 if (a4 == -1) {
                     g();
                     f();
@@ -90,7 +88,7 @@ public class k {
                         b(a2, a3);
                         return;
                     }
-                    this.f9506b.a(bArr, a4);
+                    this.b.a(bArr, a4);
                 }
                 a2 += a4;
                 b(a2, a3);
@@ -113,8 +111,8 @@ public class k {
 
     private void g() {
         synchronized (this.d) {
-            if (!h() && this.f9506b.a() == this.f9505a.a()) {
-                this.f9506b.c();
+            if (!h() && this.b.a() == this.f6300a.a()) {
+                this.b.c();
             }
         }
     }
@@ -125,21 +123,21 @@ public class k {
 
     private void i() {
         try {
-            this.f9505a.b();
+            this.f6300a.b();
         } catch (ProxyCacheException e) {
-            a(new ProxyCacheException("Error closing source " + this.f9505a, e));
+            a(new ProxyCacheException("Error closing source " + this.f6300a, e));
         }
     }
 
     public int a(byte[] bArr, long j, int i) {
         l.a(bArr, j, i);
-        while (!this.f9506b.d() && this.f9506b.a() < i + j && !this.g) {
+        while (!this.b.d() && this.b.a() < i + j && !this.g) {
             c();
             d();
             b();
         }
-        int a2 = this.f9506b.a(bArr, j, i);
-        if (this.f9506b.d() && this.h != 100) {
+        int a2 = this.b.a(bArr, j, i);
+        if (this.b.d() && this.h != 100) {
             this.h = 100;
             a(100);
         }
@@ -148,13 +146,13 @@ public class k {
 
     public void a() {
         synchronized (this.d) {
-            com.kwad.sdk.core.d.a.a("ProxyCache", "Shutdown proxy for " + this.f9505a);
+            com.kwad.sdk.core.d.a.a("ProxyCache", "Shutdown proxy for " + this.f6300a);
             try {
                 this.g = true;
                 if (this.f != null) {
                     this.f.interrupt();
                 }
-                this.f9506b.b();
+                this.b.b();
             } catch (ProxyCacheException e) {
                 a(e);
             }

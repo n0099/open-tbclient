@@ -2,9 +2,9 @@ package com.baidu.tieba.yuyinala.liveroom.teamfighttimeset;
 
 import com.baidu.tieba.yuyinala.liveroom.wheat.message.BaseJsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class TimeSettingResponseMessage extends BaseJsonHttpResponsedMessage {
-    private com.baidu.tieba.yuyinala.liveroom.datingnavigation.a ovb;
+    private com.baidu.tieba.yuyinala.liveroom.datingnavigation.a oxg;
 
     public TimeSettingResponseMessage() {
         super(1031085);
@@ -14,13 +14,13 @@ public class TimeSettingResponseMessage extends BaseJsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031085) {
-            if (this.ovb == null) {
-                this.ovb = new com.baidu.tieba.yuyinala.liveroom.datingnavigation.a();
+            if (this.oxg == null) {
+                this.oxg = new com.baidu.tieba.yuyinala.liveroom.datingnavigation.a();
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.ovb.ova = optJSONObject.optString("activity_stage");
-                this.ovb.ouZ = optJSONObject.optString("num_fields");
+                this.oxg.oxf = optJSONObject.optString("activity_stage");
+                this.oxg.oxe = optJSONObject.optString("num_fields");
             }
         }
     }

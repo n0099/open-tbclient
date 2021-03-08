@@ -10,66 +10,66 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.activity.LegoListFragment;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private Animation chW;
-    private Animation chX;
-    private TbPageContext<?> eUY;
-    private n lac;
-    private View lcK;
-    private Animation lcL;
-    private LegoListFragment lcR;
-    private InterfaceC0777a lcS;
-    private boolean lcM = false;
-    private boolean lcN = false;
-    private boolean lcO = false;
-    private boolean lcP = false;
-    private boolean lcQ = true;
+    private Animation cjx;
+    private Animation cjy;
+    private TbPageContext<?> eWx;
+    private n lcf;
+    private View leN;
+    private Animation leO;
+    private LegoListFragment leU;
+    private InterfaceC0783a leV;
+    private boolean leP = false;
+    private boolean leQ = false;
+    private boolean leR = false;
+    private boolean leS = false;
+    private boolean leT = true;
     private int mPosition = 0;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.lego.card.view.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!a.this.dch() && a.this.lcK.getAlpha() == 0.0f) {
-                a.this.dcd();
+            if (!a.this.dcq() && a.this.leN.getAlpha() == 0.0f) {
+                a.this.dcm();
             }
         }
     };
-    private Runnable lcT = new Runnable() { // from class: com.baidu.tieba.lego.card.view.a.7
+    private Runnable leW = new Runnable() { // from class: com.baidu.tieba.lego.card.view.a.7
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.lcR != null && a.this.lcR.dbu() == 1) {
-                a.this.dci();
+            if (a.this.leU != null && a.this.leU.dbD() == 1) {
+                a.this.dcr();
             } else {
-                a.this.dcc();
+                a.this.dcl();
             }
         }
     };
 
     /* renamed from: com.baidu.tieba.lego.card.view.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public interface InterfaceC0777a {
-        void dck();
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0783a {
+        void dct();
 
-        void dcl();
+        void dcu();
 
-        void dcm();
+        void dcv();
     }
 
     public a(TbPageContext<?> tbPageContext, View view) {
-        this.eUY = tbPageContext;
-        this.lcK = view.findViewById(R.id.cover_video);
-        this.lcK.setOnClickListener(this.mOnClickListener);
-        this.chW = AnimationUtils.loadAnimation(this.eUY.getPageActivity(), R.anim.anim_alpha_0_to_1_duration_200_accelerate);
-        this.chX = AnimationUtils.loadAnimation(this.eUY.getPageActivity(), R.anim.card_anim_alpha_1_to_0_duration_200_offset_200);
-        this.lcL = AnimationUtils.loadAnimation(this.eUY.getPageActivity(), R.anim.card_anim_alpha_0_to_1_duration_2000);
-        this.lcR = d.C(tbPageContext);
-        this.lac = d.A(tbPageContext);
+        this.eWx = tbPageContext;
+        this.leN = view.findViewById(R.id.cover_video);
+        this.leN.setOnClickListener(this.mOnClickListener);
+        this.cjx = AnimationUtils.loadAnimation(this.eWx.getPageActivity(), R.anim.anim_alpha_0_to_1_duration_200_accelerate);
+        this.cjy = AnimationUtils.loadAnimation(this.eWx.getPageActivity(), R.anim.card_anim_alpha_1_to_0_duration_200_offset_200);
+        this.leO = AnimationUtils.loadAnimation(this.eWx.getPageActivity(), R.anim.card_anim_alpha_0_to_1_duration_2000);
+        this.leU = d.C(tbPageContext);
+        this.lcf = d.A(tbPageContext);
     }
 
-    public void dcc() {
-        if (!dch() && !this.lcO) {
+    public void dcl() {
+        if (!dcq() && !this.leR) {
             clearAnimation();
-            this.lcL.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.lego.card.view.a.2
+            this.leO.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.lego.card.view.a.2
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationStart(Animation animation) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TOGGLE_SHOW_VIDEO_VIEW, false));
@@ -77,8 +77,8 @@ public class a {
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    if (!a.this.dch()) {
-                        a.this.lcO = false;
+                    if (!a.this.dcq()) {
+                        a.this.leR = false;
                     }
                 }
 
@@ -86,18 +86,18 @@ public class a {
                 public void onAnimationRepeat(Animation animation) {
                 }
             });
-            this.lcO = true;
-            if (this.lcS != null) {
-                this.lcS.dcm();
+            this.leR = true;
+            if (this.leV != null) {
+                this.leV.dcv();
             }
             tI(true);
         }
     }
 
-    public void dcd() {
-        if (!dch() && !this.lcP) {
+    public void dcm() {
+        if (!dcq() && !this.leS) {
             clearAnimation();
-            this.chX.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.lego.card.view.a.3
+            this.cjy.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.lego.card.view.a.3
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationStart(Animation animation) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TOGGLE_SHOW_VIDEO_VIEW, true));
@@ -105,9 +105,9 @@ public class a {
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    a.this.lcP = false;
-                    a.this.dci();
-                    if (!a.this.dch()) {
+                    a.this.leS = false;
+                    a.this.dcr();
+                    if (!a.this.dcq()) {
                         a.this.tI(false);
                     }
                 }
@@ -116,30 +116,30 @@ public class a {
                 public void onAnimationRepeat(Animation animation) {
                 }
             });
-            this.lcK.postDelayed(new Runnable() { // from class: com.baidu.tieba.lego.card.view.a.4
+            this.leN.postDelayed(new Runnable() { // from class: com.baidu.tieba.lego.card.view.a.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.lcP = false;
-                    a.this.dci();
-                    if (!a.this.dch()) {
+                    a.this.leS = false;
+                    a.this.dcr();
+                    if (!a.this.dcq()) {
                         a.this.tI(false);
                     }
                 }
             }, 200L);
-            this.lcP = true;
-            if (this.lcS != null) {
-                this.lcS.dcl();
+            this.leS = true;
+            if (this.leV != null) {
+                this.leV.dcu();
             }
         }
     }
 
-    public void dce() {
-        if (!dch()) {
-            if (!this.lcM) {
+    public void dcn() {
+        if (!dcq()) {
+            if (!this.leP) {
                 clearAnimation();
             }
-            if (!this.lcM) {
-                this.chX.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.lego.card.view.a.5
+            if (!this.leP) {
+                this.cjy.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.lego.card.view.a.5
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationStart(Animation animation) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TOGGLE_SHOW_VIDEO_VIEW, true));
@@ -147,110 +147,110 @@ public class a {
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationEnd(Animation animation) {
-                        a.this.dcf();
-                        a.this.lcM = false;
-                        a.this.dci();
+                        a.this.dco();
+                        a.this.leP = false;
+                        a.this.dcr();
                     }
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationRepeat(Animation animation) {
                     }
                 });
-                this.lcK.startAnimation(this.chX);
-                this.lcM = true;
-                if (this.lcS != null) {
-                    this.lcS.dck();
+                this.leN.startAnimation(this.cjy);
+                this.leP = true;
+                if (this.leV != null) {
+                    this.leV.dct();
                 }
             }
         }
     }
 
-    public void cpW() {
-        if (!dch()) {
-            if (!this.lcN) {
+    public void cqc() {
+        if (!dcq()) {
+            if (!this.leQ) {
                 clearAnimation();
             }
-            if (!this.lcN) {
-                this.chW.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.lego.card.view.a.6
+            if (!this.leQ) {
+                this.cjx.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.lego.card.view.a.6
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationStart(Animation animation) {
                     }
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationEnd(Animation animation) {
-                        a.this.dcg();
-                        a.this.lcN = false;
+                        a.this.dcp();
+                        a.this.leQ = false;
                     }
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationRepeat(Animation animation) {
                     }
                 });
-                this.lcK.setAlpha(1.0f);
-                this.lcK.startAnimation(this.chW);
-                this.lcN = true;
+                this.leN.setAlpha(1.0f);
+                this.leN.startAnimation(this.cjx);
+                this.leQ = true;
             }
         }
     }
 
-    public void dcf() {
-        if (!dch()) {
+    public void dco() {
+        if (!dcq()) {
             clearAnimation();
-            this.lcK.setAlpha(0.0f);
+            this.leN.setAlpha(0.0f);
             tI(false);
         }
     }
 
-    public void dcg() {
-        if (!dch()) {
+    public void dcp() {
+        if (!dcq()) {
             clearAnimation();
-            this.lcK.setAlpha(1.0f);
-            com.baidu.adp.lib.f.e.mA().removeCallbacks(this.lcT);
+            this.leN.setAlpha(1.0f);
+            com.baidu.adp.lib.f.e.mA().removeCallbacks(this.leW);
             tI(true);
         }
     }
 
     private void clearAnimation() {
-        if (!dch()) {
-            this.lcK.clearAnimation();
-            this.lcM = false;
-            this.lcN = false;
-            this.lcO = false;
-            this.lcP = false;
+        if (!dcq()) {
+            this.leN.clearAnimation();
+            this.leP = false;
+            this.leQ = false;
+            this.leR = false;
+            this.leS = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void tI(boolean z) {
-        if (!dch()) {
-            this.lcK.setClickable(z);
+        if (!dcq()) {
+            this.leN.setClickable(z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean dch() {
-        return this.lcK == null;
+    public boolean dcq() {
+        return this.leN == null;
     }
 
-    public void a(InterfaceC0777a interfaceC0777a) {
-        this.lcS = interfaceC0777a;
+    public void a(InterfaceC0783a interfaceC0783a) {
+        this.leV = interfaceC0783a;
     }
 
     public void tJ(boolean z) {
-        this.lcQ = z;
+        this.leT = z;
     }
 
-    public void dci() {
-        dcj();
-        if (this.lcQ) {
-            com.baidu.adp.lib.f.e.mA().postDelayed(this.lcT, IMConnection.RETRY_DELAY_TIMES);
+    public void dcr() {
+        dcs();
+        if (this.leT) {
+            com.baidu.adp.lib.f.e.mA().postDelayed(this.leW, IMConnection.RETRY_DELAY_TIMES);
         }
     }
 
-    public void dcj() {
+    public void dcs() {
         clearAnimation();
         tI(false);
-        this.lcK.setAlpha(0.0f);
-        com.baidu.adp.lib.f.e.mA().removeCallbacks(this.lcT);
+        this.leN.setAlpha(0.0f);
+        com.baidu.adp.lib.f.e.mA().removeCallbacks(this.leW);
     }
 }

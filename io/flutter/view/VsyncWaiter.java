@@ -4,7 +4,7 @@ import android.view.Choreographer;
 import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import io.flutter.embedding.engine.FlutterJNI;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class VsyncWaiter {
     private static VsyncWaiter instance;
     private final FlutterJNI.AsyncWaitForVsyncDelegate asyncWaitForVsyncDelegate = new FlutterJNI.AsyncWaitForVsyncDelegate() { // from class: io.flutter.view.VsyncWaiter.1

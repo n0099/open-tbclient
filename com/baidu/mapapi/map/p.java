@@ -10,17 +10,15 @@ import com.baidu.mapapi.map.SwipeDismissTouchListener;
 public class p extends AnimatorListenerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ViewGroup.LayoutParams f2805a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ int f2806b;
+    final /* synthetic */ ViewGroup.LayoutParams f2075a;
+    final /* synthetic */ int b;
     final /* synthetic */ SwipeDismissTouchListener c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(SwipeDismissTouchListener swipeDismissTouchListener, ViewGroup.LayoutParams layoutParams, int i) {
         this.c = swipeDismissTouchListener;
-        this.f2805a = layoutParams;
-        this.f2806b = i;
+        this.f2075a = layoutParams;
+        this.b = i;
     }
 
     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -36,8 +34,8 @@ public class p extends AnimatorListenerAdapter {
         dismissCallbacks.onDismiss(view, obj);
         view2 = this.c.e;
         view2.setTranslationX(0.0f);
-        this.f2805a.height = this.f2806b;
+        this.f2075a.height = this.b;
         view3 = this.c.e;
-        view3.setLayoutParams(this.f2805a);
+        view3.setLayoutParams(this.f2075a);
     }
 }

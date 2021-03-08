@@ -5,7 +5,7 @@ import android.view.KeyEvent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import io.flutter.embedding.engine.systemchannels.KeyEventChannel;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class XAndroidKeyProcessor {
     private int combiningCharacter;
     @NonNull

@@ -5,39 +5,39 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ba {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Map<Class<?>, Class<?>> f13877a = new HashMap();
+    private static final Map<Class<?>, Class<?>> f8270a = new HashMap();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Class<? extends T> f13878a;
+        public final Class<? extends T> f8271a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final T f199a;
+        public final T f120a;
     }
 
     static {
-        f13877a.put(Boolean.class, Boolean.TYPE);
-        f13877a.put(Byte.class, Byte.TYPE);
-        f13877a.put(Character.class, Character.TYPE);
-        f13877a.put(Short.class, Short.TYPE);
-        f13877a.put(Integer.class, Integer.TYPE);
-        f13877a.put(Float.class, Float.TYPE);
-        f13877a.put(Long.class, Long.TYPE);
-        f13877a.put(Double.class, Double.TYPE);
-        f13877a.put(Boolean.TYPE, Boolean.TYPE);
-        f13877a.put(Byte.TYPE, Byte.TYPE);
-        f13877a.put(Character.TYPE, Character.TYPE);
-        f13877a.put(Short.TYPE, Short.TYPE);
-        f13877a.put(Integer.TYPE, Integer.TYPE);
-        f13877a.put(Float.TYPE, Float.TYPE);
-        f13877a.put(Long.TYPE, Long.TYPE);
-        f13877a.put(Double.TYPE, Double.TYPE);
+        f8270a.put(Boolean.class, Boolean.TYPE);
+        f8270a.put(Byte.class, Byte.TYPE);
+        f8270a.put(Character.class, Character.TYPE);
+        f8270a.put(Short.class, Short.TYPE);
+        f8270a.put(Integer.class, Integer.TYPE);
+        f8270a.put(Float.class, Float.TYPE);
+        f8270a.put(Long.class, Long.TYPE);
+        f8270a.put(Double.class, Double.TYPE);
+        f8270a.put(Boolean.TYPE, Boolean.TYPE);
+        f8270a.put(Byte.TYPE, Byte.TYPE);
+        f8270a.put(Character.TYPE, Character.TYPE);
+        f8270a.put(Short.TYPE, Short.TYPE);
+        f8270a.put(Integer.TYPE, Integer.TYPE);
+        f8270a.put(Float.TYPE, Float.TYPE);
+        f8270a.put(Long.TYPE, Long.TYPE);
+        f8270a.put(Double.TYPE, Double.TYPE);
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x000c */
@@ -79,7 +79,7 @@ public class ba {
     }
 
     public static <T> T a(Class<?> cls, String str, Object... objArr) {
-        return (T) a(cls, str, a(objArr)).invoke(null, m183a(objArr));
+        return (T) a(cls, str, a(objArr)).invoke(null, m162a(objArr));
     }
 
     public static <T> T a(Object obj, String str) {
@@ -160,7 +160,7 @@ public class ba {
             return false;
         } else {
             for (int i = 0; i < clsArr.length; i++) {
-                if (clsArr2[i] != null && !clsArr[i].isAssignableFrom(clsArr2[i]) && (!f13877a.containsKey(clsArr[i]) || !f13877a.get(clsArr[i]).equals(f13877a.get(clsArr2[i])))) {
+                if (clsArr2[i] != null && !clsArr[i].isAssignableFrom(clsArr2[i]) && (!f8270a.containsKey(clsArr[i]) || !f8270a.get(clsArr[i]).equals(f8270a.get(clsArr2[i])))) {
                     return false;
                 }
             }
@@ -183,14 +183,14 @@ public class ba {
             if (obj == null || !(obj instanceof a)) {
                 clsArr[i2] = obj == null ? null : obj.getClass();
             } else {
-                clsArr[i2] = ((a) obj).f13878a;
+                clsArr[i2] = ((a) obj).f8271a;
             }
             i = i2 + 1;
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static Object[] m183a(Object... objArr) {
+    private static Object[] m162a(Object... objArr) {
         if (objArr == null || objArr.length <= 0) {
             return null;
         }
@@ -205,13 +205,13 @@ public class ba {
             if (obj == null || !(obj instanceof a)) {
                 objArr2[i2] = obj;
             } else {
-                objArr2[i2] = ((a) obj).f199a;
+                objArr2[i2] = ((a) obj).f120a;
             }
             i = i2 + 1;
         }
     }
 
     public static <T> T b(Object obj, String str, Object... objArr) {
-        return (T) a(obj.getClass(), str, a(objArr)).invoke(obj, m183a(objArr));
+        return (T) a(obj.getClass(), str, a(objArr)).invoke(obj, m162a(objArr));
     }
 }

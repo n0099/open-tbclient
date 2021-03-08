@@ -7,26 +7,26 @@ import java.util.concurrent.ExecutorService;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f13139a;
-    private ExecutorService ciJ;
+    private final Context f7822a;
+    private ExecutorService ckj;
     private ExecutorService p;
-    private ExecutorService pqq;
-    private k qfh;
-    private l qfi;
-    private i qfj;
-    private com.ss.android.socialbase.downloader.d.r qfk;
-    private ExecutorService qfu;
-    private ExecutorService qfv;
-    private ExecutorService qfw;
-    private com.ss.android.socialbase.downloader.i.h qgh;
-    private com.ss.android.socialbase.downloader.i.f qgi;
-    private m qgj;
-    private h qgk;
-    private q qgl;
-    private ab qgm;
-    private com.ss.android.socialbase.downloader.d.e qgn;
-    private ExecutorService qgo;
-    private ExecutorService qgp;
+    private ExecutorService psv;
+    private k qfW;
+    private l qfX;
+    private i qfY;
+    private com.ss.android.socialbase.downloader.d.r qfZ;
+    private com.ss.android.socialbase.downloader.i.h qgW;
+    private com.ss.android.socialbase.downloader.i.f qgX;
+    private m qgY;
+    private h qgZ;
+    private ExecutorService qgj;
+    private ExecutorService qgk;
+    private ExecutorService qgl;
+    private q qha;
+    private ab qhb;
+    private com.ss.android.socialbase.downloader.d.e qhc;
+    private ExecutorService qhd;
+    private ExecutorService qhe;
     private int u;
     private int v;
     private boolean w;
@@ -34,109 +34,109 @@ public class g {
     private int y = 1056964095;
 
     public g(Context context) {
-        this.f13139a = context;
+        this.f7822a = context;
     }
 
     public g c(h hVar) {
-        this.qgk = hVar;
+        this.qgZ = hVar;
         return this;
     }
 
     public g b(com.ss.android.socialbase.downloader.i.h hVar) {
-        this.qgh = hVar;
+        this.qgW = hVar;
         return this;
     }
 
-    public g Rv(int i) {
+    public g Rz(int i) {
         this.y = i;
         return this;
     }
 
     public g c(ab abVar) {
-        this.qgm = abVar;
+        this.qhb = abVar;
         return this;
     }
 
     public g b(com.ss.android.socialbase.downloader.d.r rVar) {
-        this.qfk = rVar;
+        this.qfZ = rVar;
         return this;
     }
 
     public g b(com.ss.android.socialbase.downloader.d.e eVar) {
-        this.qgn = eVar;
+        this.qhc = eVar;
         return this;
     }
 
     public Context a() {
-        return this.f13139a;
+        return this.f7822a;
     }
 
-    public k eGI() {
-        return this.qfh;
+    public k eGM() {
+        return this.qfW;
     }
 
-    public l eGJ() {
-        return this.qfi;
+    public l eGN() {
+        return this.qfX;
     }
 
-    public com.ss.android.socialbase.downloader.i.h eGK() {
-        return this.qgh;
+    public com.ss.android.socialbase.downloader.i.h eGO() {
+        return this.qgW;
     }
 
-    public com.ss.android.socialbase.downloader.i.f eGf() {
-        return this.qgi;
+    public com.ss.android.socialbase.downloader.i.f eGj() {
+        return this.qgX;
     }
 
-    public m eGL() {
-        return this.qgj;
+    public m eGP() {
+        return this.qgY;
     }
 
-    public ExecutorService eGM() {
-        return this.qgo;
+    public ExecutorService eGQ() {
+        return this.qhd;
     }
 
-    public ExecutorService eGN() {
-        return this.qgp;
+    public ExecutorService eGR() {
+        return this.qhe;
     }
 
     public ExecutorService i() {
-        return this.ciJ;
+        return this.ckj;
     }
 
-    public ExecutorService eGk() {
+    public ExecutorService eGo() {
         return this.p;
     }
 
     public ExecutorService uj() {
-        return this.qfu;
+        return this.qgj;
     }
 
-    public ExecutorService eGl() {
-        return this.qfv;
+    public ExecutorService eGp() {
+        return this.qgk;
     }
 
-    public ExecutorService eGm() {
-        return this.qfw;
+    public ExecutorService eGq() {
+        return this.qgl;
     }
 
-    public ExecutorService eGn() {
-        return this.pqq;
+    public ExecutorService eGr() {
+        return this.psv;
     }
 
-    public ab eGO() {
-        return this.qgm;
+    public ab eGS() {
+        return this.qhb;
     }
 
     public int p() {
         return this.u;
     }
 
-    public i eFH() {
-        return this.qfj;
+    public i eFL() {
+        return this.qfY;
     }
 
-    public h eFI() {
-        return this.qgk;
+    public h eFM() {
+        return this.qgZ;
     }
 
     public int s() {
@@ -147,8 +147,8 @@ public class g {
         return this.w;
     }
 
-    public q eGP() {
-        return this.qgl;
+    public q eGT() {
+        return this.qha;
     }
 
     public int v() {
@@ -159,15 +159,15 @@ public class g {
         return this.x;
     }
 
-    public com.ss.android.socialbase.downloader.d.r eGQ() {
-        return this.qfk;
+    public com.ss.android.socialbase.downloader.d.r eGU() {
+        return this.qfZ;
     }
 
-    public com.ss.android.socialbase.downloader.d.e eGR() {
-        return this.qgn;
+    public com.ss.android.socialbase.downloader.d.e eGV() {
+        return this.qhc;
     }
 
-    public f eGS() {
+    public f eGW() {
         return new f(this);
     }
 }

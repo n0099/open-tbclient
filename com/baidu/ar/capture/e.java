@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import com.baidu.ar.face.IFaceResultData;
 import java.nio.ByteBuffer;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class e implements ICaptureResult {
     byte[] le;
     byte[] lf;

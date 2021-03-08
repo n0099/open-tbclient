@@ -1,5 +1,5 @@
 package com.thunder.livesdk.video;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderPublishLowStreamVideoConfig {
     public int encodeFrameRate = 0;
     public int encodeBitrate = 0;

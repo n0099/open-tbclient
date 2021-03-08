@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.core.widget.webview.a;
 
 import android.text.TextUtils;
-import com.bytedance.sdk.openadsdk.core.d.p;
+import com.bytedance.sdk.openadsdk.core.d.q;
 import com.bytedance.sdk.openadsdk.utils.j;
 import com.bytedance.sdk.openadsdk.utils.u;
 import java.io.File;
@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static p f6840a;
+    private static q f4636a;
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [50=4] */
     public static void a() {
@@ -26,10 +26,10 @@ public class f {
                 fileInputStream = new FileInputStream(file);
                 try {
                     fileInputStream.read(bArr);
-                    p a2 = p.a(new JSONObject(new String(bArr, "utf-8")));
+                    q a2 = q.a(new JSONObject(new String(bArr, "utf-8")));
                     if (a2 != null) {
-                        f6840a = a2;
-                        u.b("Version", "old version read success: " + f6840a.b());
+                        f4636a = a2;
+                        u.b("Version", "old version read success: " + f4636a.b());
                     }
                 } catch (Throwable th) {
                     th = th;
@@ -70,19 +70,19 @@ public class f {
         }
     }
 
-    public static synchronized p b() {
-        p pVar;
+    public static synchronized q b() {
+        q qVar;
         synchronized (f.class) {
-            pVar = f6840a;
+            qVar = f4636a;
         }
-        return pVar;
+        return qVar;
     }
 
-    public static synchronized void a(p pVar) {
+    public static synchronized void a(q qVar) {
         synchronized (f.class) {
-            if (pVar != null) {
-                if (pVar.e()) {
-                    f6840a = pVar;
+            if (qVar != null) {
+                if (qVar.f()) {
+                    f4636a = qVar;
                 }
             }
         }
@@ -91,12 +91,12 @@ public class f {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [108=4] */
     public static void c() {
         FileOutputStream fileOutputStream;
-        if (f6840a == null) {
+        if (f4636a == null) {
             u.b("Version", "version save error1");
             return;
         }
-        String f = f6840a.f();
-        if (TextUtils.isEmpty(f)) {
+        String g = f4636a.g();
+        if (TextUtils.isEmpty(g)) {
             u.b("Version", "version save error2");
             return;
         }
@@ -108,7 +108,7 @@ public class f {
         try {
             fileOutputStream = new FileOutputStream(file2);
             try {
-                fileOutputStream.write(f.getBytes("utf-8"));
+                fileOutputStream.write(g.getBytes("utf-8"));
                 if (file.exists()) {
                     file.delete();
                 }
@@ -145,15 +145,15 @@ public class f {
         }
     }
 
-    public static p.a a(String str) {
+    public static q.a a(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        if (b() == null || b().d() == null) {
+        if (b() == null || b().e() == null) {
             return null;
         }
-        if (b().e()) {
-            for (p.a aVar : b().d()) {
+        if (b().f()) {
+            for (q.a aVar : b().e()) {
                 if (aVar.a() != null && aVar.a().equals(str)) {
                     return aVar;
                 }
@@ -169,9 +169,9 @@ public class f {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        String b2 = b().b();
+        String b = b().b();
         String[] split = str.split("\\.");
-        String[] split2 = b2.split("\\.");
+        String[] split2 = b.split("\\.");
         int min = Math.min(split.length, split2.length);
         for (int i = 0; i < min; i++) {
             int length = split[i].length() - split2[i].length();
@@ -193,22 +193,22 @@ public class f {
     }
 
     public static void d() {
-        p b2 = b();
-        if (b2 != null) {
+        q b = b();
+        if (b != null) {
             File e = b.e();
             try {
                 new File(e, "temp_pkg_info.json").delete();
             } catch (Throwable th) {
             }
-            if (b2.d() != null) {
-                for (p.a aVar : b2.d()) {
+            if (b.e() != null) {
+                for (q.a aVar : b.e()) {
                     try {
                         new File(e, j.a(aVar.a())).delete();
                     } catch (Throwable th2) {
                     }
                 }
             }
-            f6840a = null;
+            f4636a = null;
         }
     }
 }

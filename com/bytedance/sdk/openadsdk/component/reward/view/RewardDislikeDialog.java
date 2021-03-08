@@ -5,13 +5,13 @@ import android.widget.FrameLayout;
 public class RewardDislikeDialog extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private a f6363a;
+    private a f4305a;
 
     /* loaded from: classes6.dex */
     public interface a {
     }
 
     public void setCallback(a aVar) {
-        this.f6363a = aVar;
+        this.f4305a = aVar;
     }
 }

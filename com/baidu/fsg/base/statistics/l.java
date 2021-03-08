@@ -12,10 +12,8 @@ import org.json.JSONObject;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1952a = "LogSender";
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final int f1953b = 10000;
+    private static final String f1539a = "LogSender";
+    private static final int b = 10000;
     private static final int c = 10001;
 
     /* synthetic */ l(m mVar) {
@@ -27,7 +25,7 @@ public class l {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static l f1954a = new l(null);
+        private static l f1540a = new l(null);
 
         private a() {
         }
@@ -37,7 +35,7 @@ public class l {
     }
 
     public static l a() {
-        return a.f1954a;
+        return a.f1540a;
     }
 
     public void a(String str) {
@@ -45,7 +43,7 @@ public class l {
 
     void b(String str) {
         Context appContext;
-        LogUtil.d(f1952a, new StringBuilder().append("=====sendLogData=====").append(str).toString() == b.p ? "normal" : "crash");
+        LogUtil.d(f1539a, new StringBuilder().append("=====sendLogData=====").append(str).toString() == b.p ? "normal" : "crash");
         if ((!str.equals(b.o) || !f.a().c()) && (appContext = RimStatisticsUtil.getAppContext()) != null && com.baidu.fsg.base.statistics.a.a(appContext)) {
             JSONArray jSONArray = null;
             h[] b2 = i.a(RimStatisticsUtil.getAppContext()).b();
@@ -84,7 +82,7 @@ public class l {
     private JSONArray a(h[] hVarArr) {
         JSONArray jSONArray = new JSONArray();
         for (h hVar : hVarArr) {
-            LogUtil.d(f1952a, hVar.a().toString());
+            LogUtil.d(f1539a, hVar.a().toString());
             jSONArray.put(hVar.a());
         }
         return jSONArray;

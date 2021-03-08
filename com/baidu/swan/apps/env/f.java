@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.env;
 
 import com.baidu.swan.apps.r.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class f extends a {
-    public void nv(String str) {
-        d.C0446d.ow(str);
+    public void nC(String str) {
+        d.C0452d.oD(str);
     }
 }

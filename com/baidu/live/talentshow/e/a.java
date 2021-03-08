@@ -4,37 +4,37 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public static void Tn() {
+    public static void Tq() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "author_liveroom", UbcStatConstant.Value.VALUE_BC_CHAT_APPLY_CFM).setContentExt("", UbcStatConstant.SubPage.POPUP, null));
     }
 
-    public static void To() {
+    public static void Tr() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "author_liveroom", UbcStatConstant.Value.VALUE_BC_CHAT_SHOW_APPLY_PANEL).setContentExt("", UbcStatConstant.SubPage.POPUP, null));
     }
 
-    public static void Tp() {
+    public static void Ts() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "author_liveroom", "linkapply_clk").setContentExt("", UbcStatConstant.SubPage.POPUP, null));
     }
 
-    public static void Tq() {
+    public static void Tt() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", UbcStatConstant.Value.VALUE_BC_CHAT_LINK_CONFIRM_CLICK).setContentExt("", UbcStatConstant.SubPage.POPUP, null));
     }
 
-    public static void Tr() {
+    public static void Tu() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", UbcStatConstant.Value.VALUE_BC_CHAT_LINK_CONFIRM_SHOW).setContentExt("", UbcStatConstant.SubPage.POPUP, null));
     }
 
-    public static void Ts() {
+    public static void Tv() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", UbcStatConstant.Value.VALUE_BC_CHAT_DUO_CHAT_CLICK).setContentExt("", UbcStatConstant.SubPage.POPUP, null));
     }
 
-    public static void Tt() {
+    public static void Tw() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", UbcStatConstant.Value.VALUE_BC_CHAT_LINK_CANCEL_SHOW).setContentExt("", UbcStatConstant.SubPage.POPUP, null));
     }
 
-    public static void Tu() {
+    public static void Tx() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", UbcStatConstant.Value.VALUE_BC_CHAT_LINK_CANCEL_CLICK).setContentExt("", UbcStatConstant.SubPage.POPUP, null));
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.android.pushservice.i.g;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f1396a = 0;
+    private static int f1201a = 0;
 
     public static void a(final Context context) {
         if (context != null && d.g(context) && g.a(context) && PushSettings.l(context)) {
@@ -23,8 +23,8 @@ public class c {
     }
 
     static /* synthetic */ int b() {
-        int i = f1396a;
-        f1396a = i + 1;
+        int i = f1201a;
+        f1201a = i + 1;
         return i;
     }
 
@@ -32,17 +32,17 @@ public class c {
     public static void b(Context context, a aVar) {
         aVar.a();
         e.a(context).f();
-        f1396a = 0;
+        f1201a = 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(final Context context, final boolean z) {
         final a aVar = new a();
-        byte[] b2 = z ? aVar.b(context) : aVar.a(context);
-        if (b2 == null || b2.length >= 307200) {
+        byte[] b = z ? aVar.b(context) : aVar.a(context);
+        if (b == null || b.length >= 307200) {
             b(context, aVar);
         } else {
-            com.baidu.android.pushservice.h.b.a(context).a(null, b2, "", new com.baidu.android.pushservice.h.c() { // from class: com.baidu.android.pushservice.h.a.c.2
+            com.baidu.android.pushservice.h.b.a(context).a(null, b, "", new com.baidu.android.pushservice.h.c() { // from class: com.baidu.android.pushservice.h.a.c.2
                 @Override // com.baidu.android.pushservice.h.c
                 public void a(int i, String str) {
                     int i2 = 1;
@@ -52,12 +52,12 @@ public class c {
                     PushSettings.k(context);
                     if (i == 0) {
                         c.b(context, aVar);
-                        int unused = c.f1396a = 0;
-                    } else if (c.f1396a < 1) {
+                        int unused = c.f1201a = 0;
+                    } else if (c.f1201a < 1) {
                         c.b(context, false);
                         c.b();
                     } else {
-                        int unused2 = c.f1396a = 0;
+                        int unused2 = c.f1201a = 0;
                         int m = PushSettings.m(context);
                         if (m >= 3) {
                             c.b(context, aVar);

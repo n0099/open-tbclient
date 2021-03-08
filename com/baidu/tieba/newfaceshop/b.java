@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static void a(final com.baidu.tieba.newfaceshop.b.a aVar, final com.baidu.tieba.newfaceshop.a.b bVar) {
         if (aVar == null || aVar.pics == null || aVar.pics.size() == 0 || TextUtils.isEmpty(aVar.url)) {
@@ -28,7 +28,7 @@ public class b {
             }
             return;
         }
-        final String str = c.lAt + aVar.id + "/";
+        final String str = c.lCv + aVar.id + "/";
         com.baidu.tbadk.download.c cVar = new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.newfaceshop.b.1
             @Override // com.baidu.tbadk.download.c
             public void onFileUpdateProgress(DownloadData downloadData) {
@@ -85,8 +85,8 @@ public class b {
                 }
             }
         };
-        new File(c.lAt).mkdirs();
-        a(aVar, c.lAt, cVar);
+        new File(c.lCv).mkdirs();
+        a(aVar, c.lCv, cVar);
     }
 
     public static void a(com.baidu.tieba.newfaceshop.b.a aVar, String str, com.baidu.tbadk.download.c cVar) {
@@ -100,7 +100,7 @@ public class b {
         String str2 = aVar.id + ".zip";
         DownloadData downloadData = new DownloadData(aVar.id, str2, Uri.encode(aVar.url, "-![.:/,%?&=]"), cVar);
         downloadData.setPath(str + str2);
-        com.baidu.tbadk.download.d.bBd().f(downloadData);
+        com.baidu.tbadk.download.d.bBg().f(downloadData);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

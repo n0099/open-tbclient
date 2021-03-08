@@ -20,18 +20,16 @@ public final class DpSessionDatasUploader {
     public static final String SAILOR_MONITOR = "sailor_monitor";
 
     /* renamed from: a  reason: collision with root package name */
-    private static DpSessionDatasUploader f1824a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private d f1825b = new d();
+    private static DpSessionDatasUploader f1466a;
+    private d b = new d();
     private d c = new d("live_show_session");
 
     private DpSessionDatasUploader() {
     }
 
     private void a() {
-        if (this.f1825b != null) {
-            this.f1825b.a();
+        if (this.b != null) {
+            this.b.a();
         }
         if (this.c != null) {
             this.c.a();
@@ -62,8 +60,8 @@ public final class DpSessionDatasUploader {
             if (this.c != null) {
                 this.c.a(bArr);
             }
-        } else if (this.f1825b != null) {
-            this.f1825b.a(bArr);
+        } else if (this.b != null) {
+            this.b.a(bArr);
         }
     }
 
@@ -83,10 +81,10 @@ public final class DpSessionDatasUploader {
     public static synchronized DpSessionDatasUploader getInstance() {
         DpSessionDatasUploader dpSessionDatasUploader;
         synchronized (DpSessionDatasUploader.class) {
-            if (f1824a == null) {
-                f1824a = new DpSessionDatasUploader();
+            if (f1466a == null) {
+                f1466a = new DpSessionDatasUploader();
             }
-            dpSessionDatasUploader = f1824a;
+            dpSessionDatasUploader = f1466a;
         }
         return dpSessionDatasUploader;
     }
@@ -101,10 +99,10 @@ public final class DpSessionDatasUploader {
     }
 
     public void a(Context context) {
-        if (context == null || this.f1825b == null || this.c == null) {
+        if (context == null || this.b == null || this.c == null) {
             return;
         }
-        this.f1825b.a(context);
+        this.b.a(context);
         this.c.a(context);
     }
 

@@ -15,11 +15,11 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.alaar.messages.AlaMakeupResponseMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class i extends BdBaseModel {
-    private com.baidu.tieba.ala.alaar.makeup.a.c gsv;
-    private BdUniqueId aCW = BdUniqueId.gen();
-    private HttpMessageListener gsw = new HttpMessageListener(1021214) { // from class: com.baidu.tieba.ala.alaar.makeup.i.1
+    private com.baidu.tieba.ala.alaar.makeup.a.c gue;
+    private BdUniqueId aEw = BdUniqueId.gen();
+    private HttpMessageListener guf = new HttpMessageListener(1021214) { // from class: com.baidu.tieba.ala.alaar.makeup.i.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -30,7 +30,7 @@ public class i extends BdBaseModel {
     };
 
     public void init() {
-        bPA();
+        bPG();
         registerListener();
     }
 
@@ -41,8 +41,8 @@ public class i extends BdBaseModel {
     public void c(BdUniqueId bdUniqueId) {
         HttpMessage httpMessage = new HttpMessage(1021214);
         httpMessage.setTag(bdUniqueId);
-        httpMessage.addParam("ar_token", com.baidu.live.d.xc().getString("sp_ar_makeup_token", ""));
-        String str = Build.MANUFACTURER + "," + Build.HARDWARE + "," + Build.BOARD + "," + (b.fR(TbadkCoreApplication.getInst().getContext()) ? 1 : 0);
+        httpMessage.addParam("ar_token", com.baidu.live.d.xf().getString("sp_ar_makeup_token", ""));
+        String str = Build.MANUFACTURER + "," + Build.HARDWARE + "," + Build.BOARD + "," + (b.fQ(TbadkCoreApplication.getInst().getContext()) ? 1 : 0);
         httpMessage.addParam("uh", str);
         String str2 = Build.MODEL + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + Build.VERSION.RELEASE + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + Build.VERSION.SDK_INT + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + Build.BRAND.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, "");
         httpMessage.addParam("ut", str2);
@@ -53,7 +53,7 @@ public class i extends BdBaseModel {
         }
     }
 
-    private void bPA() {
+    private void bPG() {
         String str = TbConfig.SERVER_ADDRESS + "ala/sys/getBeautyConf";
         if (h.isDebug()) {
             h.d("MKNetLoader", "registerFilterAndBeautyTask: " + str);
@@ -67,16 +67,16 @@ public class i extends BdBaseModel {
 
     private void registerListener() {
         if (h.isDebug()) {
-            h.d("MKNetLoader", "registerListener: " + this.gsw);
+            h.d("MKNetLoader", "registerListener: " + this.guf);
         }
-        registerListener(this.gsw);
+        registerListener(this.guf);
     }
 
     private void unregisterListener() {
         if (h.isDebug()) {
-            h.d("MKNetLoader", "unregisterListener: " + this.gsw);
+            h.d("MKNetLoader", "unregisterListener: " + this.guf);
         }
-        MessageManager.getInstance().unRegisterListener(this.gsw);
+        MessageManager.getInstance().unRegisterListener(this.guf);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -85,7 +85,7 @@ public class i extends BdBaseModel {
         SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.tieba.ala.alaar.makeup.i.2
             @Override // java.lang.Runnable
             public void run() {
-                i.this.c(i.this.aCW);
+                i.this.c(i.this.aEw);
             }
         });
         return true;
@@ -108,27 +108,27 @@ public class i extends BdBaseModel {
             return;
         }
         AlaMakeupResponseMessage alaMakeupResponseMessage = (AlaMakeupResponseMessage) httpResponsedMessage;
-        this.gsv = alaMakeupResponseMessage.bPv();
+        this.gue = alaMakeupResponseMessage.bPB();
         if (h.isDebug()) {
-            h.d("MKNetLoader", "onGetMakeup: " + (this.gsv == null ? "null" : Integer.valueOf(this.gsv.size())));
+            h.d("MKNetLoader", "onGetMakeup: " + (this.gue == null ? "null" : Integer.valueOf(this.gue.size())));
         }
-        if (this.gsv != null && alaMakeupResponseMessage.getOrginalMessage() != null) {
-            this.gsv.aCj = alaMakeupResponseMessage.getOrginalMessage().getTag();
+        if (this.gue != null && alaMakeupResponseMessage.getOrginalMessage() != null) {
+            this.gue.aDJ = alaMakeupResponseMessage.getOrginalMessage().getTag();
         }
-        if (this.gsv != null) {
-            aF(this.gsv.aCb, com.baidu.minivideo.arface.a.getVersion());
+        if (this.gue != null) {
+            aG(this.gue.aDB, com.baidu.minivideo.arface.a.getVersion());
         }
         if (this.mLoadDataCallBack != null) {
-            this.mLoadDataCallBack.callback(this.gsv);
+            this.mLoadDataCallBack.callback(this.gue);
         }
     }
 
-    public void aF(String str, int i) {
+    public void aG(String str, int i) {
         if (!StringUtils.isNullObject(str)) {
-            com.baidu.live.d.xc().putString("sp_ar_makeup_token", str);
+            com.baidu.live.d.xf().putString("sp_ar_makeup_token", str);
         }
         if (i > 0) {
-            com.baidu.live.d.xc().putInt("sp_ar_makeup_version", i);
+            com.baidu.live.d.xf().putInt("sp_ar_makeup_version", i);
         }
     }
 }

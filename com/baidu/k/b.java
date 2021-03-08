@@ -1,7 +1,7 @@
 package com.baidu.k;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class b {
-    public static com.baidu.k.c.a add() {
-        return com.baidu.k.b.b.adg();
+    public static com.baidu.k.c.a adg() {
+        return com.baidu.k.b.b.adj();
     }
 }

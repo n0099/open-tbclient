@@ -10,26 +10,24 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile a f7033a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final q<com.bytedance.sdk.openadsdk.c.a> f7034b = p.f();
+    private static volatile a f4680a;
+    private final q<com.bytedance.sdk.openadsdk.c.a> b = p.f();
 
     private a() {
     }
 
     public static a a() {
-        if (f7033a == null) {
+        if (f4680a == null) {
             synchronized (a.class) {
-                if (f7033a == null) {
-                    f7033a = new a();
+                if (f4680a == null) {
+                    f4680a = new a();
                 }
             }
         }
-        return f7033a;
+        return f4680a;
     }
 
     public void a(@NonNull l lVar, List<FilterWord> list) {
-        this.f7034b.a(lVar, list);
+        this.b.a(lVar, list);
     }
 }

@@ -17,41 +17,41 @@ import com.baidu.tieba.write.write.relevance.RelevanceItemSearchData;
 import com.baidu.tieba.write.write.relevance.RelevanceItemSearchResponse;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private BdUniqueId agC;
+    private BdUniqueId ahU;
     private final String mCategory;
-    private InterfaceC0907a ony;
-    private List<String> onz;
+    private InterfaceC0913a opE;
+    private List<String> opF;
     private int mPageNum = 1;
     private HttpMessageListener mHttpMessageListener = new HttpMessageListener(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH) { // from class: com.baidu.tieba.write.write.relevance.list.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && a.this.ony != null) {
-                if (httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getTag() == a.this.agC) {
+            if (httpResponsedMessage != null && a.this.opE != null) {
+                if (httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getTag() == a.this.ahU) {
                     RelevanceItemSearchData responseData = httpResponsedMessage instanceof RelevanceItemSearchResponse ? ((RelevanceItemSearchResponse) httpResponsedMessage).getResponseData() : null;
                     if (responseData != null && responseData.getData() != null) {
-                        if (!y.equalList(a.this.onz, responseData.getData().getTab_option())) {
-                            a.this.onz = responseData.getData().getTab_option();
-                            MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(a.this.onz));
+                        if (!y.equalList(a.this.opF, responseData.getData().getTab_option())) {
+                            a.this.opF = responseData.getData().getTab_option();
+                            MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(a.this.opF));
                         }
                         if (httpResponsedMessage.getError() != 0) {
-                            a.this.ony.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
-                            a.this.dZR();
+                            a.this.opE.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                            a.this.dZZ();
                             return;
                         } else if (y.isEmpty(responseData.getData().getItem_list())) {
                             if (a.this.mPageNum == 1) {
-                                a.this.ony.dZO();
+                                a.this.opE.dZW();
                                 return;
                             } else {
-                                a.this.ony.dZP();
+                                a.this.opE.dZX();
                                 return;
                             }
                         } else if (responseData != null) {
-                            a.this.ony.a(responseData);
+                            a.this.opE.a(responseData);
                             if (a.this.mPageNum == 1 && responseData.getData().getItem_list().size() < 20) {
-                                a.this.ony.dZP();
+                                a.this.opE.dZX();
                             }
                             a.e(a.this);
                             return;
@@ -60,21 +60,21 @@ public class a {
                         }
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(null));
-                    a.this.ony.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
-                    a.this.dZR();
+                    a.this.opE.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
+                    a.this.dZZ();
                 }
             }
         }
     };
 
     /* renamed from: com.baidu.tieba.write.write.relevance.list.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC0907a {
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0913a {
         void a(RelevanceItemSearchData relevanceItemSearchData);
 
-        void dZO();
+        void dZW();
 
-        void dZP();
+        void dZX();
 
         void onError(int i, String str);
     }
@@ -86,23 +86,23 @@ public class a {
     }
 
     public a(BdUniqueId bdUniqueId, String str) {
-        this.agC = bdUniqueId;
+        this.ahU = bdUniqueId;
         this.mCategory = str;
-        this.mHttpMessageListener.setTag(this.agC);
-        brg();
+        this.mHttpMessageListener.setTag(this.ahU);
+        brh();
         MessageManager.getInstance().registerListener(this.mHttpMessageListener);
     }
 
-    public void dZQ() {
+    public void dZY() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
         httpMessage.addParam("tab_name", this.mCategory);
         httpMessage.addParam(Config.PACKAGE_NAME, this.mPageNum);
         httpMessage.addParam("rn", 20);
-        httpMessage.setTag(this.agC);
+        httpMessage.setTag(this.ahU);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    private void brg() {
+    private void brh() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH, TbConfig.SERVER_ADDRESS + TbConfig.RELEVANCE_ITEM_SEARCH_URL);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(RelevanceItemSearchResponse.class);
@@ -110,31 +110,31 @@ public class a {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void a(InterfaceC0907a interfaceC0907a) {
-        this.ony = interfaceC0907a;
+    public void a(InterfaceC0913a interfaceC0913a) {
+        this.opE = interfaceC0913a;
     }
 
-    public void VD(String str) {
-        dZR();
-        VE(str);
+    public void VK(String str) {
+        dZZ();
+        VL(str);
     }
 
-    private void VE(String str) {
+    private void VL(String str) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
         httpMessage.addParam("tab_name", this.mCategory);
         httpMessage.addParam("keyword", str);
         httpMessage.addParam(Config.PACKAGE_NAME, this.mPageNum);
         httpMessage.addParam("rn", 20);
-        httpMessage.setTag(this.agC);
+        httpMessage.setTag(this.ahU);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().removeMessage(this.agC);
-        MessageManager.getInstance().unRegisterListener(this.agC);
+        MessageManager.getInstance().removeMessage(this.ahU);
+        MessageManager.getInstance().unRegisterListener(this.ahU);
     }
 
-    public void dZR() {
+    public void dZZ() {
         this.mPageNum = 1;
     }
 }

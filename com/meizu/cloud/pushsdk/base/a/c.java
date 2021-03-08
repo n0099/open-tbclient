@@ -6,12 +6,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class c {
-
-    /* renamed from: b  reason: collision with root package name */
-    private static HashMap<String, Method> f11226b = new HashMap<>();
+    private static HashMap<String, Method> b = new HashMap<>();
 
     /* renamed from: a  reason: collision with root package name */
-    private String f11227a = "ReflectMethod";
+    private String f7380a = "ReflectMethod";
     private com.meizu.cloud.pushsdk.base.a.a c;
     private String d;
     private Class<?>[] e;
@@ -95,7 +93,7 @@ public class c {
         d<T> dVar = new d<>();
         try {
             String b2 = b();
-            Method method = f11226b.get(b2);
+            Method method = b.get(b2);
             if (method == null) {
                 if (this.e.length == objArr.length) {
                     method = this.c.a().getMethod(this.d, this.e);
@@ -108,13 +106,13 @@ public class c {
                     }
                     method = a();
                 }
-                f11226b.put(b2, method);
+                b.put(b2, method);
             }
             method.setAccessible(true);
-            dVar.f11229b = (T) method.invoke(obj, objArr);
-            dVar.f11228a = true;
+            dVar.b = (T) method.invoke(obj, objArr);
+            dVar.f7381a = true;
         } catch (Exception e) {
-            h.b().a(this.f11227a, "invoke", e);
+            h.b().a(this.f7380a, "invoke", e);
         }
         return dVar;
     }

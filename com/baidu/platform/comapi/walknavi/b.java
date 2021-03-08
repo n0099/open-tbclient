@@ -47,10 +47,8 @@ import org.json.JSONObject;
 public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f4188a = 0;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static int f4189b = 1;
+    public static int f2901a = 0;
+    public static int b = 1;
     public static int c = 2;
     private int A;
     private int B;
@@ -98,7 +96,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final b f4192a = new b(null);
+        static final b f2903a = new b(null);
     }
 
     /* synthetic */ b(c cVar) {
@@ -106,7 +104,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
     }
 
     public static b a() {
-        return a.f4192a;
+        return a.f2903a;
     }
 
     private b() {
@@ -450,9 +448,9 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
         this.y = activity;
         try {
             if (bundle != null) {
-                com.baidu.platform.comapi.walknavi.g.a.b.f4285a = bundle.getInt("wnavi_mode", 1);
+                com.baidu.platform.comapi.walknavi.g.a.b.f2963a = bundle.getInt("wnavi_mode", 1);
             } else {
-                com.baidu.platform.comapi.walknavi.g.a.b.f4285a = 1;
+                com.baidu.platform.comapi.walknavi.g.a.b.f2963a = 1;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -497,9 +495,9 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
             a().D().a((int) ll2mc.getLongitudeE6(), (int) ll2mc.getLatitudeE6(), 0);
         }
         q();
-        if (com.baidu.platform.comapi.walknavi.g.a.b.f4285a == 1) {
+        if (com.baidu.platform.comapi.walknavi.g.a.b.f2963a == 1) {
             P().b(activity);
-        } else if (com.baidu.platform.comapi.walknavi.g.a.b.f4285a == 3) {
+        } else if (com.baidu.platform.comapi.walknavi.g.a.b.f2963a == 3) {
             S().ready();
         }
         a((Context) activity);
@@ -546,7 +544,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
         this.p.i();
         G().a(1);
         D().d(X());
-        if (com.baidu.platform.comapi.walknavi.g.a.b.f4285a != 4) {
+        if (com.baidu.platform.comapi.walknavi.g.a.b.f2963a != 4) {
             if (com.baidu.platform.comapi.wnplatform.a.a().c()) {
                 e(1);
             } else {
@@ -556,7 +554,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
         }
         a().D().a(true);
         G().a(i);
-        if (com.baidu.platform.comapi.walknavi.g.a.b.f4285a == 4) {
+        if (com.baidu.platform.comapi.walknavi.g.a.b.f2963a == 4) {
             D().k();
             return true;
         }

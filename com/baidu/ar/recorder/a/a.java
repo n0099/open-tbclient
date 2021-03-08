@@ -9,7 +9,7 @@ import com.baidu.ar.record.EncoderParams;
 import com.baidu.ar.recorder.b.c;
 import com.baidu.ar.recorder.b.d;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
     private HandlerThread uB;
@@ -19,13 +19,13 @@ public class a {
     private d un;
 
     /* renamed from: com.baidu.ar.recorder.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    private class C0080a {
+    /* loaded from: classes3.dex */
+    private class C0086a {
         ByteBuffer uE;
         int uF;
         long uG;
 
-        public C0080a(ByteBuffer byteBuffer, int i, long j) {
+        public C0086a(ByteBuffer byteBuffer, int i, long j) {
             this.uE = byteBuffer;
             this.uF = i;
             this.uG = j;
@@ -33,7 +33,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public class b extends Handler {
         public b(Looper looper) {
             super(looper);
@@ -49,8 +49,8 @@ public class a {
                     a.this.fK();
                     return;
                 case 1003:
-                    C0080a c0080a = (C0080a) message.obj;
-                    a.this.b(c0080a.uE, c0080a.uF, c0080a.uG);
+                    C0086a c0086a = (C0086a) message.obj;
+                    a.this.b(c0086a.uE, c0086a.uF, c0086a.uG);
                     return;
                 case 1004:
                     a.this.fL();
@@ -132,11 +132,11 @@ public class a {
         if (byteBuffer == null || i <= 0) {
             return;
         }
-        C0080a c0080a = new C0080a(byteBuffer, i, j);
+        C0086a c0086a = new C0086a(byteBuffer, i, j);
         if (this.uC == null || !this.ua) {
             return;
         }
-        this.uC.sendMessage(this.uC.obtainMessage(1003, c0080a));
+        this.uC.sendMessage(this.uC.obtainMessage(1003, c0086a));
     }
 
     public boolean a(EncoderParams encoderParams, d dVar, c cVar) {

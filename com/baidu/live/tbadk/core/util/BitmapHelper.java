@@ -27,7 +27,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.SoftReference;
 import java.lang.reflect.Array;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BitmapHelper {
     public static final int FILE_2_BITMAP_MUL = 10;
     public static final int ROTATE_LEFT = 0;
@@ -1059,7 +1059,7 @@ public class BitmapHelper {
 
     public static int readPictureDegree(String str) {
         try {
-            switch (new ExifInterface(str).getAttributeInt("Orientation", 1)) {
+            switch (new ExifInterface(str).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1)) {
                 case 3:
                     return 180;
                 case 4:

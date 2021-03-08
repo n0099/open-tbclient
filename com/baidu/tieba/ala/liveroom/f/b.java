@@ -3,39 +3,39 @@ package com.baidu.tieba.ala.liveroom.f;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.data.ab;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private ab aDd;
-    CustomMessageListener gNG;
-    protected a hBn;
-    CustomMessageListener hBo;
+    private ab aED;
+    CustomMessageListener gPp;
+    protected a hCW;
+    CustomMessageListener hCX;
 
     public void J(ab abVar) {
         if (abVar != null) {
-            this.aDd = abVar;
-            if (this.hBn != null && this.aDd.aId != null) {
-                this.hBn.fG(this.aDd.aId.charmCount);
+            this.aED = abVar;
+            if (this.hCW != null && this.aED.aJD != null) {
+                this.hCW.fG(this.aED.aJD.charmCount);
             }
         }
     }
 
-    public void cet() {
-        if (this.hBn != null) {
-            this.hBn.cet();
+    public void cez() {
+        if (this.hCW != null) {
+            this.hCW.cez();
         }
     }
 
-    public void cr(int i) {
+    public void cs(int i) {
     }
 
     public void setVisible(int i) {
-        if (this.hBn != null) {
-            this.hBn.getView().setVisibility(i);
+        if (this.hCW != null) {
+            this.hCW.getView().setVisibility(i);
         }
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.hBo);
-        MessageManager.getInstance().unRegisterListener(this.gNG);
+        MessageManager.getInstance().unRegisterListener(this.hCX);
+        MessageManager.getInstance().unRegisterListener(this.gPp);
     }
 }

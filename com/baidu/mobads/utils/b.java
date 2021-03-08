@@ -9,7 +9,7 @@ import java.security.PublicKey;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static String a(String str, String str2) {
         byte[] doFinal;

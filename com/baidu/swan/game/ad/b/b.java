@@ -3,86 +3,86 @@ package com.baidu.swan.game.ad.b;
 import com.baidu.swan.apps.ao.ah;
 /* loaded from: classes5.dex */
 public class b {
-    private int aaW;
-    private String dYQ;
-    private String dYR;
-    private int dYS;
-    private int dYT;
+    private int acs;
+    private String eas;
+    private String eat;
+    private int eau;
+    private int eav;
     private String mAdPlaceId;
 
     private b(a aVar) {
-        this.dYQ = aVar.dYQ;
+        this.eas = aVar.eas;
         this.mAdPlaceId = aVar.mAdPlaceId;
-        this.dYS = aVar.dYS;
-        this.dYT = aVar.dYT;
-        this.dYR = aVar.dYR;
-        this.aaW = aVar.aaW;
+        this.eau = aVar.eau;
+        this.eav = aVar.eav;
+        this.eat = aVar.eat;
+        this.acs = aVar.acs;
     }
 
     public int getAdWidth() {
-        return this.dYS;
+        return this.eau;
     }
 
     public int getAdHeight() {
-        return this.dYT;
+        return this.eav;
     }
 
     public String getAppSid() {
-        return this.dYQ;
+        return this.eas;
     }
 
     public String getAdPlaceId() {
         return this.mAdPlaceId;
     }
 
-    public String aSe() {
-        return this.dYR;
+    public String aSh() {
+        return this.eat;
     }
 
     public int ru() {
-        return this.aaW;
+        return this.acs;
     }
 
     /* loaded from: classes5.dex */
     public static class a {
-        private int aaW;
-        private String dYQ;
-        private String dYR;
-        private int dYS;
-        private int dYT;
+        private int acs;
+        private String eas;
+        private String eat;
+        private int eau;
+        private int eav;
         private String mAdPlaceId;
 
-        public a vr(String str) {
-            this.dYQ = str;
+        public a vy(String str) {
+            this.eas = str;
             return this;
         }
 
-        public a vs(String str) {
+        public a vz(String str) {
             this.mAdPlaceId = str;
             return this;
         }
 
-        public a vt(String str) {
-            this.dYR = str;
-            return this;
-        }
-
-        public a kO(int i) {
-            this.dYS = ah.P(i);
+        public a vA(String str) {
+            this.eat = str;
             return this;
         }
 
         public a kP(int i) {
-            this.dYT = ah.P(i);
+            this.eau = ah.T(i);
             return this;
         }
 
         public a kQ(int i) {
-            this.aaW = i;
+            this.eav = ah.T(i);
             return this;
         }
 
-        public b aSf() {
+        public a kR(int i) {
+            this.acs = i;
+            return this;
+        }
+
+        public b aSi() {
             return new b(this);
         }
     }

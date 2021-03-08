@@ -6,22 +6,22 @@ import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.ah;
 import java.util.ArrayList;
 import tbclient.ExcPbPage.ExcContent;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e implements ah, d {
     private int height;
-    private ArrayList<PreLoadImageInfo> miJ;
-    public String miK;
+    private ArrayList<PreLoadImageInfo> mkL;
+    public String mkM;
     private String src;
     private int width;
 
     public e(ExcContent excContent) {
         if (excContent != null && excContent.type != null && excContent.type.equals(3L)) {
-            this.miJ = new ArrayList<>(1);
+            this.mkL = new ArrayList<>(1);
             this.src = excContent.src;
-            this.miK = excContent.bsize;
-            if (this.miK != null) {
+            this.mkM = excContent.bsize;
+            if (this.mkM != null) {
                 try {
-                    String[] split = this.miK.split(",");
+                    String[] split = this.mkM.split(",");
                     this.width = com.baidu.adp.lib.f.b.toInt(split[0], 0);
                     this.height = com.baidu.adp.lib.f.b.toInt(split[1], 0);
                 } catch (Exception e) {
@@ -44,7 +44,7 @@ public class e implements ah, d {
             } else {
                 preLoadImageInfo.imgUrl = str;
             }
-            this.miJ.add(preLoadImageInfo);
+            this.mkL.add(preLoadImageInfo);
         }
     }
 
@@ -52,7 +52,7 @@ public class e implements ah, d {
         return this.src;
     }
 
-    public int Gr(int i) {
+    public int Gu(int i) {
         if (i <= 0) {
             return 0;
         }
@@ -66,6 +66,6 @@ public class e implements ah, d {
 
     @Override // com.baidu.tbadk.core.util.ah
     public ArrayList<PreLoadImageInfo> getImages() {
-        return this.miJ;
+        return this.mkL;
     }
 }

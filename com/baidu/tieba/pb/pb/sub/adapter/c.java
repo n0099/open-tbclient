@@ -19,7 +19,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.pb.pb.sub
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cG */
+    /* renamed from: cF */
     public a e(ViewGroup viewGroup) {
         return new a(LayoutInflater.from(this.mContext).inflate(R.layout.sub_pb_no_reply_layout, viewGroup, false));
     }
@@ -36,17 +36,17 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.pb.pb.sub
     /* loaded from: classes2.dex */
     public static class a extends TypeAdapter.ViewHolder {
         private int mSkinType;
-        private TextView miB;
+        private TextView mkD;
 
         public a(View view) {
             super(view);
             this.mSkinType = 3;
-            this.miB = (TextView) view.findViewById(R.id.no_reply_list_view);
+            this.mkD = (TextView) view.findViewById(R.id.no_reply_list_view);
         }
 
         public void onChangeSkinType() {
             if (this.mSkinType != TbadkApplication.getInst().getSkinType()) {
-                ap.setViewTextColor(this.miB, R.color.CAM_X0109);
+                ap.setViewTextColor(this.mkD, R.color.CAM_X0109);
             }
             this.mSkinType = TbadkApplication.getInst().getSkinType();
         }

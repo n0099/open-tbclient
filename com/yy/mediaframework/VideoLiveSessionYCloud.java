@@ -65,7 +65,7 @@ import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoLiveSessionYCloud implements SurfaceHolder.Callback, CameraListener, GetAnchorStatInfoInterface.IGetCurrentCameraEncodeStatInfo, GetAnchorStatInfoInterface.IGetImageFilterInfo, IEncoderListener, ILiveSession, IMediaCodecUpload, IYYVideoSurfaceInfoListener {
     private static final String TAG = "[VideoLiveSessionYCloud]";
     private float mBeautyIntensity;

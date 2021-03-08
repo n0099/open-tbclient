@@ -1,7 +1,7 @@
 package io.reactivex.internal.observers;
 
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class BasicIntQueueDisposable<T> extends AtomicInteger implements io.reactivex.internal.a.b<T> {
     private static final long serialVersionUID = -1001730202384742097L;
 

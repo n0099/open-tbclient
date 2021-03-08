@@ -2,7 +2,7 @@ package com.baidu.swan.apps.runtime;
 
 import android.content.ContextWrapper;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class a extends ContextWrapper implements h {
     public a() {
         super(AppRuntime.getApplication());

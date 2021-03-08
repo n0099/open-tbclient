@@ -11,18 +11,16 @@ import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.utils.ao;
 /* loaded from: classes3.dex */
 public class b extends com.kwad.sdk.contentalliance.detail.b {
-
-    /* renamed from: b  reason: collision with root package name */
-    private LinearLayout f8546b;
+    private LinearLayout b;
     private c c = new d() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.c.b.1
         @Override // com.kwad.sdk.contentalliance.trends.view.d, com.kwad.sdk.contentalliance.trends.view.c
         public void a() {
-            b.this.f8546b.setVisibility(4);
+            b.this.b.setVisibility(4);
         }
 
         @Override // com.kwad.sdk.contentalliance.trends.view.d, com.kwad.sdk.contentalliance.trends.view.c
         public void b() {
-            b.this.f8546b.setVisibility(0);
+            b.this.b.setVisibility(0);
         }
     };
 
@@ -49,26 +47,26 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        if (com.kwad.sdk.core.response.b.c.B(this.f8395a.j)) {
-            this.f8395a.a(this.c);
-            if (this.f8395a.f8404a.l) {
-                this.f8546b.setVisibility(4);
+        if (com.kwad.sdk.core.response.b.c.B(this.f5594a.j)) {
+            this.f5594a.a(this.c);
+            if (this.f5594a.f5600a.l) {
+                this.b.setVisibility(4);
             }
         }
-        this.f8546b.setPadding(0, 0, 0, ao.a(o(), 0.0f));
+        this.b.setPadding(0, 0, 0, ao.a(o(), 0.0f));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f8395a.b(this.c);
+        this.f5594a.b(this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f8546b = (LinearLayout) b(R.id.ksad_photo_detail_bottom_toolbar);
+        this.b = (LinearLayout) b(R.id.ksad_photo_detail_bottom_toolbar);
     }
 }

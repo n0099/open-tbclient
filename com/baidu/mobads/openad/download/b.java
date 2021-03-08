@@ -16,14 +16,12 @@ import java.io.FileOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Observable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b extends Observable implements IOAdDownloader, Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f3428a;
-
-    /* renamed from: b  reason: collision with root package name */
-    protected URL f3429b;
+    protected Context f2441a;
+    protected URL b;
     protected String c;
     protected String d;
     protected int e;
@@ -37,8 +35,8 @@ public class b extends Observable implements IOAdDownloader, Runnable {
 
     public b(Context context, URL url, String str, String str2, boolean z) {
         this.k = false;
-        this.f3428a = context;
-        this.f3429b = url;
+        this.f2441a = context;
+        this.b = url;
         this.c = str;
         this.k = z;
         if (str2 != null && str2.trim().length() > 0) {
@@ -76,7 +74,7 @@ public class b extends Observable implements IOAdDownloader, Runnable {
 
     @Override // com.baidu.mobads.openad.interfaces.download.IOAdDownloader
     public String getURL() {
-        return this.f3429b.toString();
+        return this.b.toString();
     }
 
     @Override // com.baidu.mobads.openad.interfaces.download.IOAdDownloader
@@ -142,7 +140,7 @@ public class b extends Observable implements IOAdDownloader, Runnable {
         BufferedOutputStream bufferedOutputStream2 = null;
         ByteArrayOutputStream byteArrayOutputStream2 = null;
         try {
-            httpURLConnection = XAdSDKFoundationFacade.getInstance().getURIUitls().getHttpURLConnection(this.f3429b);
+            httpURLConnection = XAdSDKFoundationFacade.getInstance().getURIUitls().getHttpURLConnection(this.b);
             try {
                 httpURLConnection.setConnectTimeout(10000);
                 httpURLConnection.setInstanceFollowRedirects(true);
@@ -166,7 +164,7 @@ public class b extends Observable implements IOAdDownloader, Runnable {
                 }
                 bufferedInputStream = new BufferedInputStream(httpURLConnection.getInputStream());
                 try {
-                    if (this.f3429b.toString().indexOf("mobads.baidu.com") == -1 && this.f3429b.toString().indexOf(".mp4") == -1 && this.f3429b.toString().indexOf(".gif") == -1) {
+                    if (this.b.toString().indexOf("mobads.baidu.com") == -1 && this.b.toString().indexOf(".mp4") == -1 && this.b.toString().indexOf(".gif") == -1) {
                         try {
                             this.j = BitmapFactory.decodeStream(bufferedInputStream);
                             if (this.j != null) {
@@ -373,8 +371,8 @@ public class b extends Observable implements IOAdDownloader, Runnable {
                 if (responseCode != 302 && responseCode != 301) {
                     return httpURLConnection2;
                 }
-                this.f3429b = new URL(httpURLConnection2.getHeaderField(Headers.LOCATION));
-                HttpURLConnection httpURLConnection3 = (HttpURLConnection) this.f3429b.openConnection();
+                this.b = new URL(httpURLConnection2.getHeaderField(Headers.LOCATION));
+                HttpURLConnection httpURLConnection3 = (HttpURLConnection) this.b.openConnection();
                 try {
                     httpURLConnection3.setConnectTimeout(10000);
                     httpURLConnection3.setInstanceFollowRedirects(false);

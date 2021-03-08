@@ -10,7 +10,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.view.View;
 import androidx.annotation.NonNull;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 class CutoutDrawable extends GradientDrawable {
     private final RectF cutoutBounds;
     private final Paint cutoutPaint = new Paint(1);

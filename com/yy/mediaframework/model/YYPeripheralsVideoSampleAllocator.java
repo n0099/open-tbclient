@@ -5,7 +5,7 @@ import com.yy.mediaframework.utils.YMFLog;
 import java.util.NoSuchElementException;
 import java.util.concurrent.ConcurrentLinkedQueue;
 @SuppressLint({"NewApi"})
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YYPeripheralsVideoSampleAllocator {
     private ConcurrentLinkedQueue<DecodeVideoSample> mFreeDeque = new ConcurrentLinkedQueue<>();
     private static volatile YYPeripheralsVideoSampleAllocator s_instance = null;

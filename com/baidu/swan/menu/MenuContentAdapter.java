@@ -9,10 +9,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.swan.menu.f;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MenuContentAdapter extends RecyclerView.Adapter<a> {
-    private List<h> erR = new ArrayList();
-    private List<h> erS = new ArrayList();
+    private List<h> ett = new ArrayList();
+    private List<h> etu = new ArrayList();
     private Context mContext;
     private int mItemWidth;
 
@@ -24,14 +24,14 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
         int max;
         List<h> list2;
         List<h> list3;
-        this.erR.clear();
-        this.erS.clear();
+        this.ett.clear();
+        this.etu.clear();
         if (list != null) {
             if (list.size() > 0 && (list3 = list.get(0)) != null) {
-                this.erR.addAll(list3);
+                this.ett.addAll(list3);
             }
             if (list.size() > 1 && (list2 = list.get(1)) != null) {
-                this.erS.addAll(list2);
+                this.etu.addAll(list2);
             }
             DisplayMetrics displayMetrics = this.mContext.getResources().getDisplayMetrics();
             if (i == 0) {
@@ -45,7 +45,7 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
     }
 
     private boolean iy(boolean z) {
-        return z || this.erR.size() > 5 || this.erS.size() > 5;
+        return z || this.ett.size() > 5 || this.etu.size() > 5;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -72,39 +72,39 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
             layoutParams.width = this.mItemWidth;
             aVar.itemView.setLayoutParams(layoutParams);
         }
-        if (i < this.erR.size()) {
-            aVar.erT.setVisibility(0);
-            aVar.erT.f(this.erR.get(i));
-            aVar.erT.setOnClickListener(null);
+        if (i < this.ett.size()) {
+            aVar.etv.setVisibility(0);
+            aVar.etv.f(this.ett.get(i));
+            aVar.etv.setOnClickListener(null);
         } else {
-            aVar.erT.setVisibility(this.erR.size() == 0 ? 8 : 4);
-            aVar.erT.setOnClickListener(null);
+            aVar.etv.setVisibility(this.ett.size() == 0 ? 8 : 4);
+            aVar.etv.setOnClickListener(null);
         }
-        if (i < this.erS.size()) {
-            aVar.erU.setVisibility(0);
-            aVar.erU.f(this.erS.get(i));
-            aVar.erU.setOnClickListener(null);
+        if (i < this.etu.size()) {
+            aVar.etw.setVisibility(0);
+            aVar.etw.f(this.etu.get(i));
+            aVar.etw.setOnClickListener(null);
             return;
         }
-        aVar.erU.setVisibility(this.erS.size() != 0 ? 4 : 8);
-        aVar.erU.setOnClickListener(null);
+        aVar.etw.setVisibility(this.etu.size() != 0 ? 4 : 8);
+        aVar.etw.setOnClickListener(null);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return Math.max(this.erR.size(), this.erS.size());
+        return Math.max(this.ett.size(), this.etu.size());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a extends RecyclerView.ViewHolder {
-        SwanAppMenuItemView erT;
-        SwanAppMenuItemView erU;
+        SwanAppMenuItemView etv;
+        SwanAppMenuItemView etw;
 
         public a(View view) {
             super(view);
-            this.erT = (SwanAppMenuItemView) view.findViewById(f.d.first_line_menu_item_view);
-            this.erU = (SwanAppMenuItemView) view.findViewById(f.d.second_line_menu_item_view);
+            this.etv = (SwanAppMenuItemView) view.findViewById(f.d.first_line_menu_item_view);
+            this.etw = (SwanAppMenuItemView) view.findViewById(f.d.second_line_menu_item_view);
         }
     }
 }

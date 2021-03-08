@@ -7,12 +7,12 @@ import java.nio.ByteOrder;
 import java.util.Collection;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class Marshallable implements IPtotoPacket {
     public static final int kProtoPacketSize = 4096;
     protected ByteBuffer mBuffer;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum ELenType {
         E_SHORT,
         E_INT,
@@ -68,18 +68,18 @@ public class Marshallable implements IPtotoPacket {
     }
 
     public void pushBool(Boolean bool) {
-        byte b2 = bool.booleanValue() ? (byte) 1 : (byte) 0;
+        byte b = bool.booleanValue() ? (byte) 1 : (byte) 0;
         check_capactiy(1);
-        this.mBuffer.put(b2);
+        this.mBuffer.put(b);
     }
 
     public Boolean popBool() {
         return Boolean.valueOf(this.mBuffer.get() == 1);
     }
 
-    public void pushByte(byte b2) {
+    public void pushByte(byte b) {
         check_capactiy(1);
-        this.mBuffer.put(b2);
+        this.mBuffer.put(b);
     }
 
     public byte popByte() {

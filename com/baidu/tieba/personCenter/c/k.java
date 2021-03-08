@@ -5,19 +5,19 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class k extends BaseCardInfo implements com.baidu.adp.widget.ListView.n {
-    public static BdUniqueId muy = BdUniqueId.gen();
-    private List<c> muz;
+    public static BdUniqueId mwA = BdUniqueId.gen();
+    private List<c> mwB;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return muy;
+        return mwA;
     }
 
     public void setData(List<c> list) {
-        this.muz = list;
+        this.mwB = list;
     }
 
     public List<c> getData() {
-        return this.muz;
+        return this.mwB;
     }
 }

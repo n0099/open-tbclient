@@ -68,20 +68,20 @@ public class TTAdConstant {
         HOME_GIFT_BONUS("home_gift_bonus"),
         GAME_START_BONUS("game_start_bonus"),
         GAME_REDUCE_WAITING("geme_reduce_waiting"),
-        GAME_MORE_KLLKRTUNITIES(aj.r("game_more_kllkrtunities")),
+        GAME_MORE_KLLKRTUNITIES(aj.m("game_more_kllkrtunities")),
         GAME_FINISH_REWARDS("game_finish_rewards"),
         GAME_GIFT_BONUS("game_gift_bonus");
         
 
         /* renamed from: a  reason: collision with root package name */
-        final String f6085a;
+        final String f4073a;
 
         RitScenes(String str) {
-            this.f6085a = str;
+            this.f4073a = str;
         }
 
         public String getScenesName() {
-            return this.f6085a;
+            return this.f4073a;
         }
     }
 }

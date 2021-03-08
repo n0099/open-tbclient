@@ -1,12 +1,12 @@
 package rx.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 final class e extends d {
-    private static final e qEA = new e();
+    private static final e qFc = new e();
 
     private e() {
     }
 
-    public static d eNQ() {
-        return qEA;
+    public static d eNy() {
+        return qFc;
     }
 }

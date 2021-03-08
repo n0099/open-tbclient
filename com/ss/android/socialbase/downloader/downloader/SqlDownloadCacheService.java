@@ -11,7 +11,7 @@ import android.util.Log;
 public class SqlDownloadCacheService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f13131a = SqlDownloadCacheService.class.getSimpleName();
+    private static final String f7817a = SqlDownloadCacheService.class.getSimpleName();
 
     public static void a(Context context, ServiceConnection serviceConnection) {
         if (context != null) {
@@ -22,7 +22,7 @@ public class SqlDownloadCacheService extends Service {
                 }
                 context.startService(intent);
             } catch (Throwable th) {
-                Log.w(f13131a, "startServiceAndBind fail", th);
+                Log.w(f7817a, "startServiceAndBind fail", th);
             }
         }
     }
@@ -36,13 +36,13 @@ public class SqlDownloadCacheService extends Service {
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
         t tVar;
-        k eGs = b.eGs();
-        if (eGs instanceof com.ss.android.socialbase.downloader.impls.d) {
-            tVar = ((com.ss.android.socialbase.downloader.impls.d) eGs).eIz();
-        } else if (!(eGs instanceof t)) {
+        k eGw = b.eGw();
+        if (eGw instanceof com.ss.android.socialbase.downloader.impls.d) {
+            tVar = ((com.ss.android.socialbase.downloader.impls.d) eGw).eIB();
+        } else if (!(eGw instanceof t)) {
             tVar = null;
         } else {
-            tVar = (t) eGs;
+            tVar = (t) eGw;
         }
         if (tVar instanceof IBinder) {
             return (IBinder) tVar;

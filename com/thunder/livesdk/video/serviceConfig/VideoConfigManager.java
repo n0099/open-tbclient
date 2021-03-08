@@ -15,7 +15,7 @@ import com.yy.mediaframework.inteligence.common.ResolutionModifyConfig;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoConfigManager {
     private static final String TAG = "cfg_VideoConfigManage";
     private int mCurMultiLianMaiUsers;
@@ -32,7 +32,7 @@ public class VideoConfigManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class SingletonHolder {
         private static final VideoConfigManager INSTANCE = new VideoConfigManager();
 

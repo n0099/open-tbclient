@@ -7,25 +7,25 @@ import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class h implements g.a {
-    private g.b jNJ;
-    private VideoMiddleModel jNK;
-    private VideoSerializeVideoThreadInfo jNL;
-    private VideoMiddleModel.a jNM = new VideoMiddleModel.a() { // from class: com.baidu.tieba.frs.videomiddlepage.h.1
+    private g.b jPs;
+    private VideoMiddleModel jPt;
+    private VideoSerializeVideoThreadInfo jPu;
+    private VideoMiddleModel.a jPv = new VideoMiddleModel.a() { // from class: com.baidu.tieba.frs.videomiddlepage.h.1
         @Override // com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.a
         public void p(List<BaseCardInfo> list, boolean z) {
-            if (h.this.jNJ != null) {
-                h.this.jNJ.hideLoadingView();
+            if (h.this.jPs != null) {
+                h.this.jPs.hideLoadingView();
                 h.this.mHasMore = z;
-                h.this.jNJ.d(list, z, false);
+                h.this.jPs.d(list, z, false);
             }
         }
 
         @Override // com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.a
-        public void vz(String str) {
-            if (h.this.jNJ != null) {
-                h.this.jNJ.hideLoadingView();
-                h.this.jNJ.showMsg(str);
-                h.this.jNJ.onLoadFail();
+        public void vG(String str) {
+            if (h.this.jPs != null) {
+                h.this.jPs.hideLoadingView();
+                h.this.jPs.showMsg(str);
+                h.this.jPs.onLoadFail();
             }
         }
     };
@@ -37,16 +37,16 @@ public class h implements g.a {
 
     public h(g.b bVar) {
         if (bVar instanceof VideoMiddlePageFragment) {
-            this.jNJ = bVar;
-            this.jNJ.a(this);
-            this.jNK = new VideoMiddleModel(((VideoMiddlePageFragment) bVar).getPageContext(), this.jNM);
+            this.jPs = bVar;
+            this.jPs.a(this);
+            this.jPt = new VideoMiddleModel(((VideoMiddlePageFragment) bVar).getPageContext(), this.jPv);
         }
     }
 
-    public void cMx() {
-        if (this.jNK != null) {
-            this.jNK.setFrom(this.mFrom);
-            this.jNK.LoadData();
+    public void cMD() {
+        if (this.jPt != null) {
+            this.jPt.setFrom(this.mFrom);
+            this.jPt.LoadData();
         }
     }
 
@@ -54,54 +54,54 @@ public class h implements g.a {
         this.mFrom = str;
     }
 
-    public void bRj() {
-        if (this.jNK != null && this.mHasMore) {
-            this.jNK.setFrom(this.mFrom);
-            this.jNK.LoadData();
+    public void bRp() {
+        if (this.jPt != null && this.mHasMore) {
+            this.jPt.setFrom(this.mFrom);
+            this.jPt.LoadData();
         }
     }
 
     public void setId(String str) {
         this.mId = str;
-        if (this.jNK != null) {
-            this.jNK.setId(this.mId);
+        if (this.jPt != null) {
+            this.jPt.setId(this.mId);
         }
     }
 
-    public void Kp(String str) {
+    public void Ky(String str) {
         this.st_type = str;
-        if (this.jNK != null) {
-            this.jNK.Kp(str);
+        if (this.jPt != null) {
+            this.jPt.Ky(str);
         }
     }
 
     public void setLocation(String str) {
         this.yuelaou_locate = str;
-        if (this.jNK != null) {
-            this.jNK.setLocation(str);
+        if (this.jPt != null) {
+            this.jPt.setLocation(str);
         }
     }
 
     public void a(VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo) {
-        this.jNL = videoSerializeVideoThreadInfo;
-        if (this.jNK != null) {
-            this.jNK.a(videoSerializeVideoThreadInfo);
+        this.jPu = videoSerializeVideoThreadInfo;
+        if (this.jPt != null) {
+            this.jPt.a(videoSerializeVideoThreadInfo);
         }
     }
 
-    public VideoSerializeVideoThreadInfo cMy() {
-        return this.jNL;
+    public VideoSerializeVideoThreadInfo cME() {
+        return this.jPu;
     }
 
-    public void cFE() {
-        if (this.jNK != null) {
-            this.jNK.cancelLoadData();
+    public void cFK() {
+        if (this.jPt != null) {
+            this.jPt.cancelLoadData();
         }
     }
 
     public int getPageNum() {
-        if (this.jNK != null) {
-            return this.jNK.getPageNum();
+        if (this.jPt != null) {
+            return this.jPt.getPageNum();
         }
         return 0;
     }

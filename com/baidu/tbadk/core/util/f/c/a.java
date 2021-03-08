@@ -23,7 +23,7 @@ public class a {
         return ap.getDrawable(i);
     }
 
-    public static int rM(String str) {
+    public static int rT(String str) {
         if (str == null || str.length() == 0) {
             return Integer.MAX_VALUE;
         }

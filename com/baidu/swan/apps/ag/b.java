@@ -4,48 +4,48 @@ import android.util.Log;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.ag.c;
 import com.baidu.swan.apps.v.f;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a dIb;
+    private static a dJC;
 
-    public static void aKe() {
-        c.dp(com.baidu.swan.apps.t.a.awW());
+    public static void aKh() {
+        c.m27do(com.baidu.swan.apps.t.a.awZ());
         if (DEBUG) {
             Log.d("SwanAppScreenshot", "registerScreenshotEvent.");
         }
-        if (dIb == null) {
-            dIb = new a() { // from class: com.baidu.swan.apps.ag.b.1
+        if (dJC == null) {
+            dJC = new a() { // from class: com.baidu.swan.apps.ag.b.1
                 @Override // com.baidu.swan.apps.ag.a
                 public void a(c.b bVar) {
-                    b.aKg();
+                    b.aKj();
                     b.b(bVar);
                 }
             };
         }
-        c.a(dIb);
+        c.a(dJC);
     }
 
-    public static void aKf() {
+    public static void aKi() {
         if (DEBUG) {
             Log.d("SwanAppScreenshot", "unRegisterScreenshotEvent.");
         }
-        if (dIb != null) {
-            c.b(dIb);
-            dIb = null;
+        if (dJC != null) {
+            c.b(dJC);
+            dJC = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void aKg() {
-        f.aAl().b(new com.baidu.swan.apps.event.a.b("onUserCaptureScreen"));
+    public static void aKj() {
+        f.aAo().b(new com.baidu.swan.apps.event.a.b("onUserCaptureScreen"));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(c.b bVar) {
-        SwanAppActivity azV = f.aAl().azV();
-        if (azV != null) {
-            com.baidu.swan.apps.t.a.awX().b(azV, bVar.mImagePath, bVar.dIm);
+        SwanAppActivity azY = f.aAo().azY();
+        if (azY != null) {
+            com.baidu.swan.apps.t.a.axa().a(azY, bVar.mImagePath, bVar.dJN);
         }
     }
 }

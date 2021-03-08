@@ -12,10 +12,10 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class FaceGroupMakeTitleBar extends RelativeLayout {
-    private TextView lBR;
-    private ImageView lBS;
+    private TextView lDT;
+    private ImageView lDU;
     private TextView mTvTitle;
 
     public FaceGroupMakeTitleBar(Context context) {
@@ -36,12 +36,12 @@ public class FaceGroupMakeTitleBar extends RelativeLayout {
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.face_group_make_title_bar, (ViewGroup) this, true);
         this.mTvTitle = (TextView) findViewById(R.id.tv_title);
-        this.lBR = (TextView) findViewById(R.id.tv_right);
-        this.lBS = (ImageView) findViewById(R.id.iv_close);
+        this.lDT = (TextView) findViewById(R.id.tv_right);
+        this.lDU = (ImageView) findViewById(R.id.iv_close);
         ap.setViewTextColor(this.mTvTitle, R.color.CAM_X0105);
-        ap.setViewTextColor(this.lBR, R.color.common_color_10140);
-        SvgManager.bsR().a(this.lBS, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0105, (SvgManager.SvgResourceStateType) null);
-        this.lBS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.newfaceshop.facemake.FaceGroupMakeTitleBar.1
+        ap.setViewTextColor(this.lDT, R.color.common_color_10140);
+        SvgManager.bsU().a(this.lDU, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0105, (SvgManager.SvgResourceStateType) null);
+        this.lDU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.newfaceshop.facemake.FaceGroupMakeTitleBar.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 ((Activity) FaceGroupMakeTitleBar.this.getContext()).finish();
@@ -50,8 +50,8 @@ public class FaceGroupMakeTitleBar extends RelativeLayout {
     }
 
     public void setCloseListener(View.OnClickListener onClickListener) {
-        if (this.lBS != null) {
-            this.lBS.setOnClickListener(onClickListener);
+        if (this.lDU != null) {
+            this.lDU.setOnClickListener(onClickListener);
         }
     }
 
@@ -60,10 +60,10 @@ public class FaceGroupMakeTitleBar extends RelativeLayout {
     }
 
     public void setRightText(String str) {
-        this.lBR.setText(str);
+        this.lDT.setText(str);
     }
 
     public void setRightListener(View.OnClickListener onClickListener) {
-        this.lBR.setOnClickListener(onClickListener);
+        this.lDT.setOnClickListener(onClickListener);
     }
 }

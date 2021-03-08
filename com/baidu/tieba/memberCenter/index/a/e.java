@@ -6,48 +6,48 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetVipInfo.VipSpecialList;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class e implements com.baidu.adp.widget.ListView.n {
-    public static final BdUniqueId lmI = BdUniqueId.gen();
-    public static int lmJ = 3;
-    private static boolean lmM = false;
-    private static String lmN;
+    public static final BdUniqueId loP = BdUniqueId.gen();
+    public static int loQ = 3;
+    private static boolean loT = false;
+    private static String loU;
     public String cardId;
-    private d lmE;
-    public VipSpecialList lmK;
-    private List<f> lmL;
-    public boolean lmy = false;
-    public boolean lmz = true;
+    public boolean loF = false;
+    public boolean loG = true;
+    private d loL;
+    public VipSpecialList loR;
+    private List<f> loS;
 
     public e(VipSpecialList vipSpecialList) {
         String str;
         this.cardId = "";
         if (vipSpecialList != null && vipSpecialList.item != null && vipSpecialList.item.size() > 0) {
             this.cardId = vipSpecialList.card_id;
-            this.lmK = vipSpecialList;
-            this.lmE = new d();
-            this.lmE.Es(4);
-            this.lmE.setCategoryName(vipSpecialList.class_name);
-            this.lmE.Oa(vipSpecialList.class_url_name);
-            this.lmE.Ob(vipSpecialList.class_url);
+            this.loR = vipSpecialList;
+            this.loL = new d();
+            this.loL.Ev(4);
+            this.loL.setCategoryName(vipSpecialList.class_name);
+            this.loL.Og(vipSpecialList.class_url_name);
+            this.loL.Oh(vipSpecialList.class_url);
             if (TbadkCoreApplication.isLogin()) {
                 str = TbadkCoreApplication.getCurrentAccount();
             } else {
                 str = "temp";
             }
-            if (StringUtils.isNull(lmN) || !lmN.equals(str)) {
-                lmM = false;
-                lmN = str;
+            if (StringUtils.isNull(loU) || !loU.equals(str)) {
+                loT = false;
+                loU = str;
             }
-            this.lmL = new ArrayList();
+            this.loS = new ArrayList();
             for (int i = 0; i < vipSpecialList.item.size(); i++) {
-                this.lmL.add(new f(vipSpecialList.item.get(i)));
-                if (lmM) {
-                    if (i == vipSpecialList.item.size() - 1 && vipSpecialList.item.size() > lmJ) {
-                        this.lmL.add(new f(true, true));
+                this.loS.add(new f(vipSpecialList.item.get(i)));
+                if (loT) {
+                    if (i == vipSpecialList.item.size() - 1 && vipSpecialList.item.size() > loQ) {
+                        this.loS.add(new f(true, true));
                     }
-                } else if (i == lmJ - 1 && vipSpecialList.item.size() > lmJ) {
-                    this.lmL.add(new f(true, false));
+                } else if (i == loQ - 1 && vipSpecialList.item.size() > loQ) {
+                    this.loS.add(new f(true, false));
                     return;
                 }
             }
@@ -56,6 +56,6 @@ public class e implements com.baidu.adp.widget.ListView.n {
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return lmI;
+        return loP;
     }
 }

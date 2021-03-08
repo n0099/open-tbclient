@@ -27,16 +27,16 @@ import androidx.core.content.ContextCompat;
 import androidx.core.view.DragAndDropPermissionsCompat;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class ActivityCompat extends ContextCompat {
     private static PermissionCompatDelegate sDelegate;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public interface OnRequestPermissionsResultCallback {
         void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public interface PermissionCompatDelegate {
         boolean onActivityResult(@NonNull Activity activity, @IntRange(from = 0) int i, int i2, @Nullable Intent intent);
 
@@ -44,7 +44,7 @@ public class ActivityCompat extends ContextCompat {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public interface RequestPermissionsRequestCodeValidator {
         void validateRequestPermissionsRequestCode(int i);
     }
@@ -190,7 +190,7 @@ public class ActivityCompat extends ContextCompat {
     }
 
     @RequiresApi(21)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     private static class SharedElementCallback21Impl extends android.app.SharedElementCallback {
         private final SharedElementCallback mCallback;
 

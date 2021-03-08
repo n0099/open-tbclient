@@ -15,7 +15,7 @@ import androidx.collection.ArrayMap;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public final class MediaMetadataCompat implements Parcelable {
     public static final Parcelable.Creator<MediaMetadataCompat> CREATOR;
     static final ArrayMap<String, Integer> METADATA_KEYS_TYPE = new ArrayMap<>();
@@ -64,25 +64,25 @@ public final class MediaMetadataCompat implements Parcelable {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     public @interface BitmapKey {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     public @interface LongKey {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     public @interface RatingKey {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     public @interface TextKey {
     }
 
@@ -314,7 +314,7 @@ public final class MediaMetadataCompat implements Parcelable {
         return this.mMetadataObj;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     public static final class Builder {
         private final Bundle mBundle;
 

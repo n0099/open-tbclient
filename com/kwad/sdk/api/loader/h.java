@@ -21,7 +21,7 @@ import org.apache.http.protocol.HTTP;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f8206a = a(Loader.get().getContext()) + "/apkfileD/dynamic";
+    private static final String f5466a = a(Loader.get().getContext()) + "/apkfileD/dynamic";
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -34,10 +34,10 @@ public class h {
     public static class b implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        final OutputStream f8209a;
+        final OutputStream f5468a;
 
         public b(File file, boolean z) {
-            this.f8209a = new FileOutputStream(file, z);
+            this.f5468a = new FileOutputStream(file, z);
         }
 
         @Override // com.kwad.sdk.api.loader.h.d
@@ -50,12 +50,12 @@ public class h {
 
         @Override // com.kwad.sdk.api.loader.h.d
         public void a(byte[] bArr, int i, int i2) {
-            this.f8209a.write(bArr, i, i2);
+            this.f5468a.write(bArr, i, i2);
         }
 
         @Override // java.io.Closeable, java.lang.AutoCloseable
         public void close() {
-            this.f8209a.close();
+            this.f5468a.close();
         }
     }
 
@@ -311,7 +311,7 @@ public class h {
             long r8 = java.lang.System.currentTimeMillis()     // Catch: java.lang.Throwable -> L200
             r4.<init>(r8)     // Catch: java.lang.Throwable -> L200
             java.io.File r8 = new java.io.File     // Catch: java.lang.Throwable -> L200
-            java.lang.String r6 = com.kwad.sdk.api.loader.h.f8206a     // Catch: java.lang.Throwable -> L200
+            java.lang.String r6 = com.kwad.sdk.api.loader.h.f5466a     // Catch: java.lang.Throwable -> L200
             java.lang.StringBuilder r9 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L200
             r9.<init>()     // Catch: java.lang.Throwable -> L200
             int r4 = r4.nextInt()     // Catch: java.lang.Throwable -> L200

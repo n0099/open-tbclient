@@ -1,6 +1,6 @@
 package com.baidu.live.alablmsdk.module.rtc;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public long ayk;
+    public long azK;
     public String message;
 }

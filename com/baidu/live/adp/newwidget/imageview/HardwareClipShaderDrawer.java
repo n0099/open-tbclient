@@ -9,7 +9,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import androidx.core.view.ViewCompat;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class HardwareClipShaderDrawer extends ShaderDrawer {
     private boolean mIsRound;
     private Rect mRect;

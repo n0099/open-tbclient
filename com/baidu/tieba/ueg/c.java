@@ -8,23 +8,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, String, Integer> {
-    private String nKg;
-    private a nKh;
+    private String nMl;
+    private a nMm;
 
     /* loaded from: classes.dex */
     public interface a {
-        void daA();
+        void daI();
 
-        void daB();
+        void daJ();
 
-        void daz();
+        void daK();
 
         void onError(String str);
     }
 
     public c(String str, a aVar) {
-        this.nKg = "https://lookup.api.bsb.baidu.com/urlquery?url=" + URLEncoder.encode(str) + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getCuid();
-        this.nKh = aVar;
+        this.nMl = "https://lookup.api.bsb.baidu.com/urlquery?url=" + URLEncoder.encode(str) + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getCuid();
+        this.nMm = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,9 +34,9 @@ public class c extends BdAsyncTask<String, String, Integer> {
     public Integer doInBackground(String... strArr) {
         int i = -1;
         try {
-            aa aaVar = new aa(this.nKg);
-            aaVar.bsr().bta().mIsNeedAddCommenParam = false;
-            aaVar.bsr().bta().mIsUseCurrentBDUSS = false;
+            aa aaVar = new aa(this.nMl);
+            aaVar.bsu().btd().mIsNeedAddCommenParam = false;
+            aaVar.bsu().btd().mIsUseCurrentBDUSS = false;
             JSONArray optJSONArray = new JSONObject(new String(aaVar.getNetData())).optJSONArray("result");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 return i;
@@ -58,15 +58,15 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
-        if (this.nKh != null && num != null) {
+        if (this.nMm != null && num != null) {
             if (num.intValue() == -1) {
-                this.nKh.onError(null);
+                this.nMm.onError(null);
             } else if (num.intValue() == 1) {
-                this.nKh.daz();
+                this.nMm.daI();
             } else if (num.intValue() == 2 || num.intValue() == 0) {
-                this.nKh.daA();
+                this.nMm.daJ();
             } else {
-                this.nKh.daB();
+                this.nMm.daK();
             }
         }
     }

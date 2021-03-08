@@ -37,7 +37,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public final class MediaControllerCompat {
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final String COMMAND_ADD_QUEUE_ITEM = "android.support.v4.media.session.command.ADD_QUEUE_ITEM";
@@ -59,7 +59,7 @@ public final class MediaControllerCompat {
     private final MediaSessionCompat.Token mToken;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     public interface MediaControllerImpl {
         void addQueueItem(MediaDescriptionCompat mediaDescriptionCompat);
 
@@ -112,7 +112,7 @@ public final class MediaControllerCompat {
         void unregisterCallback(Callback callback);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     private static class MediaControllerExtraData extends ComponentActivity.ExtraData {
         private final MediaControllerCompat mMediaController;
 
@@ -369,7 +369,7 @@ public final class MediaControllerCompat {
         return this.mImpl.getMediaController();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     public static abstract class Callback implements IBinder.DeathRecipient {
         final Object mCallbackObj;
         MessageHandler mHandler;
@@ -453,7 +453,7 @@ public final class MediaControllerCompat {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes14.dex */
         private static class StubApi21 implements MediaControllerCompatApi21.Callback {
             private final WeakReference<Callback> mCallback;
 
@@ -528,7 +528,7 @@ public final class MediaControllerCompat {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes14.dex */
         private static class StubCompat extends IMediaControllerCallback.Stub {
             private final WeakReference<Callback> mCallback;
 
@@ -638,7 +638,7 @@ public final class MediaControllerCompat {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes14.dex */
         public class MessageHandler extends Handler {
             private static final int MSG_DESTROYED = 8;
             private static final int MSG_EVENT = 1;
@@ -712,7 +712,7 @@ public final class MediaControllerCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     public static abstract class TransportControls {
         public static final String EXTRA_LEGACY_STREAM_TYPE = "android.media.session.extra.LEGACY_STREAM_TYPE";
 
@@ -766,7 +766,7 @@ public final class MediaControllerCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     public static final class PlaybackInfo {
         public static final int PLAYBACK_TYPE_LOCAL = 1;
         public static final int PLAYBACK_TYPE_REMOTE = 2;
@@ -805,7 +805,7 @@ public final class MediaControllerCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     static class MediaControllerImplBase implements MediaControllerImpl {
         private IMediaSession mBinder;
         private TransportControls mTransportControls;
@@ -1069,7 +1069,7 @@ public final class MediaControllerCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     static class TransportControlsBase extends TransportControls {
         private IMediaSession mBinder;
 
@@ -1283,7 +1283,7 @@ public final class MediaControllerCompat {
     }
 
     @RequiresApi(21)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     static class MediaControllerImplApi21 implements MediaControllerImpl {
         protected final Object mControllerObj;
         final MediaSessionCompat.Token mSessionToken;
@@ -1553,7 +1553,7 @@ public final class MediaControllerCompat {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes14.dex */
         public static class ExtraBinderRequestResultReceiver extends ResultReceiver {
             private WeakReference<MediaControllerImplApi21> mMediaControllerImpl;
 
@@ -1576,7 +1576,7 @@ public final class MediaControllerCompat {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes14.dex */
         public static class ExtraCallback extends Callback.StubCompat {
             ExtraCallback(Callback callback) {
                 super(callback);
@@ -1614,7 +1614,7 @@ public final class MediaControllerCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     static class TransportControlsApi21 extends TransportControls {
         protected final Object mControlsObj;
 
@@ -1765,7 +1765,7 @@ public final class MediaControllerCompat {
     }
 
     @RequiresApi(23)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     static class MediaControllerImplApi23 extends MediaControllerImplApi21 {
         public MediaControllerImplApi23(Context context, MediaSessionCompat.Token token) throws RemoteException {
             super(context, token);
@@ -1782,7 +1782,7 @@ public final class MediaControllerCompat {
     }
 
     @RequiresApi(23)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     static class TransportControlsApi23 extends TransportControlsApi21 {
         public TransportControlsApi23(Object obj) {
             super(obj);
@@ -1795,7 +1795,7 @@ public final class MediaControllerCompat {
     }
 
     @RequiresApi(24)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     static class MediaControllerImplApi24 extends MediaControllerImplApi23 {
         public MediaControllerImplApi24(Context context, MediaSessionCompat.Token token) throws RemoteException {
             super(context, token);
@@ -1812,7 +1812,7 @@ public final class MediaControllerCompat {
     }
 
     @RequiresApi(24)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     static class TransportControlsApi24 extends TransportControlsApi23 {
         public TransportControlsApi24(Object obj) {
             super(obj);

@@ -18,33 +18,33 @@ import java.util.Locale;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     private a() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.swancore.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0469a {
-        private static final a dMn = new a();
+    /* loaded from: classes8.dex */
+    public static class C0475a {
+        private static final a dNO = new a();
     }
 
-    public static a aMi() {
-        return C0469a.dMn;
+    public static a aMl() {
+        return C0475a.dNO;
     }
 
-    public static String jw(int i) {
+    public static String jx(int i) {
         return i == 1 ? "installed_game_swan_js_md5" : "installed_swan_js_md5";
     }
 
     public void m(long j, int i) {
         boolean z;
-        List<b> jy = jy(i);
-        if (jy.size() >= 10) {
-            jy.remove(0);
+        List<b> jz = jz(i);
+        if (jz.size() >= 10) {
+            jz.remove(0);
         }
-        Iterator<b> it = jy.iterator();
+        Iterator<b> it = jz.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -57,14 +57,14 @@ public class a {
             }
         }
         if (!z) {
-            jy.add(new b(Calendar.getInstance().getTimeInMillis(), j));
+            jz.add(new b(Calendar.getInstance().getTimeInMillis(), j));
             HashSet hashSet = new HashSet();
-            for (b bVar : jy) {
+            for (b bVar : jz) {
                 if (bVar != null) {
                     hashSet.add(bVar.toJson());
                 }
             }
-            h.aMh().putStringSet(jz(i), hashSet);
+            h.aMk().putStringSet(jA(i), hashSet);
         }
     }
 
@@ -80,23 +80,23 @@ public class a {
                 if (bVar2 == null) {
                     return 1;
                 }
-                return String.valueOf(bVar.dMo).compareTo(String.valueOf(bVar2.dMo));
+                return String.valueOf(bVar.dNP).compareTo(String.valueOf(bVar2.dNP));
             }
         });
     }
 
-    public String jx(int i) {
+    public String jy(int i) {
         StringBuilder sb = new StringBuilder();
-        String string = h.aMh().getString(jw(i), "");
+        String string = h.aMk().getString(jx(i), "");
         if (!TextUtils.isEmpty(string)) {
             sb.append("md5: ").append(string).append("\n").append("\n");
         }
-        List<b> jy = jy(i);
-        int size = jy.size();
+        List<b> jz = jz(i);
+        int size = jz.size();
         int i2 = 0;
         boolean z = false;
         while (i2 < size) {
-            b bVar = jy.get(i2);
+            b bVar = jz.get(i2);
             if (bVar != null) {
                 z = true;
                 sb.append(bVar.toString());
@@ -108,35 +108,35 @@ public class a {
             z = z;
         }
         if (!z) {
-            sb.append(new b(System.currentTimeMillis(), com.baidu.swan.apps.swancore.c.a.jJ(i)).toString());
+            sb.append(new b(System.currentTimeMillis(), com.baidu.swan.apps.swancore.c.a.jK(i)).toString());
         } else {
-            SwanCoreVersion azN = f.aAl().azN();
-            b bVar2 = jy.get(size - 1);
-            if (bVar2 != null && azN != null && azN.swanCoreVersion > bVar2.swanCoreVersion) {
+            SwanCoreVersion azQ = f.aAo().azQ();
+            b bVar2 = jz.get(size - 1);
+            if (bVar2 != null && azQ != null && azQ.swanCoreVersion > bVar2.swanCoreVersion) {
                 sb.append("\n");
-                sb.append(new b(System.currentTimeMillis(), azN.swanCoreVersion).toString());
+                sb.append(new b(System.currentTimeMillis(), azQ.swanCoreVersion).toString());
             }
         }
         return sb.toString();
     }
 
-    private List<b> jy(int i) {
+    private List<b> jz(int i) {
         ArrayList arrayList = new ArrayList();
-        Set<String> stringSet = h.aMh().getStringSet(jz(i), null);
+        Set<String> stringSet = h.aMk().getStringSet(jA(i), null);
         if (stringSet == null || stringSet.size() == 0) {
             return arrayList;
         }
         for (String str : stringSet) {
-            b tv2 = tv(str);
-            if (tv2 != null) {
-                arrayList.add(tv2);
+            b tC = tC(str);
+            if (tC != null) {
+                arrayList.add(tC);
             }
         }
         aX(arrayList);
         return arrayList;
     }
 
-    private b tv(String str) {
+    private b tC(String str) {
         b bVar;
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -153,13 +153,13 @@ public class a {
         return bVar;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class b {
-        long dMo;
+        long dNP;
         long swanCoreVersion;
 
         b(long j, long j2) {
-            this.dMo = j;
+            this.dNP = j;
             this.swanCoreVersion = j2;
         }
 
@@ -168,7 +168,7 @@ public class a {
             String str;
             String str2 = null;
             try {
-                str = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(this.dMo));
+                str = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(this.dNP));
             } catch (Exception e) {
                 e = e;
                 str = null;
@@ -188,7 +188,7 @@ public class a {
         public String toJson() {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("time", this.dMo);
+                jSONObject.put("time", this.dNP);
                 jSONObject.put("version", this.swanCoreVersion);
                 return jSONObject.toString();
             } catch (JSONException e) {
@@ -201,7 +201,7 @@ public class a {
         }
     }
 
-    private static String jz(int i) {
+    private static String jA(int i) {
         return i == 1 ? "aigames_core_ver_list_key" : "aiapps_core_ver_list_key";
     }
 }

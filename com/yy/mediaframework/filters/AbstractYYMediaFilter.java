@@ -7,7 +7,7 @@ import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractYYMediaFilter implements IMediaFilter {
     protected ArrayList<IMediaFilter> mDownStreamList = new ArrayList<>();
     protected int mImageWidth = 0;

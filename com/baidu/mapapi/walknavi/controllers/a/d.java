@@ -16,9 +16,9 @@ final class d implements com.baidu.platform.comapi.wnplatform.m.c {
     public int a(String str, boolean z) {
         IWTTSPlayer iWTTSPlayer;
         IWTTSPlayer iWTTSPlayer2;
-        iWTTSPlayer = a.f2977b;
+        iWTTSPlayer = a.b;
         if (iWTTSPlayer != null) {
-            iWTTSPlayer2 = a.f2977b;
+            iWTTSPlayer2 = a.b;
             return iWTTSPlayer2.playTTSText(str, z);
         }
         return 0;

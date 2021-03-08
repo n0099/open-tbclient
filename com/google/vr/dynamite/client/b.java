@@ -3,7 +3,7 @@ package com.google.vr.dynamite.client;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class b extends com.google.a.a.a implements INativeLibraryLoader {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(IBinder iBinder) {

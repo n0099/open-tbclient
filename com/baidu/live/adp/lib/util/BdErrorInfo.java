@@ -1,5 +1,5 @@
 package com.baidu.live.adp.lib.util;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BdErrorInfo {
     public static final int ERR_AMRSO_INIT = -9104;
     public static final int ERR_AMRSO_LOAD_LIB = -9102;

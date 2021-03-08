@@ -5,6 +5,7 @@ import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.format.Time;
 import android.text.style.ForegroundColorSpan;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.adp.lib.cache.BdKVCache;
@@ -38,19 +39,19 @@ public class au extends com.baidu.adp.lib.util.k {
     private static String TIME_HOUR = TbadkCoreApplication.getInst().getApp().getString(R.string.time_hour);
     private static String TIME_MINUTE = TbadkCoreApplication.getInst().getApp().getString(R.string.time_minute);
     private static String TIME_SECOND = TbadkCoreApplication.getInst().getApp().getString(R.string.time_second);
-    private static String faX = TbadkCoreApplication.getInst().getApp().getString(R.string.ala_card_create_day);
-    private static String faY = TbadkCoreApplication.getInst().getApp().getString(R.string.ala_card_create_hour);
-    private static String faZ = TbadkCoreApplication.getInst().getApp().getString(R.string.ala_card_create_min);
+    private static String fcx = TbadkCoreApplication.getInst().getApp().getString(R.string.ala_card_create_day);
+    private static String fcy = TbadkCoreApplication.getInst().getApp().getString(R.string.ala_card_create_hour);
+    private static String fcz = TbadkCoreApplication.getInst().getApp().getString(R.string.ala_card_create_min);
     private static final SimpleDateFormat FORMATE_DATE_SECOND = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private static final SimpleDateFormat FORMATE_DATE_SECOND_CHINESE = new SimpleDateFormat("yyyy年MM月dd HH时mm分ss秒");
-    private static final SimpleDateFormat fba = new SimpleDateFormat("dd日HH:mm");
-    private static final SimpleDateFormat fbb = new SimpleDateFormat("HH:mm");
-    private static final SimpleDateFormat fbc = new SimpleDateFormat("yyyy-MM-dd");
-    private static final SimpleDateFormat fbd = new SimpleDateFormat("MM-dd HH:mm");
-    private static final SimpleDateFormat fbe = new SimpleDateFormat("MM-dd");
-    private static final SimpleDateFormat fbf = new SimpleDateFormat("MM月dd日");
-    private static final SimpleDateFormat fbg = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-    private static final SimpleDateFormat fbh = new SimpleDateFormat("MM-dd HH:mm");
+    private static final SimpleDateFormat fcA = new SimpleDateFormat("dd日HH:mm");
+    private static final SimpleDateFormat fcB = new SimpleDateFormat("HH:mm");
+    private static final SimpleDateFormat fcC = new SimpleDateFormat("yyyy-MM-dd");
+    private static final SimpleDateFormat fcD = new SimpleDateFormat("MM-dd HH:mm");
+    private static final SimpleDateFormat fcE = new SimpleDateFormat("MM-dd");
+    private static final SimpleDateFormat fcF = new SimpleDateFormat("MM月dd日");
+    private static final SimpleDateFormat fcG = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    private static final SimpleDateFormat fcH = new SimpleDateFormat("MM-dd HH:mm");
     private static Date date = new Date();
 
     static {
@@ -72,8 +73,8 @@ public class au extends com.baidu.adp.lib.util.k {
     public static String dS(long j) {
         String format;
         Date date2 = new Date(j);
-        synchronized (fbh) {
-            format = fbh.format(date2);
+        synchronized (fcH) {
+            format = fcH.format(date2);
         }
         return format;
     }
@@ -81,8 +82,8 @@ public class au extends com.baidu.adp.lib.util.k {
     public static String dT(long j) {
         String format;
         Date date2 = new Date(j);
-        synchronized (fbg) {
-            format = fbg.format(date2);
+        synchronized (fcG) {
+            format = fcG.format(date2);
         }
         return format;
     }
@@ -90,8 +91,8 @@ public class au extends com.baidu.adp.lib.util.k {
     public static String dU(long j) {
         String format;
         Date date2 = new Date(j);
-        synchronized (fbd) {
-            format = fbd.format(date2);
+        synchronized (fcD) {
+            format = fcD.format(date2);
         }
         return format;
     }
@@ -99,8 +100,8 @@ public class au extends com.baidu.adp.lib.util.k {
     public static String dV(long j) {
         String format;
         Date date2 = new Date(j);
-        synchronized (fbe) {
-            format = fbe.format(date2);
+        synchronized (fcE) {
+            format = fcE.format(date2);
         }
         return format;
     }
@@ -108,8 +109,8 @@ public class au extends com.baidu.adp.lib.util.k {
     public static String dW(long j) {
         String format;
         Date date2 = new Date(j);
-        synchronized (fbf) {
-            format = fbf.format(date2);
+        synchronized (fcF) {
+            format = fcF.format(date2);
         }
         return format;
     }
@@ -409,26 +410,26 @@ public class au extends com.baidu.adp.lib.util.k {
         if (time < MS_TO_DAY) {
             if (time < MS_TO_HOUR) {
                 if (time < MS_TO_MIN) {
-                    return "1" + faZ;
+                    return "1" + fcz;
                 }
-                return String.valueOf(time / MS_TO_MIN) + faZ;
+                return String.valueOf(time / MS_TO_MIN) + fcz;
             }
-            return String.valueOf(time / MS_TO_HOUR) + faY;
+            return String.valueOf(time / MS_TO_HOUR) + fcy;
         }
-        return String.valueOf(time / MS_TO_DAY) + faX;
+        return String.valueOf(time / MS_TO_DAY) + fcx;
     }
 
-    public static boolean Bf(String str) {
+    public static boolean Bm(String str) {
         if (str.length() != 10) {
             return false;
         }
-        return fbc.format(new Date()).substring(0, 4).equals(str.substring(0, 4));
+        return fcC.format(new Date()).substring(0, 4).equals(str.substring(0, 4));
     }
 
     public static String o(Date date2) {
         String format;
-        synchronized (fbc) {
-            format = fbc.format(date2);
+        synchronized (fcC) {
+            format = fcC.format(date2);
         }
         return format;
     }
@@ -547,9 +548,9 @@ public class au extends com.baidu.adp.lib.util.k {
         if (j < 10000000) {
             float f = ((float) (j / 1000)) / 10.0f;
             if (f % 1.0f == 0.0f) {
-                return ((int) f) + "W";
+                return ((int) f) + ExifInterface.LONGITUDE_WEST;
             }
-            return f + "W";
+            return f + ExifInterface.LONGITUDE_WEST;
         }
         float f2 = ((float) (j / TimeUtils.NANOS_PER_MS)) / 10.0f;
         if (f2 >= 9999.0f) {
@@ -569,7 +570,7 @@ public class au extends com.baidu.adp.lib.util.k {
             return j + "";
         }
         if (j < 10000000) {
-            return String.format("%.1f", Double.valueOf(j / 10000.0d)) + "W";
+            return String.format("%.1f", Double.valueOf(j / 10000.0d)) + ExifInterface.LONGITUDE_WEST;
         }
         float f = ((float) (j / TimeUtils.NANOS_PER_MS)) / 10.0f;
         if (f >= 9999.0f) {
@@ -591,9 +592,9 @@ public class au extends com.baidu.adp.lib.util.k {
         if (j < 9999000.0d) {
             float f = ((float) (j / 1000)) / 10.0f;
             if (f % 1.0f == 0.0f) {
-                return ((int) f) + "W";
+                return ((int) f) + ExifInterface.LONGITUDE_WEST;
             }
-            return f + "W";
+            return f + ExifInterface.LONGITUDE_WEST;
         } else if (j < 9.9999E10d) {
             float f2 = ((float) (j / TimeUtils.NANOS_PER_MS)) / 10.0f;
             if (f2 % 1.0f == 0.0f) {
@@ -617,7 +618,7 @@ public class au extends com.baidu.adp.lib.util.k {
             if (format.endsWith(".0")) {
                 format = format.substring(0, format.length() - 2);
             }
-            return format + "W";
+            return format + ExifInterface.LONGITUDE_WEST;
         }
         String format2 = String.format("%.1f", Double.valueOf((j / 1000000.0d) / 10.0d));
         if (format2.endsWith(".0")) {
@@ -672,7 +673,7 @@ public class au extends com.baidu.adp.lib.util.k {
             return "9999W+";
         }
         if (j >= 10000000) {
-            return String.valueOf(j / 10000) + "W";
+            return String.valueOf(j / 10000) + ExifInterface.LONGITUDE_WEST;
         }
         if (j > 10000) {
             return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
@@ -691,7 +692,7 @@ public class au extends com.baidu.adp.lib.util.k {
             return "9999W+";
         }
         if (j >= 10000000) {
-            return String.valueOf(j / 10000) + "W";
+            return String.valueOf(j / 10000) + ExifInterface.LONGITUDE_WEST;
         }
         if (j > 10000) {
             return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
@@ -716,7 +717,7 @@ public class au extends com.baidu.adp.lib.util.k {
             return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
         }
         if (j < 10000000) {
-            return (j / 10000) + "W";
+            return (j / 10000) + ExifInterface.LONGITUDE_WEST;
         }
         float f = ((float) (j / TimeUtils.NANOS_PER_MS)) / 10.0f;
         if (f >= 9999.0f) {
@@ -733,7 +734,7 @@ public class au extends com.baidu.adp.lib.util.k {
             return "9999W+";
         }
         if (j >= 10000000) {
-            return String.valueOf(j / 10000) + "W";
+            return String.valueOf(j / 10000) + ExifInterface.LONGITUDE_WEST;
         }
         if (j > 10000) {
             return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
@@ -745,7 +746,7 @@ public class au extends com.baidu.adp.lib.util.k {
             return "-9999W+";
         }
         if (j <= -10000000) {
-            return String.valueOf(j / 10000) + "W";
+            return String.valueOf(j / 10000) + ExifInterface.LONGITUDE_WEST;
         }
         if (j < -10000) {
             return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
@@ -763,7 +764,7 @@ public class au extends com.baidu.adp.lib.util.k {
             if (((float) round) > f) {
                 round--;
             }
-            return round + "W";
+            return round + ExifInterface.LONGITUDE_WEST;
         } else if (j < 0) {
             return "0";
         } else {
@@ -778,7 +779,7 @@ public class au extends com.baidu.adp.lib.util.k {
             if (((float) round) > f) {
                 round--;
             }
-            return round >= 9999 ? "9999W+" : j + "W";
+            return round >= 9999 ? "9999W+" : j + ExifInterface.LONGITUDE_WEST;
         } else if (j < 0) {
             return "0";
         } else {
@@ -827,13 +828,13 @@ public class au extends com.baidu.adp.lib.util.k {
             DecimalFormat decimalFormat = new DecimalFormat("#.#");
             float f = ((float) j) / 10000.0f;
             if (f < 1000.0f) {
-                return decimalFormat.format(f) + "W";
+                return decimalFormat.format(f) + ExifInterface.LONGITUDE_WEST;
             }
             long round = Math.round(f);
             if (((float) round) > f) {
                 round--;
             }
-            return round + "W";
+            return round + ExifInterface.LONGITUDE_WEST;
         }
         return String.valueOf(j);
     }
@@ -1025,7 +1026,7 @@ public class au extends com.baidu.adp.lib.util.k {
         return str;
     }
 
-    public static String aq(String str, int i) {
+    public static String ar(String str, int i) {
         if (str == null || i <= 0) {
             return String.valueOf("");
         }
@@ -1278,22 +1279,22 @@ public class au extends com.baidu.adp.lib.util.k {
         return sb.toString();
     }
 
-    public static boolean Bg(String str) {
+    public static boolean Bn(String str) {
         if (str == null || str.length() == 0) {
             return false;
         }
-        return Bh(str) || tY(str);
+        return Bo(str) || uf(str);
     }
 
-    public static boolean Bh(String str) {
+    public static boolean Bo(String str) {
         return str != null && str.length() > 6 && str.substring(0, 7).equalsIgnoreCase("http://");
     }
 
-    public static boolean tY(String str) {
+    public static boolean uf(String str) {
         return str != null && str.length() > 7 && str.substring(0, 8).equalsIgnoreCase(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
     }
 
-    public static boolean Bi(String str) {
+    public static boolean Bp(String str) {
         if (isEmpty(str)) {
             return false;
         }

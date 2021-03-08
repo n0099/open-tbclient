@@ -3,65 +3,65 @@ package com.baidu.adp.widget.ListView;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 /* loaded from: classes.dex */
 public class j {
-    private float XC = 8.0f;
-    private float XD = 15.0f;
-    private float XE = 4.0f;
-    private float XF = 60.0f;
-    private int XG = 150;
-    private int XH = 150;
-    private int XI = 500;
-    private float XJ = 0.4f;
-    private float XK = 1.0f;
-    private float XL = 20.0f;
-    private float XM = 10.0f;
-    private int XN = EncoderTextureDrawer.X264_WIDTH;
-    private float XO = 5.0f;
+    private float YV = 8.0f;
+    private float YW = 15.0f;
+    private float YX = 4.0f;
+    private float YY = 60.0f;
+    private int YZ = 150;
+    private int Za = 150;
+    private int Zb = 500;
+    private float Zc = 0.4f;
+    private float Ze = 1.0f;
+    private float Zf = 20.0f;
+    private float Zg = 10.0f;
+    private int Zh = EncoderTextureDrawer.X264_WIDTH;
+    private float Zi = 5.0f;
 
     public float qx() {
-        return this.XC;
+        return this.YV;
     }
 
     public float qy() {
-        return this.XD;
+        return this.YW;
     }
 
     public float qz() {
-        return this.XE;
+        return this.YX;
     }
 
     public float qA() {
-        return this.XF;
+        return this.YY;
     }
 
     public int qB() {
-        return this.XG;
+        return this.YZ;
     }
 
     public int qC() {
-        return this.XH;
+        return this.Za;
     }
 
     public int qD() {
-        return this.XI;
+        return this.Zb;
     }
 
     public float qE() {
-        return this.XJ;
+        return this.Zc;
     }
 
     public float qF() {
-        return this.XK;
+        return this.Ze;
     }
 
     public float qG() {
-        return this.XL;
+        return this.Zf;
     }
 
     public float qH() {
-        return this.XM;
+        return this.Zg;
     }
 
     public int qI() {
-        return this.XN;
+        return this.Zh;
     }
 }

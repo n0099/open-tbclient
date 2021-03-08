@@ -9,22 +9,22 @@ import com.baidu.tieba.ala.data.PkInfoData;
 import com.baidu.tieba.ala.data.PropsInfoData;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class k {
     Handler handler;
-    PkRankInView imv;
-    public ArrayList<PropsInfoData> imw;
-    public ArrayList<PropsInfoData> imx;
+    PkRankInView iof;
+    public ArrayList<PropsInfoData> iog;
+    public ArrayList<PropsInfoData> ioh;
 
     public k(final PkRankInView pkRankInView) {
-        this.imv = pkRankInView;
+        this.iof = pkRankInView;
         this.handler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.ala.view.k.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        k.this.IE("1");
-                        pkRankInView.cqg();
+                        k.this.IN("1");
+                        pkRankInView.cqm();
                         return;
                     case 2:
                         pkRankInView.pl(true);
@@ -33,7 +33,7 @@ public class k {
                         pkRankInView.pl(false);
                         return;
                     case 10:
-                        pkRankInView.cqj();
+                        pkRankInView.cqp();
                         return;
                     case 20:
                         pkRankInView.pm(true);
@@ -49,15 +49,15 @@ public class k {
     }
 
     public void g(PkInfoData pkInfoData) {
-        this.imw = pkInfoData.myPkData.propsInfos;
-        this.imx = pkInfoData.otherPkData.propsInfos;
+        this.iog = pkInfoData.myPkData.propsInfos;
+        this.ioh = pkInfoData.otherPkData.propsInfos;
         if (!pkInfoData.myPkData.buffMultiple.equals("1")) {
-            IE(pkInfoData.myPkData.buffMultiple);
-            this.imv.IC(pkInfoData.myPkData.buffMultiple);
+            IN(pkInfoData.myPkData.buffMultiple);
+            this.iof.IL(pkInfoData.myPkData.buffMultiple);
             x(1, pkInfoData.myPkData.buffMultipleEndTime - pkInfoData.pkStatusInfoData.nowTime);
         }
-        if (this.imw != null && this.imw.size() > 0) {
-            Iterator<PropsInfoData> it = this.imw.iterator();
+        if (this.iog != null && this.iog.size() > 0) {
+            Iterator<PropsInfoData> it = this.iog.iterator();
             while (it.hasNext()) {
                 PropsInfoData next = it.next();
                 if (next.propsType.equals(String.valueOf(2))) {
@@ -65,31 +65,31 @@ public class k {
                     Iterator<PropsInfoData.a> it2 = next.propsUserDataList.iterator();
                     while (it2.hasNext()) {
                         PropsInfoData.a next2 = it2.next();
-                        if (!this.imv.gRX.isHost && next2.gTs != this.imv.gRX.aJZ.aIz.userId) {
+                        if (!this.iof.gTG.isHost && next2.gVb != this.iof.gTG.aLz.aJZ.userId) {
                             next2 = aVar;
                         }
                         aVar = next2;
                     }
                     if (aVar != null) {
-                        this.imv.cqh();
+                        this.iof.cqn();
                         x(2, aVar.endTime - next.nowTime);
                     } else {
-                        this.imv.cqi();
+                        this.iof.cqo();
                     }
                     x(3, next.endTime - next.nowTime);
                 }
             }
         }
         if (!pkInfoData.otherPkData.buffMultiple.equals("1")) {
-            this.imv.ID(pkInfoData.otherPkData.buffMultiple);
+            this.iof.IM(pkInfoData.otherPkData.buffMultiple);
             x(10, pkInfoData.otherPkData.buffMultipleEndTime - pkInfoData.pkStatusInfoData.nowTime);
         }
-        if (this.imx != null && this.imx.size() > 0) {
-            Iterator<PropsInfoData> it3 = this.imx.iterator();
+        if (this.ioh != null && this.ioh.size() > 0) {
+            Iterator<PropsInfoData> it3 = this.ioh.iterator();
             while (it3.hasNext()) {
                 PropsInfoData next3 = it3.next();
                 if (next3.propsType.equals(String.valueOf(2))) {
-                    this.imv.cqk();
+                    this.iof.cqq();
                     x(30, next3.endTime - next3.nowTime);
                 }
             }
@@ -113,11 +113,11 @@ public class k {
     }
 
     public void onDestroy() {
-        IE("1");
+        IN("1");
         this.handler.removeCallbacksAndMessages(null);
     }
 
-    public void IE(String str) {
+    public void IN(String str) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913238, str));
     }
 }

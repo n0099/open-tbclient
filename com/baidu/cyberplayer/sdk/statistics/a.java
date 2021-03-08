@@ -9,11 +9,9 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1830a;
+    private static a f1469a;
     private boolean c = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    private c f1831b = new c(DpStatConstants.SESSION_TYPE_KERNEL);
+    private c b = new c(DpStatConstants.SESSION_TYPE_KERNEL);
 
     private a() {
     }
@@ -21,16 +19,16 @@ public class a {
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (f1830a == null) {
-                f1830a = new a();
+            if (f1469a == null) {
+                f1469a = new a();
             }
-            aVar = f1830a;
+            aVar = f1469a;
         }
         return aVar;
     }
 
     public JSONObject a(JSONObject jSONObject) throws JSONException {
-        return this.f1831b.a(jSONObject);
+        return this.b.a(jSONObject);
     }
 
     public void b() {
@@ -50,16 +48,16 @@ public class a {
             }
         }
         String networkStatisticsData = DpNetworkUtils.getNetworkStatisticsData(applicationContext);
-        this.f1831b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "app_name", packageName));
-        this.f1831b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "app_version", str));
-        this.f1831b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_SDK_VERSION, CyberPlayerManager.getSDKVersion()));
-        this.f1831b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "cuid", CyberPlayerManager.getClientID()));
-        this.f1831b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "network", networkStatisticsData));
-        this.f1831b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_KERNEL_SESSION_ID, System.currentTimeMillis()));
-        this.f1831b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_SERVER_TYPE, DpStatConstants.SERVER_TYPE_DUPLAYER_INIT));
+        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "app_name", packageName));
+        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "app_version", str));
+        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_SDK_VERSION, CyberPlayerManager.getSDKVersion()));
+        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "cuid", CyberPlayerManager.getClientID()));
+        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "network", networkStatisticsData));
+        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_KERNEL_SESSION_ID, System.currentTimeMillis()));
+        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_SERVER_TYPE, DpStatConstants.SERVER_TYPE_DUPLAYER_INIT));
         String str2 = CyberPlayerManager.getInstallOpts().get("abtest_sid");
         if (str2 != null) {
-            this.f1831b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "abtest_sid", str2));
+            this.b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "abtest_sid", str2));
         }
     }
 }

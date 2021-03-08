@@ -4,25 +4,25 @@ import android.content.Context;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements d {
-    float bGS;
-    float bGT;
-    final float iSV;
+    float bIs;
+    float bIt;
+    final float iUE;
     private VelocityTracker mVelocityTracker;
-    protected e pgo;
-    final float pgp;
-    private boolean pgq;
+    protected e piw;
+    final float pix;
+    private boolean piy;
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.d
     public void a(e eVar) {
-        this.pgo = eVar;
+        this.piw = eVar;
     }
 
     public a(Context context) {
         ViewConfiguration viewConfiguration = ViewConfiguration.get(context);
-        this.pgp = viewConfiguration.getScaledMinimumFlingVelocity();
-        this.iSV = viewConfiguration.getScaledTouchSlop();
+        this.pix = viewConfiguration.getScaledMinimumFlingVelocity();
+        this.iUE = viewConfiguration.getScaledTouchSlop();
     }
 
     float ar(MotionEvent motionEvent) {
@@ -34,13 +34,13 @@ public class a implements d {
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.d
-    public boolean elP() {
+    public boolean elZ() {
         return false;
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.d
     public boolean isDragging() {
-        return this.pgq;
+        return this.piy;
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.d
@@ -51,22 +51,22 @@ public class a implements d {
                 if (this.mVelocityTracker != null) {
                     this.mVelocityTracker.addMovement(motionEvent);
                 } else {
-                    com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.elQ().i("CupcakeGestureDetector", "Velocity tracker is null");
+                    com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.ema().i("CupcakeGestureDetector", "Velocity tracker is null");
                 }
-                this.bGS = ar(motionEvent);
-                this.bGT = as(motionEvent);
-                this.pgq = false;
+                this.bIs = ar(motionEvent);
+                this.bIt = as(motionEvent);
+                this.piy = false;
                 break;
             case 1:
-                if (this.pgq && this.mVelocityTracker != null) {
-                    this.bGS = ar(motionEvent);
-                    this.bGT = as(motionEvent);
+                if (this.piy && this.mVelocityTracker != null) {
+                    this.bIs = ar(motionEvent);
+                    this.bIt = as(motionEvent);
                     this.mVelocityTracker.addMovement(motionEvent);
                     this.mVelocityTracker.computeCurrentVelocity(1000);
                     float xVelocity = this.mVelocityTracker.getXVelocity();
                     float yVelocity = this.mVelocityTracker.getYVelocity();
-                    if (Math.max(Math.abs(xVelocity), Math.abs(yVelocity)) >= this.pgp) {
-                        this.pgo.i(this.bGS, this.bGT, -xVelocity, -yVelocity);
+                    if (Math.max(Math.abs(xVelocity), Math.abs(yVelocity)) >= this.pix) {
+                        this.piw.i(this.bIs, this.bIt, -xVelocity, -yVelocity);
                     }
                 }
                 if (this.mVelocityTracker != null) {
@@ -78,15 +78,15 @@ public class a implements d {
             case 2:
                 float ar = ar(motionEvent);
                 float as = as(motionEvent);
-                float f = ar - this.bGS;
-                float f2 = as - this.bGT;
-                if (!this.pgq) {
-                    this.pgq = Math.sqrt((double) ((f * f) + (f2 * f2))) >= ((double) this.iSV);
+                float f = ar - this.bIs;
+                float f2 = as - this.bIt;
+                if (!this.piy) {
+                    this.piy = Math.sqrt((double) ((f * f) + (f2 * f2))) >= ((double) this.iUE);
                 }
-                if (this.pgq) {
-                    this.pgo.onDrag(f, f2);
-                    this.bGS = ar;
-                    this.bGT = as;
+                if (this.piy) {
+                    this.piw.onDrag(f, f2);
+                    this.bIs = ar;
+                    this.bIt = as;
                     if (this.mVelocityTracker != null) {
                         this.mVelocityTracker.addMovement(motionEvent);
                         break;

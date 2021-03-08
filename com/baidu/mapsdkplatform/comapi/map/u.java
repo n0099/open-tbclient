@@ -3,14 +3,14 @@ package com.baidu.mapsdkplatform.comapi.map;
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public t f3072a;
+    public t f2233a;
 
     public t a() {
-        return this.f3072a;
+        return this.f2233a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(t tVar) {
-        this.f3072a = tVar;
+        this.f2233a = tVar;
     }
 }

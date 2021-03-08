@@ -6,20 +6,20 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private static volatile a lzZ;
+    private static volatile a lCb;
     private ThreadPoolExecutor mThreadPool;
 
-    public static a diq() {
-        if (lzZ == null) {
+    public static a diz() {
+        if (lCb == null) {
             synchronized (a.class) {
-                if (lzZ == null) {
-                    lzZ = new a();
+                if (lCb == null) {
+                    lCb = new a();
                 }
             }
         }
-        return lzZ;
+        return lCb;
     }
 
     private a() {
@@ -36,7 +36,7 @@ public class a {
 
     private int getNumCores() {
         try {
-            return new File("/sys/devices/system/cpu/").listFiles(new C0806a()).length;
+            return new File("/sys/devices/system/cpu/").listFiles(new C0812a()).length;
         } catch (Exception e) {
             return 1;
         }
@@ -44,9 +44,9 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.newfaceshop.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0806a implements FileFilter {
-        C0806a() {
+    /* loaded from: classes8.dex */
+    public static class C0812a implements FileFilter {
+        C0812a() {
         }
 
         @Override // java.io.FileFilter

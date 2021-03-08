@@ -8,8 +8,8 @@ import android.text.TextUtils;
 import androidx.annotation.CallSuper;
 import androidx.annotation.GuardedBy;
 import androidx.annotation.Nullable;
-import com.bytedance.sdk.adnet.core.p;
-import com.bytedance.sdk.adnet.core.r;
+import com.bytedance.sdk.adnet.core.o;
+import com.bytedance.sdk.adnet.core.q;
 import com.bytedance.sdk.adnet.e.b;
 import com.bytedance.sdk.adnet.err.VAdError;
 import java.io.UnsupportedEncodingException;
@@ -32,18 +32,16 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     @GuardedBy("mLock")
 
     /* renamed from: a  reason: collision with root package name */
-    protected p.a<T> f6011a;
-
-    /* renamed from: b  reason: collision with root package name */
-    protected Handler f6012b;
-    private final r.a c;
+    protected o.a<T> f4030a;
+    protected Handler b;
+    private final q.a c;
     private final int d;
     private String e;
     private String f;
     private final int g;
     private final Object h;
     private Integer i;
-    private o j;
+    private n j;
     private boolean k;
     @GuardedBy("mLock")
     private boolean l;
@@ -63,7 +61,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
 
     /* loaded from: classes6.dex */
     interface a {
-        void a(Request<?> request, p<?> pVar);
+        void a(Request<?> request, o<?> oVar);
 
         void b(Request<?> request);
     }
@@ -77,10 +75,10 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract p<T> a(l lVar);
+    public abstract o<T> a(k kVar);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void a(p<T> pVar);
+    public abstract void a(o<T> oVar);
 
     @Override // java.lang.Comparable
     public /* bridge */ /* synthetic */ int compareTo(Object obj) {
@@ -88,12 +86,12 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     }
 
     @Deprecated
-    public Request(String str, p.a aVar) {
+    public Request(String str, o.a aVar) {
         this(-1, str, aVar);
     }
 
-    public Request(int i, String str, @Nullable p.a aVar) {
-        this.c = r.a.f6050a ? new r.a() : null;
+    public Request(int i, String str, @Nullable o.a aVar) {
+        this.c = q.a.f4051a ? new q.a() : null;
         this.f = "VADNetAgent/0";
         this.h = new Object();
         this.k = true;
@@ -104,10 +102,10 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         this.r = 0L;
         this.s = 0L;
         this.t = true;
-        this.f6012b = new Handler(Looper.getMainLooper());
+        this.b = new Handler(Looper.getMainLooper());
         this.d = i;
         this.e = str;
-        this.f6011a = aVar;
+        this.f4030a = aVar;
         setRetryPolicy(new g());
         this.g = b(str);
     }
@@ -169,10 +167,10 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     }
 
     @Nullable
-    public p.a getBaseListener() {
-        p.a<T> aVar;
+    public o.a getBaseListener() {
+        o.a<T> aVar;
         synchronized (this.h) {
-            aVar = this.f6011a;
+            aVar = this.f4030a;
         }
         return aVar;
     }
@@ -201,7 +199,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     }
 
     public void addMarker(String str) {
-        if (r.a.f6050a) {
+        if (q.a.f4051a) {
             this.c.a(str, Thread.currentThread().getId());
         }
     }
@@ -222,10 +220,10 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         if (this.j != null) {
             this.j.k(this);
         }
-        if (r.a.f6050a) {
+        if (q.a.f4051a) {
             final long id = Thread.currentThread().getId();
             if (Looper.myLooper() != Looper.getMainLooper()) {
-                this.f6012b.post(new Runnable() { // from class: com.bytedance.sdk.adnet.core.Request.1
+                this.b.post(new Runnable() { // from class: com.bytedance.sdk.adnet.core.Request.1
                     @Override // java.lang.Runnable
                     public void run() {
                         Request.this.c.a(str, id);
@@ -248,8 +246,8 @@ public abstract class Request<T> implements Comparable<Request<T>> {
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.bytedance.sdk.adnet.core.Request<T> */
     /* JADX WARN: Multi-variable type inference failed */
-    public Request<?> setRequestQueue(o oVar) {
-        this.j = oVar;
+    public Request<?> setRequestQueue(n nVar) {
+        this.j = nVar;
         return this;
     }
 
@@ -260,7 +258,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         return this;
     }
 
-    public final o getRequestQueue() {
+    public final n getRequestQueue() {
         return this.j;
     }
 
@@ -300,7 +298,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     public void cancel() {
         synchronized (this.h) {
             this.l = true;
-            this.f6011a = null;
+            this.f4030a = null;
         }
     }
 
@@ -421,9 +419,9 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         return z;
     }
 
-    public void build(o oVar) {
-        if (oVar != null) {
-            oVar.j(this);
+    public void build(n nVar) {
+        if (nVar != null) {
+            nVar.j(this);
         }
     }
 
@@ -435,13 +433,13 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     protected void a(long j, long j2) {
     }
 
-    public void deliverError(p<T> pVar) {
-        p.a<T> aVar;
+    public void deliverError(o<T> oVar) {
+        o.a<T> aVar;
         synchronized (this.h) {
-            aVar = this.f6011a;
+            aVar = this.f4030a;
         }
         if (aVar != null) {
-            aVar.b(pVar);
+            aVar.b(oVar);
         }
     }
 
@@ -461,13 +459,13 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void b(p<?> pVar) {
+    public void b(o<?> oVar) {
         a aVar;
         synchronized (this.h) {
             aVar = this.w;
         }
         if (aVar != null) {
-            aVar.a(this, pVar);
+            aVar.a(this, oVar);
         }
     }
 

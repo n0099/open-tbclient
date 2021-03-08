@@ -4,44 +4,44 @@ import android.util.JsonReader;
 import androidx.annotation.Nullable;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class d {
     public static com.baidu.live.lottie.model.a.b f(JsonReader jsonReader, com.baidu.live.lottie.e eVar) throws IOException {
         return a(jsonReader, eVar, true);
     }
 
     public static com.baidu.live.lottie.model.a.b a(JsonReader jsonReader, com.baidu.live.lottie.e eVar, boolean z) throws IOException {
-        return new com.baidu.live.lottie.model.a.b(a(jsonReader, z ? com.baidu.live.lottie.d.f.kz() : 1.0f, eVar, i.buA));
+        return new com.baidu.live.lottie.model.a.b(a(jsonReader, z ? com.baidu.live.lottie.d.f.kz() : 1.0f, eVar, i.bwa));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.baidu.live.lottie.model.a.d g(JsonReader jsonReader, com.baidu.live.lottie.e eVar) throws IOException {
-        return new com.baidu.live.lottie.model.a.d(a(jsonReader, eVar, o.buB));
+        return new com.baidu.live.lottie.model.a.d(a(jsonReader, eVar, o.bwb));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.baidu.live.lottie.model.a.f h(JsonReader jsonReader, com.baidu.live.lottie.e eVar) throws IOException {
-        return new com.baidu.live.lottie.model.a.f(a(jsonReader, com.baidu.live.lottie.d.f.kz(), eVar, y.buD));
+        return new com.baidu.live.lottie.model.a.f(a(jsonReader, com.baidu.live.lottie.d.f.kz(), eVar, y.bwd));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.baidu.live.lottie.model.a.g i(JsonReader jsonReader, com.baidu.live.lottie.e eVar) throws IOException {
-        return new com.baidu.live.lottie.model.a.g(a(jsonReader, eVar, ac.buE));
+        return new com.baidu.live.lottie.model.a.g(a(jsonReader, eVar, ac.bwe));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.baidu.live.lottie.model.a.h j(JsonReader jsonReader, com.baidu.live.lottie.e eVar) throws IOException {
-        return new com.baidu.live.lottie.model.a.h(a(jsonReader, com.baidu.live.lottie.d.f.kz(), eVar, ad.buF));
+        return new com.baidu.live.lottie.model.a.h(a(jsonReader, com.baidu.live.lottie.d.f.kz(), eVar, ad.bwf));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.baidu.live.lottie.model.a.j k(JsonReader jsonReader, com.baidu.live.lottie.e eVar) throws IOException {
-        return new com.baidu.live.lottie.model.a.j(a(jsonReader, eVar, h.buz));
+        return new com.baidu.live.lottie.model.a.j(a(jsonReader, eVar, h.bvZ));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.baidu.live.lottie.model.a.a l(JsonReader jsonReader, com.baidu.live.lottie.e eVar) throws IOException {
-        return new com.baidu.live.lottie.model.a.a(a(jsonReader, eVar, f.buy));
+        return new com.baidu.live.lottie.model.a.a(a(jsonReader, eVar, f.bvY));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

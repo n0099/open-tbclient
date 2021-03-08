@@ -5,27 +5,27 @@ import com.baidu.tieba.frs.aggregation.VideoAggregationModel;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class i {
-    private d joD;
-    private VideoAggregationModel joE;
-    private VideoAggregationModel.a jox = new VideoAggregationModel.a() { // from class: com.baidu.tieba.frs.aggregation.i.1
+    private VideoAggregationModel.a jqg = new VideoAggregationModel.a() { // from class: com.baidu.tieba.frs.aggregation.i.1
         @Override // com.baidu.tieba.frs.aggregation.VideoAggregationModel.a
         public void e(List<g> list, boolean z, boolean z2) {
-            if (i.this.joD != null) {
-                i.this.joD.hideLoadingView();
+            if (i.this.jqm != null) {
+                i.this.jqm.hideLoadingView();
                 i.this.mHasMore = z2;
-                i.this.joD.d(list, z, z2);
+                i.this.jqm.d(list, z, z2);
             }
         }
 
         @Override // com.baidu.tieba.frs.aggregation.VideoAggregationModel.a
-        public void vz(String str) {
-            if (i.this.joD != null) {
-                i.this.joD.hideLoadingView();
-                i.this.joD.showMsg(str);
-                i.this.joD.onLoadFail();
+        public void vG(String str) {
+            if (i.this.jqm != null) {
+                i.this.jqm.hideLoadingView();
+                i.this.jqm.showMsg(str);
+                i.this.jqm.onLoadFail();
             }
         }
     };
+    private d jqm;
+    private VideoAggregationModel jqn;
     private String mFrom;
     private boolean mHasMore;
     private String mId;
@@ -35,53 +35,53 @@ public class i {
 
     public i(TbPageContext tbPageContext, d dVar) {
         this.mPageContext = tbPageContext;
-        this.joD = dVar;
-        this.joE = new VideoAggregationModel(tbPageContext, this.jox);
+        this.jqm = dVar;
+        this.jqn = new VideoAggregationModel(tbPageContext, this.jqg);
     }
 
     public void setId(String str) {
         this.mId = str;
-        if (this.joE != null) {
-            this.joE.setId(this.mId);
+        if (this.jqn != null) {
+            this.jqn.setId(this.mId);
         }
     }
 
     public void setFrom(String str) {
         this.mFrom = str;
-        if (this.joE != null) {
-            this.joE.setFrom(str);
+        if (this.jqn != null) {
+            this.jqn.setFrom(str);
         }
     }
 
-    public void Kp(String str) {
+    public void Ky(String str) {
         this.st_type = str;
-        if (this.joE != null) {
-            this.joE.Kp(str);
+        if (this.jqn != null) {
+            this.jqn.Ky(str);
         }
     }
 
     public void setLocation(String str) {
         this.yuelaou_locate = str;
-        if (this.joE != null) {
-            this.joE.setLocation(str);
+        if (this.jqn != null) {
+            this.jqn.setLocation(str);
         }
     }
 
-    public void cFD() {
-        if (this.joE != null) {
-            this.joE.cFD();
+    public void cFJ() {
+        if (this.jqn != null) {
+            this.jqn.cFJ();
         }
     }
 
-    public void cFF() {
-        if (this.joE != null && this.mHasMore) {
-            this.joE.LoadData();
+    public void cFL() {
+        if (this.jqn != null && this.mHasMore) {
+            this.jqn.LoadData();
         }
     }
 
-    public void cFE() {
-        if (this.joE != null) {
-            this.joE.cancelLoadData();
+    public void cFK() {
+        if (this.jqn != null) {
+            this.jqn.cancelLoadData();
         }
     }
 }

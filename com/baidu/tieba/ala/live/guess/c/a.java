@@ -4,45 +4,45 @@ import android.content.Context;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import com.baidu.ar.constants.HttpConstants;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public static float hhA;
-    public static float hhB;
-    public static float hhC;
-    private static a hhD;
+    public static float hjk;
+    public static float hjl;
+    public static float hjm;
+    private static a hjn;
 
-    public static a fY(Context context) {
-        if (hhD == null) {
-            hhD = new a(context);
+    public static a fX(Context context) {
+        if (hjn == null) {
+            hjn = new a(context);
         }
-        return hhD;
+        return hjn;
     }
 
-    public static a bXR() {
-        if (hhD == null) {
+    public static a bXX() {
+        if (hjn == null) {
             throw new RuntimeException("UiUtil应该先调用含有构造方法进行初始化");
         }
-        return hhD;
+        return hjn;
     }
 
     private a(Context context) {
         WindowManager windowManager = (WindowManager) context.getSystemService("window");
         DisplayMetrics displayMetrics = new DisplayMetrics();
-        if (hhA == 0.0f || hhB == 0.0f) {
+        if (hjk == 0.0f || hjl == 0.0f) {
             windowManager.getDefaultDisplay().getMetrics(displayMetrics);
-            int fZ = fZ(context);
+            int fY = fY(context);
             if (displayMetrics.widthPixels > displayMetrics.heightPixels) {
-                hhA = displayMetrics.heightPixels;
-                hhB = displayMetrics.widthPixels - fZ;
+                hjk = displayMetrics.heightPixels;
+                hjl = displayMetrics.widthPixels - fY;
             } else {
-                hhA = displayMetrics.widthPixels;
-                hhB = displayMetrics.heightPixels - fZ;
+                hjk = displayMetrics.widthPixels;
+                hjl = displayMetrics.heightPixels - fY;
             }
-            hhC = fZ(context);
+            hjm = fY(context);
         }
     }
 
-    public int fZ(Context context) {
+    public int fY(Context context) {
         int dimensionPixelSize = context.getResources().getDimensionPixelSize(context.getResources().getIdentifier("status_bar_height", "dimen", HttpConstants.OS_TYPE_VALUE));
         return dimensionPixelSize != -1 ? dimensionPixelSize : e(context, "com.android.internal.R$dimen", "system_bar_height", 48);
     }
@@ -57,11 +57,11 @@ public class a {
         }
     }
 
-    public int uL(int i) {
-        return Math.round((i * hhA) / 414.0f);
+    public int uN(int i) {
+        return Math.round((i * hjk) / 414.0f);
     }
 
-    public int uM(int i) {
-        return Math.round((i * hhB) / (896.0f - hhC));
+    public int uO(int i) {
+        return Math.round((i * hjl) / (896.0f - hjm));
     }
 }

@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.mcast;
 
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -151,7 +152,7 @@ public class ParseM3u8 {
         LogUtils.d(TAG, "parseTSline attr:   " + str + "  " + str2 + "  " + str3);
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
             TS ts = new TS();
-            String trim = str.substring(str.indexOf(":") + 1).replace("T", " ").trim();
+            String trim = str.substring(str.indexOf(":") + 1).replace(ExifInterface.GPS_DIRECTION_TRUE, " ").trim();
             ts.stime = trim;
             if (trim.length() < 20) {
                 LogUtils.e(TAG, "parseTSattr exception 2.");

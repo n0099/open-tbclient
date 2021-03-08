@@ -2,7 +2,7 @@ package com.yy.audioengine;
 
 import com.yy.audioengine.Constant;
 import com.yy.audioengine.SpeechMsgRecorder;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AudioRecordTool implements IFilePlayerNotify, ISpeechMsgRecorderNotify {
     private static String TAG = "[AudioRecordTool]";
     private FilePlayer mAccompanyFilePlayer;

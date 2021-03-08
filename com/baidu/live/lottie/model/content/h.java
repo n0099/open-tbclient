@@ -4,30 +4,30 @@ import android.graphics.PointF;
 import androidx.annotation.FloatRange;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class h {
-    private final List<com.baidu.live.lottie.model.a> Gg = new ArrayList();
-    private PointF Gh;
+    private final List<com.baidu.live.lottie.model.a> HC = new ArrayList();
+    private PointF HD;
     private boolean closed;
 
     public h(PointF pointF, boolean z, List<com.baidu.live.lottie.model.a> list) {
-        this.Gh = pointF;
+        this.HD = pointF;
         this.closed = z;
-        this.Gg.addAll(list);
+        this.HC.addAll(list);
     }
 
     public h() {
     }
 
     private void i(float f, float f2) {
-        if (this.Gh == null) {
-            this.Gh = new PointF();
+        if (this.HD == null) {
+            this.HD = new PointF();
         }
-        this.Gh.set(f, f2);
+        this.HD.set(f, f2);
     }
 
     public PointF jL() {
-        return this.Gh;
+        return this.HD;
     }
 
     public boolean isClosed() {
@@ -35,27 +35,27 @@ public class h {
     }
 
     public List<com.baidu.live.lottie.model.a> jM() {
-        return this.Gg;
+        return this.HC;
     }
 
     public void a(h hVar, h hVar2, @FloatRange(from = 0.0d, to = 1.0d) float f) {
-        if (this.Gh == null) {
-            this.Gh = new PointF();
+        if (this.HD == null) {
+            this.HD = new PointF();
         }
         this.closed = hVar.isClosed() || hVar2.isClosed();
         if (hVar.jM().size() != hVar2.jM().size()) {
             com.baidu.live.lottie.d.warn("Curves must have the same number of control points. Shape 1: " + hVar.jM().size() + "\tShape 2: " + hVar2.jM().size());
         }
-        if (this.Gg.isEmpty()) {
+        if (this.HC.isEmpty()) {
             int min = Math.min(hVar.jM().size(), hVar2.jM().size());
             for (int i = 0; i < min; i++) {
-                this.Gg.add(new com.baidu.live.lottie.model.a());
+                this.HC.add(new com.baidu.live.lottie.model.a());
             }
         }
         PointF jL = hVar.jL();
         PointF jL2 = hVar2.jL();
         i(com.baidu.live.lottie.d.e.lerp(jL.x, jL2.x, f), com.baidu.live.lottie.d.e.lerp(jL.y, jL2.y, f));
-        for (int size = this.Gg.size() - 1; size >= 0; size--) {
+        for (int size = this.HC.size() - 1; size >= 0; size--) {
             com.baidu.live.lottie.model.a aVar = hVar.jM().get(size);
             com.baidu.live.lottie.model.a aVar2 = hVar2.jM().get(size);
             PointF iS = aVar.iS();
@@ -64,13 +64,13 @@ public class h {
             PointF iS2 = aVar2.iS();
             PointF iT2 = aVar2.iT();
             PointF iU2 = aVar2.iU();
-            this.Gg.get(size).f(com.baidu.live.lottie.d.e.lerp(iS.x, iS2.x, f), com.baidu.live.lottie.d.e.lerp(iS.y, iS2.y, f));
-            this.Gg.get(size).g(com.baidu.live.lottie.d.e.lerp(iT.x, iT2.x, f), com.baidu.live.lottie.d.e.lerp(iT.y, iT2.y, f));
-            this.Gg.get(size).h(com.baidu.live.lottie.d.e.lerp(iU.x, iU2.x, f), com.baidu.live.lottie.d.e.lerp(iU.y, iU2.y, f));
+            this.HC.get(size).f(com.baidu.live.lottie.d.e.lerp(iS.x, iS2.x, f), com.baidu.live.lottie.d.e.lerp(iS.y, iS2.y, f));
+            this.HC.get(size).g(com.baidu.live.lottie.d.e.lerp(iT.x, iT2.x, f), com.baidu.live.lottie.d.e.lerp(iT.y, iT2.y, f));
+            this.HC.get(size).h(com.baidu.live.lottie.d.e.lerp(iU.x, iU2.x, f), com.baidu.live.lottie.d.e.lerp(iU.y, iU2.y, f));
         }
     }
 
     public String toString() {
-        return "ShapeData{numCurves=" + this.Gg.size() + "closed=" + this.closed + '}';
+        return "ShapeData{numCurves=" + this.HC.size() + "closed=" + this.closed + '}';
     }
 }

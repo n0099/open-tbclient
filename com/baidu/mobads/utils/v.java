@@ -3,17 +3,17 @@ package com.baidu.mobads.utils;
 import android.content.Context;
 import android.provider.Settings;
 import android.text.TextUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 class v extends com.baidu.mobads.f.a<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f3511a;
+    final /* synthetic */ Context f2496a;
     final /* synthetic */ t c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(t tVar, Context context) {
         this.c = tVar;
-        this.f3511a = context;
+        this.f2496a = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,9 +22,9 @@ class v extends com.baidu.mobads.f.a<String> {
     public String a() {
         String str;
         try {
-            String string = Settings.System.getString(this.f3511a.getContentResolver(), "com.baidu.deviceid");
+            String string = Settings.System.getString(this.f2496a.getContentResolver(), "com.baidu.deviceid");
             if (string != null && !string.equals("")) {
-                String string2 = Settings.System.getString(this.f3511a.getContentResolver(), "bd_setting_i");
+                String string2 = Settings.System.getString(this.f2496a.getContentResolver(), "bd_setting_i");
                 if (TextUtils.isEmpty(string2)) {
                     string2 = "0";
                 }

@@ -1,9 +1,9 @@
 package com.baidu.tieba.yuyinala.liveroom.wheat.lottie;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface d {
-    void EL(String str);
+    void ES(String str);
 
-    void WI(String str);
+    void WP(String str);
 
     void onFail(String str);
 }

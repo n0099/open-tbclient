@@ -3,7 +3,7 @@ package com.baidu.tieba.yuyinala.liveroom.messages;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c extends HttpMessage {
     private long mAudienceCount;
     private List<Long> mIds;

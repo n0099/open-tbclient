@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.ar.callback.ICallbackWith;
 import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
     private JSONObject bJ;

@@ -10,22 +10,22 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes5.dex */
 public abstract class a<T> extends AbstractDataSource<T> {
-    private final com.facebook.imagepipeline.g.c pIJ;
-    private final ap pKk;
+    private final com.facebook.imagepipeline.g.c pKO;
+    private final ap pMp;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(aj<T> ajVar, ap apVar, com.facebook.imagepipeline.g.c cVar) {
-        this.pKk = apVar;
-        this.pIJ = cVar;
-        this.pIJ.a(apVar.ezp(), this.pKk.eud(), this.pKk.getId(), this.pKk.ezs());
-        ajVar.a(eyd(), apVar);
+        this.pMp = apVar;
+        this.pKO = cVar;
+        this.pKO.a(apVar.ezy(), this.pMp.eum(), this.pMp.getId(), this.pMp.ezB());
+        ajVar.a(eym(), apVar);
     }
 
-    private k<T> eyd() {
+    private k<T> eym() {
         return new com.facebook.imagepipeline.producers.b<T>() { // from class: com.facebook.imagepipeline.d.a.1
             @Override // com.facebook.imagepipeline.producers.b
-            protected void f(@Nullable T t, int i) {
-                a.this.f(t, i);
+            protected void e(@Nullable T t, int i) {
+                a.this.e(t, i);
             }
 
             @Override // com.facebook.imagepipeline.producers.b
@@ -34,45 +34,45 @@ public abstract class a<T> extends AbstractDataSource<T> {
             }
 
             @Override // com.facebook.imagepipeline.producers.b
-            protected void eye() {
-                a.this.eye();
+            protected void eyn() {
+                a.this.eyn();
             }
 
             @Override // com.facebook.imagepipeline.producers.b
-            protected void bN(float f) {
-                a.this.bF(f);
+            protected void bR(float f) {
+                a.this.bJ(f);
             }
         };
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void f(@Nullable T t, int i) {
-        boolean Qk = com.facebook.imagepipeline.producers.b.Qk(i);
-        if (super.c(t, Qk) && Qk) {
-            this.pIJ.a(this.pKk.ezp(), this.pKk.getId(), this.pKk.ezs());
+    public void e(@Nullable T t, int i) {
+        boolean Qo = com.facebook.imagepipeline.producers.b.Qo(i);
+        if (super.c(t, Qo) && Qo) {
+            this.pKO.a(this.pMp.ezy(), this.pMp.getId(), this.pMp.ezB());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void B(Throwable th) {
         if (super.t(th)) {
-            this.pIJ.a(this.pKk.ezp(), this.pKk.getId(), th, this.pKk.ezs());
+            this.pKO.a(this.pMp.ezy(), this.pMp.getId(), th, this.pMp.ezB());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void eye() {
+    public synchronized void eyn() {
         g.checkState(isClosed());
     }
 
     @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
-    public boolean apL() {
-        if (!super.apL()) {
+    public boolean apO() {
+        if (!super.apO()) {
             return false;
         }
         if (!super.isFinished()) {
-            this.pIJ.ZD(this.pKk.getId());
-            this.pKk.cancel();
+            this.pKO.ZJ(this.pMp.getId());
+            this.pMp.cancel();
         }
         return true;
     }

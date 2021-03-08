@@ -7,7 +7,7 @@ import java.io.File;
 class SecurityChecker {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile State f8188a;
+    private static volatile State f5455a;
 
     /* loaded from: classes3.dex */
     public enum State {
@@ -25,18 +25,18 @@ class SecurityChecker {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void a(final File file, final a.C1070a c1070a, final a aVar) {
+    public static void a(final File file, final a.C1087a c1087a, final a aVar) {
         i.a(new Runnable() { // from class: com.kwad.sdk.api.loader.SecurityChecker.1
             @Override // java.lang.Runnable
             public void run() {
-                State unused = SecurityChecker.f8188a = State.INIT;
+                State unused = SecurityChecker.f5455a = State.INIT;
                 try {
-                    boolean z = a.C1070a.this != null && SecurityChecker.b(file) && SecurityChecker.b(file, a.C1070a.this.c);
+                    boolean z = a.C1087a.this != null && SecurityChecker.b(file) && SecurityChecker.b(file, a.C1087a.this.c);
                     if (z) {
-                        State unused2 = SecurityChecker.f8188a = State.SUCCESS;
+                        State unused2 = SecurityChecker.f5455a = State.SUCCESS;
                     }
                     if (aVar != null) {
-                        aVar.a(z, SecurityChecker.f8188a);
+                        aVar.a(z, SecurityChecker.f5455a);
                     }
                 } catch (Exception e) {
                     if (aVar != null) {
@@ -49,13 +49,13 @@ class SecurityChecker {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean b(File file) {
-        f8188a = State.DATA_VALID;
+        f5455a = State.DATA_VALID;
         return file != null && file.exists() && file.getName().endsWith(".apk") && file.length() > 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean b(File file, String str) {
-        f8188a = State.MD5;
+        f5455a = State.MD5;
         if (TextUtils.isEmpty(str)) {
             return false;
         }

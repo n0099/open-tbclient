@@ -14,11 +14,9 @@ import java.util.Locale;
 public final class LogUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1980a = "apollon_rest";
+    private static final String f1556a = "apollon_rest";
     public static final boolean DEBUG = ApollonConstants.DEBUG;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final boolean f1981b = ApollonConstants.DEBUG;
+    private static final boolean b = ApollonConstants.DEBUG;
     private static final boolean c = ApollonConstants.DEBUG;
     private static final boolean d = ApollonConstants.DEBUG;
     private static final boolean e = ApollonConstants.DEBUG;
@@ -28,7 +26,7 @@ public final class LogUtil {
     }
 
     public static void v(String str, String str2) {
-        if (f1981b) {
+        if (b) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }

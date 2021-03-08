@@ -23,10 +23,8 @@ import org.json.JSONObject;
 public class c extends Presenter implements com.kwad.sdk.core.i.c {
 
     /* renamed from: a  reason: collision with root package name */
-    protected com.kwad.sdk.splashscreen.c f10726a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private AdInfo f10727b;
+    protected com.kwad.sdk.splashscreen.c f7082a;
+    private AdInfo b;
     private ImageView d;
     private ImageView e;
     private boolean c = false;
@@ -36,7 +34,7 @@ public class c extends Presenter implements com.kwad.sdk.core.i.c {
     private void a(String str, int i) {
         if (i == 0) {
             this.d.setVisibility(0);
-            KSImageLoader.loadImage(this.d, str, this.f10726a.c, new ImageLoadingListener() { // from class: com.kwad.sdk.splashscreen.a.c.2
+            KSImageLoader.loadImage(this.d, str, this.f7082a.c, new ImageLoadingListener() { // from class: com.kwad.sdk.splashscreen.a.c.2
                 @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
                 public boolean onDecode(String str2, InputStream inputStream, DecodedResult decodedResult) {
                     return false;
@@ -48,8 +46,8 @@ public class c extends Presenter implements com.kwad.sdk.core.i.c {
 
                 @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
                 public void onLoadingComplete(String str2, View view, DecodedResult decodedResult) {
-                    if (c.this.f10726a.f10749a != null) {
-                        c.this.f10726a.f10749a.onAdShowStart();
+                    if (c.this.f7082a.f7099a != null) {
+                        c.this.f7082a.f7099a.onAdShowStart();
                     }
                     Bitmap bitmap = decodedResult.mBitmap;
                     if (bitmap == null || c.this.o() == null) {
@@ -64,10 +62,10 @@ public class c extends Presenter implements com.kwad.sdk.core.i.c {
 
                 @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
                 public void onLoadingFailed(String str2, View view, FailReason failReason) {
-                    if (c.this.f10726a.f10749a == null || c.this.g) {
+                    if (c.this.f7082a.f7099a == null || c.this.g) {
                         return;
                     }
-                    c.this.f10726a.f10749a.onAdShowError(0, "load image error");
+                    c.this.f7082a.f7099a.onAdShowError(0, "load image error");
                 }
 
                 @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
@@ -77,7 +75,7 @@ public class c extends Presenter implements com.kwad.sdk.core.i.c {
             return;
         }
         this.e.setVisibility(0);
-        KSImageLoader.loadImage(this.e, str, this.f10726a.c, new ImageLoadingListener() { // from class: com.kwad.sdk.splashscreen.a.c.3
+        KSImageLoader.loadImage(this.e, str, this.f7082a.c, new ImageLoadingListener() { // from class: com.kwad.sdk.splashscreen.a.c.3
             @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
             public boolean onDecode(String str2, InputStream inputStream, DecodedResult decodedResult) {
                 return false;
@@ -89,17 +87,17 @@ public class c extends Presenter implements com.kwad.sdk.core.i.c {
 
             @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
             public void onLoadingComplete(String str2, View view, DecodedResult decodedResult) {
-                if (c.this.f10726a.f10749a != null) {
-                    c.this.f10726a.f10749a.onAdShowStart();
+                if (c.this.f7082a.f7099a != null) {
+                    c.this.f7082a.f7099a.onAdShowStart();
                 }
             }
 
             @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
             public void onLoadingFailed(String str2, View view, FailReason failReason) {
-                if (c.this.f10726a.f10749a == null || !c.this.g) {
+                if (c.this.f7082a.f7099a == null || !c.this.g) {
                     return;
                 }
-                c.this.f10726a.f10749a.onAdShowError(0, "load image error");
+                c.this.f7082a.f7099a.onAdShowError(0, "load image error");
             }
 
             @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
@@ -112,31 +110,31 @@ public class c extends Presenter implements com.kwad.sdk.core.i.c {
     @Override // com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f10726a = (com.kwad.sdk.splashscreen.c) n();
-        this.e = (ImageView) this.f10726a.d.findViewById(R.id.ksad_splash_background);
-        this.d = (ImageView) this.f10726a.d.findViewById(R.id.ksad_splash_foreground);
-        this.f10727b = com.kwad.sdk.core.response.b.c.j(this.f10726a.c);
-        String str = com.kwad.sdk.core.response.b.a.D(this.f10727b).materialUrl;
+        this.f7082a = (com.kwad.sdk.splashscreen.c) n();
+        this.e = (ImageView) this.f7082a.d.findViewById(R.id.ksad_splash_background);
+        this.d = (ImageView) this.f7082a.d.findViewById(R.id.ksad_splash_foreground);
+        this.b = com.kwad.sdk.core.response.b.c.j(this.f7082a.c);
+        String str = com.kwad.sdk.core.response.b.a.D(this.b).materialUrl;
         this.e.setVisibility(0);
-        this.f10726a.h.a(this);
-        int i = this.f10727b.adSplashInfo.imageDisplaySecond;
-        int i2 = com.kwad.sdk.core.response.b.a.D(this.f10727b).source;
+        this.f7082a.h.a(this);
+        int i = this.b.adSplashInfo.imageDisplaySecond;
+        int i2 = com.kwad.sdk.core.response.b.a.D(this.b).source;
         if (o() != null) {
-            File a2 = SplashPreloadManager.b().a(this.f10727b.adPreloadInfo.preloadId);
+            File a2 = SplashPreloadManager.b().a(this.b.adPreloadInfo.preloadId);
             if (a2 == null || !a2.exists() || a2.length() <= 0) {
                 a(str, i2);
             } else {
                 a(Uri.fromFile(a2).toString(), i2);
             }
         }
-        if (this.f10726a.h != null) {
-            this.f10726a.h.a(this);
+        if (this.f7082a.h != null) {
+            this.f7082a.h.a(this);
         }
         this.f.postDelayed(new Runnable() { // from class: com.kwad.sdk.splashscreen.a.c.1
             @Override // java.lang.Runnable
             public void run() {
-                if (c.this.f10726a.f10749a != null) {
-                    c.this.f10726a.f10749a.onAdShowEnd();
+                if (c.this.f7082a.f7099a != null) {
+                    c.this.f7082a.f7099a.onAdShowEnd();
                 }
             }
         }, i * 1000);
@@ -150,8 +148,8 @@ public class c extends Presenter implements com.kwad.sdk.core.i.c {
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        if (this.f10726a.h != null) {
-            this.f10726a.h.b(this);
+        if (this.f7082a.h != null) {
+            this.f7082a.h.b(this);
         }
     }
 
@@ -161,7 +159,7 @@ public class c extends Presenter implements com.kwad.sdk.core.i.c {
             return;
         }
         this.c = true;
-        com.kwad.sdk.core.report.b.a(this.f10726a.c, (JSONObject) null);
+        com.kwad.sdk.core.report.b.a(this.f7082a.c, (JSONObject) null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

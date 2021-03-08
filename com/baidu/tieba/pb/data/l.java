@@ -4,15 +4,15 @@ import java.util.List;
 import tbclient.ManagerElection;
 /* loaded from: classes2.dex */
 public class l {
-    private boolean iqN;
-    private int lLp;
-    private int lLq;
-    private List<String> lLr;
-    private List<String> lLs;
-    private List<String> lLt;
-    private String lLu;
-    private boolean lLv;
-    private int lLw;
+    private boolean isw;
+    private int lNr;
+    private int lNs;
+    private List<String> lNt;
+    private List<String> lNu;
+    private List<String> lNv;
+    private String lNw;
+    private boolean lNx;
+    private int lNy;
     private int status;
 
     public static l b(ManagerElection managerElection) {
@@ -20,16 +20,16 @@ public class l {
             return null;
         }
         l lVar = new l();
-        lVar.lLq = managerElection.begin_vote_time.intValue();
-        lVar.iqN = managerElection.can_vote.intValue() == 1;
-        lVar.lLp = managerElection.vote_num.intValue();
-        lVar.lLv = managerElection.is_show_distribute.intValue() == 1;
-        lVar.lLw = managerElection.remainder_time.intValue();
+        lVar.lNs = managerElection.begin_vote_time.intValue();
+        lVar.isw = managerElection.can_vote.intValue() == 1;
+        lVar.lNr = managerElection.vote_num.intValue();
+        lVar.lNx = managerElection.is_show_distribute.intValue() == 1;
+        lVar.lNy = managerElection.remainder_time.intValue();
         lVar.status = managerElection.status.intValue();
-        lVar.lLu = managerElection.tail_text;
-        lVar.lLr = managerElection.vote_condition_pic;
-        lVar.lLs = managerElection.vote_condition_title;
-        lVar.lLt = managerElection.vote_condition;
+        lVar.lNw = managerElection.tail_text;
+        lVar.lNt = managerElection.vote_condition_pic;
+        lVar.lNu = managerElection.vote_condition_title;
+        lVar.lNv = managerElection.vote_condition;
         return lVar;
     }
 
@@ -37,43 +37,43 @@ public class l {
         return this.status;
     }
 
-    public boolean dlR() {
-        return this.lLv;
+    public boolean dma() {
+        return this.lNx;
     }
 
-    public int dlS() {
-        return this.lLw;
+    public int dmb() {
+        return this.lNy;
     }
 
-    public int dlT() {
-        return this.lLp;
+    public int dmc() {
+        return this.lNr;
     }
 
-    public List<String> dlU() {
-        return this.lLs;
+    public List<String> dmd() {
+        return this.lNu;
     }
 
-    public List<String> dlV() {
-        return this.lLt;
+    public List<String> dme() {
+        return this.lNv;
     }
 
-    public String dlW() {
-        return this.lLu;
+    public String dmf() {
+        return this.lNw;
     }
 
-    public boolean crs() {
-        return this.iqN;
+    public boolean cry() {
+        return this.isw;
     }
 
     public void pq(boolean z) {
-        this.iqN = z;
+        this.isw = z;
     }
 
     public void setStatus(int i) {
         this.status = i;
     }
 
-    public void Fv(int i) {
-        this.lLp = i;
+    public void Fy(int i) {
+        this.lNr = i;
     }
 }

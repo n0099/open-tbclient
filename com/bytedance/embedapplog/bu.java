@@ -5,15 +5,13 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public class bu extends bv {
-
-    /* renamed from: b  reason: collision with root package name */
-    private boolean f5815b;
-    private final m pnG;
+    private boolean b;
+    private final m ppQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bu(Context context, m mVar) {
         super(context);
-        this.pnG = mVar;
+        this.ppQ = mVar;
     }
 
     @Override // com.bytedance.embedapplog.bv
@@ -23,25 +21,25 @@ public class bu extends bv {
 
     @Override // com.bytedance.embedapplog.bv
     long b() {
-        return this.f5815b ? Long.MAX_VALUE : 0L;
+        return this.b ? Long.MAX_VALUE : 0L;
     }
 
     @Override // com.bytedance.embedapplog.bv
-    long[] eoc() {
-        return cc.pnM;
+    long[] eon() {
+        return cc.ppW;
     }
 
     @Override // com.bytedance.embedapplog.bv
     boolean d() {
-        if (this.pnG.o() != 0) {
-            JSONObject a2 = this.pnG.a();
+        if (this.ppQ.o() != 0) {
+            JSONObject a2 = this.ppQ.a();
             if (a2 != null) {
-                this.f5815b = aa.x(ab.a(this.f5816a, this.pnG.a(), aa.enY().eoj(), true, b.enu()), a2);
+                this.b = aa.x(ab.a(this.f3924a, this.ppQ.a(), aa.eoj().eot(), true, b.enE()), a2);
             } else {
                 au.a(null);
             }
         }
-        return this.f5815b;
+        return this.b;
     }
 
     @Override // com.bytedance.embedapplog.bv

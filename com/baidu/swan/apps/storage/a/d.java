@@ -10,7 +10,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.actions.aa;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d extends aa {
     public d(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/file/getSavedFileInfo");
@@ -18,7 +18,7 @@ public class d extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        if (context == null || callbackHandler == null || eVar == null || eVar.aIV() == null) {
+        if (context == null || callbackHandler == null || eVar == null || eVar.aIY() == null) {
             com.baidu.swan.apps.console.c.e("getSavedFile", "execute fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -29,7 +29,7 @@ public class d extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        String cx = com.baidu.swan.apps.storage.b.cx(optParamsAsJo.optString("filePath"), com.baidu.swan.apps.runtime.e.aIM());
+        String cx = com.baidu.swan.apps.storage.b.cx(optParamsAsJo.optString("filePath"), com.baidu.swan.apps.runtime.e.aIP());
         if (DEBUG) {
             Log.d("GetSavedFileInfoAction", "——> handle: fileUrl " + optParamsAsJo.optString("filePath"));
             Log.d("GetSavedFileInfoAction", "——> handle: filePath " + cx);
@@ -39,8 +39,8 @@ public class d extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        com.baidu.swan.apps.storage.a ti = eVar.aIV().ti(cx);
-        if (ti == null) {
+        com.baidu.swan.apps.storage.a tp = eVar.aIY().tp(cx);
+        if (tp == null) {
             com.baidu.swan.apps.console.c.e("getSavedFile", "file info is null");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2001, com.baidu.swan.apps.scheme.f.getErrMessage(2001)));
             if (DEBUG) {
@@ -51,8 +51,8 @@ public class d extends aa {
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("createTime", Math.round((float) (ti.aLO() / 1000)));
-            jSONObject.put(TiebaInitialize.LogFields.SIZE, ti.getSize());
+            jSONObject.put("createTime", Math.round((float) (tp.aLR() / 1000)));
+            jSONObject.put(TiebaInitialize.LogFields.SIZE, tp.getSize());
             if (DEBUG) {
                 Log.d("GetSavedFileInfoAction", "——> handle: fileInfo (" + jSONObject.get("createTime") + " , " + jSONObject.get(TiebaInitialize.LogFields.SIZE) + ")");
             }

@@ -10,7 +10,7 @@ import android.widget.OverScroller;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.math.MathUtils;
 import androidx.core.view.ViewCompat;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<V> {
     private static final int INVALID_POINTER = -1;
     private int activePointerId;
@@ -211,7 +211,7 @@ abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<V> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class FlingRunnable implements Runnable {
         private final V layout;
         private final CoordinatorLayout parent;

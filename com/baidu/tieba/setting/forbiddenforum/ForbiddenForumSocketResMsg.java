@@ -3,7 +3,7 @@ package com.baidu.tieba.setting.forbiddenforum;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GetDislikeList.GetDislikeListResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ForbiddenForumSocketResMsg extends SocketResponsedMessage {
     private d pageData;
 

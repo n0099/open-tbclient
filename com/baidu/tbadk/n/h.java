@@ -6,30 +6,30 @@ import java.util.HashMap;
 /* loaded from: classes.dex */
 public class h extends g {
     public long allDataReadTime;
-    public long cmm;
+    public long cnN;
     public int errCode;
     public HashMap<String, String> extra;
-    public long fJA;
-    public boolean fJB;
-    public long fJC;
-    public long fJD;
-    public long fJE;
-    public long fJF;
-    public long fJl;
-    public long fJm;
-    public long fJn;
-    public long fJo;
-    public long fJp;
-    public long fJq;
-    public long fJr;
-    public long fJs;
-    public long fJt;
-    public long fJu;
-    public long fJv;
-    public long fJw;
-    public long fJx;
-    public boolean fJy;
-    public long fJz;
+    public long fKL;
+    public long fKM;
+    public long fKN;
+    public long fKO;
+    public long fKP;
+    public long fKQ;
+    public long fKR;
+    public long fKS;
+    public long fKT;
+    public long fKU;
+    public long fKV;
+    public long fKW;
+    public long fKX;
+    public boolean fKY;
+    public long fKZ;
+    public long fLa;
+    public boolean fLb;
+    public long fLc;
+    public long fLd;
+    public long fLe;
+    public long fLf;
     public long firstByteReachTime;
     public boolean isSuccess;
     public long sequenceID;
@@ -39,79 +39,79 @@ public class h extends g {
     public h() {
         this.firstByteReachTime = 0L;
         this.allDataReadTime = 0L;
-        this.fJt = 0L;
-        this.fJv = 0L;
-        this.fJw = 0L;
-        this.fJx = 0L;
-        this.fJz = 0L;
-        this.fJA = 0L;
-        this.fJB = false;
+        this.fKT = 0L;
+        this.fKV = 0L;
+        this.fKW = 0L;
+        this.fKX = 0L;
+        this.fKZ = 0L;
+        this.fLa = 0L;
+        this.fLb = false;
         this.extra = new HashMap<>();
     }
 
     public h(int i, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4, long j5, long j6) {
         this.firstByteReachTime = 0L;
         this.allDataReadTime = 0L;
-        this.fJt = 0L;
-        this.fJv = 0L;
-        this.fJw = 0L;
-        this.fJx = 0L;
-        this.fJz = 0L;
-        this.fJA = 0L;
-        this.fJB = false;
+        this.fKT = 0L;
+        this.fKV = 0L;
+        this.fKW = 0L;
+        this.fKX = 0L;
+        this.fKZ = 0L;
+        this.fLa = 0L;
+        this.fLb = false;
         this.extra = new HashMap<>();
         if (responsedMessage != null) {
             this.mSubType = i;
-            this.fJy = z;
-            if (this.fJy) {
-                this.fJx = responsedMessage.getDownSize();
-                this.fJC = responsedMessage.getOrginalMessage().getClientLogID();
+            this.fKY = z;
+            if (this.fKY) {
+                this.fKX = responsedMessage.getDownSize();
+                this.fLc = responsedMessage.getOrginalMessage().getClientLogID();
                 this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
-                this.fJz = responsedMessage.performanceData.mHttpRetryNum;
-                this.fJA = responsedMessage.performanceData.mHttpRetryCostTime;
+                this.fKZ = responsedMessage.performanceData.mHttpRetryNum;
+                this.fLa = responsedMessage.performanceData.mHttpRetryCostTime;
                 this.socketErrNo = responsedMessage.performanceData.mSocketErrNo;
                 this.socketCostTime = responsedMessage.performanceData.mSocketCostTime;
             } else {
-                this.fJw = responsedMessage.getDownSize();
+                this.fKW = responsedMessage.getDownSize();
                 this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
             }
-            this.fJl = j;
-            this.fJm = j4;
-            this.fJn = j2;
-            this.fJu = j3;
-            this.fJs = j5;
+            this.fKL = j;
+            this.fKM = j4;
+            this.fKN = j2;
+            this.fKU = j3;
+            this.fKS = j5;
             this.isSuccess = !responsedMessage.hasError();
-            this.cmm = responsedMessage.performanceData.mQueneTime;
-            this.fJo = responsedMessage.performanceData.mNetConTime;
-            this.fJp = responsedMessage.performanceData.mNetRWTime;
+            this.cnN = responsedMessage.performanceData.mQueneTime;
+            this.fKO = responsedMessage.performanceData.mNetConTime;
+            this.fKP = responsedMessage.performanceData.mNetRWTime;
             this.firstByteReachTime = responsedMessage.performanceData.mFirstByteReachTime;
             this.allDataReadTime = responsedMessage.performanceData.mAllDataReadTime;
-            this.fJq = responsedMessage.performanceData.mCompressTime;
-            this.fJr = responsedMessage.performanceData.mAnalysisTime;
-            this.fJt = responsedMessage.performanceData.mTaskWaitTime;
-            this.fJt += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
+            this.fKQ = responsedMessage.performanceData.mCompressTime;
+            this.fKR = responsedMessage.performanceData.mAnalysisTime;
+            this.fKT = responsedMessage.performanceData.mTaskWaitTime;
+            this.fKT += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
             this.errCode = responsedMessage.getError();
-            this.fJB = z2;
-            this.fJv = j6;
+            this.fLb = z2;
+            this.fKV = j6;
         }
     }
 
-    public void bEd() {
-        m mVar = (m) k.bEg().rv(this.mSubType);
+    public void bEh() {
+        m mVar = (m) k.bEk().rx(this.mSubType);
         if (mVar != null) {
             mVar.a(this);
         }
     }
 
     public void lm(boolean z) {
-        m mVar = (m) k.bEg().rv(this.mSubType);
+        m mVar = (m) k.bEk().rx(this.mSubType);
         if (mVar != null) {
             mVar.a(this, z);
         }
     }
 
-    public void ru(int i) {
-        m mVar = (m) k.bEg().rv(this.mSubType);
+    public void rw(int i) {
+        m mVar = (m) k.bEk().rx(this.mSubType);
         if (mVar != null) {
             mVar.a(this, i);
         }

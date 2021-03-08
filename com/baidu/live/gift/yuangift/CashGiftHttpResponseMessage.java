@@ -4,14 +4,14 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.live.gift.g;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class CashGiftHttpResponseMessage extends JsonHttpResponsedMessage {
-    public int aQt;
-    public int aRp;
-    public int aRq;
-    public g biq;
-    public String bir;
-    public int bis;
+    public int aRT;
+    public int aSP;
+    public int aSQ;
+    public g bjQ;
+    public String bjR;
+    public int bjS;
     public long dubi;
     public String iconId;
     public long nonMemberT;
@@ -33,8 +33,8 @@ public class CashGiftHttpResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("gift_info");
             if (optJSONObject3 != null) {
-                this.biq = new g();
-                this.biq.parseJson(optJSONObject3);
+                this.bjQ = new g();
+                this.bjQ.parseJson(optJSONObject3);
             }
             this.previewGiftId = optJSONObject.optInt("preview_gift_id");
             this.photoUrl = optJSONObject.optString("photo_url");
@@ -44,12 +44,12 @@ public class CashGiftHttpResponseMessage extends JsonHttpResponsedMessage {
             this.dubi = optJSONObject.optLong("dubi");
             this.photoWidth = optJSONObject.optInt("photo_width");
             this.photoHeight = optJSONObject.optInt("photo_height");
-            this.bir = optJSONObject.optString("back_ground");
-            this.bis = optJSONObject.optInt("premium_user");
+            this.bjR = optJSONObject.optString("back_ground");
+            this.bjS = optJSONObject.optInt("premium_user");
             if (optJSONObject.has("cash_gift") && (optJSONObject2 = optJSONObject.optJSONObject("cash_gift")) != null) {
-                this.aRp = optJSONObject2.optInt("show_times_daily");
-                this.aRq = optJSONObject2.optInt("continue_show_times");
-                this.aQt = optJSONObject2.optInt("condition");
+                this.aSP = optJSONObject2.optInt("show_times_daily");
+                this.aSQ = optJSONObject2.optInt("continue_show_times");
+                this.aRT = optJSONObject2.optInt("condition");
             }
         }
     }

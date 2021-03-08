@@ -6,10 +6,10 @@ import tbclient.SimpleForum;
 /* loaded from: classes.dex */
 public class bx implements com.baidu.tbadk.core.view.commonLike.forum.b {
     public String avatar;
-    private boolean ePK;
-    private boolean ePL;
-    public ad ePM;
-    public String ePN;
+    private boolean eRl;
+    private boolean eRm;
+    public ad eRn;
+    public String eRo;
     public String forumId;
     private int forumLevel;
     public String forumName;
@@ -29,29 +29,29 @@ public class bx implements com.baidu.tbadk.core.view.commonLike.forum.b {
 
     @Override // com.baidu.tbadk.core.view.commonLike.forum.b
     public void jw(boolean z) {
-        this.ePL = z;
+        this.eRm = z;
     }
 
-    public boolean bnf() {
-        return this.ePL;
+    public boolean bnh() {
+        return this.eRm;
     }
 
     public String getAvatar() {
         return this.avatar;
     }
 
-    public int bng() {
+    public int bni() {
         return this.forumLevel;
     }
 
     @Override // com.baidu.tbadk.core.view.commonLike.a
     public boolean getIsLike() {
-        return this.ePK;
+        return this.eRl;
     }
 
     @Override // com.baidu.tbadk.core.view.commonLike.a
     public void setIsLike(boolean z) {
-        this.ePK = z;
+        this.eRl = z;
     }
 
     public void parserJson(JSONObject jSONObject) {
@@ -62,8 +62,8 @@ public class bx implements com.baidu.tbadk.core.view.commonLike.forum.b {
             this.forumLevel = jSONObject.optInt("level_id");
             JSONObject optJSONObject = jSONObject.optJSONObject("multi_forum_perm");
             if (optJSONObject != null) {
-                this.ePM = new ad();
-                this.ePM.parserJson(optJSONObject);
+                this.eRn = new ad();
+                this.eRn.parserJson(optJSONObject);
             }
             this.memberNum = jSONObject.optInt("memberNum", 0);
             this.postNum = jSONObject.optInt("post_num", 0);
@@ -75,16 +75,16 @@ public class bx implements com.baidu.tbadk.core.view.commonLike.forum.b {
             this.forumId = String.valueOf(simpleForum.id);
             this.forumName = simpleForum.name;
             this.avatar = simpleForum.avatar;
-            this.ePK = simpleForum.is_liked.intValue() == 1;
+            this.eRl = simpleForum.is_liked.intValue() == 1;
             this.forumLevel = simpleForum.level_id.intValue();
             if (simpleForum.multi_forum_perm != null) {
-                this.ePM = new ad();
-                this.ePM.a(simpleForum.multi_forum_perm);
+                this.eRn = new ad();
+                this.eRn.a(simpleForum.multi_forum_perm);
             }
             this.isBrandForum = simpleForum.is_brand_forum.intValue() == 1;
             this.memberNum = simpleForum.member_num.intValue();
             this.postNum = simpleForum.post_num.intValue();
-            this.ePN = simpleForum.first_class;
+            this.eRo = simpleForum.first_class;
         }
     }
 }

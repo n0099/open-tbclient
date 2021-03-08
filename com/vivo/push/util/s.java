@@ -17,11 +17,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class s {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Boolean f13699a;
+    private static Boolean f8082a;
 
     public static com.vivo.push.model.b a(Context context) {
         com.vivo.push.model.b bVar;
@@ -110,7 +110,7 @@ public final class s {
         String str;
         try {
             try {
-                cursor = context.getContentResolver().query(com.vivo.push.z.f13717a, null, null, null, null);
+                cursor = context.getContentResolver().query(com.vivo.push.z.f8092a, null, null, null, null);
                 if (cursor != null) {
                     boolean z = false;
                     str = null;
@@ -206,23 +206,23 @@ public final class s {
 
     private static com.vivo.push.model.b e(Context context) {
         ApplicationInfo applicationInfo = null;
-        String b2 = b(context);
-        if (TextUtils.isEmpty(b2)) {
+        String b = b(context);
+        if (TextUtils.isEmpty(b)) {
             return null;
         }
-        com.vivo.push.model.b bVar = new com.vivo.push.model.b(b2);
+        com.vivo.push.model.b bVar = new com.vivo.push.model.b(b);
         try {
-            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(b2, 128);
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(b, 128);
             if (packageInfo != null) {
                 bVar.a(packageInfo.versionCode);
                 bVar.a(packageInfo.versionName);
                 applicationInfo = packageInfo.applicationInfo;
             }
             if (applicationInfo != null) {
-                bVar.a(z.a(context, b2));
+                bVar.a(z.a(context, b));
             }
             bVar.a(a(context, bVar.b()));
-            bVar.b(a(context, b2));
+            bVar.b(a(context, b));
             return bVar;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
@@ -392,8 +392,8 @@ public final class s {
         try {
             byte[] digest = MessageDigest.getInstance("SHA256").digest(context.getPackageManager().getPackageInfo(str, 64).signatures[0].toByteArray());
             StringBuffer stringBuffer = new StringBuffer();
-            for (byte b2 : digest) {
-                String upperCase = Integer.toHexString(b2 & 255).toUpperCase(Locale.US);
+            for (byte b : digest) {
+                String upperCase = Integer.toHexString(b & 255).toUpperCase(Locale.US);
                 if (upperCase.length() == 1) {
                     stringBuffer.append("0");
                 }
@@ -409,14 +409,14 @@ public final class s {
     public static boolean d(Context context) {
         ProviderInfo resolveContentProvider;
         String str = null;
-        if (f13699a != null) {
-            return f13699a.booleanValue();
+        if (f8082a != null) {
+            return f8082a.booleanValue();
         }
         if (context != null && !TextUtils.isEmpty("com.vivo.push.sdk.service.SystemPushConfig") && (resolveContentProvider = context.getPackageManager().resolveContentProvider("com.vivo.push.sdk.service.SystemPushConfig", 128)) != null) {
             str = resolveContentProvider.packageName;
         }
         Boolean valueOf = Boolean.valueOf("BCC35D4D3606F154F0402AB7634E8490C0B244C2675C3C6238986987024F0C02".equals(f(context, str)));
-        f13699a = valueOf;
+        f8082a = valueOf;
         return valueOf.booleanValue();
     }
 }

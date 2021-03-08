@@ -3,9 +3,9 @@ package rx.internal.operators;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class OnSubscribeFromIterable<T> implements d.a<T> {
-    final Iterable<? extends T> qzu;
+    final Iterable<? extends T> qzW;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -16,12 +16,12 @@ public final class OnSubscribeFromIterable<T> implements d.a<T> {
         if (iterable == null) {
             throw new NullPointerException("iterable must not be null");
         }
-        this.qzu = iterable;
+        this.qzW = iterable;
     }
 
     public void call(rx.j<? super T> jVar) {
         try {
-            Iterator<? extends T> it = this.qzu.iterator();
+            Iterator<? extends T> it = this.qzW.iterator();
             boolean hasNext = it.hasNext();
             if (!jVar.isUnsubscribed()) {
                 if (!hasNext) {
@@ -36,7 +36,7 @@ public final class OnSubscribeFromIterable<T> implements d.a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class IterableProducer<T> extends AtomicLong implements rx.f {
         private static final long serialVersionUID = -8730475647105475802L;
         private final Iterator<? extends T> it;

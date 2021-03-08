@@ -6,10 +6,8 @@ import com.ss.android.socialbase.downloader.g.c;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Notification f13252a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f13253b;
+    protected Notification f7898a;
+    private int b;
     private long c;
     private long d;
     private String e;
@@ -21,19 +19,19 @@ public abstract class a {
     public abstract void a(com.ss.android.socialbase.downloader.e.a aVar, boolean z);
 
     public a(int i, String str) {
-        this.f13253b = i;
+        this.b = i;
         this.e = str;
     }
 
     public void a(c cVar) {
         if (cVar != null) {
-            this.f13253b = cVar.g();
+            this.b = cVar.g();
             this.e = cVar.i();
         }
     }
 
     public int a() {
-        return this.f13253b;
+        return this.b;
     }
 
     public long b() {
@@ -86,8 +84,8 @@ public abstract class a {
     }
 
     public void c(Notification notification) {
-        if (this.f13253b != 0 && notification != null) {
-            b.eIJ().a(this.f13253b, this.f, notification);
+        if (this.b != 0 && notification != null) {
+            b.eIK().a(this.b, this.f, notification);
         }
     }
 
@@ -106,9 +104,5 @@ public abstract class a {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(boolean z) {
         this.i = z;
-    }
-
-    public Notification eII() {
-        return this.f13252a;
     }
 }

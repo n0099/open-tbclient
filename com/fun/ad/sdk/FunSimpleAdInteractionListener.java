@@ -1,5 +1,5 @@
 package com.fun.ad.sdk;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class FunSimpleAdInteractionListener implements FunAdInteractionListener {
     @Override // com.fun.ad.sdk.FunAdInteractionListener
     public void onAdClicked(String str) {

@@ -1,14 +1,14 @@
 package com.baidu.tieba.yuyinala.liveroom.recommend.model;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends HttpMessage {
-    public int aam;
-    public long hKw;
-    public long igz;
+    public int abG;
+    public long hMf;
+    public long iii;
     public long liveId;
-    public int nbq;
-    public int nbr;
+    public int ndu;
+    public int ndv;
 
     public a() {
         super(1031053);
@@ -16,9 +16,9 @@ public class a extends HttpMessage {
 
     public void setParams() {
         addParam("live_id", this.liveId);
-        addParam("session_id", this.igz);
-        addParam("refresh_type", this.aam);
-        addParam("big_refresh_count", this.nbq);
-        addParam("slide_session_id", this.hKw);
+        addParam("session_id", this.iii);
+        addParam("refresh_type", this.abG);
+        addParam("big_refresh_count", this.ndu);
+        addParam("slide_session_id", this.hMf);
     }
 }

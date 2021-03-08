@@ -25,9 +25,9 @@ public class a {
         }
         String format = String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.url_notify), str);
         String string = TbadkCoreApplication.getInst().getContext().getString(R.string.confirm_title);
-        com.baidu.tbadk.core.dialog.a b2 = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity()).At(string).Au(format).a(TbadkCoreApplication.getInst().getContext().getString(R.string.alert_yes_button), bVar).b(TbadkCoreApplication.getInst().getContext().getString(R.string.cancel), bVar2).b(tbPageContext);
-        b2.bqx();
-        return b2;
+        com.baidu.tbadk.core.dialog.a b = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity()).AA(string).AB(format).a(TbadkCoreApplication.getInst().getContext().getString(R.string.alert_yes_button), bVar).b(TbadkCoreApplication.getInst().getContext().getString(R.string.cancel), bVar2).b(tbPageContext);
+        b.bqz();
+        return b;
     }
 
     public static com.baidu.tbadk.core.dialog.a a(TbPageContext<?> tbPageContext, int i, int i2, int i3, int i4, a.b bVar, a.b bVar2) {
@@ -43,8 +43,8 @@ public class a {
             return null;
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-        aVar.At(str);
-        aVar.Au(str2);
+        aVar.AA(str);
+        aVar.AB(str2);
         aVar.a(str3, bVar);
         aVar.b(str4, bVar2);
         aVar.b(tbPageContext);
@@ -84,8 +84,8 @@ public class a {
     public static boolean G(Context context, int i) {
         boolean z = false;
         if (!NotificationManagerCompat.from(context).areNotificationsEnabled()) {
-            Date date = new Date(com.baidu.tbadk.core.sharedPref.b.brQ().getLong("push_permission_dialog_scene_cold_start_key", 0L));
-            Date date2 = new Date(com.baidu.tbadk.core.sharedPref.b.brQ().getLong("push_permission_dialog_scene_interaction_key", 0L));
+            Date date = new Date(com.baidu.tbadk.core.sharedPref.b.brR().getLong("push_permission_dialog_scene_cold_start_key", 0L));
+            Date date2 = new Date(com.baidu.tbadk.core.sharedPref.b.brR().getLong("push_permission_dialog_scene_interaction_key", 0L));
             long currentTimeMillis = System.currentTimeMillis();
             Date date3 = new Date(currentTimeMillis);
             if (i == 0 && be.b(date3, date2) >= 7 && !be.c(date3, date)) {
@@ -97,10 +97,10 @@ public class a {
             if (z) {
                 switch (i) {
                     case 0:
-                        com.baidu.tbadk.core.sharedPref.b.brQ().putLong("push_permission_dialog_scene_interaction_key", currentTimeMillis);
+                        com.baidu.tbadk.core.sharedPref.b.brR().putLong("push_permission_dialog_scene_interaction_key", currentTimeMillis);
                         break;
                     case 1:
-                        com.baidu.tbadk.core.sharedPref.b.brQ().putLong("push_permission_dialog_scene_cold_start_key", currentTimeMillis);
+                        com.baidu.tbadk.core.sharedPref.b.brR().putLong("push_permission_dialog_scene_cold_start_key", currentTimeMillis);
                         break;
                 }
             }
@@ -113,7 +113,7 @@ public class a {
         aVar.jF(false);
         aVar.a((String) null, (a.b) null);
         aVar.b((String) null, (a.b) null);
-        aVar.nA(4);
+        aVar.nB(4);
         CustomPushPremissionDialogView customPushPremissionDialogView = new CustomPushPremissionDialogView(tbPageContext.getPageActivity());
         aVar.bn(customPushPremissionDialogView);
         final int[] iArr = {-1};
@@ -136,18 +136,18 @@ public class a {
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
                 ar arVar = new ar("c13673");
-                arVar.ap("obj_source", i);
-                arVar.ap("obj_type", iArr[0]);
+                arVar.aq("obj_source", i);
+                arVar.aq("obj_type", iArr[0]);
                 TiebaStatic.log(arVar);
             }
         });
         if (j > 0) {
             aVar.b(tbPageContext).dQ(j);
         } else {
-            aVar.b(tbPageContext).bqx();
+            aVar.b(tbPageContext).bqz();
         }
         ar arVar = new ar("c13674");
-        arVar.ap("obj_source", i);
+        arVar.aq("obj_source", i);
         TiebaStatic.log(arVar);
     }
 }

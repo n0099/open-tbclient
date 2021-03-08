@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class HorRankCard extends BaseCardInfo {
     private final double displayNum;
     private final String itemStatistics;
@@ -23,17 +23,17 @@ public class HorRankCard extends BaseCardInfo {
     private final int titleColor;
     private final int titleColorNight;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public int bgColor;
         public int bgColorNight;
         public String btnDone;
         public String btnText;
         public boolean isDone;
-        public long lbX;
-        public String lbY;
-        public String lbZ;
-        public HorRankCard lca;
+        public long lea;
+        public String leb;
+        public String lec;
+        public HorRankCard led;
         public String picUrl;
         public String postUrl;
         public int rank;
@@ -92,8 +92,8 @@ public class HorRankCard extends BaseCardInfo {
 
     public HorRankCard(JSONObject jSONObject) throws CardParseException {
         super(jSONObject);
-        this.titleColor = com.baidu.tieba.lego.card.c.b.rM(jSONObject.optString("tColor", ""));
-        this.titleColorNight = com.baidu.tieba.lego.card.c.b.rM(jSONObject.optString("tColorNight", ""));
+        this.titleColor = com.baidu.tieba.lego.card.c.b.rT(jSONObject.optString("tColor", ""));
+        this.titleColorNight = com.baidu.tieba.lego.card.c.b.rT(jSONObject.optString("tColorNight", ""));
         this.displayNum = jSONObject.optDouble("displayNum", 5.0d);
         this.ratio = jSONObject.optDouble("ratio", 1.0d);
         int optInt = jSONObject.optInt("picType", 1);
@@ -115,21 +115,21 @@ public class HorRankCard extends BaseCardInfo {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i);
             aVar.rank = optJSONObject.optInt("rank");
             aVar.picUrl = optJSONObject.optString("picUrl");
-            aVar.lbY = optJSONObject.optString("picIcon");
+            aVar.leb = optJSONObject.optString("picIcon");
             aVar.title = optJSONObject.optString("title");
             aVar.subTitle = optJSONObject.optString("subTitle");
             aVar.postUrl = optJSONObject.optString("postUrl");
             aVar.isDone = optJSONObject.optInt("isDone") == 1;
             aVar.btnText = optJSONObject.optString("btnText");
             aVar.btnDone = optJSONObject.optString("btnDone");
-            aVar.lbZ = optJSONObject.optString("picScheme");
-            aVar.bgColor = com.baidu.tieba.lego.card.c.b.rM(optJSONObject.optString("bgColor", ""));
-            aVar.bgColorNight = com.baidu.tieba.lego.card.c.b.rM(optJSONObject.optString("bgColorNight", ""));
-            aVar.lbX = optJSONObject.optLong("resourceId");
-            aVar.lca = this;
+            aVar.lec = optJSONObject.optString("picScheme");
+            aVar.bgColor = com.baidu.tieba.lego.card.c.b.rT(optJSONObject.optString("bgColor", ""));
+            aVar.bgColorNight = com.baidu.tieba.lego.card.c.b.rT(optJSONObject.optString("bgColorNight", ""));
+            aVar.lea = optJSONObject.optLong("resourceId");
+            aVar.led = this;
             this.rankInfoList.add(aVar);
         }
-        this.rightText = c.ez(jSONObject.optJSONObject("moreButton"));
+        this.rightText = c.eB(jSONObject.optJSONObject("moreButton"));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

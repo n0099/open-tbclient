@@ -6,20 +6,20 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.ao.ak;
 import com.baidu.swan.apps.res.widget.dialog.g;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
-    private com.baidu.swan.apps.res.widget.dialog.g ebU;
+    private com.baidu.swan.apps.res.widget.dialog.g edv;
 
     public void a(final Activity activity, final String str, final String str2, final boolean z, final DialogInterface.OnClickListener onClickListener) {
-        ak.k(new Runnable() { // from class: com.baidu.swan.games.b.c.1
+        ak.j(new Runnable() { // from class: com.baidu.swan.games.b.c.1
             @Override // java.lang.Runnable
             public void run() {
-                if (c.this.ebU != null && c.this.ebU.isShowing()) {
-                    c.this.ebU.dismiss();
+                if (c.this.edv != null && c.this.edv.isShowing()) {
+                    c.this.edv.dismiss();
                 }
                 if (activity != null && !activity.isFinishing()) {
-                    g.a b2 = c.this.b(activity, str, str2, z, onClickListener);
-                    c.this.ebU = b2.aHX();
+                    g.a b = c.this.b(activity, str, str2, z, onClickListener);
+                    c.this.edv = b.aIa();
                 }
             }
         });
@@ -28,17 +28,17 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public g.a b(Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
         g.a aVar = new g.a(activity);
-        aVar.rx(str).aHS().a(new com.baidu.swan.apps.view.c.a()).gT(z).iV(a.c.swan_games_antiaddiction_positive).gR(true);
+        aVar.rE(str).aHV().a(new com.baidu.swan.apps.view.c.a()).gT(z).iW(a.c.swan_games_antiaddiction_positive).gR(true);
         aVar.a(str2, onClickListener);
         return aVar;
     }
 
     public void destroy() {
-        if (this.ebU != null) {
-            if (this.ebU.isShowing()) {
-                this.ebU.dismiss();
+        if (this.edv != null) {
+            if (this.edv.isShowing()) {
+                this.edv.dismiss();
             }
-            this.ebU = null;
+            this.edv = null;
         }
     }
 }

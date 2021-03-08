@@ -7,10 +7,10 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.tieba.ala.alaar.makeup.b.a {
-    public String gsy;
-    private int gsz;
+    public String guh;
+    private int gui;
     private List<d> mData;
     private File mFolder;
     private int mPosition;
@@ -50,12 +50,12 @@ public class b extends com.baidu.tieba.ala.alaar.makeup.b.a {
     }
 
     @Override // com.baidu.tieba.ala.alaar.makeup.b.b
-    public boolean dE(JSONObject jSONObject) {
+    public boolean dG(JSONObject jSONObject) {
         if (jSONObject == null) {
             return false;
         }
-        this.gsz = jSONObject.optInt("ar_version");
-        this.gsy = jSONObject.optString("version");
+        this.gui = jSONObject.optInt("ar_version");
+        this.guh = jSONObject.optString("version");
         this.mPosition = jSONObject.optInt("position");
         JSONArray optJSONArray = jSONObject.optJSONArray("makeup_category");
         this.mData = new ArrayList();
@@ -63,7 +63,7 @@ public class b extends com.baidu.tieba.ala.alaar.makeup.b.a {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i);
             d dVar = new d();
             dVar.V(this.mFolder);
-            if (dVar.dE(optJSONObject)) {
+            if (dVar.dG(optJSONObject)) {
                 this.mData.add(dVar);
             }
         }
@@ -74,8 +74,8 @@ public class b extends com.baidu.tieba.ala.alaar.makeup.b.a {
         JSONObject json;
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("ar_version", this.gsz);
-            jSONObject.put("version", this.gsy);
+            jSONObject.put("ar_version", this.gui);
+            jSONObject.put("version", this.guh);
             jSONObject.put("position", this.mPosition);
             JSONArray jSONArray = new JSONArray();
             if (this.mData != null && this.mData.size() > 0) {

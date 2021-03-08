@@ -3,16 +3,14 @@ package com.bytedance.sdk.openadsdk.c;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    final boolean f6231a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final int f6232b;
+    final boolean f4202a;
+    final int b;
     final String c;
     final boolean d;
 
     public h(boolean z, int i, String str, boolean z2) {
-        this.f6231a = z;
-        this.f6232b = i;
+        this.f4202a = z;
+        this.b = i;
         this.c = str;
         this.d = z2;
     }

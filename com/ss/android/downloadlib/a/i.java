@@ -27,14 +27,14 @@ public class i {
         if (fVar == null || TextUtils.isEmpty(fVar.c()) || fVar.b() == null) {
             return 0;
         }
-        int a2 = com.ss.android.socialbase.appdownloader.d.eFv().a(fVar);
-        com.ss.android.socialbase.downloader.k.a fm = com.ss.android.socialbase.downloader.k.a.fm(fVar.eFV());
-        if (!a(fVar, fm) && cVar.k()) {
-            String d = fm.d("download_start_toast_text");
+        int a2 = com.ss.android.socialbase.appdownloader.d.eFz().a(fVar);
+        com.ss.android.socialbase.downloader.k.a fp = com.ss.android.socialbase.downloader.k.a.fp(fVar.eFZ());
+        if (!a(fVar, fp) && cVar.k()) {
+            String d = fp.d("download_start_toast_text");
             if (TextUtils.isEmpty(d)) {
                 d = z ? "已开始下载，可在\"我的\"里查看管理" : "已开始下载";
             }
-            j.eEN().a(2, fVar.b(), cVar, d, null, 0);
+            j.eER().a(2, fVar.b(), cVar, d, null, 0);
         }
         return a2;
     }
@@ -42,12 +42,12 @@ public class i {
     private static boolean a(com.ss.android.socialbase.appdownloader.f fVar, @NonNull com.ss.android.socialbase.downloader.k.a aVar) {
         JSONObject jSONObject;
         if (aVar.c("show_unknown_source_on_startup")) {
-            JSONArray abI = aVar.abI("anti_plans");
-            int length = abI.length();
+            JSONArray abN = aVar.abN("anti_plans");
+            int length = abN.length();
             int i = 0;
             while (true) {
                 if (i < length) {
-                    jSONObject = abI.optJSONObject(i);
+                    jSONObject = abN.optJSONObject(i);
                     if (jSONObject != null && "jump_unknown_source".equals(jSONObject.optString("type"))) {
                         break;
                     }
@@ -58,7 +58,7 @@ public class i {
                 }
             }
             if (jSONObject != null) {
-                return com.ss.android.socialbase.appdownloader.b.a(com.ss.android.socialbase.downloader.downloader.b.eGC(), (Intent) null, jSONObject, new com.ss.android.socialbase.appdownloader.a());
+                return com.ss.android.socialbase.appdownloader.b.a(com.ss.android.socialbase.downloader.downloader.b.eGG(), (Intent) null, jSONObject, new com.ss.android.socialbase.appdownloader.a());
             }
             return false;
         }

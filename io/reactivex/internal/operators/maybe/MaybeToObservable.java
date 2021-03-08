@@ -6,7 +6,7 @@ import io.reactivex.m;
 import io.reactivex.o;
 import io.reactivex.q;
 import io.reactivex.u;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class MaybeToObservable<T> extends q<T> {
     final o<T> source;
 
@@ -15,7 +15,7 @@ public final class MaybeToObservable<T> extends q<T> {
         this.source.a(new MaybeToFlowableSubscriber(uVar));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class MaybeToFlowableSubscriber<T> extends DeferredScalarDisposable<T> implements m<T> {
         private static final long serialVersionUID = 7603343402964826922L;
         io.reactivex.disposables.b d;

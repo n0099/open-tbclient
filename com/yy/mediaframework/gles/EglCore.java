@@ -12,7 +12,7 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import com.yy.mediaframework.utils.YMFLog;
 @TargetApi(17)
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class EglCore implements IEglCore {
     private static final int EGL_RECORDABLE_ANDROID = 12610;
     public static final int FLAG_RECORDABLE = 1;

@@ -5,24 +5,24 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b extends BaseData {
-    private List<a> aIj;
+    private List<a> aJJ;
 
     public List<a> getList() {
-        return this.aIj;
+        return this.aJJ;
     }
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
         JSONArray optJSONArray;
         if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("user_info")) != null) {
-            this.aIj = new ArrayList();
+            this.aJJ = new ArrayList();
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 a aVar = new a();
                 aVar.parserJson(optJSONObject);
-                this.aIj.add(aVar);
+                this.aJJ.add(aVar);
             }
         }
     }

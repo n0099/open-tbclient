@@ -1,44 +1,26 @@
 package com.win.opensdk;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-/* loaded from: classes3.dex */
-public final class ar {
-    private static ExecutorService qkH = Executors.newFixedThreadPool(1);
-    private static HashMap<String, HashSet<a>> qkA = new HashMap<>();
+import com.win.opensdk.bd;
+import com.win.opensdk.core.Info;
+import com.win.opensdk.downloader.WDownLoadService;
+/* loaded from: classes14.dex */
+public class ar implements Runnable {
+    public final /* synthetic */ WDownLoadService qkN;
+    public final /* synthetic */ Info qkd;
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void f(String str, String str2, Object obj);
+    public ar(WDownLoadService wDownLoadService, Info info) {
+        this.qkN = wDownLoadService;
+        this.qkd = info;
     }
 
-    public static synchronized void a(String str, a aVar) {
-        synchronized (ar.class) {
-            HashSet<a> hashSet = qkA.get(str);
-            if (hashSet == null) {
-                hashSet = new HashSet<>();
-                qkA.put(str, hashSet);
-            }
-            hashSet.add(aVar);
+    @Override // java.lang.Runnable
+    public void run() {
+        Info info = this.qkd;
+        if (info != null) {
+            this.qkN.a(info, info.getDl_name(), this.qkN.getString(bd.e.wdownload_download_finish), 100);
+            return;
         }
-    }
-
-    public static synchronized void abR(String str) {
-        synchronized (ar.class) {
-            qkA.remove(str);
-        }
-    }
-
-    public static void f(String str, String str2, Object obj) {
-        HashSet<a> hashSet = qkA.get(str);
-        if (hashSet != null && hashSet.size() > 0) {
-            Iterator<a> it = hashSet.iterator();
-            while (it.hasNext()) {
-                it.next().f(str, str2, obj);
-            }
-        }
+        WDownLoadService wDownLoadService = this.qkN;
+        wDownLoadService.a(info, wDownLoadService.getString(bd.e.wdownload_download_finish), this.qkN.getString(bd.e.wdownload_download_finish), 100);
     }
 }

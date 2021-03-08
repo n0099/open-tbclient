@@ -5,7 +5,7 @@ import tbclient.ItemInfo;
 public interface ak {
     void a(ItemInfo itemInfo);
 
-    ItemInfo cBO();
+    ItemInfo cBU();
 
-    boolean cBP();
+    boolean cBV();
 }

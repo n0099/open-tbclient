@@ -1,13 +1,13 @@
 package com.baidu.tieba.InjectPlugin.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
-    private Object gcq;
+    private Object gdR;
 
     public c(Object obj) {
-        this.gcq = obj;
+        this.gdR = obj;
     }
 
-    public Object bJz() {
-        return this.gcq;
+    public Object bJD() {
+        return this.gdR;
     }
 }

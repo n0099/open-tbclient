@@ -2,7 +2,7 @@ package com.airbnb.lottie.model.content;
 
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class j implements b {
     private final List<b> items;
     private final String name;

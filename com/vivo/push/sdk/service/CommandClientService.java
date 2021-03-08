@@ -1,5 +1,5 @@
 package com.vivo.push.sdk.service;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class CommandClientService extends CommandService {
     @Override // com.vivo.push.sdk.service.CommandService
     protected final boolean a(String str) {

@@ -3,15 +3,15 @@ package com.baidu.tieba.frs;
 import tbclient.FrsPage.BrandForumInfo;
 /* loaded from: classes.dex */
 public class d {
-    public String aHq;
-    public String jfo;
-    public String jfp;
+    public String aIQ;
+    public String jgX;
+    public String jgY;
 
     public void a(BrandForumInfo brandForumInfo) {
         if (brandForumInfo != null) {
-            this.jfo = brandForumInfo.brand_desc;
-            this.aHq = brandForumInfo.jump_url;
-            this.jfp = brandForumInfo.jump_desc;
+            this.jgX = brandForumInfo.brand_desc;
+            this.aIQ = brandForumInfo.jump_url;
+            this.jgY = brandForumInfo.jump_desc;
         }
     }
 }

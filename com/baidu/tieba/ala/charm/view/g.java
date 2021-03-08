@@ -14,9 +14,9 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class g extends BaseAdapter {
-    private String gPY;
+    private String gRH;
     private boolean isHost;
     private BdListView mListView;
     private TbPageContext mPageContext;
@@ -27,7 +27,7 @@ public class g extends BaseAdapter {
             g.this.bG(message.arg1, message.arg2);
         }
     };
-    private ArrayList<u> eVV = new ArrayList<>();
+    private ArrayList<u> eXu = new ArrayList<>();
 
     public g(TbPageContext tbPageContext, boolean z) {
         this.mPageContext = tbPageContext;
@@ -36,32 +36,32 @@ public class g extends BaseAdapter {
 
     public void setData(List<u> list) {
         if (list != null) {
-            this.eVV.clear();
-            this.eVV.addAll(list);
+            this.eXu.clear();
+            this.eXu.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     public ArrayList<u> getData() {
-        return this.eVV;
+        return this.eXu;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eVV == null) {
+        if (this.eXu == null) {
             return 0;
         }
-        return this.eVV.size();
+        return this.eXu.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: um */
+    /* renamed from: uo */
     public u getItem(int i) {
-        if (this.eVV == null) {
+        if (this.eXu == null) {
             return null;
         }
-        return this.eVV.get(i);
+        return this.eXu.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -75,30 +75,30 @@ public class g extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.sdk_charm_list_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.gQa = (CharmPokeItemView) view.findViewById(a.f.pokeItem);
-            aVar2.gPT = (CharmItemView) view.findViewById(a.f.item);
+            aVar2.gRJ = (CharmPokeItemView) view.findViewById(a.f.pokeItem);
+            aVar2.gRC = (CharmItemView) view.findViewById(a.f.item);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
         u item = getItem(i);
-        AlaLiveUserInfoData alaLiveUserInfoData = getItem(i).aId;
+        AlaLiveUserInfoData alaLiveUserInfoData = getItem(i).aJD;
         if (item != null && alaLiveUserInfoData != null) {
             boolean z = false;
             if (alaLiveUserInfoData.extInfoJson != null) {
                 z = alaLiveUserInfoData.extInfoJson.optInt("is_mysterious_man") == 1;
             }
             if (!this.isHost || item.hadPoked == 0 || z) {
-                aVar.gQa.setVisibility(8);
-                aVar.gPT.setData(2, i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.totalPrice, 0L);
-                aVar.gPT.gPJ.setData(alaLiveUserInfoData);
-                aVar.gPT.setVisibility(0);
+                aVar.gRJ.setVisibility(8);
+                aVar.gRC.setData(2, i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.totalPrice, 0L);
+                aVar.gRC.gRs.setData(alaLiveUserInfoData);
+                aVar.gRC.setVisibility(0);
             } else {
-                aVar.gPT.setVisibility(8);
-                aVar.gQa.setData(2, i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.totalPrice, 0L, item.hadPoked, alaLiveUserInfoData.userId, this.gPY);
-                aVar.gQa.gPJ.setData(alaLiveUserInfoData);
-                aVar.gQa.setVisibility(0);
+                aVar.gRC.setVisibility(8);
+                aVar.gRJ.setData(2, i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.totalPrice, 0L, item.hadPoked, alaLiveUserInfoData.userId, this.gRH);
+                aVar.gRJ.gRs.setData(alaLiveUserInfoData);
+                aVar.gRJ.setVisibility(0);
             }
             this.mPageContext.getLayoutMode().onModeChanged(view);
         }
@@ -110,9 +110,9 @@ public class g extends BaseAdapter {
     }
 
     public void bF(int i, int i2) {
-        u uVar = this.eVV.get(i);
+        u uVar = this.eXu.get(i);
         uVar.hadPoked = 1;
-        this.eVV.set(i, uVar);
+        this.eXu.set(i, uVar);
         Message obtain = Message.obtain();
         obtain.arg1 = i;
         obtain.arg2 = i2;
@@ -130,24 +130,24 @@ public class g extends BaseAdapter {
                     if (i2 != 0) {
                         return;
                     }
-                    aVar.gQa.gPL.setVisibility(8);
+                    aVar.gRJ.gRu.setVisibility(8);
                     return;
                 }
-                aVar.gQa.gPL.setEnabled(false);
-                aVar.gQa.gPL.setText(this.mPageContext.getString(a.h.sdk_poke_had_poked));
+                aVar.gRJ.gRu.setEnabled(false);
+                aVar.gRJ.gRu.setText(this.mPageContext.getString(a.h.sdk_poke_had_poked));
             }
         }
     }
 
     public void setLiveId(String str) {
-        this.gPY = str;
+        this.gRH = str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public class a {
-        private CharmItemView gPT;
-        private CharmPokeItemView gQa;
+        private CharmItemView gRC;
+        private CharmPokeItemView gRJ;
 
         private a() {
         }

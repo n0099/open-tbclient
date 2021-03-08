@@ -8,7 +8,7 @@ import com.yy.mediaframework.model.YYMediaSample;
 import com.yy.mediaframework.opengles.YMFPreviewCanvasView;
 import com.yy.mediaframework.opengles.YMFPreviewView;
 import com.yy.mediaframework.utils.YMFLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFProcessGroupFilter extends AbstractYYMediaFilter {
     private static final String TAG = "YMFProcessGroupFilter";
     private VideoLiveFilterContext mFilterContext;

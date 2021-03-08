@@ -17,11 +17,11 @@ public class DpNetworkUtils {
     public static String a(Context context) {
         WifiInfo connectionInfo;
         int rssi;
-        NetworkInfo b2 = b(context);
-        if (b2 != null) {
-            int type = b2.getType();
+        NetworkInfo b = b(context);
+        if (b != null) {
+            int type = b.getType();
             if (type == 0) {
-                String extraInfo = b2.getExtraInfo();
+                String extraInfo = b.getExtraInfo();
                 return TextUtils.isEmpty(extraInfo) ? "Disconnect" : extraInfo;
             } else if (type == 1) {
                 WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
@@ -85,13 +85,13 @@ public class DpNetworkUtils {
         String subscriberId;
         int i2;
         int i3 = 2;
-        NetworkInfo b2 = b(context);
-        if (b2 == null) {
+        NetworkInfo b = b(context);
+        if (b == null) {
             i = 0;
-        } else if (b2.getState() != NetworkInfo.State.CONNECTED) {
+        } else if (b.getState() != NetworkInfo.State.CONNECTED) {
             i = 0;
-        } else if (b2.getType() == 0) {
-            switch (b2.getSubtype()) {
+        } else if (b.getType() == 0) {
+            switch (b.getSubtype()) {
                 case 1:
                 case 2:
                 case 4:
@@ -119,7 +119,7 @@ public class DpNetworkUtils {
             }
             i = i2;
         } else {
-            i = b2.getType() == 1 ? 100 : b2.getType() == 9 ? 101 : 999;
+            i = b.getType() == 1 ? 100 : b.getType() == 9 ? 101 : 999;
         }
         try {
             if (!c(context) || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || (subscriberId = telephonyManager.getSubscriberId()) == null) {

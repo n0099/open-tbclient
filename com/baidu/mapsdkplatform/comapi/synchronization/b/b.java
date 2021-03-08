@@ -13,9 +13,7 @@ import com.baidu.mapapi.synchronization.histroytrace.OnHistoryTraceListener;
 import com.baidu.mapsdkplatform.comapi.synchronization.c.c;
 /* loaded from: classes4.dex */
 public class b {
-
-    /* renamed from: b  reason: collision with root package name */
-    private static com.baidu.mapsdkplatform.comapi.synchronization.c.a f3084b;
+    private static com.baidu.mapsdkplatform.comapi.synchronization.c.a b;
     private static OnHistoryTraceListener c;
     private static com.baidu.mapsdkplatform.comapi.synchronization.b.a e;
     private HandlerThread d;
@@ -25,7 +23,7 @@ public class b {
     private volatile boolean j = false;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3083a = b.class.getSimpleName();
+    private static final String f2239a = b.class.getSimpleName();
     private static int g = 0;
 
     /* loaded from: classes4.dex */
@@ -33,7 +31,7 @@ public class b {
         private String a(HistoryTraceQueryOptions historyTraceQueryOptions) {
             String a2 = new f(historyTraceQueryOptions).a();
             if (TextUtils.isEmpty(a2)) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(b.f3083a, "Build request url failed");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(b.f2239a, "Build request url failed");
                 return null;
             }
             return a2;
@@ -42,7 +40,7 @@ public class b {
         /* JADX INFO: Access modifiers changed from: private */
         public void a(int i, String str, int i2, HistoryTraceQueryOptions historyTraceQueryOptions) {
             if (b.e == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(b.f3083a, "Data parser handler is null");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(b.f2239a, "Data parser handler is null");
                 return;
             }
             Message obtainMessage = b.e.obtainMessage();
@@ -95,19 +93,19 @@ public class b {
         /* JADX INFO: Access modifiers changed from: private */
         public void a(String str, int i, HistoryTraceQueryOptions historyTraceQueryOptions) {
             if (TextUtils.isEmpty(str)) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(b.f3083a, "Request url is null");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(b.f2239a, "Request url is null");
                 return;
             }
-            if (b.f3084b == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.c.a unused = b.f3084b = new com.baidu.mapsdkplatform.comapi.synchronization.c.a();
+            if (b.b == null) {
+                com.baidu.mapsdkplatform.comapi.synchronization.c.a unused = b.b = new com.baidu.mapsdkplatform.comapi.synchronization.c.a();
             }
-            b.f3084b.a(str, new d(this, i, historyTraceQueryOptions, str));
+            b.b.a(str, new d(this, i, historyTraceQueryOptions, str));
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             int i = message.what;
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.c(b.f3083a, "The query type is: " + i);
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.c(b.f2239a, "The query type is: " + i);
             HistoryTraceQueryOptions historyTraceQueryOptions = (HistoryTraceQueryOptions) message.obj;
             switch (i) {
                 case 1:
@@ -120,7 +118,7 @@ public class b {
     }
 
     public b() {
-        f3084b = new com.baidu.mapsdkplatform.comapi.synchronization.c.a();
+        b = new com.baidu.mapsdkplatform.comapi.synchronization.c.a();
         this.f = new a();
         this.d = new HandlerThread("HistoryTraceDataParser");
         this.d.start();
@@ -145,23 +143,23 @@ public class b {
 
     private boolean a(HistoryTraceQueryOptions historyTraceQueryOptions, int i) {
         if (historyTraceQueryOptions == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3083a, "QueryOptions is null, please check!");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2239a, "QueryOptions is null, please check!");
             b(10001, "QueryOptions is null, please check.", i);
             return false;
         } else if (TextUtils.isEmpty(historyTraceQueryOptions.getOrderId())) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3083a, "Query orderId is null, please check");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2239a, "Query orderId is null, please check");
             b(10003, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_QUERY_ORDER_ID_NULL, i);
             return false;
         } else if (historyTraceQueryOptions.getRoleType() != 0) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3083a, "Current role type not the passenger");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2239a, "Current role type not the passenger");
             b(10004, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_QUERY_ROLE_TYPE_ERROR, i);
             return false;
         } else if (TextUtils.isEmpty(historyTraceQueryOptions.getUserId())) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3083a, "Order's user id is null");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2239a, "Order's user id is null");
             b(10005, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_QUERY_USER_ID_NULL, i);
             return false;
         } else if (TextUtils.isEmpty(historyTraceQueryOptions.getDriverId())) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3083a, "Driver id is null");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2239a, "Driver id is null");
             b(10006, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_QUERY_DRIVER_ID_NULL, i);
             return false;
         } else {
@@ -172,7 +170,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(int i, String str, int i2) {
         if (c == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3083a, "OnHistoryTraceListener is null");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2239a, "OnHistoryTraceListener is null");
             return;
         }
         switch (i2) {
@@ -198,8 +196,8 @@ public class b {
     }
 
     public void a() {
-        if (f3084b != null) {
-            f3084b = null;
+        if (b != null) {
+            b = null;
         }
         if (c != null) {
             c = null;
@@ -231,7 +229,7 @@ public class b {
 
     public void a(BaiduMap baiduMap, HistoryTraceData historyTraceData, HistoryTraceDisplayOptions historyTraceDisplayOptions, int i) {
         if (baiduMap == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3083a, "BaiduMap instance is null");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2239a, "BaiduMap instance is null");
             if (c != null) {
                 c.onRenderHistroyTrace(10007, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_BAIDUMAP_NULL);
             }
@@ -247,7 +245,7 @@ public class b {
         if (a(historyTraceQueryOptions, 1)) {
             b(historyTraceQueryOptions, 1);
         } else {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3083a, "QueryOptions error, please check!");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2239a, "QueryOptions error, please check!");
         }
     }
 

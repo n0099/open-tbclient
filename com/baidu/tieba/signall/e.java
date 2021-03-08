@@ -5,57 +5,57 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.aa;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e {
-    private static final String nob = TbConfig.SERVER_ADDRESS + Config.M_SIGN;
-    private aa cml = null;
+    private static final String nqh = TbConfig.SERVER_ADDRESS + Config.M_SIGN;
+    private aa cnM = null;
     private String mAuthSid;
 
     public void setAuthSid(String str) {
         this.mAuthSid = str;
     }
 
-    public String dKY() {
-        this.cml = new aa(nob);
-        this.cml.addPostData("authsid", this.mAuthSid);
-        this.cml.bsr().bta().mNeedBackgroundLogin = true;
-        this.cml.bsr().bta().mIsNeedTbs = true;
-        this.cml.jL(true);
-        return this.cml.postNetData();
+    public String dLg() {
+        this.cnM = new aa(nqh);
+        this.cnM.addPostData("authsid", this.mAuthSid);
+        this.cnM.bsu().btd().mNeedBackgroundLogin = true;
+        this.cnM.bsu().btd().mIsNeedTbs = true;
+        this.cnM.jL(true);
+        return this.cnM.postNetData();
     }
 
-    public String SM(String str) {
+    public String SS(String str) {
         AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
         String str2 = null;
         if (currentAccountObj != null) {
             str2 = currentAccountObj.getID();
         }
-        this.cml = new aa(nob);
-        this.cml.addPostData("user_id", str2);
-        this.cml.addPostData("forum_ids", str);
-        this.cml.addPostData("authsid", this.mAuthSid);
-        this.cml.bsr().bta().mNeedBackgroundLogin = true;
-        this.cml.bsr().bta().mIsNeedTbs = true;
-        this.cml.jL(true);
-        return this.cml.postNetData();
+        this.cnM = new aa(nqh);
+        this.cnM.addPostData("user_id", str2);
+        this.cnM.addPostData("forum_ids", str);
+        this.cnM.addPostData("authsid", this.mAuthSid);
+        this.cnM.bsu().btd().mNeedBackgroundLogin = true;
+        this.cnM.bsu().btd().mIsNeedTbs = true;
+        this.cnM.jL(true);
+        return this.cnM.postNetData();
     }
 
     public void cancel() {
-        if (this.cml != null) {
-            this.cml.cancelNetConnect();
+        if (this.cnM != null) {
+            this.cnM.cancelNetConnect();
         }
     }
 
     public boolean isRequestSuccess() {
-        if (this.cml != null) {
-            return this.cml.bsr().btb().isRequestSuccess();
+        if (this.cnM != null) {
+            return this.cnM.bsu().bte().isRequestSuccess();
         }
         return false;
     }
 
-    public String bkR() {
-        if (this.cml != null) {
-            return this.cml.getErrorString();
+    public String bkT() {
+        if (this.cnM != null) {
+            return this.cnM.getErrorString();
         }
         return null;
     }

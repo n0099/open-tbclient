@@ -1,5 +1,5 @@
 package com.baidu.ubs.analytics.d;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class f {
     public static String encode(String str) {
         if (str != null && str.length() != 0) {

@@ -19,16 +19,16 @@ import com.baidu.tbadk.widget.dragsort.a;
 import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d implements NoNetworkView.a {
-    private FrameLayout dcv;
-    private NoNetworkView gAv;
-    private g gJB;
-    private com.baidu.tieba.newfaceshop.nativemotionmanager.a.a lDn;
-    private SimpleDragSortListView lEb;
-    private com.baidu.tieba.newfaceshop.nativemotionmanager.managers.a lEc;
-    private b lEd;
-    private boolean lEe = false;
+    private FrameLayout ddX;
+    private NoNetworkView gCe;
+    private g gLk;
+    private com.baidu.tieba.newfaceshop.nativemotionmanager.a.a lFp;
+    private SimpleDragSortListView lGd;
+    private com.baidu.tieba.newfaceshop.nativemotionmanager.managers.a lGe;
+    private b lGf;
+    private boolean lGg = false;
     private NoDataView mNoDataView;
     private TbPageContext mPageContext;
     private View rootView;
@@ -36,74 +36,74 @@ public class d implements NoNetworkView.a {
     public d(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
         this.rootView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.fragment_my_emotions, (ViewGroup) null, false);
-        this.dcv = (FrameLayout) this.rootView.findViewById(R.id.my_emotion_loading);
-        this.gAv = (NoNetworkView) this.rootView.findViewById(R.id.view_no_network);
-        this.lEd = new b(this.rootView.findViewById(R.id.emotion_my_emotion_empty), tbPageContext.getString(R.string.emotion_empty_mine));
-        this.lEb = (SimpleDragSortListView) this.rootView.findViewById(R.id.my_emotion_list);
-        this.lEb.setDivider(null);
-        this.lEb.setOverScrollMode(2);
-        this.lEb.setVerticalScrollBarEnabled(false);
-        djr();
-        this.lEc = new com.baidu.tieba.newfaceshop.nativemotionmanager.managers.a(tbPageContext, this.lEb, this.lDn);
+        this.ddX = (FrameLayout) this.rootView.findViewById(R.id.my_emotion_loading);
+        this.gCe = (NoNetworkView) this.rootView.findViewById(R.id.view_no_network);
+        this.lGf = new b(this.rootView.findViewById(R.id.emotion_my_emotion_empty), tbPageContext.getString(R.string.emotion_empty_mine));
+        this.lGd = (SimpleDragSortListView) this.rootView.findViewById(R.id.my_emotion_list);
+        this.lGd.setDivider(null);
+        this.lGd.setOverScrollMode(2);
+        this.lGd.setVerticalScrollBarEnabled(false);
+        djA();
+        this.lGe = new com.baidu.tieba.newfaceshop.nativemotionmanager.managers.a(tbPageContext, this.lGd, this.lFp);
         showLoadingView();
-        this.gAv.a(this);
+        this.gCe.a(this);
     }
 
     public void showNoDataView() {
-        if (this.mPageContext != null && this.dcv != null) {
-            djp();
-            this.dcv.setVisibility(0);
-            this.mNoDataView = NoDataViewFactory.a(this.mPageContext.getPageActivity(), this.dcv, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.WEBVIEW, l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds110)), NoDataViewFactory.d.dS(null, this.mPageContext.getString(R.string.emotion_error_net_tip)), null, true);
+        if (this.mPageContext != null && this.ddX != null) {
+            djy();
+            this.ddX.setVisibility(0);
+            this.mNoDataView = NoDataViewFactory.a(this.mPageContext.getPageActivity(), this.ddX, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.WEBVIEW, l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds110)), NoDataViewFactory.d.dS(null, this.mPageContext.getString(R.string.emotion_error_net_tip)), null, true);
             this.mNoDataView.setVisibility(0);
             this.mNoDataView.e(this.mPageContext);
         }
     }
 
-    private void djp() {
+    private void djy() {
         hideLoadingView();
         hideNoDataView();
     }
 
     private void hideNoDataView() {
-        if (this.mNoDataView != null && this.mNoDataView.getParent() == this.dcv) {
+        if (this.mNoDataView != null && this.mNoDataView.getParent() == this.ddX) {
             this.mNoDataView.setVisibility(8);
-            this.dcv.removeView(this.mNoDataView);
-            this.dcv.setVisibility(8);
+            this.ddX.removeView(this.mNoDataView);
+            this.ddX.setVisibility(8);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void djq() {
-        if (this.lEb != null && !this.lEe && this.lEd != null) {
-            this.lEe = true;
-            this.lEb.setEmptyView(this.lEd.getView());
+    public void djz() {
+        if (this.lGd != null && !this.lGg && this.lGf != null) {
+            this.lGg = true;
+            this.lGd.setEmptyView(this.lGf.getView());
         }
     }
 
     private void showLoadingView() {
-        if (this.mPageContext != null && this.dcv != null) {
-            djp();
-            this.dcv.setVisibility(0);
-            this.gJB = new g(this.mPageContext.getPageActivity());
-            this.gJB.attachView(this.dcv, true);
-            this.gJB.onChangeSkinType();
+        if (this.mPageContext != null && this.ddX != null) {
+            djy();
+            this.ddX.setVisibility(0);
+            this.gLk = new g(this.mPageContext.getPageActivity());
+            this.gLk.attachView(this.ddX, true);
+            this.gLk.onChangeSkinType();
         }
     }
 
     public void hideLoadingView() {
-        if (this.gJB != null && this.dcv != null) {
-            this.dcv.setVisibility(8);
-            this.gJB.dettachView(this.dcv);
-            this.gJB = null;
+        if (this.gLk != null && this.ddX != null) {
+            this.ddX.setVisibility(8);
+            this.gLk.dettachView(this.ddX);
+            this.gLk = null;
         }
     }
 
-    private void djr() {
-        this.lDn = new com.baidu.tieba.newfaceshop.nativemotionmanager.a.a(this.lEb);
-        this.lDn.a(new a.g() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.view.d.1
+    private void djA() {
+        this.lFp = new com.baidu.tieba.newfaceshop.nativemotionmanager.a.a(this.lGd);
+        this.lFp.a(new a.g() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.view.d.1
             @Override // com.baidu.tbadk.widget.dragsort.a.g
             public void drop(int i, int i2) {
-                d.this.lEc.cY(i, i2);
+                d.this.lGe.cY(i, i2);
             }
         });
     }
@@ -113,20 +113,20 @@ public class d implements NoNetworkView.a {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.lEd != null) {
-            this.lEd.onChangeSkinType(i);
+        if (this.lGf != null) {
+            this.lGf.onChangeSkinType(i);
         }
-        if (this.dcv != null) {
-            ap.setBackgroundColor(this.dcv, R.color.CAM_X0201, i);
+        if (this.ddX != null) {
+            ap.setBackgroundColor(this.ddX, R.color.CAM_X0201, i);
         }
-        if (this.lEd != null) {
-            ap.setBackgroundColor(this.lEd.getView(), R.color.CAM_X0201, i);
+        if (this.lGf != null) {
+            ap.setBackgroundColor(this.lGf.getView(), R.color.CAM_X0201, i);
         }
-        if (this.lEb != null) {
-            ap.setBackgroundColor(this.lEb, R.color.CAM_X0201, i);
+        if (this.lGd != null) {
+            ap.setBackgroundColor(this.lGd, R.color.CAM_X0201, i);
         }
-        if (this.gAv != null) {
-            this.gAv.onChangeSkinType(this.mPageContext, i);
+        if (this.gCe != null) {
+            this.gCe.onChangeSkinType(this.mPageContext, i);
         }
     }
 
@@ -134,20 +134,20 @@ public class d implements NoNetworkView.a {
         com.baidu.adp.lib.f.e.mA().post(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.view.d.2
             @Override // java.lang.Runnable
             public void run() {
-                d.this.djq();
-                if (d.this.lEc != null && list != null) {
-                    d.this.lEc.fa(list);
+                d.this.djz();
+                if (d.this.lGe != null && list != null) {
+                    d.this.lGe.fa(list);
                 }
             }
         });
     }
 
-    public void dja() {
+    public void djj() {
         com.baidu.adp.lib.f.e.mA().post(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.view.d.3
             @Override // java.lang.Runnable
             public void run() {
-                if (d.this.lEc != null) {
-                    d.this.lEc.update();
+                if (d.this.lGe != null) {
+                    d.this.lGe.update();
                 }
             }
         });

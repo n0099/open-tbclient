@@ -11,70 +11,70 @@ import tbclient.Tabfeedlist.DataRes;
 import tbclient.ThreadInfo;
 /* loaded from: classes2.dex */
 public class a {
-    private ArrayList<n> iOU;
-    private ArrayList<bv> iOV;
-    private bo iOW;
-    private c iOX;
-    private boolean iOY;
+    private ArrayList<n> iQD;
+    private ArrayList<bv> iQE;
+    private bo iQF;
+    private c iQG;
+    private boolean iQH;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.iOU = new ArrayList<>(y.getCount(dataRes.thread_list));
+            this.iQD = new ArrayList<>(y.getCount(dataRes.thread_list));
             for (ThreadInfo threadInfo : dataRes.thread_list) {
                 cb cbVar = new cb();
                 cbVar.a(threadInfo);
-                cbVar.bns();
-                this.iOU.add(cbVar);
+                cbVar.bnu();
+                this.iQD.add(cbVar);
             }
-            this.iOV = new ArrayList<>();
+            this.iQE = new ArrayList<>();
             if (!y.isEmpty(dataRes.resource_list)) {
                 for (GeneralResource generalResource : dataRes.resource_list) {
                     bv bvVar = new bv();
                     bvVar.a(generalResource);
-                    this.iOV.add(bvVar);
+                    this.iQE.add(bvVar);
                 }
             }
-            this.iOW = new bo();
-            this.iOW.bo(dataRes.recommend_forum_info);
+            this.iQF = new bo();
+            this.iQF.bo(dataRes.recommend_forum_info);
             if (dataRes.hot_userrank_entry != null) {
-                this.iOX = new c();
-                this.iOX.hot_user = dataRes.hot_userrank_entry.hot_user;
-                this.iOX.module_name = dataRes.hot_userrank_entry.module_name;
-                this.iOX.module_icon = dataRes.hot_userrank_entry.module_icon;
+                this.iQG = new c();
+                this.iQG.hot_user = dataRes.hot_userrank_entry.hot_user;
+                this.iQG.module_name = dataRes.hot_userrank_entry.module_name;
+                this.iQG.module_icon = dataRes.hot_userrank_entry.module_icon;
             }
-            this.iOY = dataRes.is_new_url.intValue() == 1;
+            this.iQH = dataRes.is_new_url.intValue() == 1;
         }
     }
 
-    public ArrayList<n> cxi() {
-        return this.iOU;
+    public ArrayList<n> cxo() {
+        return this.iQD;
     }
 
-    public ArrayList<bv> cxj() {
-        return this.iOV;
+    public ArrayList<bv> cxp() {
+        return this.iQE;
     }
 
-    public bo cxk() {
-        return this.iOW;
+    public bo cxq() {
+        return this.iQF;
     }
 
-    public c cxl() {
-        return this.iOX;
+    public c cxr() {
+        return this.iQG;
     }
 
-    public boolean cxm() {
-        return this.iOY;
+    public boolean cxs() {
+        return this.iQH;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: cxn */
+    /* renamed from: cxt */
     public a clone() {
         a aVar = new a();
-        aVar.iOU = this.iOU;
-        aVar.iOV = this.iOV;
-        aVar.iOW = this.iOW;
-        aVar.iOX = this.iOX;
-        aVar.iOY = this.iOY;
+        aVar.iQD = this.iQD;
+        aVar.iQE = this.iQE;
+        aVar.iQF = this.iQF;
+        aVar.iQG = this.iQG;
+        aVar.iQH = this.iQH;
         return aVar;
     }
 }

@@ -11,9 +11,9 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.ao.e;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.swan.apps.res.widget.dialog.g;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a implements g.c {
-    private FrameLayout dKz = null;
+    private FrameLayout dMa = null;
 
     @Override // com.baidu.swan.apps.res.widget.dialog.g.c
     public void a(g gVar, g.b bVar) {
@@ -21,8 +21,8 @@ public class a implements g.c {
             a(gVar);
             ViewGroup viewGroup = (ViewGroup) gVar.findViewById(16908290);
             if (viewGroup != null) {
-                if (com.baidu.swan.apps.t.a.axs().aii()) {
-                    e(viewGroup, bVar.dBw);
+                if (com.baidu.swan.apps.t.a.axv().ail()) {
+                    e(viewGroup, bVar.dCX);
                 } else {
                     I(viewGroup);
                 }
@@ -45,23 +45,23 @@ public class a implements g.c {
             view.post(new Runnable() { // from class: com.baidu.swan.apps.view.c.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.dKz == null) {
-                        a.this.dKz = new FrameLayout(viewGroup.getContext());
-                        a.this.dKz.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
+                    if (a.this.dMa == null) {
+                        a.this.dMa = new FrameLayout(viewGroup.getContext());
+                        a.this.dMa.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
                     }
-                    viewGroup.removeView(a.this.dKz);
+                    viewGroup.removeView(a.this.dMa);
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
                     layoutParams.gravity = 17;
-                    viewGroup.addView(a.this.dKz, layoutParams);
+                    viewGroup.addView(a.this.dMa, layoutParams);
                 }
             });
         }
     }
 
     private void I(ViewGroup viewGroup) {
-        if (viewGroup != null && this.dKz != null) {
-            viewGroup.removeView(this.dKz);
-            this.dKz = null;
+        if (viewGroup != null && this.dMa != null) {
+            viewGroup.removeView(this.dMa);
+            this.dMa = null;
         }
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.searchbox.floating.listener.FloatViewListener;
 import kotlin.Pair;
 import kotlin.e;
 @e
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public interface IFloating {
     void addFloatListener(FloatViewListener floatViewListener);
 
@@ -38,7 +38,7 @@ public interface IFloating {
     void startForeground(Notification notification);
 
     @e
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class DefaultImpls {
         public static /* synthetic */ void dismiss$default(IFloating iFloating, boolean z, int i, Object obj) {
             if (obj != null) {

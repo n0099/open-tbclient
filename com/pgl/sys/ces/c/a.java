@@ -4,25 +4,23 @@ import android.content.Context;
 import com.pgl.sys.ces.a.c;
 /* loaded from: classes6.dex */
 public class a extends com.pgl.a.a.b {
-
-    /* renamed from: b  reason: collision with root package name */
-    private Context f11406b;
+    private Context b;
 
     public a(Context context, String str) {
         super(context, str);
-        this.f11406b = null;
-        this.f11406b = context;
-        this.f11384a = com.pgl.a.a.a.a() + "/v2/r" + a();
+        this.b = null;
+        this.b = context;
+        this.f7470a = com.pgl.a.a.a.a() + "/v2/r" + a();
     }
 
     public String a() {
         String str = "";
         try {
-            str = this.f11406b.getPackageManager().getPackageInfo(this.f11406b.getPackageName(), 0).versionName;
+            str = this.b.getPackageManager().getPackageInfo(this.b.getPackageName(), 0).versionName;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return ((("?os=0&ver=0.6.11.30.02-PGL-Do&m=2&app_ver=" + str) + "&region=" + c.c(this.f11406b)) + "&appkey=" + com.pgl.sys.ces.b.b()) + "&did=" + com.pgl.sys.ces.b.c();
+        return ((("?os=0&ver=0.6.11.30.08-PGL-Do-fix3&m=2&app_ver=" + str) + "&region=" + c.c(this.b)) + "&appkey=" + com.pgl.sys.ces.b.b()) + "&did=" + com.pgl.sys.ces.b.c();
     }
 
     @Override // com.pgl.a.a.b

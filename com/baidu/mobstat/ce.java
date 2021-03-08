@@ -12,7 +12,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ce extends cd {
     static final /* synthetic */ boolean f;
     private ByteBuffer g;
@@ -23,18 +23,16 @@ public class ce extends cd {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends Throwable {
-
-        /* renamed from: b  reason: collision with root package name */
-        private int f3795b;
+        private int b;
 
         public a(int i) {
-            this.f3795b = i;
+            this.b = i;
         }
 
         public int a() {
-            return this.f3795b;
+            return this.b;
         }
     }
 
@@ -159,8 +157,8 @@ public class ce extends cd {
         return bArr;
     }
 
-    private cq.a a(byte b2) throws ci {
-        switch (b2) {
+    private cq.a a(byte b) throws ci {
+        switch (b) {
             case 0:
                 return cq.a.CONTINUOUS;
             case 1:
@@ -173,7 +171,7 @@ public class ce extends cd {
             case 6:
             case 7:
             default:
-                throw new ci("unknow optcode " + ((int) b2));
+                throw new ci("unknow optcode " + ((int) b));
             case 8:
                 return cq.a.CLOSING;
             case 9:
@@ -229,22 +227,22 @@ public class ce extends cd {
     }
 
     public cq e(ByteBuffer byteBuffer) throws a, ch {
-        byte b2;
+        byte b;
         cp crVar;
         int i = 2;
         int remaining = byteBuffer.remaining();
         if (remaining < 2) {
             throw new a(2);
         }
-        byte b3 = byteBuffer.get();
-        boolean z = (b3 >> 8) != 0;
-        if (((byte) ((b3 & Byte.MAX_VALUE) >> 4)) != 0) {
-            throw new ci("bad rsv " + ((int) b2));
+        byte b2 = byteBuffer.get();
+        boolean z = (b2 >> 8) != 0;
+        if (((byte) ((b2 & Byte.MAX_VALUE) >> 4)) != 0) {
+            throw new ci("bad rsv " + ((int) b));
         }
-        byte b4 = byteBuffer.get();
-        boolean z2 = (b4 & Byte.MIN_VALUE) != 0;
-        int i2 = (byte) (b4 & Byte.MAX_VALUE);
-        cq.a a2 = a((byte) (b3 & 15));
+        byte b3 = byteBuffer.get();
+        boolean z2 = (b3 & Byte.MIN_VALUE) != 0;
+        int i2 = (byte) (b3 & Byte.MAX_VALUE);
+        cq.a a2 = a((byte) (b2 & 15));
         if (!z && (a2 == cq.a.PING || a2 == cq.a.PONG || a2 == cq.a.CLOSING)) {
             throw new ci("control frames may no be fragmented");
         }

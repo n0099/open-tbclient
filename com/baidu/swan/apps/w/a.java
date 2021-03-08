@@ -14,7 +14,7 @@ import com.baidu.swan.apps.w.a.f;
 import com.baidu.swan.apps.w.a.g;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/map");
@@ -36,7 +36,7 @@ public class a extends aa {
             Log.d("MapAction", "handleSubAction subAction: " + str);
         }
         c.i("map", "handleSubAction " + str);
-        b b2 = b.b(unitedSchemeEntity, callbackHandler);
+        b b = b.b(unitedSchemeEntity, callbackHandler);
         char c = 65535;
         switch (str.hashCode()) {
             case -2079680864:
@@ -115,8 +115,8 @@ public class a extends aa {
         switch (c) {
             case 0:
                 com.baidu.swan.apps.w.a.c a3 = a(unitedSchemeEntity, com.baidu.swan.apps.w.a.c.class);
-                if (!a(a3, b2)) {
-                    a2 = com.baidu.swan.apps.t.a.axh().a(context, a3, b2, eVar);
+                if (!a(a3, b)) {
+                    a2 = com.baidu.swan.apps.t.a.axk().a(context, a3, b, eVar);
                     break;
                 } else {
                     a2 = false;
@@ -124,8 +124,8 @@ public class a extends aa {
                 }
             case 1:
                 com.baidu.swan.apps.w.a.c a4 = a(unitedSchemeEntity, com.baidu.swan.apps.w.a.c.class);
-                if (!a(a4, b2)) {
-                    a2 = com.baidu.swan.apps.t.a.axh().b(context, a4, b2, eVar);
+                if (!a(a4, b)) {
+                    a2 = com.baidu.swan.apps.t.a.axk().b(context, a4, b, eVar);
                     break;
                 } else {
                     a2 = false;
@@ -133,8 +133,8 @@ public class a extends aa {
                 }
             case 2:
                 com.baidu.swan.apps.w.a.c a5 = a(unitedSchemeEntity, com.baidu.swan.apps.w.a.c.class);
-                if (!a(a5, b2)) {
-                    a2 = com.baidu.swan.apps.t.a.axh().c(context, a5, b2, eVar);
+                if (!a(a5, b)) {
+                    a2 = com.baidu.swan.apps.t.a.axk().c(context, a5, b, eVar);
                     break;
                 } else {
                     a2 = false;
@@ -142,8 +142,8 @@ public class a extends aa {
                 }
             case 3:
                 f fVar = (f) a(unitedSchemeEntity, f.class);
-                if (!a(fVar, b2)) {
-                    a2 = com.baidu.swan.apps.t.a.axh().a(context, fVar, b2, eVar);
+                if (!a(fVar, b)) {
+                    a2 = com.baidu.swan.apps.t.a.axk().a(context, fVar, b, eVar);
                     break;
                 } else {
                     a2 = false;
@@ -151,8 +151,8 @@ public class a extends aa {
                 }
             case 4:
                 com.baidu.swan.apps.w.a.e eVar2 = (com.baidu.swan.apps.w.a.e) a(unitedSchemeEntity, com.baidu.swan.apps.w.a.e.class);
-                if (!a(eVar2, b2)) {
-                    a2 = com.baidu.swan.apps.t.a.axh().a(context, eVar2, b2, eVar);
+                if (!a(eVar2, b)) {
+                    a2 = com.baidu.swan.apps.t.a.axk().a(context, eVar2, b, eVar);
                     break;
                 } else {
                     a2 = false;
@@ -160,8 +160,8 @@ public class a extends aa {
                 }
             case 5:
                 com.baidu.swan.apps.w.a.c a6 = a(unitedSchemeEntity, com.baidu.swan.apps.w.a.c.class);
-                if (!a(a6, b2)) {
-                    a2 = com.baidu.swan.apps.t.a.axh().d(context, a6, b2, eVar);
+                if (!a(a6, b)) {
+                    a2 = com.baidu.swan.apps.t.a.axk().d(context, a6, b, eVar);
                     break;
                 } else {
                     a2 = false;
@@ -169,8 +169,8 @@ public class a extends aa {
                 }
             case 6:
                 com.baidu.swan.apps.w.a.b bVar = (com.baidu.swan.apps.w.a.b) a(unitedSchemeEntity, com.baidu.swan.apps.w.a.b.class);
-                if (!a(bVar, b2)) {
-                    a2 = com.baidu.swan.apps.t.a.axh().a(context, bVar, b2, eVar);
+                if (!a(bVar, b)) {
+                    a2 = com.baidu.swan.apps.t.a.axk().a(context, bVar, b, eVar);
                     break;
                 } else {
                     a2 = false;
@@ -178,8 +178,8 @@ public class a extends aa {
                 }
             case 7:
                 com.baidu.swan.apps.w.a.c a7 = a(unitedSchemeEntity, com.baidu.swan.apps.w.a.c.class);
-                if (!a(a7, b2)) {
-                    a2 = com.baidu.swan.apps.t.a.axh().e(context, a7, b2, eVar);
+                if (!a(a7, b)) {
+                    a2 = com.baidu.swan.apps.t.a.axk().e(context, a7, b, eVar);
                     break;
                 } else {
                     a2 = false;
@@ -187,8 +187,8 @@ public class a extends aa {
                 }
             case '\b':
                 com.baidu.swan.apps.w.a.c a8 = a(unitedSchemeEntity, com.baidu.swan.apps.w.a.c.class);
-                if (!a(a8, b2)) {
-                    a2 = com.baidu.swan.apps.t.a.axh().f(context, a8, b2, eVar);
+                if (!a(a8, b)) {
+                    a2 = com.baidu.swan.apps.t.a.axk().f(context, a8, b, eVar);
                     break;
                 } else {
                     a2 = false;
@@ -196,8 +196,8 @@ public class a extends aa {
                 }
             case '\t':
                 com.baidu.swan.apps.w.a.c a9 = a(unitedSchemeEntity, com.baidu.swan.apps.w.a.c.class);
-                if (!a(a9, b2)) {
-                    a2 = com.baidu.swan.apps.t.a.axh().g(context, a9, b2, eVar);
+                if (!a(a9, b)) {
+                    a2 = com.baidu.swan.apps.t.a.axk().g(context, a9, b, eVar);
                     break;
                 } else {
                     a2 = false;
@@ -205,8 +205,8 @@ public class a extends aa {
                 }
             case '\n':
                 com.baidu.swan.apps.w.a.a aVar = (com.baidu.swan.apps.w.a.a) a(unitedSchemeEntity, com.baidu.swan.apps.w.a.a.class);
-                if (!a(aVar, b2)) {
-                    a2 = com.baidu.swan.apps.t.a.axh().a(context, aVar, b2, eVar);
+                if (!a(aVar, b)) {
+                    a2 = com.baidu.swan.apps.t.a.axk().a(context, aVar, b, eVar);
                     break;
                 } else {
                     a2 = false;
@@ -214,8 +214,8 @@ public class a extends aa {
                 }
             case 11:
                 g gVar = (g) a(unitedSchemeEntity, g.class);
-                if (!a(gVar, b2)) {
-                    a2 = com.baidu.swan.apps.t.a.axh().a(context, gVar, b2, eVar);
+                if (!a(gVar, b)) {
+                    a2 = com.baidu.swan.apps.t.a.axk().a(context, gVar, b, eVar);
                     break;
                 } else {
                     a2 = false;
@@ -268,16 +268,16 @@ public class a extends aa {
             bVar.onError(202);
             return true;
         }
-        if (TextUtils.isEmpty(cVar.cLr)) {
-            String aOn = ak.aOn();
-            if (!TextUtils.isEmpty(aOn)) {
-                cVar.cLr = aOn;
+        if (TextUtils.isEmpty(cVar.cMR)) {
+            String aOq = ak.aOq();
+            if (!TextUtils.isEmpty(aOq)) {
+                cVar.cMR = aOq;
             }
             c.w("map", "webView id is empty, use current webView");
         }
-        if (ak.po(cVar.cLr) == null) {
+        if (ak.pv(cVar.cMR) == null) {
             bVar.onError(202);
-            c.e("map", "can not find weiView by id " + cVar.cLr);
+            c.e("map", "can not find weiView by id " + cVar.cMR);
             return true;
         }
         return false;

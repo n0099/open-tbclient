@@ -1,7 +1,8 @@
 package androidx.constraintlayout.solver;
 
+import androidx.exifinterface.media.ExifInterface;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class SolverVariable {
     private static final boolean INTERNAL_DEBUG = false;
     static final int MAX_STRENGTH = 7;
@@ -29,7 +30,7 @@ public class SolverVariable {
     private static int uniqueConstantId = 1;
     private static int uniqueId = 1;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public enum Type {
         UNRESTRICTED,
         CONSTANT,
@@ -59,7 +60,7 @@ public class SolverVariable {
                 uniqueConstantId = i2;
                 return append2.append(i2).toString();
             case SLACK:
-                StringBuilder append3 = new StringBuilder().append("S");
+                StringBuilder append3 = new StringBuilder().append(ExifInterface.LATITUDE_SOUTH);
                 int i3 = uniqueSlackId + 1;
                 uniqueSlackId = i3;
                 return append3.append(i3).toString();
@@ -69,7 +70,7 @@ public class SolverVariable {
                 uniqueErrorId = i4;
                 return append4.append(i4).toString();
             case UNKNOWN:
-                StringBuilder append5 = new StringBuilder().append("V");
+                StringBuilder append5 = new StringBuilder().append(ExifInterface.GPS_MEASUREMENT_INTERRUPTED);
                 int i5 = uniqueId + 1;
                 uniqueId = i5;
                 return append5.append(i5).toString();

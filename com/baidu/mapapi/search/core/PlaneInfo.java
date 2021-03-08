@@ -7,10 +7,8 @@ public class PlaneInfo extends TransitBaseInfo {
     public static final Parcelable.Creator<PlaneInfo> CREATOR = new d();
 
     /* renamed from: a  reason: collision with root package name */
-    private double f2839a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f2840b;
+    private double f2097a;
+    private String b;
     private double c;
     private String d;
 
@@ -20,8 +18,8 @@ public class PlaneInfo extends TransitBaseInfo {
     /* JADX INFO: Access modifiers changed from: protected */
     public PlaneInfo(Parcel parcel) {
         super(parcel);
-        this.f2839a = parcel.readDouble();
-        this.f2840b = parcel.readString();
+        this.f2097a = parcel.readDouble();
+        this.b = parcel.readString();
         this.c = parcel.readDouble();
         this.d = parcel.readString();
     }
@@ -32,7 +30,7 @@ public class PlaneInfo extends TransitBaseInfo {
     }
 
     public String getAirlines() {
-        return this.f2840b;
+        return this.b;
     }
 
     public String getBooking() {
@@ -40,7 +38,7 @@ public class PlaneInfo extends TransitBaseInfo {
     }
 
     public double getDiscount() {
-        return this.f2839a;
+        return this.f2097a;
     }
 
     public double getPrice() {
@@ -48,7 +46,7 @@ public class PlaneInfo extends TransitBaseInfo {
     }
 
     public void setAirlines(String str) {
-        this.f2840b = str;
+        this.b = str;
     }
 
     public void setBooking(String str) {
@@ -56,7 +54,7 @@ public class PlaneInfo extends TransitBaseInfo {
     }
 
     public void setDiscount(double d) {
-        this.f2839a = d;
+        this.f2097a = d;
     }
 
     public void setPrice(double d) {
@@ -66,8 +64,8 @@ public class PlaneInfo extends TransitBaseInfo {
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         super.writeToParcel(parcel, i);
-        parcel.writeDouble(this.f2839a);
-        parcel.writeString(this.f2840b);
+        parcel.writeDouble(this.f2097a);
+        parcel.writeString(this.b);
         parcel.writeDouble(this.c);
         parcel.writeString(this.d);
     }

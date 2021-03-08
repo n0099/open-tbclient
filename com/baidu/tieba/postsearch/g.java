@@ -4,92 +4,92 @@ import android.view.View;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class g {
-    private PostSearchActivity mMG;
-    private a mNv;
-    private c mNw;
-    private f mNx;
+    private PostSearchActivity mOI;
+    private c mPA;
+    private f mPB;
+    private a mPz;
     private View mRootView;
 
     public g(PostSearchActivity postSearchActivity) {
-        this.mMG = postSearchActivity;
+        this.mOI = postSearchActivity;
     }
 
     public void initView() {
-        this.mMG.setContentView(R.layout.post_search_activity);
-        this.mRootView = this.mMG.findViewById(R.id.search_rootview);
-        this.mNv = new a(this.mMG, this.mRootView);
-        this.mNw = new c(this.mMG, this.mRootView);
-        this.mNx = new f(this.mMG, this.mRootView);
+        this.mOI.setContentView(R.layout.post_search_activity);
+        this.mRootView = this.mOI.findViewById(R.id.search_rootview);
+        this.mPz = new a(this.mOI, this.mRootView);
+        this.mPA = new c(this.mOI, this.mRootView);
+        this.mPB = new f(this.mOI, this.mRootView);
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        if (this.mNx != null) {
-            this.mNx.setOnPageChangeListener(onPageChangeListener);
+        if (this.mPB != null) {
+            this.mPB.setOnPageChangeListener(onPageChangeListener);
         }
     }
 
     public void bb(ArrayList<String> arrayList) {
-        this.mNx.iv(false);
-        this.mNw.bb(arrayList);
+        this.mPB.iv(false);
+        this.mPA.bb(arrayList);
     }
 
-    public void Hz(int i) {
-        this.mNv.cNo();
+    public void HC(int i) {
+        this.mPz.cNu();
         hideSoftKeyPad();
-        this.mNv.dBC();
-        this.mNx.iv(true);
-        this.mNx.Hz(i);
+        this.mPz.dBK();
+        this.mPB.iv(true);
+        this.mPB.HC(i);
     }
 
-    public void QM(String str) {
-        this.mNv.QM(str);
+    public void QS(String str) {
+        this.mPz.QS(str);
     }
 
     public void a(int i, b bVar, boolean z) {
-        this.mNx.a(i, bVar, z);
+        this.mPB.a(i, bVar, z);
     }
 
-    public boolean dBG() {
-        return this.mNw.dBO();
+    public boolean dBO() {
+        return this.mPA.dBW();
     }
 
     public void showLoadingView() {
-        this.mNw.showLoadingView();
-        this.mNw.hideNoDataView();
+        this.mPA.showLoadingView();
+        this.mPA.hideNoDataView();
     }
 
     public void hideLoadingView() {
-        this.mNw.hideLoadingView();
+        this.mPA.hideLoadingView();
     }
 
-    public void dBN() {
-        this.mNw.dBN();
+    public void dBV() {
+        this.mPA.dBV();
     }
 
     public void hideSoftKeyPad() {
-        this.mNv.hideSoftKeyPad();
+        this.mPz.hideSoftKeyPad();
     }
 
-    public void dBZ() {
-        this.mNw.dBM();
+    public void dCh() {
+        this.mPA.dBU();
     }
 
     public int getCurrentTabType() {
-        return this.mNx.getCurrentTabType();
+        return this.mPB.getCurrentTabType();
     }
 
     public void onChangeSkinType(int i) {
-        this.mNv.onChangeSkinType(i);
-        this.mNw.onChangeSkinType(i);
-        this.mNx.onChangeSkinType(i);
-        com.baidu.tbadk.r.a.a(this.mMG.getPageContext(), this.mRootView);
+        this.mPz.onChangeSkinType(i);
+        this.mPA.onChangeSkinType(i);
+        this.mPB.onChangeSkinType(i);
+        com.baidu.tbadk.r.a.a(this.mOI.getPageContext(), this.mRootView);
     }
 
     public void onDestroy() {
-        if (this.mNv != null) {
-            this.mNv.onDestroy();
+        if (this.mPz != null) {
+            this.mPz.onDestroy();
         }
     }
 }

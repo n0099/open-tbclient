@@ -1,5 +1,5 @@
 package com.baidu.live.talentshow.c;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface c {
     void E(int i, String str);
 

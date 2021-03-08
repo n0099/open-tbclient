@@ -3,7 +3,6 @@ package com.bytedance.embedapplog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.IBinder;
 import android.provider.Settings;
@@ -17,12 +16,12 @@ import com.bytedance.embedapplog.cl;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public final class bd implements bi {
-    private static final aw<Boolean> pnl = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bd.1
+    private static final aw<Boolean> ppv = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bd.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.bytedance.embedapplog.aw
-        /* renamed from: N */
-        public Boolean M(Object... objArr) {
+        /* renamed from: M */
+        public Boolean L(Object... objArr) {
             return Boolean.valueOf(bc.a((Context) objArr[0], "com.huawei.hwid"));
         }
     };
@@ -32,7 +31,7 @@ public final class bd implements bi {
         if (context == null) {
             return false;
         }
-        return pnl.b(context).booleanValue();
+        return ppv.b(context).booleanValue();
     }
 
     @Override // com.bytedance.embedapplog.bi
@@ -44,28 +43,28 @@ public final class bd implements bi {
     @Override // com.bytedance.embedapplog.bi
     @Nullable
     @WorkerThread
-    /* renamed from: hT */
-    public a hS(Context context) {
+    /* renamed from: hS */
+    public a hR(Context context) {
         a aVar = new a();
         if (Build.VERSION.SDK_INT >= 24) {
             try {
                 String string = Settings.Global.getString(context.getContentResolver(), "pps_oaid");
                 String string2 = Settings.Global.getString(context.getContentResolver(), "pps_track_limit");
                 if (!TextUtils.isEmpty(string)) {
-                    aVar.f5803b = string;
+                    aVar.b = string;
                     aVar.c = Boolean.parseBoolean(string2);
-                    aVar.f5800a = 202003021704L;
+                    aVar.f3914a = 202003021704L;
                     return aVar;
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
             }
         }
-        Pair<String, Boolean> hU = hU(context);
-        if (hU != null) {
-            aVar.f5803b = (String) hU.first;
-            aVar.c = ((Boolean) hU.second).booleanValue();
-            aVar.f5800a = e(context);
+        Pair<String, Boolean> hT = hT(context);
+        if (hT != null) {
+            aVar.b = (String) hT.first;
+            aVar.c = ((Boolean) hT.second).booleanValue();
+            aVar.f3914a = e(context);
         }
         return aVar;
     }
@@ -77,14 +76,14 @@ public final class bd implements bi {
                 return packageInfo.versionCode;
             }
             return 0;
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
+        } catch (Throwable th) {
+            th.printStackTrace();
             return 0;
         }
     }
 
     @Nullable
-    private static Pair<String, Boolean> hU(Context context) {
+    private static Pair<String, Boolean> hT(Context context) {
         return (Pair) new bp(context, new Intent("com.uodis.opendevice.OPENIDS_SERVICE").setPackage("com.huawei.hwid"), new bp.b<cl, Pair<String, Boolean>>() { // from class: com.bytedance.embedapplog.bd.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.embedapplog.bp.b
@@ -109,7 +108,7 @@ public final class bd implements bi {
     public static class a extends bi.a {
 
         /* renamed from: a  reason: collision with root package name */
-        long f5800a = 0;
+        long f3914a = 0;
 
         a() {
         }

@@ -26,7 +26,7 @@ public class g {
                 public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                     super.onLoaded((AnonymousClass1) aVar, str, i);
                     if (aVar != null) {
-                        g.this.showToast(g.this.n(g.this.mUrl, aVar.getImageByte()));
+                        g.this.showToast(g.this.m(g.this.mUrl, aVar.getImageByte()));
                     } else {
                         g.this.showToast(g.this.mActivity.getPageContext().getString(R.string.save_fail));
                     }
@@ -38,7 +38,7 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String n(String str, byte[] bArr) {
+    public String m(String str, byte[] bArr) {
         switch (o.saveImageFileByUser(str, bArr, this.mActivity.getPageContext().getPageActivity())) {
             case -2:
                 return o.getSdErrorString();

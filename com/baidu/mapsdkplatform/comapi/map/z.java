@@ -3,10 +3,8 @@ package com.baidu.mapsdkplatform.comapi.map;
 public final class z {
 
     /* renamed from: a  reason: collision with root package name */
-    ab f3077a = new ab();
-
-    /* renamed from: b  reason: collision with root package name */
-    boolean f3078b = true;
+    ab f2236a = new ab();
+    boolean b = true;
     int c = 1;
     boolean d = true;
     boolean e = true;
@@ -19,12 +17,12 @@ public final class z {
     }
 
     public z a(ab abVar) {
-        this.f3077a = abVar;
+        this.f2236a = abVar;
         return this;
     }
 
     public z a(boolean z) {
-        this.f3078b = z;
+        this.b = z;
         return this;
     }
 

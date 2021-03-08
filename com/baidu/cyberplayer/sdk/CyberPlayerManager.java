@@ -169,10 +169,8 @@ public class CyberPlayerManager {
     private static Class<?> i;
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f1702a = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static OnDeleteListener f1703b = null;
+    private static boolean f1382a = false;
+    private static OnDeleteListener b = null;
     private static OnVideoFlowListener c = null;
     private static final Object d = new Object();
     public static String VIDEO_FLOW_URL = "video_flow_url";
@@ -288,29 +286,29 @@ public class CyberPlayerManager {
     }
 
     public static void deleteVideoCache(OnDeleteListener onDeleteListener) {
-        if (f1702a) {
+        if (f1382a) {
             if (onDeleteListener != null) {
                 onDeleteListener.onDeleteComplete(-2, 0L);
                 return;
             }
             return;
         }
-        f1702a = true;
-        f1703b = onDeleteListener;
+        f1382a = true;
+        b = onDeleteListener;
         CyberTaskExcutor.getInstance().executeSingleThread(new Runnable() { // from class: com.baidu.cyberplayer.sdk.CyberPlayerManager.1
             @Override // java.lang.Runnable
             public void run() {
                 synchronized (CyberPlayerManager.d) {
                     long a2 = n.a((Boolean) true);
-                    if (CyberPlayerManager.f1703b != null) {
+                    if (CyberPlayerManager.b != null) {
                         if (a2 < 0) {
-                            CyberPlayerManager.f1703b.onDeleteComplete((int) a2, 0L);
+                            CyberPlayerManager.b.onDeleteComplete((int) a2, 0L);
                         } else {
-                            CyberPlayerManager.f1703b.onDeleteComplete(0, a2);
+                            CyberPlayerManager.b.onDeleteComplete(0, a2);
                         }
                     }
-                    boolean unused = CyberPlayerManager.f1702a = false;
-                    OnDeleteListener unused2 = CyberPlayerManager.f1703b = null;
+                    boolean unused = CyberPlayerManager.f1382a = false;
+                    OnDeleteListener unused2 = CyberPlayerManager.b = null;
                 }
             }
         });

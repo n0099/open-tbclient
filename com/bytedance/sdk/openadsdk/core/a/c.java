@@ -4,40 +4,38 @@ import android.util.SparseArray;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
-import com.bytedance.sdk.openadsdk.core.h.j;
+import com.bytedance.sdk.openadsdk.core.h.g;
 import com.bytedance.sdk.openadsdk.core.p;
 /* loaded from: classes6.dex */
 public abstract class c implements View.OnClickListener, View.OnTouchListener {
-    protected static int A;
+    protected static int B;
 
     /* renamed from: a  reason: collision with root package name */
-    private static float f6445a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static float f6446b;
+    private static float f4356a;
+    private static float b;
     private static float c;
     private static float d;
     private static long e;
-    protected SparseArray<a> B = new SparseArray<>();
-    protected int r;
+    protected int A;
+    protected SparseArray<a> C = new SparseArray<>();
     protected int s;
     protected int t;
     protected int u;
-    protected long v;
+    protected int v;
     protected long w;
-    protected int x;
+    protected long x;
     protected int y;
     protected int z;
 
     protected abstract void a(View view, int i, int i2, int i3, int i4);
 
     static {
-        A = 8;
+        B = 8;
         if (ViewConfiguration.get(p.a()) != null) {
-            A = ViewConfiguration.get(p.a()).getScaledTouchSlop();
+            B = ViewConfiguration.get(p.a()).getScaledTouchSlop();
         }
-        f6445a = 0.0f;
-        f6446b = 0.0f;
+        f4356a = 0.0f;
+        b = 0.0f;
         c = 0.0f;
         d = 0.0f;
         e = 0L;
@@ -45,8 +43,8 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (j.a()) {
-            a(view, this.r, this.s, this.t, this.u);
+        if (g.a()) {
+            a(view, this.s, this.t, this.u, this.v);
         }
     }
 
@@ -55,27 +53,27 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
         int i = -1;
         switch (motionEvent.getActionMasked()) {
             case 0:
-                this.r = (int) motionEvent.getRawX();
-                this.s = (int) motionEvent.getRawY();
-                this.v = System.currentTimeMillis();
-                this.x = motionEvent.getToolType(0);
-                this.y = motionEvent.getDeviceId();
-                this.z = motionEvent.getSource();
+                this.s = (int) motionEvent.getRawX();
+                this.t = (int) motionEvent.getRawY();
+                this.w = System.currentTimeMillis();
+                this.y = motionEvent.getToolType(0);
+                this.z = motionEvent.getDeviceId();
+                this.A = motionEvent.getSource();
                 e = System.currentTimeMillis();
                 i = 0;
                 break;
             case 1:
-                this.t = (int) motionEvent.getRawX();
-                this.u = (int) motionEvent.getRawY();
-                this.w = System.currentTimeMillis();
+                this.u = (int) motionEvent.getRawX();
+                this.v = (int) motionEvent.getRawY();
+                this.x = System.currentTimeMillis();
                 i = 3;
                 break;
             case 2:
-                c += Math.abs(motionEvent.getX() - f6445a);
-                d += Math.abs(motionEvent.getY() - f6446b);
-                f6445a = motionEvent.getX();
-                f6446b = motionEvent.getY();
-                if (System.currentTimeMillis() - e > 200 && (c > A || d > A)) {
+                c += Math.abs(motionEvent.getX() - f4356a);
+                d += Math.abs(motionEvent.getY() - b);
+                f4356a = motionEvent.getX();
+                b = motionEvent.getY();
+                if (System.currentTimeMillis() - e > 200 && (c > B || d > B)) {
                     i = 1;
                     break;
                 } else {
@@ -87,8 +85,8 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
                 i = 4;
                 break;
         }
-        if (this.B.get(motionEvent.getActionMasked()) == null) {
-            this.B.put(motionEvent.getActionMasked(), new a(i, motionEvent.getSize(), motionEvent.getPressure(), System.currentTimeMillis()));
+        if (this.C.get(motionEvent.getActionMasked()) == null) {
+            this.C.put(motionEvent.getActionMasked(), new a(i, motionEvent.getSize(), motionEvent.getPressure(), System.currentTimeMillis()));
         }
         return false;
     }
@@ -97,17 +95,15 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f6447a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public double f6448b;
+        public int f4357a;
+        public double b;
         public double c;
         public long d;
 
         public a(int i, double d, double d2, long j) {
-            this.f6447a = -1;
-            this.f6447a = i;
-            this.f6448b = d;
+            this.f4357a = -1;
+            this.f4357a = i;
+            this.b = d;
             this.c = d2;
             this.d = j;
         }

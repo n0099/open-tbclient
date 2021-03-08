@@ -3,17 +3,17 @@ package com.baidu.fsg.base;
 class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ InitDelayThread f1875a;
+    final /* synthetic */ InitDelayThread f1493a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(InitDelayThread initDelayThread) {
-        this.f1875a = initDelayThread;
+        this.f1493a = initDelayThread;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.f1875a.mCallback != null) {
-            this.f1875a.mCallback.callBack();
+        if (this.f1493a.mCallback != null) {
+            this.f1493a.mCallback.callBack();
         }
     }
 }

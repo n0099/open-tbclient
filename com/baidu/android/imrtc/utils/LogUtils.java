@@ -1,7 +1,7 @@
 package com.baidu.android.imrtc.utils;
 
 import android.util.Log;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LogUtils {
     private static String TAG = "rtcsdk";
 

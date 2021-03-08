@@ -10,11 +10,11 @@ import com.baidu.tieba.R;
 public class k implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f4309a;
+    final /* synthetic */ c f2981a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(c cVar) {
-        this.f4309a = cVar;
+        this.f2981a = cVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,13 +23,13 @@ public class k implements View.OnClickListener {
         Context context2;
         RelativeLayout relativeLayout;
         RelativeLayout relativeLayout2;
-        context = this.f4309a.l;
+        context = this.f2981a.l;
         if (context != null) {
-            context2 = this.f4309a.l;
+            context2 = this.f2981a.l;
             Animation c = com.baidu.platform.comapi.wnplatform.o.a.a.c(context2, R.attr.actionBarPopupTheme);
-            relativeLayout = this.f4309a.G;
+            relativeLayout = this.f2981a.G;
             relativeLayout.setAnimation(c);
-            relativeLayout2 = this.f4309a.G;
+            relativeLayout2 = this.f2981a.G;
             relativeLayout2.setVisibility(8);
         }
     }

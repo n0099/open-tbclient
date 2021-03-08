@@ -2,7 +2,7 @@ package com.thunder.livesdk;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderStreamInfo {
     public static final int STREAM_CONFIG_KEY_AUDIO_SAMPLERATE = 7;
     public static final int STREAM_CONFIG_KEY_CODE_RATE = 4;

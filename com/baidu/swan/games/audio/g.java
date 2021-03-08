@@ -10,7 +10,7 @@ import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.swan.games.audio.b.a;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class g extends EventTargetImpl implements a, b {
     @V8JavascriptField
     public boolean autoplay;
@@ -18,11 +18,11 @@ public class g extends EventTargetImpl implements a, b {
     public int buffered;
     @V8JavascriptField
     public double currentTime;
-    String diq;
+    String djT;
     @V8JavascriptField
     public long duration;
-    private AudioPlayer ecC;
-    private com.baidu.swan.games.f.b ecD;
+    private AudioPlayer eed;
+    private com.baidu.swan.games.f.b eee;
     @V8JavascriptField
     public boolean loop;
     @V8JavascriptField
@@ -42,35 +42,35 @@ public class g extends EventTargetImpl implements a, b {
         this.volume = 1.0f;
         this.obeyMuteSwitch = true;
         this.paused = true;
-        this.ecD = bVar;
-        aUa();
+        this.eee = bVar;
+        aUd();
     }
 
     private void init() {
-        if (this.ecC != null) {
-            e eVar = new e(this, f.aTW());
+        if (this.eed != null) {
+            e eVar = new e(this, f.aTZ());
             eVar.a(this);
-            this.ecC.a(eVar);
+            this.eed.a(eVar);
         }
     }
 
-    private void aUa() {
-        String valueOf = String.valueOf(c.aTL());
-        this.diq = valueOf;
-        this.ecC = vU(valueOf);
+    private void aUd() {
+        String valueOf = String.valueOf(c.aTO());
+        this.djT = valueOf;
+        this.eed = wb(valueOf);
         init();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hY(final boolean z) {
-        if (this.ecC != null) {
-            com.baidu.swan.games.audio.b.b.aUd().aUf().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.1
+        if (this.eed != null) {
+            com.baidu.swan.games.audio.b.b.aUg().aUi().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (!z || g.this.ecC.aTT()) {
-                        g.this.ecC.a(f.a(g.this));
+                    if (!z || g.this.eed.aTW()) {
+                        g.this.eed.a(f.a(g.this));
                         if (g.this.autoplay) {
-                            g.this.ecC.play();
+                            g.this.eed.play();
                         }
                     }
                 }
@@ -81,11 +81,11 @@ public class g extends EventTargetImpl implements a, b {
     @Override // com.baidu.swan.games.audio.a
     @JavascriptInterface
     public void play() {
-        if (this.ecC != null) {
-            com.baidu.swan.games.audio.b.b.aUd().aUf().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.2
+        if (this.eed != null) {
+            com.baidu.swan.games.audio.b.b.aUg().aUi().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    g.this.ecC.play();
+                    g.this.eed.play();
                 }
             });
         }
@@ -94,11 +94,11 @@ public class g extends EventTargetImpl implements a, b {
     @Override // com.baidu.swan.games.audio.a
     @JavascriptInterface
     public void pause() {
-        if (this.ecC != null) {
-            com.baidu.swan.games.audio.b.b.aUd().aUf().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.3
+        if (this.eed != null) {
+            com.baidu.swan.games.audio.b.b.aUg().aUi().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    g.this.ecC.pause();
+                    g.this.eed.pause();
                 }
             });
         }
@@ -107,11 +107,11 @@ public class g extends EventTargetImpl implements a, b {
     @Override // com.baidu.swan.games.audio.a
     @JavascriptInterface
     public void seek(final float f) {
-        if (this.ecC != null) {
-            com.baidu.swan.games.audio.b.b.aUd().aUf().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.4
+        if (this.eed != null) {
+            com.baidu.swan.games.audio.b.b.aUg().aUi().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    g.this.ecC.X(f);
+                    g.this.eed.ab(f);
                 }
             });
         }
@@ -120,11 +120,11 @@ public class g extends EventTargetImpl implements a, b {
     @Override // com.baidu.swan.games.audio.a
     @JavascriptInterface
     public void stop() {
-        if (this.ecC != null) {
-            com.baidu.swan.games.audio.b.b.aUd().aUf().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.5
+        if (this.eed != null) {
+            com.baidu.swan.games.audio.b.b.aUg().aUi().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    g.this.ecC.stop();
+                    g.this.eed.stop();
                 }
             });
         }
@@ -133,11 +133,11 @@ public class g extends EventTargetImpl implements a, b {
     @Override // com.baidu.swan.games.audio.a
     @JavascriptInterface
     public void destroy() {
-        if (this.ecC != null) {
-            com.baidu.swan.games.audio.b.b.aUd().aUf().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.6
+        if (this.eed != null) {
+            com.baidu.swan.games.audio.b.b.aUg().aUi().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.6
                 @Override // java.lang.Runnable
                 public void run() {
-                    g.this.ecC.release();
+                    g.this.eed.release();
                 }
             });
         }
@@ -145,13 +145,13 @@ public class g extends EventTargetImpl implements a, b {
 
     @JavascriptInterface
     public void setDataBuffer(JsArrayBuffer jsArrayBuffer) {
-        com.baidu.swan.games.audio.b.b.aUd().a(jsArrayBuffer, new a.InterfaceC0509a() { // from class: com.baidu.swan.games.audio.g.7
-            @Override // com.baidu.swan.games.audio.b.a.InterfaceC0509a
-            public void ki(final String str) {
-                g.this.ecD.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.audio.g.7.1
+        com.baidu.swan.games.audio.b.b.aUg().a(jsArrayBuffer, new a.InterfaceC0515a() { // from class: com.baidu.swan.games.audio.g.7
+            @Override // com.baidu.swan.games.audio.b.a.InterfaceC0515a
+            public void kp(final String str) {
+                g.this.eee.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.audio.g.7.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        g.this.src = com.baidu.swan.apps.v.f.aAl().azR().tp(str);
+                        g.this.src = com.baidu.swan.apps.v.f.aAo().azU().tw(str);
                         if (com.baidu.swan.apps.b.DEBUG) {
                             Log.d("Aigame AudioContext", "prepare path: " + g.this.src + " autoPlay: " + g.this.autoplay + " class: " + toString());
                         }
@@ -160,36 +160,36 @@ public class g extends EventTargetImpl implements a, b {
                 });
             }
 
-            @Override // com.baidu.swan.games.audio.b.a.InterfaceC0509a
-            public void aUb() {
+            @Override // com.baidu.swan.games.audio.b.a.InterfaceC0515a
+            public void aUe() {
             }
         });
     }
 
     @Override // com.baidu.swan.games.audio.a
     public int getDuration() {
-        if (this.ecC != null) {
-            return (int) this.ecC.getDuration();
+        if (this.eed != null) {
+            return (int) this.eed.getDuration();
         }
         return 0;
     }
 
     @Override // com.baidu.swan.games.audio.a
     public int getCurrentTime() {
-        if (this.ecC != null) {
-            return this.ecC.getCurrentPosition();
+        if (this.eed != null) {
+            return this.eed.getCurrentPosition();
         }
         return 0;
     }
 
-    public int aTO() {
-        if (this.ecC != null) {
-            return this.ecC.aTO();
+    public int aTR() {
+        if (this.eed != null) {
+            return this.eed.aTR();
         }
         return 0;
     }
 
-    private static AudioPlayer vU(String str) {
+    private static AudioPlayer wb(String str) {
         return new AudioPlayer(str);
     }
 
@@ -237,11 +237,11 @@ public class g extends EventTargetImpl implements a, b {
                 c(f.a(this));
                 return;
             case 2:
-                if (f.Y(this.volume)) {
+                if (f.ac(this.volume)) {
                     c(f.a(this));
                     return;
                 } else {
-                    this.volume = this.ecC.getVolume();
+                    this.volume = this.eed.getVolume();
                     return;
                 }
             case 3:
@@ -259,11 +259,11 @@ public class g extends EventTargetImpl implements a, b {
     }
 
     private void c(d dVar) {
-        this.ecC.b(dVar);
+        this.eed.b(dVar);
     }
 
     @Override // com.baidu.swan.games.audio.b
-    public void h(String str, JSONObject jSONObject) {
+    public void i(String str, JSONObject jSONObject) {
         char c = 65535;
         switch (str.hashCode()) {
             case -1522036513:
@@ -317,7 +317,7 @@ public class g extends EventTargetImpl implements a, b {
         }
         switch (c) {
             case 0:
-                this.buffered = aTO();
+                this.buffered = aTR();
                 return;
             case 1:
                 if (jSONObject != null) {

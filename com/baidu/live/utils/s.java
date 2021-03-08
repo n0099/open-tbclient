@@ -10,10 +10,10 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class s {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public String name;
         public String uk;
@@ -24,8 +24,7 @@ public class s {
         }
     }
 
-    /* renamed from: if  reason: not valid java name */
-    public static List<a> m22if(String str) {
+    public static List<a> il(String str) {
         ArrayList arrayList = new ArrayList();
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -43,14 +42,14 @@ public class s {
         return arrayList;
     }
 
-    public static String Vw() {
-        AlaWheatInfoData Yl = com.baidu.live.ao.a.Yj().Yl();
-        if (Yl != null) {
+    public static String Vz() {
+        AlaWheatInfoData Yo = com.baidu.live.ao.a.Ym().Yo();
+        if (Yo != null) {
             JSONArray jSONArray = new JSONArray();
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("user_uk", Yl.uk);
-                jSONObject.put("user_name", Yl.userName);
+                jSONObject.put("user_uk", Yo.uk);
+                jSONObject.put("user_name", Yo.userName);
                 jSONArray.put(jSONObject);
                 return jSONArray.toString();
             } catch (JSONException e) {
@@ -81,7 +80,7 @@ public class s {
         return "" + j + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str3;
     }
 
-    public static final String ig(String str) {
+    public static final String im(String str) {
         return !TextUtils.isEmpty(str) ? Base64.encodeBytes(str.getBytes()).replace("+", Constants.ACCEPT_TIME_SEPARATOR_SERVER).replace("/", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).replace("=", "") : "";
     }
 }

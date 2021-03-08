@@ -19,29 +19,25 @@ import java.util.concurrent.TimeUnit;
 public final class a implements ExecutorService {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final long f10181a = TimeUnit.SECONDS.toMillis(10);
-
-    /* renamed from: b  reason: collision with root package name */
-    private static volatile int f10182b;
+    private static final long f6735a = TimeUnit.SECONDS.toMillis(10);
+    private static volatile int b;
     private final ExecutorService c;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.kwad.sdk.glide.load.engine.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static final class ThreadFactoryC1133a implements ThreadFactory {
+    public static final class ThreadFactoryC1150a implements ThreadFactory {
 
         /* renamed from: a  reason: collision with root package name */
-        final b f10183a;
-
-        /* renamed from: b  reason: collision with root package name */
-        final boolean f10184b;
+        final b f6736a;
+        final boolean b;
         private final String c;
         private int d;
 
-        ThreadFactoryC1133a(String str, b bVar, boolean z) {
+        ThreadFactoryC1150a(String str, b bVar, boolean z) {
             this.c = str;
-            this.f10183a = bVar;
-            this.f10184b = z;
+            this.f6736a = bVar;
+            this.b = z;
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -51,13 +47,13 @@ public final class a implements ExecutorService {
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
                     Process.setThreadPriority(9);
-                    if (ThreadFactoryC1133a.this.f10184b) {
+                    if (ThreadFactoryC1150a.this.b) {
                         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectNetwork().penaltyDeath().build());
                     }
                     try {
                         super.run();
                     } catch (Throwable th) {
-                        ThreadFactoryC1133a.this.f10183a.a(th);
+                        ThreadFactoryC1150a.this.f6736a.a(th);
                     }
                 }
             };
@@ -70,14 +66,12 @@ public final class a implements ExecutorService {
     public interface b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f10186a = new b() { // from class: com.kwad.sdk.glide.load.engine.b.a.b.1
+        public static final b f6738a = new b() { // from class: com.kwad.sdk.glide.load.engine.b.a.b.1
             @Override // com.kwad.sdk.glide.load.engine.b.a.b
             public void a(Throwable th) {
             }
         };
-
-        /* renamed from: b  reason: collision with root package name */
-        public static final b f10187b = new b() { // from class: com.kwad.sdk.glide.load.engine.b.a.b.2
+        public static final b b = new b() { // from class: com.kwad.sdk.glide.load.engine.b.a.b.2
             @Override // com.kwad.sdk.glide.load.engine.b.a.b
             public void a(Throwable th) {
                 if (th == null || !Log.isLoggable("GlideExecutor", 6)) {
@@ -94,7 +88,7 @@ public final class a implements ExecutorService {
                 }
             }
         };
-        public static final b d = f10187b;
+        public static final b d = b;
 
         void a(Throwable th);
     }
@@ -109,11 +103,11 @@ public final class a implements ExecutorService {
     }
 
     public static a a(int i, b bVar) {
-        return new a(new ThreadPoolExecutor(0, i, f10181a, TimeUnit.MILLISECONDS, new PriorityBlockingQueue(), new ThreadFactoryC1133a("animation", bVar, true)));
+        return new a(new ThreadPoolExecutor(0, i, f6735a, TimeUnit.MILLISECONDS, new PriorityBlockingQueue(), new ThreadFactoryC1150a("animation", bVar, true)));
     }
 
     public static a a(int i, String str, b bVar) {
-        return new a(new ThreadPoolExecutor(i, i, 0L, TimeUnit.MILLISECONDS, new PriorityBlockingQueue(), new ThreadFactoryC1133a(str, bVar, true)));
+        return new a(new ThreadPoolExecutor(i, i, 0L, TimeUnit.MILLISECONDS, new PriorityBlockingQueue(), new ThreadFactoryC1150a(str, bVar, true)));
     }
 
     public static a b() {
@@ -121,11 +115,11 @@ public final class a implements ExecutorService {
     }
 
     public static a b(int i, String str, b bVar) {
-        return new a(new ThreadPoolExecutor(i, i, 0L, TimeUnit.MILLISECONDS, new PriorityBlockingQueue(), new ThreadFactoryC1133a(str, bVar, false)));
+        return new a(new ThreadPoolExecutor(i, i, 0L, TimeUnit.MILLISECONDS, new PriorityBlockingQueue(), new ThreadFactoryC1150a(str, bVar, false)));
     }
 
     public static a c() {
-        return new a(new ThreadPoolExecutor(0, Integer.MAX_VALUE, f10181a, TimeUnit.MILLISECONDS, new SynchronousQueue(), new ThreadFactoryC1133a("source-unlimited", b.d, false)));
+        return new a(new ThreadPoolExecutor(0, Integer.MAX_VALUE, f6735a, TimeUnit.MILLISECONDS, new SynchronousQueue(), new ThreadFactoryC1150a("source-unlimited", b.d, false)));
     }
 
     public static a d() {
@@ -133,10 +127,10 @@ public final class a implements ExecutorService {
     }
 
     public static int e() {
-        if (f10182b == 0) {
-            f10182b = Math.min(4, com.kwad.sdk.glide.load.engine.b.b.a());
+        if (b == 0) {
+            b = Math.min(4, com.kwad.sdk.glide.load.engine.b.b.a());
         }
-        return f10182b;
+        return b;
     }
 
     @Override // java.util.concurrent.ExecutorService

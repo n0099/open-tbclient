@@ -3,57 +3,53 @@ package com.ss.android.a.a.d;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f12893a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f12894b;
+    public String f7671a;
+    public String b;
     public String c;
     public String d;
     public String e;
 
-    public a(C1219a c1219a) {
-        this.f12894b = "";
-        this.f12893a = c1219a.f12895a;
-        this.f12894b = c1219a.f12896b;
-        this.c = c1219a.c;
-        this.d = c1219a.d;
-        this.e = c1219a.e;
+    public a(C1209a c1209a) {
+        this.b = "";
+        this.f7671a = c1209a.f7672a;
+        this.b = c1209a.b;
+        this.c = c1209a.c;
+        this.d = c1209a.d;
+        this.e = c1209a.e;
     }
 
     /* renamed from: com.ss.android.a.a.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1219a {
+    public static class C1209a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f12895a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private String f12896b;
+        private String f7672a;
+        private String b;
         private String c;
         private String d;
         private String e;
 
-        public C1219a aan(String str) {
-            this.f12895a = str;
+        public C1209a aas(String str) {
+            this.f7672a = str;
             return this;
         }
 
-        public C1219a aao(String str) {
-            this.f12896b = str;
+        public C1209a aat(String str) {
+            this.b = str;
             return this;
         }
 
-        public C1219a aap(String str) {
+        public C1209a aau(String str) {
             this.d = str;
             return this;
         }
 
-        public C1219a aaq(String str) {
+        public C1209a aav(String str) {
             this.e = str;
             return this;
         }
 
-        public a eEj() {
+        public a eEn() {
             return new a(this);
         }
     }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.yuyinala.liveroom.teamfighttimeset;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c extends HttpMessage {
     public c(int i, int i2, String str) {
         super(1031085);

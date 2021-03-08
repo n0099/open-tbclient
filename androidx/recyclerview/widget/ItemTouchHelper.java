@@ -22,7 +22,7 @@ import androidx.recyclerview.R;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ItemTouchHelper extends RecyclerView.ItemDecoration implements RecyclerView.OnChildAttachStateChangeListener {
     static final int ACTION_MODE_DRAG_MASK = 16711680;
     private static final int ACTION_MODE_IDLE_MASK = 255;
@@ -180,7 +180,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
         }
     };
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface ViewDropHandler {
         void prepareForDrop(@NonNull View view, @NonNull View view2, int i, int i2);
     }
@@ -833,7 +833,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static abstract class Callback {
         private static final int ABS_HORIZONTAL_DIR_FLAGS = 789516;
         public static final int DEFAULT_DRAG_ANIMATION_DURATION = 200;
@@ -1096,7 +1096,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static abstract class SimpleCallback extends Callback {
         private int mDefaultDragDirs;
         private int mDefaultSwipeDirs;
@@ -1129,7 +1129,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class ItemTouchHelperGestureListener extends GestureDetector.SimpleOnGestureListener {
         private boolean mShouldReactToLongPress = true;
 
@@ -1166,7 +1166,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class RecoverAnimation implements Animator.AnimatorListener {
         final int mActionState;
         final int mAnimationType;

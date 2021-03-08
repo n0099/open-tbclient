@@ -33,11 +33,11 @@ public class am {
                 Class<?> type = field.getType();
                 if (type != null) {
                     if (com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(type, Message.class)) {
-                        Object b2 = b(type, hashSet);
-                        if (b2 != null) {
-                            if (com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(b2.getClass(), Message.class)) {
+                        Object b = b(type, hashSet);
+                        if (b != null) {
+                            if (com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(b.getClass(), Message.class)) {
                                 field.setAccessible(true);
-                                field.set(newInstance, b2);
+                                field.set(newInstance, b);
                             } else {
                                 BdLog.e("");
                             }
@@ -49,10 +49,10 @@ public class am {
                                 Class cls3 = (Class) actualTypeArguments[0];
                                 if (com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(cls3, Message.class)) {
                                     ArrayList arrayList = new ArrayList();
-                                    Object b3 = b(cls3, hashSet);
-                                    if (b3 != null) {
-                                        if (com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(b3.getClass(), Message.class)) {
-                                            arrayList.add(b3);
+                                    Object b2 = b(cls3, hashSet);
+                                    if (b2 != null) {
+                                        if (com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(b2.getClass(), Message.class)) {
+                                            arrayList.add(b2);
                                         } else {
                                             BdLog.e("");
                                         }

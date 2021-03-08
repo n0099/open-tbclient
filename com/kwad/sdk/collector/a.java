@@ -10,13 +10,13 @@ public class a {
 
     /* renamed from: com.kwad.sdk.collector.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1074a {
+    public interface InterfaceC1091a {
         void a(int i, String str);
 
         void a(AppStatusRules appStatusRules);
     }
 
-    public static void a(final Context context, final InterfaceC1074a interfaceC1074a) {
+    public static void a(final Context context, final InterfaceC1091a interfaceC1091a) {
         if (context == null) {
             return;
         }
@@ -49,16 +49,16 @@ public class a {
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.collector.a.a aVar, int i, String str) {
                 super.a((AnonymousClass2) aVar, i, str);
-                if (InterfaceC1074a.this != null) {
-                    InterfaceC1074a.this.a(i, str);
+                if (InterfaceC1091a.this != null) {
+                    InterfaceC1091a.this.a(i, str);
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.collector.a.a aVar, @NonNull AppStatusRules appStatusRules) {
-                if (InterfaceC1074a.this != null) {
-                    InterfaceC1074a.this.a(appStatusRules);
+                if (InterfaceC1091a.this != null) {
+                    InterfaceC1091a.this.a(appStatusRules);
                 }
             }
         });

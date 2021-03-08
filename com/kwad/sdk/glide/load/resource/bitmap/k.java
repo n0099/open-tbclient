@@ -25,11 +25,9 @@ import java.util.Set;
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<DecodeFormat> f10285a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.Downsampler.DecodeFormat", DecodeFormat.DEFAULT);
+    public static final com.kwad.sdk.glide.load.d<DecodeFormat> f6792a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.Downsampler.DecodeFormat", DecodeFormat.DEFAULT);
     @Deprecated
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<DownsampleStrategy> f10286b = DownsampleStrategy.h;
+    public static final com.kwad.sdk.glide.load.d<DownsampleStrategy> b = DownsampleStrategy.h;
     public static final com.kwad.sdk.glide.load.d<Boolean> c = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.Downsampler.FixBitmapSize", false);
     public static final com.kwad.sdk.glide.load.d<Boolean> d = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.Downsampler.AllowHardwareDecode", false);
     private static final Set<String> e = Collections.unmodifiableSet(new HashSet(Arrays.asList("image/vnd.wap.wbmp", "image/x-ico")));
@@ -368,7 +366,7 @@ public final class k {
         byte[] bArr = (byte[]) this.k.a(65536, byte[].class);
         BitmapFactory.Options a2 = a();
         a2.inTempStorage = bArr;
-        DecodeFormat decodeFormat = (DecodeFormat) eVar.a(f10285a);
+        DecodeFormat decodeFormat = (DecodeFormat) eVar.a(f6792a);
         try {
             return d.a(a(inputStream, a2, (DownsampleStrategy) eVar.a(DownsampleStrategy.h), decodeFormat, eVar.a(d) != null && ((Boolean) eVar.a(d)).booleanValue(), i, i2, ((Boolean) eVar.a(c)).booleanValue(), aVar), this.i);
         } finally {

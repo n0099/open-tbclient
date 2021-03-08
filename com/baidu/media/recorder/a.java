@@ -7,34 +7,32 @@ import org.apache.http.HttpStatus;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Map<Integer, Integer> f3212a = new HashMap();
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f3213b = 4;
+    private static Map<Integer, Integer> f2312a = new HashMap();
+    private int b = 4;
 
     static {
-        f3212a.put(2, 256);
-        f3212a.put(4, 8);
-        f3212a.put(8, 286);
-        f3212a.put(16, 294);
-        f3212a.put(32, 326);
-        f3212a.put(64, Integer.valueOf((int) HttpStatus.SC_UNPROCESSABLE_ENTITY));
-        f3212a.put(128, 326);
-        f3212a.put(256, 20);
+        f2312a.put(2, 256);
+        f2312a.put(4, 8);
+        f2312a.put(8, 286);
+        f2312a.put(16, 294);
+        f2312a.put(32, 326);
+        f2312a.put(64, Integer.valueOf((int) HttpStatus.SC_UNPROCESSABLE_ENTITY));
+        f2312a.put(128, 326);
+        f2312a.put(256, 20);
     }
 
     public int a() {
-        return this.f3213b;
+        return this.b;
     }
 
     public int a(int i) {
-        if (this.f3213b == i) {
+        if (this.b == i) {
             return 0;
         }
-        if (i != (f3212a.get(Integer.valueOf(this.f3213b)).intValue() & i)) {
+        if (i != (f2312a.get(Integer.valueOf(this.b)).intValue() & i)) {
             return -1;
         }
-        this.f3213b = i;
+        this.b = i;
         return 1;
     }
 }

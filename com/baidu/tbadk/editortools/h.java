@@ -1,7 +1,7 @@
 package com.baidu.tbadk.editortools;
 /* loaded from: classes.dex */
 public interface h extends b {
-    void bBg();
+    void bBj();
 
     void display();
 

@@ -2,7 +2,7 @@ package com.baidu.tieba.im.data;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class OfficialBarHistoryActivityConfig extends IntentConfig {
     public OfficialBarHistoryActivityConfig(Context context, int i) {
         super(context);

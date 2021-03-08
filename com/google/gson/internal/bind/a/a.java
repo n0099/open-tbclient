@@ -5,9 +5,9 @@ import java.text.ParsePosition;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private static final TimeZone pVq = TimeZone.getTimeZone("UTC");
+    private static final TimeZone pWf = TimeZone.getTimeZone("UTC");
 
     /* JADX WARN: Removed duplicated region for block: B:45:0x00cc  */
     /* JADX WARN: Removed duplicated region for block: B:48:0x00d3  */
@@ -36,13 +36,13 @@ public class a {
             int i9 = b(str, i8, '-') ? i8 + 1 : i8;
             int i10 = i9 + 2;
             int H3 = H(str, i9, i10);
-            boolean b2 = b(str, i10, 'T');
-            if (!b2 && str.length() <= i10) {
+            boolean b = b(str, i10, 'T');
+            if (!b && str.length() <= i10) {
                 GregorianCalendar gregorianCalendar = new GregorianCalendar(H, H2 - 1, H3);
                 parsePosition.setIndex(i10);
                 return gregorianCalendar.getTime();
             }
-            if (b2) {
+            if (b) {
                 int i11 = i10 + 1;
                 int i12 = i11 + 2;
                 i4 = H(str, i11, i12);
@@ -94,7 +94,7 @@ public class a {
             }
             char charAt2 = str.charAt(i5);
             if (charAt2 == 'Z') {
-                timeZone = pVq;
+                timeZone = pWf;
                 length = i5 + 1;
             } else if (charAt2 == '+' || charAt2 == '-') {
                 String substring = str.substring(i5);
@@ -103,7 +103,7 @@ public class a {
                 }
                 length = substring.length() + i5;
                 if ("+0000".equals(substring) || "+00:00".equals(substring)) {
-                    timeZone = pVq;
+                    timeZone = pWf;
                 } else {
                     String str2 = "GMT" + substring;
                     timeZone = TimeZone.getTimeZone(str2);

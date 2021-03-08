@@ -1,5 +1,5 @@
 package io.flutter;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class BuildConfig {
     public static final boolean DEBUG = false;
     public static final boolean JIT_RELEASE = false;

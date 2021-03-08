@@ -34,7 +34,7 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFExternalTextureSessionYCloud implements IEncoderListener, ILiveSession, IMediaCodecUpload {
     private static final String TAG = "[VideoLiveSessionYCloud]";
     public ClipFilter mCliperFilter;

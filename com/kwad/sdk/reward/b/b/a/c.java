@@ -26,9 +26,7 @@ import com.kwad.sdk.utils.am;
 import com.kwad.sdk.utils.ar;
 /* loaded from: classes3.dex */
 public class c extends d {
-
-    /* renamed from: b  reason: collision with root package name */
-    private WebView f10558b;
+    private WebView b;
     private i.a c;
     private AdStyleInfo.PlayDetailInfo.DetailWebCardInfo d;
     private com.kwad.sdk.core.download.b.b e;
@@ -78,14 +76,14 @@ public class c extends d {
     private a.b q = new a.b() { // from class: com.kwad.sdk.reward.b.b.a.c.6
         @Override // com.kwad.sdk.core.webview.jshandler.a.b
         public void a() {
-            c.this.f10652a.f10527b.a();
+            c.this.f7028a.b.a();
         }
     };
     private i.b s = new i.b() { // from class: com.kwad.sdk.reward.b.b.a.c.7
         @Override // com.kwad.sdk.core.webview.jshandler.i.b
         public void a(i.a aVar) {
             c.this.c = aVar;
-            c.this.f10558b.setTranslationY(aVar.f9587a + aVar.d);
+            c.this.b.setTranslationY(aVar.f6349a + aVar.d);
         }
     };
     private h.a t = new h.a() { // from class: com.kwad.sdk.reward.b.b.a.c.8
@@ -101,7 +99,7 @@ public class c extends d {
             c.this.j = i;
             com.kwad.sdk.core.d.a.b("RewardActionBarWeb", "load time:" + (System.currentTimeMillis() - c.this.r));
             if (c.this.g) {
-                c.this.f.b(c.this.f10652a.i.i(), c.this.f10652a.i.j());
+                c.this.f.b(c.this.f7028a.i.i(), c.this.f7028a.i.j());
             }
         }
     };
@@ -124,36 +122,36 @@ public class c extends d {
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
         this.j = -1;
-        this.f10558b.setVisibility(8);
+        this.b.setVisibility(8);
         p();
     }
 
     private void f() {
         this.i = new com.kwad.sdk.core.webview.a();
-        this.i.f9539b = this.f10652a.f;
-        this.i.f9538a = this.f10652a.e;
-        this.i.c = this.f10652a.h;
-        this.i.e = this.f10652a.h;
-        this.i.f = this.f10558b;
+        this.i.b = this.f7028a.f;
+        this.i.f6320a = this.f7028a.e;
+        this.i.c = this.f7028a.h;
+        this.i.e = this.f7028a.h;
+        this.i.f = this.b;
     }
 
     private void g() {
         this.j = -1;
         h();
-        this.f10558b.setBackgroundColor(0);
-        this.f10558b.getBackground().setAlpha(0);
-        this.f10558b.setVisibility(4);
+        this.b.setBackgroundColor(0);
+        this.b.getBackground().setAlpha(0);
+        this.b.setVisibility(4);
         this.r = System.currentTimeMillis();
-        this.f10558b.loadUrl(this.d.cardUrl);
+        this.b.loadUrl(this.d.cardUrl);
     }
 
     @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface", "JavascriptInterface"})
     private void h() {
         p();
-        ar.a(this.f10558b);
-        this.h = new g(this.f10558b);
+        ar.a(this.b);
+        this.h = new g(this.b);
         a(this.h);
-        this.f10558b.addJavascriptInterface(this.h, "KwaiAd");
+        this.b.addJavascriptInterface(this.h, "KwaiAd");
     }
 
     private void p() {
@@ -165,7 +163,7 @@ public class c extends d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean q() {
-        if (this.f10558b.getVisibility() == 0) {
+        if (this.b.getVisibility() == 0) {
             return true;
         }
         if (this.j == 1) {
@@ -183,8 +181,8 @@ public class c extends d {
             return;
         }
         v();
-        this.f10558b.setVisibility(0);
-        this.v = am.b(this.f10558b, this.c.f9587a + this.c.d, 0);
+        this.b.setVisibility(0);
+        this.v = am.b(this.b, this.c.f6349a + this.c.d, 0);
         this.v.setInterpolator(new DecelerateInterpolator(2.0f));
         this.v.setDuration(300L);
         this.v.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.reward.b.b.a.c.10
@@ -211,7 +209,7 @@ public class c extends d {
         if (this.k != null) {
             this.k.c();
         }
-        this.f10558b.setVisibility(0);
+        this.b.setVisibility(0);
         if (this.k != null) {
             this.k.d();
         }
@@ -219,7 +217,7 @@ public class c extends d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void t() {
-        if (this.f10558b.getVisibility() != 0) {
+        if (this.b.getVisibility() != 0) {
             return;
         }
         if (this.c == null) {
@@ -227,14 +225,14 @@ public class c extends d {
             return;
         }
         v();
-        this.w = am.b(this.f10558b, 0, this.c.f9587a + this.c.d);
+        this.w = am.b(this.b, 0, this.c.f6349a + this.c.d);
         this.w.setInterpolator(new DecelerateInterpolator(2.0f));
         this.w.setDuration(300L);
         this.w.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.reward.b.b.a.c.2
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                c.this.f10558b.setVisibility(4);
+                c.this.b.setVisibility(4);
                 if (c.this.k != null) {
                     c.this.k.f();
                 }
@@ -252,13 +250,13 @@ public class c extends d {
     }
 
     private void u() {
-        if (this.f10558b.getVisibility() != 0) {
+        if (this.b.getVisibility() != 0) {
             return;
         }
         if (this.k != null) {
             this.k.e();
         }
-        this.f10558b.setVisibility(4);
+        this.b.setVisibility(4);
         if (this.k != null) {
             this.k.f();
         }
@@ -283,15 +281,15 @@ public class c extends d {
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.d = com.kwad.sdk.core.response.b.b.q(this.f10652a.f).playDetailInfo.detailWebCardInfo;
-        this.e = this.f10652a.j;
-        this.f = this.f10652a.k;
+        this.d = com.kwad.sdk.core.response.b.b.q(this.f7028a.f).playDetailInfo.detailWebCardInfo;
+        this.e = this.f7028a.j;
+        this.f = this.f7028a.k;
         this.f.a(this.m);
         f();
         g();
-        this.f10652a.n.add(this.n);
-        this.f10652a.i.a(this.p);
-        this.f10652a.o.add(this.o);
+        this.f7028a.n.add(this.n);
+        this.f7028a.i.a(this.p);
+        this.f7028a.o.add(this.o);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -299,9 +297,9 @@ public class c extends d {
     public void b_() {
         super.b_();
         this.f.a((a.b) null);
-        this.f10652a.n.remove(this.n);
-        this.f10652a.o.remove(this.o);
-        this.f10652a.i.b(this.p);
+        this.f7028a.n.remove(this.n);
+        this.f7028a.o.remove(this.o);
+        this.f7028a.i.b(this.p);
         v();
         e();
     }
@@ -310,6 +308,6 @@ public class c extends d {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f10558b = (WebView) b(R.id.ksad_play_web_card_webView);
+        this.b = (WebView) b(R.id.ksad_play_web_card_webView);
     }
 }

@@ -11,12 +11,12 @@ import com.baidu.tieba.payment.data.PayRequestData;
 import com.baidu.tieba.payment.message.ResponsePaymentConfirmInfoMessage;
 import com.baidu.tieba.payment.message.ResponsePaymentPayMessage;
 import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class PaymentConfirmModel<T> extends BdBaseModel<T> {
-    private f<T> lHA;
+    private f<T> lJC;
 
     public PaymentConfirmModel(f<T> fVar) {
-        this.lHA = fVar;
+        this.lJC = fVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -44,11 +44,11 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
             httpMessage.addParam("goods_duration", String.valueOf(paymentConfirmRequestData.getGoods_duration()));
             httpMessage.addParam("goods_user_level", String.valueOf(paymentConfirmRequestData.getGoods_user_level()));
             httpMessage.addParam("pay_type", String.valueOf(paymentConfirmRequestData.getPay_type()));
-            this.lHA.sendMessage(httpMessage);
+            this.lJC.sendMessage(httpMessage);
         }
     }
 
-    public void dkA() {
+    public void dkJ() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001536, TbConfig.SERVER_ADDRESS + Config.PAYMENT_CONFIRM_INFO);
         tbHttpMessageTask.setResponsedClass(ResponsePaymentConfirmInfoMessage.class);
@@ -67,11 +67,11 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
             httpMessage.addParam("password", payRequestData.getPassword());
             httpMessage.addParam("bindid", payRequestData.getBindId());
             httpMessage.addParam("mobile_check", payRequestData.getMobileCheck());
-            this.lHA.sendMessage(httpMessage);
+            this.lJC.sendMessage(httpMessage);
         }
     }
 
-    public void dkI() {
+    public void dkR() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001537, TbConfig.SERVER_ADDRESS + Config.PAYMENT_PAY);
         tbHttpMessageTask.setResponsedClass(ResponsePaymentPayMessage.class);

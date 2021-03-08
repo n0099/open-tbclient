@@ -1,20 +1,20 @@
 package com.baidu.live.yuyingift.a;
 
 import com.baidu.live.data.AlaLiveGiftUIInfo;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d {
-    public String[] bZg;
-    public int bbK;
-    public int bbL;
-    public int bbM;
-    public boolean bbc;
-    public String bdj;
+    public boolean bcC;
     public int bdk;
-    public String bdl;
-    public boolean bdn;
-    public int bdo;
-    public AlaLiveGiftUIInfo bdp;
-    public boolean bdq;
+    public int bdl;
+    public int bdm;
+    public String beL;
+    public int beM;
+    public String beN;
+    public boolean beP;
+    public int beQ;
+    public AlaLiveGiftUIInfo beR;
+    public boolean beS;
+    public String[] caG;
     public boolean isNewUser;
     public String mAppId;
     public String mLiveId;
@@ -23,9 +23,9 @@ public class d {
     public String mUserId;
     public String mUserName;
     public String otherParams;
-    public boolean bdm = true;
-    public boolean aZF = false;
-    public int aZD = -1;
-    public boolean bbY = false;
-    public boolean aZL = false;
+    public boolean beO = true;
+    public boolean bbg = false;
+    public int bbe = -1;
+    public boolean bdy = false;
+    public boolean bbm = false;
 }

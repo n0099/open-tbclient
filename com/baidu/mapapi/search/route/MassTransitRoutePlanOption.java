@@ -21,15 +21,15 @@ public class MassTransitRoutePlanOption {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2909a;
+        private int f2136a;
 
         TacticsIncity(int i) {
-            this.f2909a = 0;
-            this.f2909a = i;
+            this.f2136a = 0;
+            this.f2136a = i;
         }
 
         public int getInt() {
-            return this.f2909a;
+            return this.f2136a;
         }
     }
 
@@ -41,15 +41,15 @@ public class MassTransitRoutePlanOption {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2911a;
+        private int f2137a;
 
         TacticsIntercity(int i) {
-            this.f2911a = 0;
-            this.f2911a = i;
+            this.f2137a = 0;
+            this.f2137a = i;
         }
 
         public int getInt() {
-            return this.f2911a;
+            return this.f2137a;
         }
     }
 
@@ -61,15 +61,15 @@ public class MassTransitRoutePlanOption {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2913a;
+        private int f2138a;
 
         TransTypeIntercity(int i) {
-            this.f2913a = 0;
-            this.f2913a = i;
+            this.f2138a = 0;
+            this.f2138a = i;
         }
 
         public int getInt() {
-            return this.f2913a;
+            return this.f2138a;
         }
     }
 

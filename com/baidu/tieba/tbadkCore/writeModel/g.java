@@ -19,7 +19,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.location.LocationData;
 /* loaded from: classes.dex */
 public class g {
-    public static void e(Context context, View view) {
+    public static void d(Context context, View view) {
         Toast toast = new Toast(context);
         toast.setView(view);
         toast.setGravity(17, 0, 0);
@@ -39,7 +39,7 @@ public class g {
         ap.setViewTextColor(textView3, R.color.CAM_X0305);
         ImageView imageView = (ImageView) inflate.findViewById(R.id.success_img);
         if (imageView != null) {
-            imageView.setBackgroundDrawable(SvgManager.bsR().a(R.drawable.icon_pure_toast_succeed40_svg, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null));
+            imageView.setBackgroundDrawable(SvgManager.bsU().a(R.drawable.icon_pure_toast_succeed40_svg, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null));
         }
         if (StringUtils.isNull(str)) {
             str = context.getString(R.string.send_success);
@@ -50,7 +50,7 @@ public class g {
             textView2.setText(str2);
             textView3.setText(str3);
         }
-        e(context, inflate);
+        d(context, inflate);
     }
 
     public static void a(aa aaVar, WriteData writeData) {
@@ -61,7 +61,7 @@ public class g {
                 aaVar.addPostData("lat", String.valueOf(address.getLatitude()));
                 aaVar.addPostData("lng", String.valueOf(address.getLongitude()));
             }
-            LocationData locationData = com.baidu.tieba.tbadkCore.location.b.dOs().getLocationData();
+            LocationData locationData = com.baidu.tieba.tbadkCore.location.b.dOB().getLocationData();
             if (locationData != null) {
                 aaVar.addPostData("name", locationData.getFormatted_address());
                 aaVar.addPostData(IXAdRequestInfo.SN, locationData.getSn());

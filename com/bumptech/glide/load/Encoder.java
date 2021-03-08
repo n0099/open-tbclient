@@ -2,7 +2,7 @@ package com.bumptech.glide.load;
 
 import androidx.annotation.NonNull;
 import java.io.File;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public interface Encoder<T> {
     boolean encode(@NonNull T t, @NonNull File file, @NonNull Options options);
 }

@@ -14,45 +14,45 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class d {
-    private RelativeLayout iDu;
-    private ImageView iDv;
-    private MessageRedDotView iDw;
+    private RelativeLayout iFd;
+    private ImageView iFe;
+    private MessageRedDotView iFf;
     private Context mContext;
     private View mRootView;
 
     public d(Context context) {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.widget_message_entrance, (ViewGroup) null);
-        this.iDu = (RelativeLayout) this.mRootView.findViewById(R.id.message_view_layout);
-        this.iDv = (ImageView) this.mRootView.findViewById(R.id.img_message);
-        this.iDw = (MessageRedDotView) this.mRootView.findViewById(R.id.img_red_tip);
-        this.iDw.setShadowEnabled(false);
+        this.iFd = (RelativeLayout) this.mRootView.findViewById(R.id.message_view_layout);
+        this.iFe = (ImageView) this.mRootView.findViewById(R.id.img_message);
+        this.iFf = (MessageRedDotView) this.mRootView.findViewById(R.id.img_red_tip);
+        this.iFf.setShadowEnabled(false);
     }
 
     public View getView() {
         return this.mRootView;
     }
 
-    public ImageView ctE() {
-        return this.iDv;
+    public ImageView ctK() {
+        return this.iFe;
     }
 
-    public MessageRedDotView ctF() {
-        return this.iDw;
+    public MessageRedDotView ctL() {
+        return this.iFf;
     }
 
     public void z(boolean z, int i) {
         if (z) {
-            this.iDw.refresh(i);
-            this.iDw.setVisibility(0);
+            this.iFf.refresh(i);
+            this.iFf.setVisibility(0);
             return;
         }
-        this.iDw.setVisibility(8);
+        this.iFf.setVisibility(8);
     }
 
     public void onChangeSkinType(int i) {
-        this.iDw.onChangeSkinType();
-        this.iDv.setImageDrawable(WebPManager.a(R.drawable.icon_pure_topbar_information40, ap.getColor(R.color.CAM_X0106), WebPManager.ResourceStateType.NORMAL_PRESS));
+        this.iFf.onChangeSkinType();
+        this.iFe.setImageDrawable(WebPManager.a(R.drawable.icon_pure_topbar_information40, ap.getColor(R.color.CAM_X0106), WebPManager.ResourceStateType.NORMAL_PRESS));
     }
 
     public void setVisibility(int i) {
@@ -63,9 +63,9 @@ public class d {
 
     public void a(NavigationBar.ControlAlign controlAlign, boolean z) {
         if (!z && controlAlign == NavigationBar.ControlAlign.HORIZONTAL_RIGHT) {
-            ((RelativeLayout.LayoutParams) this.iDv.getLayoutParams()).rightMargin = -l.getDimens(this.mContext, R.dimen.tbds10);
-            ((RelativeLayout.LayoutParams) this.iDw.getLayoutParams()).rightMargin = -l.getDimens(this.mContext, R.dimen.tbds10);
-            this.iDu.getLayoutParams().width = l.getDimens(this.mContext, R.dimen.ds88);
+            ((RelativeLayout.LayoutParams) this.iFe.getLayoutParams()).rightMargin = -l.getDimens(this.mContext, R.dimen.tbds10);
+            ((RelativeLayout.LayoutParams) this.iFf.getLayoutParams()).rightMargin = -l.getDimens(this.mContext, R.dimen.tbds10);
+            this.iFd.getLayoutParams().width = l.getDimens(this.mContext, R.dimen.ds88);
         }
     }
 }

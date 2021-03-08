@@ -4,26 +4,26 @@ import android.view.Surface;
 import com.baidu.rtc.BaiduRtcRoom;
 import org.webrtc.VideoFrame;
 import org.webrtc.VideoSink;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class j implements VideoSink {
-    private BaiduRtcRoom.b cvg;
+    private BaiduRtcRoom.b cwG;
     protected long mUserId;
-    public boolean cvf = false;
+    public boolean cwF = false;
     private com.baidu.rtc.b.f stuckDataCalculator = new com.baidu.rtc.b.f(600);
-    private boolean cve = false;
+    private boolean cwE = false;
 
     public j(BaiduRtcRoom.b bVar, long j) {
         this.mUserId = 0L;
-        this.cvg = null;
+        this.cwG = null;
         this.mUserId = j;
-        this.cvg = bVar;
+        this.cwG = bVar;
     }
 
-    public boolean aeN() {
-        return this.cvf;
+    public boolean aeQ() {
+        return this.cwF;
     }
 
-    public void aeO() {
+    public void aeR() {
         this.stuckDataCalculator.reset();
     }
 
@@ -32,7 +32,7 @@ public abstract class j implements VideoSink {
     public abstract void clearImage();
 
     public void ex(boolean z) {
-        this.cvf = z;
+        this.cwF = z;
     }
 
     public abstract Surface getSurface();
@@ -43,11 +43,11 @@ public abstract class j implements VideoSink {
 
     @Override // org.webrtc.VideoSink
     public void onFrame(VideoFrame videoFrame) {
-        if (this.cve) {
-            this.stuckDataCalculator.afu();
+        if (this.cwE) {
+            this.stuckDataCalculator.afx();
         }
-        if (this.cvg != null) {
-            this.cvg.a(l.a(videoFrame), this.mUserId);
+        if (this.cwG != null) {
+            this.cwG.a(l.a(videoFrame), this.mUserId);
         }
     }
 
@@ -56,7 +56,7 @@ public abstract class j implements VideoSink {
     public abstract void releaseSurface();
 
     public void setEnableSLIDataReport(boolean z) {
-        this.cve = z;
+        this.cwE = z;
     }
 
     public void setStuckEventListener(com.baidu.rtc.b.e eVar) {

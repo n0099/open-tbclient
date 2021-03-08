@@ -18,7 +18,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c extends BdBaseModel {
     public c() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021048, TbConfig.SERVER_ADDRESS + "ala/sys/gatherData");

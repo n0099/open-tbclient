@@ -7,7 +7,7 @@ import com.baidu.platform.comjni.jninative.tts.WNaviTTSPlayer;
 public class a extends com.baidu.platform.comapi.wnplatform.m.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private c f4147a = null;
+    private c f2870a = null;
 
     @Override // com.baidu.platform.comapi.walknavi.a
     public boolean ready() {
@@ -20,33 +20,33 @@ public class a extends com.baidu.platform.comapi.wnplatform.m.a {
     public void release() {
         c();
         WNaviTTSPlayer.setTTSPlayerListener(null);
-        this.f4147a = null;
+        this.f2870a = null;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.m.a
     public void a(c cVar) {
-        this.f4147a = cVar;
+        this.f2870a = cVar;
     }
 
     public void a() {
-        if (this.f4147a != null) {
-            this.f4147a.a();
+        if (this.f2870a != null) {
+            this.f2870a.a();
         }
     }
 
     public int b() {
-        if (this.f4147a != null) {
-            return this.f4147a.b();
+        if (this.f2870a != null) {
+            return this.f2870a.b();
         }
         return 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public int a(String str, int i) {
-        if (com.baidu.platform.comapi.walknavi.b.f4188a == com.baidu.platform.comapi.walknavi.b.a().r()) {
+        if (com.baidu.platform.comapi.walknavi.b.f2901a == com.baidu.platform.comapi.walknavi.b.a().r()) {
             return a(str, false);
         }
-        if (com.baidu.platform.comapi.walknavi.b.f4189b == com.baidu.platform.comapi.walknavi.b.a().r()) {
+        if (com.baidu.platform.comapi.walknavi.b.b == com.baidu.platform.comapi.walknavi.b.a().r()) {
             if (i == 1) {
                 i.a().b(com.baidu.platform.comapi.wnplatform.e.a.a().b());
                 return 1;
@@ -63,15 +63,15 @@ public class a extends com.baidu.platform.comapi.wnplatform.m.a {
     }
 
     public int a(String str, boolean z) {
-        if (this.f4147a != null) {
-            return this.f4147a.a(str, z);
+        if (this.f2870a != null) {
+            return this.f2870a.a(str, z);
         }
         return 0;
     }
 
     public void c() {
-        if (this.f4147a != null) {
-            this.f4147a.c();
+        if (this.f2870a != null) {
+            this.f2870a.c();
         }
     }
 }

@@ -25,101 +25,101 @@ import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.tieba.yuyinala.liveroom.roomcard.f;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.tieba.yuyinala.liveroom.a {
-    private ab aDd;
+    private ab aED;
     private Activity mActivity;
     private View.OnClickListener onClickListener;
-    private a owc;
-    private f owd;
-    private CustomMessageListener owe;
-    private CustomMessageListener owf;
-    private CustomMessageListener owg;
-    private CustomMessageListener owh;
-    private CustomMessageListener owi;
+    private a oyh;
+    private f oyi;
+    private CustomMessageListener oyj;
+    private CustomMessageListener oyk;
+    private CustomMessageListener oyl;
+    private CustomMessageListener oym;
+    private CustomMessageListener oyn;
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.owe = new CustomMessageListener(2501028) { // from class: com.baidu.tieba.yuyinala.liveroom.i.b.1
+        this.oyj = new CustomMessageListener(2501028) { // from class: com.baidu.tieba.yuyinala.liveroom.i.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if ((customResponsedMessage instanceof YuyinFollowRoomMessage) && b.this.aDd != null && b.this.aDd.aIU != null && b.this.aDd.aIU.live_id.equals(((YuyinFollowRoomMessage) customResponsedMessage).Oz().liveId)) {
-                    if (((YuyinFollowRoomMessage) customResponsedMessage).Oz().isFollowed) {
-                        if (b.this.owc != null) {
-                            b.this.owc.ebx();
+                if ((customResponsedMessage instanceof YuyinFollowRoomMessage) && b.this.aED != null && b.this.aED.aKu != null && b.this.aED.aKu.live_id.equals(((YuyinFollowRoomMessage) customResponsedMessage).OC().liveId)) {
+                    if (((YuyinFollowRoomMessage) customResponsedMessage).OC().isFollowed) {
+                        if (b.this.oyh != null) {
+                            b.this.oyh.ebF();
                         }
-                    } else if (b.this.owc != null) {
-                        b.this.owc.eby();
+                    } else if (b.this.oyh != null) {
+                        b.this.oyh.ebG();
                     }
                 }
             }
         };
-        this.owf = new CustomMessageListener(2501054) { // from class: com.baidu.tieba.yuyinala.liveroom.i.b.2
+        this.oyk = new CustomMessageListener(2501054) { // from class: com.baidu.tieba.yuyinala.liveroom.i.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage instanceof YuyinShowRoomDialogMessage) {
                     try {
-                        ShowRoomCard OC = ((YuyinShowRoomDialogMessage) customResponsedMessage).OC();
-                        b.this.owd = new f(b.this.mActivity, OC.alaLiveShowData);
-                        b.this.owd.ai(OC.alaLiveShowData);
+                        ShowRoomCard OF = ((YuyinShowRoomDialogMessage) customResponsedMessage).OF();
+                        b.this.oyi = new f(b.this.mActivity, OF.alaLiveShowData);
+                        b.this.oyi.ai(OF.alaLiveShowData);
                     } catch (Exception e) {
                     }
                 }
             }
         };
-        this.owg = new CustomMessageListener(2501055) { // from class: com.baidu.tieba.yuyinala.liveroom.i.b.3
+        this.oyl = new CustomMessageListener(2501055) { // from class: com.baidu.tieba.yuyinala.liveroom.i.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage instanceof FollowPersonSuccMessage) {
-                    b.this.ebt();
+                    b.this.ebB();
                 }
             }
         };
-        this.owh = new CustomMessageListener(2501029) { // from class: com.baidu.tieba.yuyinala.liveroom.i.b.4
+        this.oym = new CustomMessageListener(2501029) { // from class: com.baidu.tieba.yuyinala.liveroom.i.b.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if ((customResponsedMessage instanceof YuyinRenameRoomMessage) && b.this.owc != null) {
-                    b.this.owc.VS(((YuyinRenameRoomMessage) customResponsedMessage).OB().name);
+                if ((customResponsedMessage instanceof YuyinRenameRoomMessage) && b.this.oyh != null) {
+                    b.this.oyh.VZ(((YuyinRenameRoomMessage) customResponsedMessage).OE().name);
                 }
             }
         };
-        this.owi = new CustomMessageListener(2501030) { // from class: com.baidu.tieba.yuyinala.liveroom.i.b.5
+        this.oyn = new CustomMessageListener(2501030) { // from class: com.baidu.tieba.yuyinala.liveroom.i.b.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if ((customResponsedMessage instanceof YuyinModifyRoomMessage) && b.this.owc != null) {
-                    b.this.owc.VT(((YuyinModifyRoomMessage) customResponsedMessage).OA().url);
+                if ((customResponsedMessage instanceof YuyinModifyRoomMessage) && b.this.oyh != null) {
+                    b.this.oyh.Wa(((YuyinModifyRoomMessage) customResponsedMessage).OD().url);
                 }
             }
         };
         this.onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.i.b.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.owc != null && view == b.this.owc.getView()) {
-                    b.this.owd = new f(b.this.mActivity, b.this.aDd);
-                    b.this.owd.ai(b.this.aDd);
-                    b.this.ebA();
+                if (b.this.oyh != null && view == b.this.oyh.getView()) {
+                    b.this.oyi = new f(b.this.mActivity, b.this.aED);
+                    b.this.oyi.ai(b.this.aED);
+                    b.this.ebI();
                 }
             }
         };
         this.mActivity = tbPageContext.getPageActivity();
-        MessageManager.getInstance().registerListener(this.owe);
-        MessageManager.getInstance().registerListener(this.owh);
-        MessageManager.getInstance().registerListener(this.owi);
-        MessageManager.getInstance().registerListener(this.owf);
-        MessageManager.getInstance().registerListener(this.owg);
+        MessageManager.getInstance().registerListener(this.oyj);
+        MessageManager.getInstance().registerListener(this.oym);
+        MessageManager.getInstance().registerListener(this.oyn);
+        MessageManager.getInstance().registerListener(this.oyk);
+        MessageManager.getInstance().registerListener(this.oyl);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ebt() {
+    public void ebB() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aDd.aIU.croom_id);
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aED.aKu.croom_id);
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "dialog");
         } catch (Exception e) {
             BdLog.e(e);
@@ -133,65 +133,65 @@ public class b extends com.baidu.tieba.yuyinala.liveroom.a {
 
     public void a(ViewGroup viewGroup, ab abVar, int i) {
         if (viewGroup != null) {
-            this.aDd = abVar;
-            if (this.owc != null && this.owc.getView().getParent() != null) {
-                ((ViewGroup) this.owc.getView().getParent()).removeView(this.owc.getView());
+            this.aED = abVar;
+            if (this.oyh != null && this.oyh.getView().getParent() != null) {
+                ((ViewGroup) this.oyh.getView().getParent()).removeView(this.oyh.getView());
             }
-            if (this.owc == null) {
-                this.owc = new a(this.mActivity);
+            if (this.oyh == null) {
+                this.oyh = new a(this.mActivity);
             }
-            this.owc.setId(i);
-            this.owc.getView().setOnClickListener(this.onClickListener);
-            if (this.aDd != null) {
-                this.owc.ac(this.aDd);
+            this.oyh.setId(i);
+            this.oyh.getView().setOnClickListener(this.onClickListener);
+            if (this.aED != null) {
+                this.oyh.ac(this.aED);
             }
-            this.owc.getView().setVisibility(0);
+            this.oyh.getView().setVisibility(0);
             aK(viewGroup);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
-    public void Ar() {
-        super.Ar();
-        if (this.owc != null) {
-            this.owc.onDestroy();
-            this.owc = null;
+    public void Au() {
+        super.Au();
+        if (this.oyh != null) {
+            this.oyh.onDestroy();
+            this.oyh = null;
         }
     }
 
     private void aK(ViewGroup viewGroup) {
-        if (this.owc != null) {
-            if (this.owc.getView() == null || this.owc.getView().getParent() == null) {
+        if (this.oyh != null) {
+            if (this.oyh.getView() == null || this.oyh.getView().getParent() == null) {
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, BdUtilHelper.getDimens(this.mActivity, a.d.sdk_ds72));
                 layoutParams.leftMargin = BdUtilHelper.getDimens(this.mActivity, a.d.sdk_ds20);
                 layoutParams.topMargin = BdUtilHelper.getDimens(this.mActivity, a.d.sdk_ds24) - (UtilHelper.canUseStyleImmersiveSticky() ? BdUtilHelper.getDimens(this.mActivity, a.d.sdk_ds12) : 0);
-                viewGroup.addView(this.owc.getView(), 0, layoutParams);
+                viewGroup.addView(this.oyh.getView(), 0, layoutParams);
             }
         }
     }
 
     public void N(ab abVar) {
-        if (abVar != null && abVar.mLiveInfo != null && this.owc != null) {
-            this.aDd = abVar;
-            this.owc.ad(abVar);
+        if (abVar != null && abVar.mLiveInfo != null && this.oyh != null) {
+            this.aED = abVar;
+            this.oyh.ad(abVar);
         }
     }
 
     public void a(ab abVar, RelativeLayout relativeLayout) {
-        if (this.owc == null) {
+        if (this.oyh == null) {
             e(relativeLayout, abVar);
         } else if (abVar != null && abVar.mLiveInfo != null) {
-            this.aDd = abVar;
-            this.owc.ac(this.aDd);
+            this.aED = abVar;
+            this.oyh.ac(this.aED);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ebA() {
+    public void ebI() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aDd.aIU.croom_id);
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aED.aKu.croom_id);
         } catch (Exception e) {
             BdLog.e(e);
         }
@@ -200,19 +200,19 @@ public class b extends com.baidu.tieba.yuyinala.liveroom.a {
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void onDestroy() {
-        if (this.owc != null) {
-            this.owc.onDestroy();
+        if (this.oyh != null) {
+            this.oyh.onDestroy();
         }
-        MessageManager.getInstance().unRegisterListener(this.owe);
-        MessageManager.getInstance().unRegisterListener(this.owh);
-        MessageManager.getInstance().unRegisterListener(this.owi);
-        MessageManager.getInstance().unRegisterListener(this.owf);
-        MessageManager.getInstance().unRegisterListener(this.owg);
+        MessageManager.getInstance().unRegisterListener(this.oyj);
+        MessageManager.getInstance().unRegisterListener(this.oym);
+        MessageManager.getInstance().unRegisterListener(this.oyn);
+        MessageManager.getInstance().unRegisterListener(this.oyk);
+        MessageManager.getInstance().unRegisterListener(this.oyl);
     }
 
-    public void HI(String str) {
-        if (this.owd != null) {
-            this.owd.HI(str);
+    public void HR(String str) {
+        if (this.oyi != null) {
+            this.oyi.HR(str);
         }
     }
 }

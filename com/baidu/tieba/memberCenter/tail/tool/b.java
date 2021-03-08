@@ -18,20 +18,20 @@ import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.tail.data.TailData;
 import com.baidu.tieba.memberCenter.tail.data.TailDataList;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends BaseAdapter {
-    private View.OnClickListener lsT;
-    private g lts;
+    private View.OnClickListener luW;
+    private g lvu;
     private Context mContext;
-    private View.OnClickListener ltt = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.tool.b.1
+    private View.OnClickListener lvv = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.tool.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             TailManagementActivityConfig tailManagementActivityConfig = new TailManagementActivityConfig(view.getContext());
-            tailManagementActivityConfig.getIntent().putExtra("list", new TailDataList(b.this.lts.getTails()));
+            tailManagementActivityConfig.getIntent().putExtra("list", new TailDataList(b.this.lvu.getTails()));
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, tailManagementActivityConfig));
         }
     };
-    private View.OnClickListener ltu = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.tool.b.2
+    private View.OnClickListener lvw = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.tool.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(b.this.mContext, 1, false, 6);
@@ -40,28 +40,28 @@ public class b extends BaseAdapter {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, memberPayActivityConfig));
         }
     };
-    private View.OnClickListener fml = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.tool.b.3
+    private View.OnClickListener fnL = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.tool.b.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getTag() != null) {
-                if (!b.this.lts.dgx()) {
-                    b.this.Oo(b.this.mContext.getString(R.string.become_member_to_use));
+                if (!b.this.lvu.dgG()) {
+                    b.this.Ou(b.this.mContext.getString(R.string.become_member_to_use));
                     return;
                 }
-                TailData dga = ((e) view.getTag()).dga();
-                b.this.lts.ab(dga.getId(), !dga.isSelected());
+                TailData dgj = ((e) view.getTag()).dgj();
+                b.this.lvu.ab(dgj.getId(), !dgj.isSelected());
             }
         }
     };
-    private com.baidu.tieba.memberCenter.tail.a.a<Integer> ltv = new com.baidu.tieba.memberCenter.tail.a.a<Integer>() { // from class: com.baidu.tieba.memberCenter.tail.tool.b.6
+    private com.baidu.tieba.memberCenter.tail.a.a<Integer> lvx = new com.baidu.tieba.memberCenter.tail.a.a<Integer>() { // from class: com.baidu.tieba.memberCenter.tail.tool.b.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.memberCenter.tail.a.a
         /* renamed from: a */
         public void b(boolean z, String str, Integer num) {
             if (z) {
                 l.showToast(b.this.mContext, str);
-            } else if (num != null && b.this.lts.getTails() != null && b.this.lts.getTails().size() != 0) {
-                for (TailData tailData : b.this.lts.getTails()) {
+            } else if (num != null && b.this.lvu.getTails() != null && b.this.lvu.getTails().size() != 0) {
+                for (TailData tailData : b.this.lvu.getTails()) {
                     if (tailData.getId() == num.intValue()) {
                         tailData.setSelected(!tailData.isSelected());
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TAIL_TOOL_RED_DOT, Boolean.valueOf(tailData.isSelected())));
@@ -73,7 +73,7 @@ public class b extends BaseAdapter {
             }
         }
     };
-    private com.baidu.tieba.memberCenter.tail.a.a<Void> lsV = new com.baidu.tieba.memberCenter.tail.a.a<Void>() { // from class: com.baidu.tieba.memberCenter.tail.tool.b.7
+    private com.baidu.tieba.memberCenter.tail.a.a<Void> luY = new com.baidu.tieba.memberCenter.tail.a.a<Void>() { // from class: com.baidu.tieba.memberCenter.tail.tool.b.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.memberCenter.tail.a.a
         /* renamed from: a */
@@ -88,20 +88,20 @@ public class b extends BaseAdapter {
 
     public b(Context context, g gVar, View.OnClickListener onClickListener) {
         this.mContext = context;
-        this.lsT = onClickListener;
-        this.lts = gVar;
-        this.lts.f(this.ltv);
-        this.lts.e(this.lsV);
+        this.luW = onClickListener;
+        this.lvu = gVar;
+        this.lvu.f(this.lvx);
+        this.lvu.e(this.luY);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @SuppressLint({"ResourceAsColor"})
-    public void Oo(String str) {
-        com.baidu.adp.base.f<?> K = j.K(this.mContext);
-        if (K != null) {
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(K.getPageActivity());
-            aVar.ny(R.color.CAM_X0305);
-            aVar.Au(str).b(this.mContext.getString(R.string.cancel), new a.b() { // from class: com.baidu.tieba.memberCenter.tail.tool.b.5
+    public void Ou(String str) {
+        com.baidu.adp.base.f<?> J = j.J(this.mContext);
+        if (J != null) {
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(J.getPageActivity());
+            aVar.nz(R.color.CAM_X0305);
+            aVar.AB(str).b(this.mContext.getString(R.string.cancel), new a.b() { // from class: com.baidu.tieba.memberCenter.tail.tool.b.5
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
@@ -115,21 +115,21 @@ public class b extends BaseAdapter {
                     memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_TAILS_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, memberPayActivityConfig));
                 }
-            }).b(K).bqx();
+            }).b(J).bqz();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.lts.getTails().size() + 1;
+        return this.lvu.getTails().size() + 1;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (this.lts.getTails().size() == 0) {
+        if (this.lvu.getTails().size() == 0) {
             return 2;
         }
-        if (i == this.lts.getTails().size()) {
+        if (i == this.lvu.getTails().size()) {
             return 1;
         }
         return 0;
@@ -137,12 +137,12 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: EI */
+    /* renamed from: EL */
     public TailData getItem(int i) {
-        if (i >= this.lts.getTails().size()) {
+        if (i >= this.lvu.getTails().size()) {
             return null;
         }
-        return this.lts.getTails().get(i);
+        return this.lvu.getTails().get(i);
     }
 
     @Override // android.widget.Adapter
@@ -175,10 +175,10 @@ public class b extends BaseAdapter {
     private View dy(View view) {
         if (view == null || !(view.getTag() instanceof f)) {
             f fVar = new f();
-            View gB = fVar.gB(this.mContext);
-            fVar.N(this.ltu);
+            View gA = fVar.gA(this.mContext);
+            fVar.O(this.lvw);
             fVar.onChangeSkinType();
-            return gB;
+            return gA;
         }
         return view;
     }
@@ -187,23 +187,23 @@ public class b extends BaseAdapter {
         c cVar;
         if (view == null || !(view.getTag() instanceof c)) {
             cVar = new c();
-            view = cVar.gB(this.mContext);
-            cVar.I(this.lsT);
+            view = cVar.gA(this.mContext);
+            cVar.J(this.luW);
             cVar.onChangeSkinType();
         } else {
             cVar = (c) view.getTag();
         }
-        cVar.EG(3);
+        cVar.EJ(3);
         return view;
     }
 
     private View dz(View view) {
         if (view == null || !(view.getTag() instanceof d)) {
             d dVar = new d();
-            View gB = dVar.gB(this.mContext);
-            dVar.L(this.ltt);
+            View gA = dVar.gA(this.mContext);
+            dVar.M(this.lvv);
             dVar.onChangeSkinType();
-            return gB;
+            return gA;
         }
         return view;
     }
@@ -215,8 +215,8 @@ public class b extends BaseAdapter {
         }
         if (view == null || !(view.getTag() instanceof e)) {
             eVar = new e();
-            view = eVar.gB(this.mContext);
-            eVar.M(this.fml);
+            view = eVar.gA(this.mContext);
+            eVar.N(this.fnL);
             eVar.onChangeSkinType();
         } else {
             eVar = (e) view.getTag();

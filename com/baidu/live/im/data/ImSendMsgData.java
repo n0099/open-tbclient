@@ -1,7 +1,7 @@
 package com.baidu.live.im.data;
 
 import java.io.Serializable;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ImSendMsgData implements Serializable {
     public d barrageCardInfo;
     public String barrageId;

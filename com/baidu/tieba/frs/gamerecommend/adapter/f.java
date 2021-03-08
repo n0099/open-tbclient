@@ -14,13 +14,13 @@ import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.tieba.e.g;
 /* loaded from: classes2.dex */
 public class f extends com.baidu.adp.widget.ListView.a<g, CardViewHolder<h>> {
-    private h jzK;
+    private h jBt;
     private String mForumId;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), g.iEs);
+        super(tbPageContext.getPageActivity(), g.iGb);
         this.mPageContext = tbPageContext;
         this.mForumId = str;
     }
@@ -30,27 +30,27 @@ public class f extends com.baidu.adp.widget.ListView.a<g, CardViewHolder<h>> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aX */
     public CardViewHolder<h> e(ViewGroup viewGroup) {
-        this.jzK = new h(this.mPageContext);
-        return new CardViewHolder<>(this.jzK);
+        this.jBt = new h(this.mPageContext);
+        return new CardViewHolder<>(this.jBt);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, g gVar, CardViewHolder<h> cardViewHolder) {
-        if (cardViewHolder.cti() == null) {
+        if (cardViewHolder.cto() == null) {
             return null;
         }
-        cardViewHolder.cti().a(gVar);
-        cardViewHolder.cti().c(new ab<g>() { // from class: com.baidu.tieba.frs.gamerecommend.adapter.f.1
+        cardViewHolder.cto().a(gVar);
+        cardViewHolder.cto().c(new ab<g>() { // from class: com.baidu.tieba.frs.gamerecommend.adapter.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view2, g gVar2) {
-                TiebaStatic.log(new ar("c13047").ap("obj_locate", 1).dR("fid", f.this.mForumId));
-                bf.bsV().a((TbPageContext) j.K(view2.getContext()), new String[]{gVar2.cub().score_url}, true);
+                TiebaStatic.log(new ar("c13047").aq("obj_locate", 1).dR("fid", f.this.mForumId));
+                bf.bsY().a((TbPageContext) j.J(view2.getContext()), new String[]{gVar2.cuh().score_url}, true);
             }
         });
-        cardViewHolder.cti().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        return cardViewHolder.cti().getView();
+        cardViewHolder.cto().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        return cardViewHolder.cto().getView();
     }
 }

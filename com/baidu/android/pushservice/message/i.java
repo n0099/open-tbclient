@@ -11,10 +11,8 @@ import org.json.JSONObject;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1474a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f1475b;
+    public String f1250a;
+    public String b;
     public String c;
     public String d;
     public String e;
@@ -35,12 +33,12 @@ public class i {
             if (TextUtils.isEmpty(this.g) && TextUtils.isEmpty(this.h)) {
                 publicMsg.mTitle = this.e;
                 publicMsg.mDescription = this.f;
-                publicMsg.mUrl = this.f1474a;
+                publicMsg.mUrl = this.f1250a;
                 publicMsg.mPkgContent = this.c;
             } else {
                 publicMsg.mTitle = this.g;
                 publicMsg.mDescription = this.h;
-                publicMsg.mUrl = this.f1475b;
+                publicMsg.mUrl = this.b;
                 publicMsg.mPkgContent = this.d;
             }
             return publicMsg;

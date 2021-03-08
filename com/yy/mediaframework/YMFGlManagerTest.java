@@ -7,7 +7,7 @@ import com.yy.mediaframework.utils.YMFLog;
 import java.text.MessageFormat;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFGlManagerTest implements Runnable {
     GlManager mGlManager;
     boolean mContinueTest = true;

@@ -5,15 +5,13 @@ package com.sdk.base.framework.c;
 public abstract class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f12822a = new g("PRODUCE_STATISTICAL", 0) { // from class: com.sdk.base.framework.c.h
+    public static final g f7632a = new g("PRODUCE_STATISTICAL", 0) { // from class: com.sdk.base.framework.c.h
         @Override // com.sdk.base.framework.c.g
         public final String a() {
             return com.sdk.base.framework.f.f.a.a("cucc/host_cucc.properties", "PRODUCE_STATISTICAL");
         }
     };
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final g f12823b = new g("PRODUCE_DZH", 1) { // from class: com.sdk.base.framework.c.i
+    public static final g b = new g("PRODUCE_DZH", 1) { // from class: com.sdk.base.framework.c.i
         @Override // com.sdk.base.framework.c.g
         public final String a() {
             return com.sdk.base.framework.f.f.a.a("cucc/host_cucc.properties", "PRODUCE_DZH");
@@ -21,7 +19,7 @@ public abstract class g {
     };
 
     static {
-        g[] gVarArr = {f12822a, f12823b};
+        g[] gVarArr = {f7632a, b};
     }
 
     private g(String str, int i) {

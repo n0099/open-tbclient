@@ -6,7 +6,7 @@ import com.baidu.swan.apps.v.f;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     /* JADX WARN: Type inference failed for: r2v0, types: [org.json.JSONObject, T] */
     public static void bY(String str, String str2) {
@@ -19,12 +19,12 @@ public class a {
             com.baidu.swan.apps.ac.d.a.print(Log.getStackTraceString(e));
         }
         gVar.mData = jSONObject;
-        f.aAl().a(str, gVar);
+        f.aAo().a(str, gVar);
     }
 
     public static void g(Integer num) {
         HashMap hashMap = new HashMap();
         hashMap.put("level", String.valueOf(num));
-        f.aAl().b(new com.baidu.swan.apps.event.a.b("text-size-adjust", hashMap));
+        f.aAo().b(new com.baidu.swan.apps.event.a.b("text-size-adjust", hashMap));
     }
 }

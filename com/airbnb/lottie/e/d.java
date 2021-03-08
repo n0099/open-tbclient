@@ -1,7 +1,7 @@
 package com.airbnb.lottie.e;
 
 import com.baidu.mobstat.Config;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class d {
     private final float scaleX;
     private final float scaleY;

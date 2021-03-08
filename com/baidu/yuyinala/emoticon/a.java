@@ -2,35 +2,35 @@ package com.baidu.yuyinala.emoticon;
 
 import com.baidu.live.data.ab;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static a oWq;
+    private static a oYv;
     private TbPageContext mPageContext;
-    private b oWr;
+    private b oYw;
 
-    public static a ejf() {
-        if (oWq == null) {
+    public static a ejp() {
+        if (oYv == null) {
             synchronized (a.class) {
-                if (oWq == null) {
-                    oWq = new a();
+                if (oYv == null) {
+                    oYv = new a();
                 }
             }
         }
-        return oWq;
+        return oYv;
     }
 
     public void b(TbPageContext tbPageContext, ab abVar) {
         if (this.mPageContext != tbPageContext) {
             this.mPageContext = tbPageContext;
-            this.oWr = null;
+            this.oYw = null;
         }
-        this.oWr = new b(tbPageContext, abVar);
-        this.oWr.show();
+        this.oYw = new b(tbPageContext, abVar);
+        this.oYw.show();
     }
 
-    public void FA() {
-        if (this.oWr != null && this.oWr.isShowing()) {
-            this.oWr.dismiss();
+    public void FD() {
+        if (this.oYw != null && this.oYw.isShowing()) {
+            this.oYw.dismiss();
         }
     }
 }

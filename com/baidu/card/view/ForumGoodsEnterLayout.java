@@ -12,58 +12,58 @@ import com.baidu.tbadk.core.view.ThreadForumEnterGoodsButton;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ForumGoodsEnterLayout extends RelativeLayout {
-    private com.baidu.tbadk.core.data.a agj;
-    private int aii;
-    private ThreadForumEnterGoodsButton akC;
-    private int akJ;
-    private View.OnClickListener akx;
+    private com.baidu.tbadk.core.data.a ahB;
+    private int ajA;
+    private View.OnClickListener alQ;
+    private ThreadForumEnterGoodsButton alV;
+    private int amc;
     private Context mContext;
     private int mFrom;
 
     public ForumGoodsEnterLayout(Context context) {
         super(context);
-        this.aii = 0;
+        this.ajA = 0;
         this.mFrom = 0;
         init(context);
     }
 
     public ForumGoodsEnterLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aii = 0;
+        this.ajA = 0;
         this.mFrom = 0;
         init(context);
     }
 
     public ForumGoodsEnterLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aii = 0;
+        this.ajA = 0;
         this.mFrom = 0;
         init(context);
     }
 
     private void init(Context context) {
         this.mContext = context;
-        this.akC = (ThreadForumEnterGoodsButton) LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_goods_enter_item, (ViewGroup) this, true).findViewById(R.id.forum_enter_goods_button);
+        this.alV = (ThreadForumEnterGoodsButton) LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_goods_enter_item, (ViewGroup) this, true).findViewById(R.id.forum_enter_goods_button);
     }
 
     public void setData(com.baidu.tbadk.core.data.a aVar) {
         boolean z;
-        this.agj = aVar;
-        cb bln = aVar.bln();
-        if (c(aVar) || d(aVar) || aVar.bln() == null || !aVar.bln().bqb() || this.akJ == 3) {
+        this.ahB = aVar;
+        cb blp = aVar.blp();
+        if (c(aVar) || d(aVar) || aVar.blp() == null || !aVar.blp().bqd() || this.amc == 3) {
             z = false;
         } else {
-            this.akC.setVisibility(0);
-            this.akC.setFrom(2);
-            this.akC.r(bln);
-            this.akC.setAfterClickListener(this.akx);
+            this.alV.setVisibility(0);
+            this.alV.setFrom(2);
+            this.alV.r(blp);
+            this.alV.setAfterClickListener(this.alQ);
             z = true;
         }
         setVisibility(z ? 0 : 8);
     }
 
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.akC.onChangeSkinType();
+        this.alV.onChangeSkinType();
     }
 
     public void setFrom(int i) {
@@ -71,22 +71,22 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
     }
 
     public void setFrstype(int i) {
-        this.akJ = i;
+        this.amc = i;
     }
 
     public void setSourceForPb(int i) {
-        this.aii = i;
+        this.ajA = i;
     }
 
     public void setOnAfterClickListener(View.OnClickListener onClickListener) {
-        this.akx = onClickListener;
+        this.alQ = onClickListener;
     }
 
     private boolean c(com.baidu.tbadk.core.data.a aVar) {
-        return (aVar == null || aVar.bln() == null || aVar.bln().bpY() == null || aVar.bln().bpY().getOptions() == null || aVar.bln().bpY().getOptions().size() <= 0) ? false : true;
+        return (aVar == null || aVar.blp() == null || aVar.blp().bqa() == null || aVar.blp().bqa().getOptions() == null || aVar.blp().bqa().getOptions().size() <= 0) ? false : true;
     }
 
     private boolean d(com.baidu.tbadk.core.data.a aVar) {
-        return (aVar == null || aVar.bln() == null || !aVar.bln().bmv() || aVar.bln().boh() == null) ? false : true;
+        return (aVar == null || aVar.blp() == null || !aVar.blp().bmx() || aVar.blp().boj() == null) ? false : true;
     }
 }

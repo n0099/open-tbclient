@@ -1,7 +1,7 @@
 package com.baidu.mario.gldraw2d.d;
 
 import java.nio.FloatBuffer;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class b extends a {
     private static final float[] FULL_RECTANGLE_COORDS = {-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
     private static final float[] FULL_RECTANGLE_TEX_COORDS = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};

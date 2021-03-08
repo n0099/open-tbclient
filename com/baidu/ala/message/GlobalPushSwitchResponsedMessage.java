@@ -3,7 +3,7 @@ package com.baidu.ala.message;
 import android.text.TextUtils;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class GlobalPushSwitchResponsedMessage extends JsonHttpResponsedMessage {
     public static final int SWITCH_OFF = 0;
     public static final int SWITCH_ON = 1;

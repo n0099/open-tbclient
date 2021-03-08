@@ -24,7 +24,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class H264HardwareEncoderFilter extends AbstractEncoderFilter implements HardEncodeListner {
     private static final int kMaxRetryCnt = 5;
     private AbstractTextureMoiveEncoder mEncoder;
@@ -321,9 +321,9 @@ public class H264HardwareEncoderFilter extends AbstractEncoderFilter implements 
             byteBuffer.rewind();
         } else {
             alloc.mDataByteBuffer.position(alloc.mBufferOffset);
-            byte b2 = alloc.mDataByteBuffer.get(4);
+            byte b = alloc.mDataByteBuffer.get(4);
             alloc.mDataByteBuffer.position(alloc.mBufferOffset);
-            alloc.mFrameType = fetchFrameType(b2);
+            alloc.mFrameType = fetchFrameType(b);
         }
         if (alloc.mFrameType == 2 && !this.mHasBFrame) {
             YMFLog.info(this, "[Encoder ]", "onEncodedDataAvailableSample hasBframe:" + this.mHasBFrame);

@@ -3,7 +3,7 @@ package com.yy.mediaframework.gpuimage.custom;
 import android.hardware.Camera;
 import java.nio.FloatBuffer;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFVideoFrame {
     public long mIndex = 0;
     public AtomicBoolean mWillBeRendered = null;

@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.album;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface MediaStoreLoadCallback {
     void onPostLoad(ResutMediaStore resutMediaStore);
 

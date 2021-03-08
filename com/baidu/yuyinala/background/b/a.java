@@ -1,25 +1,25 @@
 package com.baidu.yuyinala.background.b;
 
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
     private boolean isLoading;
     private String mId;
     private String mMd5;
     private String mName;
     private int mType;
-    private String oWf;
-    private String oWg;
-    private String oWh;
-    private boolean oWi;
+    private String oYk;
+    private String oYl;
+    private String oYm;
+    private boolean oYn;
 
     public void parse(JSONObject jSONObject) {
         this.mId = jSONObject.optString("id");
         this.mName = jSONObject.optString("name");
-        this.oWf = jSONObject.optString("thumbnail_url");
-        this.oWg = jSONObject.optString("original_url");
-        this.oWi = jSONObject.optInt("is_chosen", 0) == 1;
-        this.oWh = jSONObject.optString("cover_mp4_zip");
+        this.oYk = jSONObject.optString("thumbnail_url");
+        this.oYl = jSONObject.optString("original_url");
+        this.oYn = jSONObject.optInt("is_chosen", 0) == 1;
+        this.oYm = jSONObject.optString("cover_mp4_zip");
         this.mMd5 = jSONObject.optString("mp4_md5");
         this.mType = jSONObject.optInt("is_dynamic_cover", 0);
     }
@@ -29,19 +29,19 @@ public class a {
     }
 
     public String getThumbnailUrl() {
-        return this.oWf;
+        return this.oYk;
     }
 
     public String getOriginalUrl() {
-        return this.oWg;
+        return this.oYl;
     }
 
-    public boolean ejb() {
-        return this.oWi;
+    public boolean ejl() {
+        return this.oYn;
     }
 
-    public void AG(boolean z) {
-        this.oWi = z;
+    public void AF(boolean z) {
+        this.oYn = z;
     }
 
     public boolean isLoading() {
@@ -56,8 +56,8 @@ public class a {
         return this.mId;
     }
 
-    public String ejc() {
-        return this.oWh;
+    public String ejm() {
+        return this.oYm;
     }
 
     public String getMd5() {

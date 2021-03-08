@@ -6,20 +6,20 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.e> {
-    private TextView mED;
-    private TextView mEF;
-    private TbImageView mET;
-    private com.baidu.tieba.personPolymeric.c.e mEU;
+    private TextView mGG;
+    private TextView mGI;
+    private TbImageView mGW;
+    private com.baidu.tieba.personPolymeric.c.e mGX;
     private View mRootView;
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mRootView = getView();
-        this.mET = (TbImageView) this.mRootView.findViewById(R.id.card_person_auth_icon);
-        this.mEF = (TextView) this.mRootView.findViewById(R.id.card_person_auth_bar_name);
-        this.mED = (TextView) this.mRootView.findViewById(R.id.card_person_auth_des);
+        this.mGW = (TbImageView) this.mRootView.findViewById(R.id.card_person_auth_icon);
+        this.mGI = (TextView) this.mRootView.findViewById(R.id.card_person_auth_bar_name);
+        this.mGG = (TextView) this.mRootView.findViewById(R.id.card_person_auth_des);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -27,10 +27,10 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
         if (this.mSkinType != i) {
             this.mSkinType = i;
             ap.setBackgroundResource(this.mRootView, R.color.CAM_X0201);
-            ap.setViewTextColor(this.mEF, R.color.CAM_X0105, 1);
-            ap.setViewTextColor(this.mED, R.color.CAM_X0109, 1);
-            if (this.mEU.iconUrl == null) {
-                ap.setImageResource(this.mET, R.drawable.icon_shen_mine);
+            ap.setViewTextColor(this.mGI, R.color.CAM_X0105, 1);
+            ap.setViewTextColor(this.mGG, R.color.CAM_X0109, 1);
+            if (this.mGX.iconUrl == null) {
+                ap.setImageResource(this.mGW, R.drawable.icon_shen_mine);
             }
         }
     }
@@ -44,12 +44,12 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.personPolymeric.c.e eVar) {
         if (eVar != null) {
-            this.mEU = eVar;
+            this.mGX = eVar;
             if (eVar.iconUrl != null) {
-                this.mET.startLoad(eVar.iconUrl, 10, false);
+                this.mGW.startLoad(eVar.iconUrl, 10, false);
             }
-            this.mEF.setText(eVar.kbW);
-            this.mED.setText(eVar.des);
+            this.mGI.setText(eVar.kdY);
+            this.mGG.setText(eVar.des);
         }
     }
 

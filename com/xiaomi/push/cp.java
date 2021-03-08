@@ -1,26 +1,24 @@
 package com.xiaomi.push;
 
 import android.os.AsyncTask;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 class cp extends AsyncTask<String, Integer, Integer> {
 
     /* renamed from: a  reason: collision with root package name */
-    cm f13921a;
+    cm f8306a;
 
     /* renamed from: a  reason: collision with other field name */
-    ct f256a;
+    ct f177a;
 
     /* renamed from: a  reason: collision with other field name */
-    String f257a;
-
-    /* renamed from: b  reason: collision with root package name */
-    String f13922b;
+    String f178a;
+    String b;
 
     public cp(ct ctVar, String str, String str2, cm cmVar) {
-        this.f257a = str;
-        this.f13922b = str2;
-        this.f256a = ctVar;
-        this.f13921a = cmVar;
+        this.f178a = str;
+        this.b = str2;
+        this.f177a = ctVar;
+        this.f8306a = cmVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,7 +26,7 @@ class cp extends AsyncTask<String, Integer, Integer> {
     @Override // android.os.AsyncTask
     /* renamed from: a */
     public Integer doInBackground(String... strArr) {
-        return Integer.valueOf(cq.a(this.f257a, this.f13922b, this.f13921a));
+        return Integer.valueOf(cq.a(this.f178a, this.b, this.f8306a));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,16 +35,16 @@ class cp extends AsyncTask<String, Integer, Integer> {
     /* renamed from: a */
     public void onPostExecute(Integer num) {
         super.onPostExecute(num);
-        if (this.f256a != null) {
-            this.f256a.a(num, this.f13921a);
+        if (this.f177a != null) {
+            this.f177a.a(num, this.f8306a);
         }
     }
 
     @Override // android.os.AsyncTask
     protected void onCancelled() {
         super.onCancelled();
-        if (this.f256a != null) {
-            this.f256a.a(1, this.f13921a);
+        if (this.f177a != null) {
+            this.f177a.a(1, this.f8306a);
         }
     }
 }

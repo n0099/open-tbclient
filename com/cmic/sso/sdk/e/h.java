@@ -4,44 +4,42 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.cmic.sso.sdk.e.k;
 import com.cmic.sso.sdk.e.o;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class h {
-
-    /* renamed from: b  reason: collision with root package name */
-    private static String f7727b;
+    private static String b;
     private static String c;
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f7726a = m.a();
+    private static boolean f5219a = m.a();
     private static long d = 0;
 
     public static void a(boolean z, boolean z2) {
-        k.a erD = k.erD();
-        erD.a("phonescripstarttime");
-        erD.a("phonescripcache");
-        erD.a("pre_sim_key");
+        k.a erM = k.erM();
+        erM.a("phonescripstarttime");
+        erM.a("phonescripcache");
+        erM.a("pre_sim_key");
         if (z2) {
-            erD.a();
+            erM.a();
         } else {
-            erD.b();
+            erM.b();
         }
         if (z) {
-            f7727b = null;
+            b = null;
             c = null;
             d = 0L;
         }
     }
 
     public static boolean a() {
-        return f7726a;
+        return f5219a;
     }
 
     public static void a(final Context context, final String str, final long j, final String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            f7727b = str;
+            b = str;
             d = j;
             c = str2;
-            if (!f7726a) {
+            if (!f5219a) {
                 o.a(new o.a() { // from class: com.cmic.sso.sdk.e.h.1
                     @Override // com.cmic.sso.sdk.e.o.a
                     protected void a() {
@@ -57,30 +55,30 @@ public class h {
     public static void b(Context context, String str, long j, String str2) {
         String a2 = b.a(context, str);
         if (!TextUtils.isEmpty(a2)) {
-            k.a erD = k.erD();
-            erD.a("phonescripcache", a2);
-            erD.a("phonescripstarttime", j);
-            erD.a("pre_sim_key", str2);
-            erD.b();
+            k.a erM = k.erM();
+            erM.a("phonescripcache", a2);
+            erM.a("phonescripstarttime", j);
+            erM.a("pre_sim_key", str2);
+            erM.b();
         }
     }
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f7727b)) {
+        if (TextUtils.isEmpty(b)) {
             String b2 = k.b("phonescripcache", "");
             if (TextUtils.isEmpty(b2)) {
                 c.a("PhoneScripUtils", "null");
                 return null;
             }
             String b3 = b.b(context, b2);
-            f7727b = b3;
+            b = b3;
             return b3;
         }
-        return f7727b;
+        return b;
     }
 
     private static boolean b() {
-        if (TextUtils.isEmpty(f7727b)) {
+        if (TextUtils.isEmpty(b)) {
             return !TextUtils.isEmpty(k.b("phonescripcache", "")) && a(k.a("phonescripstarttime", 0L));
         }
         c.b("PhoneScripUtils", c + " " + d);
@@ -126,7 +124,7 @@ public class h {
             }
             return false;
         }
-        if (f7726a) {
+        if (f5219a) {
             c.b("PhoneScripUtils", "phone is root");
             a(false, false);
         }

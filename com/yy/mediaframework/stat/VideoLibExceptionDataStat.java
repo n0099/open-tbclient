@@ -8,7 +8,7 @@ import com.yy.mediaframework.utils.InfoUtil;
 import com.yy.mediaframework.utils.YMFLog;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoLibExceptionDataStat {
     private static final String ANCHOR = "0";
     public static final String ENCODE = "0";
@@ -20,7 +20,7 @@ public class VideoLibExceptionDataStat {
     private static VideoLibExceptionDataStat mInstance;
     private static LinkedHashMap<String, Object> mVideoLibExceptionHashMap = new LinkedHashMap<>();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface EncodeExceptionID {
         public static final String ENCODE_BLOCK = "0";
         public static final String ENCODE_CHANGE_SOFT = "5";
@@ -31,14 +31,14 @@ public class VideoLibExceptionDataStat {
         public static final String ENCODE_STOP_BLOCKED = "6";
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface RenderExceptionID {
         public static final String DEINIT_ERROR = "103";
         public static final String INIT_ERROR = "101";
         public static final String RENDER_ERROR = "102";
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface VideoLibExceptionInfoKey {
         public static final String APP_VERSION = "dr14";
         public static final String DTS = "dr10";

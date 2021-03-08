@@ -2,7 +2,7 @@ package com.baidu.ar.g;
 
 import com.baidu.ar.d;
 import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class c extends d implements a {
     private WeakReference<a> mj;
     private b xS;

@@ -1,5 +1,5 @@
 package com.baidu.ar.face.detector;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class j extends com.baidu.ar.d.h {
     private int mCacheSize;
     private String pb;

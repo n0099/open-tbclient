@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.ala.tbadk.core.TbadkCoreApplicationProxy;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BdLog {
     private static final String LOG_TAG = "BaiduLog";
     private static String LogFilter_classNameStartsWith = null;

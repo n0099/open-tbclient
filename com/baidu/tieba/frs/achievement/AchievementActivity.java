@@ -7,13 +7,13 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class AchievementActivity extends BaseActivity {
-    private c jlQ;
-    private a jlR;
-    private View.OnClickListener jlS = new View.OnClickListener() { // from class: com.baidu.tieba.frs.achievement.AchievementActivity.1
+    private c jnA;
+    private a jnB;
+    private View.OnClickListener jnC = new View.OnClickListener() { // from class: com.baidu.tieba.frs.achievement.AchievementActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            AchievementActivity.this.jlQ.setDisplay(false);
-            AchievementActivity.this.jlR.setDisplay(true);
+            AchievementActivity.this.jnA.setDisplay(false);
+            AchievementActivity.this.jnB.setDisplay(true);
         }
     };
 
@@ -23,11 +23,11 @@ public class AchievementActivity extends BaseActivity {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         setContentView(R.layout.activity_achievement);
-        this.jlQ = new c(getPageContext(), findViewById(R.id.layout_thanks_letter));
-        this.jlQ.setDisplay(true);
-        this.jlQ.B(this.jlS);
-        this.jlR = new a(getPageContext(), findViewById(R.id.layout_invite_letter));
-        this.jlR.setDisplay(false);
+        this.jnA = new c(getPageContext(), findViewById(R.id.layout_thanks_letter));
+        this.jnA.setDisplay(true);
+        this.jnA.B(this.jnC);
+        this.jnB = new a(getPageContext(), findViewById(R.id.layout_invite_letter));
+        this.jnB.setDisplay(false);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -44,7 +44,7 @@ public class AchievementActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.jlQ.onChangeSkinType(i);
-        this.jlR.onChangeSkinType(i);
+        this.jnA.onChangeSkinType(i);
+        this.jnB.onChangeSkinType(i);
     }
 }

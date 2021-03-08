@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 @TargetApi(17)
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class EglSurfaceBase implements IEglSurfaceBase {
     protected static final String TAG = "GlUtil";
     protected EglCore mEglCore;

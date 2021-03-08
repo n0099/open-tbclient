@@ -1,10 +1,10 @@
 package com.baidu.swan.support.v4.app;
 
 import android.app.Activity;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 class c {
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void validateRequestPermissionsRequestCode(int i);
     }

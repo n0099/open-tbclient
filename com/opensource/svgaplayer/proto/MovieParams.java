@@ -9,16 +9,16 @@ import com.squareup.wire2.d;
 import com.squareup.wire2.internal.a;
 import java.io.IOException;
 import okio.ByteString;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class MovieParams extends Message<MovieParams, Builder> {
     private static final long serialVersionUID = 0;
-    @WireField(eDW = "com.squareup.wire.ProtoAdapter#INT32", tag = 3)
+    @WireField(eEc = "com.squareup.wire.ProtoAdapter#INT32", tag = 3)
     public final Integer fps;
-    @WireField(eDW = "com.squareup.wire.ProtoAdapter#INT32", tag = 4)
+    @WireField(eEc = "com.squareup.wire.ProtoAdapter#INT32", tag = 4)
     public final Integer frames;
-    @WireField(eDW = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
+    @WireField(eEc = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
     public final Float viewBoxHeight;
-    @WireField(eDW = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
+    @WireField(eEc = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
     public final Float viewBoxWidth;
     public static final ProtoAdapter<MovieParams> ADAPTER = new ProtoAdapter_MovieParams();
     public static final Float DEFAULT_VIEWBOXWIDTH = Float.valueOf(0.0f);
@@ -91,7 +91,7 @@ public final class MovieParams extends Message<MovieParams, Builder> {
         return sb.replace(0, 2, "MovieParams{").append('}').toString();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class Builder extends Message.a<MovieParams, Builder> {
         public Integer fps;
         public Integer frames;
@@ -126,7 +126,7 @@ public final class MovieParams extends Message<MovieParams, Builder> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     private static final class ProtoAdapter_MovieParams extends ProtoAdapter<MovieParams> {
         ProtoAdapter_MovieParams() {
             super(FieldEncoding.LENGTH_DELIMITED, MovieParams.class);
@@ -161,11 +161,11 @@ public final class MovieParams extends Message<MovieParams, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public MovieParams decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long eDO = cVar.eDO();
+            long eDU = cVar.eDU();
             while (true) {
-                int eDP = cVar.eDP();
-                if (eDP != -1) {
-                    switch (eDP) {
+                int eDV = cVar.eDV();
+                if (eDV != -1) {
+                    switch (eDV) {
                         case 1:
                             builder.viewBoxWidth(ProtoAdapter.FLOAT.decode(cVar));
                             break;
@@ -179,12 +179,12 @@ public final class MovieParams extends Message<MovieParams, Builder> {
                             builder.frames(ProtoAdapter.INT32.decode(cVar));
                             break;
                         default:
-                            FieldEncoding eDQ = cVar.eDQ();
-                            builder.addUnknownField(eDP, eDQ, eDQ.rawProtoAdapter().decode(cVar));
+                            FieldEncoding eDW = cVar.eDW();
+                            builder.addUnknownField(eDV, eDW, eDW.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.iV(eDO);
+                    cVar.iV(eDU);
                     return builder.build();
                 }
             }

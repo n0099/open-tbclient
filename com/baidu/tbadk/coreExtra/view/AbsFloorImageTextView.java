@@ -18,16 +18,16 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.a.c;
 /* loaded from: classes.dex */
 public abstract class AbsFloorImageTextView extends RelativeLayout {
-    protected ImageUrlData fvI;
-    private c.a fvJ;
-    public com.baidu.tieba.pb.a.c fvK;
+    protected ImageUrlData fxh;
+    private c.a fxi;
+    public com.baidu.tieba.pb.a.c fxj;
     protected String mUserId;
     protected static final int TOP = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds34);
     protected static final int BOTTOM = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds28);
     protected static final int LEFT = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds44);
     protected static final int RIGHT = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds44);
-    protected static final int fvG = (l.getEquipmentWidth(TbadkApplication.getInst()) - LEFT) - RIGHT;
-    protected static final int fvH = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds42);
+    protected static final int fxf = (l.getEquipmentWidth(TbadkApplication.getInst()) - LEFT) - RIGHT;
+    protected static final int fxg = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds42);
 
     public abstract void a(ImageUrlData imageUrlData);
 
@@ -35,7 +35,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
 
     public AbsFloorImageTextView(@NonNull Context context) {
         super(context);
-        this.fvJ = new c.a() { // from class: com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView.1
+        this.fxi = new c.a() { // from class: com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView.1
             @Override // com.baidu.tieba.pb.a.c.a
             public boolean onDoubleTap(View view, MotionEvent motionEvent) {
                 return false;
@@ -48,11 +48,11 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
 
             @Override // com.baidu.tieba.pb.a.c.a
             public boolean onSingleTapConfirmed(View view, MotionEvent motionEvent) {
-                AbsFloorImageTextView.this.bzk();
+                AbsFloorImageTextView.this.bzn();
                 return true;
             }
         };
-        this.fvK = new com.baidu.tieba.pb.a.c(this.fvJ) { // from class: com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView.2
+        this.fxj = new com.baidu.tieba.pb.a.c(this.fxi) { // from class: com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView.2
             @Override // com.baidu.tieba.pb.a.c, android.view.GestureDetector.OnGestureListener
             public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
                 return false;
@@ -69,10 +69,10 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
         this.mUserId = str;
     }
 
-    public void bzk() {
-        if (this.fvI != null) {
-            PbActivityConfig createHistoryCfg = new PbActivityConfig(getContext()).createHistoryCfg(String.valueOf(this.fvI.threadId), String.valueOf(this.fvI.postId), this.fvI.mIsSeeHost, this.fvI.mIsReserver, null);
-            if (this.fvI.isFirstPost) {
+    public void bzn() {
+        if (this.fxh != null) {
+            PbActivityConfig createHistoryCfg = new PbActivityConfig(getContext()).createHistoryCfg(String.valueOf(this.fxh.threadId), String.valueOf(this.fxh.postId), this.fxh.mIsSeeHost, this.fxh.mIsReserver, null);
+            if (this.fxh.isFirstPost) {
                 createHistoryCfg.setJumpToTopArea(true);
             } else {
                 createHistoryCfg.setJumpToCommentArea(true);
@@ -82,8 +82,8 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Pair<Integer, Integer> Cn(String str) {
-        return ag.u(str, fvH, fvG);
+    public Pair<Integer, Integer> Cu(String str) {
+        return ag.u(str, fxg, fxf);
     }
 
     protected void q(View view, int i) {
@@ -98,7 +98,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void qA(int i) {
+    public void qB(int i) {
         q(this, i);
     }
 }

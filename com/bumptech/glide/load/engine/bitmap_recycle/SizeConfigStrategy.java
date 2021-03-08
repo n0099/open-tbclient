@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
 @RequiresApi(19)
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class SizeConfigStrategy implements LruPoolStrategy {
     private static final Bitmap.Config[] ALPHA_8_IN_CONFIGS;
     private static final Bitmap.Config[] ARGB_4444_IN_CONFIGS;
@@ -53,7 +53,7 @@ public class SizeConfigStrategy implements LruPoolStrategy {
         Bitmap bitmap = this.groupedMap.get(findBestKey);
         if (bitmap != null) {
             decrementBitmapOfSize(Integer.valueOf(findBestKey.size), bitmap);
-            bitmap.reconfigure(i, i2, bitmap.getConfig() != null ? bitmap.getConfig() : Bitmap.Config.ARGB_8888);
+            bitmap.reconfigure(i, i2, config);
         }
         return bitmap;
     }
@@ -140,7 +140,7 @@ public class SizeConfigStrategy implements LruPoolStrategy {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class KeyPool extends BaseKeyPool<Key> {
         KeyPool() {
         }
@@ -161,7 +161,7 @@ public class SizeConfigStrategy implements LruPoolStrategy {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class Key implements Poolable {
         private Bitmap.Config config;
         private final KeyPool pool;
@@ -228,7 +228,7 @@ public class SizeConfigStrategy implements LruPoolStrategy {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.bumptech.glide.load.engine.bitmap_recycle.SizeConfigStrategy$1  reason: invalid class name */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config = new int[Bitmap.Config.values().length];
 

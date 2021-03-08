@@ -7,7 +7,7 @@ import com.baidu.ar.c.c;
 import com.baidu.ar.d.j;
 import com.baidu.ar.d.l;
 import com.baidu.ar.databasic.AlgoHandleController;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public abstract class a extends j {
     protected AlgoHandleController cb = null;
 

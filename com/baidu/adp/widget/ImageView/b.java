@@ -273,7 +273,7 @@ public class b extends Drawable {
         return this.mBitmapHeight;
     }
 
-    public b n(float f) {
+    public b r(float f) {
         this.mCornerRadius = f;
         return this;
     }

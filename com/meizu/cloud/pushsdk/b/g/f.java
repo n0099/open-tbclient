@@ -5,31 +5,31 @@ import java.io.IOException;
 public abstract class f implements l {
 
     /* renamed from: a  reason: collision with root package name */
-    private final l f11199a;
+    private final l f7364a;
 
     public f(l lVar) {
         if (lVar == null) {
             throw new IllegalArgumentException("delegate == null");
         }
-        this.f11199a = lVar;
+        this.f7364a = lVar;
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.l
     public void a(b bVar, long j) throws IOException {
-        this.f11199a.a(bVar, j);
+        this.f7364a.a(bVar, j);
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.l, java.io.Closeable, java.lang.AutoCloseable, com.meizu.cloud.pushsdk.b.g.m
     public void close() throws IOException {
-        this.f11199a.close();
+        this.f7364a.close();
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.l, java.io.Flushable
     public void flush() throws IOException {
-        this.f11199a.flush();
+        this.f7364a.flush();
     }
 
     public String toString() {
-        return getClass().getSimpleName() + "(" + this.f11199a.toString() + ")";
+        return getClass().getSimpleName() + "(" + this.f7364a.toString() + ")";
     }
 }

@@ -10,11 +10,11 @@ import com.baidu.tieba.R;
 public class l implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f4310a;
+    final /* synthetic */ c f2982a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(c cVar) {
-        this.f4310a = cVar;
+        this.f2982a = cVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,30 +23,30 @@ public class l implements View.OnClickListener {
         Context context;
         RelativeLayout relativeLayout2;
         if (com.baidu.platform.comapi.walknavi.b.a().J() == 4) {
-            this.f4310a.c.setChecked(false);
+            this.f2982a.c.setChecked(false);
         } else if (com.baidu.platform.comapi.walknavi.b.a().H().a("WALKNAVI_VOICE_ON_OFF", true)) {
-            this.f4310a.c.setChecked(true);
+            this.f2982a.c.setChecked(true);
         } else {
-            this.f4310a.c.setChecked(false);
+            this.f2982a.c.setChecked(false);
         }
         if (com.baidu.platform.comapi.walknavi.b.a().H().a("WALKNAVI_STREET_POI_ON_OFF", true)) {
-            this.f4310a.d.setChecked(true);
+            this.f2982a.d.setChecked(true);
         } else {
-            this.f4310a.d.setChecked(false);
+            this.f2982a.d.setChecked(false);
         }
         if (com.baidu.platform.comapi.walknavi.b.a().H().a("WALKNAVI_THREED_MAP_ON_OFF", true)) {
-            this.f4310a.e.setChecked(true);
+            this.f2982a.e.setChecked(true);
         } else {
-            this.f4310a.e.setChecked(false);
+            this.f2982a.e.setChecked(false);
         }
         try {
-            context = this.f4310a.l;
+            context = this.f2982a.l;
             Animation c = com.baidu.platform.comapi.wnplatform.o.a.a.c(context, R.attr.actionBarItemBackground);
-            relativeLayout2 = this.f4310a.G;
+            relativeLayout2 = this.f2982a.G;
             relativeLayout2.setAnimation(c);
         } catch (Exception e) {
         }
-        relativeLayout = this.f4310a.G;
+        relativeLayout = this.f2982a.G;
         relativeLayout.setVisibility(0);
     }
 }

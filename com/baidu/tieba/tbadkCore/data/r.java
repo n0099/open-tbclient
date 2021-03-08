@@ -1,22 +1,22 @@
 package com.baidu.tieba.tbadkCore.data;
 /* loaded from: classes.dex */
 public class r {
-    private String lLJ;
-    private int nym;
+    private String lNL;
+    private int nAr;
 
-    public int dNS() {
-        return this.nym;
+    public int dOb() {
+        return this.nAr;
     }
 
-    public void JF(int i) {
-        this.nym = i;
+    public void JK(int i) {
+        this.nAr = i;
     }
 
-    public String dNT() {
-        return this.lLJ;
+    public String dOc() {
+        return this.lNL;
     }
 
-    public void Tr(String str) {
-        this.lLJ = str;
+    public void Ty(String str) {
+        this.lNL = str;
     }
 }

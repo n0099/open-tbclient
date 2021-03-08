@@ -16,13 +16,11 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 /* loaded from: classes4.dex */
 public class NativeLoader {
-
-    /* renamed from: b  reason: collision with root package name */
-    private static Context f2993b;
+    private static Context b;
     private static NativeLoader e;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2992a = NativeLoader.class.getSimpleName();
+    private static final String f2184a = NativeLoader.class.getSimpleName();
     private static final Set<String> c = new HashSet();
     private static final Set<String> d = new HashSet();
     private static a f = a.ARMEABI;
@@ -54,7 +52,7 @@ public class NativeLoader {
 
     @TargetApi(8)
     private String a() {
-        return 8 <= Build.VERSION.SDK_INT ? f2993b.getPackageCodePath() : "";
+        return 8 <= Build.VERSION.SDK_INT ? b.getPackageCodePath() : "";
     }
 
     private String a(a aVar) {
@@ -76,12 +74,12 @@ public class NativeLoader {
                 try {
                     inputStream.close();
                 } catch (IOException e2) {
-                    Log.e(f2992a, "Close InputStream error", e2);
+                    Log.e(f2184a, "Close InputStream error", e2);
                 }
                 try {
                     fileOutputStream.close();
                 } catch (IOException e3) {
-                    Log.e(f2992a, "Close OutputStream error", e3);
+                    Log.e(f2184a, "Close OutputStream error", e3);
                 }
             }
         }
@@ -89,10 +87,10 @@ public class NativeLoader {
     }
 
     private void a(Throwable th) {
-        Log.e(f2992a, "loadException", th);
+        Log.e(f2184a, "loadException", th);
         Iterator<String> it = d.iterator();
         while (it.hasNext()) {
-            Log.e(f2992a, it.next() + " Failed to load.");
+            Log.e(f2184a, it.next() + " Failed to load.");
         }
     }
 
@@ -143,7 +141,7 @@ public class NativeLoader {
                             try {
                                 zipFile.close();
                             } catch (IOException e2) {
-                                Log.e(f2992a, "Release file failed", e2);
+                                Log.e(f2184a, "Release file failed", e2);
                             }
                         }
                         return false;
@@ -154,19 +152,19 @@ public class NativeLoader {
                             zipFile.close();
                             return true;
                         } catch (IOException e3) {
-                            Log.e(f2992a, "Release file failed", e3);
+                            Log.e(f2184a, "Release file failed", e3);
                             return true;
                         }
                     }
                     return true;
                 } catch (Exception e4) {
                     e = e4;
-                    Log.e(f2992a, "Copy library file error", e);
+                    Log.e(f2184a, "Copy library file error", e);
                     if (zipFile != null) {
                         try {
                             zipFile.close();
                         } catch (IOException e5) {
-                            Log.e(f2992a, "Release file failed", e5);
+                            Log.e(f2184a, "Release file failed", e5);
                         }
                     }
                     return false;
@@ -177,7 +175,7 @@ public class NativeLoader {
                     try {
                         zipFile.close();
                     } catch (IOException e6) {
-                        Log.e(f2992a, "Release file failed", e6);
+                        Log.e(f2184a, "Release file failed", e6);
                     }
                 }
                 throw th;
@@ -199,7 +197,7 @@ public class NativeLoader {
     }
 
     private String b() {
-        File file = new File(f2993b.getFilesDir(), "libs");
+        File file = new File(b.getFilesDir(), "libs");
         if (!file.exists()) {
             file.mkdirs();
         }
@@ -213,7 +211,7 @@ public class NativeLoader {
             if (c.contains(str)) {
                 z = true;
             } else {
-                switch (d.f3023a[f.ordinal()]) {
+                switch (d.f2205a[f.ordinal()]) {
                     case 1:
                         z = c(str, mapLibraryName);
                         break;
@@ -242,7 +240,7 @@ public class NativeLoader {
         if (a(str2, a.ARMEABI)) {
             return f(str2, str);
         }
-        Log.e(f2992a, "found lib" + str + ".so error");
+        Log.e(f2184a, "found lib" + str + ".so error");
         return false;
     }
 
@@ -309,7 +307,7 @@ public class NativeLoader {
     }
 
     public static void setContext(Context context) {
-        f2993b = context;
+        b = context;
     }
 
     public synchronized boolean loadLibrary(String str) {
@@ -317,7 +315,7 @@ public class NativeLoader {
         if (!g) {
             z = a(str);
         } else if (h == null || h.isEmpty()) {
-            Log.e(f2992a, "Given custom so file path is null, please check!");
+            Log.e(f2184a, "Given custom so file path is null, please check!");
             z = false;
         } else {
             z = b(str);

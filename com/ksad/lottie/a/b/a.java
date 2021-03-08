@@ -8,21 +8,19 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public abstract class a<K, A> {
     @Nullable
-
-    /* renamed from: b  reason: collision with root package name */
-    protected com.ksad.lottie.e.c<A> f7960b;
+    protected com.ksad.lottie.e.c<A> b;
     private final List<? extends com.ksad.lottie.e.a<K>> d;
     @Nullable
     private com.ksad.lottie.e.a<K> f;
 
     /* renamed from: a  reason: collision with root package name */
-    final List<InterfaceC1067a> f7959a = new ArrayList();
+    final List<InterfaceC1084a> f5322a = new ArrayList();
     private boolean c = false;
     private float e = 0.0f;
 
     /* renamed from: com.ksad.lottie.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1067a {
+    public interface InterfaceC1084a {
         void a();
     }
 
@@ -83,18 +81,18 @@ public abstract class a<K, A> {
         b();
     }
 
-    public void a(InterfaceC1067a interfaceC1067a) {
-        this.f7959a.add(interfaceC1067a);
+    public void a(InterfaceC1084a interfaceC1084a) {
+        this.f5322a.add(interfaceC1084a);
     }
 
     public void b() {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.f7959a.size()) {
+            if (i2 >= this.f5322a.size()) {
                 return;
             }
-            this.f7959a.get(i2).a();
+            this.f5322a.get(i2).a();
             i = i2 + 1;
         }
     }

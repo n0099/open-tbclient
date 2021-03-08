@@ -20,7 +20,7 @@ import java.io.OutputStream;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static boolean fLd = false;
+    private static boolean fMD = false;
     private static String link = "";
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [77=4, 78=4, 80=4, 81=4, 84=4, 85=4, 87=4, 88=4] */
@@ -161,7 +161,7 @@ public class a {
         return z;
     }
 
-    public static String fu(Context context) {
+    public static String ft(Context context) {
         String host;
         int port;
         String str = null;
@@ -187,7 +187,7 @@ public class a {
         }
     }
 
-    public static boolean bEw() {
+    public static boolean bEA() {
         try {
             return Settings.Secure.getInt(ContentResolverProxy.getContentResolver(), "adb_enabled", 0) > 0;
         } catch (Exception e) {
@@ -199,7 +199,7 @@ public class a {
     public static String R(File file) {
         FileInputStream fileInputStream;
         String str;
-        if (fLd) {
+        if (fMD) {
             return "hasSend_" + link;
         }
         String str2 = TbConfig.SERVER_ADDRESS + TbConfig.DEBUG_UPLOAD;
@@ -220,7 +220,7 @@ public class a {
                     str = aaVar.postMultiNetData();
                     if (str != null && !str.isEmpty()) {
                         link = new JSONObject(str).getString("url");
-                        fLd = true;
+                        fMD = true;
                         String str3 = link;
                         if (fileInputStream != null) {
                             try {

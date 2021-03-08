@@ -5,10 +5,8 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f7402a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f7403b;
+    public boolean f4918a;
+    public boolean b;
     public boolean c;
     public boolean d;
     public long e;
@@ -17,8 +15,10 @@ public class a {
 
     /* renamed from: com.bytedance.sdk.openadsdk.multipro.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC1028a {
-        a a();
+    public interface InterfaceC1040a {
+        a e();
+
+        boolean g();
     }
 
     public a a(boolean z) {
@@ -27,12 +27,12 @@ public class a {
     }
 
     public a b(boolean z) {
-        this.f7402a = z;
+        this.f4918a = z;
         return this;
     }
 
     public a c(boolean z) {
-        this.f7403b = z;
+        this.b = z;
         return this;
     }
 
@@ -59,8 +59,8 @@ public class a {
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("isCompleted", this.f7402a);
-            jSONObject.put("isFromVideoDetailPage", this.f7403b);
+            jSONObject.put("isCompleted", this.f4918a);
+            jSONObject.put("isFromVideoDetailPage", this.b);
             jSONObject.put("isFromDetailPage", this.c);
             jSONObject.put("duration", this.e);
             jSONObject.put("totalPlayDuration", this.f);

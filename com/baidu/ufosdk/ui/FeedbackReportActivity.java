@@ -56,7 +56,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"SetJavaScriptEnabled"})
 @TargetApi(11)
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class FeedbackReportActivity extends Activity {
     private View A;
     private ScrollView L;
@@ -67,9 +67,7 @@ public class FeedbackReportActivity extends Activity {
     private TextView Q;
     private a U;
     private f V;
-
-    /* renamed from: b  reason: collision with root package name */
-    private SharedPreferences.Editor f5421b;
+    private SharedPreferences.Editor b;
     private SharedPreferences c;
     private EditText h;
     private byte[] j;
@@ -109,7 +107,7 @@ public class FeedbackReportActivity extends Activity {
     private boolean T = false;
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f5420a = -1;
+    protected int f3645a = -1;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void D(FeedbackReportActivity feedbackReportActivity) {
@@ -119,13 +117,13 @@ public class FeedbackReportActivity extends Activity {
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.addCategory("android.intent.category.OPENABLE");
         intent.setType("image/*");
-        if (feedbackReportActivity.f5420a == feedbackReportActivity.x.size() - 1) {
+        if (feedbackReportActivity.f3645a == feedbackReportActivity.x.size() - 1) {
             if (feedbackReportActivity.getCurrentFocus() != null && feedbackReportActivity.getCurrentFocus().getWindowToken() != null) {
                 ((InputMethodManager) feedbackReportActivity.getSystemService("input_method")).hideSoftInputFromWindow(feedbackReportActivity.getCurrentFocus().getWindowToken(), 2);
             }
             try {
                 feedbackReportActivity.D = true;
-                feedbackReportActivity.startActivityForResult(intent, feedbackReportActivity.f5420a);
+                feedbackReportActivity.startActivityForResult(intent, feedbackReportActivity.f3645a);
                 try {
                     feedbackReportActivity.overridePendingTransition(com.baidu.ufosdk.f.i.a(feedbackReportActivity.getApplicationContext(), "ufo_slide_in_from_bottom"), 0);
                 } catch (Exception e) {
@@ -391,7 +389,7 @@ public class FeedbackReportActivity extends Activity {
         hashMap.put("freespace", String.valueOf(com.baidu.ufosdk.b.a.a()));
         hashMap.put("uid", com.baidu.ufosdk.b.d);
         hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.d);
-        hashMap.put("username", com.baidu.ufosdk.b.f5358b);
+        hashMap.put("username", com.baidu.ufosdk.b.b);
         hashMap.put("osvn", Build.VERSION.RELEASE);
         try {
             JSONObject jSONObject = new JSONObject(com.baidu.ufosdk.b.f);
@@ -421,7 +419,7 @@ public class FeedbackReportActivity extends Activity {
             hashMap.put("nettype", "N/A");
         }
         hashMap.put("screenSize", com.baidu.ufosdk.b.f.a(context));
-        if (com.baidu.ufosdk.b.f5357a) {
+        if (com.baidu.ufosdk.b.f3606a) {
             hashMap.put("logcat", com.baidu.ufosdk.b.b.a());
         }
         if (!TextUtils.isEmpty(com.baidu.ufosdk.b.h)) {
@@ -624,7 +622,7 @@ public class FeedbackReportActivity extends Activity {
         } else {
             this.M = com.baidu.ufosdk.f.k.b(this.M);
         }
-        this.f5421b = this.c.edit();
+        this.b = this.c.edit();
         this.g = getIntent().getStringExtra("faq_id");
         this.z = getIntent().getStringExtra("msgid");
         this.R = getIntent().getIntExtra("product_type", 0);
@@ -636,8 +634,8 @@ public class FeedbackReportActivity extends Activity {
         if (TextUtils.isEmpty(this.g)) {
             this.g = "";
         }
-        this.f5421b.putBoolean("ADD_PIC_FLAG", true);
-        this.f5421b.commit();
+        this.b.putBoolean("ADD_PIC_FLAG", true);
+        this.b.commit();
         this.f = getIntent().getIntExtra("feedback_channel", 0);
         if (this.f == 33487 || this.f == 33496 || this.f == 33497 || this.f == 33506 || this.f == 33509) {
             this.G = true;
@@ -844,11 +842,11 @@ public class FeedbackReportActivity extends Activity {
             this.U = new a((ArrayList) arrayList9.get(0), this, ecVar);
         }
         LinearLayout a3 = this.U.a();
-        LinearLayout b2 = this.U.b();
+        LinearLayout b = this.U.b();
         LinearLayout.LayoutParams layoutParams11 = new LinearLayout.LayoutParams(-1, -2);
         layoutParams11.weight = 1.0f;
         linearLayout2.addView(a3, layoutParams11);
-        linearLayout2.addView(b2, layoutParams11);
+        linearLayout2.addView(b, layoutParams11);
         LinearLayout.LayoutParams layoutParams12 = new LinearLayout.LayoutParams(-1, -2);
         layoutParams12.setMargins(0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 8.0f), 0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.0f));
         this.N.addView(linearLayout2, layoutParams12);
@@ -888,11 +886,11 @@ public class FeedbackReportActivity extends Activity {
         arrayList10.add("有画面无声音");
         this.V = new f(arrayList10, this, new ed(this));
         LinearLayout a4 = this.V.a();
-        LinearLayout b3 = this.V.b();
+        LinearLayout b2 = this.V.b();
         LinearLayout.LayoutParams layoutParams14 = new LinearLayout.LayoutParams(-1, -2);
         layoutParams14.weight = 1.0f;
         linearLayout3.addView(a4, layoutParams14);
-        linearLayout3.addView(b3, layoutParams14);
+        linearLayout3.addView(b2, layoutParams14);
         LinearLayout.LayoutParams layoutParams15 = new LinearLayout.LayoutParams(-1, -2);
         layoutParams15.setMargins(0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 7.0f), 0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.0f));
         this.O.addView(linearLayout3, layoutParams15);
@@ -1078,18 +1076,18 @@ public class FeedbackReportActivity extends Activity {
         super.onPause();
         String obj = this.u.getText().toString();
         if (obj == null || obj.trim().length() <= 0) {
-            this.f5421b.putString("cryptContactData", "");
+            this.b.putString("cryptContactData", "");
         } else {
-            this.f5421b.putString("cryptContactData", com.baidu.ufosdk.f.k.a(obj));
+            this.b.putString("cryptContactData", com.baidu.ufosdk.f.k.a(obj));
         }
         if (this.y.booleanValue()) {
             if (TextUtils.isEmpty(this.g)) {
-                this.f5421b.putString(this.z, this.t.getText().toString());
+                this.b.putString(this.z, this.t.getText().toString());
             } else {
-                this.f5421b.putString(this.g, this.t.getText().toString());
+                this.b.putString(this.g, this.t.getText().toString());
             }
         }
-        this.f5421b.commit();
+        this.b.commit();
     }
 
     @Override // android.app.Activity

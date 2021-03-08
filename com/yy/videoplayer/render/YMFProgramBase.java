@@ -6,7 +6,7 @@ import com.yy.videoplayer.utils.YMFLog;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class YMFProgramBase implements IProgram {
     private static final int INPUT_TYPE_ATTRIBUTE = 0;
     private static final int INPUT_TYPE_UNIFORM = 1;

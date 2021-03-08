@@ -9,7 +9,7 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.constraintlayout.widget.ConstraintLayout;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class Placeholder extends View {
     private View mContent;
     private int mContentId;

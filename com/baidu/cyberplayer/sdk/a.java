@@ -5,53 +5,51 @@ import java.util.ArrayList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<C0099a> f1721a = new ArrayList<>();
+    private ArrayList<C0105a> f1394a = new ArrayList<>();
 
     /* renamed from: com.baidu.cyberplayer.sdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0099a {
+    public static class C0105a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f1722a;
+        private String f1395a;
+        private Object b;
 
-        /* renamed from: b  reason: collision with root package name */
-        private Object f1723b;
-
-        public C0099a(String str, Object obj) {
-            this.f1722a = str;
-            this.f1723b = obj;
+        public C0105a(String str, Object obj) {
+            this.f1395a = str;
+            this.b = obj;
         }
 
         public String a() {
-            return this.f1722a;
+            return this.f1395a;
         }
 
         public void a(Object obj) {
-            this.f1723b = obj;
+            this.b = obj;
         }
 
         public Object b() {
-            return this.f1723b;
+            return this.b;
         }
     }
 
     public void a() {
-        this.f1721a.clear();
+        this.f1394a.clear();
     }
 
     public void a(String str, Object obj) {
-        int size = this.f1721a.size();
+        int size = this.f1394a.size();
         for (int i = 0; i < size; i++) {
-            C0099a c0099a = this.f1721a.get(i);
-            if (c0099a != null && c0099a.a() != null && c0099a.a().equals(str)) {
-                c0099a.a(obj);
+            C0105a c0105a = this.f1394a.get(i);
+            if (c0105a != null && c0105a.a() != null && c0105a.a().equals(str)) {
+                c0105a.a(obj);
                 return;
             }
         }
-        this.f1721a.add(new C0099a(str, obj));
+        this.f1394a.add(new C0105a(str, obj));
     }
 
-    public ArrayList<C0099a> b() {
-        return this.f1721a;
+    public ArrayList<C0105a> b() {
+        return this.f1394a;
     }
 }

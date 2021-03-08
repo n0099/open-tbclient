@@ -7,79 +7,79 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.TbImageView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class g {
-    private TextView fjs;
-    private TbImageView gvX;
-    public ImageView gvY;
-    private ObjectAnimator gvZ;
-    public ImageView gwJ;
+    private TextView fkR;
+    private TbImageView gxG;
+    public ImageView gxH;
+    private ObjectAnimator gxI;
+    public ImageView gys;
     public View mRootView;
 
     public g(View view) {
         this.mRootView = view;
-        this.gvX = (TbImageView) this.mRootView.findViewById(a.f.filter_img);
-        this.gvX.setDefaultBgResource(a.e.filter_beauty_item_bg);
-        this.gvX.setIsRound(true);
-        this.gvX.setAutoChangeStyle(false);
-        this.gvX.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.gvX.setDrawBorder(false);
-        this.gvY = (ImageView) this.mRootView.findViewById(a.f.filter_unload);
-        this.gwJ = (ImageView) this.mRootView.findViewById(a.f.filter_bg);
-        this.fjs = (TextView) this.mRootView.findViewById(a.f.filter_text);
+        this.gxG = (TbImageView) this.mRootView.findViewById(a.f.filter_img);
+        this.gxG.setDefaultBgResource(a.e.filter_beauty_item_bg);
+        this.gxG.setIsRound(true);
+        this.gxG.setAutoChangeStyle(false);
+        this.gxG.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.gxG.setDrawBorder(false);
+        this.gxH = (ImageView) this.mRootView.findViewById(a.f.filter_unload);
+        this.gys = (ImageView) this.mRootView.findViewById(a.f.filter_bg);
+        this.fkR = (TextView) this.mRootView.findViewById(a.f.filter_text);
     }
 
     public void b(com.baidu.live.ar.i iVar) {
         if (iVar != null) {
-            this.gvX.setVisibility(0);
-            if (this.mRootView.getContext().getString(a.h.beauty_yuantu).equals(iVar.getName()) || com.baidu.tieba.ala.alaar.sticker.a.e.FC(iVar.zx())) {
-                this.gvY.setVisibility(4);
-                bQB();
-            } else if (!TextUtils.isEmpty(iVar.zx()) && com.baidu.tieba.ala.alaar.sticker.a.e.cE(iVar.zx())) {
-                this.gvY.setVisibility(0);
-                bQA();
+            this.gxG.setVisibility(0);
+            if (this.mRootView.getContext().getString(a.h.beauty_yuantu).equals(iVar.getName()) || com.baidu.tieba.ala.alaar.sticker.a.e.FL(iVar.zA())) {
+                this.gxH.setVisibility(4);
+                bQH();
+            } else if (!TextUtils.isEmpty(iVar.zA()) && com.baidu.tieba.ala.alaar.sticker.a.e.cI(iVar.zA())) {
+                this.gxH.setVisibility(0);
+                bQG();
             } else {
-                this.gvY.setVisibility(0);
-                this.gvY.setRotation(0.0f);
-                this.gvY.setImageResource(a.e.sticker_unload);
-                bQB();
+                this.gxH.setVisibility(0);
+                this.gxH.setRotation(0.0f);
+                this.gxH.setImageResource(a.e.sticker_unload);
+                bQH();
             }
-            this.fjs.setText(iVar.getName());
+            this.fkR.setText(iVar.getName());
             c(iVar);
         }
     }
 
     public void c(com.baidu.live.ar.i iVar) {
         if (iVar != null) {
-            this.gvX.startLoad(iVar.zw(), 10, false);
+            this.gxG.startLoad(iVar.zz(), 10, false);
         }
     }
 
-    public void bQN() {
-        this.fjs.setTextColor(this.mRootView.getResources().getColor(a.c.sdk_cp_cont_i));
-        this.gwJ.setVisibility(4);
+    public void bQT() {
+        this.fkR.setTextColor(this.mRootView.getResources().getColor(a.c.sdk_cp_cont_i));
+        this.gys.setVisibility(4);
     }
 
-    public void bQO() {
-        this.fjs.setTextColor(this.mRootView.getResources().getColor(a.c.sdk_cp_other_b));
-        this.gwJ.setVisibility(0);
+    public void bQU() {
+        this.fkR.setTextColor(this.mRootView.getResources().getColor(a.c.sdk_cp_other_b));
+        this.gys.setVisibility(0);
     }
 
-    public void bQA() {
-        if (this.gvZ == null) {
-            this.gvZ = ObjectAnimator.ofFloat(this.gvY, "rotation", 0.0f, 359.0f);
-            this.gvZ.setRepeatCount(-1);
-            this.gvZ.setDuration(1000L);
+    public void bQG() {
+        if (this.gxI == null) {
+            this.gxI = ObjectAnimator.ofFloat(this.gxH, "rotation", 0.0f, 359.0f);
+            this.gxI.setRepeatCount(-1);
+            this.gxI.setDuration(1000L);
         }
-        if (!this.gvZ.isRunning()) {
-            this.gvY.setImageResource(a.e.sticker_loading);
-            this.gvZ.start();
+        if (!this.gxI.isRunning()) {
+            this.gxH.setImageResource(a.e.sticker_loading);
+            this.gxI.start();
         }
     }
 
-    public void bQB() {
-        if (this.gvZ != null && this.gvZ.isRunning()) {
-            this.gvZ.cancel();
+    public void bQH() {
+        if (this.gxI != null && this.gxI.isRunning()) {
+            this.gxI.cancel();
         }
     }
 }

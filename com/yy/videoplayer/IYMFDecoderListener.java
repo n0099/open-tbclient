@@ -1,7 +1,7 @@
 package com.yy.videoplayer;
 
 import com.yy.videoplayer.render.YMFImageBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface IYMFDecoderListener {
     void onDecodeStreamEnd(long j, YMFImageBuffer yMFImageBuffer);
 

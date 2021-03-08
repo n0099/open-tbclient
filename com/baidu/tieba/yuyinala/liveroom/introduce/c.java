@@ -24,45 +24,45 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.util.ScreenHelper;
 import com.baidu.tieba.yuyinala.liveroom.introduce.e;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c implements View.OnClickListener {
-    private ab aDd;
-    private TextView bTm;
-    private TextView bTn;
-    private TextView ccq;
-    private ImageView eJb;
+    private ab aED;
+    private TextView bUM;
+    private TextView bUN;
+    private TextView cdT;
+    private ImageView eKC;
     private Context mContext;
     private Dialog mDialog;
     private LinearLayout mPanelLayout;
     private View mRootView;
-    private final e owo;
-    private EditText owp;
-    private EditText owq;
-    int owr = 12;
-    int ows = 300;
-    Runnable owt = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.c.8
+    private final e oyt;
+    private EditText oyu;
+    private EditText oyv;
+    int oyw = 12;
+    int oyx = 300;
+    Runnable oyy = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.c.8
         @Override // java.lang.Runnable
         public void run() {
-            BdUtilHelper.showSoftKeyPad(c.this.mContext, c.this.owp);
+            BdUtilHelper.showSoftKeyPad(c.this.mContext, c.this.oyu);
         }
     };
 
     public c(Context context) {
         this.mContext = context;
-        this.owo = new e(this.mContext);
+        this.oyt = new e(this.mContext);
         initDialog();
     }
 
     public void b(ab abVar, String str, String str2) {
         try {
-            this.aDd = abVar;
+            this.aED = abVar;
             if ((this.mContext instanceof Activity) && !((Activity) this.mContext).isFinishing() && this.mDialog != null) {
                 this.mDialog.show();
-                this.owp.setText(str);
-                this.owp.setSelection(str.length());
-                this.owq.setText(str2);
-                this.owp.requestFocus();
-                this.owp.post(this.owt);
+                this.oyu.setText(str);
+                this.oyu.setSelection(str.length());
+                this.oyv.setText(str2);
+                this.oyu.requestFocus();
+                this.oyu.post(this.oyy);
             }
         } catch (Exception e) {
         }
@@ -71,7 +71,7 @@ public class c implements View.OnClickListener {
     public void dismiss() {
         try {
             if ((this.mContext instanceof Activity) && !((Activity) this.mContext).isFinishing() && this.mDialog != null) {
-                BdUtilHelper.hideSoftKeyPad(this.mContext, this.eJb);
+                BdUtilHelper.hideSoftKeyPad(this.mContext, this.eKC);
                 this.mDialog.dismiss();
                 this.mDialog = null;
             }
@@ -81,11 +81,11 @@ public class c implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.mRootView || view == this.bTn || view == this.eJb) {
+        if (view == this.mRootView || view == this.bUN || view == this.eKC) {
             dismiss();
         }
-        if (view == this.bTm && this.owo != null && this.aDd != null && this.aDd.aIU != null) {
-            this.owo.a(new e.a() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.c.1
+        if (view == this.bUM && this.oyt != null && this.aED != null && this.aED.aKu != null) {
+            this.oyt.a(new e.a() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.c.1
                 @Override // com.baidu.tieba.yuyinala.liveroom.introduce.e.a
                 public void a(AlaModifyRoomIntroduceHttpResponseMessage alaModifyRoomIntroduceHttpResponseMessage) {
                     c.this.dismiss();
@@ -101,17 +101,17 @@ public class c implements View.OnClickListener {
                     }
                 }
             });
-            this.owo.I(this.owp.getText().toString().trim(), this.owq.getText().toString().trim(), this.aDd.aIU.aTK, this.aDd.aIU.live_id);
+            this.oyt.I(this.oyu.getText().toString().trim(), this.oyv.getText().toString().trim(), this.aED.aKu.aVk, this.aED.aKu.live_id);
         }
     }
 
     private void initDialog() {
         this.mDialog = new Dialog(this.mContext);
-        Hf();
+        Hi();
         initView();
     }
 
-    private void Hf() {
+    private void Hi() {
         this.mDialog.setCancelable(true);
         this.mDialog.setCanceledOnTouchOutside(true);
         Window window = this.mDialog.getWindow();
@@ -131,34 +131,34 @@ public class c implements View.OnClickListener {
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mDialog.getContext()).inflate(a.g.yuyin_room_introduce_modify_dialog_common_alert, (ViewGroup) null);
         this.mDialog.setContentView(this.mRootView);
-        this.owp = (EditText) this.mRootView.findViewById(a.f.et_title);
-        this.owq = (EditText) this.mRootView.findViewById(a.f.edit_content);
-        this.bTm = (TextView) this.mRootView.findViewById(a.f.tv_confirm);
-        this.bTn = (TextView) this.mRootView.findViewById(a.f.tv_cancel);
-        this.eJb = (ImageView) this.mRootView.findViewById(a.f.iv_close);
-        this.ccq = (TextView) this.mRootView.findViewById(a.f.tv_count);
+        this.oyu = (EditText) this.mRootView.findViewById(a.f.et_title);
+        this.oyv = (EditText) this.mRootView.findViewById(a.f.edit_content);
+        this.bUM = (TextView) this.mRootView.findViewById(a.f.tv_confirm);
+        this.bUN = (TextView) this.mRootView.findViewById(a.f.tv_cancel);
+        this.eKC = (ImageView) this.mRootView.findViewById(a.f.iv_close);
+        this.cdT = (TextView) this.mRootView.findViewById(a.f.tv_count);
         this.mPanelLayout = (LinearLayout) this.mRootView.findViewById(a.f.layout_panel);
         ((RelativeLayout.LayoutParams) this.mPanelLayout.getLayoutParams()).setMargins(0, BdUtilHelper.getScreenSize((Activity) this.mContext).widthPixels / 3, 0, 0);
         this.mRootView.setOnClickListener(this);
-        this.bTm.setOnClickListener(this);
-        this.bTn.setOnClickListener(this);
-        this.eJb.setOnClickListener(this);
-        this.owp.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.c.2
+        this.bUM.setOnClickListener(this);
+        this.bUN.setOnClickListener(this);
+        this.eKC.setOnClickListener(this);
+        this.oyu.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.c.2
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (c.this.ccq != null) {
+                if (c.this.cdT != null) {
                     try {
-                        c.this.ccq.setText(c.this.mContext.getString(a.h.yuyin_ala_modify_room_introoduce_limit, Integer.valueOf(com.baidu.tieba.yuyinala.liveroom.rename.b.x(charSequence))));
-                        if (com.baidu.tieba.yuyinala.liveroom.rename.b.x(charSequence) > 0 && com.baidu.tieba.yuyinala.liveroom.rename.b.x(c.this.owq.getText().toString().trim()) > 0) {
-                            c.this.bTm.setTextColor(c.this.mContext.getResources().getColor(a.c.sdk_color_ff1e66));
-                            c.this.bTm.setEnabled(true);
+                        c.this.cdT.setText(c.this.mContext.getString(a.h.yuyin_ala_modify_room_introoduce_limit, Integer.valueOf(com.baidu.tieba.yuyinala.liveroom.rename.b.x(charSequence))));
+                        if (com.baidu.tieba.yuyinala.liveroom.rename.b.x(charSequence) > 0 && com.baidu.tieba.yuyinala.liveroom.rename.b.x(c.this.oyv.getText().toString().trim()) > 0) {
+                            c.this.bUM.setTextColor(c.this.mContext.getResources().getColor(a.c.sdk_color_ff1e66));
+                            c.this.bUM.setEnabled(true);
                         } else {
-                            c.this.bTm.setTextColor(c.this.mContext.getResources().getColor(a.c.sdk_color_B8B8B8));
-                            c.this.bTm.setEnabled(false);
+                            c.this.bUM.setTextColor(c.this.mContext.getResources().getColor(a.c.sdk_color_B8B8B8));
+                            c.this.bUM.setEnabled(false);
                         }
                     } catch (Exception e) {
                     }
@@ -169,7 +169,7 @@ public class c implements View.OnClickListener {
             public void afterTextChanged(Editable editable) {
             }
         });
-        this.owq.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.c.3
+        this.oyv.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.c.3
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -177,12 +177,12 @@ public class c implements View.OnClickListener {
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
                 try {
-                    if (com.baidu.tieba.yuyinala.liveroom.rename.b.x(charSequence) > 0 && com.baidu.tieba.yuyinala.liveroom.rename.b.x(c.this.owp.getText().toString().trim()) > 0) {
-                        c.this.bTm.setTextColor(c.this.mContext.getResources().getColor(a.c.sdk_color_ff1e66));
-                        c.this.bTm.setEnabled(true);
+                    if (com.baidu.tieba.yuyinala.liveroom.rename.b.x(charSequence) > 0 && com.baidu.tieba.yuyinala.liveroom.rename.b.x(c.this.oyu.getText().toString().trim()) > 0) {
+                        c.this.bUM.setTextColor(c.this.mContext.getResources().getColor(a.c.sdk_color_ff1e66));
+                        c.this.bUM.setEnabled(true);
                     } else {
-                        c.this.bTm.setTextColor(c.this.mContext.getResources().getColor(a.c.sdk_color_B8B8B8));
-                        c.this.bTm.setEnabled(false);
+                        c.this.bUM.setTextColor(c.this.mContext.getResources().getColor(a.c.sdk_color_B8B8B8));
+                        c.this.bUM.setEnabled(false);
                     }
                 } catch (Exception e) {
                 }
@@ -192,40 +192,40 @@ public class c implements View.OnClickListener {
             public void afterTextChanged(Editable editable) {
             }
         });
-        this.owp.setFilters(new InputFilter[]{new InputFilter() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.c.4
+        this.oyu.setFilters(new InputFilter[]{new InputFilter() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.c.4
             @Override // android.text.InputFilter
             public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
-                if (com.baidu.tieba.yuyinala.liveroom.rename.b.x(spanned) + com.baidu.tieba.yuyinala.liveroom.rename.b.x(charSequence) > c.this.owr) {
+                if (com.baidu.tieba.yuyinala.liveroom.rename.b.x(spanned) + com.baidu.tieba.yuyinala.liveroom.rename.b.x(charSequence) > c.this.oyw) {
                     return "";
                 }
                 return charSequence;
             }
         }});
-        this.owq.setFilters(new InputFilter[]{new InputFilter() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.c.5
+        this.oyv.setFilters(new InputFilter[]{new InputFilter() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.c.5
             @Override // android.text.InputFilter
             public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
-                if (com.baidu.tieba.yuyinala.liveroom.rename.b.x(spanned) + com.baidu.tieba.yuyinala.liveroom.rename.b.x(charSequence) > c.this.ows) {
+                if (com.baidu.tieba.yuyinala.liveroom.rename.b.x(spanned) + com.baidu.tieba.yuyinala.liveroom.rename.b.x(charSequence) > c.this.oyx) {
                     return "";
                 }
                 return charSequence;
             }
         }});
-        this.owq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.c.6
+        this.oyv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.c.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 try {
-                    c.this.owq.requestFocus();
-                    c.this.owq.post(c.this.owt);
+                    c.this.oyv.requestFocus();
+                    c.this.oyv.post(c.this.oyy);
                 } catch (Exception e) {
                 }
             }
         });
-        this.owp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.c.7
+        this.oyu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.c.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 try {
-                    c.this.owp.requestFocus();
-                    c.this.owp.post(c.this.owt);
+                    c.this.oyu.requestFocus();
+                    c.this.oyu.post(c.this.oyy);
                 } catch (Exception e) {
                 }
             }

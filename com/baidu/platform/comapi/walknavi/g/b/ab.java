@@ -7,23 +7,21 @@ import com.baidu.mapapi.walknavi.adapter.IWNPCLoadAndInitListener;
 public class ab implements IWNPCEngineInitListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f4291a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ String f4292b;
+    final /* synthetic */ String f2968a;
+    final /* synthetic */ String b;
     final /* synthetic */ c c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(c cVar, String str, String str2) {
         this.c = cVar;
-        this.f4291a = str;
-        this.f4292b = str2;
+        this.f2968a = str;
+        this.b = str2;
     }
 
     @Override // com.baidu.mapapi.walknavi.adapter.IWNPCEngineInitListener
     public void onSuccess() {
-        this.c.b(this.f4291a, this.f4292b);
-        com.baidu.platform.comapi.walknavi.b.a().H().b(this.f4291a, this.f4292b);
+        this.c.b(this.f2968a, this.b);
+        com.baidu.platform.comapi.walknavi.b.a().H().b(this.f2968a, this.b);
     }
 
     @Override // com.baidu.mapapi.walknavi.adapter.IWNPCEngineInitListener

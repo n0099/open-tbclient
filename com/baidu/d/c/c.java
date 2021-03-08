@@ -4,7 +4,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c {
     private String mDeviceInfo;
     private String mManufacturer;

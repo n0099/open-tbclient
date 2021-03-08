@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.c.a;
 import com.baidu.tieba.memberCenter.index.a.m;
 import com.squareup.wire.Wire;
 import tbclient.GetVipInfo.GetVipInfoResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class MembercenterSocketResponseMessage extends SocketResponsedMessage {
     private m mMembercenter;
 
@@ -35,7 +35,7 @@ public class MembercenterSocketResponseMessage extends SocketResponsedMessage {
                 } else {
                     str = "temp";
                 }
-                l<byte[]> dE = a.bqr().dE("tb_member_center", str);
+                l<byte[]> dE = a.bqt().dE("tb_member_center", str);
                 if (dE != null && bArr != null) {
                     dE.setForever("member_center_cache_key", bArr);
                 }

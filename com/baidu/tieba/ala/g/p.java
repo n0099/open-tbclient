@@ -19,14 +19,14 @@ import com.baidu.tieba.ala.messages.StartPkResponseMessage;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class p extends BdBaseModel {
     private HttpMessageListener messageListener;
     long userID = -1;
     private Handler mHandler = new Handler(Looper.getMainLooper());
     private boolean loop = false;
-    private long hUB = 90;
-    private Runnable hUC = new Runnable() { // from class: com.baidu.tieba.ala.g.p.2
+    private long hWk = 90;
+    private Runnable hWl = new Runnable() { // from class: com.baidu.tieba.ala.g.p.2
         @Override // java.lang.Runnable
         public void run() {
             if (p.this.userID != -1) {
@@ -35,13 +35,13 @@ public class p extends BdBaseModel {
         }
     };
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void ae(ArrayList<String> arrayList);
 
         void bt(int i, String str);
 
-        void cmq();
+        void cmw();
 
         void fS(long j);
     }
@@ -62,12 +62,12 @@ public class p extends BdBaseModel {
         this.userID = j;
         HttpMessage httpMessage = new HttpMessage(1021210);
         httpMessage.addParam("anchor_id", j);
-        httpMessage.addParam("count_down_sec", this.hUB);
+        httpMessage.addParam("count_down_sec", this.hWk);
         sendMessage(httpMessage);
     }
 
     public void a(a aVar) {
-        cmo();
+        cmu();
         b(aVar);
     }
 
@@ -80,14 +80,14 @@ public class p extends BdBaseModel {
                     StartPkResponseMessage startPkResponseMessage = (StartPkResponseMessage) httpResponsedMessage;
                     if (!startPkResponseMessage.isSuccess()) {
                         aVar.bt(startPkResponseMessage.getError(), startPkResponseMessage.getErrorString());
-                        p.this.mHandler.removeCallbacks(p.this.hUC);
-                        p.this.mHandler.postDelayed(p.this.hUC, 2000L);
-                    } else if (startPkResponseMessage.cmc().isEmpty()) {
-                        p.this.mHandler.removeCallbacks(p.this.hUC);
-                        p.this.mHandler.postDelayed(p.this.hUC, 2000L);
-                    } else if (startPkResponseMessage.cmb() == 2) {
-                        p.this.cmn();
-                        aVar.cmq();
+                        p.this.mHandler.removeCallbacks(p.this.hWl);
+                        p.this.mHandler.postDelayed(p.this.hWl, 2000L);
+                    } else if (startPkResponseMessage.cmi().isEmpty()) {
+                        p.this.mHandler.removeCallbacks(p.this.hWl);
+                        p.this.mHandler.postDelayed(p.this.hWl, 2000L);
+                    } else if (startPkResponseMessage.cmh() == 2) {
+                        p.this.cmt();
+                        aVar.cmw();
                         AlaStatsItem alaStatsItem = new AlaStatsItem();
                         alaStatsItem.addValue("lodId", Long.valueOf(startPkResponseMessage.getLogId()));
                         AlaStatManager.getInstance().debug("pk_competition_match_failed", alaStatsItem);
@@ -98,15 +98,15 @@ public class p extends BdBaseModel {
                             e.printStackTrace();
                         }
                         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_PK_RANK, "pk_competition_match_failed", "author_liveroom", "").setContentExt(jSONObject));
-                    } else if (startPkResponseMessage.clZ() <= 0) {
+                    } else if (startPkResponseMessage.cmf() <= 0) {
                         if (p.this.loop) {
-                            aVar.ae(startPkResponseMessage.cmc());
-                            p.this.mHandler.removeCallbacks(p.this.hUC);
-                            p.this.mHandler.postDelayed(p.this.hUC, startPkResponseMessage.getInterval() * 1000);
+                            aVar.ae(startPkResponseMessage.cmi());
+                            p.this.mHandler.removeCallbacks(p.this.hWl);
+                            p.this.mHandler.postDelayed(p.this.hWl, startPkResponseMessage.getInterval() * 1000);
                         }
                     } else {
-                        p.this.cmn();
-                        aVar.fS(startPkResponseMessage.clZ());
+                        p.this.cmt();
+                        aVar.fS(startPkResponseMessage.cmf());
                     }
                 }
             }
@@ -114,7 +114,7 @@ public class p extends BdBaseModel {
         registerListener(this.messageListener);
     }
 
-    private void cmo() {
+    private void cmu() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021210, TbConfig.SERVER_ADDRESS + "ala/pksolo/startPk");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -124,18 +124,18 @@ public class p extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void cmp() {
+    public void cmv() {
         cancelLoadData();
         MessageManager.getInstance().unRegisterListener(this.messageListener);
         MessageManager.getInstance().unRegisterTask(1021210);
     }
 
-    public void cmn() {
-        this.mHandler.removeCallbacks(this.hUC);
+    public void cmt() {
+        this.mHandler.removeCallbacks(this.hWl);
         this.loop = false;
     }
 
     public void fR(long j) {
-        this.hUB = j;
+        this.hWk = j;
     }
 }

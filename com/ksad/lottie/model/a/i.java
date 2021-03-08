@@ -5,18 +5,16 @@ import android.graphics.PointF;
 public class i implements m<PointF, PointF> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final b f8044a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final b f8045b;
+    private final b f5374a;
+    private final b b;
 
     public i(b bVar, b bVar2) {
-        this.f8044a = bVar;
-        this.f8045b = bVar2;
+        this.f5374a = bVar;
+        this.b = bVar2;
     }
 
     @Override // com.ksad.lottie.model.a.m
     public com.ksad.lottie.a.b.a<PointF, PointF> a() {
-        return new com.ksad.lottie.a.b.m(this.f8044a.a(), this.f8045b.a());
+        return new com.ksad.lottie.a.b.m(this.f5374a.a(), this.b.a());
     }
 }

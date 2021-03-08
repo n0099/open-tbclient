@@ -6,7 +6,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.VideoDecoder;
 @Deprecated
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class VideoBitmapDecoder extends VideoDecoder<ParcelFileDescriptor> {
     public VideoBitmapDecoder(Context context) {
         this(Glide.get(context).getBitmapPool());

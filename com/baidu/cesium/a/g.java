@@ -2,18 +2,16 @@ package com.baidu.cesium.a;
 
 import com.baidu.cesium.a.i;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class g extends f {
-    private a amJ;
+    private a aob;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private Class<?> f1614a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private Method f1615b;
+        private Class<?> f1331a;
+        private Method b;
         private Method c;
 
         private a() {
@@ -21,7 +19,7 @@ final class g extends f {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public long D(Object obj) {
+        public long F(Object obj) {
             try {
                 return ((Long) this.c.invoke(obj, new Object[0])).longValue();
             } catch (Exception e) {
@@ -31,9 +29,9 @@ final class g extends f {
 
         private void a() {
             try {
-                this.f1614a = Class.forName(i.a(d.a()), true, Object.class.getClassLoader());
-                this.f1615b = i.a(this.f1614a, i.a(d.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
-                this.c = i.a(this.f1614a, i.a(d.c()), null);
+                this.f1331a = Class.forName(i.a(d.a()), true, Object.class.getClassLoader());
+                this.b = i.a(this.f1331a, i.a(d.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
+                this.c = i.a(this.f1331a, i.a(d.c()), null);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -42,7 +40,7 @@ final class g extends f {
         /* JADX INFO: Access modifiers changed from: private */
         public void a(Object obj, byte[] bArr, int i, int i2) {
             try {
-                this.f1615b.invoke(obj, bArr, Integer.valueOf(i), Integer.valueOf(i2));
+                this.b.invoke(obj, bArr, Integer.valueOf(i), Integer.valueOf(i2));
             } catch (Exception e) {
                 throw new i.a("");
             }
@@ -50,7 +48,7 @@ final class g extends f {
 
         /* JADX INFO: Access modifiers changed from: private */
         public Object b() {
-            return this.f1614a.newInstance();
+            return this.f1331a.newInstance();
         }
     }
 
@@ -60,16 +58,16 @@ final class g extends f {
         this.e = 32;
         this.f = i;
         this.g = i2;
-        this.amJ = new a();
+        this.aob = new a();
     }
 
     @Override // com.baidu.cesium.a.f
     public b i(byte[] bArr, int i, int i2) {
         long j = 4294967295L;
         try {
-            Object b2 = this.amJ.b();
-            this.amJ.a(b2, bArr, i, i2);
-            j = this.amJ.D(b2);
+            Object b = this.aob.b();
+            this.aob.a(b, bArr, i, i2);
+            j = this.aob.F(b);
         } catch (Exception e) {
         }
         return b.a(new long[]{j});

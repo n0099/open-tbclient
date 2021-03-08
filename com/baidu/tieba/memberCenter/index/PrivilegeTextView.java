@@ -5,11 +5,11 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import android.widget.TextView;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class PrivilegeTextView extends TextView {
-    private a lmr;
+    private a loy;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void b(CharSequence charSequence, int i, int i2, int i3);
     }
@@ -27,14 +27,14 @@ public class PrivilegeTextView extends TextView {
     }
 
     public void setTextChangeListener(a aVar) {
-        this.lmr = aVar;
+        this.loy = aVar;
     }
 
     @Override // android.widget.TextView
     protected void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         super.onTextChanged(charSequence, i, i2, i3);
-        if (this.lmr != null) {
-            this.lmr.b(charSequence, i, i2, i3);
+        if (this.loy != null) {
+            this.loy.b(charSequence, i, i2, i3);
         }
     }
 

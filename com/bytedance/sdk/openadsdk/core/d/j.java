@@ -5,10 +5,8 @@ import androidx.annotation.NonNull;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f6505a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final int f6506b;
+    public final int f4395a;
+    public final int b;
     public final int c;
     public final int d;
     public final long e;
@@ -19,12 +17,12 @@ public class j {
     public final int j;
 
     private j(@NonNull a aVar) {
-        this.f6505a = aVar.f;
-        this.f6506b = aVar.e;
+        this.f4395a = aVar.f;
+        this.b = aVar.e;
         this.c = aVar.d;
         this.d = aVar.c;
-        this.e = aVar.f6508b;
-        this.f = aVar.f6507a;
+        this.e = aVar.b;
+        this.f = aVar.f4396a;
         this.g = aVar.g;
         this.h = aVar.h;
         this.i = aVar.i;
@@ -35,10 +33,8 @@ public class j {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private long f6507a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private long f6508b;
+        private long f4396a;
+        private long b;
         private int c;
         private int d;
         private int e;
@@ -49,12 +45,12 @@ public class j {
         private int j;
 
         public a a(long j) {
-            this.f6507a = j;
+            this.f4396a = j;
             return this;
         }
 
         public a b(long j) {
-            this.f6508b = j;
+            this.b = j;
             return this;
         }
 

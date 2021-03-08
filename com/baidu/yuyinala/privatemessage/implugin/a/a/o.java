@@ -13,24 +13,24 @@ import com.baidu.live.sdk.a;
 import com.baidu.sumeru.universalimageloader.core.ImageLoader;
 import com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.DarkImageView;
 import com.baidu.yuyinala.privatemessage.model.message.SingleGraphicTextMsgExt;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class o extends d {
     public View mContentView;
     public Context mContext;
     public View mConvertView;
-    public DarkImageView oZF;
-    public TextView oZG;
+    public DarkImageView pbM;
+    public TextView pbN;
 
     public o(Context context, LayoutInflater layoutInflater) {
         this.mContext = context;
         this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_receive_private_msg_item, (ViewGroup) null);
-        this.oYt = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
-        this.oYw = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
-        this.joX = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_name);
-        this.myg = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_agetime);
-        this.oYx = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_constellation);
-        this.oZF = (DarkImageView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_cover);
-        this.oZG = (TextView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_content);
+        this.paA = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.paD = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
+        this.jqG = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_name);
+        this.mAi = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_agetime);
+        this.paE = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_constellation);
+        this.pbM = (DarkImageView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_cover);
+        this.pbN = (TextView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_content);
         this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_layout);
         this.mConvertView.setTag(this);
     }
@@ -58,9 +58,9 @@ public class o extends d {
                 covers = signleGraphicTextMsg.getCover();
             }
             new SingleGraphicTextMsgExt(signleGraphicTextMsg);
-            com.baidu.yuyinala.privatemessage.implugin.util.b.hF(context);
-            ImageLoader.getInstance().displayImage(covers, this.oZF, com.baidu.yuyinala.privatemessage.implugin.util.b.emz());
-            this.oZG.setText(signleGraphicTextMsg.getDigest());
+            com.baidu.yuyinala.privatemessage.implugin.util.b.hE(context);
+            ImageLoader.getInstance().displayImage(covers, this.pbM, com.baidu.yuyinala.privatemessage.implugin.util.b.emJ());
+            this.pbN.setText(signleGraphicTextMsg.getDigest());
         }
     }
 }

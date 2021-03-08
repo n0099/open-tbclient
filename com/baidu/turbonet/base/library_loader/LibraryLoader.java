@@ -3,12 +3,12 @@ package com.baidu.turbonet.base.library_loader;
 import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.annotations.JNINamespace;
 @JNINamespace
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class LibraryLoader {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static volatile LibraryLoader oPv;
+    private static volatile LibraryLoader oRA;
     private static final Object sLock;
-    private final int oPw;
+    private final int oRB;
 
     private static native boolean nativeForkAndPrefetchNativeLibrary();
 
@@ -35,9 +35,9 @@ public class LibraryLoader {
 
     @CalledByNative
     public static int getLibraryProcessType() {
-        if (oPv == null) {
+        if (oRA == null) {
             return 0;
         }
-        return oPv.oPw;
+        return oRA.oRB;
     }
 }

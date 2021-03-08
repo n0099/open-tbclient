@@ -4,6 +4,6 @@ import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class ay {
     public int chapterId;
-    public String eNa;
+    public String eOB;
     public TbPageContext pageContext;
 }

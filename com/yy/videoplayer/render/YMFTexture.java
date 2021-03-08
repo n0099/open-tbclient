@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
 import java.nio.Buffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFTexture {
     private int mFormat;
     private int mHeight;

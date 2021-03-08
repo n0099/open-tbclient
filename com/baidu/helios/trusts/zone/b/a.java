@@ -20,13 +20,13 @@ import java.util.Set;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private static final byte[] aud = {77, 73, 78, 71};
+    private static final byte[] avD = {77, 73, 78, 71};
     private String D;
     private Context E;
     private int F;
-    private Set<String> aue;
+    private Set<String> avE;
     public String o;
     private long t;
     private boolean u;
@@ -49,14 +49,14 @@ public class a {
             }
             byte[] decode = Base64.decode(string.getBytes("utf-8"), 1);
             for (int i = 0; i < decode.length; i++) {
-                decode[i] = (byte) (decode[i] ^ aud[i % aud.length]);
+                decode[i] = (byte) (decode[i] ^ avD[i % avD.length]);
             }
             JSONObject jSONObject = new JSONObject(new String(decode));
             if (a(jSONObject)) {
-                this.aue = new HashSet();
-                if (!a(this.D, this.E, jSONObject, this.aue)) {
+                this.avE = new HashSet();
+                if (!a(this.D, this.E, jSONObject, this.avE)) {
                     this.F |= 4;
-                } else if (!Arrays.equals(g.b(Base64.decode(string2, 0), aVar), f.y(decode))) {
+                } else if (!Arrays.equals(g.b(Base64.decode(string2, 0), aVar), f.A(decode))) {
                     this.F |= 8;
                 } else {
                     this.t = jSONObject.getLong("priority");
@@ -139,7 +139,7 @@ public class a {
     private static String[] a(Signature[] signatureArr) {
         String[] strArr = new String[signatureArr.length];
         for (int i = 0; i < strArr.length; i++) {
-            strArr[i] = f.z(signatureArr[i].toByteArray());
+            strArr[i] = f.B(signatureArr[i].toByteArray());
         }
         return strArr;
     }
@@ -188,6 +188,6 @@ public class a {
     }
 
     public Set<String> c() {
-        return this.aue;
+        return this.avE;
     }
 }

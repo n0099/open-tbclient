@@ -13,7 +13,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MediaCodecAudioEncoder {
     private ByteBuffer[] mAACInputBuffers;
     private ByteBuffer[] mAACOutputBuffers;

@@ -2,7 +2,7 @@ package com.google.android.material.bottomappbar;
 
 import com.google.android.material.shape.EdgeTreatment;
 import com.google.android.material.shape.ShapePath;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class BottomAppBarTopEdgeTreatment extends EdgeTreatment {
     private static final int ANGLE_LEFT = 180;
     private static final int ANGLE_UP = 270;

@@ -7,10 +7,8 @@ import java.security.MessageDigest;
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4250a = k.class.getName();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static String f4251b = Environment.getExternalStorageDirectory() + "/AR/Screenshots/";
+    private static final String f2940a = k.class.getName();
+    private static String b = Environment.getExternalStorageDirectory() + "/AR/Screenshots/";
 
     public static String a(String str) {
         try {

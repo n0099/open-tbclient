@@ -103,13 +103,13 @@ public class b extends com.kwad.sdk.lib.widget.recycler.c<AdTemplate, com.kwad.s
     @Override // com.kwad.sdk.lib.widget.recycler.c
     public void a(com.kwad.sdk.feed.a.a.a.b bVar, int i) {
         super.a((b) bVar, i);
-        AdTemplate adTemplate = (AdTemplate) this.f10436a.get(i);
+        AdTemplate adTemplate = (AdTemplate) this.f6881a.get(i);
         if (com.kwad.sdk.core.response.b.c.b(adTemplate) || !com.kwad.sdk.core.response.b.a.y(com.kwad.sdk.core.response.b.c.j(adTemplate))) {
-            bVar.f9812b = null;
+            bVar.b = null;
         } else {
-            bVar.f9812b = new com.kwad.sdk.core.download.b.b(adTemplate);
+            bVar.b = new com.kwad.sdk.core.download.b.b(adTemplate);
         }
-        bVar.f9811a = this.c;
+        bVar.f6496a = this.c;
     }
 
     @Override // com.kwad.sdk.lib.widget.recycler.c
@@ -121,7 +121,7 @@ public class b extends com.kwad.sdk.lib.widget.recycler.c<AdTemplate, com.kwad.s
     public int getItemViewType(int i) {
         AdTemplate adTemplate;
         int i2;
-        if (this.f10436a == null || i >= this.f10436a.size() || (adTemplate = (AdTemplate) this.f10436a.get(i)) == null) {
+        if (this.f6881a == null || i >= this.f6881a.size() || (adTemplate = (AdTemplate) this.f6881a.get(i)) == null) {
             return -1;
         }
         switch (adTemplate.mPageInfo.pageType) {

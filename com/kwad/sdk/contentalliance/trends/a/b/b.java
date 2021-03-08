@@ -16,7 +16,7 @@ public class b extends e {
     private TrendsPanelLayout.a e = new TrendsPanelLayout.a() { // from class: com.kwad.sdk.contentalliance.trends.a.b.b.1
         @Override // com.kwad.sdk.contentalliance.trends.view.TrendsPanelLayout.a
         public void a(int i) {
-            com.kwad.sdk.core.report.e.a(b.this.f8736a.e, i);
+            com.kwad.sdk.core.report.e.a(b.this.f5821a.e, i);
             b.this.e();
         }
     };
@@ -27,9 +27,9 @@ public class b extends e {
                 return;
             }
             com.kwad.sdk.core.d.a.a("PhotoTrendsPanelPresenter", "onItemClick position=" + i + " trendInfo=" + trendInfo.toJson());
-            b.this.f8736a.i = trendInfo;
+            b.this.f5821a.i = trendInfo;
             b.this.a(view, trendInfo, i);
-            com.kwad.sdk.core.report.e.d(b.this.f8736a.e, trendInfo.trendId, trendInfo.name);
+            com.kwad.sdk.core.report.e.d(b.this.f5821a.e, trendInfo.trendId, trendInfo.name);
             if (b.this.d != null) {
                 b.this.d.b(trendInfo);
             }
@@ -41,9 +41,7 @@ public class b extends e {
             b.this.a(list);
         }
     };
-
-    /* renamed from: b  reason: collision with root package name */
-    View.OnKeyListener f8862b = new View.OnKeyListener() { // from class: com.kwad.sdk.contentalliance.trends.a.b.b.4
+    View.OnKeyListener b = new View.OnKeyListener() { // from class: com.kwad.sdk.contentalliance.trends.a.b.b.4
         @Override // android.view.View.OnKeyListener
         public boolean onKey(View view, int i, KeyEvent keyEvent) {
             if (i == 4 && keyEvent.getAction() == 1) {
@@ -56,7 +54,7 @@ public class b extends e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, TrendInfo trendInfo, int i) {
-        for (com.kwad.sdk.contentalliance.trends.view.c cVar : this.f8736a.o) {
+        for (com.kwad.sdk.contentalliance.trends.view.c cVar : this.f5821a.o) {
             cVar.a(view, trendInfo, i);
         }
     }
@@ -64,17 +62,17 @@ public class b extends e {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@NonNull List<TrendInfo> list) {
         long j = 0;
-        if (this.f8736a.i != null) {
-            j = this.f8736a.i.trendId;
-            String str = this.f8736a.i.name;
+        if (this.f5821a.i != null) {
+            j = this.f5821a.i.trendId;
+            String str = this.f5821a.i.name;
         }
-        this.c.a(new com.kwad.sdk.contentalliance.trends.view.b(list, j, this.f8736a.e));
+        this.c.a(new com.kwad.sdk.contentalliance.trends.view.b(list, j, this.f5821a.e));
         this.c.a();
-        com.kwad.sdk.core.report.e.a(this.f8736a.e);
+        com.kwad.sdk.core.report.e.a(this.f5821a.e);
         this.c.setFocusableInTouchMode(true);
         this.c.requestFocus();
-        this.c.setOnKeyListener(this.f8862b);
-        this.f8736a.f.l = true;
+        this.c.setOnKeyListener(this.b);
+        this.f5821a.f.l = true;
         f();
     }
 
@@ -82,18 +80,18 @@ public class b extends e {
     public void e() {
         this.c.setFocusableInTouchMode(false);
         this.c.setOnKeyListener(null);
-        this.f8736a.f.l = false;
+        this.f5821a.f.l = false;
         g();
     }
 
     private void f() {
-        for (com.kwad.sdk.contentalliance.trends.view.c cVar : this.f8736a.o) {
+        for (com.kwad.sdk.contentalliance.trends.view.c cVar : this.f5821a.o) {
             cVar.a();
         }
     }
 
     private void g() {
-        for (com.kwad.sdk.contentalliance.trends.view.c cVar : this.f8736a.o) {
+        for (com.kwad.sdk.contentalliance.trends.view.c cVar : this.f5821a.o) {
             cVar.b();
         }
     }
@@ -102,11 +100,11 @@ public class b extends e {
     @Override // com.kwad.sdk.contentalliance.home.e, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        com.kwad.sdk.contentalliance.home.a.b c = this.f8736a.f8738b.c();
+        com.kwad.sdk.contentalliance.home.a.b c = this.f5821a.b.c();
         if (c instanceof com.kwad.sdk.contentalliance.trends.a) {
             this.d = (com.kwad.sdk.contentalliance.trends.a) c;
         }
-        this.f8736a.n.add(this.g);
+        this.f5821a.n.add(this.g);
         this.c.setItemClickListener(this.f);
         this.c.setCloseListener(this.e);
     }

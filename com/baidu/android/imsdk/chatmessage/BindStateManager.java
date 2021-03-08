@@ -162,7 +162,7 @@ public class BindStateManager {
                 creatMethodIntent.putExtra(Constants.EXTRA_PUSH_USER_ID, str2);
                 creatMethodIntent.putExtra(Constants.EXTRA_PUSH_APP_ID, str3);
                 try {
-                    a.ao(context).e(context, creatMethodIntent);
+                    a.an(context).e(context, creatMethodIntent);
                 } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
                     onRegisterNotifyResult(context, addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, false);
@@ -189,7 +189,7 @@ public class BindStateManager {
             creatMethodIntent.putExtra(Constants.EXTRA_PUSH_USER_ID, str2);
             creatMethodIntent.putExtra(Constants.EXTRA_PUSH_APP_ID, str3);
             try {
-                a.ao(context).e(context, creatMethodIntent);
+                a.an(context).e(context, creatMethodIntent);
             } catch (Exception e) {
                 LogUtils.e(TAG, "Exception ", e);
             }

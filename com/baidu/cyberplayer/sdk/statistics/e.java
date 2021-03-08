@@ -3,26 +3,24 @@ package com.baidu.cyberplayer.sdk.statistics;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1838a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f1839b;
+    private int f1473a;
+    private String b;
     private String c;
 
     public e(int i, String str, long j) {
-        this.f1838a = i;
-        this.f1839b = str;
+        this.f1473a = i;
+        this.b = str;
         this.c = Long.toString(j);
     }
 
     public e(int i, String str, String str2) {
-        this.f1838a = i;
-        this.f1839b = str;
+        this.f1473a = i;
+        this.b = str;
         this.c = str2;
     }
 
     public String a() {
-        return this.f1839b;
+        return this.b;
     }
 
     public String b() {

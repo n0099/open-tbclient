@@ -17,15 +17,15 @@ public class a {
     }
 
     public static String c() {
-        return "3.2.5.1";
+        return "3.4.0.1";
     }
 
     public static String d() {
-        return aj.f();
+        return aj.g();
     }
 
     public static String e() {
-        return i.c().f();
+        return i.d().g();
     }
 
     public static String f() {

@@ -2,14 +2,14 @@ package com.baidu.live.data;
 
 import com.baidu.android.imsdk.db.TableDefine;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class n {
-    private boolean aGL;
-    private String aGM;
-    private boolean aGN;
-    private String aGO;
-    private boolean aGP;
-    private String aGQ;
+    private boolean aIl;
+    private String aIm;
+    private boolean aIn;
+    private String aIo;
+    private boolean aIp;
+    private String aIq;
     private String avatar;
     private String nickname;
     private int status;
@@ -35,36 +35,36 @@ public class n {
         this.userId = str;
     }
 
-    public boolean Bv() {
-        return this.aGL;
+    public boolean By() {
+        return this.aIl;
     }
 
     public void bu(boolean z) {
-        this.aGL = z;
+        this.aIl = z;
     }
 
-    public boolean Bw() {
-        return this.aGN;
+    public boolean Bz() {
+        return this.aIn;
     }
 
     public void bv(boolean z) {
-        this.aGN = z;
+        this.aIn = z;
     }
 
-    public String Bx() {
-        return this.aGO;
+    public String BA() {
+        return this.aIo;
     }
 
-    public void ft(String str) {
-        this.aGO = str;
+    public void fz(String str) {
+        this.aIo = str;
     }
 
     public void bw(boolean z) {
-        this.aGP = z;
+        this.aIp = z;
     }
 
-    public void fu(String str) {
-        this.aGQ = str;
+    public void fA(String str) {
+        this.aIq = str;
     }
 
     public void setStatus(int i) {
@@ -78,14 +78,14 @@ public class n {
             setAvatar(jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR, ""));
             setUserId(jSONObject.optString("user_id", ""));
             bv(jSONObject.optInt("is_double", 0) == 1);
-            ft(jSONObject.optString("team_id", ""));
+            fz(jSONObject.optString("team_id", ""));
             bw(jSONObject.optInt("is_leader", 0) == 1);
-            fu(jSONObject.optString("subject_id", ""));
+            fA(jSONObject.optString("subject_id", ""));
             setStatus(jSONObject.optInt("status"));
         }
     }
 
     public String toString() {
-        return "AlaGuessGroupInfo{nickname='" + this.nickname + "', avatar='" + this.avatar + "', userId='" + this.userId + "', isAnswer=" + this.aGL + ", userAnswer='" + this.aGM + "', isDouble=" + this.aGN + ", teamId='" + this.aGO + "', isLeader=" + this.aGP + ", subjectId='" + this.aGQ + "', status=" + this.status + '}';
+        return "AlaGuessGroupInfo{nickname='" + this.nickname + "', avatar='" + this.avatar + "', userId='" + this.userId + "', isAnswer=" + this.aIl + ", userAnswer='" + this.aIm + "', isDouble=" + this.aIn + ", teamId='" + this.aIo + "', isLeader=" + this.aIp + ", subjectId='" + this.aIq + "', status=" + this.status + '}';
     }
 }

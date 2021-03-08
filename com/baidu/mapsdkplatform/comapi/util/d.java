@@ -7,10 +7,8 @@ import java.io.File;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private final boolean f3160a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final String f3161b;
+    private final boolean f2285a;
+    private final String b;
     private final String c;
     private final String d;
     private final String e;
@@ -18,9 +16,9 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(Context context) {
-        this.f3160a = false;
-        this.f3161b = Environment.getExternalStorageDirectory().getAbsolutePath();
-        this.c = this.f3161b + File.separator + "BaiduMapSDKNew";
+        this.f2285a = false;
+        this.b = Environment.getExternalStorageDirectory().getAbsolutePath();
+        this.c = this.b + File.separator + "BaiduMapSDKNew";
         this.d = context.getCacheDir().getAbsolutePath();
         this.e = "";
         this.f = "";
@@ -28,20 +26,20 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(String str, boolean z, String str2, Context context) {
-        this.f3160a = z;
-        this.f3161b = str;
-        this.c = this.f3161b + File.separator + "BaiduMapSDKNew";
+        this.f2285a = z;
+        this.b = str;
+        this.c = this.b + File.separator + "BaiduMapSDKNew";
         this.d = this.c + File.separator + "cache";
         this.e = context.getCacheDir().getAbsolutePath();
         this.f = str2;
     }
 
     public String a() {
-        return this.f3161b;
+        return this.b;
     }
 
     public String b() {
-        return this.f3161b + File.separator + "BaiduMapSDKNew";
+        return this.b + File.separator + "BaiduMapSDKNew";
     }
 
     public String c() {
@@ -56,6 +54,6 @@ public final class d {
         if (obj == null || !d.class.isInstance(obj)) {
             return false;
         }
-        return this.f3161b.equals(((d) obj).f3161b);
+        return this.b.equals(((d) obj).b);
     }
 }

@@ -10,8 +10,8 @@ import com.baidu.tieba.ad.download.state.DownloadStatus;
 /* loaded from: classes.dex */
 public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
     private static final String TAG = a.class.getSimpleName();
-    private final VIEW ghy;
-    private MODEL ghz;
+    private final VIEW gjc;
+    private MODEL gjd;
     private final String mPage;
 
     protected abstract void a(MODEL model);
@@ -19,20 +19,20 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
     protected abstract void b(MODEL model);
 
     public a(@NonNull VIEW view, @NonNull MODEL model, @NonNull String str) {
-        this.ghy = view;
+        this.gjc = view;
         b((a<VIEW, MODEL>) model);
-        this.ghz = model;
+        this.gjd = model;
         this.mPage = str;
-        View actionBar = this.ghy.getActionBar();
+        View actionBar = this.gjc.getActionBar();
         if (actionBar != null) {
             actionBar.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ad.download.mvp.a.1
                 /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: com.baidu.tieba.ad.download.mvp.a */
                 /* JADX WARN: Multi-variable type inference failed */
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (!a.this.ghy.ce(view2)) {
-                        a.this.bLB();
-                        a.this.a((a) a.this.ghz);
+                    if (!a.this.gjc.ce(view2)) {
+                        a.this.bLF();
+                        a.this.a((a) a.this.gjd);
                     }
                 }
             });
@@ -40,44 +40,44 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public VIEW bLA() {
-        return this.ghy;
+    public VIEW bLE() {
+        return this.gjc;
     }
 
     @CallSuper
     public void c(@NonNull MODEL model) {
-        this.ghz = model;
-        if (this.ghy != null) {
-            bLC();
-            this.ghy.a(model.getCurrentState(), model.getPercent());
+        this.gjd = model;
+        if (this.gjc != null) {
+            bLG();
+            this.gjc.a(model.getCurrentState(), model.getPercent());
         }
     }
 
     @CallSuper
     public void c(@NonNull DownloadStatus downloadStatus) {
-        MODEL model = this.ghz;
+        MODEL model = this.gjd;
         if (model != null) {
-            this.ghy.a(downloadStatus);
+            this.gjc.a(downloadStatus);
             if (downloadStatus != DownloadStatus.STATUS_NONE) {
-                bLC();
+                bLG();
             }
             if (downloadStatus == DownloadStatus.STATUS_SUCCESS || downloadStatus == DownloadStatus.STATUS_INSTALL_SUCCESS) {
-                com.baidu.tieba.ad.a.a.bLI().a(downloadStatus, model);
+                com.baidu.tieba.ad.a.a.bLM().a(downloadStatus, model);
             }
         }
     }
 
     @CallSuper
-    public void fn(int i) {
-        this.ghy.fn(i);
-        if ((this.ghz != null ? this.ghz.getCurrentState() : null) != DownloadStatus.STATUS_NONE) {
-            bLC();
+    public void fo(int i) {
+        this.gjc.fo(i);
+        if ((this.gjd != null ? this.gjd.getCurrentState() : null) != DownloadStatus.STATUS_NONE) {
+            bLG();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bLB() {
-        MODEL model = this.ghz;
+    public void bLF() {
+        MODEL model = this.gjd;
         if (model != null) {
             DownloadStatus currentState = model.getCurrentState();
             switch (currentState) {
@@ -86,7 +86,7 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
                 case STATUS_PAUSED:
                 case STATUS_SUCCESS:
                 case STATUS_INSTALL_SUCCESS:
-                    d.bLy().a(model.adId(), this.mPage, currentState, model.getPkgName(), model.getExtInfo());
+                    d.bLC().a(model.adId(), this.mPage, currentState, model.getPkgName(), model.getExtInfo());
                     return;
                 default:
                     return;
@@ -94,9 +94,9 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
         }
     }
 
-    private void bLC() {
-        if (this.ghy.getRealView().getVisibility() != 0) {
-            this.ghy.getRealView().setVisibility(0);
+    private void bLG() {
+        if (this.gjc.getRealView().getVisibility() != 0) {
+            this.gjc.getRealView().setVisibility(0);
         }
     }
 }

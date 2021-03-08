@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class MarkEnforcingInputStream extends FilterInputStream {
     private static final int END_OF_STREAM = -1;
     private static final int UNSET = Integer.MIN_VALUE;
@@ -61,7 +61,10 @@ public class MarkEnforcingInputStream extends FilterInputStream {
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int available() throws IOException {
-        return this.availableBytes == Integer.MIN_VALUE ? super.available() : Math.min(this.availableBytes, super.available());
+        if (this.availableBytes == Integer.MIN_VALUE) {
+            return super.available();
+        }
+        return Math.min(this.availableBytes, super.available());
     }
 
     private long getBytesToRead(long j) {

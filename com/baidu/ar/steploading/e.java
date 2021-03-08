@@ -17,7 +17,7 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 class e extends com.baidu.ar.e.a<String, String> {
     private IHttpRequest bR;
     private WeakReference<Context> wn;

@@ -21,10 +21,10 @@ import org.apache.http.protocol.HTTP;
 public class f implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final WeakReference<Context> f7082a;
+    protected final WeakReference<Context> f4713a;
 
     public f(Context context) {
-        this.f7082a = new WeakReference<>(context);
+        this.f4713a = new WeakReference<>(context);
     }
 
     @Override // com.ss.android.socialbase.downloader.i.h
@@ -75,9 +75,6 @@ public class f implements h {
             return null;
         }
         try {
-            if (!TextUtils.isEmpty(str) && str.startsWith("https")) {
-                com.bytedance.sdk.adnet.d.b.a();
-            }
             HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(str).openConnection();
             try {
                 httpURLConnection2.setInstanceFollowRedirects(false);

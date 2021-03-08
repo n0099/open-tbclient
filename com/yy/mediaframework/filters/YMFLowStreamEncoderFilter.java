@@ -10,7 +10,7 @@ import com.yy.mediaframework.stat.YMFLiveStatisticManager;
 import com.yy.mediaframework.utils.CommonUtil;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFLowStreamEncoderFilter extends AbstractYYMediaFilter {
     private VideoLiveFilterContext mContext;
     private ILiveSession mSession;

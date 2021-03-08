@@ -7,10 +7,8 @@ import java.io.InputStream;
 public class o implements Closeable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final k f10520a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final boolean f10521b;
+    public final k f6931a;
+    public final boolean b;
     protected final c c;
     protected final a d;
     protected final ah e;
@@ -27,8 +25,8 @@ public class o implements Closeable {
             if (this.d.b(this.c, 36) != 36) {
                 com.kwad.sdk.core.d.a.a(new PngjException("Could not read first 36 bytes (PNG signature+IHDR chunk)"));
             }
-            this.f10520a = this.c.j();
-            this.f10521b = this.c.k() != null;
+            this.f6931a = this.c.j();
+            this.b = this.c.k() != null;
             b(5024024L);
             a(901001001L);
             c(2024024L);
@@ -123,6 +121,6 @@ public class o implements Closeable {
     }
 
     public String toString() {
-        return this.f10520a.toString() + " interlaced=" + this.f10521b;
+        return this.f6931a.toString() + " interlaced=" + this.b;
     }
 }

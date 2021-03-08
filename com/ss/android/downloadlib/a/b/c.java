@@ -13,31 +13,29 @@ import java.util.LinkedList;
 public class c {
     private static final String[] c = {"com", HttpConstants.OS_TYPE_VALUE, "ss"};
     private static final int[] d = {3101, 3102, 3103, 3201, 3202, 3203};
-    private static volatile c qby;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final LinkedList<a> f12935b = new LinkedList<>();
+    private static volatile c qcm;
+    private final LinkedList<a> b = new LinkedList<>();
 
     private c() {
     }
 
-    public static c eEA() {
-        if (qby == null) {
+    public static c eEE() {
+        if (qcm == null) {
             synchronized (c.class) {
-                if (qby == null) {
-                    qby = new c();
+                if (qcm == null) {
+                    qcm = new c();
                 }
             }
         }
-        return qby;
+        return qcm;
     }
 
     public void a(String str) {
-        a aaR;
+        a aaW;
         b();
-        if (!TextUtils.isEmpty(str) && (aaR = aaR(str)) != null) {
-            synchronized (this.f12935b) {
-                this.f12935b.add(aaR);
+        if (!TextUtils.isEmpty(str) && (aaW = aaW(str)) != null) {
+            synchronized (this.b) {
+                this.b.add(aaW);
             }
         }
     }
@@ -45,12 +43,12 @@ public class c {
     public void b(String str) {
         b();
         if (!TextUtils.isEmpty(str)) {
-            synchronized (this.f12935b) {
-                Iterator<a> it = this.f12935b.iterator();
+            synchronized (this.b) {
+                Iterator<a> it = this.b.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
-                    } else if (str.equals(it.next().f12936a)) {
+                    } else if (str.equals(it.next().f7693a)) {
                         it.remove();
                         break;
                     }
@@ -65,8 +63,8 @@ public class c {
             return null;
         }
         b();
-        synchronized (this.f12935b) {
-            Iterator<a> it = this.f12935b.iterator();
+        synchronized (this.b) {
+            Iterator<a> it = this.b.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     aVar2 = null;
@@ -95,7 +93,7 @@ public class c {
         }
         try {
             b();
-            if (this.f12935b.isEmpty()) {
+            if (this.b.isEmpty()) {
                 return null;
             }
             String C = aVar.C();
@@ -103,8 +101,8 @@ public class c {
             String s = aVar.s();
             int r = aVar.r();
             a[] aVarArr = new a[d.length];
-            synchronized (this.f12935b) {
-                Iterator<a> it = this.f12935b.iterator();
+            synchronized (this.b) {
+                Iterator<a> it = this.b.iterator();
                 PackageInfo packageInfo2 = null;
                 String str = C;
                 while (true) {
@@ -141,13 +139,13 @@ public class c {
                         } else {
                             packageInfo = packageInfo2;
                         }
-                        if (!TextUtils.isEmpty(m) && !TextUtils.isEmpty(next.f12936a)) {
+                        if (!TextUtils.isEmpty(m) && !TextUtils.isEmpty(next.f7693a)) {
                             m = m.toLowerCase();
-                            if (m.contains(next.f12936a) || next.f12936a.contains(m)) {
+                            if (m.contains(next.f7693a) || next.f7693a.contains(m)) {
                                 break;
                             } else if (aVarArr[3] != null) {
                                 packageInfo2 = packageInfo;
-                            } else if (a(m, next.f12936a)) {
+                            } else if (a(m, next.f7693a)) {
                                 aVarArr[3] = next;
                                 packageInfo2 = packageInfo;
                             }
@@ -181,7 +179,7 @@ public class c {
                                         r = packageInfo.versionCode;
                                     }
                                 }
-                                if (r == next.f12937b) {
+                                if (r == next.b) {
                                     aVarArr[5] = next;
                                 }
                                 packageInfo2 = packageInfo;
@@ -210,15 +208,15 @@ public class c {
 
     private void b() {
         long currentTimeMillis = System.currentTimeMillis();
-        synchronized (this.f12935b) {
-            Iterator<a> it = this.f12935b.iterator();
+        synchronized (this.b) {
+            Iterator<a> it = this.b.iterator();
             while (it.hasNext() && currentTimeMillis - it.next().e > 1800000) {
                 it.remove();
             }
         }
     }
 
-    private a aaR(String str) {
+    private a aaW(String str) {
         try {
             PackageManager packageManager = j.a().getPackageManager();
             PackageInfo packageInfo = packageManager.getPackageInfo(str, 0);
@@ -293,17 +291,15 @@ public class c {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f12936a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final int f12937b;
+        public final String f7693a;
+        public final int b;
         public final String c;
         public final String d;
         public final long e;
 
         private a(String str, int i, String str2, String str3, long j) {
-            this.f12936a = str;
-            this.f12937b = i;
+            this.f7693a = str;
+            this.b = i;
             this.c = str2 != null ? str2.toLowerCase() : null;
             this.d = str3 != null ? str3.toLowerCase() : null;
             this.e = j;

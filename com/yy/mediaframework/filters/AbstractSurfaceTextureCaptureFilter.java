@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractSurfaceTextureCaptureFilter extends AbstractYYMediaFilter implements SurfaceTexture.OnFrameAvailableListener {
     private static final int MSG_CAPTURE = 0;
     protected Context mContext;
@@ -89,7 +89,7 @@ public abstract class AbstractSurfaceTextureCaptureFilter extends AbstractYYMedi
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class WorkerHandler extends Handler {
         private WeakReference<AbstractSurfaceTextureCaptureFilter> mWeakFilter;
 

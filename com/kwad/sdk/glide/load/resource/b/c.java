@@ -23,12 +23,12 @@ final class c extends b<Drawable> {
     @Override // com.kwad.sdk.glide.load.engine.s
     @NonNull
     public Class<Drawable> a() {
-        return this.f10262a.getClass();
+        return this.f6779a.getClass();
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
     public int c() {
-        return Math.max(1, this.f10262a.getIntrinsicWidth() * this.f10262a.getIntrinsicHeight() * 4);
+        return Math.max(1, this.f6779a.getIntrinsicWidth() * this.f6779a.getIntrinsicHeight() * 4);
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s

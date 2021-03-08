@@ -19,7 +19,7 @@ import com.xiaomi.push.jc;
 import com.xiaomi.push.service.ap;
 import java.nio.ByteBuffer;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class w {
     static fl a(XMPushService xMPushService, byte[] bArr) {
         ii iiVar = new ii();
@@ -36,15 +36,15 @@ public final class w {
         try {
             fl flVar = new fl();
             flVar.a(5);
-            flVar.c(kVar.f994a);
+            flVar.c(kVar.f915a);
             flVar.b(a(iiVar));
             flVar.a("SECMSG", "message");
-            String str = kVar.f994a;
-            iiVar.f679a.f606a = str.substring(0, str.indexOf("@"));
-            iiVar.f679a.f610c = str.substring(str.indexOf("/") + 1);
+            String str = kVar.f915a;
+            iiVar.f600a.f527a = str.substring(0, str.indexOf("@"));
+            iiVar.f600a.f531c = str.substring(str.indexOf("/") + 1);
             flVar.a(iw.a(iiVar), kVar.c);
             flVar.a((short) 1);
-            com.xiaomi.channel.commonutils.logger.b.m79a("try send mi push message. packagename:" + iiVar.f684b + " action:" + iiVar.f677a);
+            com.xiaomi.channel.commonutils.logger.b.m58a("try send mi push message. packagename:" + iiVar.f605b + " action:" + iiVar.f598a);
             return flVar;
         } catch (NullPointerException e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
@@ -67,8 +67,8 @@ public final class w {
         byte[] a2 = iw.a(t);
         ii iiVar = new ii();
         ib ibVar = new ib();
-        ibVar.f605a = 5L;
-        ibVar.f606a = "fakeid";
+        ibVar.f526a = 5L;
+        ibVar.f527a = "fakeid";
         iiVar.a(ibVar);
         iiVar.a(ByteBuffer.wrap(a2));
         iiVar.a(hmVar);
@@ -80,13 +80,13 @@ public final class w {
     }
 
     private static String a(ii iiVar) {
-        if (iiVar.f678a != null && iiVar.f678a.f594b != null) {
-            String str = iiVar.f678a.f594b.get("ext_traffic_source_pkg");
+        if (iiVar.f599a != null && iiVar.f599a.f515b != null) {
+            String str = iiVar.f599a.f515b.get("ext_traffic_source_pkg");
             if (!TextUtils.isEmpty(str)) {
                 return str;
             }
         }
-        return iiVar.f684b;
+        return iiVar.f605b;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -109,16 +109,16 @@ public final class w {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(XMPushService xMPushService, ii iiVar) {
         df.a(iiVar.b(), xMPushService.getApplicationContext(), iiVar, -1);
-        fs m544a = xMPushService.m544a();
-        if (m544a == null) {
+        fs m523a = xMPushService.m523a();
+        if (m523a == null) {
             throw new gd("try send msg while connection is null.");
         }
-        if (!m544a.m320a()) {
+        if (!m523a.m299a()) {
             throw new gd("Don't support XMPP connection.");
         }
         fl a2 = a(l.a((Context) xMPushService), xMPushService, iiVar);
         if (a2 != null) {
-            m544a.b(a2);
+            m523a.b(a2);
         }
     }
 
@@ -135,16 +135,16 @@ public final class w {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(XMPushService xMPushService, String str, byte[] bArr) {
         df.a(str, xMPushService.getApplicationContext(), bArr);
-        fs m544a = xMPushService.m544a();
-        if (m544a == null) {
+        fs m523a = xMPushService.m523a();
+        if (m523a == null) {
             throw new gd("try send msg while connection is null.");
         }
-        if (!m544a.m320a()) {
+        if (!m523a.m299a()) {
             throw new gd("Don't support XMPP connection.");
         }
         fl a2 = a(xMPushService, bArr);
         if (a2 != null) {
-            m544a.b(a2);
+            m523a.b(a2);
         } else {
             o.a(xMPushService, str, bArr, ErrorCode.ERROR_INVALID_PAYLOAD, "not a valid message");
         }

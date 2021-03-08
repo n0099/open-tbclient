@@ -4,10 +4,10 @@ import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.data.AlaLiveStickerInfo;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class g {
-    private static int gtA = 0;
-    private static volatile boolean gtB = false;
+    private static int gvj = 0;
+    private static volatile boolean gvk = false;
 
     public static void a(BdUniqueId bdUniqueId, String str, int i, int i2) {
         com.baidu.tieba.ala.alaar.messages.c cVar = new com.baidu.tieba.ala.alaar.messages.c(bdUniqueId, str, i, i2);
@@ -15,7 +15,7 @@ public class g {
         MessageManager.getInstance().sendMessage(cVar);
     }
 
-    public static void QF() {
+    public static void QI() {
         com.baidu.tieba.ala.alaar.messages.b bVar = new com.baidu.tieba.ala.alaar.messages.b("");
         bVar.setParams();
         MessageManager.getInstance().sendMessage(bVar);
@@ -32,18 +32,18 @@ public class g {
     }
 
     public static void a(long j, int i, AlaLiveStickerInfo alaLiveStickerInfo) {
-        gtA = i;
-        gtB = true;
+        gvj = i;
+        gvk = true;
         com.baidu.tieba.ala.alaar.messages.d dVar = new com.baidu.tieba.ala.alaar.messages.d(j, i, alaLiveStickerInfo);
         dVar.setParams();
         MessageManager.getInstance().sendMessage(dVar);
     }
 
-    public static void bQf() {
-        gtB = false;
+    public static void bQl() {
+        gvk = false;
     }
 
-    public static boolean bQg() {
-        return gtB;
+    public static boolean bQm() {
+        return gvk;
     }
 }

@@ -11,7 +11,7 @@ public final class g extends Handler {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ g(byte b2) {
+    public /* synthetic */ g(byte b) {
         this();
     }
 
@@ -20,12 +20,12 @@ public final class g extends Handler {
         f fVar = (f) message.obj;
         switch (message.what) {
             case 1:
-                c cVar = fVar.f12784a;
-                Object obj = fVar.f12785b[0];
+                c cVar = fVar.f7611a;
+                Object obj = fVar.b[0];
                 cVar.f.get();
                 return;
             case 2:
-                fVar.f12784a.a((Object[]) fVar.f12785b);
+                fVar.f7611a.a((Object[]) fVar.b);
                 return;
             default:
                 return;

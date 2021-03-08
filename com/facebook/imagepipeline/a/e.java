@@ -9,30 +9,30 @@ import javax.annotation.concurrent.ThreadSafe;
 /* loaded from: classes5.dex */
 public class e extends f {
     private static final String TAG = e.class.getSimpleName();
-    private final b pHl;
-    private final com.facebook.imagepipeline.h.e pHn;
-    private boolean pHo;
+    private final b pJq;
+    private final com.facebook.imagepipeline.h.e pJs;
+    private boolean pJt;
 
     public e(b bVar, com.facebook.imagepipeline.h.e eVar) {
-        this.pHl = bVar;
-        this.pHn = eVar;
+        this.pJq = bVar;
+        this.pJs = eVar;
     }
 
     @Override // com.facebook.imagepipeline.a.f
     @TargetApi(12)
     public com.facebook.common.references.a<Bitmap> g(int i, int i2, Bitmap.Config config) {
         com.facebook.common.references.a<Bitmap> aVar;
-        if (this.pHo) {
+        if (this.pJt) {
             return h(i, i2, config);
         }
-        com.facebook.common.references.a<PooledByteBuffer> b2 = this.pHl.b((short) i, (short) i2);
+        com.facebook.common.references.a<PooledByteBuffer> b = this.pJq.b((short) i, (short) i2);
         try {
-            com.facebook.imagepipeline.f.e eVar = new com.facebook.imagepipeline.f.e(b2);
-            eVar.c(com.facebook.c.b.pGo);
-            com.facebook.common.references.a<Bitmap> a2 = this.pHn.a(eVar, config, null, b2.get().size());
+            com.facebook.imagepipeline.f.e eVar = new com.facebook.imagepipeline.f.e(b);
+            eVar.c(com.facebook.c.b.pIt);
+            com.facebook.common.references.a<Bitmap> a2 = this.pJs.a(eVar, config, null, b.get().size());
             if (!a2.get().isMutable()) {
                 com.facebook.common.references.a.c(a2);
-                this.pHo = true;
+                this.pJt = true;
                 com.facebook.common.c.a.wtf(TAG, "Immutable bitmap returned by decoder");
                 aVar = h(i, i2, config);
                 com.facebook.imagepipeline.f.e.e(eVar);
@@ -40,16 +40,16 @@ public class e extends f {
                 a2.get().setHasAlpha(true);
                 a2.get().eraseColor(0);
                 com.facebook.imagepipeline.f.e.e(eVar);
-                b2.close();
+                b.close();
                 aVar = a2;
             }
             return aVar;
         } finally {
-            b2.close();
+            b.close();
         }
     }
 
     private static com.facebook.common.references.a<Bitmap> h(int i, int i2, Bitmap.Config config) {
-        return com.facebook.common.references.a.a(Bitmap.createBitmap(i, i2, config), g.evM());
+        return com.facebook.common.references.a.a(Bitmap.createBitmap(i, i2, config), g.evV());
     }
 }

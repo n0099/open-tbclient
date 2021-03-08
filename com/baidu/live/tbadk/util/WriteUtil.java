@@ -17,7 +17,7 @@ import com.baidu.live.tbadk.core.util.BitmapHelper;
 import com.baidu.live.tbadk.core.util.FileHelper;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class WriteUtil {
     private static final String TMP_IMAGE_NAME = "camera.jpg";
 
@@ -103,7 +103,7 @@ public class WriteUtil {
 
     public static int readPictureDegree(String str) {
         try {
-            switch (new ExifInterface(str).getAttributeInt("Orientation", 1)) {
+            switch (new ExifInterface(str).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1)) {
                 case 3:
                     return 180;
                 case 4:

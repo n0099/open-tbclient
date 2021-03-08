@@ -23,10 +23,10 @@ import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.widget.horizonalscrolllistview.MyHorizontalScrollView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ScrollHorizontalTabView extends MyHorizontalScrollView {
-    private final a bUj;
-    private b bUk;
+    private final a bVJ;
+    private b bVK;
     private float mCurrentPositionOffset;
     private int mCurrentTabIndex;
     private final int mIndicatorHeight;
@@ -43,7 +43,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     private LinearLayout mTabsContainer;
     private int mTextSize;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         boolean a(int i, da daVar);
 
@@ -64,7 +64,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         this.mCurrentPositionOffset = 0.0f;
         this.mScrollOffset = 52;
         this.mLastScrollX = 0;
-        this.bUj = new a();
+        this.bVJ = new a();
         this.mOnItemClickListener = new View.OnClickListener() { // from class: com.baidu.live.view.ScrollHorizontalTabView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -101,7 +101,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         this.mCurrentPositionOffset = 0.0f;
         this.mScrollOffset = 52;
         this.mLastScrollX = 0;
-        this.bUj = new a();
+        this.bVJ = new a();
         this.mOnItemClickListener = new View.OnClickListener() { // from class: com.baidu.live.view.ScrollHorizontalTabView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -138,7 +138,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         this.mCurrentPositionOffset = 0.0f;
         this.mScrollOffset = 52;
         this.mLastScrollX = 0;
-        this.bUj = new a();
+        this.bVJ = new a();
         this.mOnItemClickListener = new View.OnClickListener() { // from class: com.baidu.live.view.ScrollHorizontalTabView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -256,12 +256,12 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     public void setViewPager(ViewPager viewPager) {
         this.mPager = viewPager;
         if (viewPager.getAdapter() != null) {
-            viewPager.setOnPageChangeListener(this.bUj);
+            viewPager.setOnPageChangeListener(this.bVJ);
         }
     }
 
     public void setScrollTabPageListener(b bVar) {
-        this.bUk = bVar;
+        this.bVK = bVar;
     }
 
     public int getCurrentIndex() {
@@ -358,7 +358,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     private class a implements ViewPager.OnPageChangeListener {
         private int mLastPosition;
 
@@ -367,8 +367,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
-            if (ScrollHorizontalTabView.this.bUk != null) {
-                ScrollHorizontalTabView.this.bUk.onPageScrolled(i, f, i2);
+            if (ScrollHorizontalTabView.this.bVK != null) {
+                ScrollHorizontalTabView.this.bVK.onPageScrolled(i, f, i2);
             }
             if (ScrollHorizontalTabView.this.mTabsContainer.getChildCount() != 0 && !ScrollHorizontalTabView.this.mIsClicked) {
                 if (ScrollHorizontalTabView.this.mCurrentTabIndex != i) {
@@ -393,9 +393,9 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
             da daVar = (da) ListUtils.getItem(ScrollHorizontalTabView.this.mTabDataList, i);
-            if (ScrollHorizontalTabView.this.bUk == null || ScrollHorizontalTabView.this.bUk.a(i, daVar)) {
-                if (ScrollHorizontalTabView.this.bUk != null) {
-                    ScrollHorizontalTabView.this.bUk.b(i, daVar);
+            if (ScrollHorizontalTabView.this.bVK == null || ScrollHorizontalTabView.this.bVK.a(i, daVar)) {
+                if (ScrollHorizontalTabView.this.bVK != null) {
+                    ScrollHorizontalTabView.this.bVK.b(i, daVar);
                 }
                 if (ScrollHorizontalTabView.this.mIsClicked) {
                     if (ScrollHorizontalTabView.this.mCurrentTabIndex != i) {
@@ -411,7 +411,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public class c {
         TextView icon;
         TextView title;

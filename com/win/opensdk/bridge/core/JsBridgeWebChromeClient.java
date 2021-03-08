@@ -4,13 +4,11 @@ import android.webkit.JsPromptResult;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class JsBridgeWebChromeClient extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
-    public final boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        jsPromptResult.confirm();
-        JsCallJava.eJo().f(webView, str2);
-        return true;
+    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
+        return super.onJsAlert(webView, str, str2, jsResult);
     }
 
     @Override // android.webkit.WebChromeClient
@@ -19,7 +17,9 @@ public class JsBridgeWebChromeClient extends WebChromeClient {
     }
 
     @Override // android.webkit.WebChromeClient
-    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-        return super.onJsAlert(webView, str, str2, jsResult);
+    public final boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        jsPromptResult.confirm();
+        JsCallJava.eJg().d(webView, str2);
+        return true;
     }
 }

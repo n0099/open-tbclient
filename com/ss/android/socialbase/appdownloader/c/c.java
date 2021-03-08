@@ -5,5 +5,5 @@ import android.content.Context;
 public interface c {
     boolean a();
 
-    k iz(Context context);
+    k iA(Context context);
 }

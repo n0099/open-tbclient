@@ -17,10 +17,10 @@ import com.baidu.tieba.R;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class bh {
-    private static int fby = -1;
-    private static int fbz = -1;
-    private static boolean fbA = false;
-    private static com.baidu.adp.lib.d.a<Integer, Integer> fbB = new com.baidu.adp.lib.d.a<>(500);
+    private static int fcY = -1;
+    private static int fcZ = -1;
+    private static boolean fda = false;
+    private static com.baidu.adp.lib.d.a<Integer, Integer> fdb = new com.baidu.adp.lib.d.a<>(500);
     private static Context mAppContext = null;
 
     /* loaded from: classes.dex */
@@ -28,19 +28,19 @@ public class bh {
         boolean bo(View view);
     }
 
-    public static void eZ(Context context) {
+    public static void eY(Context context) {
         mAppContext = context;
-        fbA = true;
+        fda = true;
     }
 
-    private static void bsW() {
+    private static void bsZ() {
         if (mAppContext != null && mAppContext.getResources() != null) {
-            fbz = mAppContext.getResources().getColor(R.color.common_color_10097);
-            fby = mAppContext.getResources().getColor(R.color.common_color_10004);
+            fcZ = mAppContext.getResources().getColor(R.color.common_color_10097);
+            fcY = mAppContext.getResources().getColor(R.color.common_color_10004);
         }
     }
 
-    private static int oK(int i) {
+    private static int oL(int i) {
         boolean z = true;
         if (i != 1 && i != 4) {
             z = false;
@@ -50,11 +50,11 @@ public class bh {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static int jP(boolean z) {
-        if (fbA) {
-            fbA = false;
-            bsW();
+        if (fda) {
+            fda = false;
+            bsZ();
         }
-        return z ? fby : fbz;
+        return z ? fcY : fcZ;
     }
 
     public static void bt(View view) {
@@ -65,16 +65,16 @@ public class bh {
 
     public static void bu(View view) {
         if (view != null) {
-            fbB.remove(Integer.valueOf(System.identityHashCode(view)));
+            fdb.remove(Integer.valueOf(System.identityHashCode(view)));
         }
     }
 
     public static void k(ViewGroup viewGroup, int i) {
         int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = fbB.get(Integer.valueOf(identityHashCode));
+        Integer num = fdb.get(Integer.valueOf(identityHashCode));
         if (num == null || i != num.intValue()) {
             l(viewGroup, i);
-            fbB.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+            fdb.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 
@@ -231,13 +231,13 @@ public class bh {
 
     public static void setTextColor(TextView textView, int i) {
         if (textView != null) {
-            textView.setTextColor(oK(i));
+            textView.setTextColor(oL(i));
         }
     }
 
     public static void a(CheckBox checkBox, int i) {
         if (checkBox != null) {
-            checkBox.setTextColor(oK(i));
+            checkBox.setTextColor(oL(i));
         }
     }
 

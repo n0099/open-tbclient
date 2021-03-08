@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.SearchGroup.DataReq;
 import protobuf.SearchGroup.SearchGroupReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class RequestSearchGroupsMessage extends TbSocketMessage {
     private long groupId;
 

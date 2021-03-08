@@ -8,7 +8,7 @@ import java.util.HashMap;
 public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f4256a = true;
+    public static boolean f2944a = true;
     private com.baidu.platform.comapi.walknavi.d.b d;
     private com.baidu.platform.comapi.walknavi.d.a.d e;
     private boolean g;
@@ -21,9 +21,7 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
     public String c = "";
     private boolean m = true;
     private boolean n = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    public b f4257b = new b();
+    public b b = new b();
     private com.baidu.platform.comapi.walknavi.d.a.b f = new com.baidu.platform.comapi.walknavi.d.a.b(com.baidu.platform.comapi.wnplatform.o.b.a.a());
 
     /* loaded from: classes4.dex */
@@ -38,9 +36,9 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
     public void a(String str) {
         com.baidu.platform.comapi.walknavi.b.a().H().b("walknavi_current_npc_token", str);
         this.c = str;
-        this.f4257b.f4258a = str;
+        this.b.f2945a = str;
         if (this.o != null) {
-            this.o.a(this.f4257b);
+            this.o.a(this.b);
         }
     }
 
@@ -68,7 +66,7 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
     }
 
     private void a(long j, String str) {
-        if (f4256a) {
+        if (f2944a) {
             com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", str + "time:" + (System.currentTimeMillis() - j));
         } else {
             com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", str);
@@ -211,9 +209,9 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
     public void a(String str, c cVar) {
         com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", "download start = ");
         this.n = true;
-        this.f4257b.f4259b = str;
+        this.b.b = str;
         if (this.o != null) {
-            this.o.a(this.f4257b);
+            this.o.a(this.b);
         }
         this.f.a(str, new h(this, cVar));
     }
@@ -228,8 +226,8 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
         this.f.b();
         a(currentTimeMillis, "downloadCancel");
         this.n = false;
-        this.f4257b.c = 0;
-        this.f4257b.f4259b = "";
+        this.b.c = 0;
+        this.b.b = "";
     }
 
     public String c(String str) {
@@ -258,10 +256,8 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f4258a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f4259b;
+        public String f2945a;
+        public String b;
         public int c;
 
         public b() {

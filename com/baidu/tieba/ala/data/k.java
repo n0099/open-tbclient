@@ -2,51 +2,51 @@ package com.baidu.tieba.ala.data;
 
 import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class k {
-    private String aVD;
-    private long aXC;
-    private String aXE;
-    private String aXI;
-    private int aXJ;
-    private String gTc;
+    private String aXd;
+    private long aZc;
+    private String aZe;
+    private String aZi;
+    private int aZj;
+    private String gUL;
     private int giftId;
     private String giftName;
     private String portrait;
 
     public k(JSONObject jSONObject) {
         this.giftId = jSONObject.optInt(LogConfig.LOG_GIFT_ID);
-        this.aVD = jSONObject.optString("gift_tag");
-        this.aXI = jSONObject.optString("thumbnail_url");
+        this.aXd = jSONObject.optString("gift_tag");
+        this.aZi = jSONObject.optString("thumbnail_url");
         this.giftName = jSONObject.optString("gift_name");
-        this.aXJ = jSONObject.optInt(LogConfig.VALUE_IM_GIFT);
-        this.aXC = jSONObject.optLong("pay_userid");
-        this.aXE = jSONObject.optString("pay_username");
+        this.aZj = jSONObject.optInt(LogConfig.VALUE_IM_GIFT);
+        this.aZc = jSONObject.optLong("pay_userid");
+        this.aZe = jSONObject.optString("pay_username");
         this.portrait = jSONObject.optString("bd_portrait");
-        this.gTc = jSONObject.optString("ext_info");
+        this.gUL = jSONObject.optString("ext_info");
     }
 
     public int getGiftId() {
         return this.giftId;
     }
 
-    public String bUu() {
-        return this.aXI;
+    public String bUA() {
+        return this.aZi;
     }
 
     public int getStatus() {
-        return this.aXJ;
+        return this.aZj;
     }
 
-    public long bUv() {
-        return this.aXC;
+    public long bUB() {
+        return this.aZc;
     }
 
     public String getPortrait() {
         return this.portrait;
     }
 
-    public String bUw() {
-        return this.gTc;
+    public String bUC() {
+        return this.gUL;
     }
 }

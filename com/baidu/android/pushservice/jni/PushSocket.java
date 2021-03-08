@@ -7,10 +7,8 @@ import com.baidu.android.pushservice.message.h;
 public class PushSocket {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f1440a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static byte[] f1441b = null;
+    public static boolean f1227a;
+    private static byte[] b = null;
     private static int c = 0;
     private static String d = "PushSocket";
     private static int e = 36;
@@ -22,10 +20,10 @@ public class PushSocket {
     }
 
     static {
-        f1440a = false;
+        f1227a = false;
         try {
             System.loadLibrary("bdpush_V3_3");
-            f1440a = true;
+            f1227a = true;
         } catch (Throwable th) {
         }
     }
@@ -35,26 +33,26 @@ public class PushSocket {
     }
 
     public static void a(int i) {
-        f1441b = null;
+        b = null;
         c = 0;
         closeSocket(i);
     }
 
     public static boolean a() {
-        if (!f1440a) {
+        if (!f1227a) {
             try {
                 System.loadLibrary("bdpush_V3_3");
-                f1440a = true;
+                f1227a = true;
             } catch (Throwable th) {
                 Log.e("BDPushSDK-" + d, "Native library not found! Please copy libbdpush_V3_3.so into your project!");
             }
         }
-        return f1440a;
+        return f1227a;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0031, code lost:
         r0 = new byte[2];
-        java.lang.System.arraycopy(com.baidu.android.pushservice.jni.PushSocket.f1441b, com.baidu.android.pushservice.jni.PushSocket.c, r0, 0, r0.length);
+        java.lang.System.arraycopy(com.baidu.android.pushservice.jni.PushSocket.b, com.baidu.android.pushservice.jni.PushSocket.c, r0, 0, r0.length);
      */
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0042, code lost:
         if (r2 != com.baidu.android.pushservice.message.h.MSG_ID_TINY_HEARTBEAT_SERVER.b()) goto L49;
@@ -73,22 +71,22 @@ public class PushSocket {
     */
     public static byte[] a(Context context, int i) {
         while (true) {
-            if (f1441b != null) {
-                int length = f1441b.length;
+            if (b != null) {
+                int length = b.length;
                 if (length == c) {
-                    f1441b = null;
+                    b = null;
                     c = 0;
                 } else if (length - c > 1) {
-                    short a2 = a(f1441b, c);
+                    short a2 = a(b, c);
                     if (a2 == h.MSG_ID_TINY_HEARTBEAT_CLIENT.b() || a2 == h.MSG_ID_TINY_HEARTBEAT_SERVER.b()) {
                         break;
                     } else if (length - c < e && !b(i)) {
                         return null;
                     } else {
-                        int b2 = b(f1441b, c + f);
+                        int b2 = b(b, c + f);
                         if (c + b2 + e <= length - c) {
                             byte[] bArr = new byte[e + b2];
-                            System.arraycopy(f1441b, c, bArr, 0, bArr.length);
+                            System.arraycopy(b, c, bArr, 0, bArr.length);
                             c += b2 + e;
                             return bArr;
                         } else if (!b(i)) {
@@ -113,13 +111,13 @@ public class PushSocket {
         if (rcvMsg == null || rcvMsg.length == 0) {
             return false;
         }
-        if (f1441b == null) {
-            f1441b = rcvMsg;
+        if (b == null) {
+            b = rcvMsg;
         } else {
-            byte[] bArr = new byte[f1441b.length + rcvMsg.length];
-            System.arraycopy(f1441b, c, bArr, 0, f1441b.length - c);
-            System.arraycopy(rcvMsg, 0, bArr, f1441b.length, rcvMsg.length);
-            f1441b = bArr;
+            byte[] bArr = new byte[b.length + rcvMsg.length];
+            System.arraycopy(b, c, bArr, 0, b.length - c);
+            System.arraycopy(rcvMsg, 0, bArr, b.length, rcvMsg.length);
+            b = bArr;
         }
         return true;
     }

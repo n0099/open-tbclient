@@ -216,7 +216,7 @@ public class ResDialogFragment extends DelegateDialogFragment {
         super.onPrepareOptionsMenu(menu);
     }
 
-    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment, com.baidu.l.a.a.InterfaceC0148a
+    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment, com.baidu.l.a.a.InterfaceC0154a
     public /* bridge */ /* synthetic */ void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
     }

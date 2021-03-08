@@ -3,25 +3,23 @@ package com.ss.android.downloadlib.a.b;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f12941a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f12942b;
+    private int f7696a;
+    private int b;
 
     public e(int i) {
-        this.f12941a = i;
+        this.f7696a = i;
     }
 
     public e(int i, int i2) {
-        this.f12941a = i;
-        this.f12942b = i2;
+        this.f7696a = i;
+        this.b = i2;
     }
 
     public int a() {
-        return this.f12941a;
+        return this.f7696a;
     }
 
     public int b() {
-        return this.f12942b;
+        return this.b;
     }
 }

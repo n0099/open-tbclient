@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operators.flowable.a<T, io.reactivex.a.b<K, V>> {
     final int bufferSize;
     final boolean delayError;
@@ -21,10 +21,10 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super io.reactivex.a.b<K, V>> cVar) {
-        this.qow.a((j) new GroupBySubscriber(cVar, this.keySelector, this.valueSelector, this.bufferSize, this.delayError));
+        this.qoY.a((j) new GroupBySubscriber(cVar, this.keySelector, this.valueSelector, this.bufferSize, this.delayError));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class GroupBySubscriber<T, K, V> extends BasicIntQueueSubscription<io.reactivex.a.b<K, V>> implements j<T> {
         static final Object NULL_KEY = new Object();
         private static final long serialVersionUID = -3688291656102519502L;
@@ -83,7 +83,7 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
                         return;
                     }
                     try {
-                        aVar2.onNext(io.reactivex.internal.functions.a.m(this.valueSelector.apply(t), "The valueSelector returned null"));
+                        aVar2.onNext(io.reactivex.internal.functions.a.n(this.valueSelector.apply(t), "The valueSelector returned null"));
                         if (z) {
                             aVar.offer(aVar2);
                             drain();
@@ -292,9 +292,9 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a<K, T> extends io.reactivex.a.b<K, T> {
-        final State<T, K> qoP;
+        final State<T, K> qpr;
 
         public static <T, K> a<K, T> a(K k, int i, GroupBySubscriber<?, K, T> groupBySubscriber, boolean z) {
             return new a<>(k, new State(i, groupBySubscriber, k, z));
@@ -302,29 +302,29 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
 
         protected a(K k, State<T, K> state) {
             super(k);
-            this.qoP = state;
+            this.qpr = state;
         }
 
         @Override // io.reactivex.g
         protected void a(org.a.c<? super T> cVar) {
-            this.qoP.subscribe(cVar);
+            this.qpr.subscribe(cVar);
         }
 
         public void onNext(T t) {
-            this.qoP.onNext(t);
+            this.qpr.onNext(t);
         }
 
         public void onError(Throwable th) {
-            this.qoP.onError(th);
+            this.qpr.onError(th);
         }
 
         public void onComplete() {
-            this.qoP.onComplete();
+            this.qpr.onComplete();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class State<T, K> extends BasicIntQueueSubscription<T> implements org.a.b<T> {
         private static final long serialVersionUID = -3852313036005250360L;
         final boolean delayError;

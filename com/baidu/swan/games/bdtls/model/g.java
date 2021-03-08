@@ -5,11 +5,11 @@ import java.util.Arrays;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class g {
-    private Bdtls.ServerHello edA;
-    private byte[] edB;
-    private Bdtls.ClientHello edz;
+    private Bdtls.ClientHello efa;
+    private Bdtls.ServerHello efb;
+    private byte[] efc;
 
     public g() {
         this(null, null, null, 7, null);
@@ -19,7 +19,7 @@ public final class g {
         if (this != obj) {
             if (obj instanceof g) {
                 g gVar = (g) obj;
-                if (!p.l(this.edz, gVar.edz) || !p.l(this.edA, gVar.edA) || !p.l(this.edB, gVar.edB)) {
+                if (!p.l(this.efa, gVar.efa) || !p.l(this.efb, gVar.efb) || !p.l(this.efc, gVar.efc)) {
                 }
             }
             return false;
@@ -28,22 +28,22 @@ public final class g {
     }
 
     public int hashCode() {
-        Bdtls.ClientHello clientHello = this.edz;
+        Bdtls.ClientHello clientHello = this.efa;
         int hashCode = (clientHello != null ? clientHello.hashCode() : 0) * 31;
-        Bdtls.ServerHello serverHello = this.edA;
+        Bdtls.ServerHello serverHello = this.efb;
         int hashCode2 = ((serverHello != null ? serverHello.hashCode() : 0) + hashCode) * 31;
-        byte[] bArr = this.edB;
+        byte[] bArr = this.efc;
         return hashCode2 + (bArr != null ? Arrays.hashCode(bArr) : 0);
     }
 
     public String toString() {
-        return "HandshakeParams(clientHello=" + this.edz + ", serverHello=" + this.edA + ", encodeDHPublicKey=" + Arrays.toString(this.edB) + ")";
+        return "HandshakeParams(clientHello=" + this.efa + ", serverHello=" + this.efb + ", encodeDHPublicKey=" + Arrays.toString(this.efc) + ")";
     }
 
     public g(Bdtls.ClientHello clientHello, Bdtls.ServerHello serverHello, byte[] bArr) {
-        this.edz = clientHello;
-        this.edA = serverHello;
-        this.edB = bArr;
+        this.efa = clientHello;
+        this.efb = serverHello;
+        this.efc = bArr;
     }
 
     public /* synthetic */ g(Bdtls.ClientHello clientHello, Bdtls.ServerHello serverHello, byte[] bArr, int i, o oVar) {
@@ -51,6 +51,6 @@ public final class g {
     }
 
     public final void b(Bdtls.ServerHello serverHello) {
-        this.edA = serverHello;
+        this.efb = serverHello;
     }
 }

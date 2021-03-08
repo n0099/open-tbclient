@@ -29,7 +29,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class t implements IXAdSystemUtils {
     private static String e;
     private static String f;
@@ -45,10 +45,8 @@ public class t implements IXAdSystemUtils {
     private static long h = -1;
 
     /* renamed from: a  reason: collision with root package name */
-    static List<String[]> f3508a = new ArrayList();
-
-    /* renamed from: b  reason: collision with root package name */
-    static List<String[]> f3509b = new ArrayList();
+    static List<String[]> f2494a = new ArrayList();
+    static List<String[]> b = new ArrayList();
     static JSONArray c = new JSONArray();
     private static volatile t l = null;
     public JSONArray d = new JSONArray();
@@ -539,25 +537,25 @@ public class t implements IXAdSystemUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
     public List<String[]> getCell(Context context) {
         if (!MobadsPermissionSettings.hasPermissionGranted("permission_location")) {
-            if (f3508a == null) {
-                f3508a = new ArrayList();
+            if (f2494a == null) {
+                f2494a = new ArrayList();
             } else {
-                f3508a.clear();
+                f2494a.clear();
             }
-            return f3508a;
+            return f2494a;
         }
-        if (f3508a == null || f3508a.size() == 0) {
+        if (f2494a == null || f2494a.size() == 0) {
             try {
                 com.baidu.mobads.f.c.a().a((com.baidu.mobads.f.a) new y(this, ((TelephonyManager) context.getSystemService("phone")).getCellLocation()));
             } catch (Throwable th) {
             }
         }
-        return f3508a;
+        return f2494a;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
     public List<String[]> getWIFI(Context context) {
-        return f3509b;
+        return b;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils

@@ -9,13 +9,13 @@ import com.baidu.mobads.utils.q;
 import com.baidu.mobads.vo.a.a;
 import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b extends a {
     private String o;
     private HashMap<String, String> p;
 
     public b(String str, IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo, HashMap<String, String> hashMap) {
-        super(new a.C0267a(iXAdInstanceInfo, iXAdProdInfo));
+        super(new a.C0273a(iXAdInstanceInfo, iXAdProdInfo));
         this.o = "";
         this.p = null;
         this.o = str;

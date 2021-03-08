@@ -37,7 +37,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetForumsFromForumClass.ForumSpaceForumInfo;
 import tbclient.GetForumsFromForumClass.GetForumsFromForumClassResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumListActivity> {
     private static final int DEFAULT_PAGE_LIMIT = 20;
     private static final int MAX_LIST_SIZE = 50;

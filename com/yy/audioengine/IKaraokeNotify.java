@@ -1,5 +1,5 @@
 package com.yy.audioengine;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface IKaraokeNotify {
     void onKaraokeCurrentPlayVolume(long j, long j2, long j3);
 
@@ -9,9 +9,9 @@ public interface IKaraokeNotify {
 
     void onKaraokeInitError();
 
-    void onKaraokePitch(byte b2, long j, long j2, long j3);
+    void onKaraokePitch(byte b, long j, long j2, long j3);
 
     void onKaraokePlayEnd();
 
-    void onKaraokeScore(byte b2, long j);
+    void onKaraokeScore(byte b, long j);
 }

@@ -4,30 +4,30 @@ import java.util.ArrayList;
 import tbclient.FrsPage.ForumHeadlineImgInfo;
 /* loaded from: classes.dex */
 public class ab {
-    private x eNv;
+    private x eOW;
     private long threadId;
-    private long eNq = 0;
-    private String eNr = "";
-    private long eNs = 0;
-    private String eNt = "";
+    private long eOR = 0;
+    private String eOS = "";
+    private long eOT = 0;
+    private String eOU = "";
     private String imgUrl = "";
-    private String eNu = "";
+    private String eOV = "";
 
     public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
         if (forumHeadlineImgInfo != null) {
             this.threadId = forumHeadlineImgInfo.thread_id.longValue();
-            this.eNq = forumHeadlineImgInfo.thread_user_id.longValue();
-            this.eNr = forumHeadlineImgInfo.thread_user_name;
-            this.eNs = forumHeadlineImgInfo.img_user_id.longValue();
-            this.eNt = forumHeadlineImgInfo.img_user_name;
+            this.eOR = forumHeadlineImgInfo.thread_user_id.longValue();
+            this.eOS = forumHeadlineImgInfo.thread_user_name;
+            this.eOT = forumHeadlineImgInfo.img_user_id.longValue();
+            this.eOU = forumHeadlineImgInfo.img_user_name;
             this.imgUrl = forumHeadlineImgInfo.img_url;
-            this.eNu = forumHeadlineImgInfo.headline_url;
-            this.eNv = new x();
+            this.eOV = forumHeadlineImgInfo.headline_url;
+            this.eOW = new x();
             ArrayList<aa> arrayList = new ArrayList<>();
-            aa aaVar = new aa(this.imgUrl == null ? "" : this.imgUrl, this.eNu == null ? "" : this.eNu, null);
+            aa aaVar = new aa(this.imgUrl == null ? "" : this.imgUrl, this.eOV == null ? "" : this.eOV, null);
             aaVar.jt(true);
             arrayList.add(aaVar);
-            this.eNv.x(arrayList);
+            this.eOW.x(arrayList);
         }
     }
 

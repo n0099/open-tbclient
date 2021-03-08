@@ -16,10 +16,8 @@ import com.bytedance.sdk.openadsdk.utils.ak;
 public class LandingDislikeToast extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private Handler f7025a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private TextView f7026b;
+    private Handler f4675a;
+    private TextView b;
 
     public LandingDislikeToast(Context context) {
         this(context, null);
@@ -31,7 +29,7 @@ public class LandingDislikeToast extends FrameLayout {
 
     public LandingDislikeToast(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f7025a = new Handler(Looper.getMainLooper());
+        this.f4675a = new Handler(Looper.getMainLooper());
         setVisibility(8);
         setClickable(false);
         setFocusable(false);
@@ -39,39 +37,39 @@ public class LandingDislikeToast extends FrameLayout {
     }
 
     private void a(Context context) {
-        this.f7026b = new TextView(context);
-        this.f7026b.setClickable(false);
-        this.f7026b.setFocusable(false);
+        this.b = new TextView(context);
+        this.b.setClickable(false);
+        this.b.setFocusable(false);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
         int a2 = (int) ak.a(p.a(), 20.0f);
         int a3 = (int) ak.a(p.a(), 12.0f);
-        this.f7026b.setPadding(a2, a3, a2, a3);
-        this.f7026b.setLayoutParams(layoutParams);
-        this.f7026b.setTextColor(-1);
-        this.f7026b.setTextSize(16.0f);
-        this.f7026b.setGravity(17);
+        this.b.setPadding(a2, a3, a2, a3);
+        this.b.setLayoutParams(layoutParams);
+        this.b.setTextColor(-1);
+        this.b.setTextSize(16.0f);
+        this.b.setGravity(17);
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setShape(0);
         gradientDrawable.setColor(Color.parseColor("#CC000000"));
         gradientDrawable.setCornerRadius(ak.a(p.a(), 6.0f));
-        this.f7026b.setBackgroundDrawable(gradientDrawable);
-        addView(this.f7026b);
+        this.b.setBackgroundDrawable(gradientDrawable);
+        addView(this.b);
     }
 
     public void a(final String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.f7025a.removeCallbacksAndMessages(null);
-            this.f7025a.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.dislike.LandingDislikeToast.1
+            this.f4675a.removeCallbacksAndMessages(null);
+            this.f4675a.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.dislike.LandingDislikeToast.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (LandingDislikeToast.this.f7026b != null) {
-                        LandingDislikeToast.this.f7026b.setText(String.valueOf(str));
+                    if (LandingDislikeToast.this.b != null) {
+                        LandingDislikeToast.this.b.setText(String.valueOf(str));
                     }
                     LandingDislikeToast.this.setVisibility(0);
                 }
             });
-            this.f7025a.postDelayed(new Runnable() { // from class: com.bytedance.sdk.openadsdk.dislike.LandingDislikeToast.2
+            this.f4675a.postDelayed(new Runnable() { // from class: com.bytedance.sdk.openadsdk.dislike.LandingDislikeToast.2
                 @Override // java.lang.Runnable
                 public void run() {
                     LandingDislikeToast.this.setVisibility(8);

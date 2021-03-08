@@ -11,39 +11,70 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class a implements Application.ActivityLifecycleCallbacks {
 
     /* renamed from: a  reason: collision with root package name */
-    private AtomicInteger f7535a = new AtomicInteger(0);
+    private volatile InterfaceC1047a f5111a;
+    private AtomicInteger b = new AtomicInteger(0);
+    private AtomicBoolean c = new AtomicBoolean(false);
+    private HashSet<Integer> d = new HashSet<>();
 
-    /* renamed from: b  reason: collision with root package name */
-    private AtomicBoolean f7536b = new AtomicBoolean(false);
-    private HashSet<Integer> c = new HashSet<>();
+    /* renamed from: com.bytedance.sdk.openadsdk.utils.a$a  reason: collision with other inner class name */
+    /* loaded from: classes6.dex */
+    public interface InterfaceC1047a {
+        void a();
+
+        void b();
+
+        void c();
+
+        void d();
+
+        void e();
+
+        void f();
+    }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityCreated(Activity activity, Bundle bundle) {
+        if (this.f5111a != null) {
+            this.f5111a.d();
+        }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStarted(Activity activity) {
-        if (this.f7535a.incrementAndGet() > 0) {
-            this.f7536b.set(false);
+        if (this.b.incrementAndGet() > 0) {
+            this.c.set(false);
         }
-        b();
+        c();
+        if (this.f5111a != null) {
+            this.f5111a.b();
+        }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityResumed(Activity activity) {
         if (activity != null) {
-            this.c.add(Integer.valueOf(activity.hashCode()));
+            this.d.add(Integer.valueOf(activity.hashCode()));
         }
+        if (this.f5111a != null) {
+            this.f5111a.a();
+        }
+        com.bytedance.sdk.adnet.a.a(activity);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityPaused(Activity activity) {
+        if (this.f5111a != null) {
+            this.f5111a.c();
+        }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStopped(Activity activity) {
-        if (this.f7535a.decrementAndGet() == 0) {
-            this.f7536b.set(true);
+        if (this.b.decrementAndGet() == 0) {
+            this.c.set(true);
+        }
+        if (this.f5111a != null) {
+            this.f5111a.e();
         }
     }
 
@@ -54,29 +85,42 @@ public class a implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityDestroyed(Activity activity) {
         if (activity != null) {
-            this.c.remove(Integer.valueOf(activity.hashCode()));
+            this.d.remove(Integer.valueOf(activity.hashCode()));
+        }
+        if (this.f5111a != null) {
+            this.f5111a.f();
         }
     }
 
     public boolean a() {
-        return this.f7536b.get();
+        return this.c.get();
     }
 
     public boolean a(Activity activity) {
-        return activity != null && this.c.contains(Integer.valueOf(activity.hashCode()));
+        return activity != null && this.d.contains(Integer.valueOf(activity.hashCode()));
     }
 
-    private void b() {
-        long a2 = k.a();
-        if (a2 > 0) {
-            long currentTimeMillis = System.currentTimeMillis() - a2;
+    private void c() {
+        long b = k.b();
+        if (b > 0) {
+            long currentTimeMillis = System.currentTimeMillis() - b;
             if (currentTimeMillis < 86400000 && currentTimeMillis > 0) {
-                String b2 = k.b();
                 String c = k.c();
-                if (!TextUtils.isEmpty(b2) && !TextUtils.isEmpty(c)) {
-                    com.bytedance.sdk.openadsdk.c.d.a(currentTimeMillis, b2, c);
+                String d = k.d();
+                if (!TextUtils.isEmpty(c) && !TextUtils.isEmpty(d)) {
+                    com.bytedance.sdk.openadsdk.c.d.a(currentTimeMillis, c, d);
                 }
             }
+        }
+    }
+
+    public void a(InterfaceC1047a interfaceC1047a) {
+        this.f5111a = interfaceC1047a;
+    }
+
+    public void b() {
+        if (this.f5111a != null) {
+            this.f5111a = null;
         }
     }
 }

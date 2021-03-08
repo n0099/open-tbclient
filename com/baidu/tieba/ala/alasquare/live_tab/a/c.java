@@ -6,13 +6,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ala.alasquare.live_tab.b.f;
 import com.baidu.tieba.ala.alasquare.live_tab.view.StageLiveViewHolder;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class c extends com.baidu.adp.widget.ListView.a<f, StageLiveViewHolder> {
-    private com.baidu.tieba.ala.alasquare.live_tab.view.c gAT;
+    private com.baidu.tieba.ala.alasquare.live_tab.view.c gCC;
     private TbPageContext mPageContext;
 
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), f.gBc);
+        super(tbPageContext.getPageActivity(), f.gCL);
         this.mPageContext = tbPageContext;
     }
 
@@ -21,19 +21,19 @@ public class c extends com.baidu.adp.widget.ListView.a<f, StageLiveViewHolder> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: U */
     public StageLiveViewHolder e(ViewGroup viewGroup) {
-        this.gAT = new com.baidu.tieba.ala.alasquare.live_tab.view.c(this.mPageContext, viewGroup);
-        return new StageLiveViewHolder(this.gAT);
+        this.gCC = new com.baidu.tieba.ala.alasquare.live_tab.view.c(this.mPageContext, viewGroup);
+        return new StageLiveViewHolder(this.gCC);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, f fVar, StageLiveViewHolder stageLiveViewHolder) {
-        if (stageLiveViewHolder == null || stageLiveViewHolder.gAT == null) {
+        if (stageLiveViewHolder == null || stageLiveViewHolder.gCC == null) {
             return null;
         }
-        stageLiveViewHolder.gAT.a(fVar);
-        stageLiveViewHolder.gAT.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        stageLiveViewHolder.gCC.a(fVar);
+        stageLiveViewHolder.gCC.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return stageLiveViewHolder.getView();
     }
 }

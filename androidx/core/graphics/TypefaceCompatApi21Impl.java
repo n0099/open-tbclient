@@ -9,7 +9,7 @@ import androidx.annotation.RestrictTo;
 import java.io.File;
 @RequiresApi(21)
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
     private static final String TAG = "TypefaceCompatApi21Impl";
 

@@ -10,7 +10,7 @@ import com.bumptech.glide.load.engine.cache.MemoryCache;
 import com.bumptech.glide.load.engine.prefill.PreFillType;
 import com.bumptech.glide.util.Util;
 import java.util.HashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class BitmapPreFiller {
     private final BitmapPool bitmapPool;
     private BitmapPreFillRunner current;
@@ -25,6 +25,7 @@ public final class BitmapPreFiller {
     }
 
     public void preFill(PreFillType.Builder... builderArr) {
+        Bitmap.Config config;
         if (this.current != null) {
             this.current.cancel();
         }
@@ -32,7 +33,12 @@ public final class BitmapPreFiller {
         for (int i = 0; i < builderArr.length; i++) {
             PreFillType.Builder builder = builderArr[i];
             if (builder.getConfig() == null) {
-                builder.setConfig(this.defaultFormat == DecodeFormat.PREFER_ARGB_8888 ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565);
+                if (this.defaultFormat == DecodeFormat.PREFER_ARGB_8888) {
+                    config = Bitmap.Config.ARGB_8888;
+                } else {
+                    config = Bitmap.Config.RGB_565;
+                }
+                builder.setConfig(config);
             }
             preFillTypeArr[i] = builder.build();
         }

@@ -9,7 +9,7 @@ import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class FlowableFlatMapCompletable<T> extends a<T, T> {
     final boolean delayErrors;
     final h<? super T, ? extends e> mapper;
@@ -17,10 +17,10 @@ public final class FlowableFlatMapCompletable<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.qow.a((j) new FlatMapCompletableMainSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
+        this.qoY.a((j) new FlatMapCompletableMainSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class FlatMapCompletableMainSubscriber<T> extends BasicIntQueueSubscription<T> implements j<T> {
         private static final long serialVersionUID = 8443155186132538303L;
         final org.a.c<? super T> actual;
@@ -57,7 +57,7 @@ public final class FlowableFlatMapCompletable<T> extends a<T, T> {
         @Override // org.a.c
         public void onNext(T t) {
             try {
-                e eVar = (e) io.reactivex.internal.functions.a.m(this.mapper.apply(t), "The mapper returned a null CompletableSource");
+                e eVar = (e) io.reactivex.internal.functions.a.n(this.mapper.apply(t), "The mapper returned a null CompletableSource");
                 getAndIncrement();
                 InnerConsumer innerConsumer = new InnerConsumer();
                 if (!this.cancelled && this.set.a(innerConsumer)) {
@@ -148,7 +148,7 @@ public final class FlowableFlatMapCompletable<T> extends a<T, T> {
             onError(th);
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         final class InnerConsumer extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.c, io.reactivex.disposables.b {
             private static final long serialVersionUID = 8606673141535671828L;
 

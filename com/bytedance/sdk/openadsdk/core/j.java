@@ -1,30 +1,33 @@
 package com.bytedance.sdk.openadsdk.core;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.View;
 import com.bytedance.sdk.openadsdk.utils.aj;
 /* loaded from: classes6.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f6605a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final com.bytedance.sdk.openadsdk.core.d.l f6606b;
+    private final Context f4462a;
+    private final com.bytedance.sdk.openadsdk.core.d.l b;
     private com.bytedance.sdk.openadsdk.downloadnew.core.a c;
     private com.bytedance.sdk.openadsdk.core.nativeexpress.e d;
     private com.bytedance.sdk.openadsdk.core.nativeexpress.d e;
     private View f;
     private String g;
 
-    public j(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, View view) {
+    public j(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, View view, String str) {
         this.g = "rewarded_video";
-        this.f6606b = lVar;
-        this.f6605a = context;
+        this.b = lVar;
+        this.f4462a = context;
         this.f = view;
-        this.g = aj.b(aj.c(lVar.W()));
-        if (this.f6606b.H() == 4) {
-            this.c = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f6605a, this.f6606b, this.g);
+        if (TextUtils.isEmpty(str)) {
+            this.g = aj.b(aj.c(lVar.aj()));
+        } else {
+            this.g = str;
+        }
+        if (this.b.T() == 4) {
+            this.c = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f4462a, this.b, this.g);
         }
         this.d = new com.bytedance.sdk.openadsdk.core.nativeexpress.e(context, lVar, this.g, aj.a(this.g));
         this.d.a(this.f);
@@ -36,8 +39,8 @@ public class j {
 
     public void a(int i, com.bytedance.sdk.openadsdk.core.d.j jVar) {
         if (i != -1 && jVar != null) {
-            int i2 = jVar.f6505a;
-            int i3 = jVar.f6506b;
+            int i2 = jVar.f4395a;
+            int i3 = jVar.b;
             int i4 = jVar.c;
             int i5 = jVar.d;
             switch (i) {

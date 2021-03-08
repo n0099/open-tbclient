@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.logging.Logger;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class FullContainerBox extends AbstractContainerBox implements FullBox {
     private static Logger LOG = Logger.getLogger(FullContainerBox.class.getName());
     private int flags;

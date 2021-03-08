@@ -5,7 +5,7 @@ import android.view.View;
 import android.webkit.WebView;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface NativeResponse {
     public static final int INFO_FLOW_GROUP_PIC = 35;
     public static final int INFO_FLOW_GROUP_PIC_LOGO = 36;
@@ -16,7 +16,7 @@ public interface NativeResponse {
     public static final int INFO_FLOW_RIGHT_PIC = 34;
     public static final int INFO_FLOW_VIDEO_TOP_TITLE = 37;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface AdInteractionListener {
         void onADExposed();
 
@@ -27,7 +27,7 @@ public interface NativeResponse {
         void onAdUnionClick();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface AdPrivacyListener {
         void onADPermissionClose();
 
@@ -134,7 +134,7 @@ public interface NativeResponse {
 
     void unionLogoClick();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public enum MaterialType {
         NORMAL("normal"),
         VIDEO("video"),
@@ -142,20 +142,20 @@ public interface NativeResponse {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f3229a;
+        private final String f2321a;
 
         MaterialType(String str) {
-            this.f3229a = str;
+            this.f2321a = str;
         }
 
         public String getValue() {
-            return this.f3229a;
+            return this.f2321a;
         }
 
         public static MaterialType parse(String str) {
             MaterialType[] values;
             for (MaterialType materialType : values()) {
-                if (materialType.f3229a.equalsIgnoreCase(str)) {
+                if (materialType.f2321a.equalsIgnoreCase(str)) {
                     return materialType;
                 }
             }

@@ -6,59 +6,66 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.android.util.io.ActionJsonData;
-import com.win.opensdk.az;
-import com.win.opensdk.bv;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.win.opensdk.bp;
+import com.win.opensdk.bx;
+import com.win.opensdk.ca;
+import com.win.opensdk.cd;
 import com.win.opensdk.core.Info;
-import com.win.opensdk.w;
-import com.win.opensdk.x;
-import com.win.opensdk.z;
+import com.win.opensdk.v;
 import java.io.File;
-/* loaded from: classes3.dex */
+import org.json.JSONException;
+/* loaded from: classes14.dex */
 public class WinDReceiver extends BroadcastReceiver {
+    public final void a(Context context, Info info) {
+        try {
+            File file = new File(v.a(context, info.getOpen()));
+            if (file.exists()) {
+                file.delete();
+                ca.iT(context).a(new cd(info), info.getDl_pkg(), info.getDl_vsc(), 2).a();
+                ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).cancel(232);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        String str;
+        boolean z;
         String[] split;
         if (intent.getAction().equals("android.intent.action.PACKAGE_ADDED")) {
             String dataString = intent.getDataString();
-            if (!TextUtils.isEmpty(dataString) && dataString.contains(":") && (split = dataString.split(":")) != null && split.length > 0) {
-                str = split[1];
-            } else {
-                str = "";
-            }
+            String str = (TextUtils.isEmpty(dataString) || !dataString.contains(":") || (split = dataString.split(":")) == null || split.length <= 0) ? "" : split[1];
             try {
-                Info info = (Info) az.bK(context, str);
-                if (info != null && !TextUtils.isEmpty(str) && java(info, str)) {
-                    w.iN(context).b(new x(info)).eIX();
+                Info info = (Info) bp.b(context, str);
+                if (info == null || TextUtils.isEmpty(str)) {
+                    return;
+                }
+                try {
+                    z = info.getDl_pkg().equals(str);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    z = false;
+                }
+                if (z) {
+                    bx iT = ca.iT(context);
                     try {
-                        z.a(info, 302);
-                        if (info != null && !TextUtils.isEmpty(info.getVv_ins_urls())) {
-                            z.abR(info.getVv_ins_urls());
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                        iT.qlo = ca.a("wie", new cd(info));
+                        iT.P(BdStatsConstant.StatsKey.COUNT, 200);
+                    } catch (JSONException e2) {
                     }
+                    iT.a();
                     try {
-                        File file = new File(bv.bM(context, info.getOpen()));
-                        if (file.exists()) {
-                            file.delete();
-                            w.iN(context).a(new x(info), info.getDl_pkg(), info.getDl_vsc(), 2).eIX();
-                            ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).cancel(232);
-                        }
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                    }
-                    try {
-                        Intent launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(str);
-                        if (launchIntentForPackage != null) {
-                            w.iN(context).f(new x(info), info.getOpen()).eIX();
-                            launchIntentForPackage.setFlags(268435456);
-                            context.startActivity(launchIntentForPackage);
-                            az.f(context, str);
+                        v.a(info, 302, "");
+                        if (!TextUtils.isEmpty(info.getVv_ins_urls())) {
+                            v.i(info.getVv_ins_urls());
                         }
                     } catch (Exception e3) {
                         e3.printStackTrace();
                     }
+                    a(context, info);
+                    a(context, info, str);
                 }
             } catch (Exception e4) {
                 e4.printStackTrace();
@@ -66,15 +73,25 @@ public class WinDReceiver extends BroadcastReceiver {
         }
     }
 
-    private static boolean java(Info info, String str) {
-        if (info != null) {
-            try {
-                return info.getDl_pkg().equals(str);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
+    public final void a(Context context, Info info, String str) {
+        try {
+            Intent launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(str);
+            if (launchIntentForPackage != null) {
+                bx iT = ca.iT(context);
+                cd cdVar = new cd(info);
+                String open = info.getOpen();
+                try {
+                    iT.qlo = ca.a("wiop", cdVar);
+                    iT.hD("msg", ca.a(open));
+                } catch (JSONException e) {
+                }
+                iT.a();
+                launchIntentForPackage.setFlags(268435456);
+                context.startActivity(launchIntentForPackage);
+                bp.a(context, str);
             }
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
-        return false;
     }
 }

@@ -1,8 +1,8 @@
 package com.yy.mediaframework;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GetAnchorStatInfoInterface {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface IGetCurrentCameraEncodeStatInfo {
         int onGetAnchorCurrentBitRate();
 
@@ -11,7 +11,7 @@ public class GetAnchorStatInfoInterface {
         int onGetAnchorCurrentFrameRate();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface IGetImageFilterInfo {
         float onGetBeautyLevel();
 

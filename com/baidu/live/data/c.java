@@ -6,32 +6,32 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c {
-    private List<String> aGd;
-    private boolean aGe = false;
+    private List<String> aHD;
+    private boolean aHE = false;
 
     public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aGe = jSONObject.optInt("tags_switch", 0) == 1;
+            this.aHE = jSONObject.optInt("tags_switch", 0) == 1;
             JSONArray optJSONArray = jSONObject.optJSONArray(CommandMessage.TYPE_TAGS);
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.aGd = new ArrayList();
+                this.aHD = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     if (optJSONObject != null && !StringUtils.isNull(optJSONObject.optString("member"))) {
-                        this.aGd.add(optJSONObject.optString("member"));
+                        this.aHD.add(optJSONObject.optString("member"));
                     }
                 }
             }
         }
     }
 
-    public List<String> Bg() {
-        return this.aGd;
+    public List<String> Bj() {
+        return this.aHD;
     }
 
-    public boolean Bh() {
-        return this.aGe;
+    public boolean Bk() {
+        return this.aHE;
     }
 }

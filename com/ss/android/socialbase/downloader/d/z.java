@@ -1,7 +1,7 @@
 package com.ss.android.socialbase.downloader.d;
 /* loaded from: classes6.dex */
 public abstract class z extends x implements ag {
-    protected abstract com.ss.android.socialbase.downloader.notification.a eFC();
+    protected abstract com.ss.android.socialbase.downloader.notification.a eFG();
 
     @Override // com.ss.android.socialbase.downloader.d.x, com.ss.android.socialbase.downloader.d.b
     public void a(com.ss.android.socialbase.downloader.g.c cVar) {
@@ -41,39 +41,39 @@ public abstract class z extends x implements ag {
     }
 
     private void o(com.ss.android.socialbase.downloader.g.c cVar) {
-        if (cVar != null && cVar.eHm()) {
-            com.ss.android.socialbase.downloader.notification.a Sc = com.ss.android.socialbase.downloader.notification.b.eIJ().Sc(cVar.g());
-            if (Sc == null) {
-                com.ss.android.socialbase.downloader.notification.b.eIJ().a(eFC());
+        if (cVar != null && cVar.eHs()) {
+            com.ss.android.socialbase.downloader.notification.a Sg = com.ss.android.socialbase.downloader.notification.b.eIK().Sg(cVar.g());
+            if (Sg == null) {
+                com.ss.android.socialbase.downloader.notification.b.eIK().a(eFG());
                 return;
             }
-            Sc.a(cVar);
+            Sg.a(cVar);
         }
     }
 
     private void a(int i, com.ss.android.socialbase.downloader.g.c cVar, com.ss.android.socialbase.downloader.e.a aVar, boolean z) {
-        if (cVar != null && cVar.eHm() && i != 4) {
-            com.ss.android.socialbase.downloader.notification.a Sc = com.ss.android.socialbase.downloader.notification.b.eIJ().Sc(cVar.g());
-            if (Sc == null) {
-                Sc = eFC();
+        if (cVar != null && cVar.eHs() && i != 4) {
+            com.ss.android.socialbase.downloader.notification.a Sg = com.ss.android.socialbase.downloader.notification.b.eIK().Sg(cVar.g());
+            if (Sg == null) {
+                Sg = eFG();
             }
-            Sc.b(cVar.eir());
+            Sg.b(cVar.am());
             if (i == -3) {
-                Sc.a(cVar.eir());
+                Sg.a(cVar.am());
             } else {
-                Sc.a(cVar.eHi());
+                Sg.a(cVar.eHm());
             }
-            Sc.a(i, aVar, z);
+            Sg.a(i, aVar, z);
         }
     }
 
     private void q(com.ss.android.socialbase.downloader.g.c cVar) {
-        if (cVar != null && cVar.eHm() && cVar.q() == 4) {
-            com.ss.android.socialbase.downloader.notification.a Sc = com.ss.android.socialbase.downloader.notification.b.eIJ().Sc(cVar.g());
-            if (Sc == null) {
-                Sc = eFC();
+        if (cVar != null && cVar.eHs() && cVar.q() == 4) {
+            com.ss.android.socialbase.downloader.notification.a Sg = com.ss.android.socialbase.downloader.notification.b.eIK().Sg(cVar.g());
+            if (Sg == null) {
+                Sg = eFG();
             }
-            Sc.a(cVar.eHi(), cVar.eir());
+            Sg.a(cVar.eHm(), cVar.am());
         }
     }
 

@@ -4,7 +4,7 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class s extends com.baidu.live.view.web.a {
     @Override // com.baidu.live.view.web.a
     public String getName() {
@@ -12,7 +12,7 @@ public class s extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void is(String str) {
+    public void iy(String str) {
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);

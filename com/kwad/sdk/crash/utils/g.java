@@ -18,10 +18,8 @@ public class g {
     public static final char i;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f9664a = Charset.forName("US-ASCII");
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final Charset f9665b = Charset.forName("UTF-8");
+    public static final Charset f6397a = Charset.forName("US-ASCII");
+    public static final Charset b = Charset.forName("UTF-8");
     public static final BigInteger c = BigInteger.valueOf(1024);
     public static final BigInteger d = c.multiply(c);
     public static final BigInteger e = c.multiply(d);

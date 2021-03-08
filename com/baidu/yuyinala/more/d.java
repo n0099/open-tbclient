@@ -27,26 +27,26 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.util.ScreenHelper;
 import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d implements View.OnClickListener {
-    private TextView bTm;
-    private TextView bTn;
-    private TextView ccq;
-    private ImageView eJb;
+    private TextView bUM;
+    private TextView bUN;
+    private TextView cdT;
+    private ImageView eKC;
     private Context mContext;
     private Dialog mDialog;
     private LinearLayout mPanelLayout;
     private View mRootView;
-    private com.baidu.yuyinala.more.c.a oXm;
-    private EditText owp;
-    int owr = 20;
-    Runnable owt = new Runnable() { // from class: com.baidu.yuyinala.more.d.4
+    private com.baidu.yuyinala.more.c.a oZr;
+    private EditText oyu;
+    int oyw = 20;
+    Runnable oyy = new Runnable() { // from class: com.baidu.yuyinala.more.d.4
         @Override // java.lang.Runnable
         public void run() {
-            BdUtilHelper.showSoftKeyPad(d.this.mContext, d.this.owp);
+            BdUtilHelper.showSoftKeyPad(d.this.mContext, d.this.oyu);
         }
     };
-    public CustomMessageListener bgy = new CustomMessageListener(2913097) { // from class: com.baidu.yuyinala.more.d.5
+    public CustomMessageListener bhY = new CustomMessageListener(2913097) { // from class: com.baidu.yuyinala.more.d.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -58,22 +58,22 @@ public class d implements View.OnClickListener {
 
     public d(Context context, com.baidu.yuyinala.more.c.a aVar) {
         this.mContext = context;
-        this.oXm = aVar;
+        this.oZr = aVar;
         initDialog();
     }
 
     public void show() {
-        MessageManager.getInstance().registerListener(this.bgy);
+        MessageManager.getInstance().registerListener(this.bhY);
         this.mDialog.show();
     }
 
     public void dismiss() {
         try {
             if ((this.mContext instanceof Activity) && !((Activity) this.mContext).isFinishing() && this.mDialog != null) {
-                BdUtilHelper.hideSoftKeyPad(this.mContext, this.eJb);
+                BdUtilHelper.hideSoftKeyPad(this.mContext, this.eKC);
                 this.mDialog.dismiss();
                 this.mDialog = null;
-                MessageManager.getInstance().unRegisterListener(this.bgy);
+                MessageManager.getInstance().unRegisterListener(this.bhY);
             }
         } catch (Exception e) {
         }
@@ -81,23 +81,23 @@ public class d implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.mRootView || view == this.bTn || view == this.eJb) {
+        if (view == this.mRootView || view == this.bUN || view == this.eKC) {
             dismiss();
         }
-        if (view == this.bTm && this.oXm != null) {
-            this.oXm.ejH();
-            this.oXm.Yk(this.owp.getText().toString().trim());
+        if (view == this.bUM && this.oZr != null) {
+            this.oZr.ejR();
+            this.oZr.Yr(this.oyu.getText().toString().trim());
             dismiss();
         }
     }
 
     private void initDialog() {
         this.mDialog = new Dialog(this.mContext);
-        Hf();
+        Hi();
         initView();
     }
 
-    private void Hf() {
+    private void Hi() {
         this.mDialog.setCancelable(true);
         this.mDialog.setCanceledOnTouchOutside(true);
         Window window = this.mDialog.getWindow();
@@ -117,33 +117,33 @@ public class d implements View.OnClickListener {
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mDialog.getContext()).inflate(a.g.yuyin_room_close_dialog_common_alert, (ViewGroup) null);
         this.mDialog.setContentView(this.mRootView);
-        this.owp = (EditText) this.mRootView.findViewById(a.f.et_title);
-        this.bTm = (TextView) this.mRootView.findViewById(a.f.tv_confirm);
-        this.bTn = (TextView) this.mRootView.findViewById(a.f.tv_cancel);
-        this.eJb = (ImageView) this.mRootView.findViewById(a.f.iv_close);
+        this.oyu = (EditText) this.mRootView.findViewById(a.f.et_title);
+        this.bUM = (TextView) this.mRootView.findViewById(a.f.tv_confirm);
+        this.bUN = (TextView) this.mRootView.findViewById(a.f.tv_cancel);
+        this.eKC = (ImageView) this.mRootView.findViewById(a.f.iv_close);
         this.mPanelLayout = (LinearLayout) this.mRootView.findViewById(a.f.layout_panel);
-        this.ccq = (TextView) this.mRootView.findViewById(a.f.tv_count);
+        this.cdT = (TextView) this.mRootView.findViewById(a.f.tv_count);
         ((RelativeLayout.LayoutParams) this.mPanelLayout.getLayoutParams()).setMargins(0, BdUtilHelper.getScreenSize((Activity) this.mContext).widthPixels / 3, 0, 0);
         this.mRootView.setOnClickListener(this);
-        this.bTm.setOnClickListener(this);
-        this.bTn.setOnClickListener(this);
-        this.eJb.setOnClickListener(this);
-        this.owp.addTextChangedListener(new TextWatcher() { // from class: com.baidu.yuyinala.more.d.1
+        this.bUM.setOnClickListener(this);
+        this.bUN.setOnClickListener(this);
+        this.eKC.setOnClickListener(this);
+        this.oyu.addTextChangedListener(new TextWatcher() { // from class: com.baidu.yuyinala.more.d.1
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (d.this.ccq != null) {
+                if (d.this.cdT != null) {
                     try {
-                        d.this.ccq.setText(d.this.mContext.getString(a.h.yuyin_ala_close_room_introoduce_limit, Integer.valueOf(d.x(charSequence))));
+                        d.this.cdT.setText(d.this.mContext.getString(a.h.yuyin_ala_close_room_introoduce_limit, Integer.valueOf(d.x(charSequence))));
                         if (d.x(charSequence) > 0) {
-                            d.this.bTm.setTextColor(d.this.mContext.getResources().getColor(a.c.sdk_color_ff1e66));
-                            d.this.bTm.setEnabled(true);
+                            d.this.bUM.setTextColor(d.this.mContext.getResources().getColor(a.c.sdk_color_ff1e66));
+                            d.this.bUM.setEnabled(true);
                         } else {
-                            d.this.bTm.setTextColor(d.this.mContext.getResources().getColor(a.c.sdk_color_B8B8B8));
-                            d.this.bTm.setEnabled(false);
+                            d.this.bUM.setTextColor(d.this.mContext.getResources().getColor(a.c.sdk_color_B8B8B8));
+                            d.this.bUM.setEnabled(false);
                         }
                     } catch (Exception e) {
                     }
@@ -154,26 +154,26 @@ public class d implements View.OnClickListener {
             public void afterTextChanged(Editable editable) {
             }
         });
-        this.owp.setFilters(new InputFilter[]{new InputFilter() { // from class: com.baidu.yuyinala.more.d.2
+        this.oyu.setFilters(new InputFilter[]{new InputFilter() { // from class: com.baidu.yuyinala.more.d.2
             @Override // android.text.InputFilter
             public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
-                if (d.x(spanned) + d.x(charSequence) > d.this.owr) {
+                if (d.x(spanned) + d.x(charSequence) > d.this.oyw) {
                     return "";
                 }
                 return charSequence;
             }
         }});
-        this.owp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.more.d.3
+        this.oyu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.more.d.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 try {
-                    d.this.owp.requestFocus();
-                    d.this.owp.post(d.this.owt);
+                    d.this.oyu.requestFocus();
+                    d.this.oyu.post(d.this.oyy);
                 } catch (Exception e) {
                 }
             }
         });
-        this.owp.setText("");
+        this.oyu.setText("");
     }
 
     public static int x(CharSequence charSequence) {

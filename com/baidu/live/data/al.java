@@ -1,32 +1,32 @@
 package com.baidu.live.data;
 
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class al {
-    public long aJP;
-    public String aJQ;
-    public int aJR;
-    public int aJS;
-    public boolean aJT;
+    public long aLp;
+    public String aLq;
+    public int aLr;
+    public int aLs;
+    public boolean aLt;
 
     public void parse(JSONObject jSONObject) {
         try {
             if (jSONObject != null) {
-                this.aJP = jSONObject.optLong("stay_interval_ms", 7000L);
-                this.aJQ = jSONObject.optString("rec_title");
-                this.aJR = jSONObject.optInt("rec_daily_num", 1);
-                this.aJS = jSONObject.optInt("rec_hide_limit_num", 3);
-                this.aJT = jSONObject.optInt("switch", 0) == 1;
+                this.aLp = jSONObject.optLong("stay_interval_ms", 7000L);
+                this.aLq = jSONObject.optString("rec_title");
+                this.aLr = jSONObject.optInt("rec_daily_num", 1);
+                this.aLs = jSONObject.optInt("rec_hide_limit_num", 3);
+                this.aLt = jSONObject.optInt("switch", 0) == 1;
             } else {
-                this.aJP = 7000L;
-                this.aJR = 1;
-                this.aJS = 3;
+                this.aLp = 7000L;
+                this.aLr = 1;
+                this.aLs = 3;
             }
         } catch (Exception e) {
             e.printStackTrace();
-            this.aJP = 7000L;
-            this.aJR = 1;
-            this.aJS = 3;
+            this.aLp = 7000L;
+            this.aLr = 1;
+            this.aLs = 3;
         }
     }
 }

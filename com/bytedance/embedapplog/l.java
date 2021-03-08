@@ -5,10 +5,8 @@ import androidx.annotation.NonNull;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f5831a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f5832b;
+    private String f3934a;
+    private String b;
     private String c;
     private String d;
     private String e;
@@ -21,8 +19,8 @@ public class l {
     private int n;
     private int o;
     private int p;
-    private j pmS;
-    private k pmT;
+    private j ppa;
+    private k ppb;
     private String r;
     private String s;
     private String t;
@@ -35,27 +33,27 @@ public class l {
     private boolean y = true;
 
     public l(@NonNull String str, @NonNull String str2) {
-        this.f5831a = str;
-        this.f5832b = str2;
+        this.f3934a = str;
+        this.b = str2;
     }
 
-    public String enF() {
+    public String enP() {
         return this.j;
     }
 
-    public boolean enG() {
+    public boolean enQ() {
         return this.h;
     }
 
-    public String uB() {
-        return this.f5831a;
+    public String uE() {
+        return this.f3934a;
     }
 
     public String getChannel() {
-        return this.f5832b;
+        return this.b;
     }
 
-    public String enH() {
+    public String enR() {
         return this.c;
     }
 
@@ -63,16 +61,16 @@ public class l {
         return this.d;
     }
 
-    public String enI() {
+    public String enS() {
         return this.e;
     }
 
-    public String enJ() {
+    public String enT() {
         return this.f;
     }
 
     @NonNull
-    public l AX(boolean z) {
+    public l AW(boolean z) {
         this.i = z ? 1 : 2;
         return this;
     }
@@ -81,11 +79,11 @@ public class l {
         return this.i;
     }
 
-    public j enK() {
-        return this.pmS;
+    public j enU() {
+        return this.ppa;
     }
 
-    public l Or(int i) {
+    public l Ov(int i) {
         aa.a(i);
         return this;
     }
@@ -98,7 +96,7 @@ public class l {
         return this.l;
     }
 
-    public String enL() {
+    public String enV() {
         return this.m;
     }
 
@@ -106,63 +104,63 @@ public class l {
         return this.n;
     }
 
-    public int enM() {
+    public int enW() {
         return this.o;
     }
 
-    public int enN() {
+    public int enX() {
         return this.p;
     }
 
-    public String enO() {
+    public String enY() {
         return this.r;
     }
 
-    public String enP() {
+    public String enZ() {
         return this.s;
     }
 
-    public String enQ() {
+    public String eoa() {
         return this.t;
     }
 
-    public String enR() {
+    public String eob() {
         return this.u;
     }
 
-    public String enS() {
+    public String eoc() {
         return this.v;
     }
 
-    public String enT() {
+    public String eod() {
         return this.w;
     }
 
-    public void AY(boolean z) {
+    public void AX(boolean z) {
         this.x = z;
     }
 
-    public boolean enU() {
+    public boolean eoe() {
         return this.y;
     }
 
-    public void AZ(boolean z) {
+    public void AY(boolean z) {
         this.y = z;
     }
 
-    public String enV() {
+    public String eog() {
         return this.z;
     }
 
-    public void YH(String str) {
+    public void YO(String str) {
         this.z = str;
     }
 
-    public k enW() {
-        return this.pmT;
+    public k eoh() {
+        return this.ppb;
     }
 
     public void a(k kVar) {
-        this.pmT = kVar;
+        this.ppb = kVar;
     }
 }

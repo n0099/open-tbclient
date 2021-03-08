@@ -43,8 +43,8 @@ class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean a(Context context, String str, String str2) {
-        String b2 = g.b(context, str2);
-        a(new File(b2));
+        String b = g.b(context, str2);
+        a(new File(b));
         String d = g.d(context, str2);
         String e = g.e(context, str2);
         String f = g.f(context, str2);
@@ -56,7 +56,7 @@ class b {
             a(new File(d));
             a(new File(e));
             a(new File(f));
-            a(new File(b2));
+            a(new File(b));
             throw e2;
         }
     }

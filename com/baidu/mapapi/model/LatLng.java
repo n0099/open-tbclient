@@ -10,7 +10,7 @@ public final class LatLng implements Parcelable {
     public final double longitudeE6;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2820a = LatLng.class.getSimpleName();
+    private static final String f2086a = LatLng.class.getSimpleName();
     public static final Parcelable.Creator<LatLng> CREATOR = new a();
 
     public LatLng(double d, double d2) {

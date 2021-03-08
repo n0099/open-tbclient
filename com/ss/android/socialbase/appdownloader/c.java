@@ -31,7 +31,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class c {
-    private static NotificationChannel qdG = null;
+    private static NotificationChannel qet = null;
 
     private static String f(long j, long j2, String str) {
         return new DecimalFormat("#.##").format(j2 > 1 ? j / j2 : j) + " " + str;
@@ -53,15 +53,15 @@ public class c {
     }
 
     public static int f(Context context, int i, boolean z) {
-        if (com.ss.android.socialbase.downloader.k.a.RW(i).a("install_queue_enable", 0) == 1) {
-            return h.eFW().f(context, i, z);
+        if (com.ss.android.socialbase.downloader.k.a.Sa(i).a("install_queue_enable", 0) == 1) {
+            return h.eGa().f(context, i, z);
         }
         return g(context, i, z);
     }
 
     public static int g(final Context context, final int i, final boolean z) {
-        final com.ss.android.socialbase.downloader.g.c h = com.ss.android.socialbase.downloader.downloader.f.iB(context).h(i);
-        if (h != null && "application/vnd.android.package-archive".equals(h.eHn()) && !TextUtils.isEmpty(h.k()) && !TextUtils.isEmpty(h.h())) {
+        final com.ss.android.socialbase.downloader.g.c h = com.ss.android.socialbase.downloader.downloader.f.iC(context).h(i);
+        if (h != null && "application/vnd.android.package-archive".equals(h.at()) && !TextUtils.isEmpty(h.k()) && !TextUtils.isEmpty(h.h())) {
             final File file = new File(h.k(), h.h());
             if (file.exists()) {
                 com.ss.android.socialbase.downloader.downloader.b.a(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.c.1
@@ -87,17 +87,17 @@ public class c {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        com.ss.android.socialbase.downloader.h.b eGE = com.ss.android.socialbase.downloader.downloader.b.eGE();
-        if (eGE != null) {
-            eGE.a(cVar, "install_view_result", jSONObject);
+        com.ss.android.socialbase.downloader.h.b eGI = com.ss.android.socialbase.downloader.downloader.b.eGI();
+        if (eGI != null) {
+            eGI.a(cVar, "install_view_result", jSONObject);
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [164=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [165=4] */
     /* JADX WARN: Removed duplicated region for block: B:15:0x005b  */
     /* JADX WARN: Removed duplicated region for block: B:19:0x0079 A[ORIG_RETURN, RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:30:0x009a  */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x004b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x004b A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -129,7 +129,7 @@ public class c {
                     if (packageInfo != null) {
                     }
                     th = null;
-                    if (d.eFv().eFs() != null) {
+                    if (d.eFz().eFw() != null) {
                     }
                     if (a(context, cVar, packageInfo)) {
                     }
@@ -157,24 +157,24 @@ public class c {
             th = th5;
             packageInfo = null;
         }
-        if (d.eFv().eFs() != null) {
+        if (d.eFz().eFw() != null) {
             if (packageInfo == null) {
                 com.ss.android.socialbase.downloader.e.a aVar = new com.ss.android.socialbase.downloader.e.a(2001, th);
-                d.eFv().eFs().a(cVar, aVar, aVar.a());
+                d.eFz().eFw().a(cVar, aVar, aVar.a());
             } else {
-                d.eFv().eFs().a(cVar, null, 11);
+                d.eFz().eFw().a(cVar, null, 11);
             }
         }
         if (a(context, cVar, packageInfo)) {
-            if (packageInfo != null && com.ss.android.socialbase.downloader.k.a.RW(cVar.g()).a("install_callback_error")) {
-                cVar.eIf().putString("extra_apk_package_name", packageInfo.packageName);
-                cVar.eIf().putInt("extra_apk_version_code", packageInfo.versionCode);
+            if (packageInfo != null && com.ss.android.socialbase.downloader.k.a.Sa(cVar.g()).a("install_callback_error")) {
+                cVar.eIh().put("extra_apk_package_name", packageInfo.packageName);
+                cVar.eIh().put("extra_apk_version_code", Integer.valueOf(packageInfo.versionCode));
             }
             int[] iArr = new int[1];
             if (b(context, cVar, packageInfo)) {
                 a2 = context.getPackageManager().getLaunchIntentForPackage(packageInfo.packageName);
             } else if (!z && a(context, i, file)) {
-                cVar.eIf().putBoolean("extra_silent_install_succeed", true);
+                cVar.eIh().put("extra_silent_install_succeed", true);
                 return 1;
             } else {
                 a2 = a(context, cVar, file, z, iArr);
@@ -193,8 +193,8 @@ public class c {
 
     public static int k(Context context, Intent intent) {
         try {
-            if (d.eFv().eFz() != null) {
-                if (d.eFv().eFz().a(intent)) {
+            if (d.eFz().eFD() != null) {
+                if (d.eFz().eFD().a(intent)) {
                     return 1;
                 }
             }
@@ -210,18 +210,18 @@ public class c {
 
     public static boolean a(Context context, com.ss.android.socialbase.downloader.g.c cVar, PackageInfo packageInfo) {
         if (packageInfo != null && !packageInfo.packageName.equals(cVar.D())) {
-            com.ss.android.socialbase.appdownloader.c.d eFr = d.eFv().eFr();
-            if (eFr != null) {
-                eFr.a(cVar.g(), 8, cVar.D(), packageInfo.packageName, "");
-                if (eFr.a()) {
+            com.ss.android.socialbase.appdownloader.c.d eFv = d.eFz().eFv();
+            if (eFv != null) {
+                eFv.a(cVar.g(), 8, cVar.D(), packageInfo.packageName, "");
+                if (eFv.a()) {
                     return true;
                 }
             }
-            com.ss.android.socialbase.downloader.d.d Rt = com.ss.android.socialbase.downloader.downloader.f.iB(context).Rt(cVar.g());
-            if (Rt != null) {
-                Rt.a(8, cVar, packageInfo.packageName, "");
-                com.ss.android.socialbase.appdownloader.c.c eFq = d.eFv().eFq();
-                if ((eFq instanceof com.ss.android.socialbase.appdownloader.c.a) && ((com.ss.android.socialbase.appdownloader.c.a) eFq).c()) {
+            com.ss.android.socialbase.downloader.d.d Rx = com.ss.android.socialbase.downloader.downloader.f.iC(context).Rx(cVar.g());
+            if (Rx != null) {
+                Rx.a(8, cVar, packageInfo.packageName, "");
+                com.ss.android.socialbase.appdownloader.c.c eFu = d.eFz().eFu();
+                if ((eFu instanceof com.ss.android.socialbase.appdownloader.c.a) && ((com.ss.android.socialbase.appdownloader.c.a) eFu).c()) {
                     return true;
                 }
             }
@@ -230,7 +230,7 @@ public class c {
     }
 
     public static boolean a(Context context, int i, File file) {
-        if (com.ss.android.socialbase.downloader.k.a.RW(i).a("back_miui_silent_install", 1) == 1) {
+        if (com.ss.android.socialbase.downloader.k.a.Sa(i).a("back_miui_silent_install", 1) == 1) {
             return false;
         }
         if ((com.ss.android.socialbase.downloader.m.g.j() || com.ss.android.socialbase.downloader.m.g.k()) && com.ss.android.socialbase.downloader.m.i.a(context, "com.miui.securitycore", "com.miui.enterprise.service.EntInstallService")) {
@@ -254,7 +254,7 @@ public class c {
     }
 
     public static int a() {
-        return d.eFv().f() ? 16384 : 0;
+        return d.eFz().f() ? 16384 : 0;
     }
 
     public static Uri a(int i, ah ahVar, Context context, String str, File file) {
@@ -265,10 +265,10 @@ public class c {
             } catch (Throwable th) {
             }
         } else {
-            com.ss.android.socialbase.appdownloader.c.f eFt = d.eFv().eFt();
-            if (eFt != null) {
+            com.ss.android.socialbase.appdownloader.c.f eFx = d.eFz().eFx();
+            if (eFx != null) {
                 try {
-                    uri = eFt.r(i, str, file.getAbsolutePath());
+                    uri = eFx.r(i, str, file.getAbsolutePath());
                 } catch (Throwable th2) {
                 }
             }
@@ -288,7 +288,7 @@ public class c {
     }
 
     private static Intent a(Context context, com.ss.android.socialbase.downloader.g.c cVar, @NonNull File file, boolean z, int[] iArr) {
-        Uri a2 = a(cVar.g(), com.ss.android.socialbase.downloader.downloader.f.iB(context).Ru(cVar.g()), context, d.eFv().d(), file);
+        Uri a2 = a(cVar.g(), com.ss.android.socialbase.downloader.downloader.f.iC(context).Ry(cVar.g()), context, d.eFz().d(), file);
         if (a2 == null) {
             return null;
         }
@@ -297,10 +297,10 @@ public class c {
             intent.addFlags(1);
         }
         intent.setDataAndType(a2, "application/vnd.android.package-archive");
-        com.ss.android.socialbase.appdownloader.c.d eFr = d.eFv().eFr();
-        boolean a3 = eFr != null ? eFr.a(cVar.g(), z) : false;
-        com.ss.android.socialbase.downloader.d.d Rt = com.ss.android.socialbase.downloader.downloader.f.iB(context).Rt(cVar.g());
-        boolean a4 = Rt != null ? Rt.a(z) : a3;
+        com.ss.android.socialbase.appdownloader.c.d eFv = d.eFz().eFv();
+        boolean a3 = eFv != null ? eFv.a(cVar.g(), z) : false;
+        com.ss.android.socialbase.downloader.d.d Rx = com.ss.android.socialbase.downloader.downloader.f.iC(context).Rx(cVar.g());
+        boolean a4 = Rx != null ? Rx.a(z) : a3;
         iArr[0] = a4 ? 1 : 0;
         if (a4) {
             return null;
@@ -313,7 +313,7 @@ public class c {
             return false;
         }
         if (TextUtils.isEmpty(cVar.D()) || !str.equals(cVar.D())) {
-            return !TextUtils.isEmpty(cVar.h()) && a(com.ss.android.socialbase.downloader.downloader.b.eGC(), cVar, str);
+            return !TextUtils.isEmpty(cVar.h()) && a(com.ss.android.socialbase.downloader.downloader.b.eGG(), cVar, str);
         }
         return true;
     }
@@ -338,17 +338,17 @@ public class c {
                 } catch (PackageManager.NameNotFoundException e) {
                 }
                 return packageInfo != null && i == packageInfo.versionCode;
-            } else if (com.ss.android.socialbase.downloader.k.a.RW(cVar.g()).a("install_callback_error")) {
-                String string = cVar.eIf().getString("extra_apk_package_name");
-                int i2 = cVar.eIf().getInt("extra_apk_version_code");
-                if (string == null || TextUtils.isEmpty(string) || !string.equals(str)) {
+            } else if (com.ss.android.socialbase.downloader.k.a.Sa(cVar.g()).a("install_callback_error")) {
+                String a3 = com.ss.android.socialbase.downloader.m.d.a(cVar.eIh().get("extra_apk_package_name"), (String) null);
+                int a4 = com.ss.android.socialbase.downloader.m.d.a(cVar.eIh().get("extra_apk_version_code"), 0);
+                if (a3 == null || TextUtils.isEmpty(a3) || !a3.equals(str)) {
                     return false;
                 }
                 try {
                     packageInfo = context.getPackageManager().getPackageInfo(str, a());
                 } catch (PackageManager.NameNotFoundException e2) {
                 }
-                return packageInfo != null && i2 == packageInfo.versionCode;
+                return packageInfo != null && a4 == packageInfo.versionCode;
             } else {
                 return false;
             }
@@ -381,7 +381,7 @@ public class c {
             return false;
         }
         int i2 = packageInfo2.versionCode;
-        return z ? i < i2 : (cVar == null || com.ss.android.socialbase.downloader.k.a.RW(cVar.g()).a("install_with_same_version_code", 0) != 1) ? i <= i2 : i < i2;
+        return z ? i < i2 : (cVar == null || com.ss.android.socialbase.downloader.k.a.Sa(cVar.g()).a("install_with_same_version_code", 0) != 1) ? i <= i2 : i < i2;
     }
 
     public static boolean b(Context context, com.ss.android.socialbase.downloader.g.c cVar) {
@@ -389,14 +389,14 @@ public class c {
             return false;
         }
         String D = cVar.D();
-        int eHt = cVar.eHt();
-        if (eHt > 0) {
+        int aB = cVar.aB();
+        if (aB > 0) {
             PackageInfo packageInfo = null;
             try {
                 packageInfo = context.getPackageManager().getPackageInfo(D, a());
             } catch (PackageManager.NameNotFoundException e) {
             }
-            return packageInfo != null && packageInfo.versionCode >= eHt;
+            return packageInfo != null && packageInfo.versionCode >= aB;
         }
         return d(context, cVar);
     }
@@ -405,8 +405,8 @@ public class c {
         if (context == null || cVar == null || TextUtils.isEmpty(cVar.k()) || TextUtils.isEmpty(cVar.h())) {
             return 0;
         }
-        int eHt = cVar.eHt();
-        if (eHt <= 0) {
+        int aB = cVar.aB();
+        if (aB <= 0) {
             try {
                 PackageInfo a2 = a(context, cVar, cVar.k(), cVar.h());
                 if (a2 != null) {
@@ -418,7 +418,7 @@ public class c {
             }
             return 0;
         }
-        return eHt;
+        return aB;
     }
 
     public static boolean d(Context context, com.ss.android.socialbase.downloader.g.c cVar) {
@@ -468,30 +468,30 @@ public class c {
     }
 
     public static String b() {
-        Context eGC = com.ss.android.socialbase.downloader.downloader.b.eGC();
-        File h = d.eFv().h();
-        if (h == null || !h.exists() || !h.isDirectory()) {
-            h = c(eGC);
+        Context eGG = com.ss.android.socialbase.downloader.downloader.b.eGG();
+        File vz = d.eFz().vz();
+        if (vz == null || !vz.exists() || !vz.isDirectory()) {
+            vz = c(eGG);
         }
-        if (h == null) {
+        if (vz == null) {
             throw new IllegalStateException("Failed to get storage directory");
         }
-        if (h.exists()) {
-            if (!h.isDirectory()) {
-                throw new IllegalStateException(h.getAbsolutePath() + " already exists and is not a directory");
+        if (vz.exists()) {
+            if (!vz.isDirectory()) {
+                throw new IllegalStateException(vz.getAbsolutePath() + " already exists and is not a directory");
             }
-        } else if (!h.mkdirs()) {
-            throw new IllegalStateException("Unable to create directory: " + h.getAbsolutePath());
+        } else if (!vz.mkdirs()) {
+            throw new IllegalStateException("Unable to create directory: " + vz.getAbsolutePath());
         }
-        return h.getAbsolutePath();
+        return vz.getAbsolutePath();
     }
 
     public static String a(String str, com.ss.android.socialbase.downloader.k.a aVar) {
-        JSONObject abH;
-        if (aVar == null || (abH = aVar.abH("anti_hijack_dir")) == null) {
+        JSONObject abM;
+        if (aVar == null || (abM = aVar.abM("anti_hijack_dir")) == null) {
             return "";
         }
-        String optString = abH.optString("dir_name");
+        String optString = abM.optString("dir_name");
         if (!TextUtils.isEmpty(optString) && optString.startsWith("/")) {
             optString = optString.substring(1);
         }
@@ -585,7 +585,7 @@ public class c {
         return !TextUtils.isEmpty(str) && str.equals("application/vnd.android.package-archive");
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [788=4, 789=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [789=4, 790=4] */
     public static boolean a(Context context) {
         TypedArray typedArray;
         int color;
@@ -633,11 +633,11 @@ public class c {
     @TargetApi(26)
     public static String b(@NonNull Context context) {
         try {
-            if (qdG == null) {
-                qdG = new NotificationChannel("111111", "channel_appdownloader", 3);
-                qdG.setSound(null, null);
-                qdG.setShowBadge(false);
-                ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(qdG);
+            if (qet == null) {
+                qet = new NotificationChannel("111111", "channel_appdownloader", 3);
+                qet.setSound(null, null);
+                qet.setShowBadge(false);
+                ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(qet);
                 return "111111";
             }
             return "111111";

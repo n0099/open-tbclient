@@ -9,11 +9,11 @@ import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
 public class f implements LocationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f4403a;
+    final /* synthetic */ d f3049a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(d dVar) {
-        this.f4403a = dVar;
+        this.f3049a = dVar;
     }
 
     @Override // android.location.LocationListener
@@ -23,23 +23,23 @@ public class f implements LocationListener {
         Location location3;
         Location location4;
         if (location != null) {
-            location2 = this.f4403a.u;
+            location2 = this.f3049a.u;
             if (location2 == null) {
-                this.f4403a.a(location);
+                this.f3049a.a(location);
             } else {
-                d dVar = this.f4403a;
-                location3 = this.f4403a.u;
+                d dVar = this.f3049a;
+                location3 = this.f3049a.u;
                 if (dVar.a(location, location3)) {
-                    this.f4403a.u = location;
+                    this.f3049a.u = location;
                 }
-                d dVar2 = this.f4403a;
-                location4 = this.f4403a.u;
+                d dVar2 = this.f3049a;
+                location4 = this.f3049a.u;
                 dVar2.a(location4);
             }
-            d dVar3 = this.f4403a;
-            wLocData = this.f4403a.c;
+            d dVar3 = this.f3049a;
+            wLocData = this.f3049a.c;
             dVar3.a(wLocData, "gps");
-            this.f4403a.h = true;
+            this.f3049a.h = true;
         }
     }
 
@@ -49,7 +49,7 @@ public class f implements LocationListener {
 
     @Override // android.location.LocationListener
     public void onProviderEnabled(String str) {
-        for (a aVar : this.f4403a.f) {
+        for (a aVar : this.f3049a.f) {
             if (aVar != null) {
                 aVar.d(4);
             }
@@ -58,7 +58,7 @@ public class f implements LocationListener {
 
     @Override // android.location.LocationListener
     public void onProviderDisabled(String str) {
-        for (a aVar : this.f4403a.f) {
+        for (a aVar : this.f3049a.f) {
             if (aVar != null) {
                 aVar.d(5);
             }

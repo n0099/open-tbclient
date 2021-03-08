@@ -9,7 +9,7 @@ import com.yy.mediaframework.opengles.YMFTexture;
 import com.yy.mediaframework.utils.ImageUtil;
 import com.yy.mediaframework.utils.YMFLog;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFCaptureReplaceImageFilter extends AbstractYYMediaFilter {
     private static final String TAG = "YMFCaptureReplaceImageFilter";
     private VideoLiveFilterContext mFilterContext;

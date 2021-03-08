@@ -3,19 +3,19 @@ package com.baidu.tieba.lego.card.model;
 import android.text.TextUtils;
 import com.baidu.tieba.recapp.activity.newstyle.AdWebVideoActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ImmersiveVideoCardEx extends BaseCardInfo {
     private final a videoInfo;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a {
-        public int cEb;
-        public int kuP;
-        public String lcc;
-        public int lcd;
-        public int lce;
-        public boolean lcf;
-        public boolean lcg;
+        public int cFB;
+        public int kwR;
+        public String lef;
+        public int leg;
+        public int leh;
+        public boolean lei;
+        public boolean lej;
         public String thumbUrl;
         public int videoDuration;
         public int videoHeight;
@@ -41,18 +41,18 @@ public class ImmersiveVideoCardEx extends BaseCardInfo {
             boolean z2 = optJSONObject.optInt("show_progress", 1) == 1;
             if (optInt > 0 && !TextUtils.isEmpty(optString2)) {
                 this.videoInfo = new a();
-                this.videoInfo.lcc = optString;
+                this.videoInfo.lef = optString;
                 this.videoInfo.videoUrl = optString2;
                 this.videoInfo.videoDuration = optInt;
                 this.videoInfo.videoWidth = optInt2;
                 this.videoInfo.videoHeight = optInt3;
                 this.videoInfo.thumbUrl = optString3;
-                this.videoInfo.lcd = optInt4;
-                this.videoInfo.lce = optInt5;
-                this.videoInfo.kuP = optInt6;
-                this.videoInfo.cEb = optInt7;
-                this.videoInfo.lcf = z;
-                this.videoInfo.lcg = z2;
+                this.videoInfo.leg = optInt4;
+                this.videoInfo.leh = optInt5;
+                this.videoInfo.kwR = optInt6;
+                this.videoInfo.cFB = optInt7;
+                this.videoInfo.lei = z;
+                this.videoInfo.lej = z2;
                 return;
             }
             this.videoInfo = null;

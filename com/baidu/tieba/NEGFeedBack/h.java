@@ -3,28 +3,28 @@ package com.baidu.tieba.NEGFeedBack;
 public class h {
     private String forumId;
     private String forumName;
-    private int gew;
-    private int gex;
-    private int gey;
-    private String gez;
+    private int gfZ;
+    private int gga;
+    private int ggb;
+    private String ggc;
     private int userLevel;
 
     public h(int i, int i2, int i3) {
-        this.gew = i;
-        this.gex = i2;
-        this.gey = i3;
+        this.gfZ = i;
+        this.gga = i2;
+        this.ggb = i3;
     }
 
-    public int bKy() {
-        return this.gey;
+    public int bKC() {
+        return this.ggb;
     }
 
-    public int bKz() {
-        return this.gex;
+    public int bKD() {
+        return this.gga;
     }
 
-    public int bKA() {
-        return this.gew;
+    public int bKE() {
+        return this.gfZ;
     }
 
     public void eg(String str, String str2) {
@@ -40,15 +40,15 @@ public class h {
         return this.forumName;
     }
 
-    public String bKB() {
-        return this.gez;
+    public String bKF() {
+        return this.ggc;
     }
 
     public void setForumHeadUrl(String str) {
-        this.gez = str;
+        this.ggc = str;
     }
 
-    public int bKC() {
+    public int bKG() {
         return this.userLevel;
     }
 

@@ -15,7 +15,7 @@ import com.baidu.ar.bean.ScaleType;
 import com.baidu.ar.bean.Size;
 import com.baidu.ar.h.q;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static PixelRotation a(RotationType rotationType, MirriorType mirriorType) {

@@ -1,5 +1,5 @@
 package com.yy.mediaframework.inteligence.resolution;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface IResolutionModify {
     void publishCurrentFrameRate(int i);
 

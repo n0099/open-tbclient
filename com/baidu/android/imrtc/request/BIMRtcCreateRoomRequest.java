@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
     private static final String TAG = "BIMRtcCreateRoomRequest";
     private static char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
@@ -84,9 +84,9 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
             return null;
         }
         StringBuilder sb = new StringBuilder();
-        for (byte b2 : bArr) {
-            char c = hexDigits[(b2 & 240) >> 4];
-            char c2 = hexDigits[b2 & 15];
+        for (byte b : bArr) {
+            char c = hexDigits[(b & 240) >> 4];
+            char c2 = hexDigits[b & 15];
             sb.append(c);
             sb.append(c2);
         }

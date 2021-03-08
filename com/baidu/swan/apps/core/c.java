@@ -5,10 +5,10 @@ import androidx.annotation.StringRes;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.ao.ak;
 import com.baidu.swan.apps.core.f;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
-    private static long cPt;
-    private static volatile int cPu = 0;
+    private static long cQT;
+    private static volatile int cQU = 0;
 
     public static void showToast(@StringRes int i) {
         showToast(i, 0);
@@ -16,16 +16,16 @@ public class c {
 
     private static synchronized void showToast(@StringRes int i, int i2) {
         synchronized (c.class) {
-            if (f.a.cPB) {
-                switch (cPu) {
+            if (f.a.cRb) {
+                switch (cQU) {
                     case 0:
-                        cPu = 1;
-                        cPt = System.currentTimeMillis();
+                        cQU = 1;
+                        cQT = System.currentTimeMillis();
                         ac(i, i2);
                         break;
                     case 1:
-                        if ((cPt + 5000) - System.currentTimeMillis() < 0) {
-                            cPu = 2;
+                        if ((cQT + 5000) - System.currentTimeMillis() < 0) {
+                            cQU = 2;
                             ac(i, i2);
                             f.log("toast提示个数已达2个");
                             break;
@@ -40,7 +40,7 @@ public class c {
         if (Looper.getMainLooper() == Looper.myLooper()) {
             ad(i, i2);
         } else {
-            ak.k(new Runnable() { // from class: com.baidu.swan.apps.core.c.1
+            ak.j(new Runnable() { // from class: com.baidu.swan.apps.core.c.1
                 @Override // java.lang.Runnable
                 public void run() {
                     c.ad(i, i2);
@@ -51,25 +51,25 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void ad(@StringRes int i, int i2) {
-        SwanAppActivity azV = com.baidu.swan.apps.v.f.aAl().azV();
-        if (azV != null && !azV.isFinishing()) {
+        SwanAppActivity azY = com.baidu.swan.apps.v.f.aAo().azY();
+        if (azY != null && !azY.isFinishing()) {
             switch (i2) {
                 case 1:
-                    com.baidu.swan.apps.res.widget.b.d.u(azV, i).aIu();
+                    com.baidu.swan.apps.res.widget.b.d.u(azY, i).aIx();
                     return;
                 default:
-                    com.baidu.swan.apps.res.widget.b.d.u(azV, i).aIs();
+                    com.baidu.swan.apps.res.widget.b.d.u(azY, i).aIv();
                     return;
             }
         }
     }
 
-    public static boolean anj() {
-        return cPu < 2;
+    public static boolean anm() {
+        return cQU < 2;
     }
 
     public static void reset() {
-        cPu = 0;
-        cPt = 0L;
+        cQU = 0;
+        cQT = 0L;
     }
 }

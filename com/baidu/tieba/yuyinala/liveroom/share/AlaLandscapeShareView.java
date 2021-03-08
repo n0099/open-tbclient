@@ -7,14 +7,14 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.data.ShareEntity;
 import com.baidu.live.tbadk.share.single.ShareSingleManager;
 import com.baidu.live.tbadk.share.single.interfaces.IShareChannel;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaLandscapeShareView extends LinearLayout implements View.OnClickListener {
-    private ShareEntity hNW;
+    private ShareEntity hPF;
     private TbPageContext mContext;
     private IShareChannel mShareChannel;
-    private a ozJ;
+    private a oBO;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     interface a {
         void onClick(View view);
     }
@@ -30,20 +30,20 @@ public class AlaLandscapeShareView extends LinearLayout implements View.OnClickL
         }
         int id = view.getId();
         if (id == a.f.ala_sdk_weixin_container) {
-            this.hNW.shareType = 2;
-            this.mShareChannel.shareToWeixin(this.hNW, null);
+            this.hPF.shareType = 2;
+            this.mShareChannel.shareToWeixin(this.hPF, null);
         } else if (id == a.f.ala_sdk_timeline_container) {
-            this.hNW.shareType = 3;
-            this.mShareChannel.shareToWeixinCircle(this.hNW, null);
+            this.hPF.shareType = 3;
+            this.mShareChannel.shareToWeixinCircle(this.hPF, null);
         } else if (id == a.f.ala_sdk_qq_container) {
-            this.hNW.shareType = 4;
-            this.mShareChannel.shareToQQ(this.hNW, null);
+            this.hPF.shareType = 4;
+            this.mShareChannel.shareToQQ(this.hPF, null);
         } else if (id == a.f.ala_sdk_sina_container) {
-            this.hNW.shareType = 1;
-            this.mShareChannel.shareToSinaWeibo(this.hNW, null);
+            this.hPF.shareType = 1;
+            this.mShareChannel.shareToSinaWeibo(this.hPF, null);
         }
-        if (this.ozJ != null) {
-            this.ozJ.onClick(view);
+        if (this.oBO != null) {
+            this.oBO.onClick(view);
         }
     }
 }

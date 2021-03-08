@@ -1,7 +1,7 @@
 package com.baidu.ar.http;
 
 import com.baidu.ar.ihttp.HttpException;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 class a implements l {
     private com.baidu.ar.ihttp.a qF;
     private HttpException qG;

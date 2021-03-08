@@ -7,10 +7,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class b extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.kwad.sdk.emotion.c f9729a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final EmotionPackage f9730b;
+    private final com.kwad.sdk.emotion.c f6441a;
+    private final EmotionPackage b;
     private final Runnable f;
     private final AtomicInteger c = new AtomicInteger(0);
     private final AtomicInteger d = new AtomicInteger(0);
@@ -19,8 +17,8 @@ public class b extends a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(EmotionPackage emotionPackage, com.kwad.sdk.emotion.c cVar, Runnable runnable) {
-        this.f9729a = cVar;
-        this.f9730b = emotionPackage;
+        this.f6441a = cVar;
+        this.b = emotionPackage;
         this.f = runnable;
     }
 
@@ -34,11 +32,11 @@ public class b extends a {
 
     @Override // com.kwad.sdk.emotion.a.a
     public int a() {
-        if (z.a(this.f9730b, "未成功初始化emoji package但调用了get总数.") == null) {
+        if (z.a(this.b, "未成功初始化emoji package但调用了get总数.") == null) {
             return 0;
         }
-        z.a(this.f9730b.emotions, "未成功初始化emoji package但调用了get总数.");
-        return this.f9730b.emotions.size();
+        z.a(this.b.emotions, "未成功初始化emoji package但调用了get总数.");
+        return this.b.emotions.size();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -61,8 +59,8 @@ public class b extends a {
         if (this.g) {
             synchronized (this.e) {
                 if (this.g) {
-                    if (this.f9729a != null) {
-                        this.f9729a.a(this.f9730b);
+                    if (this.f6441a != null) {
+                        this.f6441a.a(this.b);
                     }
                     this.g = false;
                     f();
@@ -76,8 +74,8 @@ public class b extends a {
         if (this.g) {
             synchronized (this.e) {
                 if (this.g) {
-                    if (this.f9729a != null) {
-                        this.f9729a.a(this.f9730b, new IllegalStateException("download all cdn fail."));
+                    if (this.f6441a != null) {
+                        this.f6441a.a(this.b, new IllegalStateException("download all cdn fail."));
                     }
                     this.g = false;
                     f();

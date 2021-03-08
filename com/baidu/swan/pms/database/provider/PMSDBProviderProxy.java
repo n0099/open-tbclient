@@ -15,17 +15,17 @@ import com.baidu.swan.pms.d;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class PMSDBProviderProxy extends ContentProvider {
-    private volatile b eub;
+    private volatile b evC;
 
-    public b bcD() {
-        if (this.eub == null) {
+    public b bcF() {
+        if (this.evC == null) {
             synchronized (b.class) {
-                if (this.eub == null) {
-                    this.eub = new b(getContext());
+                if (this.evC == null) {
+                    this.evC = new b(getContext());
                 }
             }
         }
-        return this.eub;
+        return this.evC;
     }
 
     @Override // android.content.ContentProvider
@@ -36,36 +36,36 @@ public class PMSDBProviderProxy extends ContentProvider {
     @Override // android.content.ContentProvider
     @Nullable
     public String getType(@NonNull Uri uri) {
-        return bcD().getType(uri);
+        return bcF().getType(uri);
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        return bcD().query(uri, strArr, str, strArr2, str2);
+        return bcF().query(uri, strArr, str, strArr2, str2);
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        return bcD().insert(uri, contentValues);
+        return bcF().insert(uri, contentValues);
     }
 
     @Override // android.content.ContentProvider
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        return bcD().delete(uri, str, strArr);
+        return bcF().delete(uri, str, strArr);
     }
 
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        return bcD().update(uri, contentValues, str, strArr);
+        return bcF().update(uri, contentValues, str, strArr);
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE, SGET]}, finally: {[INVOKE, SGET, CONST_STR, CONST_STR, INVOKE, IF] complete} */
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [104=4, 105=4, 106=4] */
     @Override // android.content.ContentProvider
     public ContentProviderResult[] applyBatch(@NonNull ArrayList<ContentProviderOperation> arrayList) throws OperationApplicationException {
-        SQLiteDatabase writableDatabase = bcD().asY().getWritableDatabase();
+        SQLiteDatabase writableDatabase = bcF().atb().getWritableDatabase();
         try {
             try {
                 if (d.DEBUG) {

@@ -3,7 +3,7 @@ package com.baidu.ar.face;
 import android.text.TextUtils;
 import com.baidu.ar.d;
 import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class a extends d implements IFace {
     private String L;
     private WeakReference<IFace> nD;

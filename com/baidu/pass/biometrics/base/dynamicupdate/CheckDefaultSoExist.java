@@ -48,14 +48,14 @@ public class CheckDefaultSoExist {
 
     public static void isExist(Context context) {
         String[] strArr;
-        String b2;
-        for (String str : LoadSo.f3946b) {
+        String b;
+        for (String str : LoadSo.b) {
             if (Build.VERSION.SDK_INT > 8) {
-                b2 = a(context, str);
+                b = a(context, str);
             } else {
-                b2 = b(context, str);
+                b = b(context, str);
             }
-            if (TextUtils.isEmpty(b2)) {
+            if (TextUtils.isEmpty(b)) {
                 Log.e("CheckDefaultSoExist", str + " so is not exist ,please put the " + str + " so file in the right folder");
             }
         }

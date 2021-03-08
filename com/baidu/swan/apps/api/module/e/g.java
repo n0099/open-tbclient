@@ -6,13 +6,13 @@ import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.swan.apps.ao.ak;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class g extends com.baidu.swan.apps.api.a.d {
     public g(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b kB(String str) {
+    public com.baidu.swan.apps.api.c.b kI(String str) {
         if (DEBUG) {
             Log.d("Api-TabBar", "handle: " + str);
         }
@@ -26,15 +26,15 @@ public class g extends com.baidu.swan.apps.api.a.d {
             return bVar;
         }
         int optInt = ((JSONObject) bh.second).optInt("index");
-        if (ajZ()) {
+        if (akc()) {
             com.baidu.swan.apps.console.c.e("Api-TabBar", "fail not TabBar page");
             return new com.baidu.swan.apps.api.c.b(1001, "fail not TabBar page");
         }
-        com.baidu.swan.apps.tabbar.b.a ajY = ajY();
-        if (ajY == null) {
+        com.baidu.swan.apps.tabbar.b.a akb = akb();
+        if (akb == null) {
             com.baidu.swan.apps.console.c.e("Api-TabBar", "tabBarViewController is null");
             return new com.baidu.swan.apps.api.c.b(1001, "tabBarViewController is null");
-        } else if (!ajY.kf(optInt)) {
+        } else if (!akb.kg(optInt)) {
             com.baidu.swan.apps.console.c.e("Api-TabBar", "close red dot fail");
             return new com.baidu.swan.apps.api.c.b(1001, "close red dot fail");
         } else {
@@ -42,7 +42,7 @@ public class g extends com.baidu.swan.apps.api.a.d {
         }
     }
 
-    public com.baidu.swan.apps.api.c.b kC(String str) {
+    public com.baidu.swan.apps.api.c.b kJ(String str) {
         if (DEBUG) {
             Log.d("Api-TabBar", "handle: " + str);
         }
@@ -56,15 +56,15 @@ public class g extends com.baidu.swan.apps.api.a.d {
             return bVar;
         }
         JSONObject jSONObject = (JSONObject) bh.second;
-        if (ajZ()) {
+        if (akc()) {
             com.baidu.swan.apps.console.c.e("Api-TabBar", "fail not TabBar page");
             return new com.baidu.swan.apps.api.c.b(1001, "fail not TabBar page");
         }
-        com.baidu.swan.apps.tabbar.b.a ajY = ajY();
-        if (ajY == null) {
+        com.baidu.swan.apps.tabbar.b.a akb = akb();
+        if (akb == null) {
             com.baidu.swan.apps.console.c.e("Api-TabBar", "tabBarViewController is null");
             return new com.baidu.swan.apps.api.c.b(1001, "tabBarViewController is null");
-        } else if (!ajY.b(jSONObject.optInt("index"), jSONObject.optString("text"), jSONObject.optString("iconPath"), jSONObject.optString("selectedIconPath"))) {
+        } else if (!akb.b(jSONObject.optInt("index"), jSONObject.optString("text"), jSONObject.optString("iconPath"), jSONObject.optString("selectedIconPath"))) {
             com.baidu.swan.apps.console.c.e("Api-TabBar", "set tab bar item fail");
             return new com.baidu.swan.apps.api.c.b(1001, "set tab bar item fail");
         } else {
@@ -72,28 +72,28 @@ public class g extends com.baidu.swan.apps.api.a.d {
         }
     }
 
-    public static com.baidu.swan.apps.tabbar.b.a ajY() {
-        com.baidu.swan.apps.core.d.e apz;
-        com.baidu.swan.apps.core.d.f afX = com.baidu.swan.apps.v.f.aAl().afX();
-        if (afX == null || (apz = afX.apz()) == null) {
+    public static com.baidu.swan.apps.tabbar.b.a akb() {
+        com.baidu.swan.apps.core.d.e apC;
+        com.baidu.swan.apps.core.d.f aga = com.baidu.swan.apps.v.f.aAo().aga();
+        if (aga == null || (apC = aga.apC()) == null) {
             return null;
         }
-        return apz.apk();
+        return apC.apn();
     }
 
-    public static boolean ajZ() {
-        com.baidu.swan.apps.core.d.f afX = com.baidu.swan.apps.v.f.aAl().afX();
-        return afX == null || afX.apy() == null || !afX.apy().aog();
+    public static boolean akc() {
+        com.baidu.swan.apps.core.d.f aga = com.baidu.swan.apps.v.f.aAo().aga();
+        return aga == null || aga.apB() == null || !aga.apB().aoj();
     }
 
-    public com.baidu.swan.apps.api.c.b kD(String str) {
+    public com.baidu.swan.apps.api.c.b kK(String str) {
         if (DEBUG) {
             Log.d("Api-TabBar", "start open tab bar");
         }
         return N(str, true);
     }
 
-    public com.baidu.swan.apps.api.c.b kE(String str) {
+    public com.baidu.swan.apps.api.c.b kL(String str) {
         if (DEBUG) {
             Log.d("Api-TabBar", "start close tab bar");
         }
@@ -101,7 +101,7 @@ public class g extends com.baidu.swan.apps.api.a.d {
     }
 
     private com.baidu.swan.apps.api.c.b N(String str, final boolean z) {
-        if (ajZ()) {
+        if (akc()) {
             com.baidu.swan.apps.console.c.e("Api-TabBar", "fail not TabBar page");
             return new com.baidu.swan.apps.api.c.b(1001, "fail not TabBar page");
         }
@@ -125,16 +125,16 @@ public class g extends com.baidu.swan.apps.api.a.d {
             @Override // java.lang.Runnable
             public void run() {
                 boolean hv;
-                com.baidu.swan.apps.tabbar.b.a ajY = g.ajY();
-                if (ajY == null) {
+                com.baidu.swan.apps.tabbar.b.a akb = g.akb();
+                if (akb == null) {
                     com.baidu.swan.apps.console.c.e("Api-TabBar", "tabBarViewController is null");
                     g.this.a(optString, new com.baidu.swan.apps.api.c.b(1001));
                     return;
                 }
                 if (z) {
-                    hv = ajY.hw(optBoolean);
+                    hv = akb.hw(optBoolean);
                 } else {
-                    hv = ajY.hv(optBoolean);
+                    hv = akb.hv(optBoolean);
                 }
                 if (!hv) {
                     com.baidu.swan.apps.console.c.e("Api-TabBar", (z ? "open" : "close") + "bottom bar fail");

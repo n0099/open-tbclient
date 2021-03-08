@@ -7,15 +7,15 @@ import kotlin.h;
 import kotlin.jvm.a.b;
 import kotlin.jvm.internal.p;
 @e
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class FloatingViewClickUtilKt {
     public static final <T extends View> void setLastClickTime(T t, long j) {
-        p.o(t, "$receiver");
+        p.p(t, "$receiver");
         t.setTag(R.id.floating_click_view_tag, Long.valueOf(j));
     }
 
     public static final <T extends View> long getLastClickTime(T t) {
-        p.o(t, "$receiver");
+        p.p(t, "$receiver");
         Object tag = t.getTag(R.id.floating_click_view_tag);
         if (!(tag instanceof Long)) {
             tag = null;
@@ -31,14 +31,14 @@ public final class FloatingViewClickUtilKt {
         if ((i & 1) != 0) {
             j = 800;
         }
-        p.o(view, "$receiver");
-        p.o(bVar, "block");
+        p.p(view, "$receiver");
+        p.p(bVar, "block");
         view.setOnClickListener(new FloatingViewClickUtilKt$click$1(view, j, bVar));
     }
 
     public static final <T extends View> void click(T t, long j, b<? super T, h> bVar) {
-        p.o(t, "$receiver");
-        p.o(bVar, "block");
+        p.p(t, "$receiver");
+        p.p(bVar, "block");
         t.setOnClickListener(new FloatingViewClickUtilKt$click$1(t, j, bVar));
     }
 }

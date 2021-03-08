@@ -11,10 +11,8 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f2062a = "SdkConfigOptions";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f2063b = "global-config";
+    public static final String f1610a = "SdkConfigOptions";
+    public static final String b = "global-config";
     public static final String c = "host_version";
     public static final String d = "zip_version";
     public static final String e = "updateFail";
@@ -106,17 +104,15 @@ public class c {
         private static final String f = "hash";
 
         /* renamed from: a  reason: collision with root package name */
-        public String f2064a = null;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f2065b = null;
+        public String f1611a = null;
+        public String b = null;
         public String c = null;
 
         public static a a(JSONObject jSONObject) {
             a aVar = new a();
             if (jSONObject != null) {
-                aVar.f2064a = jSONObject.optString("name");
-                aVar.f2065b = jSONObject.optString("url");
+                aVar.f1611a = jSONObject.optString("name");
+                aVar.b = jSONObject.optString("url");
                 aVar.c = jSONObject.optString(f);
             }
             return aVar;
@@ -125,8 +121,8 @@ public class c {
         public JSONObject a() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("name", this.f2064a);
-                jSONObject.put("url", this.f2065b);
+                jSONObject.put("name", this.f1611a);
+                jSONObject.put("url", this.b);
                 jSONObject.put(f, this.c);
                 return jSONObject;
             } catch (JSONException e2) {

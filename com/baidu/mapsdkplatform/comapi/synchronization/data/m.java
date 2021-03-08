@@ -10,11 +10,9 @@ import com.xiaomi.mipush.sdk.Constants;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3131a = m.class.getSimpleName();
+    private static final String f2268a = m.class.getSimpleName();
     private static boolean e = true;
-
-    /* renamed from: b  reason: collision with root package name */
-    private com.baidu.mapsdkplatform.comapi.synchronization.d.d f3132b = new com.baidu.mapsdkplatform.comapi.synchronization.d.d();
+    private com.baidu.mapsdkplatform.comapi.synchronization.d.d b = new com.baidu.mapsdkplatform.comapi.synchronization.d.d();
     private boolean c = true;
     private boolean d = true;
 
@@ -23,14 +21,14 @@ public class m {
     }
 
     private void a(f fVar) {
-        this.f3132b.a("order_id", b(fVar));
-        this.f3132b.a("company", fVar.c());
-        this.f3132b.a("order_attr", fVar.b());
-        this.f3132b.a("status", String.valueOf(fVar.h()));
-        this.f3132b.a("pull_type", String.valueOf(fVar.i()));
-        this.f3132b.a("route_finger", fVar.d());
-        this.f3132b.a("traffic_finger", fVar.e());
-        this.f3132b.a("pos_num", String.valueOf(fVar.j()));
+        this.b.a("order_id", b(fVar));
+        this.b.a("company", fVar.c());
+        this.b.a("order_attr", fVar.b());
+        this.b.a("status", String.valueOf(fVar.h()));
+        this.b.a("pull_type", String.valueOf(fVar.i()));
+        this.b.a("route_finger", fVar.d());
+        this.b.a("traffic_finger", fVar.e());
+        this.b.a("pos_num", String.valueOf(fVar.j()));
         c(fVar);
         d(fVar);
         if (this.c) {
@@ -46,21 +44,21 @@ public class m {
         stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
         stringBuffer.append("9sc87244121ip32590fq234mn6641tx7".toLowerCase());
         String a2 = com.baidu.mapsdkplatform.comapi.synchronization.d.c.a(stringBuffer.toString());
-        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3131a, "The orderId = " + stringBuffer.toString() + "; result = " + a2);
+        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2268a, "The orderId = " + stringBuffer.toString() + "; result = " + a2);
         return a2;
     }
 
     private void b() {
         String authToken = SyncSysInfo.getAuthToken();
         if (authToken == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3131a, "Token is null, permission check again");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2268a, "Token is null, permission check again");
             int permissionCheck = PermissionCheck.permissionCheck();
             if (permissionCheck != 0) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3131a, "Permission check result is: " + permissionCheck);
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2268a, "Permission check result is: " + permissionCheck);
             }
             authToken = SyncSysInfo.getAuthToken();
         }
-        this.f3132b.a("token", authToken);
+        this.b.a("token", authToken);
     }
 
     private String c() {
@@ -70,32 +68,32 @@ public class m {
     private void c(f fVar) {
         f.b g = fVar.g();
         if (f.b.DRIVING == g) {
-            this.f3132b.a("trip_mode", "driving");
+            this.b.a("trip_mode", "driving");
         } else if (f.b.RIDING == g) {
-            this.f3132b.a("trip_mode", "riding");
+            this.b.a("trip_mode", "riding");
         } else {
-            this.f3132b.a("trip_mode", "driving");
+            this.b.a("trip_mode", "driving");
         }
     }
 
     private void d(f fVar) {
         f.a f = fVar.f();
         if (f.a.BD09LL == f) {
-            this.f3132b.a("coord_type", "bd09ll");
+            this.b.a("coord_type", "bd09ll");
         } else if (f.a.BD09MC == f) {
-            this.f3132b.a("coord_type", CoordinateType.BD09MC);
+            this.b.a("coord_type", CoordinateType.BD09MC);
         } else if (f.a.GPS == f) {
-            this.f3132b.a("coord_type", CoordinateType.WGS84);
+            this.b.a("coord_type", CoordinateType.WGS84);
         } else if (f.a.COMMON == f) {
-            this.f3132b.a("coord_type", "gcj02");
+            this.b.a("coord_type", "gcj02");
         } else {
-            this.f3132b.a("coord_type", "bd09ll");
+            this.b.a("coord_type", "bd09ll");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a() {
-        StringBuffer stringBuffer = new StringBuffer(this.f3132b.a());
+        StringBuffer stringBuffer = new StringBuffer(this.b.a());
         stringBuffer.append(SyncSysInfo.getPhoneInfo());
         if (this.d) {
             stringBuffer.append("&sign=").append(AppMD5.getSignMD5String(stringBuffer.toString()));

@@ -1,17 +1,15 @@
 package com.win.opensdk;
+/* loaded from: classes14.dex */
+public class bb {
 
-import android.os.Handler;
-import android.os.Looper;
-/* loaded from: classes3.dex */
-public final class bb {
-    private static Handler qkv;
-
-    static {
-        qkv = null;
-        qkv = new Handler(Looper.getMainLooper());
-    }
-
-    public static void C(Runnable runnable) {
-        qkv.post(runnable);
-    }
+    /* renamed from: a  reason: collision with root package name */
+    public String f8116a;
+    public int b;
+    public String c;
+    public String[] d;
+    public int[] e;
+    public int[] f;
+    public int[] g;
+    public int[] h;
+    public int[] i;
 }

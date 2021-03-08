@@ -19,10 +19,8 @@ import java.util.concurrent.Future;
 public class ApkCacheManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private Future f9058a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private File f9059b;
+    private Future f6022a;
+    private File b;
     private final ExecutorService c;
     private final Callable<Void> d;
 
@@ -49,8 +47,8 @@ public class ApkCacheManager {
             /* renamed from: a */
             public Void call() {
                 synchronized (ApkCacheManager.class) {
-                    if (ApkCacheManager.this.f9059b != null && ApkCacheManager.this.f9059b.exists() && !ApkCacheManager.this.c()) {
-                        Iterator it = ApkCacheManager.this.d(ApkCacheManager.this.f9059b).iterator();
+                    if (ApkCacheManager.this.b != null && ApkCacheManager.this.b.exists() && !ApkCacheManager.this.c()) {
+                        Iterator it = ApkCacheManager.this.d(ApkCacheManager.this.b).iterator();
                         while (true) {
                             if (!it.hasNext()) {
                                 break;
@@ -72,7 +70,7 @@ public class ApkCacheManager {
             return;
         }
         try {
-            this.f9059b = ad.c(KsAdSDKImpl.get().getContext());
+            this.b = ad.c(KsAdSDKImpl.get().getContext());
         } catch (Throwable th) {
             a.a(th);
         }
@@ -136,11 +134,11 @@ public class ApkCacheManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean c() {
-        if (this.f9059b == null || !this.f9059b.exists()) {
+        if (this.b == null || !this.b.exists()) {
             return false;
         }
-        File[] listFiles = this.f9059b.listFiles();
-        return listFiles.length <= 5 || (listFiles.length <= 10 && a(this.f9059b) <= 400);
+        File[] listFiles = this.b.listFiles();
+        return listFiles.length <= 5 || (listFiles.length <= 10 && a(this.b) <= 400);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -155,11 +153,11 @@ public class ApkCacheManager {
     }
 
     public void b() {
-        if (this.f9059b == null || !this.f9059b.exists()) {
+        if (this.b == null || !this.b.exists()) {
             return;
         }
-        if (this.f9058a == null || this.f9058a.isDone()) {
-            this.f9058a = this.c.submit(this.d);
+        if (this.f6022a == null || this.f6022a.isDone()) {
+            this.f6022a = this.c.submit(this.d);
         }
     }
 }

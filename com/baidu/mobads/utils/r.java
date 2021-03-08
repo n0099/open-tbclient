@@ -22,7 +22,7 @@ import com.baidu.mobads.openad.BdFileProvider;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class r implements IXAdPackageUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdPackageUtils
     public boolean isInstalled(Context context, String str) {

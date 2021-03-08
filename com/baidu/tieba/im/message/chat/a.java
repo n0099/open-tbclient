@@ -12,17 +12,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static Pattern kJz = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
+    private static Pattern kLB = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
 
     /* renamed from: com.baidu.tieba.im.message.chat.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0761a {
+    public static class C0767a {
         public long createTime;
         public String fid;
-        public String kCr;
-        public long kJA;
-        public String kJB;
-        public int kJC;
+        public String kEt;
+        public long kLC;
+        public String kLD;
+        public int kLE;
         public long picId;
         public long serviceId;
         public String src;
@@ -34,11 +34,11 @@ public class a {
         public int userType;
     }
 
-    public static List<C0761a> c(String str, String str2, long j, long j2) {
+    public static List<C0767a> c(String str, String str2, long j, long j2) {
         return a(str, str2, null, 0L, j, j2);
     }
 
-    public static List<C0761a> a(String str, String str2, UserData userData, long j, long j2, long j3) {
+    public static List<C0767a> a(String str, String str2, UserData userData, long j, long j2, long j3) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -58,32 +58,32 @@ public class a {
                 String optString4 = optJSONObject.optString("text");
                 long optLong = optJSONObject.optLong("picId");
                 String optString5 = optJSONObject.optString("msg_src");
-                C0761a c0761a = new C0761a();
+                C0767a c0767a = new C0767a();
                 if (!TextUtils.isEmpty(optString2)) {
                     optString2 = optString2.trim();
-                    Matcher matcher = kJz.matcher(optString2);
+                    Matcher matcher = kLB.matcher(optString2);
                     if (matcher.find()) {
-                        c0761a.tid = matcher.group(1);
+                        c0767a.tid = matcher.group(1);
                     }
                 }
-                c0761a.url = optString2;
-                c0761a.title = optString;
-                c0761a.text = optString4;
-                c0761a.src = optString3;
-                c0761a.fid = str2;
-                c0761a.picId = optLong;
-                c0761a.taskId = j2;
-                c0761a.serviceId = j3;
-                c0761a.kCr = optString5;
+                c0767a.url = optString2;
+                c0767a.title = optString;
+                c0767a.text = optString4;
+                c0767a.src = optString3;
+                c0767a.fid = str2;
+                c0767a.picId = optLong;
+                c0767a.taskId = j2;
+                c0767a.serviceId = j3;
+                c0767a.kEt = optString5;
                 if (i > -1) {
-                    c0761a.userType = i;
+                    c0767a.userType = i;
                 }
                 if (userData != null) {
-                    c0761a.kJA = j;
-                    c0761a.kJB = userData.getUserId();
-                    c0761a.kJC = userData.getUserType();
+                    c0767a.kLC = j;
+                    c0767a.kLD = userData.getUserId();
+                    c0767a.kLE = userData.getUserType();
                 }
-                linkedList.add(c0761a);
+                linkedList.add(c0767a);
             }
             return linkedList;
         } catch (JSONException e) {

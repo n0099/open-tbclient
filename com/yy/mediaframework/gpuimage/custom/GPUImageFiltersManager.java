@@ -21,7 +21,7 @@ import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GPUImageFiltersManager {
     private static final String TAG = "GPUImageFiltersManager";
     private Context mAppContext;

@@ -10,7 +10,7 @@ import androidx.transition.Transition;
 import java.util.ArrayList;
 import java.util.List;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public class FragmentTransitionSupport extends FragmentTransitionImpl {
     @Override // androidx.fragment.app.FragmentTransitionImpl
     public boolean canHandle(Object obj) {

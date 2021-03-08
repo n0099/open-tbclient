@@ -8,18 +8,16 @@ import com.baidu.mapsdkplatform.comapi.synchronization.c.c;
 public class d extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f3086a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ HistoryTraceQueryOptions f3087b;
+    final /* synthetic */ int f2241a;
+    final /* synthetic */ HistoryTraceQueryOptions b;
     final /* synthetic */ String c;
     final /* synthetic */ b.a d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b.a aVar, int i, HistoryTraceQueryOptions historyTraceQueryOptions, String str) {
         this.d = aVar;
-        this.f3086a = i;
-        this.f3087b = historyTraceQueryOptions;
+        this.f2241a = i;
+        this.b = historyTraceQueryOptions;
         this.c = str;
     }
 
@@ -31,21 +29,21 @@ public class d extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
         if (c.a.SERVER_ERROR == aVar || c.a.NETWORK_ERROR == aVar || c.a.INNER_ERROR == aVar || c.a.REQUEST_ERROR == aVar) {
             i = b.g;
             if (i <= 2) {
-                this.d.a(this.c, this.f3086a, this.f3087b);
+                this.d.a(this.c, this.f2241a, this.b);
                 i2 = b.g;
                 int unused = b.g = i2 + 1;
             }
         }
         i3 = b.g;
         if (2 < i3) {
-            this.d.a(aVar, this.f3086a);
+            this.d.a(aVar, this.f2241a);
         }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.synchronization.c.e
     public void a(String str) {
-        com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(b.f3083a, "Request success, the result = " + str);
-        this.d.a(3, str, this.f3086a, this.f3087b);
+        com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(b.f2239a, "Request success, the result = " + str);
+        this.d.a(3, str, this.f2241a, this.b);
         int unused = b.g = 0;
     }
 }

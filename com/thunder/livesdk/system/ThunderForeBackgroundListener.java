@@ -3,7 +3,7 @@ package com.thunder.livesdk.system;
 import android.content.Context;
 import com.thunder.livesdk.helper.ThunderNative;
 import com.thunder.livesdk.log.ThunderLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderForeBackgroundListener implements ILifecycleCallbacks {
     private boolean mIsAppOnBackground = false;
 

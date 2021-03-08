@@ -8,29 +8,29 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class b {
     private String forumId;
-    private AntiData fqK;
-    private av jff;
-    private final ArrayList<cb> jfh;
-    private boolean jfi;
-    private boolean jfj;
+    private AntiData fsl;
+    private av jgO;
+    private final ArrayList<cb> jgQ;
+    private boolean jgR;
+    private boolean jgS;
 
     private b() {
-        this.jfi = false;
-        this.jfh = new ArrayList<>();
+        this.jgR = false;
+        this.jgQ = new ArrayList<>();
     }
 
-    public static b cBy() {
-        return a.jfk;
+    public static b cBE() {
+        return a.jgT;
     }
 
-    public boolean cBs() {
-        return this.jfi;
+    public boolean cBy() {
+        return this.jgR;
     }
 
     public void X(boolean z, boolean z2) {
-        this.jfi = z;
-        if (this.jff != null) {
-            this.jff.g(this.jfi, z2, 1);
+        this.jgR = z;
+        if (this.jgO != null) {
+            this.jgO.g(this.jgR, z2, 1);
         }
     }
 
@@ -38,42 +38,42 @@ public class b {
         if (cbVar == null) {
             return false;
         }
-        if (this.jfh.size() > 29) {
-            if (this.jff != null) {
-                this.jff.yB(1);
+        if (this.jgQ.size() > 29) {
+            if (this.jgO != null) {
+                this.jgO.yC(1);
                 return false;
             }
             return false;
         }
-        this.jfh.add(cbVar);
-        if (this.jff != null) {
-            this.jff.cm(this.jfh.size(), 1);
+        this.jgQ.add(cbVar);
+        if (this.jgO != null) {
+            this.jgO.cm(this.jgQ.size(), 1);
         }
         return true;
     }
 
-    public List<cb> cBv() {
-        return this.jfh;
+    public List<cb> cBB() {
+        return this.jgQ;
     }
 
     public void an(cb cbVar) {
-        this.jfh.remove(cbVar);
-        if (this.jff != null) {
-            this.jff.cm(this.jfh.size(), 1);
+        this.jgQ.remove(cbVar);
+        if (this.jgO != null) {
+            this.jgO.cm(this.jgQ.size(), 1);
         }
     }
 
     public void clearData() {
-        Iterator<cb> it = this.jfh.iterator();
+        Iterator<cb> it = this.jgQ.iterator();
         while (it.hasNext()) {
             cb next = it.next();
             if (next != null) {
                 next.jA(false);
             }
         }
-        this.jfh.clear();
-        if (this.jff != null) {
-            this.jff.cm(0, 1);
+        this.jgQ.clear();
+        if (this.jgO != null) {
+            this.jgO.cm(0, 1);
         }
     }
 
@@ -83,21 +83,21 @@ public class b {
     }
 
     public void a(av avVar) {
-        this.jff = avVar;
+        this.jgO = avVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static b jfk = new b();
+        private static b jgT = new b();
     }
 
-    public AntiData cBz() {
-        return this.fqK;
+    public AntiData cBF() {
+        return this.fsl;
     }
 
     public void b(AntiData antiData) {
-        this.fqK = antiData;
+        this.fsl = antiData;
     }
 
     public String getForumId() {
@@ -109,12 +109,12 @@ public class b {
     }
 
     public void qr(boolean z) {
-        this.jfj = z;
+        this.jgS = z;
     }
 
     public void di(List<String> list) {
-        if (!com.baidu.tbadk.core.util.y.isEmpty(list) && !com.baidu.tbadk.core.util.y.isEmpty(this.jfh)) {
-            Iterator<cb> it = this.jfh.iterator();
+        if (!com.baidu.tbadk.core.util.y.isEmpty(list) && !com.baidu.tbadk.core.util.y.isEmpty(this.jgQ)) {
+            Iterator<cb> it = this.jgQ.iterator();
             while (it.hasNext()) {
                 cb next = it.next();
                 int i = 0;
@@ -130,13 +130,13 @@ public class b {
                     }
                 }
             }
-            if (this.jff != null) {
-                this.jff.cm(this.jfh.size(), 1);
+            if (this.jgO != null) {
+                this.jgO.cm(this.jgQ.size(), 1);
             }
         }
     }
 
-    public boolean cBA() {
-        return this.jfj;
+    public boolean cBG() {
+        return this.jgS;
     }
 }

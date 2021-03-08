@@ -4,9 +4,9 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.MetaData;
 /* loaded from: classes.dex */
 public class h extends BaseCardInfo {
-    public static BdUniqueId iAE = BdUniqueId.gen();
-    public static BdUniqueId iAF = BdUniqueId.gen();
-    public MetaData eRz;
+    public static BdUniqueId iCn = BdUniqueId.gen();
+    public static BdUniqueId iCo = BdUniqueId.gen();
+    public MetaData eTa;
     public int type = 0;
     public int rank = 1;
 
@@ -14,11 +14,11 @@ public class h extends BaseCardInfo {
     public BdUniqueId getType() {
         switch (this.type) {
             case 0:
-                return iAE;
+                return iCn;
             case 1:
-                return iAF;
+                return iCo;
             default:
-                return iAE;
+                return iCn;
         }
     }
 }

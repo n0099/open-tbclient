@@ -20,7 +20,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Buffer implements Cloneable, ByteChannel, BufferedSink, BufferedSource {
     private static final byte[] DIGITS = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
     static final int REPLACEMENT_CHARACTER = 65533;
@@ -267,7 +267,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         int i = segment.pos;
         int i2 = segment.limit;
         int i3 = i + 1;
-        byte b2 = segment.data[i];
+        byte b = segment.data[i];
         this.size--;
         if (i3 == i2) {
             this.head = segment.pop();
@@ -275,7 +275,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         } else {
             segment.pos = i3;
         }
-        return b2;
+        return b;
     }
 
     public final byte getByte(long j) {
@@ -429,22 +429,22 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
             int i2 = segment.pos;
             int i3 = segment.limit;
             while (i2 < i3) {
-                byte b2 = bArr[i2];
-                if (b2 >= 48 && b2 <= 57) {
-                    int i4 = 48 - b2;
+                byte b = bArr[i2];
+                if (b >= 48 && b <= 57) {
+                    int i4 = 48 - b;
                     if (j < -922337203685477580L || (j == -922337203685477580L && i4 < j2)) {
-                        Buffer writeByte = new Buffer().writeDecimalLong(j).writeByte((int) b2);
+                        Buffer writeByte = new Buffer().writeDecimalLong(j).writeByte((int) b);
                         if (!z) {
                             writeByte.readByte();
                         }
                         throw new NumberFormatException("Number too large: " + writeByte.readUtf8());
                     }
                     j = (j * 10) + i4;
-                } else if (b2 == 45 && i == 0) {
+                } else if (b == 45 && i == 0) {
                     z = true;
                     j2--;
                 } else if (i == 0) {
-                    throw new NumberFormatException("Expected leading [0-9] or '-' character but was 0x" + Integer.toHexString(b2));
+                    throw new NumberFormatException("Expected leading [0-9] or '-' character but was 0x" + Integer.toHexString(b));
                 } else {
                     z2 = true;
                     if (i2 != i3) {
@@ -493,15 +493,15 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
                 int i3 = segment.limit;
                 int i4 = i2;
                 for (int i5 = segment.pos; i5 < i3; i5++) {
-                    byte b2 = bArr[i5];
-                    if (b2 >= 48 && b2 <= 57) {
-                        i = b2 - 48;
-                    } else if (b2 >= 97 && b2 <= 102) {
-                        i = (b2 - 97) + 10;
-                    } else if (b2 >= 65 && b2 <= 70) {
-                        i = (b2 - 65) + 10;
+                    byte b = bArr[i5];
+                    if (b >= 48 && b <= 57) {
+                        i = b - 48;
+                    } else if (b >= 97 && b <= 102) {
+                        i = (b - 97) + 10;
+                    } else if (b >= 65 && b <= 70) {
+                        i = (b - 65) + 10;
                     } else if (i4 == 0) {
-                        throw new NumberFormatException("Expected leading [0-9a-fA-F] character but was 0x" + Integer.toHexString(b2));
+                        throw new NumberFormatException("Expected leading [0-9a-fA-F] character but was 0x" + Integer.toHexString(b));
                     } else {
                         z = true;
                         if (i5 != i3) {
@@ -516,7 +516,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
                         i2 = i4;
                     }
                     if (((-1152921504606846976L) & j) != 0) {
-                        throw new NumberFormatException("Number too large: " + new Buffer().writeHexadecimalUnsignedLong(j).writeByte((int) b2).readUtf8());
+                        throw new NumberFormatException("Number too large: " + new Buffer().writeHexadecimalUnsignedLong(j).writeByte((int) b).readUtf8());
                     }
                     j = (j << 4) | i;
                     i4++;
@@ -784,21 +784,21 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         if (this.size == 0) {
             throw new EOFException();
         }
-        byte b2 = getByte(0L);
-        if ((b2 & 128) == 0) {
-            i = b2 & Byte.MAX_VALUE;
+        byte b = getByte(0L);
+        if ((b & 128) == 0) {
+            i = b & Byte.MAX_VALUE;
             i3 = 0;
             i2 = 1;
-        } else if ((b2 & 224) == 192) {
-            i = b2 & 31;
+        } else if ((b & 224) == 192) {
+            i = b & 31;
             i2 = 2;
             i3 = 128;
-        } else if ((b2 & 240) == 224) {
-            i = b2 & 15;
+        } else if ((b & 240) == 224) {
+            i = b & 15;
             i2 = 3;
             i3 = 2048;
-        } else if ((b2 & 248) == 240) {
-            i = b2 & 7;
+        } else if ((b & 248) == 240) {
+            i = b & 7;
             i2 = 4;
             i3 = 65536;
         } else {
@@ -806,12 +806,12 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
             return REPLACEMENT_CHARACTER;
         }
         if (this.size < i2) {
-            throw new EOFException("size < " + i2 + ": " + this.size + " (to read code point prefixed 0x" + Integer.toHexString(b2) + ")");
+            throw new EOFException("size < " + i2 + ": " + this.size + " (to read code point prefixed 0x" + Integer.toHexString(b) + ")");
         }
         for (int i4 = 1; i4 < i2; i4++) {
-            byte b3 = getByte(i4);
-            if ((b3 & 192) == 128) {
-                i = (i << 6) | (b3 & 63);
+            byte b2 = getByte(i4);
+            if ((b2 & 192) == 128) {
+                i = (i << 6) | (b2 & 63);
             } else {
                 skip(i4);
                 return REPLACEMENT_CHARACTER;
@@ -1395,17 +1395,17 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
     }
 
     @Override // okio.BufferedSource
-    public long indexOf(byte b2) {
-        return indexOf(b2, 0L, Long.MAX_VALUE);
+    public long indexOf(byte b) {
+        return indexOf(b, 0L, Long.MAX_VALUE);
     }
 
     @Override // okio.BufferedSource
-    public long indexOf(byte b2, long j) {
-        return indexOf(b2, j, Long.MAX_VALUE);
+    public long indexOf(byte b, long j) {
+        return indexOf(b, j, Long.MAX_VALUE);
     }
 
     @Override // okio.BufferedSource
-    public long indexOf(byte b2, long j, long j2) {
+    public long indexOf(byte b, long j, long j2) {
         Segment segment;
         long j3;
         Segment segment2;
@@ -1442,7 +1442,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
             byte[] bArr = segment2.data;
             int min = (int) Math.min(segment2.limit, (segment2.pos + j2) - j5);
             for (int i = (int) ((segment2.pos + j) - j5); i < min; i++) {
-                if (bArr[i] == b2) {
+                if (bArr[i] == b) {
                     return (i - segment2.pos) + j5;
                 }
             }
@@ -1492,7 +1492,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
                 j2 = j3;
             }
         }
-        byte b2 = byteString.getByte(0);
+        byte b = byteString.getByte(0);
         int size = byteString.size();
         long j4 = (this.size - size) + 1;
         long j5 = j2;
@@ -1501,7 +1501,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
             byte[] bArr = segment3.data;
             int min = (int) Math.min(segment3.limit, (segment3.pos + j4) - j5);
             for (int i = (int) ((segment3.pos + j) - j5); i < min; i++) {
-                if (bArr[i] == b2 && rangeEquals(segment3, i + 1, byteString, 1, size)) {
+                if (bArr[i] == b && rangeEquals(segment3, i + 1, byteString, 1, size)) {
                     return (i - segment3.pos) + j5;
                 }
             }
@@ -1549,14 +1549,14 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
             }
         }
         if (byteString.size() == 2) {
-            byte b2 = byteString.getByte(0);
-            byte b3 = byteString.getByte(1);
+            byte b = byteString.getByte(0);
+            byte b2 = byteString.getByte(1);
             while (j2 < this.size) {
                 byte[] bArr = segment.data;
                 int i = segment.limit;
                 for (int i2 = (int) ((segment.pos + j) - j2); i2 < i; i2++) {
-                    byte b4 = bArr[i2];
-                    if (b4 == b2 || b4 == b3) {
+                    byte b3 = bArr[i2];
+                    if (b3 == b || b3 == b2) {
                         return j2 + (i2 - segment.pos);
                     }
                 }
@@ -1571,9 +1571,9 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
                 byte[] bArr2 = segment.data;
                 int i3 = segment.limit;
                 for (int i4 = (int) ((segment.pos + j) - j2); i4 < i3; i4++) {
-                    byte b5 = bArr2[i4];
-                    for (byte b6 : internalArray) {
-                        if (b5 == b6) {
+                    byte b4 = bArr2[i4];
+                    for (byte b5 : internalArray) {
+                        if (b4 == b5) {
                             return j2 + (i4 - segment.pos);
                         }
                     }
@@ -1838,7 +1838,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         return unsafeCursor;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class UnsafeCursor implements Closeable {
         public Buffer buffer;
         public byte[] data;

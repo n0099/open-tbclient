@@ -8,46 +8,46 @@ import java.util.List;
 import tbclient.FrsTabInfo;
 /* loaded from: classes.dex */
 public class a {
-    public int jTi;
+    public int jUF;
 
     private a() {
     }
 
     public static a rM(boolean z) {
-        if (z && cNu()) {
+        if (z && cNC()) {
             return new a();
         }
         return null;
     }
 
-    public static boolean cNu() {
-        return com.baidu.tbadk.a.d.biV();
+    public static boolean cNC() {
+        return com.baidu.tbadk.a.d.biX();
     }
 
     public void r(List<n> list, boolean z) {
         int i;
-        int cNs = com.baidu.tieba.h.a.cNq().cNs();
+        int cNz = com.baidu.tieba.h.a.cNx().cNz();
         if (z) {
-            int cNr = com.baidu.tieba.h.a.cNq().cNr() - 1;
+            int cNy = com.baidu.tieba.h.a.cNx().cNy() - 1;
             Iterator<n> it = list.iterator();
             while (true) {
-                i = cNr;
+                i = cNy;
                 if (!it.hasNext()) {
                     break;
                 }
                 n next = it.next();
                 if (!(next instanceof cb)) {
-                    cNr = i;
-                } else if (((cb) next).bnL() != 1) {
+                    cNy = i;
+                } else if (((cb) next).bnN() != 1) {
                     break;
                 } else {
-                    cNr = i + 1;
+                    cNy = i + 1;
                 }
             }
         } else {
-            i = this.jTi;
+            i = this.jUF;
         }
-        this.jTi = a(i, cNs, list);
+        this.jUF = a(i, cNz, list);
     }
 
     private int a(int i, int i2, List<n> list) {
@@ -56,9 +56,9 @@ public class a {
         }
         for (int i3 = 0; i3 < list.size(); i3++) {
             cb cbVar = new cb();
-            com.baidu.tieba.tbadkCore.data.n nVar = new com.baidu.tieba.tbadkCore.data.n(null);
+            com.baidu.tieba.tbadkCore.data.n nVar = new com.baidu.tieba.tbadkCore.data.n();
             nVar.yq(true);
-            cbVar.eUi = nVar;
+            cbVar.eVH = nVar;
             list.add(i, cbVar);
             i = i + i2 + 1;
             if (i > list.size() - 1) {

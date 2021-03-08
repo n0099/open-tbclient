@@ -112,13 +112,13 @@ public class h {
         PrivateKey generatePrivate = keyFactory.generatePrivate(pKCS8EncodedKeySpec);
         Cipher cipher = Cipher.getInstance(str2);
         cipher.init(2, generatePrivate);
-        int b2 = b(keyFactory, generatePrivate);
+        int b = b(keyFactory, generatePrivate);
         try {
             byteArrayOutputStream2 = new ByteArrayOutputStream();
             try {
                 int length = bArr.length;
-                for (int i = 0; i < length; i += b2) {
-                    byteArrayOutputStream2.write(cipher.doFinal(bArr, i, length - i < b2 ? length - i : b2));
+                for (int i = 0; i < length; i += b) {
+                    byteArrayOutputStream2.write(cipher.doFinal(bArr, i, length - i < b ? length - i : b));
                 }
                 bArr2 = byteArrayOutputStream2.toByteArray();
                 if (byteArrayOutputStream2 != null) {

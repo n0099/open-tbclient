@@ -31,9 +31,7 @@ import com.yy.mediaframework.base.VideoEncoderConfig;
 import java.io.File;
 /* loaded from: classes4.dex */
 public final class MapView extends ViewGroup {
-
-    /* renamed from: b  reason: collision with root package name */
-    private static String f2737b;
+    private static String b;
     private int A;
     private com.baidu.mapsdkplatform.comapi.map.j d;
     private BaiduMap e;
@@ -59,7 +57,7 @@ public final class MapView extends ViewGroup {
     private int z;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2736a = MapView.class.getSimpleName();
+    private static final String f2032a = MapView.class.getSimpleName();
     private static int c = 0;
     private static final SparseArray<Integer> p = new SparseArray<>();
 
@@ -147,7 +145,7 @@ public final class MapView extends ViewGroup {
         this.o = context;
         com.baidu.mapsdkplatform.comapi.map.i.a();
         BMapManager.init();
-        a(context, baiduMapOptions, f2737b, c);
+        a(context, baiduMapOptions, b, c);
         this.e = new BaiduMap(this.d);
         a(context);
         b(context);
@@ -195,9 +193,9 @@ public final class MapView extends ViewGroup {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         if (this.h.a()) {
-            float f = this.d.a().E().f3038a;
-            this.h.b(f > this.d.a().f3051b);
-            this.h.a(f < this.d.a().f3050a);
+            float f = this.d.a().E().f2214a;
+            this.h.b(f > this.d.a().b);
+            this.h.a(f < this.d.a().f2221a);
         }
     }
 
@@ -253,7 +251,7 @@ public final class MapView extends ViewGroup {
         if (!new File(str).exists()) {
             throw new RuntimeException("please check whether the customMapStylePath file exits");
         }
-        f2737b = str;
+        b = str;
     }
 
     public static void setIconCustom(int i) {
@@ -294,12 +292,12 @@ public final class MapView extends ViewGroup {
     }
 
     public final BaiduMap getMap() {
-        this.e.f2692a = this;
+        this.e.f2008a = this;
         return this.e;
     }
 
     public final int getMapLevel() {
-        return p.get((int) this.d.a().E().f3038a).intValue();
+        return p.get((int) this.d.a().E().f2214a).intValue();
     }
 
     public int getScaleControlViewHeight() {
@@ -340,7 +338,7 @@ public final class MapView extends ViewGroup {
         if (bundle == null) {
             return;
         }
-        f2737b = bundle.getString("customMapPath");
+        b = bundle.getString("customMapPath");
         if (bundle == null) {
             a(context, new BaiduMapOptions());
             return;
@@ -367,8 +365,8 @@ public final class MapView extends ViewGroup {
             this.g.recycle();
             this.g = null;
         }
-        if (f2737b != null) {
-            f2737b = null;
+        if (b != null) {
+            b = null;
         }
         this.h.b();
         BMapManager.destroy();
@@ -473,7 +471,7 @@ public final class MapView extends ViewGroup {
                     }
                     if (layoutParams instanceof MapViewLayoutParams) {
                         MapViewLayoutParams mapViewLayoutParams = (MapViewLayoutParams) layoutParams;
-                        Point a2 = mapViewLayoutParams.c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.f2739b : this.d.a().a(CoordUtil.ll2mc(mapViewLayoutParams.f2738a));
+                        Point a2 = mapViewLayoutParams.c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.b : this.d.a().a(CoordUtil.ll2mc(mapViewLayoutParams.f2033a));
                         a(childAt);
                         int measuredWidth2 = childAt.getMeasuredWidth();
                         int measuredHeight3 = childAt.getMeasuredHeight();
@@ -512,7 +510,7 @@ public final class MapView extends ViewGroup {
         bundle.putInt("paddingTop", this.x);
         bundle.putInt("paddingRight", this.w);
         bundle.putInt("paddingBottom", this.y);
-        bundle.putString("customMapPath", f2737b);
+        bundle.putString("customMapPath", b);
     }
 
     @Override // android.view.ViewGroup, android.view.ViewManager

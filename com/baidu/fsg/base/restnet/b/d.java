@@ -9,7 +9,7 @@ import java.util.List;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static d f1895a;
+    private static d f1506a;
 
     private d() {
     }
@@ -17,10 +17,10 @@ public class d {
     public static synchronized d a() {
         d dVar;
         synchronized (d.class) {
-            if (f1895a == null) {
-                f1895a = new d();
+            if (f1506a == null) {
+                f1506a = new d();
             }
-            dVar = f1895a;
+            dVar = f1506a;
         }
         return dVar;
     }

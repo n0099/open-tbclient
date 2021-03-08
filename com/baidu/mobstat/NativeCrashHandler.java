@@ -2,14 +2,12 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class NativeCrashHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f3627a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static Context f3628b;
+    private static boolean f2561a;
+    private static Context b;
 
     private static native void nativeException();
 
@@ -20,10 +18,10 @@ public final class NativeCrashHandler {
     private static native void nativeUnint();
 
     static {
-        f3627a = false;
+        f2561a = false;
         try {
             System.loadLibrary("crash_analysis");
-            f3627a = true;
+            f2561a = true;
         } catch (Throwable th) {
         }
     }
@@ -32,7 +30,7 @@ public final class NativeCrashHandler {
     }
 
     public static void doNativeCrash() {
-        if (f3627a) {
+        if (f2561a) {
             try {
                 nativeException();
             } catch (Throwable th) {
@@ -42,8 +40,8 @@ public final class NativeCrashHandler {
 
     public static void init(Context context) {
         if (context != null) {
-            f3628b = context;
-            if (f3627a) {
+            b = context;
+            if (f2561a) {
                 File cacheDir = context.getCacheDir();
                 if (cacheDir.exists() && cacheDir.isDirectory()) {
                     try {
@@ -56,7 +54,7 @@ public final class NativeCrashHandler {
     }
 
     public static void uninit() {
-        if (f3627a) {
+        if (f2561a) {
             try {
                 nativeUnint();
             } catch (Throwable th) {
@@ -65,7 +63,7 @@ public final class NativeCrashHandler {
     }
 
     public static void process(String str) {
-        if (str != null && str.length() != 0 && f3627a) {
+        if (str != null && str.length() != 0 && f2561a) {
             File file = new File(str);
             if (file.exists() && file.isFile()) {
                 try {
@@ -77,6 +75,6 @@ public final class NativeCrashHandler {
     }
 
     public static void onCrashCallbackFromNative(String str) {
-        ExceptionAnalysis.getInstance().saveCrashInfo(f3628b, System.currentTimeMillis(), str, "NativeException", 1, 0);
+        ExceptionAnalysis.getInstance().saveCrashInfo(b, System.currentTimeMillis(), str, "NativeException", 1, 0);
     }
 }

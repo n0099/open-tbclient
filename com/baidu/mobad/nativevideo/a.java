@@ -7,28 +7,26 @@ import com.baidu.mobad.feeds.NativeResponse;
 import com.baidu.mobad.feeds.RequestParameters;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a implements BaiduNative.BaiduNativeNetworkListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.mobads.production.b.e f3245a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private InterfaceC0261a f3246b;
+    private com.baidu.mobads.production.b.e f2330a;
+    private InterfaceC0267a b;
     private BaiduNative c;
 
     /* renamed from: com.baidu.mobad.nativevideo.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC0261a {
+    /* loaded from: classes4.dex */
+    public interface InterfaceC0267a {
         void a(NativeErrorCode nativeErrorCode);
 
         void a(List<e> list);
     }
 
-    public a(Context context, String str, InterfaceC0261a interfaceC0261a) {
-        this.f3245a = new com.baidu.mobads.production.h.a(context, str);
-        this.f3246b = interfaceC0261a;
-        this.c = new BaiduNative(context, str, this, this.f3245a);
+    public a(Context context, String str, InterfaceC0267a interfaceC0267a) {
+        this.f2330a = new com.baidu.mobads.production.h.a(context, str);
+        this.b = interfaceC0267a;
+        this.c = new BaiduNative(context, str, this, this.f2330a);
     }
 
     public void a(RequestParameters requestParameters) {
@@ -42,10 +40,10 @@ public class a implements BaiduNative.BaiduNativeNetworkListener {
         while (true) {
             int i2 = i;
             if (i2 < list.size()) {
-                arrayList.add(new XAdVideoResponse(list.get(i2), this.f3245a.d, this.f3245a.h));
+                arrayList.add(new XAdVideoResponse(list.get(i2), this.f2330a.d, this.f2330a.h));
                 i = i2 + 1;
             } else {
-                this.f3246b.a(arrayList);
+                this.b.a(arrayList);
                 return;
             }
         }
@@ -53,6 +51,6 @@ public class a implements BaiduNative.BaiduNativeNetworkListener {
 
     @Override // com.baidu.mobad.feeds.BaiduNative.BaiduNativeNetworkListener
     public void onNativeFail(NativeErrorCode nativeErrorCode) {
-        this.f3246b.a(nativeErrorCode);
+        this.b.a(nativeErrorCode);
     }
 }

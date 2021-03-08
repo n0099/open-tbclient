@@ -9,7 +9,7 @@ import com.yy.mediaframework.opengles.IRender;
 import com.yy.mediaframework.opengles.YMFRender;
 import com.yy.mediaframework.opengles.YMFTexture;
 import com.yy.mediaframework.utils.YMFLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFNV21ToTextureFilter extends AbstractYYMediaFilter {
     private static final String TAG = "YMFNV21ToTextureFilter";
     private int mCameraFacing;

@@ -9,7 +9,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BasicFileUtils {
     public static final String JPG_EXT = ".jpg";
     private static final int MAX_BUFF_SIZE = 1048576;

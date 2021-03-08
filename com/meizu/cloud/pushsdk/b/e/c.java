@@ -50,15 +50,15 @@ public final class c {
     private static <T> com.meizu.cloud.pushsdk.b.a.c<T> c(com.meizu.cloud.pushsdk.b.a.b bVar) {
         com.meizu.cloud.pushsdk.b.a.c<T> cVar;
         try {
-            k b2 = a.b(bVar);
-            if (b2 == null) {
+            k b = a.b(bVar);
+            if (b == null) {
                 cVar = new com.meizu.cloud.pushsdk.b.a.c<>(com.meizu.cloud.pushsdk.b.i.b.a(new com.meizu.cloud.pushsdk.b.b.a()));
-            } else if (b2.a() >= 400) {
-                cVar = new com.meizu.cloud.pushsdk.b.a.c<>(com.meizu.cloud.pushsdk.b.i.b.a(new com.meizu.cloud.pushsdk.b.b.a(b2), bVar, b2.a()));
-                cVar.a(b2);
+            } else if (b.a() >= 400) {
+                cVar = new com.meizu.cloud.pushsdk.b.a.c<>(com.meizu.cloud.pushsdk.b.i.b.a(new com.meizu.cloud.pushsdk.b.b.a(b), bVar, b.a()));
+                cVar.a(b);
             } else {
                 cVar = new com.meizu.cloud.pushsdk.b.a.c<>("success");
-                cVar.a(b2);
+                cVar.a(b);
             }
             return cVar;
         } catch (com.meizu.cloud.pushsdk.b.b.a e) {

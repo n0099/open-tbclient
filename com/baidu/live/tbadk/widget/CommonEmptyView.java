@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.util.HostResourceManager;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class CommonEmptyView extends FrameLayout {
     private LinearLayout mContentView;
     private ImageView mImgView;
@@ -20,7 +20,7 @@ public class CommonEmptyView extends FrameLayout {
     private TextView mSubTitleView;
     private TextView mTitleView;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public enum ImgType {
         NO_IMG,
         NO_NET,
@@ -31,7 +31,7 @@ public class CommonEmptyView extends FrameLayout {
         NO_FAN
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public enum StyleType {
         LIGHT,
         DARK

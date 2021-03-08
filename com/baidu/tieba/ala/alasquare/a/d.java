@@ -12,7 +12,7 @@ import java.util.LinkedList;
 import java.util.List;
 import tbclient.LiveSquare.HotLiveWithCategory;
 import tbclient.ThreadInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class d {
     public static Pair<List<n>, List<n>> e(String str, List<com.baidu.tieba.ala.alasquare.live.b.a> list) {
         if (y.isEmpty(list)) {
@@ -25,38 +25,38 @@ public class d {
             if (aVar == null || y.isEmpty(aVar.live)) {
                 arrayList2.add(aVar);
             } else {
-                List<n> b2 = b(aVar);
+                List<n> b = b(aVar);
                 String str2 = aVar.entry_name;
-                if (y.isEmpty(b2) || b2.size() < 2 || TextUtils.isEmpty(str2)) {
+                if (y.isEmpty(b) || b.size() < 2 || TextUtils.isEmpty(str2)) {
                     arrayList2.add(aVar);
                 } else {
                     com.baidu.tieba.ala.alasquare.live.b.b bVar = new com.baidu.tieba.ala.alasquare.live.b.b();
-                    bVar.tabId = aVar.gzt;
+                    bVar.tabId = aVar.gBc;
                     bVar.entryName = str2;
                     bVar.labelName = aVar.label_name;
                     bVar.bitmapRatio = aVar.bitmap_wh_ratio;
-                    bVar.categoryType = aVar.gzu;
-                    bVar.gzv = aVar.gzv;
+                    bVar.categoryType = aVar.gBd;
+                    bVar.gBe = aVar.gBe;
                     linkedList.add(bVar);
-                    int size = b2.size();
+                    int size = b.size();
                     int i = size % 2 != 0 ? size - 1 : size;
                     aVar.live = aVar.live.subList(0, i);
                     for (int i2 = 0; i2 + 1 < i; i2 += 2) {
                         if ("1:1".equals(aVar.bitmap_wh_ratio)) {
                             com.baidu.tieba.ala.alasquare.subtablist.b.b bVar2 = new com.baidu.tieba.ala.alasquare.subtablist.b.b();
-                            e eVar = (e) b2.get(i2);
-                            e eVar2 = (e) b2.get(i2 + 1);
-                            bVar2.gBm = eVar;
-                            bVar2.gBn = eVar2;
+                            e eVar = (e) b.get(i2);
+                            e eVar2 = (e) b.get(i2 + 1);
+                            bVar2.gCV = eVar;
+                            bVar2.gCW = eVar2;
                             arrayList.add(eVar);
                             arrayList.add(eVar2);
                             linkedList.add(bVar2);
                         } else if ("16:9".equals(aVar.bitmap_wh_ratio)) {
                             com.baidu.tieba.ala.alasquare.subtablist.b.a aVar2 = new com.baidu.tieba.ala.alasquare.subtablist.b.a();
-                            e eVar3 = (e) b2.get(i2);
-                            e eVar4 = (e) b2.get(i2 + 1);
-                            aVar2.gBm = eVar3;
-                            aVar2.gBn = eVar4;
+                            e eVar3 = (e) b.get(i2);
+                            e eVar4 = (e) b.get(i2 + 1);
+                            aVar2.gCV = eVar3;
+                            aVar2.gCW = eVar4;
                             arrayList.add(eVar3);
                             arrayList.add(eVar4);
                             linkedList.add(aVar2);
@@ -99,7 +99,7 @@ public class d {
             return false;
         }
         for (com.baidu.tieba.ala.alasquare.live.b.a aVar2 : list) {
-            if (aVar.gzt == aVar2.gzt && aVar.entry_name.equals(aVar2.entry_name) && aVar.label_name.equals(aVar2.label_name)) {
+            if (aVar.gBc == aVar2.gBc && aVar.entry_name.equals(aVar2.entry_name) && aVar.label_name.equals(aVar2.label_name)) {
                 return true;
             }
         }
@@ -121,7 +121,7 @@ public class d {
 
     private static String a(com.baidu.tieba.ala.alasquare.live.b.a aVar) {
         StringBuilder sb = new StringBuilder();
-        sb.append(aVar.gzt + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+        sb.append(aVar.gBc + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         sb.append(aVar.entry_name + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         sb.append(aVar.label_name);
         return sb.toString();
@@ -195,7 +195,7 @@ public class d {
         for (ThreadInfo threadInfo : list) {
             if (threadInfo != null && threadInfo.thread_type.intValue() == 49) {
                 e eVar = new e();
-                eVar.tabId = aVar.gzt;
+                eVar.tabId = aVar.gBc;
                 eVar.entryName = aVar.entry_name;
                 eVar.labelName = aVar.label_name;
                 eVar.a(threadInfo);

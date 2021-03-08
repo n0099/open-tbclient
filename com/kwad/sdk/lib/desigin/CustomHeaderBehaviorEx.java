@@ -68,17 +68,17 @@ public final class CustomHeaderBehaviorEx<V extends KSAppBarLayout, B extends KS
         }
     }
 
-    public CustomHeaderBehaviorEx(Context context, AttributeSet attributeSet, B b2) {
+    public CustomHeaderBehaviorEx(Context context, AttributeSet attributeSet, B b) {
         super(context, attributeSet);
         this.mActivePointerId = -1;
         this.mTouchSlop = -1;
-        this.mBehavior = b2;
+        this.mBehavior = b;
     }
 
-    public CustomHeaderBehaviorEx(B b2) {
+    public CustomHeaderBehaviorEx(B b) {
         this.mActivePointerId = -1;
         this.mTouchSlop = -1;
-        this.mBehavior = b2;
+        this.mBehavior = b;
     }
 
     private void ensureVelocityTracker() {

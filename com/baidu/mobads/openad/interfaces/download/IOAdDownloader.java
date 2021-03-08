@@ -1,7 +1,7 @@
 package com.baidu.mobads.openad.interfaces.download;
 
 import java.util.Observer;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface IOAdDownloader {
     void addObserver(Observer observer);
 
@@ -35,7 +35,7 @@ public interface IOAdDownloader {
 
     void start();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public enum DownloadStatus {
         NONE(-1, "未开始"),
         INITING(0, "下载准备中"),
@@ -48,22 +48,20 @@ public interface IOAdDownloader {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private int f3431a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private String f3432b;
+        private int f2443a;
+        private String b;
 
         DownloadStatus(int i, String str) {
-            this.f3431a = i;
-            this.f3432b = str;
+            this.f2443a = i;
+            this.b = str;
         }
 
         public int getCode() {
-            return this.f3431a;
+            return this.f2443a;
         }
 
         public String getMessage() {
-            return this.f3432b;
+            return this.b;
         }
     }
 }

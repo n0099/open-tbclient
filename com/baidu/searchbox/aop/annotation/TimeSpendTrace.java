@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.METHOD, ElementType.CONSTRUCTOR})
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public @interface TimeSpendTrace {
     boolean isEnd() default false;
 

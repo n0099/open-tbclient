@@ -22,54 +22,54 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.gift.giftTab.g;
 import com.baidu.tieba.gift.myGiftList.a;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends BaseAdapter {
-    private NoDataView fIt;
-    private List<a.C0742a> jWC;
-    private MyGiftListActivity jWD;
+    private NoDataView fJS;
+    private List<a.C0748a> jYE;
+    private MyGiftListActivity jYF;
     private boolean mIsHost;
-    private int jWA = 1;
-    private int jWB = 14;
-    private boolean jWE = false;
-    private View.OnClickListener fhT = new View.OnClickListener() { // from class: com.baidu.tieba.gift.myGiftList.b.1
+    private int jYC = 1;
+    private int jYD = 14;
+    private boolean jYG = false;
+    private View.OnClickListener fjv = new View.OnClickListener() { // from class: com.baidu.tieba.gift.myGiftList.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (j.isNetWorkAvailable()) {
-                b.this.jWD.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(TbadkApplication.getInst().getContext(), String.valueOf((Long) view.getTag(R.id.tag_first)), (String) view.getTag(R.id.tag_second))));
+                b.this.jYF.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(TbadkApplication.getInst().getContext(), String.valueOf((Long) view.getTag(R.id.tag_first)), (String) view.getTag(R.id.tag_second))));
                 return;
             }
-            b.this.jWD.showToast(R.string.neterror);
+            b.this.jYF.showToast(R.string.neterror);
         }
     };
 
     public b(MyGiftListActivity myGiftListActivity, boolean z) {
-        this.jWD = myGiftListActivity;
+        this.jYF = myGiftListActivity;
         this.mIsHost = z;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.jWE) {
+        if (this.jYG) {
             return 1;
         }
-        if (this.jWC != null && this.jWC.size() != 0) {
-            return this.jWC.size();
+        if (this.jYE != null && this.jYE.size() != 0) {
+            return this.jYE.size();
         }
         return 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Bp */
-    public a.C0742a getItem(int i) {
-        if (this.jWE) {
+    /* renamed from: Bs */
+    public a.C0748a getItem(int i) {
+        if (this.jYG) {
             return null;
         }
         int itemId = (int) getItemId(i);
-        if (this.jWC == null || this.jWC.size() == 0 || itemId < 0 || itemId >= this.jWC.size()) {
+        if (this.jYE == null || this.jYE.size() == 0 || itemId < 0 || itemId >= this.jYE.size()) {
             return null;
         }
-        return this.jWC.get(itemId);
+        return this.jYE.get(itemId);
     }
 
     @Override // android.widget.Adapter
@@ -79,156 +79,156 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getViewTypeCount() {
-        return this.jWA;
+        return this.jYC;
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
-        if (this.jWE) {
-            return bDH();
+        if (this.jYG) {
+            return bDK();
         }
         if (view == null || view.getTag(R.id.tag_first) == null) {
-            view = LayoutInflater.from(this.jWD.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_item, viewGroup, false);
+            view = LayoutInflater.from(this.jYF.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.jWG = (TbImageView) view.findViewById(R.id.item_rank_image);
-            aVar2.jWG.setRadius(l.dip2px(this.jWD.getBaseContext(), 25.0f));
-            aVar2.jWH = (TextView) view.findViewById(R.id.item_rank_text);
-            aVar2.jWI = (HeadImageView) view.findViewById(R.id.item_portrait);
-            aVar2.jWI.setRadius(l.dip2px(this.jWD.getBaseContext(), 50.0f));
-            aVar2.jWI.setOnClickListener(this.fhT);
-            aVar2.jWI.setPlaceHolder(1);
-            aVar2.eIO = (TextView) view.findViewById(R.id.user_name);
-            aVar2.jWL = (TextView) view.findViewById(R.id.gift_num);
-            aVar2.jWK = (TextView) view.findViewById(R.id.gift_value_text);
-            aVar2.jWJ = (TextView) view.findViewById(R.id.gift_name);
-            aVar2.gDC = (TextView) view.findViewById(R.id.time);
-            aVar2.bcu = (TextView) view.findViewById(R.id.paly_icon);
-            aVar2.jWM = (TextView) view.findViewById(R.id.reward_prefix);
-            aVar2.jWN = (TextView) view.findViewById(R.id.reward_num);
+            aVar2.jYI = (TbImageView) view.findViewById(R.id.item_rank_image);
+            aVar2.jYI.setRadius(l.dip2px(this.jYF.getBaseContext(), 25.0f));
+            aVar2.jYJ = (TextView) view.findViewById(R.id.item_rank_text);
+            aVar2.jYK = (HeadImageView) view.findViewById(R.id.item_portrait);
+            aVar2.jYK.setRadius(l.dip2px(this.jYF.getBaseContext(), 50.0f));
+            aVar2.jYK.setOnClickListener(this.fjv);
+            aVar2.jYK.setPlaceHolder(1);
+            aVar2.eKp = (TextView) view.findViewById(R.id.user_name);
+            aVar2.jYN = (TextView) view.findViewById(R.id.gift_num);
+            aVar2.jYM = (TextView) view.findViewById(R.id.gift_value_text);
+            aVar2.jYL = (TextView) view.findViewById(R.id.gift_name);
+            aVar2.gFl = (TextView) view.findViewById(R.id.time);
+            aVar2.bdU = (TextView) view.findViewById(R.id.paly_icon);
+            aVar2.jYO = (TextView) view.findViewById(R.id.reward_prefix);
+            aVar2.jYP = (TextView) view.findViewById(R.id.reward_num);
             view.setTag(R.id.tag_first, aVar2);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag(R.id.tag_first);
         }
         if (!this.mIsHost) {
-            aVar.gDC.setVisibility(8);
-            aVar.bcu.setVisibility(8);
+            aVar.gFl.setVisibility(8);
+            aVar.bdU.setVisibility(8);
         } else {
-            aVar.bcu.setVisibility(0);
+            aVar.bdU.setVisibility(0);
         }
-        a.C0742a item = getItem(i);
+        a.C0748a item = getItem(i);
         if (item != null) {
-            if (this.jWD.userType == 1) {
-                aVar.jWI.startLoad(item.jWm, 12, false);
-                if (item.jWq == 1) {
-                    aVar.jWG.setVisibility(0);
-                    aVar.jWG.setImageResource(R.drawable.icon_frs_no1);
-                    aVar.jWH.setVisibility(8);
-                } else if (item.jWq == 2) {
-                    aVar.jWG.setVisibility(0);
-                    aVar.jWG.setImageResource(R.drawable.icon_frs_no2);
-                    aVar.jWH.setVisibility(8);
-                } else if (item.jWq == 3) {
-                    aVar.jWG.setVisibility(0);
-                    aVar.jWG.setImageResource(R.drawable.icon_frs_no3);
-                    aVar.jWH.setVisibility(8);
+            if (this.jYF.userType == 1) {
+                aVar.jYK.startLoad(item.jYo, 12, false);
+                if (item.jYs == 1) {
+                    aVar.jYI.setVisibility(0);
+                    aVar.jYI.setImageResource(R.drawable.icon_frs_no1);
+                    aVar.jYJ.setVisibility(8);
+                } else if (item.jYs == 2) {
+                    aVar.jYI.setVisibility(0);
+                    aVar.jYI.setImageResource(R.drawable.icon_frs_no2);
+                    aVar.jYJ.setVisibility(8);
+                } else if (item.jYs == 3) {
+                    aVar.jYI.setVisibility(0);
+                    aVar.jYI.setImageResource(R.drawable.icon_frs_no3);
+                    aVar.jYJ.setVisibility(8);
                 } else {
-                    aVar.jWG.setVisibility(8);
-                    aVar.jWH.setVisibility(0);
-                    aVar.jWH.setText(item.jWq + "");
+                    aVar.jYI.setVisibility(8);
+                    aVar.jYJ.setVisibility(0);
+                    aVar.jYJ.setText(item.jYs + "");
                 }
             } else {
-                aVar.jWI.startLoad(item.thumbnailUrl, 10, false);
-                aVar.jWG.setVisibility(8);
-                aVar.jWH.setVisibility(8);
+                aVar.jYK.startLoad(item.thumbnailUrl, 10, false);
+                aVar.jYI.setVisibility(8);
+                aVar.jYJ.setVisibility(8);
             }
-            aVar.jWI.setDrawBorder(false);
-            aVar.eIO.setText(TextUtils.isEmpty(item.nameShow) ? item.aXE : item.nameShow);
-            aVar.jWI.setTag(R.id.tag_first, Long.valueOf(item.aXC));
-            aVar.jWI.setTag(R.id.tag_second, item.aXE);
-            aVar.jWJ.setText(this.jWD.getPageContext().getString(R.string.send_to_you));
-            aVar.jWK.setText(this.jWD.getPageContext().getString(R.string.gift_value) + item.jWo);
-            if (item.jWn < 1) {
-                aVar.jWL.setVisibility(8);
+            aVar.jYK.setDrawBorder(false);
+            aVar.eKp.setText(TextUtils.isEmpty(item.nameShow) ? item.aZe : item.nameShow);
+            aVar.jYK.setTag(R.id.tag_first, Long.valueOf(item.aZc));
+            aVar.jYK.setTag(R.id.tag_second, item.aZe);
+            aVar.jYL.setText(this.jYF.getPageContext().getString(R.string.send_to_you));
+            aVar.jYM.setText(this.jYF.getPageContext().getString(R.string.gift_value) + item.jYq);
+            if (item.jYp < 1) {
+                aVar.jYN.setVisibility(8);
             } else {
-                aVar.jWL.setText(this.jWD.getPageContext().getString(R.string.mutil_sign) + item.jWn);
-                aVar.jWL.setVisibility(0);
+                aVar.jYN.setText(this.jYF.getPageContext().getString(R.string.mutil_sign) + item.jYp);
+                aVar.jYN.setVisibility(0);
             }
-            aVar.gDC.setText(au.getFormatTime(item.createTime * 1000));
-            aVar.jWM.setVisibility(0);
-            aVar.jWN.setVisibility(0);
-            if (item.eNW > 0) {
-                if (Integer.parseInt(item.jWp) == 1) {
-                    aVar.jWN.setText(g.A(item.eNW, 1));
-                } else if (Integer.parseInt(item.jWp) == 2) {
-                    aVar.jWN.setText(g.A(item.eNW, 2));
+            aVar.gFl.setText(au.getFormatTime(item.createTime * 1000));
+            aVar.jYO.setVisibility(0);
+            aVar.jYP.setVisibility(0);
+            if (item.ePx > 0) {
+                if (Integer.parseInt(item.jYr) == 1) {
+                    aVar.jYP.setText(g.A(item.ePx, 1));
+                } else if (Integer.parseInt(item.jYr) == 2) {
+                    aVar.jYP.setText(g.A(item.ePx, 2));
                 } else {
-                    aVar.jWM.setVisibility(8);
-                    aVar.jWN.setVisibility(8);
+                    aVar.jYO.setVisibility(8);
+                    aVar.jYP.setVisibility(8);
                 }
             } else {
-                aVar.jWM.setVisibility(8);
-                aVar.jWN.setVisibility(8);
+                aVar.jYO.setVisibility(8);
+                aVar.jYP.setVisibility(8);
             }
         }
         dd(view);
         return view;
     }
 
-    private View bDH() {
-        View inflate = LayoutInflater.from(this.jWD.getPageContext().getPageActivity()).inflate(R.layout.buy_no_face_item, (ViewGroup) null);
-        NoDataViewFactory.b a2 = NoDataViewFactory.b.a(new NoDataViewFactory.a(this.jWD.getResources().getString(R.string.send_gift), this.jWD.cOg()));
-        int dimension = (int) this.jWD.getResources().getDimension(R.dimen.tbds200);
-        int dimension2 = (int) this.jWD.getResources().getDimension(R.dimen.ds140);
-        String cOi = this.jWD.cOi();
-        this.jWD.getPageContext().getString(R.string.no_gift);
-        String string = this.jWD.getPageContext().getString(R.string.come_on);
-        String format = String.format(this.jWD.getPageContext().getString(R.string.send_him_gift_note), cOi);
-        Activity pageActivity = this.jWD.getPageContext().getPageActivity();
+    private View bDK() {
+        View inflate = LayoutInflater.from(this.jYF.getPageContext().getPageActivity()).inflate(R.layout.buy_no_face_item, (ViewGroup) null);
+        NoDataViewFactory.b a2 = NoDataViewFactory.b.a(new NoDataViewFactory.a(this.jYF.getResources().getString(R.string.send_gift), this.jYF.cOn()));
+        int dimension = (int) this.jYF.getResources().getDimension(R.dimen.tbds200);
+        int dimension2 = (int) this.jYF.getResources().getDimension(R.dimen.ds140);
+        String cOp = this.jYF.cOp();
+        this.jYF.getPageContext().getString(R.string.no_gift);
+        String string = this.jYF.getPageContext().getString(R.string.come_on);
+        String format = String.format(this.jYF.getPageContext().getString(R.string.send_him_gift_note), cOp);
+        Activity pageActivity = this.jYF.getPageContext().getPageActivity();
         NoDataViewFactory.c a3 = NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA);
         if (!this.mIsHost) {
             string = format;
         }
-        this.fIt = NoDataViewFactory.a(pageActivity, inflate, a3, NoDataViewFactory.d.dS(null, string), (this.mIsHost || !TbadkApplication.getInst().isGiftSwitchOn()) ? null : a2);
+        this.fJS = NoDataViewFactory.a(pageActivity, inflate, a3, NoDataViewFactory.d.dS(null, string), (this.mIsHost || !TbadkApplication.getInst().isGiftSwitchOn()) ? null : a2);
         int skinType = TbadkApplication.getInst().getSkinType();
-        this.jWD.getLayoutMode().setNightMode(skinType == 1);
-        this.jWD.getLayoutMode().onModeChanged(inflate);
-        this.fIt.onChangeSkinType(this.jWD.getPageContext(), skinType);
-        this.fIt.setVisibility(0);
+        this.jYF.getLayoutMode().setNightMode(skinType == 1);
+        this.jYF.getLayoutMode().onModeChanged(inflate);
+        this.fJS.onChangeSkinType(this.jYF.getPageContext(), skinType);
+        this.fJS.setVisibility(0);
         return inflate;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     private static class a {
-        TextView bcu;
-        TextView eIO;
-        TextView gDC;
-        TbImageView jWG;
-        TextView jWH;
-        HeadImageView jWI;
-        TextView jWJ;
-        TextView jWK;
-        TextView jWL;
-        TextView jWM;
-        TextView jWN;
+        TextView bdU;
+        TextView eKp;
+        TextView gFl;
+        TbImageView jYI;
+        TextView jYJ;
+        HeadImageView jYK;
+        TextView jYL;
+        TextView jYM;
+        TextView jYN;
+        TextView jYO;
+        TextView jYP;
 
         private a() {
         }
     }
 
-    public void setData(List<a.C0742a> list) {
+    public void setData(List<a.C0748a> list) {
         if (list == null || list.size() <= 0) {
-            this.jWE = true;
+            this.jYG = true;
         } else {
-            this.jWE = false;
+            this.jYG = false;
         }
-        this.jWC = list;
+        this.jYE = list;
         notifyDataSetChanged();
     }
 
     private void dd(View view) {
-        this.jWD.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.jWD.getLayoutMode().onModeChanged(view);
+        this.jYF.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.jYF.getLayoutMode().onModeChanged(view);
     }
 }

@@ -11,13 +11,13 @@ import com.baidu.swan.apps.api.a.d;
 import com.baidu.swan.apps.res.widget.dialog.g;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends com.baidu.swan.apps.api.a.d {
     public b(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b kp(String str) {
+    public com.baidu.swan.apps.api.c.b kw(String str) {
         if (DEBUG) {
             Log.d("Api-Modal", "start show modal");
         }
@@ -26,7 +26,7 @@ public class b extends com.baidu.swan.apps.api.a.d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.swan.apps.api.module.e.b$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class AnonymousClass1 implements d.a {
         AnonymousClass1() {
         }
@@ -40,11 +40,11 @@ public class b extends com.baidu.swan.apps.api.a.d {
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.b.1.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (eVar.aIE() != null && !eVar.aIE().isFinishing() && !eVar.aIE().isDestroyed()) {
+                    if (eVar.aIH() != null && !eVar.aIH().isFinishing() && !eVar.aIH().isDestroyed()) {
                         g.a aVar = new g.a(b.this.getContext());
-                        aVar.f(jSONObject.optString("title")).rx(jSONObject.optString("content")).a(new com.baidu.swan.apps.view.c.a()).gT(false);
+                        aVar.f(jSONObject.optString("title")).rE(jSONObject.optString("content")).a(new com.baidu.swan.apps.view.c.a()).gT(false);
                         if (jSONObject.optBoolean("showCancel", true)) {
-                            aVar.aa(jSONObject.optString("cancelColor"), a.c.aiapps_modal_cancel_color);
+                            aVar.ab(jSONObject.optString("cancelColor"), a.c.aiapps_modal_cancel_color);
                             String optString2 = jSONObject.optString("cancelText");
                             if (TextUtils.isEmpty(optString2)) {
                                 optString2 = b.this.getContext().getString(a.h.aiapps_cancel);
@@ -65,7 +65,7 @@ public class b extends com.baidu.swan.apps.api.a.d {
                                 }
                             });
                         }
-                        aVar.Z(jSONObject.optString("confirmColor"), a.c.aiapps_modal_confirm_color);
+                        aVar.aa(jSONObject.optString("confirmColor"), a.c.aiapps_modal_confirm_color);
                         aVar.a(optString, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.api.module.e.b.1.1.2
                             @Override // android.content.DialogInterface.OnClickListener
                             public void onClick(DialogInterface dialogInterface, int i) {
@@ -81,7 +81,7 @@ public class b extends com.baidu.swan.apps.api.a.d {
                                 }
                             }
                         });
-                        aVar.aHX();
+                        aVar.aIa();
                     }
                 }
             });

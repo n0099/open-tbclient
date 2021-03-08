@@ -11,29 +11,27 @@ import org.json.JSONObject;
 public class k implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private b f9592a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Handler f9593b = new Handler(Looper.getMainLooper());
+    private b f6352a;
+    private Handler b = new Handler(Looper.getMainLooper());
     private com.kwad.sdk.core.webview.a.c c;
 
     /* loaded from: classes3.dex */
     public static final class a implements com.kwad.sdk.core.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f9596a;
+        public int f6354a;
 
         public void a(@Nullable JSONObject jSONObject) {
             if (jSONObject == null) {
                 return;
             }
-            this.f9596a = jSONObject.optInt("status");
+            this.f6354a = jSONObject.optInt("status");
         }
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "status", this.f9596a);
+            com.kwad.sdk.utils.o.a(jSONObject, "status", this.f6354a);
             return jSONObject;
         }
     }
@@ -45,13 +43,13 @@ public class k implements com.kwad.sdk.core.webview.a.a {
     }
 
     public k(b bVar) {
-        this.f9592a = bVar;
+        this.f6352a = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i) {
-        if (this.f9592a != null) {
-            this.f9592a.a(i);
+        if (this.f6352a != null) {
+            this.f6352a.a(i);
         }
     }
 
@@ -67,10 +65,10 @@ public class k implements com.kwad.sdk.core.webview.a.a {
         try {
             final a aVar = new a();
             aVar.a(new JSONObject(str));
-            this.f9593b.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.k.1
+            this.b.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.k.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    k.this.a(aVar.f9596a);
+                    k.this.a(aVar.f6354a);
                     if (k.this.c != null) {
                         k.this.c.a(null);
                     }
@@ -84,8 +82,8 @@ public class k implements com.kwad.sdk.core.webview.a.a {
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void b() {
-        this.f9592a = null;
+        this.f6352a = null;
         this.c = null;
-        this.f9593b.removeCallbacksAndMessages(null);
+        this.b.removeCallbacksAndMessages(null);
     }
 }

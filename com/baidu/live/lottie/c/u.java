@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class u {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -83,7 +83,7 @@ public class u {
                             maskMode = Mask.MaskMode.MaskModeSubtract;
                             continue;
                         case true:
-                            eVar.bc("Animation contains intersect masks. They are not supported but will be treated like add masks.");
+                            eVar.bg("Animation contains intersect masks. They are not supported but will be treated like add masks.");
                             maskMode = Mask.MaskMode.MaskModeIntersect;
                             continue;
                         default:

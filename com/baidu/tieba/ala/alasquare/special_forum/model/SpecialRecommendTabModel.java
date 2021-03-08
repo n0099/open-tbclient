@@ -20,12 +20,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class SpecialRecommendTabModel extends BdBaseModel {
-    private a gHs;
+    private a gJb;
     private TbPageContext mTbPageContext;
     private int pn = 1;
-    private HttpMessageListener gHo = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SPECIAL_RECOMMEND_TAB) { // from class: com.baidu.tieba.ala.alasquare.special_forum.model.SpecialRecommendTabModel.1
+    private HttpMessageListener gIX = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SPECIAL_RECOMMEND_TAB) { // from class: com.baidu.tieba.ala.alasquare.special_forum.model.SpecialRecommendTabModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -34,30 +34,30 @@ public class SpecialRecommendTabModel extends BdBaseModel {
                 if (alaSpecialRecommendResponse.isSuccess()) {
                     if (SpecialRecommendTabModel.this.pn == 0) {
                         SpecialRecommendTabModel.this.mDatas.clear();
-                        SpecialRecommendTabModel.this.gHt.clear();
+                        SpecialRecommendTabModel.this.gJc.clear();
                     }
                     boolean z = alaSpecialRecommendResponse.hasMore;
                     if (y.getCount(alaSpecialRecommendResponse.livesList) > 0) {
                         SpecialRecommendTabModel.this.cj(alaSpecialRecommendResponse.livesList);
                     }
-                    SpecialRecommendTabModel.this.ck(SpecialRecommendTabModel.this.gHt);
+                    SpecialRecommendTabModel.this.ck(SpecialRecommendTabModel.this.gJc);
                     if (SpecialRecommendTabModel.this.pn == 0 && alaSpecialRecommendResponse.mSpecialActivityListData != null) {
                         SpecialRecommendTabModel.this.a(alaSpecialRecommendResponse.mSpecialActivityListData);
                     }
                     SpecialRecommendTabModel.d(SpecialRecommendTabModel.this);
-                    if (SpecialRecommendTabModel.this.gHs != null) {
-                        SpecialRecommendTabModel.this.gHs.m(SpecialRecommendTabModel.this.mDatas, z);
+                    if (SpecialRecommendTabModel.this.gJb != null) {
+                        SpecialRecommendTabModel.this.gJb.m(SpecialRecommendTabModel.this.mDatas, z);
                     }
-                } else if (SpecialRecommendTabModel.this.gHs != null) {
-                    SpecialRecommendTabModel.this.gHs.A(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                } else if (SpecialRecommendTabModel.this.gJb != null) {
+                    SpecialRecommendTabModel.this.gJb.A(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
     };
     private List<n> mDatas = new LinkedList();
-    private List<cb> gHt = new ArrayList();
+    private List<cb> gJc = new ArrayList();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void A(int i, String str);
 
@@ -72,15 +72,15 @@ public class SpecialRecommendTabModel extends BdBaseModel {
 
     public SpecialRecommendTabModel(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        MessageManager.getInstance().registerListener(this.gHo);
+        MessageManager.getInstance().registerListener(this.gIX);
     }
 
-    public void Ut() {
+    public void Uw() {
         this.pn = 0;
         loadData(0);
     }
 
-    public void bRL() {
+    public void bRR() {
         loadData(this.pn);
     }
 
@@ -93,7 +93,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(c cVar) {
-        if (cVar != null && !y.isEmpty(cVar.gGV)) {
+        if (cVar != null && !y.isEmpty(cVar.gIE)) {
             if (y.getCount(this.mDatas) > 2) {
                 this.mDatas.add(2, cVar);
             } else {
@@ -109,7 +109,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
             if (cbVar != null && cbVar.getThreadType() == 49) {
                 String tid = cbVar.getTid();
                 if (!TextUtils.isEmpty(tid)) {
-                    Iterator<cb> it = this.gHt.iterator();
+                    Iterator<cb> it = this.gJc.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             z = false;
@@ -120,7 +120,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
                         }
                     }
                     if (!z) {
-                        this.gHt.add(cbVar);
+                        this.gJc.add(cbVar);
                     }
                 }
             }
@@ -134,12 +134,12 @@ public class SpecialRecommendTabModel extends BdBaseModel {
             for (int i = 0; i < size; i += 2) {
                 b bVar = new b();
                 e eVar = new e();
-                eVar.gyO = list.get(i);
-                bVar.gBm = eVar;
+                eVar.gAx = list.get(i);
+                bVar.gCV = eVar;
                 if (i + 1 < size) {
                     e eVar2 = new e();
-                    eVar2.gyO = list.get(i + 1);
-                    bVar.gBn = eVar2;
+                    eVar2.gAx = list.get(i + 1);
+                    bVar.gCW = eVar2;
                 }
                 this.mDatas.add(bVar);
             }
@@ -147,11 +147,11 @@ public class SpecialRecommendTabModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gHo);
+        MessageManager.getInstance().unRegisterListener(this.gIX);
     }
 
     public void a(a aVar) {
-        this.gHs = aVar;
+        this.gJb = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -164,7 +164,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
         return false;
     }
 
-    public List<cb> bSw() {
-        return this.gHt;
+    public List<cb> bSC() {
+        return this.gJc;
     }
 }

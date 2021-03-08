@@ -7,12 +7,12 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class ThreadUtils {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: org.webrtc.ThreadUtils$1CaughtException  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class C1CaughtException {
         Exception e;
 
@@ -22,7 +22,7 @@ public class ThreadUtils {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: org.webrtc.ThreadUtils$1Result  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class C1Result {
         public V value;
 
@@ -30,12 +30,12 @@ public class ThreadUtils {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface BlockingOperation {
         void run() throws InterruptedException;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class ThreadChecker {
         @Nullable
         private Thread thread = Thread.currentThread();

@@ -24,11 +24,11 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a implements z {
     private static BroadcastReceiver broadcastReceiver = null;
-    c gmp;
-    CustomMessageListener gmq = new CustomMessageListener(2921365) { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1
+    c gnY;
+    CustomMessageListener gnZ = new CustomMessageListener(2921365) { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Removed duplicated region for block: B:10:0x0015  */
         /* JADX WARN: Removed duplicated region for block: B:28:0x0081  */
@@ -47,7 +47,7 @@ public class a implements z {
                         WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
                         writeImagesInfo.parseJson(stringExtra);
                         writeImagesInfo.updateQuality();
-                        if (a.this.gmp != null) {
+                        if (a.this.gnY != null) {
                             ArrayList arrayList = new ArrayList();
                             LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo.getChosedFiles();
                             if (chosedFiles != null && chosedFiles.size() > 0) {
@@ -56,19 +56,19 @@ public class a implements z {
                                         arrayList.add(imageFileInfo.getFilePath());
                                     }
                                 }
-                                a.this.gmp.aI(arrayList);
+                                a.this.gnY.aI(arrayList);
                             } else {
-                                a.this.gmp.py("cancel");
+                                a.this.gnY.pF("cancel");
                             }
                         }
-                    } else if (a.this.gmp != null) {
-                        a.this.gmp.py(BdStatsConstant.StatsType.ERROR);
+                    } else if (a.this.gnY != null) {
+                        a.this.gnY.pF(BdStatsConstant.StatsType.ERROR);
                     }
                     e.mA().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.gmp = null;
-                            MessageManager.getInstance().unRegisterListener(a.this.gmq);
+                            a.this.gnY = null;
+                            MessageManager.getInstance().unRegisterListener(a.this.gnZ);
                         }
                     });
                 }
@@ -79,8 +79,8 @@ public class a implements z {
             e.mA().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.gmp = null;
-                    MessageManager.getInstance().unRegisterListener(a.this.gmq);
+                    a.this.gnY = null;
+                    MessageManager.getInstance().unRegisterListener(a.this.gnZ);
                 }
             });
         }
@@ -140,8 +140,8 @@ public class a implements z {
                 }
             }
             ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-            aVar.s(arrayList).mQ(i).jg(true).jh(true).ji(true).zM(arrayList.size() > 0 ? arrayList.get(0) : "").jj(false).jk(false).jo(true);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, aVar.eP(context)));
+            aVar.s(arrayList).mR(i).jg(true).jh(true).ji(true).zT(arrayList.size() > 0 ? arrayList.get(0) : "").jj(false).jk(false).jo(true);
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, aVar.eO(context)));
         }
     }
 }

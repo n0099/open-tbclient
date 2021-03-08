@@ -5,7 +5,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.request.transition.ViewTransition;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ViewAnimationFactory<R> implements TransitionFactory<R> {
     private Transition<R> transition;
     private final ViewTransition.ViewTransitionAnimationFactory viewTransitionAnimationFactory;
@@ -33,7 +33,7 @@ public class ViewAnimationFactory<R> implements TransitionFactory<R> {
         return this.transition;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static class ConcreteViewTransitionAnimationFactory implements ViewTransition.ViewTransitionAnimationFactory {
         private final Animation animation;
 
@@ -47,7 +47,7 @@ public class ViewAnimationFactory<R> implements TransitionFactory<R> {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static class ResourceViewTransitionAnimationFactory implements ViewTransition.ViewTransitionAnimationFactory {
         private final int animationId;
 

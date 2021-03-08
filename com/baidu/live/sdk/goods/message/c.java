@@ -3,11 +3,11 @@ package com.baidu.live.sdk.goods.message;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.atomdata.BDxdConfig;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c extends HttpMessage {
-    public String aWP;
+    public String aYp;
     public long authorId;
-    public boolean bzF;
+    public boolean bBf;
     public boolean isHost;
     public long liveId;
     public String source;
@@ -16,13 +16,13 @@ public class c extends HttpMessage {
 
     public c() {
         super(1021144);
-        this.aWP = "";
+        this.aYp = "";
         this.liveId = 0L;
     }
 
     public void setParams() {
         addParam("live_id", this.liveId);
-        addParam("feed_id", this.aWP);
+        addParam("feed_id", this.aYp);
         addParam("anchor_id", this.authorId);
         addParam("live_goods_source", TbConfig.getSubappType());
         addParam("tab", this.tab);

@@ -20,7 +20,7 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class PerformanceMonitorPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler {
     private static HashMap<String, String> flutterEngineStartInfo = new HashMap<>();
     private final CustomMessageListener mFlutterEngineInitListener = new CustomMessageListener(2921451) { // from class: com.baidu.performance_monitor.PerformanceMonitorPlugin.1
@@ -45,7 +45,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, MethodChannel.Me
         MessageManager.getInstance().unRegisterListener(this.mFlutterEngineInitListener);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     private class PerfCPULogAsync extends BdAsyncTask<String, Integer, Boolean> {
         final a mItem;
         final String mPage;
@@ -59,8 +59,8 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, MethodChannel.Me
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            this.mItem.append("memp", String.valueOf(k.bEg().bEh()));
-            this.mItem.append("cpu", k.bEg().bEi());
+            this.mItem.append("memp", String.valueOf(k.bEk().bEl()));
+            this.mItem.append("cpu", k.bEk().bEm());
             BdStatisticsManager.getInstance().performance(this.mPage, this.mItem);
             return Boolean.TRUE;
         }
@@ -111,7 +111,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, MethodChannel.Me
             perfCPULogAsync.execute(new String[0]);
             result.success(null);
         } else if (methodCall.method.equals("reportPageLoadPerformance")) {
-            if (k.bEg().isSmallFlow() && methodCall.arguments != null && (hashMap = (HashMap) methodCall.arguments) != null && hashMap.get("viewCreateTime") != null && ((Double) hashMap.get("viewCreateTime")).doubleValue() > 0.0d) {
+            if (k.bEk().isSmallFlow() && methodCall.arguments != null && (hashMap = (HashMap) methodCall.arguments) != null && hashMap.get("viewCreateTime") != null && ((Double) hashMap.get("viewCreateTime")).doubleValue() > 0.0d) {
                 String str3 = (String) hashMap.get("pageName");
                 if (OpenFlutter.ACTIVITY_SIGN_TOGETHER.equals(str3)) {
                     str = "sign_all_flt";
@@ -122,7 +122,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, MethodChannel.Me
                 pg.append("action", "time");
                 pg.append("ishttp", hashMap.get("isHttp"));
                 pg.append("issuccess", hashMap.get("errCode") == BasicPushStatus.SUCCESS_CODE ? "1" : "0");
-                pg.append("nettype", k.bEg().getNetType());
+                pg.append("nettype", k.bEk().getNetType());
                 if (hashMap.containsKey("whiteTime") && (hashMap.get("whiteTime") instanceof Double)) {
                     pg.append("wt", Double.valueOf(((Double) hashMap.get("whiteTime")).doubleValue() * 1000.0d));
                 }

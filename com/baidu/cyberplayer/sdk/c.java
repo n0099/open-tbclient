@@ -6,10 +6,8 @@ import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static c f1743a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private boolean f1744b = true;
+    private static c f1410a;
+    private boolean b = true;
     private String c = null;
     private String d = null;
     private boolean e = true;
@@ -23,10 +21,10 @@ public class c {
     public static synchronized c a() {
         c cVar;
         synchronized (c.class) {
-            if (f1743a == null) {
-                f1743a = new c();
+            if (f1410a == null) {
+                f1410a = new c();
             }
-            cVar = f1743a;
+            cVar = f1410a;
         }
         return cVar;
     }
@@ -47,7 +45,7 @@ public class c {
     }
 
     public boolean b() {
-        if (!this.f1744b) {
+        if (!this.b) {
             CyberLog.i("CyberGlobalSetting", "isStatisticsUploadEnable closed");
             return false;
         } else if (g()) {

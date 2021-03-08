@@ -11,27 +11,27 @@ import com.baidu.tieba.pb.data.f;
 import com.baidu.tieba.pb.pb.main.PbModel;
 /* loaded from: classes2.dex */
 public class VideoPbViewModel extends ViewModel {
-    private PbModel lNw;
-    private d mlo = new d();
-    private int mlp = 0;
+    private PbModel lPy;
+    private d mnq = new d();
+    private int mnr = 0;
 
     public void init(Intent intent) {
-        this.mlo.h((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
-        this.mlo.wq(intent.getBooleanExtra("key_jump_to_comment_area", false));
+        this.mnq.h((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
+        this.mnq.wq(intent.getBooleanExtra("key_jump_to_comment_area", false));
     }
 
     public void i(PbModel pbModel) {
-        this.lNw = pbModel;
+        this.lPy = pbModel;
     }
 
     public void b(f fVar, int i) {
         boolean z = true;
-        if (i >= this.mlp) {
-            this.mlp = i;
-            this.mlo.O(fVar);
+        if (i >= this.mnr) {
+            this.mnr = i;
+            this.mnq.O(fVar);
             if (fVar != null) {
-                d dVar = this.mlo;
-                if (fVar.getIsNewUrl() != 1 && !fVar.dlJ()) {
+                d dVar = this.mnq;
+                if (fVar.getIsNewUrl() != 1 && !fVar.dlS()) {
                     z = false;
                 }
                 dVar.setFromCDN(z);
@@ -39,115 +39,115 @@ public class VideoPbViewModel extends ViewModel {
         }
     }
 
-    public f duy() {
-        return this.mlo.duy();
+    public f duH() {
+        return this.mnq.duH();
     }
 
     public boolean isFromCDN() {
-        return this.mlo.isFromCDN();
+        return this.mnq.isFromCDN();
     }
 
-    public f duz() {
-        return this.mlo.duz();
+    public f duI() {
+        return this.mnq.duI();
     }
 
     public void c(f fVar, int i) {
         if (i == 3) {
-            this.mlo.setData(fVar);
+            this.mnq.setData(fVar);
         }
     }
 
-    public MutableLiveData<cb> duA() {
-        return this.mlo.duA();
+    public MutableLiveData<cb> duJ() {
+        return this.mnq.duJ();
     }
 
-    public Rect duB() {
-        if (this.mlo.duB() == null || this.mlo.duB().isEmpty()) {
+    public Rect duK() {
+        if (this.mnq.duK() == null || this.mnq.duK().isEmpty()) {
             return null;
         }
-        return this.mlo.duB();
+        return this.mnq.duK();
     }
 
     public void wt(boolean z) {
-        if (this.mlo.duF().getValue() != null) {
-            f aM = this.lNw.aM(this.mlo.duF().getValue());
+        if (this.mnq.duO().getValue() != null) {
+            f aM = this.lPy.aM(this.mnq.duO().getValue());
             if (aM != null) {
-                this.mlo.duD().addLast(this.mlo.duz());
-                this.mlo.setData(aM);
-                this.mlo.aU(!y.isEmpty(aM.dlI()) ? aM.dlI().get(0) : null);
-                this.mlo.aT(this.mlo.duD().getLast() != null ? this.mlo.duD().getLast().dlg() : null);
-                this.lNw.FW(z ? 21 : 22);
-                this.lNw.j(aM);
-                this.mlo.setIsLoading(true);
+                this.mnq.duM().addLast(this.mnq.duI());
+                this.mnq.setData(aM);
+                this.mnq.aU(!y.isEmpty(aM.dlR()) ? aM.dlR().get(0) : null);
+                this.mnq.aT(this.mnq.duM().getLast() != null ? this.mnq.duM().getLast().dlp() : null);
+                this.lPy.FZ(z ? 21 : 22);
+                this.lPy.j(aM);
+                this.mnq.setIsLoading(true);
             }
         }
     }
 
     public void aV(cb cbVar) {
         f aM;
-        if (cbVar != null && (aM = this.lNw.aM(cbVar)) != null) {
-            this.mlo.duD().addLast(this.mlo.duz());
-            this.mlo.setData(aM);
-            this.mlo.aU(!y.isEmpty(aM.dlI()) ? aM.dlI().get(0) : null);
-            this.mlo.aT(this.mlo.duD().getLast() != null ? this.mlo.duD().getLast().dlg() : null);
-            this.lNw.FW(20);
-            this.lNw.j(aM);
-            this.mlo.setIsLoading(true);
+        if (cbVar != null && (aM = this.lPy.aM(cbVar)) != null) {
+            this.mnq.duM().addLast(this.mnq.duI());
+            this.mnq.setData(aM);
+            this.mnq.aU(!y.isEmpty(aM.dlR()) ? aM.dlR().get(0) : null);
+            this.mnq.aT(this.mnq.duM().getLast() != null ? this.mnq.duM().getLast().dlp() : null);
+            this.lPy.FZ(20);
+            this.lPy.j(aM);
+            this.mnq.setIsLoading(true);
         }
     }
 
-    public void duJ() {
-        f pollLast = this.mlo.duD().pollLast();
+    public void duS() {
+        f pollLast = this.mnq.duM().pollLast();
         if (pollLast != null) {
-            this.mlo.setData(pollLast);
-            this.mlo.aU(!y.isEmpty(pollLast.dlI()) ? pollLast.dlI().get(0) : null);
-            this.mlo.aT(this.mlo.duD().peekLast() != null ? this.mlo.duD().peekLast().dlg() : null);
-            this.lNw.j(pollLast);
-            this.mlo.setIsLoading(true);
+            this.mnq.setData(pollLast);
+            this.mnq.aU(!y.isEmpty(pollLast.dlR()) ? pollLast.dlR().get(0) : null);
+            this.mnq.aT(this.mnq.duM().peekLast() != null ? this.mnq.duM().peekLast().dlp() : null);
+            this.lPy.j(pollLast);
+            this.mnq.setIsLoading(true);
         }
     }
 
-    public MutableLiveData<cb> duE() {
-        return this.mlo.duE();
+    public MutableLiveData<cb> duN() {
+        return this.mnq.duN();
     }
 
-    public MutableLiveData<cb> duF() {
-        return this.mlo.duF();
+    public MutableLiveData<cb> duO() {
+        return this.mnq.duO();
     }
 
-    public MutableLiveData<Boolean> duG() {
-        return this.mlo.duG();
+    public MutableLiveData<Boolean> duP() {
+        return this.mnq.duP();
     }
 
     public void wr(boolean z) {
-        this.mlo.wr(z);
+        this.mnq.wr(z);
     }
 
-    public MutableLiveData<Boolean> duH() {
-        return this.mlo.duH();
+    public MutableLiveData<Boolean> duQ() {
+        return this.mnq.duQ();
     }
 
     public void ws(boolean z) {
-        this.mlo.ws(z);
+        this.mnq.ws(z);
     }
 
     public void setIsLoading(boolean z) {
-        this.mlo.setIsLoading(z);
+        this.mnq.setIsLoading(z);
     }
 
-    public MutableLiveData<Boolean> cMS() {
-        return this.mlo.cMS();
+    public MutableLiveData<Boolean> cMY() {
+        return this.mnq.cMY();
     }
 
-    public boolean duC() {
-        return this.mlo.duC();
+    public boolean duL() {
+        return this.mnq.duL();
     }
 
     public void wq(boolean z) {
-        this.mlo.wq(z);
+        this.mnq.wq(z);
     }
 
-    public MutableLiveData<Integer> duI() {
-        return this.mlo.duI();
+    public MutableLiveData<Integer> duR() {
+        return this.mnq.duR();
     }
 }

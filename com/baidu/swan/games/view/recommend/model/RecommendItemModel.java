@@ -1,7 +1,7 @@
 package com.baidu.swan.games.view.recommend.model;
 
 import com.baidu.searchbox.NoProGuard;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class RecommendItemModel implements NoProGuard {
     @com.google.gson.a.c("app_key")
     public String appKey;

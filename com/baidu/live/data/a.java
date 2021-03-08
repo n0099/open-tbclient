@@ -9,15 +9,15 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public long aFT;
-    public long aFU;
-    public int aFV;
-    public boolean aFW;
-    public boolean aFX;
-    public int aFY;
-    public List<AlaLiveMarkData> aFZ;
+    public long aHt;
+    public long aHu;
+    public int aHv;
+    public boolean aHw;
+    public boolean aHx;
+    public int aHy;
+    public List<AlaLiveMarkData> aHz;
     public String appId;
     public JSONObject extInfoJson;
     public JSONObject extraUserInfo;
@@ -43,25 +43,25 @@ public class a {
             }
             this.level_id = jSONObject.optInt("level");
             this.sex = jSONObject.optInt("sex");
-            this.aFT = jSONObject.optLong("fan_num");
-            this.aFU = jSONObject.optLong("concern_num");
-            this.aFV = jSONObject.optInt("have_concern");
-            this.aFW = jSONObject.optBoolean("isOfficial");
-            this.aFX = jSONObject.optBoolean("isLiveAdmin");
+            this.aHt = jSONObject.optLong("fan_num");
+            this.aHu = jSONObject.optLong("concern_num");
+            this.aHv = jSONObject.optInt("have_concern");
+            this.aHw = jSONObject.optBoolean("isOfficial");
+            this.aHx = jSONObject.optBoolean("isLiveAdmin");
             this.appId = jSONObject.optString("app_id");
             this.tagName = jSONObject.optString("tag_name");
-            this.aFY = jSONObject.optInt("tag_type");
+            this.aHy = jSONObject.optInt("tag_type");
             this.appId = jSONObject.optString("app_id");
             this.extInfoJson = jSONObject.optJSONObject("ext_info");
             JSONArray optJSONArray = jSONObject.optJSONArray("live_mark_info_new");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.aFZ = new ArrayList(optJSONArray.length());
+                this.aHz = new ArrayList(optJSONArray.length());
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     AlaLiveMarkData alaLiveMarkData = new AlaLiveMarkData();
                     alaLiveMarkData.userLevel = this.level_id;
                     alaLiveMarkData.parserJson(optJSONObject);
-                    this.aFZ.add(alaLiveMarkData);
+                    this.aHz.add(alaLiveMarkData);
                 }
             }
             if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
@@ -79,20 +79,20 @@ public class a {
             jSONObject.put("portrait", this.portrait);
             jSONObject.put("level", this.level_id);
             jSONObject.put("sex", this.sex);
-            jSONObject.put("fan_num", this.aFT);
-            jSONObject.put("concern_num", this.aFU);
-            jSONObject.put("have_concern", this.aFV);
-            jSONObject.put("isOfficial", this.aFW);
-            jSONObject.put("isLiveAdmin", this.aFX);
+            jSONObject.put("fan_num", this.aHt);
+            jSONObject.put("concern_num", this.aHu);
+            jSONObject.put("have_concern", this.aHv);
+            jSONObject.put("isOfficial", this.aHw);
+            jSONObject.put("isLiveAdmin", this.aHx);
             jSONObject.put("app_id", this.appId);
             jSONObject.put("tag_name", this.tagName);
-            jSONObject.put("tag_type", this.aFY);
+            jSONObject.put("tag_type", this.aHy);
             if (this.extInfoJson != null) {
                 jSONObject.put("ext_info", this.extInfoJson);
             }
             JSONArray jSONArray = new JSONArray();
-            if (this.aFZ != null) {
-                for (AlaLiveMarkData alaLiveMarkData : this.aFZ) {
+            if (this.aHz != null) {
+                for (AlaLiveMarkData alaLiveMarkData : this.aHz) {
                     jSONArray.put(alaLiveMarkData.toJsonObject());
                 }
             }

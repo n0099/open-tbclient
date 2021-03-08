@@ -3,37 +3,35 @@ package com.vivo.push;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public abstract class y {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f13715a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f13716b;
+    private int f8091a;
+    private String b;
 
     protected abstract void c(a aVar);
 
     protected abstract void d(a aVar);
 
     public y(int i) {
-        this.f13715a = -1;
+        this.f8091a = -1;
         if (i < 0) {
             throw new IllegalArgumentException("PushCommand: the value of command must > 0.");
         }
-        this.f13715a = i;
+        this.f8091a = i;
     }
 
     public final String a() {
-        return this.f13716b;
+        return this.b;
     }
 
     public final void a(String str) {
-        this.f13716b = str;
+        this.b = str;
     }
 
     public final int b() {
-        return this.f13715a;
+        return this.f8091a;
     }
 
     public final void a(Intent intent) {
@@ -43,14 +41,14 @@ public abstract class y {
             return;
         }
         a(a2);
-        Bundle b2 = a2.b();
-        if (b2 != null) {
-            intent.putExtras(b2);
+        Bundle b = a2.b();
+        if (b != null) {
+            intent.putExtras(b);
         }
     }
 
     public final void a(a aVar) {
-        String a2 = z.a(this.f13715a);
+        String a2 = z.a(this.f8091a);
         if (a2 == null) {
             a2 = "";
         }
@@ -64,26 +62,26 @@ public abstract class y {
             com.vivo.push.util.p.b("PushCommand", "bundleWapper is null");
             return;
         }
-        a2.a("method", this.f13715a);
+        a2.a("method", this.f8091a);
         e(a2);
-        Bundle b2 = a2.b();
-        if (b2 != null) {
-            intent.putExtras(b2);
+        Bundle b = a2.b();
+        if (b != null) {
+            intent.putExtras(b);
         }
     }
 
     private final void e(a aVar) {
-        aVar.a("command", this.f13715a);
-        aVar.a("client_pkgname", this.f13716b);
+        aVar.a("command", this.f8091a);
+        aVar.a("client_pkgname", this.b);
         c(aVar);
     }
 
     public final void b(a aVar) {
         String a2 = aVar.a();
         if (!TextUtils.isEmpty(a2)) {
-            this.f13716b = a2;
+            this.b = a2;
         } else {
-            this.f13716b = aVar.a("client_pkgname");
+            this.b = aVar.a("client_pkgname");
         }
         d(aVar);
     }

@@ -1,63 +1,63 @@
 package com.baidu.swan.pms.c.d;
 /* loaded from: classes3.dex */
 public class f extends g {
-    private String evc;
-    private String evf;
-    private String evg;
-    private int evh;
-    private String evj;
-    private int evm;
+    private String ewD;
+    private String ewG;
+    private String ewH;
+    private int ewI;
+    private String ewK;
+    private int ewN;
 
     public f(String str, int i, String str2, int i2) {
         super(i2);
-        this.evh = -1;
-        this.evc = str;
-        this.evj = str2;
-        this.evm = i;
+        this.ewI = -1;
+        this.ewD = str;
+        this.ewK = str2;
+        this.ewN = i;
     }
 
     public f(String str, String str2, String str3, int i) {
         super(i);
-        this.evh = -1;
-        this.evc = str;
-        this.evj = str3;
+        this.ewI = -1;
+        this.ewD = str;
+        this.ewK = str3;
         try {
-            this.evm = Integer.valueOf(str2).intValue();
+            this.ewN = Integer.valueOf(str2).intValue();
         } catch (NumberFormatException e) {
-            this.evm = 0;
+            this.ewN = 0;
         }
     }
 
-    public f yh(String str) {
-        this.evf = str;
+    public f yo(String str) {
+        this.ewG = str;
         return this;
     }
 
-    public int bdn() {
-        return this.evh;
+    public int bdp() {
+        return this.ewI;
     }
 
-    public void yi(String str) {
-        this.evg = str;
+    public void yp(String str) {
+        this.ewH = str;
     }
 
     public String getBundleId() {
-        return this.evc;
+        return this.ewD;
     }
 
-    public String bds() {
-        return this.evj;
+    public String bdu() {
+        return this.ewK;
     }
 
-    public int bdu() {
-        return this.evm;
+    public int bdw() {
+        return this.ewN;
     }
 
-    public String bdo() {
-        return this.evf;
+    public String bdq() {
+        return this.ewG;
     }
 
-    public String bdp() {
-        return this.evg;
+    public String bdr() {
+        return this.ewH;
     }
 }

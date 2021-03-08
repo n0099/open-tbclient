@@ -10,7 +10,7 @@ public class c {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f10929a;
+    private static Context f7211a;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -24,7 +24,7 @@ public class c {
 
     /* renamed from: com.kwai.filedownloader.f.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1161c {
+    public interface InterfaceC1178c {
         com.kwai.filedownloader.b.a a();
     }
 
@@ -43,11 +43,11 @@ public class c {
     }
 
     public static Context a() {
-        return f10929a;
+        return f7211a;
     }
 
     public static void a(Context context) {
-        f10929a = context;
+        f7211a = context;
     }
 
     public static boolean a(int i, long j, String str, String str2, x xVar) {

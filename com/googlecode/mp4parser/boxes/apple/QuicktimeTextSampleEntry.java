@@ -1,6 +1,5 @@
 package com.googlecode.mp4parser.boxes.apple;
 
-import androidx.core.internal.view.SupportMenu;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -12,7 +11,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
     public static final String TYPE = "text";
     int backgroundB;
@@ -34,9 +33,9 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
 
     public QuicktimeTextSampleEntry() {
         super("text");
-        this.foregroundR = SupportMenu.USER_MASK;
-        this.foregroundG = SupportMenu.USER_MASK;
-        this.foregroundB = SupportMenu.USER_MASK;
+        this.foregroundR = 65535;
+        this.foregroundG = 65535;
+        this.foregroundB = 65535;
         this.fontName = "";
     }
 
@@ -188,8 +187,8 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
         return this.reserved2;
     }
 
-    public void setReserved2(byte b2) {
-        this.reserved2 = b2;
+    public void setReserved2(byte b) {
+        this.reserved2 = b;
     }
 
     public short getReserved3() {

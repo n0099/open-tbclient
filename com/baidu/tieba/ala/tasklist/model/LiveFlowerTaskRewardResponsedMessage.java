@@ -4,10 +4,10 @@ import com.baidu.live.data.AlaLiveUserInfoData;
 import com.baidu.live.data.au;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class LiveFlowerTaskRewardResponsedMessage extends JsonHttpResponsedMessage {
-    public AlaLiveUserInfoData ihG;
-    public au ihH;
+    public AlaLiveUserInfoData ijp;
+    public au ijq;
 
     public LiveFlowerTaskRewardResponsedMessage() {
         super(1021066);
@@ -20,13 +20,13 @@ public class LiveFlowerTaskRewardResponsedMessage extends JsonHttpResponsedMessa
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("user_info");
             if (optJSONObject2 != null) {
-                this.ihG = new AlaLiveUserInfoData();
-                this.ihG.parserJson(optJSONObject2);
+                this.ijp = new AlaLiveUserInfoData();
+                this.ijp.parserJson(optJSONObject2);
             }
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("task");
             if (optJSONObject3 != null) {
-                this.ihH = new au();
-                this.ihH.parserJson(optJSONObject3);
+                this.ijq = new au();
+                this.ijq.parserJson(optJSONObject3);
             }
         }
     }

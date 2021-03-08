@@ -1,7 +1,7 @@
 package com.baidu.ala.tbadk.core.util;
 
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ListUtils {
     public static <T> void clear(List<T> list) {
         if (list != null) {

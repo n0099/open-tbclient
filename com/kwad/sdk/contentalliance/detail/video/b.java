@@ -26,10 +26,8 @@ public class b implements com.kwad.sdk.contentalliance.a.a, ap.a {
     private static boolean o = false;
 
     /* renamed from: a  reason: collision with root package name */
-    private ap f8602a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private ViewGroup f8603b;
+    private ap f5741a;
+    private ViewGroup b;
     private boolean c;
     private String d;
     private long e;
@@ -104,7 +102,7 @@ public class b implements com.kwad.sdk.contentalliance.a.a, ap.a {
             @Override // com.kwad.sdk.core.video.a.c.e
             public void a(com.kwad.sdk.core.video.a.c cVar) {
                 al.a().b(b.this.m);
-                if (b.this.c && b.this.g.isResumed() && ao.a(b.this.f8603b, 70)) {
+                if (b.this.c && b.this.g.isResumed() && ao.a(b.this.b, 70)) {
                     b.this.f.f();
                 }
             }
@@ -124,7 +122,7 @@ public class b implements com.kwad.sdk.contentalliance.a.a, ap.a {
         };
         this.f.a(this.p);
         this.f.a(t());
-        this.f8603b = (ViewGroup) detailVideoView.getParent().getParent();
+        this.b = (ViewGroup) detailVideoView.getParent().getParent();
     }
 
     @Nullable
@@ -171,19 +169,19 @@ public class b implements com.kwad.sdk.contentalliance.a.a, ap.a {
     }
 
     private void p() {
-        if (this.f8602a == null) {
-            this.f8602a = new ap(this);
+        if (this.f5741a == null) {
+            this.f5741a = new ap(this);
         }
-        this.f8602a.sendEmptyMessage(1);
+        this.f5741a.sendEmptyMessage(1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void q() {
-        if (this.f8602a == null) {
+        if (this.f5741a == null) {
             return;
         }
-        this.f8602a.removeCallbacksAndMessages(null);
-        this.f8602a = null;
+        this.f5741a.removeCallbacksAndMessages(null);
+        this.f5741a = null;
     }
 
     private void r() {
@@ -260,10 +258,10 @@ public class b implements com.kwad.sdk.contentalliance.a.a, ap.a {
         } else if (this.g == null) {
         } else {
             boolean z = (this.g.isResumed() && !this.g.isAllFragmentIsHidden() && this.g.isVisible()) ? false : true;
-            if (!ao.a((View) this.f8603b, 50, false) || z) {
+            if (!ao.a((View) this.b, 50, false) || z) {
                 if (!o) {
                     com.kwad.sdk.core.d.a.a("DetailPlayModule", "sendEmptyMessageDelayed(MSG_UPDATE_SESSION_ID)");
-                    this.f8602a.sendEmptyMessageDelayed(2, 300000L);
+                    this.f5741a.sendEmptyMessageDelayed(2, 300000L);
                     o = true;
                 }
                 a(false);
@@ -273,7 +271,7 @@ public class b implements com.kwad.sdk.contentalliance.a.a, ap.a {
             } else {
                 if (o) {
                     com.kwad.sdk.core.d.a.a("DetailPlayModule", "removeMessages(MSG_UPDATE_SESSION_ID)");
-                    this.f8602a.removeMessages(2);
+                    this.f5741a.removeMessages(2);
                     o = false;
                 }
                 if (this.k == null) {
@@ -285,7 +283,7 @@ public class b implements com.kwad.sdk.contentalliance.a.a, ap.a {
                     e();
                 }
             }
-            this.f8602a.sendEmptyMessageDelayed(1, 500L);
+            this.f5741a.sendEmptyMessageDelayed(1, 500L);
         }
     }
 

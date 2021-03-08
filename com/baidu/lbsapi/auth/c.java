@@ -8,10 +8,8 @@ import org.json.JSONObject;
 class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2483a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private HashMap<String, String> f2484b = null;
+    private Context f1875a;
+    private HashMap<String, String> b = null;
     private a<String> c = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -22,7 +20,7 @@ class c {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(Context context) {
-        this.f2483a = context;
+        this.f1875a = context;
     }
 
     private HashMap<String, String> a(HashMap<String, String> hashMap) {
@@ -60,7 +58,7 @@ class c {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(HashMap<String, String> hashMap, a<String> aVar) {
-        this.f2484b = a(hashMap);
+        this.b = a(hashMap);
         this.c = aVar;
         new Thread(new d(this)).start();
     }

@@ -1,7 +1,7 @@
 package com.baidu.rtc;
 
 import com.kwai.video.player.misc.KsMediaFormat;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class RtcParameterSettings {
     public boolean HasVideo = true;
     public boolean HasAudio = true;
@@ -16,44 +16,44 @@ public class RtcParameterSettings {
     public int VideoFps = 20;
     public int VideoMaxkbps = 1000;
     public int VideoMinkbps = 1000;
-    public int cvr = -1;
-    public RtcAudioBitrateMode cux = RtcAudioBitrateMode.RTC_AUDIO_BITRATE_CBR;
-    public RtcAudioChannel cvF = RtcAudioChannel.RTC_AUDIO_MONNO;
-    public int cvt = 7;
-    public int cvp = 50;
-    public int cvq = -1;
-    public int cvs = -1;
+    public int cwR = -1;
+    public RtcAudioBitrateMode cvX = RtcAudioBitrateMode.RTC_AUDIO_BITRATE_CBR;
+    public RtcAudioChannel cxf = RtcAudioChannel.RTC_AUDIO_MONNO;
+    public int cwT = 7;
+    public int cwP = 50;
+    public int cwQ = -1;
+    public int cwS = -1;
     public int ConnectionTimeoutMs = 5000;
     public int ReadTimeoutMs = 5000;
     public boolean AutoPublish = true;
     public boolean AutoSubScribe = true;
     public int AudioContentType = 1;
-    public RtcVideoRenderMode cvG = RtcVideoRenderMode.RTC_VIDEO_RENDER_MODE_INTERNAL;
-    public boolean cvE = false;
-    public boolean cvu = false;
-    public boolean cvx = false;
-    public boolean cvB = false;
-    public boolean cvw = false;
-    public boolean cvy = false;
-    public boolean cvv = false;
-    public boolean cvz = true;
-    public boolean cvA = true;
-    public String cvD = "";
-    public int cvC = RtcVideoBitrateMode.RTC_VIDEO_CONTROLRATECONSTANT.ordinal();
+    public RtcVideoRenderMode cxg = RtcVideoRenderMode.RTC_VIDEO_RENDER_MODE_INTERNAL;
+    public boolean cxe = false;
+    public boolean cwU = false;
+    public boolean cwX = false;
+    public boolean cxb = false;
+    public boolean cwW = false;
+    public boolean cwY = false;
+    public boolean cwV = false;
+    public boolean cwZ = true;
+    public boolean cxa = true;
+    public String cxd = "";
+    public int cxc = RtcVideoBitrateMode.RTC_VIDEO_CONTROLRATECONSTANT.ordinal();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public enum RtcAudioBitrateMode {
         RTC_AUDIO_BITRATE_CBR,
         RTC_AUDIO_BITRATE_VBR
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public enum RtcAudioChannel {
         RTC_AUDIO_MONNO,
         RTC_AUDIO_STEREO
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public enum RtcParamSettingType {
         RTC_AUDIO_PARAM_SETTINGS_ONLY_AUDIO,
         RTC_AUDIO_PARAM_SETTINGS_AEC_DUMP,
@@ -73,20 +73,20 @@ public class RtcParameterSettings {
         RTC_PARAM_SETTINGS_OTHERS
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public enum RtcVideoBitrateMode {
         RTC_VIDEO_CONTROLRATEDISABLE,
         RTC_VIDEO_CONTROLRATEVARIABLE,
         RTC_VIDEO_CONTROLRATECONSTANT
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public enum RtcVideoRenderMode {
         RTC_VIDEO_RENDER_MODE_INTERNAL,
         RTC_VIDEO_RENDER_MODE_EXTERNAL
     }
 
-    public static RtcParameterSettings aeQ() {
+    public static RtcParameterSettings aeT() {
         return new RtcParameterSettings();
     }
 }

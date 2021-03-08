@@ -19,7 +19,7 @@ import com.yy.mediaframework.watermark.WaterMark;
 import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractLiveSession implements IEncoderListener, ILiveSession {
     public VideoEncoderGroupFilter mEncoderGroupFilter;
     public VideoLiveFilterContext mFilterContext;

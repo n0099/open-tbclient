@@ -3,49 +3,49 @@ package com.baidu.tieba.ala.floating;
 import android.content.Context;
 import com.baidu.live.data.AlaLiveInfoData;
 import com.baidu.tieba.ala.floating.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
     private static String TAG = "AlaFloatLiveControllerUtil";
-    private static a gUr;
+    private static a gWa;
 
-    public static a fW(Context context) {
-        if (gUr == null) {
-            gUr = fX(context);
+    public static a fV(Context context) {
+        if (gWa == null) {
+            gWa = fW(context);
         }
-        return gUr;
+        return gWa;
     }
 
-    private static synchronized a fX(Context context) {
+    private static synchronized a fW(Context context) {
         a aVar;
         synchronized (b.class) {
-            if (gUr == null) {
-                gUr = new a(context);
+            if (gWa == null) {
+                gWa = new a(context);
             }
-            aVar = gUr;
+            aVar = gWa;
         }
         return aVar;
     }
 
-    public static AlaLiveInfoData bUQ() {
-        a aVar = gUr;
+    public static AlaLiveInfoData bUW() {
+        a aVar = gWa;
         if (aVar != null) {
-            return aVar.bUQ();
+            return aVar.bUW();
         }
         return null;
     }
 
-    public static void b(a.InterfaceC0627a interfaceC0627a) {
-        a aVar = gUr;
+    public static void b(a.InterfaceC0633a interfaceC0633a) {
+        a aVar = gWa;
         if (aVar != null) {
-            aVar.a(interfaceC0627a);
-            aVar.bUV();
+            aVar.a(interfaceC0633a);
+            aVar.bVb();
         }
     }
 
-    public static boolean bUT() {
-        a aVar = gUr;
+    public static boolean bUZ() {
+        a aVar = gWa;
         if (aVar != null) {
-            return aVar.bUT();
+            return aVar.bUZ();
         }
         return false;
     }
@@ -53,8 +53,8 @@ public class b {
     /* JADX INFO: Access modifiers changed from: protected */
     public static synchronized void destroy() {
         synchronized (b.class) {
-            a aVar = gUr;
-            gUr = null;
+            a aVar = gWa;
+            gWa = null;
             if (aVar != null) {
                 aVar.onDestroy();
             }

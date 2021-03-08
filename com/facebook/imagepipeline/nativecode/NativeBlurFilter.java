@@ -12,7 +12,7 @@ public class NativeBlurFilter {
         a.load();
     }
 
-    public static void i(Bitmap bitmap, int i, int i2) {
+    public static void h(Bitmap bitmap, int i, int i2) {
         g.checkNotNull(bitmap);
         g.checkArgument(i > 0);
         g.checkArgument(i2 > 0);

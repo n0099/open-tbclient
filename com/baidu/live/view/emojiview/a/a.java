@@ -1,5 +1,5 @@
 package com.baidu.live.view.emojiview.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
     public String icon;
     public String id;

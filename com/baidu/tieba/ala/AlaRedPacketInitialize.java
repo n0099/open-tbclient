@@ -9,16 +9,16 @@ import com.baidu.live.d.t;
 import com.baidu.live.d.u;
 import com.baidu.live.d.v;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaRedPacketInitialize {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(v.class, AlaSnatchRedPacketActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(u.class, AlaRedPktSendActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(t.class, AlaRedPacketSnatchResultActivity.class);
-        bOB();
+        bOH();
     }
 
-    private static void bOB() {
+    private static void bOH() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913130, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.AlaRedPacketInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.aa.a> run(CustomMessage<Context> customMessage) {

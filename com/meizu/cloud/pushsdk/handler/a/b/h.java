@@ -23,20 +23,18 @@ public class h implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private b f11327a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f11328b;
+    private b f7436a;
+    private String b;
     private int c;
 
     protected h(Parcel parcel) {
-        this.f11327a = (b) parcel.readParcelable(b.class.getClassLoader());
-        this.f11328b = parcel.readString();
+        this.f7436a = (b) parcel.readParcelable(b.class.getClassLoader());
+        this.b = parcel.readString();
         this.c = parcel.readInt();
     }
 
     public h(String str, String str2, String str3, String str4, String str5) {
-        this.f11328b = str2;
+        this.b = str2;
         try {
             JSONObject jSONObject = new JSONObject(str);
             if (!jSONObject.isNull("notifyId")) {
@@ -45,11 +43,11 @@ public class h implements Parcelable {
         } catch (JSONException e) {
             com.meizu.cloud.a.a.e("WithDrawMessage", "parse WithDrawMessage error " + e.getMessage());
         }
-        this.f11327a = new b(str3, str4, str5);
+        this.f7436a = new b(str3, str4, str5);
     }
 
     public b a() {
-        return this.f11327a;
+        return this.f7436a;
     }
 
     public int b() {
@@ -57,7 +55,7 @@ public class h implements Parcelable {
     }
 
     public String c() {
-        return this.f11328b;
+        return this.b;
     }
 
     @Override // android.os.Parcelable
@@ -66,13 +64,13 @@ public class h implements Parcelable {
     }
 
     public String toString() {
-        return "WithDrawMessage{controlMessage=" + this.f11327a + ", revokePackageName='" + this.f11328b + "', notifyId=" + this.c + '}';
+        return "WithDrawMessage{controlMessage=" + this.f7436a + ", revokePackageName='" + this.b + "', notifyId=" + this.c + '}';
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.f11327a, i);
-        parcel.writeString(this.f11328b);
+        parcel.writeParcelable(this.f7436a, i);
+        parcel.writeString(this.b);
         parcel.writeInt(this.c);
     }
 }

@@ -25,11 +25,11 @@ import java.util.LinkedList;
 public class f {
     private int bigHeight;
     private int bigWidth;
-    private a fGE;
-    private b fGF;
-    private e fGG;
-    public boolean fGH;
-    private int fGi;
+    private int fHH;
+    private a fId;
+    private b fIe;
+    private e fIf;
+    public boolean fIg;
     private String from;
     private boolean isCancelled;
     private Object progressObject;
@@ -53,8 +53,8 @@ public class f {
         this.from = str;
     }
 
-    public void rk(int i) {
-        this.fGi = i;
+    public void rl(int i) {
+        this.fHH = i;
     }
 
     public void setServersideResize(int i, int i2, int i3, int i4) {
@@ -65,7 +65,7 @@ public class f {
     }
 
     public void a(a aVar, Object obj) {
-        this.fGE = aVar;
+        this.fId = aVar;
         this.progressObject = obj;
         if (aVar != null) {
             this.chunkSize = 10240;
@@ -73,7 +73,7 @@ public class f {
     }
 
     public void a(b bVar, Object obj) {
-        this.fGF = bVar;
+        this.fIe = bVar;
         this.progressObject = obj;
     }
 
@@ -112,7 +112,7 @@ public class f {
                 UploadedImageInfo uploadedPicInfo = a2.getUploadedPicInfo();
                 if (uploadedPicInfo != null && !TextUtils.isEmpty(uploadedPicInfo.toPostString())) {
                     uploadedPicInfo.isGif = imageFileInfo2.isGif();
-                    uploadedPicInfo.isBJH = this.fGH;
+                    uploadedPicInfo.isBJH = this.fIg;
                     imageFileInfo2.setServerImageCode(uploadedPicInfo.toPostString());
                 } else {
                     errorData.setError_code(-53);
@@ -160,10 +160,10 @@ public class f {
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.fGG == null) {
-            this.fGG = new e();
+        if (this.fIf == null) {
+            this.fIf = new e();
         }
-        return a(this.fGG.c(imageFileInfo, z), z, z2, i, i2);
+        return a(this.fIf.c(imageFileInfo, z), z, z2, i, i2);
     }
 
     public ImageUploadResult d(ImageFileInfo imageFileInfo, boolean z) {
@@ -347,7 +347,7 @@ public class f {
                                         } else {
                                             this.mNetwork.addPostData("isFinish", String.valueOf(0));
                                         }
-                                        if (this.fGH) {
+                                        if (this.fIg) {
                                             this.mNetwork.addPostData(ImageViewerConfig.IS_BJH, String.valueOf(1));
                                         } else {
                                             this.mNetwork.addPostData(ImageViewerConfig.IS_BJH, String.valueOf(0));
@@ -370,11 +370,11 @@ public class f {
                                         } else {
                                             this.mNetwork.addPostData("saveOrigin", "0");
                                         }
-                                        if (this.fGi != 0) {
-                                            this.mNetwork.addPostData("pic_water_type", String.valueOf(this.fGi));
+                                        if (this.fHH != 0) {
+                                            this.mNetwork.addPostData("pic_water_type", String.valueOf(this.fHH));
                                         }
                                         if (z2) {
-                                            int imageWaterType = k.bkT().getImageWaterType();
+                                            int imageWaterType = k.bkV().getImageWaterType();
                                             if (imageWaterType != 0) {
                                                 this.mNetwork.addPostData("pic_water_type", String.valueOf(imageWaterType));
                                             }
@@ -382,12 +382,12 @@ public class f {
                                             if (!StringUtils.isNull(currentAccountName) && imageWaterType == 1) {
                                                 this.mNetwork.addPostData("user_name", currentAccountName);
                                             }
-                                            String forumNameForWaterImage = k.bkT().getForumNameForWaterImage();
+                                            String forumNameForWaterImage = k.bkV().getForumNameForWaterImage();
                                             if (!StringUtils.isNull(forumNameForWaterImage) && imageWaterType == 2) {
                                                 this.mNetwork.addPostData("forum_name", forumNameForWaterImage);
                                             }
                                         }
-                                        String forumNameForWaterImage2 = k.bkT().getForumNameForWaterImage();
+                                        String forumNameForWaterImage2 = k.bkV().getForumNameForWaterImage();
                                         if (!StringUtils.isNull(forumNameForWaterImage2)) {
                                             this.mNetwork.addPostData("small_flow_fname", forumNameForWaterImage2);
                                         }
@@ -411,11 +411,11 @@ public class f {
                                                 long j3 = j + i6;
                                                 long j4 = i7 > 1 ? j3 + ((i7 - 1) * this.chunkSize) : j3;
                                                 com.baidu.tieba.tbadkCore.writeModel.b.d("发帖：正在上传图片 已上传 = " + j4 + "    p = " + str);
-                                                if (this.fGE != null) {
-                                                    this.fGE.onImageDataSentInBackground(str, this.progressObject, j4, length);
+                                                if (this.fId != null) {
+                                                    this.fId.onImageDataSentInBackground(str, this.progressObject, j4, length);
                                                 }
-                                                if (this.fGF != null) {
-                                                    this.fGF.a(str, this.progressObject, j4, length, i, i2);
+                                                if (this.fIe != null) {
+                                                    this.fIe.a(str, this.progressObject, j4, length, i, i2);
                                                 }
                                                 i3 = i7;
                                                 j = j3;

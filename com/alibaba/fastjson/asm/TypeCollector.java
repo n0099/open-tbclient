@@ -1,5 +1,6 @@
 package com.alibaba.fastjson.asm;
 
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
@@ -12,7 +13,7 @@ public class TypeCollector {
             put("boolean", "Z");
             put("byte", "B");
             put("char", "C");
-            put("short", "S");
+            put("short", ExifInterface.LATITUDE_SOUTH);
             put("float", "F");
             put("long", "J");
             put("double", "D");

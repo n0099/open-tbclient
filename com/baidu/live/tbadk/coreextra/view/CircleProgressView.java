@@ -6,7 +6,7 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class CircleProgressView extends View {
     private Paint backgroundPaint;
     private int currentProgress;

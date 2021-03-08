@@ -1,39 +1,33 @@
 package com.baidu.swan.apps.adaptation.a;
 
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface d {
-    String agA();
-
-    int agB();
-
-    int agC();
-
-    int agD();
+    String agD();
 
     int agE();
 
-    boolean agF();
+    int agF();
 
-    boolean agG();
+    int agG();
 
-    boolean agH();
+    int agH();
 
     boolean agI();
 
     boolean agJ();
 
-    String agK();
+    boolean agK();
 
     boolean agL();
 
     boolean agM();
 
-    boolean agN();
+    String agN();
 
     boolean agO();
 
-    long agP();
+    boolean agP();
 
     boolean agQ();
 
@@ -45,43 +39,49 @@ public interface d {
 
     boolean agU();
 
-    boolean agV();
+    long agV();
 
     boolean agW();
 
-    long agX();
+    boolean agX();
 
     boolean agY();
 
     boolean agZ();
 
-    int aha();
+    long aha();
 
-    int ahb();
+    boolean ahb();
 
-    double ahc();
+    boolean ahc();
 
-    boolean ahd();
+    int ahd();
 
-    double ahe();
+    int ahe();
 
     double ahf();
 
-    int ahg();
+    boolean ahg();
 
-    boolean ahh();
+    double ahh();
 
-    boolean ahi();
+    double ahi();
 
-    boolean ahj();
+    int ahj();
 
     boolean ahk();
 
-    int ahl();
+    boolean ahl();
 
     boolean ahm();
 
-    boolean gc(int i);
+    boolean ahn();
+
+    int aho();
+
+    boolean ahp();
+
+    boolean gd(int i);
 
     JSONObject getRawSwitch();
 

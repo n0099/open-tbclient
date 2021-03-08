@@ -3,11 +3,11 @@ package com.baidu.live.challenge;
 import android.view.ViewGroup;
 import com.baidu.live.challenge.i;
 import com.baidu.live.data.ab;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface h extends i.c, i.d, i.n {
-    void Ar();
+    void AB();
 
-    void Ay();
+    void Au();
 
     void a(g gVar);
 
@@ -19,7 +19,7 @@ public interface h extends i.c, i.d, i.n {
 
     void c(boolean z, boolean z2, boolean z3);
 
-    void cv(int i);
+    void cw(int i);
 
     void g(int i, long j);
 

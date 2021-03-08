@@ -10,28 +10,28 @@ import android.os.Message;
 public final class c extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    private /* synthetic */ Context f14374a;
-    private /* synthetic */ b qmu;
+    private /* synthetic */ Context f8615a;
+    private /* synthetic */ b qmW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, Looper looper, Context context) {
         super(looper);
-        this.qmu = bVar;
-        this.f14374a = context;
+        this.qmW = bVar;
+        this.f8615a = context;
     }
 
     @Override // android.os.Handler
     public final void handleMessage(Message message) {
         Object obj;
         Object obj2;
-        String b2;
+        String b;
         if (message.what == 666) {
             try {
                 Bundle data = message.getData();
                 if (data != null) {
-                    b2 = b.b(this.f14374a, data.getInt("type"), data.getString("appid"));
-                    String unused = b.j = b2;
+                    b = b.b(this.f8615a, data.getInt("type"), data.getString("appid"));
+                    String unused = b.j = b;
                 }
                 obj = b.g;
                 synchronized (obj) {

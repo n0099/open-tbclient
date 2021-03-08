@@ -11,10 +11,8 @@ import java.util.concurrent.atomic.AtomicReference;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final q<?, ?, ?> f9969a = new q<>(Object.class, Object.class, Object.class, Collections.singletonList(new g(Object.class, Object.class, Object.class, Collections.emptyList(), new com.kwad.sdk.glide.load.resource.e.g(), null)), null);
-
-    /* renamed from: b  reason: collision with root package name */
-    private final ArrayMap<i, q<?, ?, ?>> f9970b = new ArrayMap<>();
+    private static final q<?, ?, ?> f6599a = new q<>(Object.class, Object.class, Object.class, Collections.singletonList(new g(Object.class, Object.class, Object.class, Collections.emptyList(), new com.kwad.sdk.glide.load.resource.e.g(), null)), null);
+    private final ArrayMap<i, q<?, ?, ?>> b = new ArrayMap<>();
     private final AtomicReference<i> c = new AtomicReference<>();
 
     private i b(Class<?> cls, Class<?> cls2, Class<?> cls3) {
@@ -29,26 +27,26 @@ public class c {
     @Nullable
     public <Data, TResource, Transcode> q<Data, TResource, Transcode> a(Class<Data> cls, Class<TResource> cls2, Class<Transcode> cls3) {
         q<Data, TResource, Transcode> qVar;
-        i b2 = b(cls, cls2, cls3);
-        synchronized (this.f9970b) {
-            qVar = (q<Data, TResource, Transcode>) this.f9970b.get(b2);
+        i b = b(cls, cls2, cls3);
+        synchronized (this.b) {
+            qVar = (q<Data, TResource, Transcode>) this.b.get(b);
         }
-        this.c.set(b2);
+        this.c.set(b);
         return qVar;
     }
 
     public void a(Class<?> cls, Class<?> cls2, Class<?> cls3, @Nullable q<?, ?, ?> qVar) {
-        synchronized (this.f9970b) {
-            ArrayMap<i, q<?, ?, ?>> arrayMap = this.f9970b;
+        synchronized (this.b) {
+            ArrayMap<i, q<?, ?, ?>> arrayMap = this.b;
             i iVar = new i(cls, cls2, cls3);
             if (qVar == null) {
-                qVar = f9969a;
+                qVar = f6599a;
             }
             arrayMap.put(iVar, qVar);
         }
     }
 
     public boolean a(@Nullable q<?, ?, ?> qVar) {
-        return f9969a.equals(qVar);
+        return f6599a.equals(qVar);
     }
 }

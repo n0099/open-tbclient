@@ -14,20 +14,18 @@ import java.util.concurrent.TimeUnit;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private ExecutorService f12986a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private ExecutorService f12987b;
-    private ScheduledExecutorService qcX;
+    private ExecutorService f7731a;
+    private ExecutorService b;
+    private ScheduledExecutorService qdK;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class a {
-        private static f qcY = new f();
+        private static f qdL = new f();
     }
 
-    public static f eFh() {
-        return a.qcY;
+    public static f eFl() {
+        return a.qdL;
     }
 
     private f() {
@@ -56,57 +54,57 @@ public class f {
             if (z && !com.ss.android.downloadlib.f.i.a()) {
                 runnable.run();
             } else {
-                eFi().execute(runnable);
+                eFm().execute(runnable);
             }
         }
     }
 
     public void a(Runnable runnable, long j) {
         try {
-            eFj().schedule(runnable, j, TimeUnit.MILLISECONDS);
+            eFn().schedule(runnable, j, TimeUnit.MILLISECONDS);
         } catch (Throwable th) {
             th.printStackTrace();
         }
     }
 
     public ExecutorService b() {
-        if (this.f12986a == null) {
+        if (this.f7731a == null) {
             synchronized (f.class) {
-                if (this.f12986a == null) {
-                    this.f12986a = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, TimeUnit.SECONDS, new SynchronousQueue(), new com.ss.android.socialbase.downloader.l.a(i.class.getName() + "-CPUThreadPool"));
+                if (this.f7731a == null) {
+                    this.f7731a = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, TimeUnit.SECONDS, new SynchronousQueue(), new com.ss.android.socialbase.downloader.l.a(i.class.getName() + "-CPUThreadPool"));
                 }
             }
         }
-        return this.f12986a;
+        return this.f7731a;
     }
 
-    public ExecutorService eFi() {
-        if (this.f12987b == null) {
+    public ExecutorService eFm() {
+        if (this.b == null) {
             synchronized (f.class) {
-                if (this.f12987b == null) {
-                    this.f12987b = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, TimeUnit.SECONDS, new SynchronousQueue(), new com.ss.android.socialbase.downloader.l.a(i.class.getName() + "-IOThreadPool"));
+                if (this.b == null) {
+                    this.b = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, TimeUnit.SECONDS, new SynchronousQueue(), new com.ss.android.socialbase.downloader.l.a(i.class.getName() + "-IOThreadPool"));
                 }
             }
         }
-        return this.f12987b;
+        return this.b;
     }
 
-    public ScheduledExecutorService eFj() {
-        if (this.qcX == null) {
+    public ScheduledExecutorService eFn() {
+        if (this.qdK == null) {
             synchronized (f.class) {
-                if (this.qcX == null) {
-                    this.qcX = new ScheduledThreadPoolExecutor(0, new com.ss.android.socialbase.downloader.l.a(i.class.getName() + "-ScheduledThreadPool"));
+                if (this.qdK == null) {
+                    this.qdK = new ScheduledThreadPoolExecutor(0, new com.ss.android.socialbase.downloader.l.a(i.class.getName() + "-ScheduledThreadPool"));
                 }
             }
         }
-        return this.qcX;
+        return this.qdK;
     }
 
     public void e() {
         a(new Runnable() { // from class: com.ss.android.downloadlib.f.1
             @Override // java.lang.Runnable
             public void run() {
-                k eGs;
+                k eGw;
                 synchronized (f.class) {
                     try {
                         for (String str : new String[]{"sp_ad_download_event", "sp_download_finish_cache", "sp_delay_operation_info", "sp_ttdownloader_md5", "sp_name_installed_app", "misc_config", "sp_ad_install_back_dialog", "sp_appdownloader"}) {
@@ -115,15 +113,15 @@ public class f {
                                 sharedPreferences.edit().clear().apply();
                             }
                         }
-                        eGs = com.ss.android.socialbase.downloader.downloader.b.eGs();
+                        eGw = com.ss.android.socialbase.downloader.downloader.b.eGw();
                     } catch (Throwable th) {
                     }
-                    if (eGs instanceof com.ss.android.socialbase.downloader.impls.d) {
-                        SparseArray<com.ss.android.socialbase.downloader.g.c> a2 = ((com.ss.android.socialbase.downloader.impls.d) eGs).eIy().a();
+                    if (eGw instanceof com.ss.android.socialbase.downloader.impls.d) {
+                        SparseArray<com.ss.android.socialbase.downloader.g.c> a2 = ((com.ss.android.socialbase.downloader.impls.d) eGw).eIA().a();
                         for (int size = a2.size() - 1; size >= 0; size--) {
                             com.ss.android.socialbase.downloader.g.c cVar = a2.get(a2.keyAt(size));
                             if (cVar != null) {
-                                com.ss.android.socialbase.downloader.downloader.f.iB(j.a()).j(cVar.g());
+                                com.ss.android.socialbase.downloader.downloader.f.iC(j.a()).j(cVar.g());
                             }
                         }
                     }

@@ -2,9 +2,9 @@ package com.baidu.live.message;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaPokeResponseMessage extends JsonHttpResponsedMessage {
-    public int buT;
+    public int bwt;
     public long userId;
 
     public AlaPokeResponseMessage() {
@@ -17,7 +17,7 @@ public class AlaPokeResponseMessage extends JsonHttpResponsedMessage {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             this.userId = optJSONObject.optLong("poke_user_id", 0L);
-            this.buT = optJSONObject.optInt("poke_flag", 0);
+            this.bwt = optJSONObject.optInt("poke_flag", 0);
         }
     }
 }

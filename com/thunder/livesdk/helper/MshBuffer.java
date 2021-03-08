@@ -3,7 +3,7 @@ package com.thunder.livesdk.helper;
 import com.thunder.livesdk.log.ThunderLog;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MshBuffer implements IMshBuffer {
     public ByteBuffer mByteBuffer;
     public IByteBufferPool mBytePool;

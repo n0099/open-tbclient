@@ -10,10 +10,8 @@ import org.json.JSONObject;
 public class j implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f9175a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f9176b;
+    public boolean f6104a;
+    public int b;
     public int c;
     public List<Long> d;
 
@@ -23,13 +21,13 @@ public class j implements com.kwad.sdk.core.b {
 
     public j(int i) {
         this.d = new ArrayList();
-        this.f9175a = true;
-        this.f9176b = i;
+        this.f6104a = true;
+        this.b = i;
     }
 
     public j(List<AdTemplate> list) {
         this.d = new ArrayList();
-        this.f9175a = false;
+        this.f6104a = false;
         if (list != null) {
             this.c = list.size();
             for (AdTemplate adTemplate : list) {
@@ -41,9 +39,9 @@ public class j implements com.kwad.sdk.core.b {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, "preload", this.f9175a);
-        if (this.f9175a) {
-            o.a(jSONObject, "requestVideoCount", this.f9176b);
+        o.a(jSONObject, "preload", this.f6104a);
+        if (this.f6104a) {
+            o.a(jSONObject, "requestVideoCount", this.b);
         } else {
             o.a(jSONObject, "preloadedVideoCount", this.c);
             JSONArray jSONArray = new JSONArray();

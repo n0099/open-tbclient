@@ -28,9 +28,9 @@ public class VideopalyerpluginPlugin implements FlutterPlugin, MethodChannel.Met
             result.success("Android " + Build.VERSION.RELEASE);
         } else if (!methodCall.method.equals("create")) {
             if (methodCall.method.equals("checkNeedAutoPlay")) {
-                result.success(Boolean.valueOf(ak.rG(((Integer) methodCall.argument("sourceType")).intValue())));
+                result.success(Boolean.valueOf(ak.rI(((Integer) methodCall.argument("sourceType")).intValue())));
             } else if (methodCall.method.equals("isLocalSettingCanAutoPlay")) {
-                result.success(Boolean.valueOf(ak.bFR()));
+                result.success(Boolean.valueOf(ak.bFV()));
             } else {
                 result.notImplemented();
             }

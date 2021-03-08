@@ -10,19 +10,19 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class f<V> implements RunnableFuture<V>, ScheduledFuture<V> {
     private final Handler mHandler;
-    private final FutureTask<V> pzj;
+    private final FutureTask<V> pBo;
 
     public f(Handler handler, Callable<V> callable) {
         this.mHandler = handler;
-        this.pzj = new FutureTask<>(callable);
+        this.pBo = new FutureTask<>(callable);
     }
 
     public f(Handler handler, Runnable runnable, @Nullable V v) {
         this.mHandler = handler;
-        this.pzj = new FutureTask<>(runnable, v);
+        this.pBo = new FutureTask<>(runnable, v);
     }
 
     @Override // java.util.concurrent.Delayed
@@ -39,31 +39,31 @@ public class f<V> implements RunnableFuture<V>, ScheduledFuture<V> {
 
     @Override // java.util.concurrent.RunnableFuture, java.lang.Runnable
     public void run() {
-        this.pzj.run();
+        this.pBo.run();
     }
 
     @Override // java.util.concurrent.Future
     public boolean cancel(boolean z) {
-        return this.pzj.cancel(z);
+        return this.pBo.cancel(z);
     }
 
     @Override // java.util.concurrent.Future
     public boolean isCancelled() {
-        return this.pzj.isCancelled();
+        return this.pBo.isCancelled();
     }
 
     @Override // java.util.concurrent.Future
     public boolean isDone() {
-        return this.pzj.isDone();
+        return this.pBo.isDone();
     }
 
     @Override // java.util.concurrent.Future
     public V get() throws InterruptedException, ExecutionException {
-        return this.pzj.get();
+        return this.pBo.get();
     }
 
     @Override // java.util.concurrent.Future
     public V get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
-        return this.pzj.get(j, timeUnit);
+        return this.pBo.get(j, timeUnit);
     }
 }

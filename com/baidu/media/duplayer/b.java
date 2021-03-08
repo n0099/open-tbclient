@@ -12,6 +12,7 @@ import com.baidu.media.duplayer.d;
 import com.baidu.media.duplayer.monitor.DuplayerQualityMonitorManager;
 import com.baidu.media.ext.CyberMediaExtLoader;
 import com.baidu.webkit.internal.GlobalConstants;
+import com.fun.ad.sdk.FunAdSdk;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Map;
@@ -20,27 +21,25 @@ import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile int f3198a = 0;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static String f3199b;
+    private static volatile int f2306a = 0;
+    private static String b;
     private static String c;
     private static boolean d;
 
     public static void a(int i, Map<String, String> map) {
-        int b2 = e.abx().b(i);
-        if ((f3198a & b2) == b2) {
+        int b2 = e.abA().b(i);
+        if ((f2306a & b2) == b2) {
             return;
         }
-        for (int i2 = (f3198a ^ b2) & b2; i2 > 0 && d(1 << Integer.numberOfTrailingZeros(i2), map); i2 = (f3198a ^ b2) & b2) {
+        for (int i2 = (f2306a ^ b2) & b2; i2 > 0 && d(1 << Integer.numberOfTrailingZeros(i2), map); i2 = (f2306a ^ b2) & b2) {
         }
-        e.abx().d();
+        e.abA().d();
     }
 
     public static void a(Context context, String str) {
         c = str;
         d = Utils.e(context);
-        e.abx().a(context, str);
+        e.abA().a(context, str);
     }
 
     private static void a(Context context, Map<String, String> map) {
@@ -56,7 +55,7 @@ public class b {
                 c.a();
             }
         });
-        String str3 = str2 == null ? Utils.a(context) + File.separator + "baidu" + File.separator + "flyflow" + File.separator + Utils.c + File.separator + context.getPackageName() + File.separator : str2 + File.separator + Utils.c + File.separator;
+        String str3 = str2 == null ? Utils.a(context) + File.separator + FunAdSdk.PLATFORM_BAIDU + File.separator + "flyflow" + File.separator + Utils.c + File.separator + context.getPackageName() + File.separator : str2 + File.separator + Utils.c + File.separator;
         if (d) {
             str3 = str3 + "remote" + File.separator;
         }
@@ -76,8 +75,8 @@ public class b {
     }
 
     public static boolean a(int i) {
-        int b2 = e.abx().b(i);
-        return (f3198a & b2) == b2;
+        int b2 = e.abA().b(i);
+        return (f2306a & b2) == b2;
     }
 
     private static boolean a(int i, String str) {
@@ -99,11 +98,11 @@ public class b {
     }
 
     public static String[] a() {
-        return e.abx().b();
+        return e.abA().b();
     }
 
     public static String b() {
-        return f3199b;
+        return b;
     }
 
     public static String c() {
@@ -149,8 +148,8 @@ public class b {
                 }
                 try {
                     try {
-                        File file = new File(e.abx().fz(1).c());
-                        File file2 = new File(e.abx().fz(2).c());
+                        File file = new File(e.abA().fA(1).c());
+                        File file2 = new File(e.abA().fA(2).c());
                         String parent = file.getParent();
                         String parent2 = file2.getParent();
                         try {
@@ -210,55 +209,55 @@ public class b {
 
     private static boolean d(int i, Map<String, String> map) {
         boolean a2;
-        d fz = e.abx().fz(i);
-        if (fz == null) {
+        d fA = e.abA().fA(i);
+        if (fA == null) {
             CyberLog.e("CyberLibsLoader", "Unable to find (" + i + ") LibInfo");
             return false;
         }
-        String a3 = fz.a();
-        String b2 = fz.b();
-        String c2 = fz.c();
+        String a3 = fA.a();
+        String b2 = fA.b();
+        String c2 = fA.c();
         File file = new File(c2);
-        if (fz.abw() == d.a.LIB_TYPE_JAR) {
+        if (fA.abz() == d.a.LIB_TYPE_JAR) {
             if (!"apk_internal_jar".equals(c2)) {
                 if (!file.exists()) {
-                    throw new FileNotFoundException(e.abx().c(i));
+                    throw new FileNotFoundException(e.abA().c(i));
                 }
-                if (e.abx().h(i)) {
+                if (e.abA().h(i)) {
                     a2 = CyberMediaExtLoader.init(CyberPlayerManager.getApplicationContext());
                 }
             }
             a2 = true;
         } else {
-            if (fz.abw() == d.a.LIB_TYPE_SO) {
+            if (fA.abz() == d.a.LIB_TYPE_SO) {
                 if (!file.exists()) {
                     if (i == 8) {
                         i = 16;
                     }
-                    throw new FileNotFoundException(e.abx().c(i));
-                } else if (e.abx().d(i)) {
+                    throw new FileNotFoundException(e.abA().c(i));
+                } else if (e.abA().d(i)) {
                     System.load(c2);
                     if (i == 16) {
                         a(CyberPlayerManager.getApplicationContext(), map);
                         a2 = true;
                     }
-                } else if (e.abx().e(i)) {
+                } else if (e.abA().e(i)) {
                     IjkMediaPlayer.nativeSetEnableFFmpegExtend(c2);
                     a2 = true;
-                } else if (e.abx().f(i)) {
-                    f3199b = c2;
+                } else if (e.abA().f(i)) {
+                    b = c2;
                     a2 = true;
-                } else if (e.abx().i(i)) {
+                } else if (e.abA().i(i)) {
                     a2 = c(i, map);
-                } else if (e.abx().g(i)) {
+                } else if (e.abA().g(i)) {
                     a2 = a(i, c2);
                 }
             }
             a2 = true;
         }
-        f3198a |= i;
+        f2306a |= i;
         if (a2) {
-            CyberLog.d("CyberLibsLoader", "isMediaProcess:" + d + " abi:" + e.abx().c() + " lib:" + a3 + " ver:" + b2 + " load success");
+            CyberLog.d("CyberLibsLoader", "isMediaProcess:" + d + " abi:" + e.abA().c() + " lib:" + a3 + " ver:" + b2 + " load success");
             return true;
         }
         return true;

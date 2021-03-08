@@ -9,7 +9,7 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 @RequiresApi(19)
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class DocumentsContractApi19 {
     private static final int FLAG_VIRTUAL_DOCUMENT = 512;
     private static final String TAG = "DocumentFile";

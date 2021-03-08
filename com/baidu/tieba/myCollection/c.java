@@ -6,9 +6,9 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ar;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
-    public static void OL(String str) {
+    public static void OR(String str) {
         if (!StringUtils.isNull(str)) {
             ar arVar = new ar(str);
             arVar.dR("uid", TbadkApplication.getCurrentAccount());

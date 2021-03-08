@@ -4,7 +4,7 @@ import java.io.File;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public final class NoSuchFileException extends FileSystemException {
     public /* synthetic */ NoSuchFileException(File file, File file2, String str, int i, o oVar) {
         this(file, (i & 2) != 0 ? null : file2, (i & 4) != 0 ? null : str);
@@ -13,6 +13,6 @@ public final class NoSuchFileException extends FileSystemException {
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NoSuchFileException(File file, File file2, String str) {
         super(file, file2, str);
-        p.o(file, "file");
+        p.p(file, "file");
     }
 }

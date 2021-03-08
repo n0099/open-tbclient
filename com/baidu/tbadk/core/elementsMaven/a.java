@@ -17,11 +17,11 @@ public class a {
         return ap.getColor(i);
     }
 
-    public static int nL(int i) {
+    public static int nM(int i) {
         return TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(i);
     }
 
-    public static float nM(int i) {
+    public static float nN(int i) {
         return com.baidu.adp.lib.f.b.toFloat(getString(i), 0.0f);
     }
 
@@ -33,26 +33,26 @@ public class a {
         return TbadkCoreApplication.getInst().getResources().getStringArray(i);
     }
 
-    public static Typeface Az(String str) {
+    public static Typeface AG(String str) {
         return "bold".equals(str) ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT;
     }
 
-    public static ColorStateList nN(int i) {
-        return ap.oB(i);
+    public static ColorStateList nO(int i) {
+        return ap.oC(i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static b bp(View view) {
         Drawable background = view.getBackground();
-        return background instanceof b ? (b) background : b.bqT();
+        return background instanceof b ? (b) background : b.bqU();
     }
 
     private static b j(Drawable drawable) {
-        return drawable instanceof b ? (b) drawable : b.bqT();
+        return drawable instanceof b ? (b) drawable : b.bqU();
     }
 
     public static Drawable a(Drawable drawable, int i) {
-        return ((b) j(drawable).clone()).nX(getColor(i));
+        return ((b) j(drawable).clone()).nY(getColor(i));
     }
 
     public static Drawable a(Drawable drawable, int[] iArr) {
@@ -60,7 +60,7 @@ public class a {
     }
 
     public static Drawable b(Drawable drawable, int i) {
-        return ((b) j(drawable).clone()).nR(i);
+        return ((b) j(drawable).clone()).nS(i);
     }
 
     public static Drawable c(Drawable drawable, int i) {
@@ -69,13 +69,13 @@ public class a {
 
     public static Drawable a(View view, Drawable drawable, String[] strArr) {
         String[] split = strArr[2].split(",");
-        return ((b) j(drawable).clone()).nS(AB(strArr[0])).nT(AA(strArr[1])).nU(AA(split[0])).nV(AA(split[1])).bq(view);
+        return ((b) j(drawable).clone()).nT(AI(strArr[0])).nU(AH(strArr[1])).nV(AH(split[0])).nW(AH(split[1])).bq(view);
     }
 
-    public static float[] nO(int i) {
+    public static float[] nP(int i) {
         String[] stringArray = getStringArray(i);
         String[] split = stringArray[2].split(",");
-        float[] fArr = {AB(stringArray[0]), AA(stringArray[1]), AA(split[0]), AA(split[1])};
+        float[] fArr = {AI(stringArray[0]), AH(stringArray[1]), AH(split[0]), AH(split[1])};
         if (fArr[1] == 0.0f) {
             fArr[1] = 0.01f;
         }
@@ -85,36 +85,36 @@ public class a {
     public static Drawable a(Drawable drawable, String[] strArr) {
         String[] split = strArr[0].split(",");
         String[] split2 = strArr[1].split(",");
-        return ((b) j(drawable).clone()).k(N(split)).y(M(split2)).AC(strArr[2]);
+        return ((b) j(drawable).clone()).k(N(split)).y(M(split2)).AJ(strArr[2]);
     }
 
     public static Drawable b(Drawable drawable, int i, int i2) {
         b j = j(drawable);
         j.release();
-        GradientDrawable bqY = j.bqY();
-        bqY.setColor(getColor(i));
-        GradientDrawable bqY2 = j.bqY();
-        bqY2.setColor(getColor(i2));
+        GradientDrawable bqZ = j.bqZ();
+        bqZ.setColor(getColor(i));
+        GradientDrawable bqZ2 = j.bqZ();
+        bqZ2.setColor(getColor(i2));
         StateListDrawable stateListDrawable = new StateListDrawable();
-        stateListDrawable.addState(new int[]{16842910, 16842919}, bqY2);
-        stateListDrawable.addState(new int[]{16842910, 16842908}, bqY2);
-        stateListDrawable.addState(new int[0], bqY);
+        stateListDrawable.addState(new int[]{16842910, 16842919}, bqZ2);
+        stateListDrawable.addState(new int[]{16842910, 16842908}, bqZ2);
+        stateListDrawable.addState(new int[0], bqZ);
         return stateListDrawable;
     }
 
     public static Drawable d(Drawable drawable, int i) {
-        return ((b) j(drawable).clone()).nW(getColor(i));
+        return ((b) j(drawable).clone()).nX(getColor(i));
     }
 
     public static Drawable e(Drawable drawable, int i) {
-        return ((b) j(drawable).clone()).ad(nL(i));
+        return ((b) j(drawable).clone()).ah(nM(i));
     }
 
     public static Drawable f(Drawable drawable, int i) {
-        return ((b) j(drawable).clone()).ae(nM(i));
+        return ((b) j(drawable).clone()).ai(nN(i));
     }
 
-    public static float[] m(float f) {
+    public static float[] q(float f) {
         float[] fArr = new float[8];
         Arrays.fill(fArr, f);
         return fArr;
@@ -123,15 +123,15 @@ public class a {
     public static float[] aI(int i) {
         Application app = BdBaseApplication.getInst().getApp();
         if (app == null) {
-            return m(0.0f);
+            return q(0.0f);
         }
         String[] split = app.getString(i).split(",");
         int min = Math.min(split.length, 4);
         float[] fArr = new float[8];
         for (int i2 = 0; i2 < min; i2++) {
-            float ci = ci(split[i2]);
-            fArr[i2 * 2] = ci;
-            fArr[(i2 * 2) + 1] = ci;
+            float cm = cm(split[i2]);
+            fArr[i2 * 2] = cm;
+            fArr[(i2 * 2) + 1] = cm;
         }
         return fArr;
     }
@@ -140,9 +140,9 @@ public class a {
         int min = Math.min(strArr.length, 4);
         float[] fArr = new float[8];
         for (int i = 0; i < min; i++) {
-            float ci = ci(strArr[i]);
-            fArr[i * 2] = ci;
-            fArr[(i * 2) + 1] = ci;
+            float cm = cm(strArr[i]);
+            fArr[i * 2] = cm;
+            fArr[(i * 2) + 1] = cm;
         }
         return fArr;
     }
@@ -168,20 +168,20 @@ public class a {
         int length = strArr.length;
         int[] iArr = new int[length];
         for (int i = 0; i < length; i++) {
-            iArr[i] = AB(strArr[i]);
+            iArr[i] = AI(strArr[i]);
         }
         return iArr;
     }
 
-    private static float ci(String str) {
-        return str.endsWith("H") ? Float.parseFloat(str.substring(0, str.length() - 1)) : AA(str);
+    private static float cm(String str) {
+        return str.endsWith("H") ? Float.parseFloat(str.substring(0, str.length() - 1)) : AH(str);
     }
 
-    private static int AA(String str) {
-        return nL(dG("tbds" + str, "dimen"));
+    private static int AH(String str) {
+        return nM(dG("tbds" + str, "dimen"));
     }
 
-    private static int AB(String str) {
+    private static int AI(String str) {
         return getColor(dG(str, "color"));
     }
 

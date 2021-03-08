@@ -1,5 +1,5 @@
 package com.baidu.mobads.openad.interfaces.event;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface IOAdEventListener {
     void run(IOAdEvent iOAdEvent);
 }

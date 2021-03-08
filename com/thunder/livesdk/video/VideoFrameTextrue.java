@@ -4,7 +4,7 @@ import com.thunder.livesdk.ThunderBridgeLib;
 import com.yy.mediaframework.gpuimage.custom.IYMFGpuProcess;
 import com.yy.mediaframework.gpuimage.custom.YMFVideoFrame;
 import java.nio.FloatBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoFrameTextrue implements IYMFGpuProcess {
     private static volatile VideoFrameTextrue instance;
     private static Object syncLock = new Object();

@@ -2,23 +2,23 @@ package com.baidu.swan.apps.inlinewidget.rtcroom.c;
 
 import android.view.Surface;
 import androidx.annotation.NonNull;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface a extends c {
 
     /* renamed from: com.baidu.swan.apps.inlinewidget.rtcroom.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public interface InterfaceC0430a {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0436a {
     }
 
-    void a(@NonNull InterfaceC0430a interfaceC0430a);
+    void a(@NonNull InterfaceC0436a interfaceC0436a);
 
     int getVideoHeight();
 
     int getVideoWidth();
 
-    void hw(int i);
+    void hx(int i);
 
-    void oe(String str);
+    void om(String str);
 
     void onFocus(int i, int i2, int i3, int i4);
 

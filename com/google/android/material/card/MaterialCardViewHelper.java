@@ -8,7 +8,7 @@ import androidx.annotation.Dimension;
 import androidx.annotation.RestrictTo;
 import com.google.android.material.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 class MaterialCardViewHelper {
     private static final int DEFAULT_STROKE_VALUE = -1;
     private final MaterialCardView materialCardView;

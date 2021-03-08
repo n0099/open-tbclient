@@ -16,10 +16,8 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
     public static final int WALK_AR_PERMISSION = 3001;
 
     /* renamed from: a  reason: collision with root package name */
-    SurfaceHolder f4384a;
-
-    /* renamed from: b  reason: collision with root package name */
-    Camera f4385b;
+    SurfaceHolder f3036a;
+    Camera b;
     private Context c;
 
     public ArCameraView(Context context) {
@@ -35,9 +33,9 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
     private void initCameraView(Context context) {
         try {
             this.c = context;
-            this.f4384a = getHolder();
-            this.f4384a.addCallback(this);
-            this.f4384a.setType(3);
+            this.f3036a = getHolder();
+            this.f3036a.addCallback(this);
+            this.f3036a.setType(3);
         } catch (Exception e) {
             e.printStackTrace();
             Toast.makeText(com.baidu.platform.comapi.wnplatform.o.b.a.a(), "相机出现错误", 0).show();
@@ -48,15 +46,15 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
         Log.e("CameraView", "surfaceCreated");
         try {
-            if (this.f4385b == null) {
-                this.f4385b = Camera.open();
+            if (this.b == null) {
+                this.b = Camera.open();
             }
-            Camera.Parameters parameters = this.f4385b.getParameters();
+            Camera.Parameters parameters = this.b.getParameters();
             Camera.Size bestPreSize = getBestPreSize(g.c(this.c), g.b(this.c), parameters.getSupportedPreviewSizes());
             parameters.setPreviewSize(bestPreSize.width, bestPreSize.height);
-            if (this.f4385b != null) {
-                this.f4385b.setParameters(parameters);
-                this.f4385b.setPreviewDisplay(surfaceHolder);
+            if (this.b != null) {
+                this.b.setParameters(parameters);
+                this.b.setPreviewDisplay(surfaceHolder);
             }
             resumeCamera();
         } catch (Exception e) {
@@ -97,7 +95,7 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
-        if (!setCameraDisplayOrientation((Activity) this.c, getBackCameraId(), this.f4385b)) {
+        if (!setCameraDisplayOrientation((Activity) this.c, getBackCameraId(), this.b)) {
             setDisplayOrientation(90);
         }
         resumeCamera();
@@ -162,8 +160,8 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
 
     private void setDisplayOrientation(int i) {
         try {
-            if (this.f4385b != null) {
-                this.f4385b.setDisplayOrientation(i);
+            if (this.b != null) {
+                this.b.setDisplayOrientation(i);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -178,8 +176,8 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
 
     public void resumeCamera() {
         try {
-            if (this.f4385b != null) {
-                this.f4385b.startPreview();
+            if (this.b != null) {
+                this.b.startPreview();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -189,8 +187,8 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
 
     public void pauseCamera() {
         try {
-            if (this.f4385b != null) {
-                this.f4385b.stopPreview();
+            if (this.b != null) {
+                this.b.stopPreview();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -199,17 +197,17 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
 
     public void releaseCamera() {
         try {
-            if (this.f4385b != null) {
+            if (this.b != null) {
                 try {
-                    this.f4385b.setPreviewCallback(null);
-                    this.f4385b.stopPreview();
+                    this.b.setPreviewCallback(null);
+                    this.b.stopPreview();
                 } catch (Exception e) {
                 }
                 try {
-                    this.f4385b.release();
+                    this.b.release();
                 } catch (Exception e2) {
                 }
-                this.f4385b = null;
+                this.b = null;
             }
         } catch (Exception e3) {
             e3.printStackTrace();

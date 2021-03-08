@@ -12,29 +12,29 @@ import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class FlowableCombineLatest<T, R> extends g<R> {
     final int bufferSize;
     final h<? super Object[], ? extends R> combiner;
     final boolean delayErrors;
-    final org.a.b<? extends T>[] qoF;
-    final Iterable<? extends org.a.b<? extends T>> qoG;
+    final org.a.b<? extends T>[] qph;
+    final Iterable<? extends org.a.b<? extends T>> qpi;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super R> cVar) {
         int length;
         org.a.b<? extends T>[] bVarArr;
         org.a.b<? extends T>[] bVarArr2;
-        org.a.b<? extends T>[] bVarArr3 = this.qoF;
+        org.a.b<? extends T>[] bVarArr3 = this.qph;
         if (bVarArr3 == null) {
             org.a.b<? extends T>[] bVarArr4 = new org.a.b[8];
             try {
-                Iterator it = (Iterator) io.reactivex.internal.functions.a.m(this.qoG.iterator(), "The iterator returned is null");
+                Iterator it = (Iterator) io.reactivex.internal.functions.a.n(this.qpi.iterator(), "The iterator returned is null");
                 length = 0;
                 while (it.hasNext()) {
                     try {
                         try {
-                            org.a.b<? extends T> bVar = (org.a.b) io.reactivex.internal.functions.a.m(it.next(), "The publisher returned by the iterator is null");
+                            org.a.b<? extends T> bVar = (org.a.b) io.reactivex.internal.functions.a.n(it.next(), "The publisher returned by the iterator is null");
                             if (length == bVarArr4.length) {
                                 bVarArr2 = new org.a.b[(length >> 2) + length];
                                 System.arraycopy(bVarArr4, 0, bVarArr2, 0, length);
@@ -68,7 +68,7 @@ public final class FlowableCombineLatest<T, R> extends g<R> {
         if (length == 0) {
             EmptySubscription.complete(cVar);
         } else if (length == 1) {
-            bVarArr[0].subscribe(new b.C1302b(cVar, new a()));
+            bVarArr[0].subscribe(new b.C1284b(cVar, new a()));
         } else {
             CombineLatestCoordinator combineLatestCoordinator = new CombineLatestCoordinator(cVar, this.combiner, length, this.bufferSize, this.delayErrors);
             cVar.onSubscribe(combineLatestCoordinator);
@@ -76,7 +76,7 @@ public final class FlowableCombineLatest<T, R> extends g<R> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class CombineLatestCoordinator<T, R> extends BasicIntQueueSubscription<R> {
         private static final long serialVersionUID = -5082275438355852221L;
         final org.a.c<? super R> actual;
@@ -233,7 +233,7 @@ public final class FlowableCombineLatest<T, R> extends g<R> {
                             break;
                         }
                         try {
-                            cVar.onNext((Object) io.reactivex.internal.functions.a.m(this.combiner.apply((Object[]) aVar.poll()), "The combiner returned a null value"));
+                            cVar.onNext((Object) io.reactivex.internal.functions.a.n(this.combiner.apply((Object[]) aVar.poll()), "The combiner returned a null value"));
                             ((CombineLatestInnerSubscriber) poll).requestOne();
                             j2 = 1 + j2;
                         } catch (Throwable th) {
@@ -329,7 +329,7 @@ public final class FlowableCombineLatest<T, R> extends g<R> {
             if (poll == null) {
                 return null;
             }
-            R r = (R) io.reactivex.internal.functions.a.m(this.combiner.apply((Object[]) this.queue.poll()), "The combiner returned a null value");
+            R r = (R) io.reactivex.internal.functions.a.n(this.combiner.apply((Object[]) this.queue.poll()), "The combiner returned a null value");
             ((CombineLatestInnerSubscriber) poll).requestOne();
             return r;
         }
@@ -346,7 +346,7 @@ public final class FlowableCombineLatest<T, R> extends g<R> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class CombineLatestInnerSubscriber<T> extends AtomicReference<d> implements j<T> {
         private static final long serialVersionUID = -8730235182291002949L;
         final int index;
@@ -399,7 +399,7 @@ public final class FlowableCombineLatest<T, R> extends g<R> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     final class a implements h<T, R> {
         a() {
         }

@@ -27,7 +27,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
 @SuppressLint({"NewApi"})
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class CameraCaptureFilter extends AbstractYYMediaFilter implements SurfaceTexture.OnFrameAvailableListener, IYMFPreviewFrameCallback {
     private static final int MAX_BUFFER_COUNT = 1;
     private static final String TAG = "CameraCaptureFilter";

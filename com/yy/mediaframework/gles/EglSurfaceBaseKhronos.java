@@ -3,7 +3,7 @@ package com.yy.mediaframework.gles;
 import com.yy.mediaframework.utils.YMFLog;
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLSurface;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class EglSurfaceBaseKhronos implements IEglSurfaceBase {
     protected static final String TAG = "GlUtil";
     protected EglCoreKhronos mEglCore;

@@ -170,10 +170,10 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.f.a<View> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        if (this.r || this.f8395a.l.getSourceType() != 0) {
+        if (this.r || this.f5594a.l.getSourceType() != 0) {
             return;
         }
-        c.a().a(this.e, this.e.getShowPosition(), this.f8395a.f8404a.i, new c.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.d.a.4
+        c.a().a(this.e, this.e.getShowPosition(), this.f5594a.f5600a.i, new c.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.d.a.4
             @Override // com.kwad.sdk.contentalliance.detail.photo.newui.d.c.a
             public void a(AdTemplate adTemplate, final int i) {
                 com.kwad.sdk.core.d.a.a("PhotoAuthorIconPresenter", "onCall currentPosition = " + i);
@@ -282,7 +282,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.f.a<View> {
     }
 
     private void t() {
-        if (this.f8395a.j.mAdScene == null || this.p == null || !this.r) {
+        if (this.f5594a.j.mAdScene == null || this.p == null || !this.r) {
             return;
         }
         c(9);
@@ -301,11 +301,11 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.f.a<View> {
     @Override // com.kwad.sdk.contentalliance.detail.photo.f.a, com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        h hVar = this.f8395a.f8404a;
+        h hVar = this.f5594a.f5600a;
         if (hVar != null) {
-            this.t = hVar.f8744a;
+            this.t = hVar.f5826a;
         }
-        this.e = this.f8395a.j;
+        this.e = this.f5594a.j;
         a(-1);
         e();
         this.f.setOnClickListener(this);
@@ -318,7 +318,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.f.a<View> {
                 a.this.a(true);
             }
         });
-        this.f8395a.f8405b.add(this.y);
+        this.f5594a.b.add(this.y);
     }
 
     public void a(@ColorInt int i) {
@@ -332,7 +332,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.f.a<View> {
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f8395a.f8405b.remove(this.y);
+        this.f5594a.b.remove(this.y);
         p();
     }
 
@@ -389,12 +389,12 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.f.a<View> {
         }
         if (com.kwad.sdk.core.response.b.c.c(this.e)) {
             if (!com.kwad.sdk.core.response.b.a.y(com.kwad.sdk.core.response.b.c.j(this.e)) || com.kwad.sdk.core.config.c.T()) {
-                com.kwad.sdk.core.download.b.a.a(view.getContext(), this.e, new a.InterfaceC1094a() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.d.a.8
-                    @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
+                com.kwad.sdk.core.download.b.a.a(view.getContext(), this.e, new a.InterfaceC1111a() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.d.a.8
+                    @Override // com.kwad.sdk.core.download.b.a.InterfaceC1111a
                     public void a() {
                         a.this.u();
                     }
-                }, this.f8395a.o);
+                }, this.f5594a.o);
             }
             c(0);
         } else if (this.r) {

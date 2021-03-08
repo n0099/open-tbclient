@@ -11,7 +11,7 @@ import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends aa {
     public b(j jVar) {
         super(jVar, "/swanAPI/setNavigationBarColor");
@@ -23,8 +23,8 @@ public class b extends aa {
             Log.d("BarColorAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-        f afX = com.baidu.swan.apps.v.f.aAl().afX();
-        if (afX == null) {
+        f aga = com.baidu.swan.apps.v.f.aAo().aga();
+        if (aga == null) {
             com.baidu.swan.apps.console.c.e("navigationColor", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -36,22 +36,22 @@ public class b extends aa {
             String optString = optParamsAsJo.optString("frontColor");
             String optString2 = optParamsAsJo.optString("backgroundColor");
             JSONObject optJSONObject = optParamsAsJo.optJSONObject("animation");
-            com.baidu.swan.apps.core.d.c apx = afX.apx();
-            if (apx == null) {
+            com.baidu.swan.apps.core.d.c apA = aga.apA();
+            if (apA == null) {
                 com.baidu.swan.apps.console.c.e("navigationColor", "slave container exception");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else if (!apx.Q(optString, true)) {
+            } else if (!apA.Q(optString, true)) {
                 com.baidu.swan.apps.console.c.e("navigationColor", "set title color fail");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else if (!apx.x(SwanAppConfigData.rM(optString2), true)) {
+            } else if (!apA.x(SwanAppConfigData.rT(optString2), true)) {
                 com.baidu.swan.apps.console.c.e("navigationColor", "set title background fail");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else {
                 if (optJSONObject != null) {
-                    apx.ap(optJSONObject.optInt("duration"), optJSONObject.optString("timingFunc"));
+                    apA.ap(optJSONObject.optInt("duration"), optJSONObject.optString("timingFunc"));
                     com.baidu.swan.apps.console.c.i("navigationColor", "set action bar animator");
                 }
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));

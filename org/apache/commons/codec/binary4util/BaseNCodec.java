@@ -5,7 +5,7 @@ import org.apache.commons.base.BinaryDecoder;
 import org.apache.commons.base.BinaryEncoder;
 import org.apache.commons.base.DecoderException;
 import org.apache.commons.base.EncoderException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class BaseNCodec implements BinaryDecoder, BinaryEncoder {
     private static final int DEFAULT_BUFFER_RESIZE_FACTOR = 2;
     private static final int DEFAULT_BUFFER_SIZE = 8192;
@@ -28,10 +28,10 @@ public abstract class BaseNCodec implements BinaryDecoder, BinaryEncoder {
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract void encode(byte[] bArr, int i, int i2, Context context);
 
-    protected abstract boolean isInAlphabet(byte b2);
+    protected abstract boolean isInAlphabet(byte b);
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Context {
         byte[] buffer;
         int currentLinePos;
@@ -52,13 +52,13 @@ public abstract class BaseNCodec implements BinaryDecoder, BinaryEncoder {
         this(i, i2, i3, i4, PAD_DEFAULT);
     }
 
-    protected BaseNCodec(int i, int i2, int i3, int i4, byte b2) {
+    protected BaseNCodec(int i, int i2, int i3, int i4, byte b) {
         this.PAD = PAD_DEFAULT;
         this.unencodedBlockSize = i;
         this.encodedBlockSize = i2;
         this.lineLength = i3 > 0 && i4 > 0 ? (i3 / i2) * i2 : 0;
         this.chunkSeparatorLength = i4;
-        this.pad = b2;
+        this.pad = b;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -112,8 +112,8 @@ public abstract class BaseNCodec implements BinaryDecoder, BinaryEncoder {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static boolean isWhiteSpace(byte b2) {
-        switch (b2) {
+    public static boolean isWhiteSpace(byte b) {
+        switch (b) {
             case 9:
             case 10:
             case 13:
@@ -186,12 +186,12 @@ public abstract class BaseNCodec implements BinaryDecoder, BinaryEncoder {
     }
 
     public boolean isInAlphabet(byte[] bArr, boolean z) {
-        for (byte b2 : bArr) {
-            if (!isInAlphabet(b2)) {
+        for (byte b : bArr) {
+            if (!isInAlphabet(b)) {
                 if (!z) {
                     return false;
                 }
-                if (b2 != this.pad && !isWhiteSpace(b2)) {
+                if (b != this.pad && !isWhiteSpace(b)) {
                     return false;
                 }
             }
@@ -208,8 +208,8 @@ public abstract class BaseNCodec implements BinaryDecoder, BinaryEncoder {
         if (bArr == null) {
             return false;
         }
-        for (byte b2 : bArr) {
-            if (this.pad == b2 || isInAlphabet(b2)) {
+        for (byte b : bArr) {
+            if (this.pad == b || isInAlphabet(b)) {
                 return true;
             }
         }

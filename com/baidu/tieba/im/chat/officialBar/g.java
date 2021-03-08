@@ -15,30 +15,30 @@ import com.baidu.tieba.im.chat.officialBar.OfficialBarFeedMsglistAdapter;
 import com.baidu.tieba.im.message.chat.a;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class g extends BaseAdapter {
-    private OfficialBarFeedMsglistAdapter.c kCf;
-    private boolean kCg;
-    private BdTypeListView kDX;
+    private OfficialBarFeedMsglistAdapter.c kEh;
+    private boolean kEi;
+    private BdTypeListView kFZ;
     private TbPageContext<OfficialBarFeedActivity> pageContext;
     private List<com.baidu.tieba.im.message.chat.b> mList = null;
-    private LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> kDW = null;
+    private LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> kFY = null;
 
     public g(TbPageContext<OfficialBarFeedActivity> tbPageContext, BdTypeListView bdTypeListView, OfficialBarFeedMsglistAdapter.c cVar) {
         this.pageContext = tbPageContext;
-        this.kCf = cVar;
-        this.kDX = bdTypeListView;
+        this.kEh = cVar;
+        this.kFZ = bdTypeListView;
     }
 
     private View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.im.message.chat.b bVar, MsgCommonItemAdapter.MsgViewHolder<b> msgViewHolder) {
-        b cUM = msgViewHolder.cUM();
-        a.C0761a cXb = bVar.cXb();
-        cXb.createTime = bVar.getCreateTime();
-        cUM.a(this.pageContext.getPageActivity().getBaseContext(), cXb, bVar.cXc(), this.kDW == null ? null : this.kDW.get(cXb.kJA), bVar.cXd(), bVar.cXa(), i);
-        ar arVar = new ar(this.kCg ? "c13865" : "c13863");
+        b cUT = msgViewHolder.cUT();
+        a.C0767a cXi = bVar.cXi();
+        cXi.createTime = bVar.getCreateTime();
+        cUT.a(this.pageContext.getPageActivity().getBaseContext(), cXi, bVar.cXj(), this.kFY == null ? null : this.kFY.get(cXi.kLC), bVar.cXk(), bVar.cXh(), i);
+        ar arVar = new ar(this.kEi ? "c13865" : "c13863");
         arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
-        arVar.dR("tid", cXb.tid == null ? "" : cXb.tid);
-        arVar.dR("fid", cXb.fid);
+        arVar.dR("tid", cXi.tid == null ? "" : cXi.tid);
+        arVar.dR("fid", cXi.fid);
         TiebaStatic.log(arVar);
         return view;
     }
@@ -53,7 +53,7 @@ public class g extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: CL */
+    /* renamed from: CO */
     public com.baidu.tieba.im.message.chat.b getItem(int i) {
         if (this.mList == null || this.mList.size() == 0 || i < 0 || i >= getCount()) {
             return null;
@@ -74,8 +74,8 @@ public class g extends BaseAdapter {
             aVar = (a) view.getTag();
         }
         if (aVar == null) {
-            b bVar = new b(this.pageContext, this.kCg);
-            bVar.a(this.kCf);
+            b bVar = new b(this.pageContext, this.kEi);
+            bVar.a(this.kEh);
             view2 = bVar.getConvertView();
             aVar = new a(bVar.getConvertView(), bVar);
             view2.setTag(aVar);
@@ -96,17 +96,17 @@ public class g extends BaseAdapter {
 
     @RequiresApi(api = 16)
     public void b(LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> longSparseArray) {
-        if (this.kDW == null) {
-            this.kDW = new LongSparseArray<>();
+        if (this.kFY == null) {
+            this.kFY = new LongSparseArray<>();
         }
-        this.kDW.clear();
+        this.kFY.clear();
         for (int i = 0; i < longSparseArray.size(); i++) {
-            this.kDW.put(longSparseArray.keyAt(i), longSparseArray.valueAt(i));
+            this.kFY.put(longSparseArray.keyAt(i), longSparseArray.valueAt(i));
         }
         notifyDataSetChanged();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     private class a extends MsgCommonItemAdapter.MsgViewHolder<b> {
         public a(View view, b bVar) {
             super(view, bVar);
@@ -114,6 +114,6 @@ public class g extends BaseAdapter {
     }
 
     public void sL(boolean z) {
-        this.kCg = z;
+        this.kEi = z;
     }
 }

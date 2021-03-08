@@ -5,7 +5,7 @@ import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaBarrageCardSendHttpResponseMessage extends JsonHttpResponsedMessage {
     public int mErrorCode;
     public String mErrorMsg;

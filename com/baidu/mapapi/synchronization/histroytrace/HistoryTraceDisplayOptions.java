@@ -11,10 +11,8 @@ public class HistoryTraceDisplayOptions {
     private int n = 30;
 
     /* renamed from: a  reason: collision with root package name */
-    private BitmapDescriptor f2951a = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Start.png");
-
-    /* renamed from: b  reason: collision with root package name */
-    private BitmapDescriptor f2952b = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_End.png");
+    private BitmapDescriptor f2158a = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Start.png");
+    private BitmapDescriptor b = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_End.png");
     private BitmapDescriptor c = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Car.png");
     private BitmapDescriptor d = BitmapDescriptorFactory.fromAsset("SDK_Default_Route_Texture_Gray_Arrow.png");
     private int e = 22;
@@ -28,7 +26,7 @@ public class HistoryTraceDisplayOptions {
     }
 
     public BitmapDescriptor getEndPositionIcon() {
-        return this.f2952b;
+        return this.b;
     }
 
     public int getPaddingBottom() {
@@ -56,7 +54,7 @@ public class HistoryTraceDisplayOptions {
     }
 
     public BitmapDescriptor getStartPositionIcon() {
-        return this.f2951a;
+        return this.f2158a;
     }
 
     public boolean isRouteLineRenderBySubSection() {
@@ -85,7 +83,7 @@ public class HistoryTraceDisplayOptions {
     }
 
     public HistoryTraceDisplayOptions setEndPositionIcon(BitmapDescriptor bitmapDescriptor) {
-        this.f2952b = bitmapDescriptor;
+        this.b = bitmapDescriptor;
         return this;
     }
 
@@ -150,7 +148,7 @@ public class HistoryTraceDisplayOptions {
     }
 
     public HistoryTraceDisplayOptions setStartPositionIcon(BitmapDescriptor bitmapDescriptor) {
-        this.f2951a = bitmapDescriptor;
+        this.f2158a = bitmapDescriptor;
         return this;
     }
 }

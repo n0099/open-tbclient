@@ -13,28 +13,28 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.themeCenter.background.DressItemData;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BubbleItemView extends LinearLayout {
-    private View.OnClickListener jig;
-    private TbImageView lme;
-    private TbImageView lmf;
+    private View.OnClickListener jjP;
+    private TbImageView loj;
+    private TbImageView lok;
     private Context mContext;
     private View mRootView;
-    private DressItemData nFW;
-    private ImageView nGu;
-    private FrameLayout nHS;
-    private TextView nHT;
-    private a nHU;
-    boolean nHV;
-    private TbImageView nHj;
+    private ImageView nIA;
+    private DressItemData nIc;
+    private FrameLayout nJY;
+    private TextView nJZ;
+    private TbImageView nJp;
+    private a nKa;
+    boolean nKb;
 
     public BubbleItemView(Context context) {
         super(context);
-        this.jig = new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.bubble.all.BubbleItemView.1
+        this.jjP = new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.bubble.all.BubbleItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != null && BubbleItemView.this.nFW != null && BubbleItemView.this.nHU != null && view == BubbleItemView.this.lme) {
-                    BubbleItemView.this.nHU.b(BubbleItemView.this.nFW, BubbleItemView.this.nHV);
+                if (view != null && BubbleItemView.this.nIc != null && BubbleItemView.this.nKa != null && view == BubbleItemView.this.loj) {
+                    BubbleItemView.this.nKa.b(BubbleItemView.this.nIc, BubbleItemView.this.nKb);
                 }
             }
         };
@@ -44,11 +44,11 @@ public class BubbleItemView extends LinearLayout {
 
     public BubbleItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jig = new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.bubble.all.BubbleItemView.1
+        this.jjP = new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.bubble.all.BubbleItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != null && BubbleItemView.this.nFW != null && BubbleItemView.this.nHU != null && view == BubbleItemView.this.lme) {
-                    BubbleItemView.this.nHU.b(BubbleItemView.this.nFW, BubbleItemView.this.nHV);
+                if (view != null && BubbleItemView.this.nIc != null && BubbleItemView.this.nKa != null && view == BubbleItemView.this.loj) {
+                    BubbleItemView.this.nKa.b(BubbleItemView.this.nIc, BubbleItemView.this.nKb);
                 }
             }
         };
@@ -58,11 +58,11 @@ public class BubbleItemView extends LinearLayout {
 
     public BubbleItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet);
-        this.jig = new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.bubble.all.BubbleItemView.1
+        this.jjP = new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.bubble.all.BubbleItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != null && BubbleItemView.this.nFW != null && BubbleItemView.this.nHU != null && view == BubbleItemView.this.lme) {
-                    BubbleItemView.this.nHU.b(BubbleItemView.this.nFW, BubbleItemView.this.nHV);
+                if (view != null && BubbleItemView.this.nIc != null && BubbleItemView.this.nKa != null && view == BubbleItemView.this.loj) {
+                    BubbleItemView.this.nKa.b(BubbleItemView.this.nIc, BubbleItemView.this.nKb);
                 }
             }
         };
@@ -72,49 +72,49 @@ public class BubbleItemView extends LinearLayout {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.bubble_item, this);
-        this.nHS = (FrameLayout) this.mRootView.findViewById(R.id.ly_bubble);
-        this.lme = (TbImageView) this.mRootView.findViewById(R.id.bg_image);
-        this.lmf = (TbImageView) this.mRootView.findViewById(R.id.permission_icon);
-        this.lmf.setDefaultResource(R.drawable.transparent_bg);
-        this.lmf.setDefaultBgResource(R.drawable.transparent_bg);
-        this.nHj = (TbImageView) this.mRootView.findViewById(R.id.state_icon);
-        this.nHj.setDefaultResource(R.drawable.transparent_bg);
-        this.nHj.setDefaultBgResource(R.drawable.transparent_bg);
-        this.nGu = (ImageView) this.mRootView.findViewById(R.id.choosed_icon);
-        this.nHT = new TextView(this.mContext);
-        this.lme.setOnClickListener(this.jig);
+        this.nJY = (FrameLayout) this.mRootView.findViewById(R.id.ly_bubble);
+        this.loj = (TbImageView) this.mRootView.findViewById(R.id.bg_image);
+        this.lok = (TbImageView) this.mRootView.findViewById(R.id.permission_icon);
+        this.lok.setDefaultResource(R.drawable.transparent_bg);
+        this.lok.setDefaultBgResource(R.drawable.transparent_bg);
+        this.nJp = (TbImageView) this.mRootView.findViewById(R.id.state_icon);
+        this.nJp.setDefaultResource(R.drawable.transparent_bg);
+        this.nJp.setDefaultBgResource(R.drawable.transparent_bg);
+        this.nIA = (ImageView) this.mRootView.findViewById(R.id.choosed_icon);
+        this.nJZ = new TextView(this.mContext);
+        this.loj.setOnClickListener(this.jjP);
     }
 
     public void d(DressItemData dressItemData) {
         if (dressItemData != null) {
-            this.nFW = dressItemData;
+            this.nIc = dressItemData;
             boolean inUse = dressItemData.getInUse();
             if (dressItemData.isDefault()) {
-                this.lme.setDefaultResource(R.drawable.icon_choose_no);
-                this.lme.startLoad("", 10, false);
-                this.nHT.setText(R.string.default_bubble);
-                this.nHT.setGravity(17);
-                this.nHT.setTextSize(0, l.getDimens(this.mContext, R.dimen.ds28));
-                this.nHT.setTextColor(getResources().getColor(R.color.CAM_X0108));
+                this.loj.setDefaultResource(R.drawable.icon_choose_no);
+                this.loj.startLoad("", 10, false);
+                this.nJZ.setText(R.string.default_bubble);
+                this.nJZ.setGravity(17);
+                this.nJZ.setTextSize(0, l.getDimens(this.mContext, R.dimen.ds28));
+                this.nJZ.setTextColor(getResources().getColor(R.color.CAM_X0108));
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
                 layoutParams.gravity = 17;
-                this.nHT.setLayoutParams(layoutParams);
-                this.nHT.setVisibility(0);
-                this.nHS.removeView(this.nHT);
-                this.nHS.addView(this.nHT);
+                this.nJZ.setLayoutParams(layoutParams);
+                this.nJZ.setVisibility(0);
+                this.nJY.removeView(this.nJZ);
+                this.nJY.addView(this.nJZ);
             } else {
-                this.nHS.removeView(this.nHT);
-                this.lme.setDefaultResource(R.drawable.img_default_100);
-                this.lme.startLoad(dressItemData.getExampleImgUrl(), 10, false);
+                this.nJY.removeView(this.nJZ);
+                this.loj.setDefaultResource(R.drawable.img_default_100);
+                this.loj.startLoad(dressItemData.getExampleImgUrl(), 10, false);
             }
             if (inUse) {
-                this.nGu.setVisibility(0);
-                ap.setImageResource(this.nGu, R.drawable.icon_choose_photo);
+                this.nIA.setVisibility(0);
+                ap.setImageResource(this.nIA, R.drawable.icon_choose_photo);
             } else {
-                this.nGu.setVisibility(8);
+                this.nIA.setVisibility(8);
             }
-            this.lmf.startLoad(dressItemData.getPermissionImgUrl(), 10, false);
-            this.nHj.startLoad(dressItemData.getPropsStateImg(), 10, false);
+            this.lok.startLoad(dressItemData.getPermissionImgUrl(), 10, false);
+            this.nJp.startLoad(dressItemData.getPropsStateImg(), 10, false);
             setVisibility(0);
         }
     }
@@ -124,10 +124,10 @@ public class BubbleItemView extends LinearLayout {
     }
 
     public void setController(a aVar) {
-        this.nHU = aVar;
+        this.nKa = aVar;
     }
 
     public void setFromBubbleGroup(boolean z) {
-        this.nHV = z;
+        this.nKb = z;
     }
 }

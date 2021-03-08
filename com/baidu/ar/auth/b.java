@@ -3,6 +3,7 @@ package com.baidu.ar.auth;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.ar.auth.k;
 import com.baidu.ar.bean.DuMixARConfig;
 import com.baidu.ar.constants.HttpConstants;
@@ -22,7 +23,7 @@ import java.util.HashSet;
 import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 class b implements k {
     private volatile IHttpRequest bR;
     private boolean jr;
@@ -32,7 +33,7 @@ class b implements k {
     private int jv = 0;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         boolean jx;
         JSONObject jy;
@@ -73,14 +74,14 @@ class b implements k {
             @Override // com.baidu.ar.ihttp.a
             public void a(IHttpResponse iHttpResponse) {
                 try {
-                    a b2 = b.this.b(iHttpResponse);
-                    if (b2.jx) {
-                        b.this.e(b2.jy);
+                    a b = b.this.b(iHttpResponse);
+                    if (b.jx) {
+                        b.this.e(b.jy);
                         if (iAuthCallback != null) {
                             iAuthCallback.onSuccess();
                         }
                     } else if (iAuthCallback != null) {
-                        iAuthCallback.onError(b2.jz, 0);
+                        iAuthCallback.onError(b.jz, 0);
                     }
                 } catch (Exception e) {
                     b.this.b(iAuthCallback);
@@ -141,7 +142,12 @@ class b implements k {
         if (Build.VERSION.SDK_INT >= 21) {
             str = Arrays.asList(Build.SUPPORTED_ABIS).toString();
         }
-        return (TextUtils.isEmpty(Build.MANUFACTURER) ? "A" : String.valueOf(Build.MANUFACTURER.charAt(0))) + new UUID(("182020" + (Build.BOARD.length() % 10) + (Build.BRAND.length() % 10) + (str.length() % 10) + (Build.DEVICE.length() % 10) + (Build.DISPLAY.length() % 10) + (Build.HOST.length() % 10) + (Build.ID.length() % 10) + (Build.MANUFACTURER.length() % 10) + (Build.MODEL.length() % 10) + (Build.PRODUCT.length() % 10) + (Build.TAGS.length() % 10) + (Build.TYPE.length() % 10) + (Build.USER.length() % 10)).hashCode(), "dumix corp".hashCode()).toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toUpperCase();
+        String uuid = new UUID(("182020" + (Build.BOARD.length() % 10) + (Build.BRAND.length() % 10) + (str.length() % 10) + (Build.DEVICE.length() % 10) + (Build.DISPLAY.length() % 10) + (Build.HOST.length() % 10) + (Build.ID.length() % 10) + (Build.MANUFACTURER.length() % 10) + (Build.MODEL.length() % 10) + (Build.PRODUCT.length() % 10) + (Build.TAGS.length() % 10) + (Build.TYPE.length() % 10) + (Build.USER.length() % 10)).hashCode(), "dumix corp".hashCode()).toString();
+        String str2 = ExifInterface.GPS_MEASUREMENT_IN_PROGRESS;
+        if (!TextUtils.isEmpty(Build.MANUFACTURER)) {
+            str2 = String.valueOf(Build.MANUFACTURER.charAt(0));
+        }
+        return str2 + uuid.replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toUpperCase();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

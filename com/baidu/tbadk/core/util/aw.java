@@ -53,11 +53,11 @@ public class aw {
                 if (i3 >= 16) {
                     return new String(cArr);
                 }
-                byte b2 = digest[i3];
+                byte b = digest[i3];
                 int i4 = i2 + 1;
-                cArr[i2] = HEX_DIGITS[(b2 >>> 4) & 15];
+                cArr[i2] = HEX_DIGITS[(b >>> 4) & 15];
                 i2 = i4 + 1;
-                cArr[i4] = HEX_DIGITS[b2 & 15];
+                cArr[i4] = HEX_DIGITS[b & 15];
                 i = i3 + 1;
             }
         } catch (Exception e) {

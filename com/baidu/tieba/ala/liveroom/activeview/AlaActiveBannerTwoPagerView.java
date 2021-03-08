@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.liveroom.activeview;
 import android.content.Context;
 import androidx.viewpager.widget.PagerAdapter;
 import com.baidu.live.view.slideshow.SlideShowTwoPagerView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaActiveBannerTwoPagerView extends SlideShowTwoPagerView implements d {
     public AlaActiveBannerTwoPagerView(Context context) {
         super(context);

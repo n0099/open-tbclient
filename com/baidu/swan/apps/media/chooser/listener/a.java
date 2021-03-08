@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.media.chooser.listener;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface a {
-    void aBi();
+    void aBl();
 
-    void aBj();
+    void aBm();
 
-    void aBk();
+    void aBn();
 }

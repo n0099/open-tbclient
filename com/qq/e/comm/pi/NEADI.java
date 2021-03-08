@@ -2,7 +2,7 @@ package com.qq.e.comm.pi;
 
 import com.qq.e.ads.cfg.VideoOption;
 import com.qq.e.comm.constants.LoadAdParams;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public interface NEADI extends ADI {
     void loadAd(int i);
 

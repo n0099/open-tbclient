@@ -5,7 +5,7 @@ import com.baidu.tbadk.b.g;
 import com.baidu.tbadk.b.h;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c implements g {
     @Override // com.baidu.tbadk.b.g
     public void a(HashMap<String, String> hashMap, h hVar) {

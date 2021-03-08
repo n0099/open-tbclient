@@ -1,16 +1,16 @@
 package com.baidu.live.guardclub;
 
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d {
-    public String bjm;
-    public String bjn;
+    public String bkM;
+    public String bkN;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.bjm = jSONObject.optString("privilege_img_url");
-                this.bjn = jSONObject.optString("privilege_text");
+                this.bkM = jSONObject.optString("privilege_img_url");
+                this.bkN = jSONObject.optString("privilege_text");
             } catch (Exception e) {
                 e.printStackTrace();
             }

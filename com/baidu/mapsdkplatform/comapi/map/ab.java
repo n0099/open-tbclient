@@ -18,10 +18,8 @@ public class ab {
     public int s;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f3038a = 12.0f;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f3039b = 0;
+    public float f2214a = 12.0f;
+    public int b = 0;
     public int c = 0;
     public double d = 1.2958162E7d;
     public double e = 4825907.0d;
@@ -37,10 +35,8 @@ public class ab {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f3040a = 0;
-
-        /* renamed from: b  reason: collision with root package name */
-        public long f3041b = 0;
+        public long f2215a = 0;
+        public long b = 0;
         public long c = 0;
         public long d = 0;
         public Point e = new Point(0, 0);
@@ -53,21 +49,21 @@ public class ab {
     }
 
     public Bundle a(e eVar) {
-        if (this.f3038a < eVar.f3051b) {
-            this.f3038a = eVar.f3051b;
+        if (this.f2214a < eVar.b) {
+            this.f2214a = eVar.b;
         }
-        if (this.f3038a > eVar.f3050a) {
-            if (this.f3038a == 1096.0f || e.d == 26.0f) {
-                this.f3038a = 26.0f;
+        if (this.f2214a > eVar.f2221a) {
+            if (this.f2214a == 1096.0f || e.d == 26.0f) {
+                this.f2214a = 26.0f;
                 e.d = 26.0f;
             } else {
-                this.f3038a = eVar.f3050a;
+                this.f2214a = eVar.f2221a;
             }
         }
-        while (this.f3039b < 0) {
-            this.f3039b += EncoderTextureDrawer.X264_WIDTH;
+        while (this.b < 0) {
+            this.b += EncoderTextureDrawer.X264_WIDTH;
         }
-        this.f3039b %= EncoderTextureDrawer.X264_WIDTH;
+        this.b %= EncoderTextureDrawer.X264_WIDTH;
         if (this.c > 0) {
             this.c = 0;
         }
@@ -75,8 +71,8 @@ public class ab {
             this.c = -45;
         }
         Bundle bundle = new Bundle();
-        bundle.putDouble("level", this.f3038a);
-        bundle.putDouble("rotation", this.f3039b);
+        bundle.putDouble("level", this.f2214a);
+        bundle.putDouble("rotation", this.b);
         bundle.putDouble("overlooking", this.c);
         bundle.putDouble("centerptx", this.d);
         bundle.putDouble("centerpty", this.e);
@@ -112,8 +108,8 @@ public class ab {
     }
 
     public void a(Bundle bundle) {
-        this.f3038a = (float) bundle.getDouble("level");
-        this.f3039b = (int) bundle.getDouble("rotation");
+        this.f2214a = (float) bundle.getDouble("level");
+        this.b = (int) bundle.getDouble("rotation");
         this.c = (int) bundle.getDouble("overlooking");
         this.d = bundle.getDouble("centerptx");
         this.e = bundle.getDouble("centerpty");
@@ -128,15 +124,15 @@ public class ab {
             this.f = ((this.j.right - this.j.left) / 2) + ((int) this.h);
             this.g = i + ((this.j.bottom - this.j.top) / 2);
         }
-        this.k.f3040a = bundle.getLong("gleft");
-        this.k.f3041b = bundle.getLong("gright");
+        this.k.f2215a = bundle.getLong("gleft");
+        this.k.b = bundle.getLong("gright");
         this.k.c = bundle.getLong("gtop");
         this.k.d = bundle.getLong("gbottom");
-        if (this.k.f3040a <= -20037508) {
-            this.k.f3040a = -20037508L;
+        if (this.k.f2215a <= -20037508) {
+            this.k.f2215a = -20037508L;
         }
-        if (this.k.f3041b >= 20037508) {
-            this.k.f3041b = 20037508L;
+        if (this.k.b >= 20037508) {
+            this.k.b = 20037508L;
         }
         if (this.k.c >= 20037508) {
             this.k.c = 20037508L;

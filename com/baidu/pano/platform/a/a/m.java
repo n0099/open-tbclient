@@ -6,11 +6,11 @@ import java.io.UnsupportedEncodingException;
 public class m extends com.baidu.pano.platform.a.n<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final q.b<String> f3866a;
+    private final q.b<String> f2698a;
 
     public m(int i, String str, q.b<String> bVar, q.a aVar) {
         super(i, str, aVar);
-        this.f3866a = bVar;
+        this.f2698a = bVar;
     }
 
     public m(String str, q.b<String> bVar, q.a aVar) {
@@ -22,7 +22,7 @@ public class m extends com.baidu.pano.platform.a.n<String> {
     @Override // com.baidu.pano.platform.a.n
     /* renamed from: d */
     public void a(String str) {
-        this.f3866a.a(str);
+        this.f2698a.a(str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -30,9 +30,9 @@ public class m extends com.baidu.pano.platform.a.n<String> {
     public q<String> a(com.baidu.pano.platform.a.l lVar) {
         String str;
         try {
-            str = new String(lVar.f3884b, h.a(lVar.c));
+            str = new String(lVar.b, h.a(lVar.c));
         } catch (UnsupportedEncodingException e) {
-            str = new String(lVar.f3884b);
+            str = new String(lVar.b);
         }
         return q.a(str, h.a(lVar));
     }

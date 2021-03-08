@@ -1,5 +1,5 @@
 package com.yy.mediaframework.utils;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class JVideoPackUtil {
     public static native void nativeClassInit();
 

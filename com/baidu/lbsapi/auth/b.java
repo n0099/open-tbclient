@@ -82,14 +82,14 @@ class b {
     /* JADX INFO: Access modifiers changed from: protected */
     public static String[] b(Context context) {
         String packageName = context.getPackageName();
-        String[] b2 = b(context, packageName);
-        if (b2 == null || b2.length <= 0) {
+        String[] b = b(context, packageName);
+        if (b == null || b.length <= 0) {
             return null;
         }
-        String[] strArr = new String[b2.length];
+        String[] strArr = new String[b.length];
         for (int i = 0; i < strArr.length; i++) {
-            strArr[i] = b2[i] + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + packageName;
-            if (com.baidu.lbsapi.auth.a.f2481a) {
+            strArr[i] = b[i] + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + packageName;
+            if (com.baidu.lbsapi.auth.a.f1874a) {
                 com.baidu.lbsapi.auth.a.a("mcode" + strArr[i]);
             }
         }
@@ -169,7 +169,7 @@ class b {
                 str = "";
             }
         }
-        if (com.baidu.lbsapi.auth.a.f2481a) {
+        if (com.baidu.lbsapi.auth.a.f1874a) {
             com.baidu.lbsapi.auth.a.a("getMacID mac_adress: " + str);
         }
         return str;
@@ -177,7 +177,7 @@ class b {
 
     private static boolean c(Context context, String str) {
         boolean z = context.checkCallingOrSelfPermission(str) != -1;
-        if (com.baidu.lbsapi.auth.a.f2481a) {
+        if (com.baidu.lbsapi.auth.a.f1874a) {
             com.baidu.lbsapi.auth.a.a("hasPermission " + z + " | " + str);
         }
         return z;
@@ -187,7 +187,7 @@ class b {
         String str;
         try {
             if (!c(context, "android.permission.ACCESS_WIFI_STATE")) {
-                if (com.baidu.lbsapi.auth.a.f2481a) {
+                if (com.baidu.lbsapi.auth.a.f1874a) {
                     com.baidu.lbsapi.auth.a.a("You need the android.Manifest.permission.ACCESS_WIFI_STATE permission. Open AndroidManifest.xml and just before the final </manifest> tag add:android.permission.ACCESS_WIFI_STATE");
                 }
                 return null;
@@ -198,14 +198,14 @@ class b {
                 if (!TextUtils.isEmpty(str)) {
                     Base64.encode(str.getBytes(), 0);
                 }
-                if (com.baidu.lbsapi.auth.a.f2481a) {
+                if (com.baidu.lbsapi.auth.a.f1874a) {
                     com.baidu.lbsapi.auth.a.a(String.format("ssid=%s mac=%s", connectionInfo.getSSID(), connectionInfo.getMacAddress()));
                     return str;
                 }
                 return str;
             } catch (Exception e) {
                 e = e;
-                if (com.baidu.lbsapi.auth.a.f2481a) {
+                if (com.baidu.lbsapi.auth.a.f1874a) {
                     com.baidu.lbsapi.auth.a.a(e.toString());
                     return str;
                 }

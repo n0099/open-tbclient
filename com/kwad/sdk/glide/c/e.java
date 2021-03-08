@@ -14,22 +14,20 @@ import com.kwad.sdk.glide.c.c;
 final class e implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    final c.a f9950a;
-
-    /* renamed from: b  reason: collision with root package name */
-    boolean f9951b;
+    final c.a f6587a;
+    boolean b;
     private final Context c;
     private boolean d;
     private final BroadcastReceiver e = new BroadcastReceiver() { // from class: com.kwad.sdk.glide.c.e.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(@NonNull Context context, Intent intent) {
-            boolean z = e.this.f9951b;
-            e.this.f9951b = e.this.a(context);
-            if (z != e.this.f9951b) {
+            boolean z = e.this.b;
+            e.this.b = e.this.a(context);
+            if (z != e.this.b) {
                 if (Log.isLoggable("ConnectivityMonitor", 3)) {
-                    Log.d("ConnectivityMonitor", "connectivity changed, isConnected: " + e.this.f9951b);
+                    Log.d("ConnectivityMonitor", "connectivity changed, isConnected: " + e.this.b);
                 }
-                e.this.f9950a.a(e.this.f9951b);
+                e.this.f6587a.a(e.this.b);
             }
         }
     };
@@ -37,14 +35,14 @@ final class e implements c {
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(@NonNull Context context, @NonNull c.a aVar) {
         this.c = context.getApplicationContext();
-        this.f9950a = aVar;
+        this.f6587a = aVar;
     }
 
     private void a() {
         if (this.d) {
             return;
         }
-        this.f9951b = a(this.c);
+        this.b = a(this.c);
         try {
             this.c.registerReceiver(this.e, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
             this.d = true;

@@ -31,14 +31,14 @@ public class f extends a {
         this.d = true;
         a(z, z2, i, 0);
         if (com.kwad.sdk.contentalliance.home.c.a()) {
-            this.f8625b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.f.1
+            this.b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.f.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    f.this.f8624a.clear();
+                    f.this.f5755a.clear();
                     m.e();
-                    f.this.f8624a.addAll(com.kwad.sdk.contentalliance.home.c.b());
-                    if (!f.this.f8624a.isEmpty()) {
-                        f.this.f = f.this.f8624a.get(f.this.f8624a.size() - 1).mLiveInfo.pcursor;
+                    f.this.f5755a.addAll(com.kwad.sdk.contentalliance.home.c.b());
+                    if (!f.this.f5755a.isEmpty()) {
+                        f.this.f = f.this.f5755a.get(f.this.f5755a.size() - 1).mLiveInfo.pcursor;
                     }
                     com.kwad.sdk.contentalliance.home.c.c();
                     f.this.a(z, 0);
@@ -46,7 +46,7 @@ public class f extends a {
                 }
             });
         } else if (!this.c) {
-            this.f8625b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.f.5
+            this.b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.f.5
                 @Override // java.lang.Runnable
                 public void run() {
                     f.this.a(com.kwad.sdk.core.network.f.g.k, com.kwad.sdk.core.network.f.g.l);
@@ -54,7 +54,7 @@ public class f extends a {
                 }
             });
         } else if (!e()) {
-            this.f8625b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.f.2
+            this.b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.f.2
                 @Override // java.lang.Runnable
                 public void run() {
                     f.this.a(com.kwad.sdk.core.network.f.g.k, com.kwad.sdk.core.network.f.g.l);
@@ -89,7 +89,7 @@ public class f extends a {
             this.g.a(new com.kwad.sdk.core.network.j<com.kwad.sdk.core.network.g, LiveInfoResultData>() { // from class: com.kwad.sdk.contentalliance.home.a.f.4
                 @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
                 public void a(@NonNull com.kwad.sdk.core.network.g gVar, final int i2, final String str) {
-                    f.this.f8625b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.f.4.2
+                    f.this.b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.f.4.2
                         @Override // java.lang.Runnable
                         public void run() {
                             f.this.a(i2, str);
@@ -101,17 +101,17 @@ public class f extends a {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
                 public void a(@NonNull com.kwad.sdk.core.network.g gVar, @NonNull final LiveInfoResultData liveInfoResultData) {
-                    f.this.f8625b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.f.4.1
+                    f.this.b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.f.4.1
                         @Override // java.lang.Runnable
                         public void run() {
                             if (z) {
-                                f.this.f8624a.clear();
+                                f.this.f5755a.clear();
                             }
-                            if (f.this.f8624a.isEmpty()) {
+                            if (f.this.f5755a.isEmpty()) {
                                 m.e();
                             }
                             f.this.f = liveInfoResultData.pcursor;
-                            f.this.f8624a.addAll(com.kwad.sdk.live.mode.a.a(liveInfoResultData, f.this.e));
+                            f.this.f5755a.addAll(com.kwad.sdk.live.mode.a.a(liveInfoResultData, f.this.e));
                             f.this.a(z, 0);
                             f.this.d = false;
                         }

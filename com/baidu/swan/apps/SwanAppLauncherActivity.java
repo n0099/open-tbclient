@@ -10,7 +10,7 @@ import com.baidu.swan.apps.ao.u;
 import com.baidu.swan.apps.env.launch.SwanLauncher;
 import com.baidu.swan.apps.runtime.d;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SwanAppLauncherActivity extends Activity {
     private static final boolean DEBUG = b.DEBUG;
 
@@ -25,7 +25,7 @@ public class SwanAppLauncherActivity extends Activity {
             Log.d("SwanAppLauncherActivity", MissionEvent.MESSAGE_CREATE);
         }
         if (!u.M(this)) {
-            SwanLauncher.atI().t(getIntent().getExtras());
+            SwanLauncher.atL().t(getIntent().getExtras());
             d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.SwanAppLauncherActivity.1
                 @Override // java.lang.Runnable
                 public void run() {

@@ -20,11 +20,11 @@ import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f5715a;
+    private static String f3859a;
 
     public static int a(String str) {
         String[] split = str.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
@@ -35,22 +35,22 @@ public final class c {
     }
 
     public static String a() {
-        if (TextUtils.isEmpty(f5715a)) {
+        if (TextUtils.isEmpty(f3859a)) {
             Context d = com.baidu.webkit.logsdk.a.b.d();
             if (d == null || d.getFilesDir() == null) {
                 return "";
             }
             String str = d.getFilesDir().getAbsolutePath() + "/bdlogs";
             if (str.endsWith(File.separator)) {
-                f5715a = str.substring(0, str.length() - 1);
+                f3859a = str.substring(0, str.length() - 1);
             } else {
-                f5715a = str;
+                f3859a = str;
             }
-            new File(f5715a).mkdirs();
-            e("BdLogSDK", "Workspace = " + f5715a);
-            return f5715a;
+            new File(f3859a).mkdirs();
+            e("BdLogSDK", "Workspace = " + f3859a);
+            return f3859a;
         }
-        return f5715a;
+        return f3859a;
     }
 
     public static String a(com.baidu.webkit.logsdk.b.b bVar, String str) {
@@ -187,16 +187,16 @@ public final class c {
     }
 
     public static void a(String str, String str2, String str3) {
-        if (com.baidu.webkit.logsdk.a.f5687b && !TextUtils.isEmpty(str3)) {
+        if (com.baidu.webkit.logsdk.a.b && !TextUtils.isEmpty(str3)) {
             Log.d(str, str2 + " = " + str3);
-        } else if (com.baidu.webkit.logsdk.a.f5686a) {
+        } else if (com.baidu.webkit.logsdk.a.f3843a) {
             Log.i(str, str2);
         }
     }
 
     public static void a(Throwable th) {
         th.printStackTrace();
-        if (com.baidu.webkit.logsdk.a.f5687b) {
+        if (com.baidu.webkit.logsdk.a.b) {
             System.exit(0);
         }
     }
@@ -343,11 +343,11 @@ public final class c {
         try {
             byte[] digest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5).digest(str.getBytes("UTF-8"));
             StringBuilder sb = new StringBuilder(digest.length * 2);
-            for (byte b2 : digest) {
-                if ((b2 & 255) < 16) {
+            for (byte b : digest) {
+                if ((b & 255) < 16) {
                     sb.append("0");
                 }
-                sb.append(Integer.toHexString(b2 & 255));
+                sb.append(Integer.toHexString(b & 255));
             }
             return sb.toString();
         } catch (UnsupportedEncodingException e) {
@@ -378,7 +378,7 @@ public final class c {
     }
 
     public static void e(String str, String str2) {
-        if (com.baidu.webkit.logsdk.a.f5686a) {
+        if (com.baidu.webkit.logsdk.a.f3843a) {
             Log.w(str, str2);
         }
     }

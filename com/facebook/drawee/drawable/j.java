@@ -1,11 +1,11 @@
 package com.facebook.drawee.drawable;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public interface j {
-    void Bn(boolean z);
+    void Bl(boolean z);
 
-    void Bo(boolean z);
+    void Bm(boolean z);
 
-    void bI(float f);
+    void bM(float f);
 
     void n(int i, float f);
 

@@ -68,16 +68,16 @@ public class b extends com.kwad.sdk.contentalliance.c<c> {
         this.f.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.splashscreen.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                com.kwad.sdk.core.download.b.a.a(view.getContext(), b.this.j, new a.InterfaceC1094a() { // from class: com.kwad.sdk.splashscreen.b.1.1
-                    @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
+                com.kwad.sdk.core.download.b.a.a(view.getContext(), b.this.j, new a.InterfaceC1111a() { // from class: com.kwad.sdk.splashscreen.b.1.1
+                    @Override // com.kwad.sdk.core.download.b.a.InterfaceC1111a
                     public void a() {
                         if (b.this.d != null) {
                             b.this.d.onAdClicked();
                         }
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            if (b.this.f8281b != null && ((c) b.this.f8281b).e != null) {
-                                jSONObject.put("duration", ((c) b.this.f8281b).e.c());
+                            if (b.this.b != null && ((c) b.this.b).e != null) {
+                                jSONObject.put("duration", ((c) b.this.b).e.c());
                             }
                         } catch (JSONException e) {
                             com.kwad.sdk.core.d.a.a(e);
@@ -122,11 +122,11 @@ public class b extends com.kwad.sdk.contentalliance.c<c> {
             this.e = new KsVideoPlayConfig.Builder().videoSoundEnable(this.l.adSplashInfo.mute != 1).skipThirtySecond(true).build();
         }
         c cVar = new c();
-        cVar.f10749a = this.d;
+        cVar.f7099a = this.d;
         cVar.d = this.f;
         cVar.c = this.j;
         cVar.g = this.k;
-        cVar.f10750b = this.e;
+        cVar.b = this.e;
         cVar.h = this.i;
         cVar.f = this.h;
         if (com.kwad.sdk.core.response.b.a.J(this.l)) {
@@ -146,8 +146,8 @@ public class b extends com.kwad.sdk.contentalliance.c<c> {
     @Override // com.kwad.sdk.contentalliance.c, android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (((c) this.f8281b).e != null) {
-            ((c) this.f8281b).e.g();
+        if (((c) this.b).e != null) {
+            ((c) this.b).e.g();
         }
     }
 
@@ -156,8 +156,8 @@ public class b extends com.kwad.sdk.contentalliance.c<c> {
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         this.i.b();
-        if (((c) this.f8281b).e != null) {
-            ((c) this.f8281b).e.f();
+        if (((c) this.b).e != null) {
+            ((c) this.b).e.f();
         }
         g();
     }
@@ -169,8 +169,8 @@ public class b extends com.kwad.sdk.contentalliance.c<c> {
 
     public void setSplashScreenAdListener(KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener) {
         this.d = splashScreenAdInteractionListener;
-        if (this.f8281b != 0) {
-            ((c) this.f8281b).f10749a = splashScreenAdInteractionListener;
+        if (this.b != 0) {
+            ((c) this.b).f7099a = splashScreenAdInteractionListener;
         }
     }
 }

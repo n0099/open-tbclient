@@ -21,17 +21,17 @@ import com.baidu.live.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.utils.i;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class YuyinCharmRankTotalActivity extends BaseActivity<YuyinCharmRankTotalActivity> implements View.OnTouchListener {
     private View mRootView;
     private int mScreenWidth;
-    private f ork;
-    private a orl;
+    private f otp;
+    private a otq;
     private Handler mHandler = new Handler();
-    private boolean aWt = false;
-    private boolean baH = false;
-    private boolean baI = false;
-    private ViewTreeObserver.OnGlobalLayoutListener baD = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.YuyinCharmRankTotalActivity.3
+    private boolean aXT = false;
+    private boolean bch = false;
+    private boolean bci = false;
+    private ViewTreeObserver.OnGlobalLayoutListener bcd = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.YuyinCharmRankTotalActivity.3
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(YuyinCharmRankTotalActivity.this.getPageContext().getPageActivity());
@@ -41,21 +41,21 @@ public class YuyinCharmRankTotalActivity extends BaseActivity<YuyinCharmRankTota
                     YuyinCharmRankTotalActivity.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.YuyinCharmRankTotalActivity.3.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            i.ae(YuyinCharmRankTotalActivity.this.ork.getView());
+                            i.ae(YuyinCharmRankTotalActivity.this.otp.getView());
                         }
                     }, 300L);
                 }
             }
         }
     };
-    CustomMessageListener aWK = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.yuyinala.charm.charmrank.YuyinCharmRankTotalActivity.4
+    CustomMessageListener aYk = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.yuyinala.charm.charmrank.YuyinCharmRankTotalActivity.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             YuyinCharmRankTotalActivity.this.closeActivity();
         }
     };
-    public CustomMessageListener bgy = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.charm.charmrank.YuyinCharmRankTotalActivity.5
+    public CustomMessageListener bhY = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.charm.charmrank.YuyinCharmRankTotalActivity.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -65,9 +65,9 @@ public class YuyinCharmRankTotalActivity extends BaseActivity<YuyinCharmRankTota
         }
     };
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void coC();
+        void coI();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -76,13 +76,13 @@ public class YuyinCharmRankTotalActivity extends BaseActivity<YuyinCharmRankTota
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         if (!isFinishing()) {
-            this.ork = new f(this);
-            this.mRootView = this.ork.getView();
+            this.otp = new f(this);
+            this.mRootView = this.otp.getView();
             setContentView(this.mRootView);
-            registerListener(this.aWK);
-            this.baH = false;
+            registerListener(this.aYk);
+            this.bch = false;
             this.mRootView.setVisibility(4);
-            MessageManager.getInstance().registerListener(this.bgy);
+            MessageManager.getInstance().registerListener(this.bhY);
         }
     }
 
@@ -100,10 +100,10 @@ public class YuyinCharmRankTotalActivity extends BaseActivity<YuyinCharmRankTota
     @Override // com.baidu.live.tbadk.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (!this.aWt) {
+        if (!this.aXT) {
             this.mRootView.setVisibility(0);
-            Gb();
-            this.aWt = true;
+            Ge();
+            this.aXT = true;
         }
     }
 
@@ -114,9 +114,9 @@ public class YuyinCharmRankTotalActivity extends BaseActivity<YuyinCharmRankTota
         UtilHelper.changeStatusBarIconAndTextColor(true, getPageContext().getPageActivity());
     }
 
-    private void Gb() {
-        this.baH = true;
-        Animation loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_in_from_bottom);
+    private void Ge() {
+        this.bch = true;
+        Animation loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0201a.sdk_in_from_bottom);
         loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.YuyinCharmRankTotalActivity.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
@@ -124,7 +124,7 @@ public class YuyinCharmRankTotalActivity extends BaseActivity<YuyinCharmRankTota
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                YuyinCharmRankTotalActivity.this.baH = false;
+                YuyinCharmRankTotalActivity.this.bch = false;
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -134,9 +134,9 @@ public class YuyinCharmRankTotalActivity extends BaseActivity<YuyinCharmRankTota
         this.mRootView.startAnimation(loadAnimation);
     }
 
-    private void Gc() {
-        if (!this.baI && !this.baH) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_out_to_bottom);
+    private void Gf() {
+        if (!this.bci && !this.bch) {
+            Animation loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0201a.sdk_out_to_bottom);
             loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.YuyinCharmRankTotalActivity.2
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationStart(Animation animation) {
@@ -146,8 +146,8 @@ public class YuyinCharmRankTotalActivity extends BaseActivity<YuyinCharmRankTota
                 public void onAnimationEnd(Animation animation) {
                     YuyinCharmRankTotalActivity.super.finish();
                     YuyinCharmRankTotalActivity.this.mRootView.setVisibility(8);
-                    if (YuyinCharmRankTotalActivity.this.orl != null) {
-                        YuyinCharmRankTotalActivity.this.orl.coC();
+                    if (YuyinCharmRankTotalActivity.this.otq != null) {
+                        YuyinCharmRankTotalActivity.this.otq.coI();
                     }
                 }
 
@@ -155,23 +155,23 @@ public class YuyinCharmRankTotalActivity extends BaseActivity<YuyinCharmRankTota
                 public void onAnimationRepeat(Animation animation) {
                 }
             });
-            this.baI = true;
+            this.bci = true;
             this.mRootView.startAnimation(loadAnimation);
         }
     }
 
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity
     public void finish() {
-        Gc();
+        Gf();
     }
 
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        UZ();
+        Vc();
     }
 
-    private void UZ() {
+    private void Vc() {
         Window window = getWindow();
         if (window != null) {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());
@@ -185,13 +185,13 @@ public class YuyinCharmRankTotalActivity extends BaseActivity<YuyinCharmRankTota
             }
             this.mScreenWidth = screenDimensions[0];
             window.setBackgroundDrawableResource(17170445);
-            window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.baD);
-            if (this.ork.getView().getLayoutParams() instanceof FrameLayout.LayoutParams) {
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.ork.getView().getLayoutParams();
+            window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.bcd);
+            if (this.otp.getView().getLayoutParams() instanceof FrameLayout.LayoutParams) {
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.otp.getView().getLayoutParams();
                 layoutParams.width = screenDimensions[0];
                 layoutParams.height = (int) (screenDimensions[1] * 0.6d);
                 layoutParams.gravity = 80;
-                this.ork.getView().setLayoutParams(layoutParams);
+                this.otp.getView().setLayoutParams(layoutParams);
             }
         }
     }
@@ -212,14 +212,14 @@ public class YuyinCharmRankTotalActivity extends BaseActivity<YuyinCharmRankTota
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.ork.onDestory();
+        this.otp.onDestory();
         this.mHandler.removeCallbacksAndMessages(null);
-        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.baD);
-        MessageManager.getInstance().unRegisterListener(this.bgy);
-        this.baD = null;
+        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.bcd);
+        MessageManager.getInstance().unRegisterListener(this.bhY);
+        this.bcd = null;
     }
 
     public void a(a aVar) {
-        this.orl = aVar;
+        this.otq = aVar;
     }
 }

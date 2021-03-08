@@ -25,17 +25,15 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ClientUpdater {
     private static ClientUpdater e = null;
     private static Runnable l = null;
     public static long stime;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1651a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Handler f1652b;
+    private Context f1352a;
+    private Handler b;
     private String c;
     private IClientUpdaterCallback f;
     private IClientUpdaterCallback g;
@@ -49,10 +47,10 @@ public final class ClientUpdater {
     private Boolean m = false;
 
     private ClientUpdater(Context context) {
-        this.f1651a = context.getApplicationContext();
-        this.o = d.a(this.f1651a);
-        if (this.f1652b == null) {
-            this.f1652b = new Handler(this.f1651a.getMainLooper());
+        this.f1352a = context.getApplicationContext();
+        this.o = d.a(this.f1352a);
+        if (this.b == null) {
+            this.b = new Handler(this.f1352a.getMainLooper());
         }
         if (l == null) {
             l = new a(this);
@@ -64,15 +62,15 @@ public final class ClientUpdater {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        if (this.f1652b == null) {
+        if (this.b == null) {
             return;
         }
-        if (j.d(this.f1651a)) {
+        if (j.d(this.f1352a)) {
             LogUtil.logD("ClientUpdater", "应用位于前台，不发起自动检查更新请求;");
-        } else if (j.a(this.f1651a)) {
-            this.f1652b.removeCallbacks(l);
+        } else if (j.a(this.f1352a)) {
+            this.b.removeCallbacks(l);
             LogUtil.logD("ClientUpdater", "延迟20秒，因为有时CONNECTIVITY_CHANGE Action会很频繁");
-            this.f1652b.postDelayed(l, 20000L);
+            this.b.postDelayed(l, 20000L);
         }
     }
 
@@ -91,7 +89,7 @@ public final class ClientUpdater {
         } else if (this.g != null) {
             this.g.onException(jSONObject);
         }
-        com.baidu.clientupdate.d.a.a(this.f1651a).c();
+        com.baidu.clientupdate.d.a.a(this.f1352a).c();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -112,7 +110,7 @@ public final class ClientUpdater {
             } else if (this.g != null) {
                 this.g.onError(jSONObject);
             }
-            com.baidu.clientupdate.d.a.a(this.f1651a).c();
+            com.baidu.clientupdate.d.a.a(this.f1352a).c();
             return;
         }
         this.o.a(this.n.c(), "0", this.n.b(), "a3", "0", (System.currentTimeMillis() / 1000) + "", "", "sendUpdateRequest", "");
@@ -138,10 +136,10 @@ public final class ClientUpdater {
         }
         if (this.d) {
             this.f.onFetched(jSONObject2);
-            com.baidu.clientupdate.d.a.a(this.f1651a).a(jSONObject2, this.f);
+            com.baidu.clientupdate.d.a.a(this.f1352a).a(jSONObject2, this.f);
         } else if (this.g != null) {
             this.g.onFetched(jSONObject2);
-            com.baidu.clientupdate.d.a.a(this.f1651a).a(jSONObject2, this.g);
+            com.baidu.clientupdate.d.a.a(this.f1352a).a(jSONObject2, this.g);
         }
     }
 
@@ -152,13 +150,13 @@ public final class ClientUpdater {
         LogUtil.logD("ClientUpdater", "接收到网络状态的变化，检测上次更新时间");
         LogUtil.logD("ClientUpdater", "设置的检查更新的间隔时间： " + ((long) (this.h * 3600000.0d)) + "ms");
         LogUtil.logD("ClientUpdater", "当前时间：" + currentTimeMillis);
-        LogUtil.logD("ClientUpdater", "上次检查更新时间： " + j.c(this.f1651a));
-        if (currentTimeMillis - j.c(this.f1651a) <= ((long) (this.h * 3600000.0d))) {
+        LogUtil.logD("ClientUpdater", "上次检查更新时间： " + j.c(this.f1352a));
+        if (currentTimeMillis - j.c(this.f1352a) <= ((long) (this.h * 3600000.0d))) {
             LogUtil.logD("ClientUpdater", "离上一次更新检查的时间小于设置的时间间隔，不检查更新 ");
             return;
         }
         LogUtil.logD("ClientUpdater", "大于设置的时间间隔，当前存在网络连接时进行更新检查 ");
-        if (j.a(this.f1651a)) {
+        if (j.a(this.f1352a)) {
             new c(this).start();
             return;
         }
@@ -181,9 +179,9 @@ public final class ClientUpdater {
         Certificate certificate2;
         Certificate certificate3;
         CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
-        InputStream open = this.f1651a.getResources().getAssets().open("LCUpdate/ca-globalsign-nv-sa.pem");
-        InputStream open2 = this.f1651a.getResources().getAssets().open("LCUpdate/ca-verisign-class-3-public-primary-certification-authority-en.pem");
-        InputStream open3 = this.f1651a.getResources().getAssets().open("LCUpdate/ca-verisign-class-3-public-primary-certification-authority-g5-en.pem");
+        InputStream open = this.f1352a.getResources().getAssets().open("LCUpdate/ca-globalsign-nv-sa.pem");
+        InputStream open2 = this.f1352a.getResources().getAssets().open("LCUpdate/ca-verisign-class-3-public-primary-certification-authority-en.pem");
+        InputStream open3 = this.f1352a.getResources().getAssets().open("LCUpdate/ca-verisign-class-3-public-primary-certification-authority-g5-en.pem");
         try {
             try {
                 certificate3 = certificateFactory.generateCertificate(open);
@@ -311,13 +309,13 @@ public final class ClientUpdater {
     public void cancelAutoCheckUpdate() {
         this.d = false;
         if (this.m.booleanValue()) {
-            this.f1651a.unregisterReceiver(this.i);
+            this.f1352a.unregisterReceiver(this.i);
         }
         this.m = false;
     }
 
     public void cancelDownload(long j) {
-        DownloadManager.getInstance(this.f1651a).cancel(j);
+        DownloadManager.getInstance(this.f1352a).cancel(j);
     }
 
     public void checkUpdate(double d, IClientUpdaterCallback iClientUpdaterCallback) {
@@ -332,9 +330,9 @@ public final class ClientUpdater {
         } catch (Exception e2) {
             this.o.a(this.n.c(), "0", this.n.b(), "a1", "1", (System.currentTimeMillis() / 1000) + "", "", "autoCheckUpdate", e2.toString());
         }
-        if (j.b(this.f1651a)) {
+        if (j.b(this.f1352a)) {
             this.o.a(this.n.c(), "0", this.n.b(), "a1", "0", (System.currentTimeMillis() / 1000) + "", "", "autoCheckUpdate", "");
-            this.f1651a.registerReceiver(this.i, this.j);
+            this.f1352a.registerReceiver(this.i, this.j);
             this.m = true;
             return;
         }
@@ -357,7 +355,7 @@ public final class ClientUpdater {
         } catch (Exception e2) {
             this.o.a(this.n.c(), "0", this.n.b(), "a1", "1", (System.currentTimeMillis() / 1000) + "", "", "checkUpdate", e2.toString());
         }
-        if (!j.b(this.f1651a)) {
+        if (!j.b(this.f1352a)) {
             StringBuilder sb = new StringBuilder("请加入权限：ACCESS_NETWORK_STATE、INTERNET");
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("msgId", "1");
@@ -365,7 +363,7 @@ public final class ClientUpdater {
             if (this.g != null) {
                 this.g.onError(jSONObject);
             }
-        } else if (j.a(this.f1651a)) {
+        } else if (j.a(this.f1352a)) {
             this.o.a(this.n.c(), "0", this.n.b(), "a1", "0", (System.currentTimeMillis() / 1000) + "", "", "checkUpdate", "");
             this.d = false;
             new c(this).start();
@@ -381,31 +379,31 @@ public final class ClientUpdater {
     }
 
     public void deleteDownload(long j) {
-        DownloadManager.getInstance(this.f1651a).delete(j);
+        DownloadManager.getInstance(this.f1352a).delete(j);
     }
 
     public void launchSystemInstalller(String str, Download download) {
         try {
-            DownloadManager.getInstance(this.f1651a).launchSystemInstalller(str, download);
+            DownloadManager.getInstance(this.f1352a).launchSystemInstalller(str, download);
         } catch (Exception e2) {
             LogUtil.logE("ClientUpdater", e2.getMessage());
         }
     }
 
     public ClientUpdateInfo parseClientUpdateInfo(JSONObject jSONObject) {
-        return com.baidu.clientupdate.d.a.a(this.f1651a).a(jSONObject);
+        return com.baidu.clientupdate.d.a.a(this.f1352a).a(jSONObject);
     }
 
     public RuleInfo parseRule(JSONObject jSONObject) {
-        return com.baidu.clientupdate.d.a.a(this.f1651a).b(jSONObject);
+        return com.baidu.clientupdate.d.a.a(this.f1352a).b(jSONObject);
     }
 
     public void pauseDownload(long j) {
-        DownloadManager.getInstance(this.f1651a).pause(j);
+        DownloadManager.getInstance(this.f1352a).pause(j);
     }
 
     public void resumeDownload(long j) {
-        DownloadManager.getInstance(this.f1651a).resume(j);
+        DownloadManager.getInstance(this.f1352a).resume(j);
     }
 
     public void setCfrom(String str) {
@@ -413,11 +411,11 @@ public final class ClientUpdater {
     }
 
     public void setContext(Context context) {
-        this.f1651a = context;
+        this.f1352a = context;
     }
 
     public void setDownloadPublicKey(boolean z) {
-        DownloadManager.getInstance(this.f1651a).setDownloadPublicKey(z);
+        DownloadManager.getInstance(this.f1352a).setDownloadPublicKey(z);
     }
 
     public void setFileProvider(String str) {
@@ -434,7 +432,7 @@ public final class ClientUpdater {
 
     public void setOSPlatform(String str) {
         try {
-            com.baidu.clientupdate.c.a.a(this.f1651a).a(str);
+            com.baidu.clientupdate.c.a.a(this.f1352a).a(str);
         } catch (Exception e2) {
             LogUtil.logE("ClientUpdater", e2.getMessage());
         }
@@ -457,11 +455,11 @@ public final class ClientUpdater {
     }
 
     public void setUseCFG(boolean z) {
-        com.baidu.clientupdate.c.a.a(this.f1651a).a(z);
+        com.baidu.clientupdate.c.a.a(this.f1352a).a(z);
     }
 
     public void setUseRSA(boolean z) {
-        DownloadManager.getInstance(this.f1651a).setUseRSA(z);
+        DownloadManager.getInstance(this.f1352a).setUseRSA(z);
     }
 
     public void setVersionCode(String str) {
@@ -474,7 +472,7 @@ public final class ClientUpdater {
 
     public void startDownload(ClientUpdateInfo clientUpdateInfo, String str) {
         try {
-            com.baidu.clientupdate.d.a.a(this.f1651a).b(clientUpdateInfo, str);
+            com.baidu.clientupdate.d.a.a(this.f1352a).b(clientUpdateInfo, str);
         } catch (Exception e2) {
             LogUtil.logE("ClientUpdater", e2.getMessage());
         }
@@ -482,7 +480,7 @@ public final class ClientUpdater {
 
     public void startDownload(ClientUpdateInfo clientUpdateInfo, String str, boolean z) {
         try {
-            com.baidu.clientupdate.d.a.a(this.f1651a).a(clientUpdateInfo, str, z);
+            com.baidu.clientupdate.d.a.a(this.f1352a).a(clientUpdateInfo, str, z);
         } catch (Exception e2) {
             LogUtil.logE("ClientUpdater", e2.getMessage());
         }
@@ -490,7 +488,7 @@ public final class ClientUpdater {
 
     public void startPatchDownload(ClientUpdateInfo clientUpdateInfo, String str) {
         try {
-            com.baidu.clientupdate.d.a.a(this.f1651a).a(clientUpdateInfo, str);
+            com.baidu.clientupdate.d.a.a(this.f1352a).a(clientUpdateInfo, str);
         } catch (Exception e2) {
             LogUtil.logE("ClientUpdater", e2.getMessage());
         }

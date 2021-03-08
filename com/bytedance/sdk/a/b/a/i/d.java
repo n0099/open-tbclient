@@ -5,10 +5,8 @@ import javax.security.auth.x500.X500Principal;
 final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f5947a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final int f5948b;
+    private final String f3998a;
+    private final int b;
     private int c;
     private int d;
     private int e;
@@ -17,36 +15,36 @@ final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(X500Principal x500Principal) {
-        this.f5947a = x500Principal.getName("RFC2253");
-        this.f5948b = this.f5947a.length();
+        this.f3998a = x500Principal.getName("RFC2253");
+        this.b = this.f3998a.length();
     }
 
     private String a() {
-        while (this.c < this.f5948b && this.g[this.c] == ' ') {
+        while (this.c < this.b && this.g[this.c] == ' ') {
             this.c++;
         }
-        if (this.c == this.f5948b) {
+        if (this.c == this.b) {
             return null;
         }
         this.d = this.c;
         this.c++;
-        while (this.c < this.f5948b && this.g[this.c] != '=' && this.g[this.c] != ' ') {
+        while (this.c < this.b && this.g[this.c] != '=' && this.g[this.c] != ' ') {
             this.c++;
         }
-        if (this.c >= this.f5948b) {
-            throw new IllegalStateException("Unexpected end of DN: " + this.f5947a);
+        if (this.c >= this.b) {
+            throw new IllegalStateException("Unexpected end of DN: " + this.f3998a);
         }
         this.e = this.c;
         if (this.g[this.c] == ' ') {
-            while (this.c < this.f5948b && this.g[this.c] != '=' && this.g[this.c] == ' ') {
+            while (this.c < this.b && this.g[this.c] != '=' && this.g[this.c] == ' ') {
                 this.c++;
             }
-            if (this.g[this.c] != '=' || this.c == this.f5948b) {
-                throw new IllegalStateException("Unexpected end of DN: " + this.f5947a);
+            if (this.g[this.c] != '=' || this.c == this.b) {
+                throw new IllegalStateException("Unexpected end of DN: " + this.f3998a);
             }
         }
         this.c++;
-        while (this.c < this.f5948b && this.g[this.c] == ' ') {
+        while (this.c < this.b && this.g[this.c] == ' ') {
             this.c++;
         }
         if (this.e - this.d > 4 && this.g[this.d + 3] == '.' && ((this.g[this.d] == 'O' || this.g[this.d] == 'o') && ((this.g[this.d + 1] == 'I' || this.g[this.d + 1] == 'i') && (this.g[this.d + 2] == 'D' || this.g[this.d + 2] == 'd')))) {
@@ -59,10 +57,10 @@ final class d {
         this.c++;
         this.d = this.c;
         this.e = this.d;
-        while (this.c != this.f5948b) {
+        while (this.c != this.b) {
             if (this.g[this.c] == '\"') {
                 this.c++;
-                while (this.c < this.f5948b && this.g[this.c] == ' ') {
+                while (this.c < this.b && this.g[this.c] == ' ') {
                     this.c++;
                 }
                 return new String(this.g, this.d, this.e - this.d);
@@ -75,26 +73,26 @@ final class d {
             this.c++;
             this.e++;
         }
-        throw new IllegalStateException("Unexpected end of DN: " + this.f5947a);
+        throw new IllegalStateException("Unexpected end of DN: " + this.f3998a);
     }
 
     private String c() {
         int i;
-        if (this.c + 4 >= this.f5948b) {
-            throw new IllegalStateException("Unexpected end of DN: " + this.f5947a);
+        if (this.c + 4 >= this.b) {
+            throw new IllegalStateException("Unexpected end of DN: " + this.f3998a);
         }
         this.d = this.c;
         this.c++;
-        while (this.c != this.f5948b && this.g[this.c] != '+' && this.g[this.c] != ',' && this.g[this.c] != ';') {
+        while (this.c != this.b && this.g[this.c] != '+' && this.g[this.c] != ',' && this.g[this.c] != ';') {
             if (this.g[this.c] == ' ') {
                 this.e = this.c;
                 this.c++;
-                while (this.c < this.f5948b && this.g[this.c] == ' ') {
+                while (this.c < this.b && this.g[this.c] == ' ') {
                     this.c++;
                 }
                 i = this.e - this.d;
                 if (i >= 5 || (i & 1) == 0) {
-                    throw new IllegalStateException("Unexpected end of DN: " + this.f5947a);
+                    throw new IllegalStateException("Unexpected end of DN: " + this.f3998a);
                 }
                 byte[] bArr = new byte[i / 2];
                 int i2 = this.d + 1;
@@ -115,13 +113,13 @@ final class d {
         i = this.e - this.d;
         if (i >= 5) {
         }
-        throw new IllegalStateException("Unexpected end of DN: " + this.f5947a);
+        throw new IllegalStateException("Unexpected end of DN: " + this.f3998a);
     }
 
     private String d() {
         this.d = this.c;
         this.e = this.c;
-        while (this.c < this.f5948b) {
+        while (this.c < this.b) {
             switch (this.g[this.c]) {
                 case ' ':
                     this.f = this.e;
@@ -130,14 +128,14 @@ final class d {
                     int i = this.e;
                     this.e = i + 1;
                     cArr[i] = ' ';
-                    while (this.c < this.f5948b && this.g[this.c] == ' ') {
+                    while (this.c < this.b && this.g[this.c] == ' ') {
                         char[] cArr2 = this.g;
                         int i2 = this.e;
                         this.e = i2 + 1;
                         cArr2[i2] = ' ';
                         this.c++;
                     }
-                    if (this.c != this.f5948b && this.g[this.c] != ',' && this.g[this.c] != '+' && this.g[this.c] != ';') {
+                    if (this.c != this.b && this.g[this.c] != ',' && this.g[this.c] != '+' && this.g[this.c] != ';') {
                         break;
                     } else {
                         return new String(this.g, this.d, this.f - this.d);
@@ -167,8 +165,8 @@ final class d {
 
     private char e() {
         this.c++;
-        if (this.c == this.f5948b) {
-            throw new IllegalStateException("Unexpected end of DN: " + this.f5947a);
+        if (this.c == this.b) {
+            throw new IllegalStateException("Unexpected end of DN: " + this.f3998a);
         }
         switch (this.g[this.c]) {
             case ' ':
@@ -186,11 +184,11 @@ final class d {
             case '_':
                 return this.g[this.c];
             default:
-                return epJ();
+                return epQ();
         }
     }
 
-    private char epJ() {
+    private char epQ() {
         int i;
         int i2;
         int a2 = a(this.c);
@@ -214,7 +212,7 @@ final class d {
         int i3 = i2;
         for (int i4 = 0; i4 < i; i4++) {
             this.c++;
-            if (this.c == this.f5948b || this.g[this.c] != '\\') {
+            if (this.c == this.b || this.g[this.c] != '\\') {
                 return '?';
             }
             this.c++;
@@ -231,8 +229,8 @@ final class d {
     private int a(int i) {
         int i2;
         int i3;
-        if (i + 1 >= this.f5948b) {
-            throw new IllegalStateException("Malformed DN: " + this.f5947a);
+        if (i + 1 >= this.b) {
+            throw new IllegalStateException("Malformed DN: " + this.f3998a);
         }
         char c = this.g[i];
         if (c >= '0' && c <= '9') {
@@ -242,7 +240,7 @@ final class d {
         } else if (c >= 'A' && c <= 'F') {
             i2 = c - '7';
         } else {
-            throw new IllegalStateException("Malformed DN: " + this.f5947a);
+            throw new IllegalStateException("Malformed DN: " + this.f3998a);
         }
         char c2 = this.g[i + 1];
         if (c2 >= '0' && c2 <= '9') {
@@ -252,7 +250,7 @@ final class d {
         } else if (c2 >= 'A' && c2 <= 'F') {
             i3 = c2 - '7';
         } else {
-            throw new IllegalStateException("Malformed DN: " + this.f5947a);
+            throw new IllegalStateException("Malformed DN: " + this.f3998a);
         }
         return (i2 << 4) + i3;
     }
@@ -262,14 +260,14 @@ final class d {
         this.d = 0;
         this.e = 0;
         this.f = 0;
-        this.g = this.f5947a.toCharArray();
+        this.g = this.f3998a.toCharArray();
         String a2 = a();
         if (a2 == null) {
             return null;
         }
         do {
             String str2 = "";
-            if (this.c == this.f5948b) {
+            if (this.c == this.b) {
                 return null;
             }
             switch (this.g[this.c]) {
@@ -288,11 +286,11 @@ final class d {
                     break;
             }
             if (!str.equalsIgnoreCase(a2)) {
-                if (this.c >= this.f5948b) {
+                if (this.c >= this.b) {
                     return null;
                 }
                 if (this.g[this.c] != ',' && this.g[this.c] != ';' && this.g[this.c] != '+') {
-                    throw new IllegalStateException("Malformed DN: " + this.f5947a);
+                    throw new IllegalStateException("Malformed DN: " + this.f3998a);
                 }
                 this.c++;
                 a2 = a();
@@ -300,6 +298,6 @@ final class d {
                 return str2;
             }
         } while (a2 != null);
-        throw new IllegalStateException("Malformed DN: " + this.f5947a);
+        throw new IllegalStateException("Malformed DN: " + this.f3998a);
     }
 }

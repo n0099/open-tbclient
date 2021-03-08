@@ -445,7 +445,7 @@ public class s {
     }
 
     public static Layer a(com.ksad.lottie.d dVar) {
-        Rect b2 = dVar.b();
-        return new Layer(Collections.emptyList(), dVar, "__container", -1L, Layer.LayerType.PreComp, -1L, null, Collections.emptyList(), new com.ksad.lottie.model.a.l(), 0, 0, 0, 0.0f, 0.0f, b2.width(), b2.height(), null, null, Collections.emptyList(), Layer.MatteType.None, null);
+        Rect b = dVar.b();
+        return new Layer(Collections.emptyList(), dVar, "__container", -1L, Layer.LayerType.PreComp, -1L, null, Collections.emptyList(), new com.ksad.lottie.model.a.l(), 0, 0, 0, 0.0f, 0.0f, b.width(), b.height(), null, null, Collections.emptyList(), Layer.MatteType.None, null);
     }
 }

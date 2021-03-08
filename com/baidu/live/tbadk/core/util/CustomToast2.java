@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.widget.Toast;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class CustomToast2 {
     private static Toast mToast;
     private static Handler mHandler = new Handler();

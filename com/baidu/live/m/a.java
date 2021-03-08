@@ -2,9 +2,9 @@ package com.baidu.live.m;
 
 import com.baidu.live.data.ab;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
-    void Mp();
+    void Ms();
 
     void c(TbPageContext tbPageContext);
 
@@ -12,7 +12,7 @@ public interface a {
 
     void h(ab abVar);
 
-    void hj(String str);
+    void hp(String str);
 
     void i(ab abVar);
 

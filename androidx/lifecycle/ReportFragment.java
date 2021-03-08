@@ -7,13 +7,13 @@ import android.os.Bundle;
 import androidx.annotation.RestrictTo;
 import androidx.lifecycle.Lifecycle;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ReportFragment extends Fragment {
     private static final String REPORT_FRAGMENT_TAG = "androidx.lifecycle.LifecycleDispatcher.report_fragment_tag";
     private ActivityInitializationListener mProcessListener;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface ActivityInitializationListener {
         void onCreate();
 

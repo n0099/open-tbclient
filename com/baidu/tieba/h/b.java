@@ -5,12 +5,12 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes.dex */
 public class b implements c {
-    public static final AtomicReference<c> jTg = new AtomicReference<>(null);
-    private static final c jTh = new b();
+    public static final AtomicReference<c> jUD = new AtomicReference<>(null);
+    private static final c jUE = new b();
 
-    public static c cNt() {
-        c cVar = jTg.get();
-        return cVar == null ? jTh : cVar;
+    public static c cNB() {
+        c cVar = jUD.get();
+        return cVar == null ? jUE : cVar;
     }
 
     @Override // com.baidu.tieba.h.c

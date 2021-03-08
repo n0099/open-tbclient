@@ -22,15 +22,13 @@ import java.net.URLEncoder;
 import java.util.HashSet;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public final class a {
     private static String n;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f5688a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f5689b;
+    private String f3844a;
+    private int b;
     private int c;
     private int d;
     private String e;
@@ -57,10 +55,10 @@ public final class a {
 
     private String a(Context context, com.baidu.webkit.logsdk.b bVar) {
         if (TextUtils.isEmpty(this.g)) {
-            if (this.f5689b == 0) {
+            if (this.b == 0) {
                 d(context);
             }
-            int i = this.f5689b;
+            int i = this.b;
             if (this.c == 0) {
                 d(context);
             }
@@ -99,13 +97,13 @@ public final class a {
     }
 
     private String a(com.baidu.webkit.logsdk.b bVar) {
-        if (TextUtils.isEmpty(this.f5688a)) {
-            this.f5688a = bVar.e();
+        if (TextUtils.isEmpty(this.f3844a)) {
+            this.f3844a = bVar.e();
         }
-        if (TextUtils.isEmpty(this.f5688a)) {
+        if (TextUtils.isEmpty(this.f3844a)) {
             throw new RuntimeException("BdLogBase: get cuid null!");
         }
-        return this.f5688a;
+        return this.f3844a;
     }
 
     private String b() {
@@ -185,8 +183,8 @@ public final class a {
 
     public static boolean c(Context context) {
         b.a().g();
-        String b2 = b(context);
-        return b2.equals("2g") || b2.equals("3g") || b2.equals("4g");
+        String b = b(context);
+        return b.equals("2g") || b.equals("3g") || b.equals("4g");
     }
 
     @SuppressLint({"HardwareIds"})
@@ -205,7 +203,7 @@ public final class a {
     private void d(Context context) {
         try {
             DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-            this.f5689b = displayMetrics.widthPixels;
+            this.b = displayMetrics.widthPixels;
             this.c = displayMetrics.heightPixels;
             this.d = displayMetrics.densityDpi;
         } catch (Exception e) {
@@ -418,9 +416,9 @@ public final class a {
         } catch (Exception e8) {
             com.baidu.webkit.logsdk.d.c.a(e8);
         }
-        String b2 = b(context);
-        if (!TextUtils.isEmpty(b2)) {
-            sb.append("&nw=").append(b2);
+        String b = b(context);
+        if (!TextUtils.isEmpty(b)) {
+            sb.append("&nw=").append(b);
         }
         try {
             if (!TextUtils.isEmpty(null)) {
@@ -661,7 +659,7 @@ public final class a {
 
     public final String b(Context context, String str) {
         com.baidu.webkit.logsdk.b.c c = b.a().e().c(str);
-        if ("full".equals(c.f5703a)) {
+        if ("full".equals(c.f3852a)) {
             return a(context);
         }
         HashSet<String> hashSet = c.c;

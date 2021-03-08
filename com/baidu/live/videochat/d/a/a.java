@@ -15,24 +15,24 @@ import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.live.videochat.d.c;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends BdBaseModel {
-    private HttpMessageListener bBe;
-    private Handler bQl;
-    private b bQm;
+    private HttpMessageListener bCE;
+    private Handler bRL;
+    private b bRM;
 
     public a(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.bBe = new HttpMessageListener(1021219) { // from class: com.baidu.live.videochat.d.a.a.1
+        this.bCE = new HttpMessageListener(1021219) { // from class: com.baidu.live.videochat.d.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if ((!httpResponsedMessage.isSuccess() || httpResponsedMessage.getError() != 0) && a.this.bQm != null) {
-                    a.this.bQl.postDelayed(new Runnable() { // from class: com.baidu.live.videochat.d.a.a.1.1
+                if ((!httpResponsedMessage.isSuccess() || httpResponsedMessage.getError() != 0) && a.this.bRM != null) {
+                    a.this.bRL.postDelayed(new Runnable() { // from class: com.baidu.live.videochat.d.a.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (a.this.bQm != null) {
-                                a.this.sendMessage(a.this.b(a.this.bQm));
+                            if (a.this.bRM != null) {
+                                a.this.sendMessage(a.this.b(a.this.bRM));
                             }
                         }
                     }, IMConnection.RETRY_DELAY_TIMES);
@@ -44,8 +44,8 @@ public class a extends BdBaseModel {
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.bBe);
-        this.bQl = new Handler();
+        MessageManager.getInstance().registerListener(this.bCE);
+        this.bRL = new Handler();
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -60,10 +60,10 @@ public class a extends BdBaseModel {
 
     public void a(b bVar) {
         if (bVar != null) {
-            this.bQm = bVar;
+            this.bRM = bVar;
             MessageManager.getInstance().removeMessage(1021219, getUniqueId());
             cancelMessage();
-            this.bQl.removeCallbacksAndMessages(null);
+            this.bRL.removeCallbacksAndMessages(null);
             sendMessage(b(bVar));
         }
     }
@@ -72,20 +72,20 @@ public class a extends BdBaseModel {
     public HttpMessage b(b bVar) {
         HttpMessage httpMessage = new HttpMessage(1021219);
         httpMessage.addParam("appid", AccountManager.getAppid(TbadkCoreApplication.getInst().getContext()));
-        httpMessage.addParam("source", c.bFF);
-        httpMessage.addParam(LogConfig.LOG_ROOMID, bVar.bFf);
+        httpMessage.addParam("source", c.bHf);
+        httpMessage.addParam(LogConfig.LOG_ROOMID, bVar.bGF);
         httpMessage.addParam("action", bVar.action);
-        httpMessage.addParam("answer_type", bVar.bFg);
-        httpMessage.addParam("from_userid", bVar.bFh);
-        httpMessage.addParam("role", bVar.bFi);
-        httpMessage.addParam("user_states", bVar.bFj);
-        httpMessage.addParam("ext", bVar.bFk != null ? bVar.bFk.toString() : "");
+        httpMessage.addParam("answer_type", bVar.bGG);
+        httpMessage.addParam("from_userid", bVar.bGH);
+        httpMessage.addParam("role", bVar.bGI);
+        httpMessage.addParam("user_states", bVar.bGJ);
+        httpMessage.addParam("ext", bVar.bGK != null ? bVar.bGK.toString() : "");
         return httpMessage;
     }
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterTask(1021219);
-        MessageManager.getInstance().unRegisterListener(this.bBe);
-        this.bQl.removeCallbacksAndMessages(null);
+        MessageManager.getInstance().unRegisterListener(this.bCE);
+        this.bRL.removeCallbacksAndMessages(null);
     }
 }

@@ -33,7 +33,7 @@ import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class NativeListeners {
     public MethodChannel mMethodChannel;
     private int mLastMainTabIndex = -1;
@@ -75,11 +75,11 @@ public class NativeListeners {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                if (a.dFe().dFa()) {
+                if (a.dFm().dFi()) {
                     HashMap hashMap = new HashMap();
                     hashMap.put("uniqueKey", "FansCountUpdate");
                     NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
-                } else if (a.dFe().dFb()) {
+                } else if (a.dFm().dFj()) {
                     HashMap hashMap2 = new HashMap();
                     hashMap2.put("uniqueKey", "BookMarkUpdate");
                     NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap2);
@@ -376,7 +376,7 @@ public class NativeListeners {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                b.eYr = b.eYs;
+                b.eZQ = b.eZR;
                 HashMap hashMap = new HashMap();
                 hashMap.put("uniqueKey", "AnimateToBarEntryForumSquare");
                 NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
@@ -446,7 +446,7 @@ public class NativeListeners {
     }
 
     private void dealBeforeAttachNotification(String str) {
-        if ("AnimateToBarEntryForumSquare".equals(str) && b.eYr == b.eYt) {
+        if ("AnimateToBarEntryForumSquare".equals(str) && b.eZQ == b.eZS) {
             com.baidu.adp.lib.f.e.mA().postDelayed(new Runnable() { // from class: com.example.utility_plugin.NativeListeners.24
                 @Override // java.lang.Runnable
                 public void run() {

@@ -14,10 +14,10 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class FrsGameStrategyItemView extends com.baidu.tieba.card.b<com.baidu.tieba.frs.game.strategy.data.b> {
-    private ImageView izm;
-    private TbImageView jyG;
-    private TextView jyH;
-    private TextView jyI;
+    private ImageView iAV;
+    private TbImageView jAp;
+    private TextView jAq;
+    private TextView jAr;
     private TbPageContext mPageContext;
     private View mRootView;
     private TextView mTitle;
@@ -30,20 +30,20 @@ public class FrsGameStrategyItemView extends com.baidu.tieba.card.b<com.baidu.ti
     }
 
     private void initView() {
-        this.jyG = (TbImageView) this.mRootView.findViewById(R.id.frs_game_left_image);
-        this.jyG.setDefaultResource(R.drawable.icon_morenpic);
-        this.izm = (ImageView) this.mRootView.findViewById(R.id.frs_game_video_icon);
+        this.jAp = (TbImageView) this.mRootView.findViewById(R.id.frs_game_left_image);
+        this.jAp.setDefaultResource(R.drawable.icon_morenpic);
+        this.iAV = (ImageView) this.mRootView.findViewById(R.id.frs_game_video_icon);
         this.mTitle = (TextView) this.mRootView.findViewById(R.id.frs_game_strategy_title);
-        this.jyH = (TextView) this.mRootView.findViewById(R.id.frs_game_strategy_scan_info);
-        this.jyI = (TextView) this.mRootView.findViewById(R.id.frs_game_strategy_info_source);
+        this.jAq = (TextView) this.mRootView.findViewById(R.id.frs_game_strategy_scan_info);
+        this.jAr = (TextView) this.mRootView.findViewById(R.id.frs_game_strategy_info_source);
         onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         ap.setViewTextColor(this.mTitle, R.color.CAM_X0105);
-        ap.setViewTextColor(this.jyH, R.color.CAM_X0109);
-        ap.setViewTextColor(this.jyI, R.color.CAM_X0101);
+        ap.setViewTextColor(this.jAq, R.color.CAM_X0109);
+        ap.setViewTextColor(this.jAr, R.color.CAM_X0101);
         ap.setBackgroundResource(this.mRootView, R.drawable.addresslist_item_bg);
     }
 
@@ -55,39 +55,39 @@ public class FrsGameStrategyItemView extends com.baidu.tieba.card.b<com.baidu.ti
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.frs.game.strategy.data.b bVar) {
-        if (bVar != null && bVar.bln() != null) {
-            cb bln = bVar.bln();
-            this.mTitle.setText(bln.getTitle());
+        if (bVar != null && bVar.blp() != null) {
+            cb blp = bVar.blp();
+            this.mTitle.setText(blp.getTitle());
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.TM(bln.getId())) {
+            if (readThreadHistory != null && readThreadHistory.TT(blp.getId())) {
                 ap.setViewTextColor(this.mTitle, R.color.CAM_X0108);
             } else {
                 ap.setViewTextColor(this.mTitle, R.color.CAM_X0105);
             }
-            String numberUniformFormat = au.numberUniformFormat(bln.bnI());
-            String formatTimeShort = au.getFormatTimeShort(bln.bnz());
+            String numberUniformFormat = au.numberUniformFormat(blp.bnK());
+            String formatTimeShort = au.getFormatTimeShort(blp.bnB());
             if (!StringUtils.isNull(numberUniformFormat) && !StringUtils.isNull(formatTimeShort)) {
-                this.jyH.setText(String.format(this.mContext.getString(R.string.frs_game_strategy_scan_info), numberUniformFormat, formatTimeShort));
+                this.jAq.setText(String.format(this.mContext.getString(R.string.frs_game_strategy_scan_info), numberUniformFormat, formatTimeShort));
             }
             String str = null;
-            if (bln.getThreadType() == 40) {
-                this.izm.setVisibility(0);
-                if (bln.boh() != null) {
-                    str = bln.boh().thumbnail_url;
+            if (blp.getThreadType() == 40) {
+                this.iAV.setVisibility(0);
+                if (blp.boj() != null) {
+                    str = blp.boj().thumbnail_url;
                 }
             } else {
-                this.izm.setVisibility(8);
-                if (bln.bnZ() != null && bln.bnZ().size() >= 1) {
-                    str = bln.bnZ().get(0).getOriginalUrl();
+                this.iAV.setVisibility(8);
+                if (blp.bob() != null && blp.bob().size() >= 1) {
+                    str = blp.bob().get(0).getOriginalUrl();
                 }
             }
-            this.jyG.startLoad(str, 10, false);
-            if (!StringUtils.isNull(bln.bnF())) {
-                this.jyI.setText(bln.bnF());
-                this.jyI.setVisibility(0);
+            this.jAp.startLoad(str, 10, false);
+            if (!StringUtils.isNull(blp.bnH())) {
+                this.jAr.setText(blp.bnH());
+                this.jAr.setVisibility(0);
                 return;
             }
-            this.jyI.setVisibility(8);
+            this.jAr.setVisibility(8);
         }
     }
 
@@ -97,11 +97,11 @@ public class FrsGameStrategyItemView extends com.baidu.tieba.card.b<com.baidu.ti
 
     /* loaded from: classes2.dex */
     public static class FrsGameStrategyItemViewHolder extends TypeAdapter.ViewHolder {
-        public FrsGameStrategyItemView jyJ;
+        public FrsGameStrategyItemView jAs;
 
         public FrsGameStrategyItemViewHolder(FrsGameStrategyItemView frsGameStrategyItemView) {
             super(frsGameStrategyItemView.getView());
-            this.jyJ = frsGameStrategyItemView;
+            this.jAs = frsGameStrategyItemView;
         }
     }
 }

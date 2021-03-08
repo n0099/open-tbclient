@@ -1,7 +1,7 @@
 package com.thunder.livesdk.video;
 
 import android.view.SurfaceView;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoCanvas {
     @Deprecated
     public static final int RENDER_MODE_ADAPTIVE = 3;

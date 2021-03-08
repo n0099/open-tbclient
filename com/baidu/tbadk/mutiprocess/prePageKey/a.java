@@ -11,7 +11,7 @@ public class a implements b<PrePageKeyEvent> {
         if (prePageKeyEvent == null && StringUtil.isEmpty(prePageKeyEvent.prePageKey)) {
             return false;
         }
-        d.Dn(prePageKeyEvent.prePageKey);
+        d.Du(prePageKeyEvent.prePageKey);
         return true;
     }
 }

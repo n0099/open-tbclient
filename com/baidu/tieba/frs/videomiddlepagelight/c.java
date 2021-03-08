@@ -20,7 +20,6 @@ import androidx.lifecycle.Observer;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.data.ConstantData;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
@@ -58,51 +57,51 @@ import org.apache.http.HttpHost;
 @kotlin.e
 /* loaded from: classes2.dex */
 public final class c extends com.baidu.tieba.card.b<com.baidu.tieba.frs.aggregation.g> {
-    public static final a jPd = new a(null);
-    private boolean amB;
-    private final RelativeLayout jOA;
-    private final HeadImageView jOB;
-    private final EMTextView jOC;
-    private final TextView jOD;
-    private final View.OnClickListener jOE;
-    private final FrameLayout jOF;
-    private final FrameLayout jOG;
-    private final com.baidu.tieba.play.c jOH;
-    private final OperableVideoNetworkStateTipView jOI;
-    private final RelativeLayout jOJ;
-    private final TextView jOK;
-    private int jOL;
-    private final int jOM;
-    private final int jON;
-    private final int jOO;
-    private final ImageView jOP;
-    private final RelativeLayout jOQ;
-    private final TextView jOR;
-    private final View.OnClickListener jOS;
-    private final FrameLayout jOT;
-    private final TextView jOU;
-    private String jOV;
-    private String jOW;
-    private SpannableString jOX;
-    private final View.OnClickListener jOY;
-    private final ThreadCardBottomOpSegmentLayout jOZ;
-    private final VideoMiddlePageViewModel jOk;
-    private final int jOn;
-    private final int jOo;
-    private com.baidu.tieba.frs.aggregation.g jOp;
-    private cb jOq;
-    private int jOr;
-    private int jOs;
-    private final View.OnClickListener jOt;
-    private final RelativeLayout jOu;
-    private final BarImageView jOv;
-    private final SingleLineEllipsizeTextView jOw;
-    private final TextView jOx;
-    private final TextView jOy;
-    private final View.OnClickListener jOz;
-    private final c.p jPa;
-    private final c.InterfaceC0849c jPb;
-    private final c.o jPc;
+    public static final a jQM = new a(null);
+    private boolean anT;
+    private final VideoMiddlePageViewModel jPT;
+    private final int jPW;
+    private final int jPX;
+    private com.baidu.tieba.frs.aggregation.g jPY;
+    private cb jPZ;
+    private final TextView jQA;
+    private final View.OnClickListener jQB;
+    private final FrameLayout jQC;
+    private final TextView jQD;
+    private String jQE;
+    private String jQF;
+    private SpannableString jQG;
+    private final View.OnClickListener jQH;
+    private final ThreadCardBottomOpSegmentLayout jQI;
+    private final c.p jQJ;
+    private final c.InterfaceC0855c jQK;
+    private final c.o jQL;
+    private int jQa;
+    private int jQb;
+    private final View.OnClickListener jQc;
+    private final RelativeLayout jQd;
+    private final BarImageView jQe;
+    private final SingleLineEllipsizeTextView jQf;
+    private final TextView jQg;
+    private final TextView jQh;
+    private final View.OnClickListener jQi;
+    private final RelativeLayout jQj;
+    private final HeadImageView jQk;
+    private final EMTextView jQl;
+    private final TextView jQm;
+    private final View.OnClickListener jQn;
+    private final FrameLayout jQo;
+    private final FrameLayout jQp;
+    private final com.baidu.tieba.play.c jQq;
+    private final OperableVideoNetworkStateTipView jQr;
+    private final RelativeLayout jQs;
+    private final TextView jQt;
+    private int jQu;
+    private final int jQv;
+    private final int jQw;
+    private final int jQx;
+    private final ImageView jQy;
+    private final RelativeLayout jQz;
 
     @kotlin.e
     /* loaded from: classes2.dex */
@@ -118,223 +117,223 @@ public final class c extends com.baidu.tieba.card.b<com.baidu.tieba.frs.aggregat
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(final TbPageContext<?> tbPageContext, VideoMiddlePageViewModel videoMiddlePageViewModel) {
         super(tbPageContext);
-        p.o(tbPageContext, "pageContext");
-        p.o(videoMiddlePageViewModel, "viewModel");
-        this.jOk = videoMiddlePageViewModel;
-        this.jOn = (int) (l.getEquipmentWidth(tbPageContext.getPageActivity()) * 0.5625d);
-        this.jOo = (int) (l.getEquipmentWidth(tbPageContext.getPageActivity()) * 1.0d);
-        this.jOs = 1;
-        this.jOt = new b(tbPageContext);
+        p.p(tbPageContext, "pageContext");
+        p.p(videoMiddlePageViewModel, "viewModel");
+        this.jPT = videoMiddlePageViewModel;
+        this.jPW = (int) (l.getEquipmentWidth(tbPageContext.getPageActivity()) * 0.5625d);
+        this.jPX = (int) (l.getEquipmentWidth(tbPageContext.getPageActivity()) * 1.0d);
+        this.jQb = 1;
+        this.jQc = new b(tbPageContext);
         View findViewById = getView().findViewById(R.id.forum_info_layout);
-        p.n(findViewById, "view.findViewById(R.id.forum_info_layout)");
-        this.jOu = (RelativeLayout) findViewById;
+        p.o(findViewById, "view.findViewById(R.id.forum_info_layout)");
+        this.jQd = (RelativeLayout) findViewById;
         View findViewById2 = getView().findViewById(R.id.forum_info_image);
-        p.n(findViewById2, "view.findViewById(R.id.forum_info_image)");
-        this.jOv = (BarImageView) findViewById2;
+        p.o(findViewById2, "view.findViewById(R.id.forum_info_image)");
+        this.jQe = (BarImageView) findViewById2;
         View findViewById3 = getView().findViewById(R.id.forum_info_barname);
-        p.n(findViewById3, "view.findViewById(R.id.forum_info_barname)");
-        this.jOw = (SingleLineEllipsizeTextView) findViewById3;
+        p.o(findViewById3, "view.findViewById(R.id.forum_info_barname)");
+        this.jQf = (SingleLineEllipsizeTextView) findViewById3;
         View findViewById4 = getView().findViewById(R.id.forum_info_author);
-        p.n(findViewById4, "view.findViewById(R.id.forum_info_author)");
-        this.jOx = (TextView) findViewById4;
+        p.o(findViewById4, "view.findViewById(R.id.forum_info_author)");
+        this.jQg = (TextView) findViewById4;
         View findViewById5 = getView().findViewById(R.id.forum_info_reply_time);
-        p.n(findViewById5, "view.findViewById(R.id.forum_info_reply_time)");
-        this.jOy = (TextView) findViewById5;
-        this.jOz = new View$OnClickListenerC0739c(tbPageContext);
+        p.o(findViewById5, "view.findViewById(R.id.forum_info_reply_time)");
+        this.jQh = (TextView) findViewById5;
+        this.jQi = new View$OnClickListenerC0745c(tbPageContext);
         View findViewById6 = getView().findViewById(R.id.user_info_layout);
-        p.n(findViewById6, "view.findViewById(R.id.user_info_layout)");
-        this.jOA = (RelativeLayout) findViewById6;
+        p.o(findViewById6, "view.findViewById(R.id.user_info_layout)");
+        this.jQj = (RelativeLayout) findViewById6;
         View findViewById7 = getView().findViewById(R.id.user_info_avatar);
-        p.n(findViewById7, "view.findViewById(R.id.user_info_avatar)");
-        this.jOB = (HeadImageView) findViewById7;
+        p.o(findViewById7, "view.findViewById(R.id.user_info_avatar)");
+        this.jQk = (HeadImageView) findViewById7;
         View findViewById8 = getView().findViewById(R.id.user_info_name);
-        p.n(findViewById8, "view.findViewById(R.id.user_info_name)");
-        this.jOC = (EMTextView) findViewById8;
+        p.o(findViewById8, "view.findViewById(R.id.user_info_name)");
+        this.jQl = (EMTextView) findViewById8;
         View findViewById9 = getView().findViewById(R.id.user_info_reply_time);
-        p.n(findViewById9, "view.findViewById(R.id.user_info_reply_time)");
-        this.jOD = (TextView) findViewById9;
-        this.jOE = new g(tbPageContext);
+        p.o(findViewById9, "view.findViewById(R.id.user_info_reply_time)");
+        this.jQm = (TextView) findViewById9;
+        this.jQn = new g(tbPageContext);
         View findViewById10 = getView().findViewById(R.id.video_layout);
-        p.n(findViewById10, "view.findViewById(R.id.video_layout)");
-        this.jOF = (FrameLayout) findViewById10;
+        p.o(findViewById10, "view.findViewById(R.id.video_layout)");
+        this.jQo = (FrameLayout) findViewById10;
         View findViewById11 = getView().findViewById(R.id.video_container);
-        p.n(findViewById11, "view.findViewById(R.id.video_container)");
-        this.jOG = (FrameLayout) findViewById11;
-        this.jOH = new com.baidu.tieba.play.c(tbPageContext, this.jOG, false);
+        p.o(findViewById11, "view.findViewById(R.id.video_container)");
+        this.jQp = (FrameLayout) findViewById11;
+        this.jQq = new com.baidu.tieba.play.c(tbPageContext, this.jQp, false);
         View findViewById12 = getView().findViewById(R.id.video_network_state_tip);
-        p.n(findViewById12, "view.findViewById(R.id.video_network_state_tip)");
-        this.jOI = (OperableVideoNetworkStateTipView) findViewById12;
+        p.o(findViewById12, "view.findViewById(R.id.video_network_state_tip)");
+        this.jQr = (OperableVideoNetworkStateTipView) findViewById12;
         View findViewById13 = getView().findViewById(R.id.video_info_layout);
-        p.n(findViewById13, "view.findViewById(R.id.video_info_layout)");
-        this.jOJ = (RelativeLayout) findViewById13;
+        p.o(findViewById13, "view.findViewById(R.id.video_info_layout)");
+        this.jQs = (RelativeLayout) findViewById13;
         View findViewById14 = getView().findViewById(R.id.video_info_title);
-        p.n(findViewById14, "view.findViewById(R.id.video_info_title)");
-        this.jOK = (TextView) findViewById14;
-        this.jOM = 1;
-        this.jON = 3;
-        this.jOO = (l.getEquipmentWidth(TbadkCoreApplication.getInst()) - this.jOJ.getPaddingLeft()) - this.jOJ.getPaddingRight();
+        p.o(findViewById14, "view.findViewById(R.id.video_info_title)");
+        this.jQt = (TextView) findViewById14;
+        this.jQv = 1;
+        this.jQw = 3;
+        this.jQx = (l.getEquipmentWidth(TbadkCoreApplication.getInst()) - this.jQs.getPaddingLeft()) - this.jQs.getPaddingRight();
         View findViewById15 = getView().findViewById(R.id.video_info_expand_title_btn);
-        p.n(findViewById15, "view.findViewById(R.id.v…eo_info_expand_title_btn)");
-        this.jOP = (ImageView) findViewById15;
+        p.o(findViewById15, "view.findViewById(R.id.v…eo_info_expand_title_btn)");
+        this.jQy = (ImageView) findViewById15;
         View findViewById16 = getView().findViewById(R.id.video_info_expand_title_btn_wrapper);
-        p.n(findViewById16, "view.findViewById(R.id.v…expand_title_btn_wrapper)");
-        this.jOQ = (RelativeLayout) findViewById16;
+        p.o(findViewById16, "view.findViewById(R.id.v…expand_title_btn_wrapper)");
+        this.jQz = (RelativeLayout) findViewById16;
         View findViewById17 = getView().findViewById(R.id.video_info_play_count);
-        p.n(findViewById17, "view.findViewById(R.id.video_info_play_count)");
-        this.jOR = (TextView) findViewById17;
-        this.jOS = new f();
+        p.o(findViewById17, "view.findViewById(R.id.video_info_play_count)");
+        this.jQA = (TextView) findViewById17;
+        this.jQB = new f();
         View findViewById18 = getView().findViewById(R.id.reply_layout);
-        p.n(findViewById18, "view.findViewById(R.id.reply_layout)");
-        this.jOT = (FrameLayout) findViewById18;
+        p.o(findViewById18, "view.findViewById(R.id.reply_layout)");
+        this.jQC = (FrameLayout) findViewById18;
         View findViewById19 = getView().findViewById(R.id.reply_content);
-        p.n(findViewById19, "view.findViewById(R.id.reply_content)");
-        this.jOU = (TextView) findViewById19;
-        this.jOV = "";
-        this.jOW = "";
-        this.jOY = new e(tbPageContext);
+        p.o(findViewById19, "view.findViewById(R.id.reply_content)");
+        this.jQD = (TextView) findViewById19;
+        this.jQE = "";
+        this.jQF = "";
+        this.jQH = new e(tbPageContext);
         View findViewById20 = getView().findViewById(R.id.op_layout);
-        p.n(findViewById20, "view.findViewById(R.id.op_layout)");
-        this.jOZ = (ThreadCardBottomOpSegmentLayout) findViewById20;
-        this.jPa = new i();
-        this.jPb = new d(tbPageContext);
-        this.jPc = new h();
-        this.jOu.setOnClickListener(this.jOz);
-        this.jOv.setShowOval(true);
-        this.jOv.setAutoChangeStyle(true);
-        this.jOv.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-        this.jOv.setStrokeColorResId(R.color.CAM_X0401);
-        this.jOv.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.jOv.setPlaceHolder(1);
-        this.jOv.setOnClickListener(this.jOz);
-        SingleLineEllipsizeTextView singleLineEllipsizeTextView = this.jOw;
+        p.o(findViewById20, "view.findViewById(R.id.op_layout)");
+        this.jQI = (ThreadCardBottomOpSegmentLayout) findViewById20;
+        this.jQJ = new i();
+        this.jQK = new d(tbPageContext);
+        this.jQL = new h();
+        this.jQd.setOnClickListener(this.jQi);
+        this.jQe.setShowOval(true);
+        this.jQe.setAutoChangeStyle(true);
+        this.jQe.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+        this.jQe.setStrokeColorResId(R.color.CAM_X0401);
+        this.jQe.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.jQe.setPlaceHolder(1);
+        this.jQe.setOnClickListener(this.jQi);
+        SingleLineEllipsizeTextView singleLineEllipsizeTextView = this.jQf;
         View view = getView();
-        p.n(view, "view");
+        p.o(view, "view");
         singleLineEllipsizeTextView.setEllipsisSuffix(view.getResources().getString(R.string.ellipsis_suffix_bar));
-        this.jOw.setOnClickListener(this.jOz);
+        this.jQf.setOnClickListener(this.jQi);
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_H_X005);
-        this.jOw.setPadding(0, UtilHelper.getDimenPixelSize(R.dimen.M_H_X006) - dimenPixelSize, 0, 0);
-        this.jOA.setOnClickListener(this.jOE);
-        this.jOB.setIsRound(true);
-        this.jOB.setPlaceHolder(1);
-        this.jOB.setOnClickListener(this.jOE);
-        this.jOC.setOnClickListener(this.jOE);
-        this.jOH.setStageType("2005");
-        this.jOH.xe(true);
-        this.jOH.xf(true);
-        this.jOH.xm(true);
-        this.jOH.xi(true);
-        this.jOH.xn(true);
-        this.jOH.xf(true);
-        this.jOH.ax(false, false);
-        this.jOH.xd(false);
-        this.jOH.a(this.jPb);
-        this.jOH.a(this.jPa);
-        this.jOH.a(this.jPc);
-        this.jOI.setPlayViewOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.videomiddlepagelight.c.1
+        this.jQf.setPadding(0, UtilHelper.getDimenPixelSize(R.dimen.M_H_X006) - dimenPixelSize, 0, 0);
+        this.jQj.setOnClickListener(this.jQn);
+        this.jQk.setIsRound(true);
+        this.jQk.setPlaceHolder(1);
+        this.jQk.setOnClickListener(this.jQn);
+        this.jQl.setOnClickListener(this.jQn);
+        this.jQq.setStageType("2005");
+        this.jQq.xe(true);
+        this.jQq.xf(true);
+        this.jQq.xm(true);
+        this.jQq.xi(true);
+        this.jQq.xn(true);
+        this.jQq.xf(true);
+        this.jQq.ax(false, false);
+        this.jQq.xd(false);
+        this.jQq.a(this.jQK);
+        this.jQq.a(this.jQJ);
+        this.jQq.a(this.jQL);
+        this.jQr.setPlayViewOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.videomiddlepagelight.c.1
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
                 g.c cVar;
-                c.this.cMI().setVisibility(8);
-                c.this.cMI().setHasAgreeToPlay(true);
-                c.this.cMH().stopPlay();
-                c.this.cMH().xl(false);
-                com.baidu.tieba.frs.aggregation.g cMD = c.this.cMD();
-                if ((cMD != null ? cMD.jog : null) != null) {
-                    com.baidu.tieba.play.c cMH = c.this.cMH();
-                    com.baidu.tieba.frs.aggregation.g cMD2 = c.this.cMD();
-                    String str = (cMD2 == null || (cVar = cMD2.jog) == null) ? null : cVar.videoUrl;
-                    com.baidu.tieba.frs.aggregation.g cMD3 = c.this.cMD();
-                    cMH.fX(str, cMD3 != null ? cMD3.threadId : null);
+                c.this.cMO().setVisibility(8);
+                c.this.cMO().setHasAgreeToPlay(true);
+                c.this.cMN().stopPlay();
+                c.this.cMN().xl(false);
+                com.baidu.tieba.frs.aggregation.g cMJ = c.this.cMJ();
+                if ((cMJ != null ? cMJ.jpP : null) != null) {
+                    com.baidu.tieba.play.c cMN = c.this.cMN();
+                    com.baidu.tieba.frs.aggregation.g cMJ2 = c.this.cMJ();
+                    String str = (cMJ2 == null || (cVar = cMJ2.jpP) == null) ? null : cVar.videoUrl;
+                    com.baidu.tieba.frs.aggregation.g cMJ3 = c.this.cMJ();
+                    cMN.fX(str, cMJ3 != null ? cMJ3.threadId : null);
                 }
             }
         });
-        MutableLiveData<Configuration> cMW = this.jOk.cMW();
+        MutableLiveData<Configuration> cNc = this.jPT.cNc();
         Activity pageActivity = tbPageContext.getPageActivity();
         if (pageActivity == null) {
             throw new TypeCastException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
         }
-        cMW.observe((LifecycleOwner) pageActivity, new Observer<Configuration>() { // from class: com.baidu.tieba.frs.videomiddlepagelight.c.2
+        cNc.observe((LifecycleOwner) pageActivity, new Observer<Configuration>() { // from class: com.baidu.tieba.frs.videomiddlepagelight.c.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.lifecycle.Observer
             /* renamed from: d */
             public final void onChanged(Configuration configuration) {
-                Integer value = c.this.cMB().cMV().getValue();
-                int cMF = c.this.cMF();
-                if (value != null && value.intValue() == cMF && c.this.cMG() != configuration.orientation) {
+                Integer value = c.this.cMH().cNb().getValue();
+                int cML = c.this.cML();
+                if (value != null && value.intValue() == cML && c.this.cMM() != configuration.orientation) {
                     if (configuration.orientation == 2) {
                         c.this.u(tbPageContext);
                     } else {
                         c.this.v(tbPageContext);
                     }
-                    c.this.cMH().a(tbPageContext, configuration);
-                    c.this.AW(configuration.orientation);
+                    c.this.cMN().a(tbPageContext, configuration);
+                    c.this.AX(configuration.orientation);
                 }
             }
         });
-        this.jOJ.setOnClickListener(this.jOt);
-        this.jOQ.setOnClickListener(this.jOS);
-        this.jOT.setOnClickListener(this.jOY);
-        this.jOZ.setReplyTimeVisible(false);
-        this.jOZ.setShowPraiseNum(true);
-        this.jOZ.setNeedAddPraiseIcon(true);
-        this.jOZ.setNeedAddReplyIcon(true);
-        this.jOZ.setShareVisible(true);
-        this.jOZ.hideDisagree();
+        this.jQs.setOnClickListener(this.jQc);
+        this.jQz.setOnClickListener(this.jQB);
+        this.jQC.setOnClickListener(this.jQH);
+        this.jQI.setReplyTimeVisible(false);
+        this.jQI.setShowPraiseNum(true);
+        this.jQI.setNeedAddPraiseIcon(true);
+        this.jQI.setNeedAddReplyIcon(true);
+        this.jQI.setShareVisible(true);
+        this.jQI.hideDisagree();
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-        p.n(inst, "TbadkCoreApplication.getInst()");
+        p.o(inst, "TbadkCoreApplication.getInst()");
         onChangeSkinType(tbPageContext, inst.getSkinType());
     }
 
-    public final VideoMiddlePageViewModel cMB() {
-        return this.jOk;
+    public final VideoMiddlePageViewModel cMH() {
+        return this.jPT;
     }
 
-    public final com.baidu.tieba.frs.aggregation.g cMD() {
-        return this.jOp;
+    public final com.baidu.tieba.frs.aggregation.g cMJ() {
+        return this.jPY;
     }
 
-    public final cb cME() {
-        return this.jOq;
+    public final cb cMK() {
+        return this.jPZ;
     }
 
-    public final int cMF() {
-        return this.jOr;
+    public final int cML() {
+        return this.jQa;
     }
 
-    public final void AW(int i2) {
-        this.jOs = i2;
+    public final void AX(int i2) {
+        this.jQb = i2;
     }
 
-    public final int cMG() {
-        return this.jOs;
+    public final int cMM() {
+        return this.jQb;
     }
 
-    public final boolean cFC() {
-        return this.amB;
+    public final boolean cFI() {
+        return this.anT;
     }
 
     @kotlin.e
     /* loaded from: classes2.dex */
     static final class b implements View.OnClickListener {
-        final /* synthetic */ TbPageContext jPf;
+        final /* synthetic */ TbPageContext jQO;
 
         b(TbPageContext tbPageContext) {
-            this.jPf = tbPageContext;
+            this.jQO = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
-            if (c.this.cMD() != null) {
+            if (c.this.cMJ() != null) {
                 PbActivityConfig pbActivityConfig = new PbActivityConfig(c.this.mContext);
-                com.baidu.tieba.frs.aggregation.g cMD = c.this.cMD();
-                pbActivityConfig.createNormalCfg(cMD != null ? cMD.threadId : null, null, null);
+                com.baidu.tieba.frs.aggregation.g cMJ = c.this.cMJ();
+                pbActivityConfig.createNormalCfg(cMJ != null ? cMJ.threadId : null, null, null);
                 pbActivityConfig.setVideo_source(ConstantData.VideoLocationType.VIDEO_MIDDEL_PAGE);
-                com.baidu.tieba.frs.aggregation.g cMD2 = c.this.cMD();
-                pbActivityConfig.setBjhData(cMD2 != null ? cMD2.mBaijiahao : null);
+                com.baidu.tieba.frs.aggregation.g cMJ2 = c.this.cMJ();
+                pbActivityConfig.setBjhData(cMJ2 != null ? cMJ2.mBaijiahao : null);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
-                cb cME = c.this.cME();
-                com.baidu.tieba.frs.aggregation.g cMD3 = c.this.cMD();
-                com.baidu.tieba.s.c.dMz().b(this.jPf.getUniqueId(), com.baidu.tieba.s.a.a(cME, PageStayDurationConstants.PageName.VIDEO_LIST, "common_click", 1, cMD3 != null ? cMD3.iAs : 0, false, (String) null, (String) null));
+                cb cMK = c.this.cMK();
+                com.baidu.tieba.frs.aggregation.g cMJ3 = c.this.cMJ();
+                com.baidu.tieba.s.c.dMH().b(this.jQO.getUniqueId(), com.baidu.tieba.s.a.a(cMK, PageStayDurationConstants.PageName.VIDEO_LIST, "common_click", 1, cMJ3 != null ? cMJ3.iCb : 0, false, (String) null, (String) null));
             }
         }
     }
@@ -342,11 +341,11 @@ public final class c extends com.baidu.tieba.card.b<com.baidu.tieba.frs.aggregat
     @kotlin.e
     /* renamed from: com.baidu.tieba.frs.videomiddlepagelight.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    static final class View$OnClickListenerC0739c implements View.OnClickListener {
-        final /* synthetic */ TbPageContext jPf;
+    static final class View$OnClickListenerC0745c implements View.OnClickListener {
+        final /* synthetic */ TbPageContext jQO;
 
-        View$OnClickListenerC0739c(TbPageContext tbPageContext) {
-            this.jPf = tbPageContext;
+        View$OnClickListenerC0745c(TbPageContext tbPageContext) {
+            this.jQO = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
@@ -354,19 +353,19 @@ public final class c extends com.baidu.tieba.card.b<com.baidu.tieba.frs.aggregat
             bx bxVar;
             String str;
             bx bxVar2;
-            com.baidu.tieba.frs.aggregation.g cMD = c.this.cMD();
-            if (cMD == null || (bxVar = cMD.eRo) == null || (str = bxVar.forumName) == null) {
+            com.baidu.tieba.frs.aggregation.g cMJ = c.this.cMJ();
+            if (cMJ == null || (bxVar = cMJ.eSP) == null || (str = bxVar.forumName) == null) {
                 return;
             }
             if (str.length() > 0) {
                 FrsActivityConfig frsActivityConfig = new FrsActivityConfig(c.this.getContext());
-                com.baidu.tieba.frs.aggregation.g cMD2 = c.this.cMD();
-                FrsActivityConfig createNormalCfg = frsActivityConfig.createNormalCfg((cMD2 == null || (bxVar2 = cMD2.eRo) == null) ? null : bxVar2.forumName, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
+                com.baidu.tieba.frs.aggregation.g cMJ2 = c.this.cMJ();
+                FrsActivityConfig createNormalCfg = frsActivityConfig.createNormalCfg((cMJ2 == null || (bxVar2 = cMJ2.eSP) == null) ? null : bxVar2.forumName, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
                 createNormalCfg.setCallFrom(14);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, createNormalCfg));
-                cb cME = c.this.cME();
-                com.baidu.tieba.frs.aggregation.g cMD3 = c.this.cMD();
-                com.baidu.tieba.s.c.dMz().b(this.jPf.getUniqueId(), com.baidu.tieba.s.a.a(cME, PageStayDurationConstants.PageName.VIDEO_LIST, "common_click", 9, cMD3 != null ? cMD3.iAs : 0, false, (String) null, (String) null));
+                cb cMK = c.this.cMK();
+                com.baidu.tieba.frs.aggregation.g cMJ3 = c.this.cMJ();
+                com.baidu.tieba.s.c.dMH().b(this.jQO.getUniqueId(), com.baidu.tieba.s.a.a(cMK, PageStayDurationConstants.PageName.VIDEO_LIST, "common_click", 9, cMJ3 != null ? cMJ3.iCb : 0, false, (String) null, (String) null));
             }
         }
     }
@@ -374,10 +373,10 @@ public final class c extends com.baidu.tieba.card.b<com.baidu.tieba.frs.aggregat
     @kotlin.e
     /* loaded from: classes2.dex */
     static final class g implements View.OnClickListener {
-        final /* synthetic */ TbPageContext jPf;
+        final /* synthetic */ TbPageContext jQO;
 
         g(TbPageContext tbPageContext) {
-            this.jPf = tbPageContext;
+            this.jQO = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
@@ -385,13 +384,13 @@ public final class c extends com.baidu.tieba.card.b<com.baidu.tieba.frs.aggregat
             g.b bVar;
             g.b bVar2;
             g.b bVar3;
-            com.baidu.tieba.frs.aggregation.g cMD = c.this.cMD();
-            String str = (cMD == null || (bVar3 = cMD.jof) == null) ? null : bVar3.userId;
-            com.baidu.tieba.frs.aggregation.g cMD2 = c.this.cMD();
-            String str2 = (cMD2 == null || (bVar2 = cMD2.jof) == null) ? null : bVar2.userNickname;
+            com.baidu.tieba.frs.aggregation.g cMJ = c.this.cMJ();
+            String str = (cMJ == null || (bVar3 = cMJ.jpO) == null) ? null : bVar3.userId;
+            com.baidu.tieba.frs.aggregation.g cMJ2 = c.this.cMJ();
+            String str2 = (cMJ2 == null || (bVar2 = cMJ2.jpO) == null) ? null : bVar2.userNickname;
             if (str2 == null || kotlin.text.l.isBlank(str2)) {
-                com.baidu.tieba.frs.aggregation.g cMD3 = c.this.cMD();
-                str2 = (cMD3 == null || (bVar = cMD3.jof) == null) ? null : bVar.userName;
+                com.baidu.tieba.frs.aggregation.g cMJ3 = c.this.cMJ();
+                str2 = (cMJ3 == null || (bVar = cMJ3.jpO) == null) ? null : bVar.userName;
             }
             if (str != null) {
                 if ((!kotlin.text.l.isBlank(str)) && str2 != null) {
@@ -400,22 +399,22 @@ public final class c extends com.baidu.tieba.card.b<com.baidu.tieba.frs.aggregat
                     }
                 }
             }
-            cb cME = c.this.cME();
-            com.baidu.tieba.frs.aggregation.g cMD4 = c.this.cMD();
-            com.baidu.tieba.s.c.dMz().b(this.jPf.getUniqueId(), com.baidu.tieba.s.a.a(cME, PageStayDurationConstants.PageName.VIDEO_LIST, "common_click", 2, cMD4 != null ? cMD4.iAs : 0, false, (String) null, (String) null));
+            cb cMK = c.this.cMK();
+            com.baidu.tieba.frs.aggregation.g cMJ4 = c.this.cMJ();
+            com.baidu.tieba.s.c.dMH().b(this.jQO.getUniqueId(), com.baidu.tieba.s.a.a(cMK, PageStayDurationConstants.PageName.VIDEO_LIST, "common_click", 2, cMJ4 != null ? cMJ4.iCb : 0, false, (String) null, (String) null));
         }
     }
 
-    public final com.baidu.tieba.play.c cMH() {
-        return this.jOH;
+    public final com.baidu.tieba.play.c cMN() {
+        return this.jQq;
     }
 
-    public final OperableVideoNetworkStateTipView cMI() {
-        return this.jOI;
+    public final OperableVideoNetworkStateTipView cMO() {
+        return this.jQr;
     }
 
-    public final int cMJ() {
-        return this.jOL;
+    public final int cMP() {
+        return this.jQu;
     }
 
     @kotlin.e
@@ -426,10 +425,10 @@ public final class c extends com.baidu.tieba.card.b<com.baidu.tieba.frs.aggregat
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
-            if (c.this.cMJ() == 1) {
-                c.this.AX(2);
-            } else if (c.this.cMJ() == 2) {
-                c.this.AX(1);
+            if (c.this.cMP() == 1) {
+                c.this.AY(2);
+            } else if (c.this.cMP() == 2) {
+                c.this.AY(1);
             }
         }
     }
@@ -437,10 +436,10 @@ public final class c extends com.baidu.tieba.card.b<com.baidu.tieba.frs.aggregat
     @kotlin.e
     /* loaded from: classes2.dex */
     static final class e implements View.OnClickListener {
-        final /* synthetic */ TbPageContext jPf;
+        final /* synthetic */ TbPageContext jQO;
 
         e(TbPageContext tbPageContext) {
-            this.jPf = tbPageContext;
+            this.jQO = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
@@ -450,24 +449,24 @@ public final class c extends com.baidu.tieba.card.b<com.baidu.tieba.frs.aggregat
             bx bxVar;
             List<com.baidu.tieba.tbadkCore.data.p> list2;
             com.baidu.tieba.tbadkCore.data.p pVar2;
-            if (c.this.cMD() != null) {
+            if (c.this.cMJ() != null) {
                 PbActivityConfig pbActivityConfig = new PbActivityConfig(c.this.mContext);
-                com.baidu.tieba.frs.aggregation.g cMD = c.this.cMD();
-                String str = cMD != null ? cMD.threadId : null;
-                com.baidu.tieba.frs.aggregation.g cMD2 = c.this.cMD();
-                PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(str, (cMD2 == null || (list2 = cMD2.postList) == null || (pVar2 = list2.get(0)) == null || (r0 = pVar2.id) == null) ? "" : "", null);
+                com.baidu.tieba.frs.aggregation.g cMJ = c.this.cMJ();
+                String str = cMJ != null ? cMJ.threadId : null;
+                com.baidu.tieba.frs.aggregation.g cMJ2 = c.this.cMJ();
+                PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(str, (cMJ2 == null || (list2 = cMJ2.postList) == null || (pVar2 = list2.get(0)) == null || (r0 = pVar2.id) == null) ? "" : "", null);
                 createNormalCfg.setStartFrom(24);
-                com.baidu.tieba.frs.aggregation.g cMD3 = c.this.cMD();
-                createNormalCfg.setForumId(cMD3 != null ? cMD3.forumId : null);
-                com.baidu.tieba.frs.aggregation.g cMD4 = c.this.cMD();
-                createNormalCfg.setForumName((cMD4 == null || (bxVar = cMD4.eRo) == null) ? null : bxVar.forumName);
-                com.baidu.tieba.frs.aggregation.g cMD5 = c.this.cMD();
-                createNormalCfg.setHighLightPostId((cMD5 == null || (list = cMD5.postList) == null || (pVar = list.get(0)) == null) ? null : pVar.id);
+                com.baidu.tieba.frs.aggregation.g cMJ3 = c.this.cMJ();
+                createNormalCfg.setForumId(cMJ3 != null ? cMJ3.forumId : null);
+                com.baidu.tieba.frs.aggregation.g cMJ4 = c.this.cMJ();
+                createNormalCfg.setForumName((cMJ4 == null || (bxVar = cMJ4.eSP) == null) ? null : bxVar.forumName);
+                com.baidu.tieba.frs.aggregation.g cMJ5 = c.this.cMJ();
+                createNormalCfg.setHighLightPostId((cMJ5 == null || (list = cMJ5.postList) == null || (pVar = list.get(0)) == null) ? null : pVar.id);
                 createNormalCfg.setJumpToCommentArea(true);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
-                cb cME = c.this.cME();
-                com.baidu.tieba.frs.aggregation.g cMD6 = c.this.cMD();
-                com.baidu.tieba.s.c.dMz().b(this.jPf.getUniqueId(), com.baidu.tieba.s.a.a(cME, PageStayDurationConstants.PageName.VIDEO_LIST, "common_click", 5, cMD6 != null ? cMD6.iAs : 0, false, (String) null, (String) null));
+                cb cMK = c.this.cMK();
+                com.baidu.tieba.frs.aggregation.g cMJ6 = c.this.cMJ();
+                com.baidu.tieba.s.c.dMH().b(this.jQO.getUniqueId(), com.baidu.tieba.s.a.a(cMK, PageStayDurationConstants.PageName.VIDEO_LIST, "common_click", 5, cMJ6 != null ? cMJ6.iCb : 0, false, (String) null, (String) null));
             }
         }
     }
@@ -479,35 +478,35 @@ public final class c extends com.baidu.tieba.card.b<com.baidu.tieba.frs.aggregat
         }
 
         @Override // com.baidu.tieba.play.c.p
-        public final void cMQ() {
-            int cMF = c.this.cMF();
-            Integer value = c.this.cMB().cMV().getValue();
-            if (value == null || cMF != value.intValue()) {
-                c.this.cMB().AZ(c.this.cMF());
+        public final void cMW() {
+            int cML = c.this.cML();
+            Integer value = c.this.cMH().cNb().getValue();
+            if (value == null || cML != value.intValue()) {
+                c.this.cMH().Ba(c.this.cML());
             }
         }
     }
 
     @kotlin.e
     /* loaded from: classes2.dex */
-    public static final class d implements c.InterfaceC0849c {
-        final /* synthetic */ TbPageContext jPf;
+    public static final class d implements c.InterfaceC0855c {
+        final /* synthetic */ TbPageContext jQO;
 
         d(TbPageContext tbPageContext) {
-            this.jPf = tbPageContext;
+            this.jQO = tbPageContext;
         }
 
-        @Override // com.baidu.tieba.play.c.InterfaceC0849c
+        @Override // com.baidu.tieba.play.c.InterfaceC0855c
         public void rj() {
-            if (c.this.cFC()) {
-                c.this.u(this.jPf);
+            if (c.this.cFI()) {
+                c.this.u(this.jQO);
             }
         }
 
-        @Override // com.baidu.tieba.play.c.InterfaceC0849c
+        @Override // com.baidu.tieba.play.c.InterfaceC0855c
         public void rk() {
-            if (c.this.cFC()) {
-                c.this.v(this.jPf);
+            if (c.this.cFI()) {
+                c.this.v(this.jQO);
             }
         }
     }
@@ -532,22 +531,22 @@ public final class c extends com.baidu.tieba.card.b<com.baidu.tieba.frs.aggregat
         }
 
         @Override // com.baidu.tieba.play.c.o
-        public void GM() {
-            if (c.this.cMG() == 1 && !c.this.cMH().isFullScreen()) {
-                c.this.cMB().cMZ();
+        public void GP() {
+            if (c.this.cMM() == 1 && !c.this.cMN().isFullScreen()) {
+                c.this.cMH().cNf();
             }
         }
 
         @Override // com.baidu.tieba.play.c.o
-        public void cMO() {
+        public void cMU() {
         }
 
         @Override // com.baidu.tieba.play.c.o
-        public void AY(int i) {
+        public void AZ(int i) {
         }
 
         @Override // com.baidu.tieba.play.c.o
-        public void cMP() {
+        public void cMV() {
         }
     }
 
@@ -562,24 +561,24 @@ public final class c extends com.baidu.tieba.card.b<com.baidu.tieba.frs.aggregat
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i2) {
-        p.o(tbPageContext, "pageContext");
+        p.p(tbPageContext, "pageContext");
         ap.setBackgroundColor(getView(), R.color.CAM_X0201);
         Drawable a2 = WebPManager.a(R.drawable.icon_pure_ba16, ap.getColor(R.color.CAM_X0105), (WebPManager.ResourceStateType) null);
         int dimens = l.getDimens(getContext(), R.dimen.tbds42);
         a2.setBounds(0, 0, dimens, dimens);
-        this.jOw.setCompoundDrawables(null, null, a2, null);
-        this.jOw.setCompoundDrawablePadding(l.getDimens(getContext(), R.dimen.M_W_X002));
-        ap.setViewTextColor(this.jOw, R.color.CAM_X0105);
-        ap.setViewTextColor(this.jOx, R.color.CAM_X0109);
-        ap.setViewTextColor(this.jOy, R.color.CAM_X0109);
-        ap.setViewTextColor(this.jOC, R.color.CAM_X0105);
-        ap.setViewTextColor(this.jOD, R.color.CAM_X0109);
-        this.jOK.setTextColor(ap.getColor(R.color.CAM_X0105));
-        AX(this.jOL);
-        this.jOR.setTextColor(ap.getColor(R.color.CAM_X0109));
-        com.baidu.tbadk.core.elementsMaven.c.br(this.jOT).og(R.string.J_X05).setBackGroundColor(R.color.CAM_X0206);
-        cMK();
-        this.jOZ.onChangeSkinType();
+        this.jQf.setCompoundDrawables(null, null, a2, null);
+        this.jQf.setCompoundDrawablePadding(l.getDimens(getContext(), R.dimen.M_W_X002));
+        ap.setViewTextColor(this.jQf, R.color.CAM_X0105);
+        ap.setViewTextColor(this.jQg, R.color.CAM_X0109);
+        ap.setViewTextColor(this.jQh, R.color.CAM_X0109);
+        ap.setViewTextColor(this.jQl, R.color.CAM_X0105);
+        ap.setViewTextColor(this.jQm, R.color.CAM_X0109);
+        this.jQt.setTextColor(ap.getColor(R.color.CAM_X0105));
+        AY(this.jQu);
+        this.jQA.setTextColor(ap.getColor(R.color.CAM_X0109));
+        com.baidu.tbadk.core.elementsMaven.c.br(this.jQC).oh(R.string.J_X05).setBackGroundColor(R.color.CAM_X0206);
+        cMQ();
+        this.jQI.onChangeSkinType();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -589,45 +588,45 @@ public final class c extends com.baidu.tieba.card.b<com.baidu.tieba.frs.aggregat
 
     @Override // com.baidu.tieba.card.b
     public void onDestroy() {
-        this.jOH.destroy();
+        this.jQq.destroy();
     }
 
     public final void b(com.baidu.tieba.frs.aggregation.g gVar, int i2) {
         if (gVar != null) {
-            this.jOp = gVar;
-            this.jOq = com.baidu.tieba.frs.aggregation.g.f(gVar);
-            this.jOr = i2;
-            this.amB = gVar.cFC();
+            this.jPY = gVar;
+            this.jPZ = com.baidu.tieba.frs.aggregation.g.f(gVar);
+            this.jQa = i2;
+            this.anT = gVar.cFI();
             r(gVar);
             a(i2, gVar);
             p(gVar);
             o(gVar);
-            a(gVar, this.jOq);
+            a(gVar, this.jPZ);
         }
     }
 
     private final boolean a(com.baidu.tieba.frs.aggregation.g gVar, cb cbVar) {
-        return this.jOZ.setData(cbVar);
+        return this.jQI.setData(cbVar);
     }
 
     private final void o(com.baidu.tieba.frs.aggregation.g gVar) {
         String string;
         List<com.baidu.tieba.tbadkCore.data.p> list = gVar.postList;
         if (list != null && !list.isEmpty()) {
-            this.jOT.setVisibility(0);
+            this.jQC.setVisibility(0);
             com.baidu.tieba.tbadkCore.data.p pVar = gVar.postList.get(0);
-            MetaData metaData = pVar.nyh;
+            MetaData metaData = pVar.nAm;
             if (metaData == null || (string = metaData.getName_show()) == null) {
                 string = TbadkCoreApplication.getInst().getString(R.string.user_name_default_txt);
-                p.n(string, "TbadkCoreApplication.get…ng.user_name_default_txt)");
+                p.o(string, "TbadkCoreApplication.get…ng.user_name_default_txt)");
             }
-            this.jOV = string;
-            this.jOW = (char) 65306 + dG(pVar.eOu);
-            this.jOX = new SpannableString(this.jOV + this.jOW);
-            cMK();
+            this.jQE = string;
+            this.jQF = (char) 65306 + dG(pVar.ePV);
+            this.jQG = new SpannableString(this.jQE + this.jQF);
+            cMQ();
             return;
         }
-        this.jOT.setVisibility(8);
+        this.jQC.setVisibility(8);
     }
 
     private final String dG(List<? extends AbstractData> list) {
@@ -640,28 +639,28 @@ public final class c extends com.baidu.tieba.card.b<com.baidu.tieba.frs.aggregat
             sb.append(VideoMiddlePageLightCardView$getPostContent$1.INSTANCE.invoke(abstractData));
         }
         String sb2 = sb.toString();
-        p.n(sb2, "postContent.toString()");
+        p.o(sb2, "postContent.toString()");
         return sb2;
     }
 
-    private final void cMK() {
+    private final void cMQ() {
         SpannableString spannableString;
-        if (!kotlin.text.l.isBlank(this.jOV)) {
-            if (!(this.jOW.length() > 0) || (spannableString = this.jOX) == null) {
+        if (!kotlin.text.l.isBlank(this.jQE)) {
+            if (!(this.jQF.length() > 0) || (spannableString = this.jQG) == null) {
                 return;
             }
             if (spannableString.length() > 0) {
                 ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ap.getColor(R.color.CAM_X0108));
                 ForegroundColorSpan foregroundColorSpan2 = new ForegroundColorSpan(ap.getColor(R.color.CAM_X0106));
-                SpannableString spannableString2 = this.jOX;
+                SpannableString spannableString2 = this.jQG;
                 if (spannableString2 != null) {
-                    spannableString2.setSpan(foregroundColorSpan, 0, this.jOV.length(), 33);
+                    spannableString2.setSpan(foregroundColorSpan, 0, this.jQE.length(), 33);
                 }
-                SpannableString spannableString3 = this.jOX;
+                SpannableString spannableString3 = this.jQG;
                 if (spannableString3 != null) {
-                    spannableString3.setSpan(foregroundColorSpan2, this.jOV.length(), this.jOV.length() + this.jOW.length(), 33);
+                    spannableString3.setSpan(foregroundColorSpan2, this.jQE.length(), this.jQE.length() + this.jQF.length(), 33);
                 }
-                this.jOU.setText(this.jOX);
+                this.jQD.setText(this.jQG);
             }
         }
     }
@@ -672,86 +671,71 @@ public final class c extends com.baidu.tieba.card.b<com.baidu.tieba.frs.aggregat
         if (str == null) {
             str = TbadkCoreApplication.getInst().getString(R.string.video_title_str);
         }
-        if (this.jOK.getPaint().measureText(str, 0, str.length()) + (this.jOK.getTextSize() * this.jOM) <= this.jOO * this.jOM) {
+        if (this.jQt.getPaint().measureText(str, 0, str.length()) + (this.jQt.getTextSize() * this.jQv) <= this.jQx * this.jQv) {
             i2 = 0;
-        } else if (this.jOL == 1 || this.jOL == 2) {
-            i2 = this.jOL;
+        } else if (this.jQu == 1 || this.jQu == 2) {
+            i2 = this.jQu;
         }
-        AX(i2);
-        this.jOK.setText(str);
-        this.jOR.setText(au.numberUniformFormatExtra(gVar.playCount) + TbadkCoreApplication.getInst().getString(R.string.play));
+        AY(i2);
+        this.jQt.setText(str);
+        this.jQA.setText(au.numberUniformFormatExtra(gVar.playCount) + TbadkCoreApplication.getInst().getString(R.string.play));
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x00fc, code lost:
-        if (r0.dSg() != false) goto L29;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private final void a(int i2, com.baidu.tieba.frs.aggregation.g gVar) {
-        if (gVar.jog != null) {
-            ViewGroup.LayoutParams layoutParams = this.jOF.getLayoutParams();
+        if (gVar.jpP != null) {
+            ViewGroup.LayoutParams layoutParams = this.jQo.getLayoutParams();
             if (layoutParams == null) {
                 throw new TypeCastException("null cannot be cast to non-null type android.widget.LinearLayout.LayoutParams");
             }
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) layoutParams;
-            layoutParams2.height = this.amB ? this.jOo : this.jOn;
-            this.jOF.setLayoutParams(layoutParams2);
-            this.jOH.Hm(i2);
-            this.jOH.setThumbnail(gVar.jog.thumbnailUrl);
-            this.jOH.Hj(3);
-            this.jOH.Hk(gVar.jog.videoDuration);
-            this.jOH.setVideoUrl(gVar.jog.videoUrl, gVar.threadId);
-            this.jOH.setFid(gVar.forumId);
-            this.jOH.getVideoView().setVideoStatData(q(gVar));
-            this.jOH.cSK();
-            this.jOH.show();
-            this.jOI.setVideoLength(gVar.jog.videoSize);
-            this.jOI.setVideoDuration(gVar.jog.videoDuration);
-            this.jOI.setTid(gVar.threadId);
+            layoutParams2.height = this.anT ? this.jPX : this.jPW;
+            this.jQo.setLayoutParams(layoutParams2);
+            this.jQq.Hp(i2);
+            this.jQq.setThumbnail(gVar.jpP.thumbnailUrl);
+            this.jQq.Hm(3);
+            this.jQq.Hn(gVar.jpP.videoDuration);
+            this.jQq.setVideoUrl(gVar.jpP.videoUrl, gVar.threadId);
+            this.jQq.setFid(gVar.forumId);
+            this.jQq.getVideoView().setVideoStatData(q(gVar));
+            this.jQq.cSR();
+            this.jQq.show();
+            this.jQr.setVideoLength(gVar.jpP.videoSize);
+            this.jQr.setVideoDuration(gVar.jpP.videoDuration);
+            this.jQr.setTid(gVar.threadId);
             if (gVar.autoPlay) {
-                this.jOH.xk(false);
-                if (this.jOI.dvB()) {
-                    this.jOI.au(this.amB, this.jOH.isFullScreen());
-                    this.jOI.setVisibility(0);
-                    this.jOH.xl(true);
+                this.jQq.xk(false);
+                if (this.jQr.dvK()) {
+                    this.jQr.au(this.anT, this.jQq.isFullScreen());
+                    this.jQr.setVisibility(0);
+                    this.jQq.xl(true);
                     return;
                 }
-                this.jOI.setVisibility(8);
-                this.jOH.xl(false);
-                this.jOH.fX(gVar.jog.videoUrl, gVar.threadId);
+                this.jQr.setVisibility(8);
+                this.jQq.xl(false);
+                this.jQq.fX(gVar.jpP.videoUrl, gVar.threadId);
                 return;
             }
-            this.jOI.setVisibility(8);
-            if (this.jOH.rl()) {
-                this.jOH.stopPlay();
-            } else {
-                if (!j.isWifiNet()) {
-                    com.baidu.tieba.video.f dSf = com.baidu.tieba.video.f.dSf();
-                    p.n(dSf, "VideoHolyCardManager.getInstance()");
-                }
-                this.jOH.dzY();
-                this.jOH.stopPlay();
-            }
-            this.jOH.xk(true);
+            this.jQr.setVisibility(8);
+            this.jQq.stopPlay();
+            this.jQq.xk(true);
         }
     }
 
     private final com.baidu.tieba.play.o q(com.baidu.tieba.frs.aggregation.g gVar) {
         com.baidu.tieba.play.o oVar = new com.baidu.tieba.play.o();
-        oVar.amC = gVar.threadId;
-        oVar.eTz = gVar.nid;
-        oVar.fNd = gVar.forumId;
+        oVar.anU = gVar.threadId;
+        oVar.eVa = gVar.nid;
+        oVar.fOD = gVar.forumId;
         oVar.mUid = TbadkCoreApplication.getCurrentAccount();
         oVar.mLocate = Constants.VIA_REPORT_TYPE_JOININ_GROUP;
         oVar.mSource = gVar.source;
-        oVar.mIv = gVar.weight;
-        oVar.mIx = this.jOk.getFrom();
-        oVar.mIz = gVar.abtest_tag;
-        oVar.eNE = this.jOk.cMY();
+        oVar.mKz = gVar.weight;
+        oVar.mKB = this.jPT.getFrom();
+        oVar.mKD = gVar.abtest_tag;
+        oVar.ePf = this.jPT.cNe();
         oVar.mExtra = gVar.extra;
-        oVar.mIC = this.amB ? "1" : "0";
-        oVar.mIy = gVar.getVideoType();
+        oVar.mKG = this.anT ? "1" : "0";
+        oVar.mKC = gVar.getVideoType();
         return oVar;
     }
 
@@ -759,100 +743,100 @@ public final class c extends com.baidu.tieba.card.b<com.baidu.tieba.frs.aggregat
         String str;
         String str2;
         String str3 = null;
-        if (gVar.getVideoType() == 1 && gVar.eRo != null && (str2 = gVar.eRo.forumName) != null) {
+        if (gVar.getVideoType() == 1 && gVar.eSP != null && (str2 = gVar.eSP.forumName) != null) {
             if (!kotlin.text.l.isBlank(str2)) {
-                this.jOu.setVisibility(0);
-                this.jOA.setVisibility(8);
-                BarImageView barImageView = this.jOv;
-                bx bxVar = gVar.eRo;
+                this.jQd.setVisibility(0);
+                this.jQj.setVisibility(8);
+                BarImageView barImageView = this.jQe;
+                bx bxVar = gVar.eSP;
                 barImageView.startLoad(bxVar != null ? bxVar.avatar : null, 10, false);
-                SingleLineEllipsizeTextView singleLineEllipsizeTextView = this.jOw;
+                SingleLineEllipsizeTextView singleLineEllipsizeTextView = this.jQf;
                 String string = getContext().getString(R.string.chosen_pb_original_bar);
                 Object[] objArr = new Object[1];
-                bx bxVar2 = gVar.eRo;
+                bx bxVar2 = gVar.eSP;
                 objArr[0] = bxVar2 != null ? bxVar2.forumName : null;
                 singleLineEllipsizeTextView.setText(String.format(string, objArr));
-                TextView textView = this.jOx;
+                TextView textView = this.jQg;
                 StringBuilder sb = new StringBuilder();
-                g.b bVar = gVar.jof;
+                g.b bVar = gVar.jpO;
                 if (TextUtils.isEmpty(bVar != null ? bVar.userNickname : null)) {
-                    g.b bVar2 = gVar.jof;
+                    g.b bVar2 = gVar.jpO;
                     if (bVar2 != null) {
                         str3 = bVar2.userName;
                     }
                 } else {
-                    g.b bVar3 = gVar.jof;
+                    g.b bVar3 = gVar.jpO;
                     if (bVar3 != null) {
                         str3 = bVar3.userNickname;
                     }
                 }
                 textView.setText(sb.append(str3).append(TbadkCoreApplication.getInst().getString(R.string.home_publish)).toString());
                 if (gVar.lastReplyTime > 0) {
-                    this.jOy.setVisibility(0);
-                    this.jOy.setText(TbadkCoreApplication.getInst().getString(R.string.repley_when) + au.dZ(gVar.lastReplyTime * 1000));
+                    this.jQh.setVisibility(0);
+                    this.jQh.setText(TbadkCoreApplication.getInst().getString(R.string.repley_when) + au.dZ(gVar.lastReplyTime * 1000));
                     return;
                 }
-                this.jOy.setVisibility(8);
+                this.jQh.setVisibility(8);
                 return;
             }
         }
-        this.jOA.setVisibility(0);
-        this.jOu.setVisibility(8);
-        g.b bVar4 = gVar.jof;
-        p.n(bVar4, "data.author");
+        this.jQj.setVisibility(0);
+        this.jQd.setVisibility(8);
+        g.b bVar4 = gVar.jpO;
+        p.o(bVar4, "data.author");
         a(bVar4);
-        EMTextView eMTextView = this.jOC;
-        g.b bVar5 = gVar.jof;
+        EMTextView eMTextView = this.jQl;
+        g.b bVar5 = gVar.jpO;
         if (TextUtils.isEmpty(bVar5 != null ? bVar5.userNickname : null)) {
-            g.b bVar6 = gVar.jof;
+            g.b bVar6 = gVar.jpO;
             str = bVar6 != null ? bVar6.userName : null;
         } else {
-            g.b bVar7 = gVar.jof;
+            g.b bVar7 = gVar.jpO;
             str = bVar7 != null ? bVar7.userNickname : null;
         }
         eMTextView.setText(str);
         if (gVar.lastReplyTime > 0) {
-            this.jOD.setVisibility(0);
-            this.jOD.setText(TbadkCoreApplication.getInst().getString(R.string.repley_when) + au.dZ(gVar.lastReplyTime * 1000));
+            this.jQm.setVisibility(0);
+            this.jQm.setText(TbadkCoreApplication.getInst().getString(R.string.repley_when) + au.dZ(gVar.lastReplyTime * 1000));
             return;
         }
-        this.jOD.setVisibility(8);
+        this.jQm.setVisibility(8);
     }
 
     private final void a(g.b bVar) {
         if (bVar != null) {
-            if (bVar.jop != null && !TextUtils.isEmpty(bVar.jop.avatar)) {
-                this.jOB.startLoad(bVar.jop.avatar, 12, false);
+            if (bVar.jpY != null && !TextUtils.isEmpty(bVar.jpY.avatar)) {
+                this.jQk.startLoad(bVar.jpY.avatar, 12, false);
             } else {
                 if (!StringUtils.isNull(bVar.portrait)) {
                     String str = bVar.portrait;
-                    p.n(str, "data.portrait");
+                    p.o(str, "data.portrait");
                     if (kotlin.text.l.a(str, HttpHost.DEFAULT_SCHEME_NAME, false, 2, (Object) null)) {
-                        this.jOB.startLoad(bVar.portrait, 10, false);
+                        this.jQk.startLoad(bVar.portrait, 10, false);
                     }
                 }
-                this.jOB.startLoad(bVar.portrait, 12, false);
+                this.jQk.startLoad(bVar.portrait, 12, false);
             }
-            if (bVar.jop != null && p.compare(bVar.jop.auth_id.intValue(), 0) > 0) {
-                Integer num = bVar.jop.auth_id;
-                p.n(num, "data.baijiahaoData.auth_id");
-                this.jOB.setBjhAuthIconRes(UtilHelper.getBjhBigVIconId(num.intValue(), 1));
-                this.jOB.setShowV(true);
-                this.jOB.setGodIconWidth(R.dimen.tbds31);
+            if (bVar.jpY != null && p.compare(bVar.jpY.auth_id.intValue(), 0) > 0) {
+                Integer num = bVar.jpY.auth_id;
+                p.o(num, "data.baijiahaoData.auth_id");
+                this.jQk.setBjhAuthIconRes(UtilHelper.getBjhBigVIconId(num.intValue(), 1));
+                this.jQk.setShowV(true);
+                this.jQk.setGodIconWidth(R.dimen.tbds31);
                 return;
             }
-            this.jOB.setBjhAuthIconRes(0);
+            this.jQk.setBjhAuthIconRes(0);
             if (bVar.isBigV) {
-                this.jOB.setShowV(bVar.isBigV);
-                this.jOB.setIsBigV(bVar.isBigV);
+                this.jQk.setShowV(bVar.isBigV);
+                this.jQk.setIsBigV(bVar.isBigV);
             } else if (bVar.isGod) {
-                this.jOB.setShowV(bVar.isGod);
-                this.jOB.setIsBigV(bVar.isGod);
+                this.jQk.setShowV(bVar.isGod);
+                this.jQk.setIsBigV(bVar.isGod);
             } else {
-                this.jOB.setShowV(bVar.isGod);
-                this.jOB.setIsBigV(bVar.isGod);
+                this.jQk.setShowV(bVar.isGod);
+                this.jQk.setIsBigV(bVar.isGod);
             }
-            this.jOB.setGodIconWidth(R.dimen.tbds31);
+            this.jQk.setGodIconWidth(R.dimen.tbds31);
         }
     }
 
@@ -870,23 +854,23 @@ public final class c extends com.baidu.tieba.card.b<com.baidu.tieba.frs.aggregat
             throw new TypeCastException("null cannot be cast to non-null type android.widget.FrameLayout");
         }
         FrameLayout frameLayout = (FrameLayout) decorView;
-        if (this.jOG.getParent() != null) {
-            if (this.jOG.getParent() == frameLayout) {
-                frameLayout.removeView(this.jOG);
-            } else if (this.jOG.getParent() == this.jOF) {
-                this.jOF.removeView(this.jOG);
+        if (this.jQp.getParent() != null) {
+            if (this.jQp.getParent() == frameLayout) {
+                frameLayout.removeView(this.jQp);
+            } else if (this.jQp.getParent() == this.jQo) {
+                this.jQo.removeView(this.jQp);
             }
         }
-        if (this.jOG.getParent() == null) {
-            frameLayout.addView(this.jOG);
-            ViewGroup.LayoutParams layoutParams = this.jOG.getLayoutParams();
+        if (this.jQp.getParent() == null) {
+            frameLayout.addView(this.jQp);
+            ViewGroup.LayoutParams layoutParams = this.jQp.getLayoutParams();
             if (layoutParams == null) {
                 throw new TypeCastException("null cannot be cast to non-null type android.widget.FrameLayout.LayoutParams");
             }
             FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
             layoutParams2.height = -1;
-            this.jOG.setLayoutParams(layoutParams2);
-            this.jOH.dcv();
+            this.jQp.setLayoutParams(layoutParams2);
+            this.jQq.dcE();
         }
     }
 
@@ -904,61 +888,61 @@ public final class c extends com.baidu.tieba.card.b<com.baidu.tieba.frs.aggregat
             throw new TypeCastException("null cannot be cast to non-null type android.widget.FrameLayout");
         }
         FrameLayout frameLayout = (FrameLayout) decorView;
-        if (this.jOG.getParent() != null) {
-            if (this.jOG.getParent() == frameLayout) {
-                frameLayout.removeView(this.jOG);
-            } else if (this.jOG.getParent() == this.jOF) {
-                this.jOF.removeView(this.jOG);
+        if (this.jQp.getParent() != null) {
+            if (this.jQp.getParent() == frameLayout) {
+                frameLayout.removeView(this.jQp);
+            } else if (this.jQp.getParent() == this.jQo) {
+                this.jQo.removeView(this.jQp);
             }
         }
-        if (this.jOG.getParent() == null) {
-            this.jOF.addView(this.jOG, 0);
-            ViewGroup.LayoutParams layoutParams = this.jOG.getLayoutParams();
+        if (this.jQp.getParent() == null) {
+            this.jQo.addView(this.jQp, 0);
+            ViewGroup.LayoutParams layoutParams = this.jQp.getLayoutParams();
             if (layoutParams == null) {
                 throw new TypeCastException("null cannot be cast to non-null type android.widget.FrameLayout.LayoutParams");
             }
             FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
-            layoutParams2.height = this.amB ? this.jOo : this.jOn;
-            this.jOG.setLayoutParams(layoutParams2);
-            this.jOH.dcv();
+            layoutParams2.height = this.anT ? this.jPX : this.jPW;
+            this.jQp.setLayoutParams(layoutParams2);
+            this.jQq.dcE();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final void AX(int i2) {
-        this.jOL = i2;
+    public final void AY(int i2) {
+        this.jQu = i2;
         switch (i2) {
             case 0:
-                cML();
+                cMR();
                 return;
             case 1:
-                cMM();
+                cMS();
                 return;
             case 2:
-                cMN();
+                cMT();
                 return;
             default:
                 return;
         }
     }
 
-    private final void cML() {
-        this.jOQ.setVisibility(8);
-        this.jOK.setEllipsize(null);
-        this.jOK.setMaxLines(this.jOM);
+    private final void cMR() {
+        this.jQz.setVisibility(8);
+        this.jQt.setEllipsize(null);
+        this.jQt.setMaxLines(this.jQv);
     }
 
-    private final void cMM() {
-        this.jOQ.setVisibility(0);
-        SvgManager.bsR().a(this.jOP, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, (SvgManager.SvgResourceStateType) null);
-        this.jOK.setEllipsize(TextUtils.TruncateAt.END);
-        this.jOK.setMaxLines(this.jOM);
+    private final void cMS() {
+        this.jQz.setVisibility(0);
+        SvgManager.bsU().a(this.jQy, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, (SvgManager.SvgResourceStateType) null);
+        this.jQt.setEllipsize(TextUtils.TruncateAt.END);
+        this.jQt.setMaxLines(this.jQv);
     }
 
-    private final void cMN() {
-        this.jOQ.setVisibility(0);
-        SvgManager.bsR().a(this.jOP, R.drawable.icon_pure_fold12_svg, R.color.CAM_X0105, (SvgManager.SvgResourceStateType) null);
-        this.jOK.setEllipsize(null);
-        this.jOK.setMaxLines(this.jON);
+    private final void cMT() {
+        this.jQz.setVisibility(0);
+        SvgManager.bsU().a(this.jQy, R.drawable.icon_pure_fold12_svg, R.color.CAM_X0105, (SvgManager.SvgResourceStateType) null);
+        this.jQt.setEllipsize(null);
+        this.jQt.setMaxLines(this.jQw);
     }
 }

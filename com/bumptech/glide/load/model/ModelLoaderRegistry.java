@@ -3,12 +3,13 @@ package com.bumptech.glide.load.model;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.util.Pools;
+import com.bumptech.glide.Registry;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ModelLoaderRegistry {
     private final ModelLoaderCache cache;
     private final MultiModelLoaderFactory multiModelLoaderFactory;
@@ -51,6 +52,9 @@ public class ModelLoaderRegistry {
     @NonNull
     public <A> List<ModelLoader<A, ?>> getModelLoaders(@NonNull A a2) {
         List<ModelLoader<A, ?>> modelLoadersForClass = getModelLoadersForClass(getClass(a2));
+        if (modelLoadersForClass.isEmpty()) {
+            throw new Registry.NoModelLoaderAvailableException(a2);
+        }
         int size = modelLoadersForClass.size();
         boolean z = true;
         List<ModelLoader<A, ?>> emptyList = Collections.emptyList();
@@ -63,6 +67,9 @@ public class ModelLoaderRegistry {
                 }
                 emptyList.add(modelLoader);
             }
+        }
+        if (emptyList.isEmpty()) {
+            throw new Registry.NoModelLoaderAvailableException(a2, modelLoadersForClass);
         }
         return emptyList;
     }
@@ -93,7 +100,7 @@ public class ModelLoaderRegistry {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class ModelLoaderCache {
         private final Map<Class<?>, Entry<?>> cachedModelLoaders = new HashMap();
 
@@ -120,7 +127,7 @@ public class ModelLoaderRegistry {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes15.dex */
+        /* loaded from: classes14.dex */
         public static class Entry<Model> {
             final List<ModelLoader<Model, ?>> loaders;
 

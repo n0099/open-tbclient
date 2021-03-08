@@ -1,7 +1,7 @@
 package com.yy.mediaframework;
 
 import com.yy.mediaframework.model.YYMediaSample;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface IMediaFilter {
     public static final String TAG = IMediaFilter.class.getSimpleName();
 

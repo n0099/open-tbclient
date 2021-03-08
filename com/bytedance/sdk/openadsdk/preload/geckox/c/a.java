@@ -1,13 +1,13 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.c;
 
-import com.bytedance.sdk.openadsdk.d.d.c;
-import com.bytedance.sdk.openadsdk.d.p;
-import com.bytedance.sdk.openadsdk.d.v;
+import com.bytedance.sdk.openadsdk.preload.a.d.c;
+import com.bytedance.sdk.openadsdk.preload.a.p;
+import com.bytedance.sdk.openadsdk.preload.a.v;
 import java.io.IOException;
 /* loaded from: classes6.dex */
 public class a extends v<Boolean> {
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.bytedance.sdk.openadsdk.d.v
+    @Override // com.bytedance.sdk.openadsdk.preload.a.v
     public void a(c cVar, Boolean bool) throws IOException {
         if (bool == null) {
             cVar.f();
@@ -17,10 +17,10 @@ public class a extends v<Boolean> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.bytedance.sdk.openadsdk.d.v
+    @Override // com.bytedance.sdk.openadsdk.preload.a.v
     /* renamed from: a */
-    public Boolean b(com.bytedance.sdk.openadsdk.d.d.a aVar) throws IOException {
-        com.bytedance.sdk.openadsdk.d.d.b f = aVar.f();
+    public Boolean b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
+        com.bytedance.sdk.openadsdk.preload.a.d.b f = aVar.f();
         switch (f) {
             case BOOLEAN:
                 return Boolean.valueOf(aVar.i());

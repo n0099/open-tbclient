@@ -41,10 +41,8 @@ public class UpdateSo {
     public static String TAG = "UpdateSo";
 
     /* renamed from: a  reason: collision with root package name */
-    private Application f3957a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private StatService f3958b;
+    private Application f2750a;
+    private StatService b;
     private CountDownLatch c;
     private SdkConfigOptions d;
     private SdkConfigOptions e;
@@ -66,10 +64,8 @@ public class UpdateSo {
         public static final String ZIP_VERSION = "zip_version";
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f3965a = "get_config_success";
-
-        /* renamed from: b  reason: collision with root package name */
-        private static final String f3966b = "download_zip_file_success";
+        private static final String f2756a = "get_config_success";
+        private static final String b = "download_zip_file_success";
         private static final String c = "need_update";
         private static final String d = "update_from_net";
         private static final String e = "exception_info";
@@ -91,14 +87,14 @@ public class UpdateSo {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void b() {
-            com.baidu.pass.biometrics.base.utils.StatService.onEvent(UpdateSo.this.f3957a, STAT_NAME_LIVENESS_FACE, a());
+            com.baidu.pass.biometrics.base.utils.StatService.onEvent(UpdateSo.this.f2750a, STAT_NAME_LIVENESS_FACE, a());
         }
 
         private Map<String, String> a() {
             HashMap hashMap = new HashMap();
             hashMap.put("host_version", SdkConfigOptions.HOST_VERSION);
             hashMap.put("zip_version", this.i);
-            hashMap.put(f3965a, this.j ? "1" : "-1");
+            hashMap.put(f2756a, this.j ? "1" : "-1");
             if (this.j) {
                 hashMap.put(g, this.p ? "1" : "-1");
                 hashMap.put(c, this.l ? "1" : "-1");
@@ -108,7 +104,7 @@ public class UpdateSo {
             }
             if (this.l) {
                 hashMap.put(d, this.n ? "1" : "-1");
-                hashMap.put(f3966b, this.k ? "1" : "-1");
+                hashMap.put(b, this.k ? "1" : "-1");
             }
             boolean z = this.q;
             if (z) {
@@ -121,9 +117,9 @@ public class UpdateSo {
 
     public void checkSoUpdate(PassBiometricConfiguration passBiometricConfiguration) {
         this.f = passBiometricConfiguration;
-        this.f3957a = passBiometricConfiguration.getApplication();
-        CheckDefaultSoExist.isExist(this.f3957a);
-        this.f3958b = new StatService();
+        this.f2750a = passBiometricConfiguration.getApplication();
+        CheckDefaultSoExist.isExist(this.f2750a);
+        this.b = new StatService();
         this.c = new CountDownLatch(1);
         ThreadPoolService.getInstance().run(new TPRunnable(new Runnable() { // from class: com.baidu.pass.biometrics.base.dynamicupdate.UpdateSo.1
             @Override // java.lang.Runnable
@@ -135,7 +131,7 @@ public class UpdateSo {
                     Object[] objArr = new Object[1];
                     objArr[0] = "begin stat service";
                     Log.i(str, objArr);
-                    UpdateSo.this.f3958b.b();
+                    UpdateSo.this.b.b();
                 } catch (InterruptedException e) {
                     Log.e(UpdateSo.TAG, e);
                 }
@@ -148,7 +144,7 @@ public class UpdateSo {
             Random random = new Random();
             random.setSeed(System.currentTimeMillis());
             sdkConfigOptions.grayThreshold = random.nextInt(100);
-            LocalConfigOptions.getInstance(this.f3957a).setBioOptions(sdkConfigOptions);
+            LocalConfigOptions.getInstance(this.f2750a).setBioOptions(sdkConfigOptions);
         }
         Log.i(TAG, "current gray = " + sdkConfigOptions.grayThreshold);
     }
@@ -163,17 +159,17 @@ public class UpdateSo {
             @Override // com.baidu.pass.biometrics.base.dynamicupdate.UpdateSo.LoadModuleEventListener
             public void onSuccess(SdkConfigOptions.DistributedFile distributedFile, byte[] bArr) {
                 UpdateSo updateSo = UpdateSo.this;
-                boolean b2 = updateSo.b(LocalConfigOptions.getInternalZipPath(updateSo.f3957a, sdkConfigOptions.zipVersion), bArr);
-                if (b2) {
-                    UpdateSo.this.f3958b.n = false;
+                boolean b = updateSo.b(LocalConfigOptions.getInternalZipPath(updateSo.f2750a, sdkConfigOptions.zipVersion), bArr);
+                if (b) {
+                    UpdateSo.this.b.n = false;
                     UpdateSo updateSo2 = UpdateSo.this;
-                    updateSo2.a(LocalConfigOptions.getInternalZipPath(updateSo2.f3957a, sdkConfigOptions.zipVersion), LocalConfigOptions.getInternalRootPath(UpdateSo.this.f3957a));
+                    updateSo2.a(LocalConfigOptions.getInternalZipPath(updateSo2.f2750a, sdkConfigOptions.zipVersion), LocalConfigOptions.getInternalRootPath(UpdateSo.this.f2750a));
                     sdkConfigOptions.updateFail = false;
-                    LocalConfigOptions.getInstance(UpdateSo.this.f3957a).setBioOptions(sdkConfigOptions);
+                    LocalConfigOptions.getInstance(UpdateSo.this.f2750a).setBioOptions(sdkConfigOptions);
                 } else {
                     UpdateSo.this.a(sdkConfigOptions);
                 }
-                Log.e(UpdateSo.TAG, "loadFileFromExternal writeFileSuccess:" + b2);
+                Log.e(UpdateSo.TAG, "loadFileFromExternal writeFileSuccess:" + b);
             }
         }, LocalConfigOptions.getExternalZipPath(sdkConfigOptions.zipVersion));
     }
@@ -183,15 +179,15 @@ public class UpdateSo {
         HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
         httpHashMapWrap.put("appid", this.f.appId);
         httpHashMapWrap.put("tpl", this.f.tpl);
-        new HttpClientWrap(this.f3957a).get("https://wappass.bdimg.com/static/appsapi/appdistribute/android.txt", httpHashMapWrap, null, new HttpHandlerWrap(true) { // from class: com.baidu.pass.biometrics.base.dynamicupdate.UpdateSo.2
+        new HttpClientWrap(this.f2750a).get("https://wappass.bdimg.com/static/appsapi/appdistribute/android.txt", httpHashMapWrap, null, new HttpHandlerWrap(true) { // from class: com.baidu.pass.biometrics.base.dynamicupdate.UpdateSo.2
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.pass.biometrics.base.http.HttpHandlerWrap
             public void onFailure(Throwable th, int i, String str) {
-                SdkConfigOptions bioOptions = LocalConfigOptions.getInstance(UpdateSo.this.f3957a).getBioOptions();
+                SdkConfigOptions bioOptions = LocalConfigOptions.getInstance(UpdateSo.this.f2750a).getBioOptions();
                 bioOptions.updateFail = true;
-                LocalConfigOptions.getInstance(UpdateSo.this.f3957a).setBioOptions(bioOptions);
-                UpdateSo.this.f3958b.j = false;
-                UpdateSo.this.f3958b.o = android.util.Log.getStackTraceString(th);
+                LocalConfigOptions.getInstance(UpdateSo.this.f2750a).setBioOptions(bioOptions);
+                UpdateSo.this.b.j = false;
+                UpdateSo.this.b.o = android.util.Log.getStackTraceString(th);
                 UpdateSo.this.c.countDown();
             }
 
@@ -235,7 +231,7 @@ public class UpdateSo {
     public void a(String str) {
         try {
             this.d = SdkConfigOptions.fromOnLineJSON(new JSONObject(str));
-            this.e = LocalConfigOptions.getInstance(this.f3957a).getBioOptions();
+            this.e = LocalConfigOptions.getInstance(this.f2750a).getBioOptions();
             String str2 = TAG;
             Object[] objArr = new Object[1];
             objArr[0] = "asyncDistributeConf() newOptions:" + this.d.toJSON();
@@ -245,50 +241,50 @@ public class UpdateSo {
             objArr2[0] = "asyncDistributeConf() oldOptions:" + this.e.toJSON();
             Log.e(str3, objArr2);
             if (!PassBioBaseUtil.listValueEqual(this.d.livenessConfigOption.illumList, this.e.livenessConfigOption.illumList)) {
-                LocalConfigOptions.getInstance(this.f3957a).setIllumValueGray(-1);
+                LocalConfigOptions.getInstance(this.f2750a).setIllumValueGray(-1);
             }
             this.e.globalEnable = this.d.globalEnable;
             this.e.enable = this.d.enable;
             this.e.livenessConfigOption = this.d.livenessConfigOption;
-            LocalConfigOptions.getInstance(this.f3957a).setBioOptions(this.e);
-            this.f3958b.j = true;
-            this.f3958b.i = this.d.zipVersion;
+            LocalConfigOptions.getInstance(this.f2750a).setBioOptions(this.e);
+            this.b.j = true;
+            this.b.i = this.d.zipVersion;
             if (Build.VERSION.SDK_INT <= 19) {
                 this.e.updateFail = true;
-                this.f3958b.q = true;
+                this.b.q = true;
                 this.c.countDown();
-                LocalConfigOptions.getInstance(this.f3957a).setBioOptions(this.e);
+                LocalConfigOptions.getInstance(this.f2750a).setBioOptions(this.e);
             } else if (!this.d.globalEnable || !this.d.enable) {
-                this.f3958b.p = false;
-                this.f3958b.l = false;
+                this.b.p = false;
+                this.b.l = false;
                 this.c.countDown();
                 this.e.updateFail = true;
-                LocalConfigOptions.getInstance(this.f3957a).setBioOptions(this.e);
+                LocalConfigOptions.getInstance(this.f2750a).setBioOptions(this.e);
             } else {
-                this.f3958b.p = true;
+                this.b.p = true;
                 c(this.e);
                 int i = this.d.grayThreshold;
                 this.d.grayThreshold = this.e.grayThreshold;
                 if (!a(i, this.e)) {
-                    this.f3958b.m = false;
-                    this.f3958b.l = false;
+                    this.b.m = false;
+                    this.b.l = false;
                     this.c.countDown();
                     this.e.updateFail = true;
-                    LocalConfigOptions.getInstance(this.f3957a).setBioOptions(this.e);
+                    LocalConfigOptions.getInstance(this.f2750a).setBioOptions(this.e);
                     return;
                 }
-                this.f3958b.m = true;
+                this.b.m = true;
                 if (SdkConfigOptions.HOST_VERSION.compareTo(this.d.zipVersion) > 0) {
-                    this.f3958b.l = false;
+                    this.b.l = false;
                     this.c.countDown();
                     this.e.updateFail = true;
-                    LocalConfigOptions.getInstance(this.f3957a).setBioOptions(this.e);
+                    LocalConfigOptions.getInstance(this.f2750a).setBioOptions(this.e);
                 } else if (a(this.d.distributedSdk, this.e.distributedSdk)) {
                     b(this.d);
-                    this.f3958b.l = true;
+                    this.b.l = true;
                 } else {
                     a(this.d.distributedSdk);
-                    this.f3958b.l = false;
+                    this.b.l = false;
                     this.c.countDown();
                 }
             }
@@ -303,17 +299,17 @@ public class UpdateSo {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(SdkConfigOptions sdkConfigOptions) {
-        this.f3958b.n = true;
+        this.b.n = true;
         Log.e(TAG, "loadFileFromExternal onFailure distributedSdk uri:" + sdkConfigOptions.distributedSdk.downloadUrl);
-        new HttpClientWrap(this.f3957a).get(sdkConfigOptions.distributedSdk.downloadUrl, new BinaryHttpHandlerWrap(true, new String[]{"application/octet-stream", "*/*", "application/apk", "application/vnd.android.package-archive", "application/zip"}) { // from class: com.baidu.pass.biometrics.base.dynamicupdate.UpdateSo.4
+        new HttpClientWrap(this.f2750a).get(sdkConfigOptions.distributedSdk.downloadUrl, new BinaryHttpHandlerWrap(true, new String[]{"application/octet-stream", "*/*", "application/apk", "application/vnd.android.package-archive", "application/zip"}) { // from class: com.baidu.pass.biometrics.base.dynamicupdate.UpdateSo.4
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.pass.biometrics.base.http.HttpHandlerWrap
             public void onFailure(Throwable th, int i, String str) {
                 Log.e(UpdateSo.TAG, "distributeFileDownload() onFailure" + th.toString());
                 UpdateSo.this.e.updateFail = true;
-                LocalConfigOptions.getInstance(UpdateSo.this.f3957a).setBioOptions(UpdateSo.this.e);
-                UpdateSo.this.f3958b.k = false;
-                UpdateSo.this.f3958b.o = android.util.Log.getStackTraceString(th);
+                LocalConfigOptions.getInstance(UpdateSo.this.f2750a).setBioOptions(UpdateSo.this.e);
+                UpdateSo.this.b.k = false;
+                UpdateSo.this.b.o = android.util.Log.getStackTraceString(th);
                 UpdateSo.this.c.countDown();
             }
 
@@ -330,23 +326,23 @@ public class UpdateSo {
         try {
             String str = TAG;
             Object[] objArr = new Object[1];
-            objArr[0] = "distributeFileDownload() onSuccess" + this.d.distributedSdk.downloadUrl + ",:" + LocalConfigOptions.getInternalZipPath(this.f3957a, this.d.zipVersion);
+            objArr[0] = "distributeFileDownload() onSuccess" + this.d.distributedSdk.downloadUrl + ",:" + LocalConfigOptions.getInternalZipPath(this.f2750a, this.d.zipVersion);
             Log.e(str, objArr);
             String md5 = SecurityUtil.md5(bArr, false);
             String decrypt = RSA.decrypt(this.d.distributedSdk.hash);
             if (decrypt != null && decrypt.equals(md5)) {
-                if (b(LocalConfigOptions.getInternalZipPath(this.f3957a, this.d.zipVersion), bArr)) {
-                    a(LocalConfigOptions.getInternalZipPath(this.f3957a, this.d.zipVersion), LocalConfigOptions.getInternalRootPath(this.f3957a));
+                if (b(LocalConfigOptions.getInternalZipPath(this.f2750a, this.d.zipVersion), bArr)) {
+                    a(LocalConfigOptions.getInternalZipPath(this.f2750a, this.d.zipVersion), LocalConfigOptions.getInternalRootPath(this.f2750a));
                     this.d.updateFail = false;
-                    LocalConfigOptions.getInstance(this.f3957a).setBioOptions(this.d);
+                    LocalConfigOptions.getInstance(this.f2750a).setBioOptions(this.d);
                 } else {
                     this.e.updateFail = true;
-                    LocalConfigOptions.getInstance(this.f3957a).setBioOptions(this.e);
-                    this.f3958b.k = false;
-                    this.f3958b.o = "zip file write internal fail";
+                    LocalConfigOptions.getInstance(this.f2750a).setBioOptions(this.e);
+                    this.b.k = false;
+                    this.b.o = "zip file write internal fail";
                     this.c.countDown();
                 }
-                if (PassBiometricUtil.checkRequestPermission(this.f3957a, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+                if (PassBiometricUtil.checkRequestPermission(this.f2750a, "android.permission.WRITE_EXTERNAL_STORAGE")) {
                     String externalZipPath = LocalConfigOptions.getExternalZipPath(this.d.zipVersion);
                     if (PassBioFileUtils.isFileExist(externalZipPath)) {
                         PassBioFileUtils.deleteFile(externalZipPath);
@@ -357,16 +353,16 @@ public class UpdateSo {
                 return;
             }
             this.e.updateFail = true;
-            LocalConfigOptions.getInstance(this.f3957a).setBioOptions(this.e);
-            this.f3958b.k = false;
-            this.f3958b.o = "localMd5 is not equals onlineMd5";
+            LocalConfigOptions.getInstance(this.f2750a).setBioOptions(this.e);
+            this.b.k = false;
+            this.b.o = "localMd5 is not equals onlineMd5";
             this.c.countDown();
         } catch (Exception e) {
             Log.e(TAG, "distributeFileDownload() Exception " + e.toString());
             this.e.updateFail = true;
-            LocalConfigOptions.getInstance(this.f3957a).setBioOptions(this.e);
-            this.f3958b.k = false;
-            this.f3958b.o = android.util.Log.getStackTraceString(e);
+            LocalConfigOptions.getInstance(this.f2750a).setBioOptions(this.e);
+            this.b.k = false;
+            this.b.o = android.util.Log.getStackTraceString(e);
             this.c.countDown();
         }
     }
@@ -375,12 +371,12 @@ public class UpdateSo {
         a(distributedFile, new LoadModuleEventListener() { // from class: com.baidu.pass.biometrics.base.dynamicupdate.UpdateSo.5
             @Override // com.baidu.pass.biometrics.base.dynamicupdate.UpdateSo.LoadModuleEventListener
             public void onFailure(SdkConfigOptions.DistributedFile distributedFile2) {
-                String internalZipPath = LocalConfigOptions.getInternalZipPath(UpdateSo.this.f3957a, UpdateSo.this.d.zipVersion);
+                String internalZipPath = LocalConfigOptions.getInternalZipPath(UpdateSo.this.f2750a, UpdateSo.this.d.zipVersion);
                 String externalZipPath = LocalConfigOptions.getExternalZipPath(UpdateSo.this.d.zipVersion);
                 Log.e(UpdateSo.TAG, "asyncDistributeConf(), loadFileFromExternal failure internalFile:" + internalZipPath);
                 if (PassBioFileUtils.isFileExist(internalZipPath)) {
                     byte[] c = UpdateSo.this.c(internalZipPath);
-                    if (PassBiometricUtil.checkRequestPermission(UpdateSo.this.f3957a, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+                    if (PassBiometricUtil.checkRequestPermission(UpdateSo.this.f2750a, "android.permission.WRITE_EXTERNAL_STORAGE")) {
                         if (PassBioFileUtils.isFileExist(externalZipPath)) {
                             PassBioFileUtils.deleteFile(externalZipPath);
                         }
@@ -400,15 +396,15 @@ public class UpdateSo {
         if (loadModuleEventListener != null) {
             try {
                 if ("mounted".equals(Environment.getExternalStorageState()) && new File(str).exists()) {
-                    byte[] b2 = b(str);
-                    String md5 = SecurityUtil.md5(b2, false);
+                    byte[] b = b(str);
+                    String md5 = SecurityUtil.md5(b, false);
                     String decrypt = RSA.decrypt(distributedFile.hash);
                     String str2 = TAG;
                     Object[] objArr = new Object[1];
                     objArr[0] = "loadFileFromExternal() localMd5:" + md5 + ",onlineMd5" + decrypt;
                     Log.e(str2, objArr);
                     if (decrypt != null && decrypt.equals(md5)) {
-                        loadModuleEventListener.onSuccess(distributedFile, b2);
+                        loadModuleEventListener.onSuccess(distributedFile, b);
                     } else {
                         loadModuleEventListener.onFailure(distributedFile);
                     }
@@ -505,7 +501,7 @@ public class UpdateSo {
         byte[] bArr;
         String name;
         ZipInputStream zipInputStream = null;
-        this.f3958b.k = true;
+        this.b.k = true;
         this.c.countDown();
         Log.i(TAG, "thread name unZipApkSoToLibDir = " + Thread.currentThread().getName());
         Log.d(TAG, "unZipApkSoToLibDir(), zipFilePath:" + str + ",libDir:" + str2);

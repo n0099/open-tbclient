@@ -4,16 +4,16 @@ import android.graphics.Bitmap;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class af {
-    private static af fap;
-    private static final BdUniqueId faq = BdUniqueId.gen();
+    private static af fbO;
+    private static final BdUniqueId fbP = BdUniqueId.gen();
 
-    public static synchronized af bsA() {
+    public static synchronized af bsD() {
         af afVar;
         synchronized (af.class) {
-            if (fap == null) {
-                fap = new af();
+            if (fbO == null) {
+                fbO = new af();
             }
-            afVar = fap;
+            afVar = fbO;
         }
         return afVar;
     }
@@ -49,7 +49,7 @@ public class af {
         int i3;
         int i4;
         boolean z2 = true;
-        int msgSPicMaxSizeInt = LocalViewSize.bso().getMsgSPicMaxSizeInt();
+        int msgSPicMaxSizeInt = LocalViewSize.bsr().getMsgSPicMaxSizeInt();
         if (z) {
             if (i / i2 >= 3) {
                 i3 = i / 2;

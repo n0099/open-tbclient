@@ -4,12 +4,12 @@ import android.util.SparseArray;
 import com.baidu.swan.apps.ao.ak;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class m implements com.baidu.swan.menu.b {
-    private SparseArray<String> cDe = new SparseArray<>();
+    private SparseArray<String> cEE = new SparseArray<>();
 
     public m() {
-        this.cDe.put(38, "favor");
+        this.cEE.put(38, "favor");
     }
 
     @Override // com.baidu.swan.menu.b
@@ -31,10 +31,10 @@ public class m implements com.baidu.swan.menu.b {
     }
 
     private void i(int i, List<com.baidu.swan.menu.h> list) {
-        if (!ak.aOp() && list != null && list.size() > 0) {
+        if (!ak.aOs() && list != null && list.size() > 0) {
             ArrayList arrayList = new ArrayList();
             for (com.baidu.swan.menu.h hVar : list) {
-                if (this.cDe.get(hVar.getItemId()) != null) {
+                if (this.cEE.get(hVar.getItemId()) != null) {
                     arrayList.add(hVar);
                 }
             }

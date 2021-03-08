@@ -10,10 +10,10 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BdListViewHelper {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public enum HeadType {
         DEFAULT,
         HASTAB,

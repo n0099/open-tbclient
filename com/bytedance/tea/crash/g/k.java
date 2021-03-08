@@ -11,11 +11,11 @@ public final class k {
         if (aVar != null && aVar.a() != null && cVar != null) {
             JSONObject a2 = aVar.a();
             long optLong = a2.optLong("crash_time");
-            int b2 = b(a("aid"));
-            String a3 = com.bytedance.tea.crash.h.ern().a();
-            if (optLong > 0 && b2 > 0 && !TextUtils.isEmpty(a3) && !"0".equals(a3) && !TextUtils.isEmpty(cVar.a())) {
+            int b = b(a("aid"));
+            String a3 = com.bytedance.tea.crash.h.erx().a();
+            if (optLong > 0 && b > 0 && !TextUtils.isEmpty(a3) && !"0".equals(a3) && !TextUtils.isEmpty(cVar.a())) {
                 try {
-                    String str = "android_" + b2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + a3 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + optLong + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + cVar;
+                    String str = "android_" + b + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + a3 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + optLong + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + cVar;
                     if (bVar != null) {
                         JSONObject a4 = bVar.a();
                         if (a4 != null) {
@@ -33,7 +33,7 @@ public final class k {
 
     public static String a(String str) {
         Map<String, Object> a2;
-        if (com.bytedance.tea.crash.h.erl() != null && (a2 = com.bytedance.tea.crash.h.erl().a()) != null) {
+        if (com.bytedance.tea.crash.h.erv() != null && (a2 = com.bytedance.tea.crash.h.erv().a()) != null) {
             Object obj = a2.get(str);
             if (obj instanceof String) {
                 return (String) obj;

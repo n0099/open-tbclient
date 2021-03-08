@@ -11,10 +11,8 @@ import java.net.URL;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f12765a = a.class.getName();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static Boolean f12766b = Boolean.valueOf(com.sdk.base.framework.c.f.f12821b);
+    private static final String f7601a = a.class.getName();
+    private static Boolean b = Boolean.valueOf(com.sdk.base.framework.c.f.b);
     private static ConnectivityManager.NetworkCallback d;
     private HttpURLConnection c;
 
@@ -27,7 +25,7 @@ public class a {
             d = new b(this, url);
             ((ConnectivityManager) context.getSystemService("connectivity")).requestNetwork(build, d);
         } catch (Exception e) {
-            com.sdk.base.framework.a.a.c.b(f12765a, e.toString(), f12766b);
+            com.sdk.base.framework.a.a.c.b(f7601a, e.toString(), b);
         }
     }
 

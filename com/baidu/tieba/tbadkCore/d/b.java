@@ -5,9 +5,9 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.android.imsdk.internal.IMConnection;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.a nyA;
-    private final int nyB = 10;
-    private final int nyC = 3000;
+    private com.baidu.adp.lib.stats.a nAF;
+    private final int nAG = 10;
+    private final int nAH = 3000;
     public String mLogType = null;
     public boolean mIsJson = false;
 
@@ -18,45 +18,45 @@ public class b {
     public void be(String str, boolean z) {
         this.mLogType = str;
         this.mIsJson = z;
-        this.nyA = new com.baidu.adp.lib.stats.a("dbg");
+        this.nAF = new com.baidu.adp.lib.stats.a("dbg");
         c.H(str, getNetType(), z);
     }
 
     public void start() {
-        this.nyA.startTimer();
+        this.nAF.startTimer();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e dNX;
-        if (this.nyA != null && (dNX = dNX()) != null) {
+        e dOg;
+        if (this.nAF != null && (dOg = dOg()) != null) {
             if (z) {
-                if (dNX.nyH != null) {
-                    dNX.nyH.num++;
+                if (dOg.nAM != null) {
+                    dOg.nAM.num++;
                     if (z2) {
-                        dNX.nyH.nyE += j2;
-                        dNX.nyH.size += j;
+                        dOg.nAM.nAJ += j2;
+                        dOg.nAM.size += j;
                     } else {
-                        dNX.nyH.nyF++;
+                        dOg.nAM.nAK++;
                     }
                 } else {
                     return;
                 }
-            } else if (dNX.nyI != null) {
-                dNX.nyI.num++;
+            } else if (dOg.nAN != null) {
+                dOg.nAN.num++;
                 if (z2) {
-                    dNX.nyI.nyE += j3;
-                    dNX.nyI.size += j;
+                    dOg.nAN.nAJ += j3;
+                    dOg.nAN.size += j;
                     j2 = j3;
                 } else {
-                    dNX.nyI.nyF++;
+                    dOg.nAN.nAK++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.nyA = null;
+            this.nAF = null;
             if (z2) {
-                c.a(dNX, 10);
+                c.a(dOg, 10);
             }
             if (this.mLogType == "frsStat") {
                 if (!z2 || j2 > IMConnection.RETRY_DELAY_TIMES) {
@@ -75,19 +75,19 @@ public class b {
     }
 
     public void destory() {
-        e dNX;
-        if (this.nyA != null && (dNX = dNX()) != null && dNX.nyJ != null) {
-            long timeCost = this.nyA.getTimeCost();
+        e dOg;
+        if (this.nAF != null && (dOg = dOg()) != null && dOg.nAO != null) {
+            long timeCost = this.nAF.getTimeCost();
             if (timeCost > IMConnection.RETRY_DELAY_TIMES) {
-                d dVar = dNX.nyJ;
-                dVar.nyE = timeCost + dVar.nyE;
-                dNX.nyJ.num++;
-                c.a(dNX, 10);
+                d dVar = dOg.nAO;
+                dVar.nAJ = timeCost + dVar.nAJ;
+                dOg.nAO.num++;
+                c.a(dOg, 10);
             }
         }
     }
 
-    private e dNX() {
+    private e dOg() {
         return c.I(this.mLogType, getNetType(), this.mIsJson);
     }
 

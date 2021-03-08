@@ -1,19 +1,19 @@
 package com.baidu.tieba.ala.liveroom.i;
 
 import java.util.HashSet;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class g {
-    private static HashSet<Integer> hDL = new HashSet<>();
+    private static HashSet<Integer> hFu = new HashSet<>();
 
-    public static void vz(int i) {
-        if (hDL != null) {
-            hDL.add(Integer.valueOf(i));
+    public static void vB(int i) {
+        if (hFu != null) {
+            hFu.add(Integer.valueOf(i));
         }
     }
 
-    public static void vA(int i) {
-        if (hDL != null) {
-            hDL.remove(Integer.valueOf(i));
+    public static void vC(int i) {
+        if (hFu != null) {
+            hFu.remove(Integer.valueOf(i));
         }
     }
 
@@ -22,11 +22,11 @@ public class g {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean vB(int i) {
+    public static boolean vD(int i) {
         int i2 = 2913168;
-        if (hDL != null) {
-            if (!hDL.contains(2913168)) {
-                if (hDL.contains(2913128)) {
+        if (hFu != null) {
+            if (!hFu.contains(2913168)) {
+                if (hFu.contains(2913128)) {
                     i2 = 2913128;
                 }
             }
@@ -37,9 +37,9 @@ public class g {
         }
     }
 
-    public static void cfs() {
-        if (hDL != null) {
-            hDL.clear();
+    public static void cfy() {
+        if (hFu != null) {
+            hFu.clear();
         }
     }
 }

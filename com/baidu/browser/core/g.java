@@ -7,13 +7,13 @@ import android.util.LongSparseArray;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 @SuppressLint({"NewApi"})
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public final class g {
-    private static g afm;
-    private LongSparseArray<WeakReference<Bitmap>> afn = new LongSparseArray<>();
+    private static g agF;
+    private LongSparseArray<WeakReference<Bitmap>> agG = new LongSparseArray<>();
     private Context mContext;
     private static final String LOG_TAG = g.class.getSimpleName();
-    private static HashMap<String, com.baidu.browser.core.util.e<String, Integer>> afo = new HashMap<>();
+    private static HashMap<String, com.baidu.browser.core.util.e<String, Integer>> agH = new HashMap<>();
 
     private g() {
     }
@@ -21,10 +21,10 @@ public final class g {
     public static synchronized g sC() {
         g gVar;
         synchronized (g.class) {
-            if (afm == null) {
-                afm = new g();
+            if (agF == null) {
+                agF = new g();
             }
-            gVar = afm;
+            gVar = agF;
         }
         return gVar;
     }
@@ -43,10 +43,10 @@ public final class g {
     public static int L(String str, String str2) {
         com.baidu.browser.core.util.e<String, Integer> eVar;
         M(str2, str);
-        com.baidu.browser.core.util.e<String, Integer> eVar2 = afo.get(str);
+        com.baidu.browser.core.util.e<String, Integer> eVar2 = agH.get(str);
         if (eVar2 == null) {
             com.baidu.browser.core.util.e<String, Integer> eVar3 = new com.baidu.browser.core.util.e<>(100);
-            afo.put(str, eVar3);
+            agH.put(str, eVar3);
             eVar = eVar3;
         } else {
             eVar = eVar2;

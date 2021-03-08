@@ -1,14 +1,12 @@
 package com.baidu.mobads;
 
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static g f3334a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static HashMap<String, String> f3335b = new HashMap<>();
+    private static g f2384a;
+    private static HashMap<String, String> b = new HashMap<>();
 
     private g() {
     }
@@ -16,10 +14,10 @@ public class g {
     public static synchronized g a() {
         g gVar;
         synchronized (g.class) {
-            if (f3334a == null) {
-                f3334a = new g();
+            if (f2384a == null) {
+                f2384a = new g();
             }
-            gVar = f3334a;
+            gVar = f2384a;
         }
         return gVar;
     }
@@ -39,19 +37,19 @@ public class g {
             return 1;
         }
         try {
-            if (f3335b.containsKey(i + "")) {
-                i2 = Integer.parseInt(f3335b.get(i + "")) + 1;
+            if (b.containsKey(i + "")) {
+                i2 = Integer.parseInt(b.get(i + "")) + 1;
                 if (i2 < 1) {
                     i2 = 1;
                 }
                 try {
-                    e = f3335b;
+                    e = b;
                     e.put(i + "", i2 + "");
                 } catch (Exception e2) {
                     e = e2;
                 }
             } else {
-                f3335b.put(i + "", "1");
+                b.put(i + "", "1");
                 i2 = 1;
             }
         } catch (Exception e3) {

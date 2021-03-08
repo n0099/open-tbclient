@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public class ad extends com.baidu.tbadk.core.data.o {
     private long mStartTime = Long.MAX_VALUE;
     private long mEndTime = 0;
-    private String frr = null;
+    private String fsR = null;
 
     @Override // com.baidu.tbadk.core.data.o
     public void parserJson(JSONObject jSONObject) {
@@ -14,7 +14,7 @@ public class ad extends com.baidu.tbadk.core.data.o {
             try {
                 this.mStartTime = jSONObject.optLong("start_time", Long.MAX_VALUE);
                 this.mEndTime = jSONObject.optLong("end_time", 0L);
-                this.frr = jSONObject.optString("dest_url", "");
+                this.fsR = jSONObject.optString("dest_url", "");
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -29,7 +29,7 @@ public class ad extends com.baidu.tbadk.core.data.o {
         return this.mEndTime;
     }
 
-    public String bwy() {
-        return this.frr;
+    public String bwB() {
+        return this.fsR;
     }
 }

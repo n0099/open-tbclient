@@ -15,12 +15,6 @@ public interface b {
 
     void a(String str, String str2, String str3, int i, JSONObject jSONObject);
 
-    String ayd();
-
-    String aye();
-
-    String ayf();
-
     String ayg();
 
     String ayh();
@@ -35,11 +29,17 @@ public interface b {
 
     String aym();
 
-    CookieManager ayn();
+    String ayn();
 
     String ayo();
 
-    com.baidu.swan.pms.c.f ayp();
+    String ayp();
+
+    CookieManager ayq();
+
+    String ayr();
+
+    com.baidu.swan.pms.c.f ays();
 
     void b(JSONArray jSONArray, String str, String str2);
 

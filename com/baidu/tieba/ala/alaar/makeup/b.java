@@ -2,19 +2,19 @@ package com.baidu.tieba.ala.alaar.makeup;
 
 import android.content.Context;
 import android.hardware.SensorManager;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public final class b {
-    private static Boolean grP;
+    private static Boolean gty;
 
-    public static boolean fR(Context context) {
+    public static boolean fQ(Context context) {
         SensorManager sensorManager;
-        if (grP != null) {
-            return grP.booleanValue();
+        if (gty != null) {
+            return gty.booleanValue();
         }
         if (context == null || (sensorManager = (SensorManager) context.getSystemService("sensor")) == null) {
             return false;
         }
-        grP = Boolean.valueOf(sensorManager.getDefaultSensor(4) != null);
-        return grP.booleanValue();
+        gty = Boolean.valueOf(sensorManager.getDefaultSensor(4) != null);
+        return gty.booleanValue();
     }
 }

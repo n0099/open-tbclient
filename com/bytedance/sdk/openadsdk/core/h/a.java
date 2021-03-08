@@ -7,10 +7,8 @@ import org.json.JSONArray;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6571a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f6572b = 1;
+    public String f4448a;
+    public int b = 1;
     public int c = 1;
     public int d = 2;
     public int e = 1;
@@ -109,12 +107,12 @@ public class a {
     }
 
     public a a(String str) {
-        this.f6571a = str;
+        this.f4448a = str;
         return this;
     }
 
     public a n(int i) {
-        this.f6572b = i;
+        this.b = i;
         return this;
     }
 

@@ -16,54 +16,54 @@ import com.baidu.tieba.pb.data.f;
 import com.baidu.tieba.pb.pb.main.a.g;
 /* loaded from: classes2.dex */
 public class c {
-    private EMTextView eVM;
-    private BdTypeRecyclerView jmy;
-    private LinearLayout kWt;
-    private com.baidu.tieba.pb.pb.adapter.b mcW;
-    private View mph;
-    private g mpi;
+    private EMTextView eXl;
+    private BdTypeRecyclerView joh;
+    private LinearLayout kYv;
+    private com.baidu.tieba.pb.pb.adapter.b meZ;
+    private View mrj;
+    private g mrk;
 
     public c(TbPageContext<?> tbPageContext) {
         init(tbPageContext.getPageActivity());
-        this.mcW = new com.baidu.tieba.pb.pb.adapter.b(tbPageContext, this.jmy);
-        this.mpi = new g(this.jmy, this.mcW);
+        this.meZ = new com.baidu.tieba.pb.pb.adapter.b(tbPageContext, this.joh);
+        this.mrk = new g(this.joh, this.meZ);
         onChangeSkinType();
     }
 
     private void init(Context context) {
-        this.kWt = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.recom_thread_info_layout, (ViewGroup) null);
-        this.eVM = (EMTextView) this.kWt.findViewById(R.id.tv_title);
-        this.jmy = (BdTypeRecyclerView) this.kWt.findViewById(R.id.pb_recom_info_list);
-        this.jmy.setLayoutManager(new LinearLayoutManager(context));
-        this.jmy.setFadingEdgeLength(0);
-        this.jmy.setOverScrollMode(2);
+        this.kYv = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.recom_thread_info_layout, (ViewGroup) null);
+        this.eXl = (EMTextView) this.kYv.findViewById(R.id.tv_title);
+        this.joh = (BdTypeRecyclerView) this.kYv.findViewById(R.id.pb_recom_info_list);
+        this.joh.setLayoutManager(new LinearLayoutManager(context));
+        this.joh.setFadingEdgeLength(0);
+        this.joh.setOverScrollMode(2);
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
-        this.jmy.setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
-        this.jmy.setNestedScrollingEnabled(false);
-        this.mph = new View(context);
+        this.joh.setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
+        this.joh.setNestedScrollingEnabled(false);
+        this.mrj = new View(context);
     }
 
     public void H(f fVar) {
-        this.mpi.H(fVar);
+        this.mrk.H(fVar);
     }
 
-    public void GB(int i) {
-        this.jmy.removeFooterView(this.mph);
-        this.mph.setLayoutParams(new ViewGroup.LayoutParams(1, i));
-        this.jmy.addFooterView(this.mph);
+    public void GE(int i) {
+        this.joh.removeFooterView(this.mrj);
+        this.mrj.setLayoutParams(new ViewGroup.LayoutParams(1, i));
+        this.joh.addFooterView(this.mrj);
     }
 
     public void onChangeSkinType() {
-        ap.setBackgroundColor(this.kWt, R.color.CAM_X0204);
-        ap.setViewTextColor(this.eVM, R.color.CAM_X0105);
-        this.mcW.onChangeSkinType();
+        ap.setBackgroundColor(this.kYv, R.color.CAM_X0204);
+        ap.setViewTextColor(this.eXl, R.color.CAM_X0105);
+        this.meZ.onChangeSkinType();
     }
 
     public View getView() {
-        return this.kWt;
+        return this.kYv;
     }
 
     public void setScrollable(boolean z) {
-        this.jmy.setNestedScrollingEnabled(z);
+        this.joh.setNestedScrollingEnabled(z);
     }
 }

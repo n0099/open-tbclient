@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.adaptation.implementation;
 
 import android.content.Context;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c implements com.baidu.swan.apps.adaptation.a.h {
     @Override // com.baidu.swan.apps.adaptation.a.h
     public boolean U(Context context, String str) {

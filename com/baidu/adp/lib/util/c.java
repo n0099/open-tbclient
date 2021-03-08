@@ -316,9 +316,9 @@ public class c {
                 i4 = i8;
                 break;
             }
-            byte b2 = decodabet[bArr[i6] & 255];
-            if (b2 >= -5) {
-                if (b2 >= -1) {
+            byte b = decodabet[bArr[i6] & 255];
+            if (b >= -5) {
+                if (b >= -1) {
                     i5 = i7 + 1;
                     bArr3[i7] = bArr[i6];
                     if (i5 > 3) {

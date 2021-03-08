@@ -9,10 +9,10 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 public class aa {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f7537a = null;
+    private static String f5112a = null;
 
     public static String a(Context context) {
-        String str = f7537a;
+        String str = f5112a;
         if (TextUtils.isEmpty(str)) {
             try {
                 int myPid = Process.myPid();
@@ -21,15 +21,15 @@ public class aa {
                         if (u.a()) {
                             u.b("Process", "processName = " + runningAppProcessInfo.processName);
                         }
-                        f7537a = runningAppProcessInfo.processName;
-                        return f7537a;
+                        f5112a = runningAppProcessInfo.processName;
+                        return f5112a;
                     }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            f7537a = a();
-            return f7537a;
+            f5112a = a();
+            return f5112a;
         }
         return str;
     }

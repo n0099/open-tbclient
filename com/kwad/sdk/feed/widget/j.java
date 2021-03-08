@@ -12,9 +12,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes3.dex */
 public class j extends com.kwad.sdk.core.video.videoview.a implements ap.a {
-
-    /* renamed from: b  reason: collision with root package name */
-    private View f9875b;
+    private View b;
     private final ap c;
     private final AtomicBoolean d;
     private boolean e;
@@ -25,7 +23,7 @@ public class j extends com.kwad.sdk.core.video.videoview.a implements ap.a {
         this.c = new ap(this);
         this.d = new AtomicBoolean(true);
         this.f = true;
-        this.f9875b = this;
+        this.b = this;
     }
 
     private void n() {
@@ -38,7 +36,7 @@ public class j extends com.kwad.sdk.core.video.videoview.a implements ap.a {
     @Override // com.kwad.sdk.utils.ap.a
     public void a(Message message) {
         if (message.what == 1) {
-            if (!ao.a(this.f9875b, 30)) {
+            if (!ao.a(this.b, 30)) {
                 e();
             } else if (!this.e) {
                 d();
@@ -56,12 +54,12 @@ public class j extends com.kwad.sdk.core.video.videoview.a implements ap.a {
         if (this.f) {
             f();
         } else {
-            this.f9471a.c();
+            this.f6280a.c();
         }
     }
 
     public void k() {
-        this.f9471a.c();
+        this.f6280a.c();
         this.e = true;
     }
 

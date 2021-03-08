@@ -9,29 +9,29 @@ import java.util.ArrayList;
 public final class aa implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    final z f5949a;
+    final z f3999a;
     final boolean d;
     private boolean f;
-    final com.bytedance.sdk.a.b.a.c.j puG;
-    private t puH;
-    final ab puI;
+    final com.bytedance.sdk.a.b.a.c.j pwL;
+    private t pwM;
+    final ab pwN;
 
     private aa(z zVar, ab abVar, boolean z) {
-        this.f5949a = zVar;
-        this.puI = abVar;
+        this.f3999a = zVar;
+        this.pwN = abVar;
         this.d = z;
-        this.puG = new com.bytedance.sdk.a.b.a.c.j(zVar, z);
+        this.pwL = new com.bytedance.sdk.a.b.a.c.j(zVar, z);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static aa a(z zVar, ab abVar, boolean z) {
         aa aaVar = new aa(zVar, abVar, z);
-        aaVar.puH = zVar.eqy().h(aaVar);
+        aaVar.pwM = zVar.eqF().h(aaVar);
         return aaVar;
     }
 
     @Override // com.bytedance.sdk.a.b.h
-    public b epR() throws IOException {
+    public b epY() throws IOException {
         synchronized (this) {
             if (this.f) {
                 throw new IllegalStateException("Already Executed");
@@ -39,47 +39,47 @@ public final class aa implements h {
             this.f = true;
         }
         g();
-        this.puH.a(this);
+        this.pwM.a(this);
         try {
             try {
-                this.f5949a.eqw().a(this);
-                b eqC = eqC();
-                if (eqC == null) {
+                this.f3999a.eqD().a(this);
+                b eqJ = eqJ();
+                if (eqJ == null) {
                     throw new IOException(ResponseException.CANCELED);
                 }
-                return eqC;
+                return eqJ;
             } catch (IOException e) {
-                this.puH.a(this, e);
+                this.pwM.a(this, e);
                 throw e;
             }
         } finally {
-            this.f5949a.eqw().b(this);
+            this.f3999a.eqD().b(this);
         }
     }
 
     private void g() {
-        this.puG.a(com.bytedance.sdk.a.b.a.g.e.epH().a("response.body().close()"));
+        this.pwL.a(com.bytedance.sdk.a.b.a.g.e.epO().a("response.body().close()"));
     }
 
     public boolean b() {
-        return this.puG.a();
+        return this.pwL.a();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: eqB */
+    /* renamed from: eqI */
     public aa clone() {
-        return a(this.f5949a, this.puI, this.d);
+        return a(this.f3999a, this.pwN, this.d);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public final class a extends com.bytedance.sdk.a.b.a.b {
-        private final i puJ;
-        final /* synthetic */ aa puK;
+        private final i pwO;
+        final /* synthetic */ aa pwP;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public String a() {
-            return this.puK.puI.eoR().f();
+            return this.pwP.pwN.eoY().f();
         }
 
         @Override // com.bytedance.sdk.a.b.a.b
@@ -87,20 +87,20 @@ public final class aa implements h {
             boolean z = true;
             try {
                 try {
-                    b eqC = this.puK.eqC();
+                    b eqJ = this.pwP.eqJ();
                     try {
-                        if (this.puK.puG.a()) {
-                            this.puJ.a(this.puK, new IOException(ResponseException.CANCELED));
+                        if (this.pwP.pwL.a()) {
+                            this.pwO.a(this.pwP, new IOException(ResponseException.CANCELED));
                         } else {
-                            this.puJ.a(this.puK, eqC);
+                            this.pwO.a(this.pwP, eqJ);
                         }
                     } catch (IOException e) {
                         e = e;
                         if (!z) {
-                            this.puK.puH.a(this.puK, e);
-                            this.puJ.a(this.puK, e);
+                            this.pwP.pwM.a(this.pwP, e);
+                            this.pwO.a(this.pwP, e);
                         } else {
-                            com.bytedance.sdk.a.b.a.g.e.epH().a(4, "Callback failure for " + this.puK.d(), e);
+                            com.bytedance.sdk.a.b.a.g.e.epO().a(4, "Callback failure for " + this.pwP.d(), e);
                         }
                     }
                 } catch (IOException e2) {
@@ -108,7 +108,7 @@ public final class aa implements h {
                     z = false;
                 }
             } finally {
-                this.puK.f5949a.eqw().b(this);
+                this.pwP.f3999a.eqD().b(this);
             }
         }
     }
@@ -118,19 +118,19 @@ public final class aa implements h {
     }
 
     String e() {
-        return this.puI.eoR().m();
+        return this.pwN.eoY().m();
     }
 
-    b eqC() throws IOException {
-        ArrayList arrayList = new ArrayList(this.f5949a.eqx());
-        arrayList.add(this.puG);
-        arrayList.add(new com.bytedance.sdk.a.b.a.c.a(this.f5949a.eqm()));
-        arrayList.add(new com.bytedance.sdk.a.b.a.a.a(this.f5949a.eqn()));
-        arrayList.add(new com.bytedance.sdk.a.b.a.b.a(this.f5949a));
+    b eqJ() throws IOException {
+        ArrayList arrayList = new ArrayList(this.f3999a.eqE());
+        arrayList.add(this.pwL);
+        arrayList.add(new com.bytedance.sdk.a.b.a.c.a(this.f3999a.eqt()));
+        arrayList.add(new com.bytedance.sdk.a.b.a.a.a(this.f3999a.equ()));
+        arrayList.add(new com.bytedance.sdk.a.b.a.b.a(this.f3999a));
         if (!this.d) {
-            arrayList.addAll(this.f5949a.w());
+            arrayList.addAll(this.f3999a.w());
         }
         arrayList.add(new com.bytedance.sdk.a.b.a.c.b(this.d));
-        return new com.bytedance.sdk.a.b.a.c.g(arrayList, null, null, null, 0, this.puI, this, this.puH, this.f5949a.a(), this.f5949a.b(), this.f5949a.c()).b(this.puI);
+        return new com.bytedance.sdk.a.b.a.c.g(arrayList, null, null, null, 0, this.pwN, this, this.pwM, this.f3999a.a(), this.f3999a.b(), this.f3999a.c()).b(this.pwN);
     }
 }

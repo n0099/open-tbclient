@@ -21,24 +21,22 @@ public class KsAdHotRefreshView extends e {
     private static class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private WeakReference<KsAdHotRefreshView> f8816a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private final boolean f8817b;
+        private WeakReference<KsAdHotRefreshView> f5871a;
+        private final boolean b;
 
         a(KsAdHotRefreshView ksAdHotRefreshView, boolean z) {
-            this.f8816a = new WeakReference<>(ksAdHotRefreshView);
-            this.f8817b = z;
+            this.f5871a = new WeakReference<>(ksAdHotRefreshView);
+            this.b = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            KsAdHotRefreshView ksAdHotRefreshView = this.f8816a.get();
+            KsAdHotRefreshView ksAdHotRefreshView = this.f5871a.get();
             if (ksAdHotRefreshView != null) {
                 if (!ksAdHotRefreshView.e() && ksAdHotRefreshView.e != null) {
                     ksAdHotRefreshView.e.c();
                 }
-                ksAdHotRefreshView.a(this.f8817b);
+                ksAdHotRefreshView.a(this.b);
             }
         }
     }

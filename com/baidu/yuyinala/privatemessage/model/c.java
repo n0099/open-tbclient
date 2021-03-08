@@ -9,43 +9,43 @@ import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c {
-    private static IChatSessionChangeListener piC = new IChatSessionChangeListener() { // from class: com.baidu.yuyinala.privatemessage.model.c.1
+    private static IChatSessionChangeListener pkI = new IChatSessionChangeListener() { // from class: com.baidu.yuyinala.privatemessage.model.c.1
         @Override // com.baidu.android.imsdk.chatmessage.IChatSessionChangeListener
         public void onChatSessionUpdate(ChatSession chatSession, boolean z) {
-            c.emJ();
+            c.emT();
         }
 
         @Override // com.baidu.android.imsdk.chatmessage.IChatSessionChangeListener
         public void onChatRecordDelete(int i, long j) {
-            c.emJ();
+            c.emT();
         }
     };
-    private static IMediaChatMsgChangedListener piD = new IMediaChatMsgChangedListener() { // from class: com.baidu.yuyinala.privatemessage.model.c.2
+    private static IMediaChatMsgChangedListener pkJ = new IMediaChatMsgChangedListener() { // from class: com.baidu.yuyinala.privatemessage.model.c.2
         @Override // com.baidu.android.imsdk.chatmessage.IMediaChatMsgChangedListener
         public void onMediaChatMsgChangedResult(int i, long j, int i2, long j2, String str, long j3) {
-            c.emJ();
+            c.emT();
         }
     };
 
-    public static void emI() {
+    public static void emS() {
         release();
-        if (piC != null) {
-            BIMManager.registerChatSessionChangeListener(BdBaseApplication.getInst(), piC);
+        if (pkI != null) {
+            BIMManager.registerChatSessionChangeListener(BdBaseApplication.getInst(), pkI);
         }
-        if (piD != null) {
-            BIMManager.mediaRegisterChatMsgChangedListener(BdBaseApplication.getInst(), piD);
+        if (pkJ != null) {
+            BIMManager.mediaRegisterChatMsgChangedListener(BdBaseApplication.getInst(), pkJ);
         }
-        emJ();
+        emT();
     }
 
     public static void release() {
-        BIMManager.unregisterChatSessionChangeListener(BdBaseApplication.getInst(), piC);
-        BIMManager.mediaUnRegisterChatMsgChangedListener(BdBaseApplication.getInst(), piD);
+        BIMManager.unregisterChatSessionChangeListener(BdBaseApplication.getInst(), pkI);
+        BIMManager.mediaUnRegisterChatMsgChangedListener(BdBaseApplication.getInst(), pkJ);
     }
 
-    public static void emJ() {
+    public static void emT() {
         final int newMsgCount = BIMManager.getNewMsgCount(BdBaseApplication.getInst());
         BIMManager.mediaGetChatSessions(BdBaseApplication.getInst(), 0L, System.currentTimeMillis(), 20, new IMediaGetChatSessionListener() { // from class: com.baidu.yuyinala.privatemessage.model.c.3
             @Override // com.baidu.android.imsdk.chatmessage.IMediaGetChatSessionListener

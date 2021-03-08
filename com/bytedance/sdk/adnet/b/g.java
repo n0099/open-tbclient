@@ -3,9 +3,9 @@ package com.bytedance.sdk.adnet.b;
 import androidx.annotation.GuardedBy;
 import androidx.annotation.Nullable;
 import com.bytedance.sdk.adnet.core.Request;
-import com.bytedance.sdk.adnet.core.l;
-import com.bytedance.sdk.adnet.core.p;
-import com.bytedance.sdk.adnet.core.r;
+import com.bytedance.sdk.adnet.core.k;
+import com.bytedance.sdk.adnet.core.o;
+import com.bytedance.sdk.adnet.core.q;
 import java.io.UnsupportedEncodingException;
 /* loaded from: classes6.dex */
 public abstract class g<T> extends Request<T> {
@@ -13,15 +13,15 @@ public abstract class g<T> extends Request<T> {
     private final Object d;
     @Nullable
     @GuardedBy("mLock")
-    private p.a<T> e;
+    private o.a<T> e;
     @Nullable
     private final String f;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bytedance.sdk.adnet.core.Request
-    public abstract p<T> a(l lVar);
+    public abstract o<T> a(k kVar);
 
-    public g(int i, String str, @Nullable String str2, @Nullable p.a<T> aVar) {
+    public g(int i, String str, @Nullable String str2, @Nullable o.a<T> aVar) {
         super(i, str, aVar);
         this.d = new Object();
         this.e = aVar;
@@ -38,13 +38,13 @@ public abstract class g<T> extends Request<T> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bytedance.sdk.adnet.core.Request
-    public void a(p<T> pVar) {
-        p.a<T> aVar;
+    public void a(o<T> oVar) {
+        o.a<T> aVar;
         synchronized (this.d) {
             aVar = this.e;
         }
         if (aVar != null) {
-            aVar.a(pVar);
+            aVar.a(oVar);
         }
     }
 
@@ -67,7 +67,7 @@ public abstract class g<T> extends Request<T> {
             }
             return this.f.getBytes("utf-8");
         } catch (UnsupportedEncodingException e) {
-            r.d("Unsupported Encoding while trying to get the bytes of %s using %s", this.f, "utf-8");
+            q.d("Unsupported Encoding while trying to get the bytes of %s using %s", this.f, "utf-8");
             return null;
         }
     }

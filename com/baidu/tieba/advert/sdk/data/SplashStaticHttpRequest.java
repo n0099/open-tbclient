@@ -9,7 +9,7 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SplashStaticHttpRequest extends HttpMessage {
     public SplashStaticHttpRequest() {
         super(1003193);
@@ -30,12 +30,12 @@ public class SplashStaticHttpRequest extends HttpMessage {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("stamp", String.valueOf(System.currentTimeMillis()));
-            jSONObject.put("params", com.baidu.tieba.advert.sdk.b.c.a(context, adInfo));
+            jSONObject.put("params", com.baidu.tieba.advert.sdk.c.c.a(context, adInfo));
         } catch (JSONException e) {
             BdLog.e(e.getMessage());
         }
         splashStaticHttpRequest.addParam("parammap", jSONObject.toString());
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003193, com.baidu.tieba.advert.sdk.b.b.bMG());
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003193, com.baidu.tieba.advert.sdk.c.b.bMM());
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
         tbHttpMessageTask.setResponsedClass(SplashStaticHttpResponse.class);
         MessageManager.getInstance().sendMessage(splashStaticHttpRequest, tbHttpMessageTask);
@@ -46,18 +46,18 @@ public class SplashStaticHttpRequest extends HttpMessage {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("stamp", String.valueOf(System.currentTimeMillis()));
-            jSONObject.put("params", com.baidu.tieba.advert.sdk.b.c.a(context, adInfo));
+            jSONObject.put("params", com.baidu.tieba.advert.sdk.c.c.a(context, adInfo));
         } catch (JSONException e) {
             BdLog.e(e.getMessage());
         }
         splashStaticHttpRequest.addParam("parammap", jSONObject.toString());
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003193, com.baidu.tieba.advert.sdk.b.b.apkDownloadUrl());
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003193, com.baidu.tieba.advert.sdk.c.b.apkDownloadUrl());
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
         tbHttpMessageTask.setResponsedClass(SplashStaticHttpResponse.class);
         MessageManager.getInstance().sendMessage(splashStaticHttpRequest, tbHttpMessageTask);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class SplashStaticHttpResponse extends JsonHttpResponsedMessage {
         public SplashStaticHttpResponse(int i) {
             super(i);

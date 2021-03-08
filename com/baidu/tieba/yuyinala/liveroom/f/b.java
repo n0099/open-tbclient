@@ -3,11 +3,11 @@ package com.baidu.tieba.yuyinala.liveroom.f;
 import android.view.View;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.yuyinala.liveroom.views.d;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
     private TbPageContext mPageContext;
     private View mRootView;
-    private com.baidu.tieba.yuyinala.liveroom.views.b ouC;
+    private com.baidu.tieba.yuyinala.liveroom.views.b owH;
 
     public b(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
@@ -15,59 +15,59 @@ public class b {
     }
 
     private void init() {
-        this.ouC = new com.baidu.tieba.yuyinala.liveroom.views.b(this.mPageContext);
-        this.mRootView = this.ouC.getView();
+        this.owH = new com.baidu.tieba.yuyinala.liveroom.views.b(this.mPageContext);
+        this.mRootView = this.owH.getView();
     }
 
     public View getView() {
         return this.mRootView;
     }
 
-    public boolean cex() {
-        return this.ouC.cex();
+    public boolean ceD() {
+        return this.owH.ceD();
     }
 
-    public boolean cey() {
-        return this.ouC.cey();
+    public boolean ceE() {
+        return this.owH.ceE();
     }
 
     public String getLiveTitle() {
-        return this.ouC.getLiveTitle();
+        return this.owH.getLiveTitle();
     }
 
-    public boolean cez() {
-        return this.ouC.cez();
+    public boolean ceF() {
+        return this.owH.ceF();
     }
 
-    public boolean ceA() {
-        return this.ouC.ceA();
+    public boolean ceG() {
+        return this.owH.ceG();
     }
 
-    public String ceC() {
-        return this.ouC.ceC();
+    public String ceI() {
+        return this.owH.ceI();
     }
 
     public void a(d.b bVar) {
-        this.ouC.a(bVar);
+        this.owH.a(bVar);
     }
 
     public void a(d.a aVar) {
-        this.ouC.a(aVar);
+        this.owH.a(aVar);
     }
 
-    public void HI(String str) {
-        this.ouC.HI(str);
+    public void HR(String str) {
+        this.owH.HR(str);
     }
 
-    public void ceF() {
-        if (this.ouC != null) {
-            this.ouC.ceF();
+    public void ceL() {
+        if (this.owH != null) {
+            this.owH.ceL();
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.ouC != null) {
-            this.ouC.onKeyboardVisibilityChanged(z);
+        if (this.owH != null) {
+            this.owH.onKeyboardVisibilityChanged(z);
         }
     }
 }

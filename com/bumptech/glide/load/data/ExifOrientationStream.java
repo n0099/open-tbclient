@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class ExifOrientationStream extends FilterInputStream {
     private static final int SEGMENT_START_POSITION = 2;
     private final byte orientation;

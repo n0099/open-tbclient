@@ -17,10 +17,8 @@ import java.util.Scanner;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile e f3162a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    private boolean f3163b = false;
+    private static volatile e f2286a = null;
+    private boolean b = false;
     private boolean c = true;
     private final List<d> d = new ArrayList();
     private d e = null;
@@ -30,14 +28,14 @@ public final class e {
     }
 
     public static e a() {
-        if (f3162a == null) {
+        if (f2286a == null) {
             synchronized (e.class) {
-                if (f3162a == null) {
-                    f3162a = new e();
+                if (f2286a == null) {
+                    f2286a = new e();
                 }
             }
         }
-        return f3162a;
+        return f2286a;
     }
 
     private boolean a(String str) {
@@ -216,10 +214,10 @@ public final class e {
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:21:0x0045 -> B:63:0x0012). Please submit an issue!!! */
     public void a(Context context) {
         int i = 0;
-        if (this.f3163b) {
+        if (this.b) {
             return;
         }
-        this.f3163b = true;
+        this.b = true;
         try {
             if (Build.VERSION.SDK_INT >= 14) {
                 c(context);

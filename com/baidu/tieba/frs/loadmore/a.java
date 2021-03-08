@@ -6,7 +6,7 @@ import com.baidu.tieba.frs.loadmore.FrsLoadMoreModel;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 /* loaded from: classes2.dex */
 public interface a extends FrsLoadMoreModel.a {
-    FrsViewData cDg();
+    FrsViewData cDm();
 
     String getForumName();
 

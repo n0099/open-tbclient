@@ -22,10 +22,8 @@ public class CustomScrollView extends ScrollView {
     public static final Object TAG = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    private VelocityTracker f4164a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f4165b;
+    private VelocityTracker f2884a;
+    private int b;
     public int bottom;
     private int c;
     private b d;
@@ -113,15 +111,15 @@ public class CustomScrollView extends ScrollView {
     @Override // android.widget.ScrollView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         ViewConfiguration.get(getContext());
-        this.f4165b = ViewConfiguration.getMaximumFlingVelocity();
+        this.b = ViewConfiguration.getMaximumFlingVelocity();
         if ((this.k == null ? false : canMoveMap(motionEvent, this.k)) && this.n == com.baidu.platform.comapi.wnplatform.n.b.BOTTOM) {
             return false;
         }
         acquireVelocityTracker(motionEvent);
         switch (motionEvent.getAction()) {
             case 1:
-                VelocityTracker velocityTracker = this.f4164a;
-                velocityTracker.computeCurrentVelocity(1000, this.f4165b);
+                VelocityTracker velocityTracker = this.f2884a;
+                velocityTracker.computeCurrentVelocity(1000, this.b);
                 com.baidu.platform.comapi.wnplatform.n.b calculateNextStatus = calculateNextStatus((int) velocityTracker.getYVelocity(), getScrollY());
                 if (calculateNextStatus != com.baidu.platform.comapi.wnplatform.n.b.NULL) {
                     updateStatus(calculateNextStatus, true);
@@ -165,10 +163,10 @@ public class CustomScrollView extends ScrollView {
     }
 
     private void acquireVelocityTracker(MotionEvent motionEvent) {
-        if (this.f4164a == null) {
-            this.f4164a = VelocityTracker.obtain();
+        if (this.f2884a == null) {
+            this.f2884a = VelocityTracker.obtain();
         }
-        this.f4164a.addMovement(motionEvent);
+        this.f2884a.addMovement(motionEvent);
     }
 
     private boolean canMoveMap(MotionEvent motionEvent, View view) {

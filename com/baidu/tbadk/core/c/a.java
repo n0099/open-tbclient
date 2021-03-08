@@ -16,7 +16,7 @@ public class a extends CustomMessageListener {
     private static HashMap<String, l<byte[]>> byteCacheMap;
     private static ArrayList<String> noEvictList;
     private static HashMap<String, l<String>> stringCacheMap;
-    public static a eUB = null;
+    public static a eWa = null;
     private static HashMap<String, Integer> cacheCountLimitMap = new HashMap<>();
 
     static {
@@ -78,11 +78,11 @@ public class a extends CustomMessageListener {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_KV_CACHE_SUCC));
     }
 
-    public static a bqr() {
-        if (eUB == null) {
-            eUB = new a();
+    public static a bqt() {
+        if (eWa == null) {
+            eWa = new a();
         }
-        return eUB;
+        return eWa;
     }
 
     private a() {
@@ -90,11 +90,11 @@ public class a extends CustomMessageListener {
         MessageManager.getInstance().registerListenerFromBackground(this);
     }
 
-    public l<byte[]> Ar(String str) {
+    public l<byte[]> Ay(String str) {
         return dE(str, null);
     }
 
-    public l<String> As(String str) {
+    public l<String> Az(String str) {
         return dF(str, null);
     }
 

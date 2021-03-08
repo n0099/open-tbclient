@@ -9,10 +9,8 @@ import android.os.Message;
 public class x {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Object f2589a = new Object();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static x f2590b = null;
+    private static Object f1941a = new Object();
+    private static x b = null;
     private HandlerThread c;
     private Handler d;
     private boolean e = false;
@@ -22,11 +20,11 @@ public class x {
 
     public static x a() {
         x xVar;
-        synchronized (f2589a) {
-            if (f2590b == null) {
-                f2590b = new x();
+        synchronized (f1941a) {
+            if (b == null) {
+                b = new x();
             }
-            xVar = f2590b;
+            xVar = b;
         }
         return xVar;
     }

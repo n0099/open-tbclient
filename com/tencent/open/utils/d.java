@@ -4,15 +4,15 @@ import android.util.Base64;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static byte[] f13432a = {1, 2, 3, 4, 5, 6, 7, 8};
+    private static byte[] f7988a = {1, 2, 3, 4, 5, 6, 7, 8};
 
     public static String a(String str, String str2) {
         try {
-            IvParameterSpec ivParameterSpec = new IvParameterSpec(f13432a);
+            IvParameterSpec ivParameterSpec = new IvParameterSpec(f7988a);
             SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "DES");
             Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
             cipher.init(1, secretKeySpec, ivParameterSpec);
@@ -26,7 +26,7 @@ public class d {
     public static String b(String str, String str2) {
         try {
             byte[] decode = Base64.decode(str, 0);
-            IvParameterSpec ivParameterSpec = new IvParameterSpec(f13432a);
+            IvParameterSpec ivParameterSpec = new IvParameterSpec(f7988a);
             SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "DES");
             Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
             cipher.init(2, secretKeySpec, ivParameterSpec);

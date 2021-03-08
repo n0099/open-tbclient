@@ -18,7 +18,7 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    HttpURLConnection f3097a;
+    HttpURLConnection f2246a;
     private String d = null;
     private String e = null;
     private int f;
@@ -26,9 +26,7 @@ public class c {
     private String h;
     private e i;
     private static final String c = c.class.getSimpleName();
-
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f3096b = true;
+    public static boolean b = true;
 
     /* loaded from: classes4.dex */
     public enum a {
@@ -120,7 +118,7 @@ public class c {
         HttpURLConnection httpURLConnection;
         try {
             URL url = new URL(this.d);
-            if (f3096b) {
+            if (b) {
                 httpURLConnection = (HttpsURLConnection) url.openConnection();
                 ((HttpsURLConnection) httpURLConnection).setHostnameVerifier(new d(this));
             } else {
@@ -255,9 +253,9 @@ public class c {
                 this.i.a(a.NETWORK_ERROR);
                 return;
             }
-            this.f3097a = b();
-            if (this.f3097a != null) {
-                a(this.f3097a);
+            this.f2246a = b();
+            if (this.f2246a != null) {
+                a(this.f2246a);
                 return;
             }
             com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(c, "url connection failed");

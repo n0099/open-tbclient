@@ -1,34 +1,32 @@
 package com.vivo.push.b;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class p extends u {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f13585a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f13586b;
+    private String f8021a;
+    private int b;
     private boolean c;
 
     public p() {
         super(7);
-        this.f13586b = 0;
+        this.b = 0;
         this.c = false;
     }
 
     public final String d() {
-        return this.f13585a;
+        return this.f8021a;
     }
 
     public final void b(String str) {
-        this.f13585a = str;
+        this.f8021a = str;
     }
 
     public final int e() {
-        return this.f13586b;
+        return this.b;
     }
 
     public final void a(int i) {
-        this.f13586b = i;
+        this.b = i;
     }
 
     public final boolean f() {
@@ -43,8 +41,8 @@ public final class p extends u {
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         super.c(aVar);
-        aVar.a("content", this.f13585a);
-        aVar.a("log_level", this.f13586b);
+        aVar.a("content", this.f8021a);
+        aVar.a("log_level", this.b);
         aVar.a("is_server_log", this.c);
     }
 
@@ -52,8 +50,8 @@ public final class p extends u {
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final void d(com.vivo.push.a aVar) {
         super.d(aVar);
-        this.f13585a = aVar.a("content");
-        this.f13586b = aVar.b("log_level", 0);
+        this.f8021a = aVar.a("content");
+        this.b = aVar.b("log_level", 0);
         this.c = aVar.d("is_server_log");
     }
 

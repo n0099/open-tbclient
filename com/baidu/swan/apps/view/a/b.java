@@ -17,16 +17,16 @@ import com.baidu.swan.apps.ao.ah;
 import com.baidu.swan.apps.view.a.a;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
-    public static final boolean dAU = aHI();
-    private static int dAV;
-    private boolean dQX;
+    public static final boolean dCv = aHL();
+    private static int dCw;
     @Nullable
-    private View dRc;
-    private int dRd;
-    private a dRe;
-    private View.OnSystemUiVisibilityChangeListener dRf;
+    private View dSD;
+    private int dSE;
+    private a dSF;
+    private View.OnSystemUiVisibilityChangeListener dSG;
+    private boolean dSy;
     @NonNull
     private Activity mActivity;
     @Nullable
@@ -35,11 +35,11 @@ public class b {
     private ViewGroup mRootView;
 
     static {
-        dAV = 0;
+        dCw = 0;
         if (TextUtils.equals(Build.MANUFACTURER, "Xiaomi")) {
-            dAV = 1;
+            dCw = 1;
         } else if (TextUtils.equals(Build.MANUFACTURER, "Meizu")) {
-            dAV = 2;
+            dCw = 2;
         }
     }
 
@@ -48,7 +48,7 @@ public class b {
     }
 
     public b(@NonNull Activity activity, @NonNull ViewGroup viewGroup) {
-        this.dRd = 1;
+        this.dSE = 1;
         this.mActivity = activity;
         this.mRootView = viewGroup;
         this.mContentView = this.mRootView.getChildAt(0);
@@ -60,59 +60,59 @@ public class b {
 
     public void a(int i, boolean z, boolean z2, boolean z3) {
         a a2;
-        if (dAU) {
+        if (dCv) {
             if (i == 1) {
-                if (this.dRd != 1) {
+                if (this.dSE != 1) {
                     reset();
                 }
-                this.dRd = i;
-                a2 = aOR();
+                this.dSE = i;
+                a2 = aOU();
             } else {
-                this.dRd = i;
-                a2 = a(i, ks(i), z3, z, z2);
-                this.dRe = a2;
+                this.dSE = i;
+                a2 = a(i, kt(i), z3, z, z2);
+                this.dSF = a2;
             }
-            this.dQX = z;
+            this.dSy = z;
             a(a2);
         }
     }
 
-    public void aoL() {
-        a(aOR());
+    public void aoO() {
+        a(aOU());
     }
 
     public void reset() {
-        this.dRe = null;
-        this.dRd = 1;
+        this.dSF = null;
+        this.dSE = 1;
     }
 
     @NonNull
-    public a aOR() {
-        if (this.dRe == null) {
-            aOV();
+    public a aOU() {
+        if (this.dSF == null) {
+            aOY();
         }
-        return this.dRe;
+        return this.dSF;
     }
 
     @Nullable
-    public View aOS() {
-        return this.dRc;
+    public View aOV() {
+        return this.dSD;
     }
 
-    public boolean aOT() {
-        return this.dQX;
+    public boolean aOW() {
+        return this.dSy;
     }
 
     private void a(@NonNull a aVar) {
-        if (dAV == 2) {
+        if (dCw == 2) {
             c(aVar);
         } else {
-            aOU();
+            aOX();
             b(aVar);
         }
         if (this.mContentView != null) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mContentView.getLayoutParams();
-            if (aVar.dQX) {
+            if (aVar.dSy) {
                 layoutParams.topMargin = 0;
             } else {
                 layoutParams.topMargin = ah.getStatusBarHeight();
@@ -121,15 +121,15 @@ public class b {
         }
     }
 
-    private void aOU() {
+    private void aOX() {
         Window window = this.mActivity.getWindow();
         window.clearFlags(1024);
         if (Build.VERSION.SDK_INT >= 21) {
             window.clearFlags(67108864);
             window.addFlags(Integer.MIN_VALUE);
-            switch (dAV) {
+            switch (dCw) {
                 case 1:
-                    d(window, aOR().dQV);
+                    d(window, aOU().dSw);
                     return;
                 default:
                     return;
@@ -143,37 +143,37 @@ public class b {
         int i;
         int i2;
         Window window = this.mActivity.getWindow();
-        if (aVar.dQU) {
+        if (aVar.dSv) {
         }
-        if (aVar.dQV) {
+        if (aVar.dSw) {
             i = 13312;
         } else {
             i = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
         }
-        if (!aVar.dQW) {
+        if (!aVar.dSx) {
             i2 = i & (-257);
         } else {
             i2 = i | 256;
         }
-        int i3 = aVar.dQT;
+        int i3 = aVar.dSu;
         if (i3 == 1) {
-            i3 = aOW();
+            i3 = aOZ();
         }
         window.getDecorView().setSystemUiVisibility(i2);
         if (Build.VERSION.SDK_INT >= 21) {
-            window.setStatusBarColor(aVar.dQS);
+            window.setStatusBarColor(aVar.dSt);
         }
         View d = d(aVar);
         if (d != null) {
             d.setBackgroundColor(i3);
         }
-        if (this.dRf == null) {
-            this.dRf = new View.OnSystemUiVisibilityChangeListener() { // from class: com.baidu.swan.apps.view.a.b.1
+        if (this.dSG == null) {
+            this.dSG = new View.OnSystemUiVisibilityChangeListener() { // from class: com.baidu.swan.apps.view.a.b.1
                 @Override // android.view.View.OnSystemUiVisibilityChangeListener
                 public void onSystemUiVisibilityChange(int i4) {
                 }
             };
-            window.getDecorView().setOnSystemUiVisibilityChangeListener(this.dRf);
+            window.getDecorView().setOnSystemUiVisibilityChangeListener(this.dSG);
         }
     }
 
@@ -189,16 +189,16 @@ public class b {
             declaredField2.setAccessible(true);
             int i2 = declaredField.getInt(null);
             int i3 = declaredField2.getInt(attributes);
-            if (aVar.dQV) {
+            if (aVar.dSw) {
                 i = i2 | i3;
             } else {
                 i = (i2 ^ (-1)) & i3;
             }
             declaredField2.setInt(attributes, i);
             window.setAttributes(attributes);
-            int i4 = aVar.dQT;
+            int i4 = aVar.dSu;
             if (i4 == 1) {
-                i4 = aOW();
+                i4 = aOZ();
             }
             View d = d(aVar);
             if (d != null) {
@@ -230,16 +230,16 @@ public class b {
     }
 
     private View d(@NonNull a aVar) {
-        if (aVar.dQY) {
-            if (this.dRc != null) {
-                if (!aVar.dQW) {
-                    this.mRootView.removeView(this.dRc);
-                    this.dRc = null;
+        if (aVar.dSz) {
+            if (this.dSD != null) {
+                if (!aVar.dSx) {
+                    this.mRootView.removeView(this.dSD);
+                    this.dSD = null;
                     return null;
                 }
-                return this.dRc;
-            } else if (!aVar.dQW) {
-                this.dRc = null;
+                return this.dSD;
+            } else if (!aVar.dSx) {
+                this.dSD = null;
                 return null;
             } else {
                 int statusBarHeight = ah.getStatusBarHeight();
@@ -247,27 +247,27 @@ public class b {
                 view.setTag("IMMERSION_VIEW");
                 view.setId(a.f.immersion_custom_statusbar_view);
                 this.mRootView.addView(view, new ViewGroup.LayoutParams(-1, statusBarHeight));
-                this.dRc = view;
+                this.dSD = view;
                 return view;
             }
         }
         return null;
     }
 
-    private void aOV() {
-        int aOW = aOW();
-        this.dRe = a(aOW, ks(aOW), false, false, true);
+    private void aOY() {
+        int aOZ = aOZ();
+        this.dSF = a(aOZ, kt(aOZ), false, false, true);
     }
 
     private a a(int i, int i2, boolean z, boolean z2, boolean z3) {
-        return a.C0477a.aOP().hC(z).hD(true).hB(false).kq(i2).kr(i).hE(z2).hF(z3).aOQ();
+        return a.C0483a.aOS().hC(z).hD(true).hB(false).kr(i2).ks(i).hE(z2).hF(z3).aOT();
     }
 
-    private int aOW() {
+    private int aOZ() {
         return Build.VERSION.SDK_INT >= 21 ? this.mActivity.getResources().getColor(a.c.aiapps_statusbar_immersion_bg) : this.mActivity.getResources().getColor(a.c.aiapps_statusbar_immersion_bg_below_lollipop);
     }
 
-    private int ks(int i) {
+    private int kt(int i) {
         if (Build.VERSION.SDK_INT >= 23) {
             return 0;
         }
@@ -282,7 +282,7 @@ public class b {
         return i;
     }
 
-    private static boolean aHI() {
+    private static boolean aHL() {
         return Build.VERSION.SDK_INT >= 21;
     }
 }

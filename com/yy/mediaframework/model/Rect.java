@@ -1,7 +1,7 @@
 package com.yy.mediaframework.model;
 
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class Rect {
     public float bottom;
     public float left;

@@ -4,71 +4,71 @@ import android.text.TextUtils;
 import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String dgI;
-    public com.baidu.swan.apps.ao.e.b<b> dgJ;
-    private final List<a> dgK = new ArrayList();
-    private String dgL = b.class.getPackage().getName();
+    private String dik;
+    public com.baidu.swan.apps.ao.e.b<b> dil;
+    private final List<a> dim = new ArrayList();
+    private String din = b.class.getPackage().getName();
 
-    public b pi(String str) {
-        this.dgI = str;
+    public b pp(String str) {
+        this.dik = str;
         return this;
     }
 
-    public String azE() {
-        return this.dgI;
+    public String azH() {
+        return this.dik;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized List<a> azF() {
-        return new ArrayList(this.dgK);
+    public synchronized List<a> azI() {
+        return new ArrayList(this.dim);
     }
 
-    public synchronized a azB() {
+    public synchronized a azE() {
         a aVar;
         aVar = new a();
-        this.dgK.add(aVar);
+        this.dim.add(aVar);
         return aVar;
     }
 
-    public synchronized a ph(String str) {
-        return azB().pk(str);
+    public synchronized a po(String str) {
+        return azE().pr(str);
     }
 
     public synchronized a bU(String str, String str2) {
-        return ph(str2).pj(str);
+        return po(str2).pq(str);
     }
 
     public b q(com.baidu.swan.apps.ao.e.b<b> bVar) {
-        this.dgJ = bVar;
+        this.dil = bVar;
         return this;
     }
 
-    public synchronized b azG() {
-        return r(this.dgJ);
+    public synchronized b azJ() {
+        return r(this.dil);
     }
 
     public synchronized b r(com.baidu.swan.apps.ao.e.b<b> bVar) {
         if (bVar == null) {
-            bVar = new C0475b();
+            bVar = new C0481b();
         }
-        bVar.L(this);
+        bVar.N(this);
         return this;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a {
-        final List<String> dgM;
-        private final List<StackTraceElement> dgN;
+        final List<String> dio;
+        private final List<StackTraceElement> dip;
         final List<String> msgs;
         String tag;
 
         private a() {
             this.msgs = new ArrayList();
-            this.dgM = new ArrayList();
-            this.dgN = new ArrayList();
+            this.dio = new ArrayList();
+            this.dip = new ArrayList();
             StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
             int length = stackTrace.length;
             int i = 0;
@@ -76,20 +76,20 @@ public final class b {
             while (i < length) {
                 StackTraceElement stackTraceElement = stackTrace[i];
                 int i3 = i2 + 1;
-                if (i3 > 2 && !stackTraceElement.getClassName().startsWith(b.this.dgL)) {
-                    this.dgN.add(stackTraceElement);
+                if (i3 > 2 && !stackTraceElement.getClassName().startsWith(b.this.din)) {
+                    this.dip.add(stackTraceElement);
                 }
                 i++;
                 i2 = i3;
             }
         }
 
-        public a pj(String str) {
+        public a pq(String str) {
             this.tag = str;
             return this;
         }
 
-        public synchronized a pk(String str) {
+        public synchronized a pr(String str) {
             List<String> list = this.msgs;
             if (TextUtils.isEmpty(str)) {
                 str = "";
@@ -98,42 +98,42 @@ public final class b {
             return this;
         }
 
-        public synchronized a azH() {
-            return hT(this.dgN.size());
+        public synchronized a azK() {
+            return hU(this.dip.size());
         }
 
-        public synchronized a hT(int i) {
+        public synchronized a hU(int i) {
             synchronized (this) {
                 int i2 = i >= 1 ? i : 1;
-                int size = i2 > this.dgN.size() ? this.dgN.size() : i2;
+                int size = i2 > this.dip.size() ? this.dip.size() : i2;
                 for (int i3 = 0; i3 < size; i3++) {
-                    b.this.ph("[Trace]==> " + this.dgN.get(i3).toString());
+                    b.this.po("[Trace]==> " + this.dip.get(i3).toString());
                 }
             }
             return this;
         }
 
-        public synchronized a azI() {
-            return hT(1);
+        public synchronized a azL() {
+            return hU(1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.u.e.b$b  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public class C0475b implements com.baidu.swan.apps.ao.e.b<b> {
-        private C0475b() {
+    /* loaded from: classes8.dex */
+    public class C0481b implements com.baidu.swan.apps.ao.e.b<b> {
+        private C0481b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.ao.e.b
         /* renamed from: a */
-        public void L(b bVar) {
+        public void N(b bVar) {
             if (b.DEBUG) {
-                for (a aVar : bVar.dgK) {
+                for (a aVar : bVar.dim) {
                     for (String str : aVar.msgs) {
-                        String azE = bVar.azE();
-                        B(TextUtils.isEmpty(aVar.tag) ? azE : aVar.tag, azE + " >>> " + str);
+                        String azH = bVar.azH();
+                        B(TextUtils.isEmpty(aVar.tag) ? azH : aVar.tag, azH + " >>> " + str);
                     }
                 }
             }

@@ -1,29 +1,29 @@
 package com.baidu.tieba.im.forum.broadcast.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ForumBroadcastMajorResidueData extends OrmObject {
-    private int kFX;
-    private int kFY;
-    private int kFZ;
+    private int kHZ;
+    private int kIa;
+    private int kIb;
 
-    public int cWj() {
-        return this.kFX;
+    public int cWq() {
+        return this.kHZ;
     }
 
-    public void CV(int i) {
-        this.kFX = i;
+    public void CY(int i) {
+        this.kHZ = i;
     }
 
-    public int cWk() {
-        return this.kFY;
+    public int cWr() {
+        return this.kIa;
     }
 
-    public void CW(int i) {
-        this.kFY = i;
+    public void CZ(int i) {
+        this.kIa = i;
     }
 
-    public void CX(int i) {
-        this.kFZ = i;
+    public void Da(int i) {
+        this.kIb = i;
     }
 }

@@ -11,10 +11,8 @@ import java.util.List;
 public class g<DataType, ResourceType, Transcode> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Class<DataType> f10216a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final List<? extends com.kwad.sdk.glide.load.f<DataType, ResourceType>> f10217b;
+    private final Class<DataType> f6754a;
+    private final List<? extends com.kwad.sdk.glide.load.f<DataType, ResourceType>> b;
     private final com.kwad.sdk.glide.load.resource.e.e<ResourceType, Transcode> c;
     private final Pools.Pool<List<Throwable>> d;
     private final String e;
@@ -27,8 +25,8 @@ public class g<DataType, ResourceType, Transcode> {
     }
 
     public g(Class<DataType> cls, Class<ResourceType> cls2, Class<Transcode> cls3, List<? extends com.kwad.sdk.glide.load.f<DataType, ResourceType>> list, com.kwad.sdk.glide.load.resource.e.e<ResourceType, Transcode> eVar, Pools.Pool<List<Throwable>> pool) {
-        this.f10216a = cls;
-        this.f10217b = list;
+        this.f6754a = cls;
+        this.b = list;
         this.c = eVar;
         this.d = pool;
         this.e = "Failed DecodePath{" + cls.getSimpleName() + PerfFrameTrackUIUtil.SEPERATOR_ARROR + cls2.getSimpleName() + PerfFrameTrackUIUtil.SEPERATOR_ARROR + cls3.getSimpleName() + "}";
@@ -47,9 +45,9 @@ public class g<DataType, ResourceType, Transcode> {
     @NonNull
     private s<ResourceType> a(com.kwad.sdk.glide.load.a.e<DataType> eVar, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar2, List<Throwable> list) {
         s<ResourceType> sVar = null;
-        int size = this.f10217b.size();
+        int size = this.b.size();
         for (int i3 = 0; i3 < size; i3++) {
-            com.kwad.sdk.glide.load.f<DataType, ResourceType> fVar = this.f10217b.get(i3);
+            com.kwad.sdk.glide.load.f<DataType, ResourceType> fVar = this.b.get(i3);
             try {
                 sVar = fVar.a(eVar.a(), eVar2) ? fVar.a(eVar.a(), i, i2, eVar2) : sVar;
             } catch (IOException | OutOfMemoryError | RuntimeException e) {
@@ -73,6 +71,6 @@ public class g<DataType, ResourceType, Transcode> {
     }
 
     public String toString() {
-        return "DecodePath{ dataClass=" + this.f10216a + ", decoders=" + this.f10217b + ", transcoder=" + this.c + '}';
+        return "DecodePath{ dataClass=" + this.f6754a + ", decoders=" + this.b + ", transcoder=" + this.c + '}';
     }
 }

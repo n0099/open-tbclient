@@ -8,13 +8,13 @@ import com.baidu.tieba.card.g;
 import com.baidu.tieba.card.holder.CardViewHolder;
 /* loaded from: classes2.dex */
 public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.e, CardViewHolder<g>> {
-    private g jzE;
+    private g jBn;
     private String mForumId;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.e.iEo);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.e.iFX);
         this.mPageContext = tbPageContext;
         this.mForumId = str;
     }
@@ -24,20 +24,20 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.e, Card
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aX */
     public CardViewHolder<g> e(ViewGroup viewGroup) {
-        this.jzE = new g(this.mPageContext);
-        this.jzE.setForumId(this.mForumId);
-        return new CardViewHolder<>(this.jzE);
+        this.jBn = new g(this.mPageContext);
+        this.jBn.setForumId(this.mForumId);
+        return new CardViewHolder<>(this.jBn);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.e eVar, CardViewHolder<g> cardViewHolder) {
-        if (cardViewHolder.cti() == null) {
+        if (cardViewHolder.cto() == null) {
             return null;
         }
-        cardViewHolder.cti().a(eVar);
-        cardViewHolder.cti().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        return cardViewHolder.cti().getView();
+        cardViewHolder.cto().a(eVar);
+        cardViewHolder.cto().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        return cardViewHolder.cto().getView();
     }
 }

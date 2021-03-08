@@ -11,14 +11,14 @@ public class RequestGetTopicListMessage extends NetMessage {
     private String callFrom;
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f5337common;
+    private CommonReq f3590common;
 
     public RequestGetTopicListMessage() {
         super(CmdConfigHttp.CMD_TOPIC_LIST, 309628);
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f5337common = commonReq;
+        this.f3590common = commonReq;
     }
 
     public void setCallFrom(String str) {
@@ -28,7 +28,7 @@ public class RequestGetTopicListMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f14646common = this.f5337common;
+        builder.f8876common = this.f3590common;
         builder.call_from = this.callFrom;
         if (z) {
             v.b(builder, true);

@@ -15,10 +15,10 @@ public class b implements n {
     private String cur_time;
     private ForumInfo forum;
     private Long forum_rule_id;
-    private a jvA;
-    private int jvx;
-    private boolean jvy;
-    private d jvz;
+    private int jxg;
+    private boolean jxh;
+    private d jxi;
+    private a jxj;
     private String preface;
     private String publish_time;
     private List<ForumRule> rules;
@@ -30,21 +30,21 @@ public class b implements n {
             this.title = dataRes.title;
             this.preface = dataRes.preface;
             this.rules = dataRes.rules;
-            this.jvx = dataRes.audit_status.intValue();
+            this.jxg = dataRes.audit_status.intValue();
             this.audit_opinion = dataRes.audit_opinion;
-            this.jvy = dataRes.is_manager.intValue() == 1;
+            this.jxh = dataRes.is_manager.intValue() == 1;
             this.forum_rule_id = dataRes.forum_rule_id;
             this.publish_time = dataRes.publish_time;
             this.bazhu = dataRes.bazhu;
             this.cur_time = dataRes.cur_time;
-            this.jvz = new d();
-            this.jvz.a(dataRes);
-            this.jvA = new a();
-            this.jvA.a(dataRes);
+            this.jxi = new d();
+            this.jxi.a(dataRes);
+            this.jxj = new a();
+            this.jxj.a(dataRes);
         }
     }
 
-    public ForumInfo cHf() {
+    public ForumInfo cHl() {
         return this.forum;
     }
 
@@ -56,27 +56,27 @@ public class b implements n {
         return this.preface;
     }
 
-    public List<ForumRule> cHg() {
+    public List<ForumRule> cHm() {
         return this.rules;
     }
 
-    public int cHh() {
-        return this.jvx;
+    public int cHn() {
+        return this.jxg;
     }
 
-    public String cHi() {
+    public String cHo() {
         return this.audit_opinion;
     }
 
-    public boolean cHj() {
-        return this.jvy;
+    public boolean cHp() {
+        return this.jxh;
     }
 
-    public String cHe() {
+    public String cHk() {
         return this.publish_time;
     }
 
-    public BawuRoleInfoPub cHk() {
+    public BawuRoleInfoPub cHq() {
         return this.bazhu;
     }
 
@@ -89,19 +89,19 @@ public class b implements n {
     }
 
     public void ri(boolean z) {
-        this.jvy = z;
+        this.jxh = z;
     }
 
     public void b(BawuRoleInfoPub bawuRoleInfoPub) {
         this.bazhu = bawuRoleInfoPub;
     }
 
-    public String cHl() {
+    public String cHr() {
         return this.cur_time;
     }
 
-    public a cHm() {
-        return this.jvA;
+    public a cHs() {
+        return this.jxj;
     }
 
     @Override // com.baidu.adp.widget.ListView.n

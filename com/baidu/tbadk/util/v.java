@@ -77,17 +77,17 @@ public class v {
                 }
                 builder.pversion = "1.0.3";
                 builder.lego_lib_version = TbConfig.getLegoLibVersion();
-                if (com.baidu.tbadk.core.sharedPref.b.brQ().getInt(SharedPrefConfig.ANDROID_SAFE_SDK_OPEN, 0) == 1) {
+                if (com.baidu.tbadk.core.sharedPref.b.brR().getInt(SharedPrefConfig.ANDROID_SAFE_SDK_OPEN, 0) == 1) {
                     builder.z_id = TbadkCoreApplication.getInst().getZid();
                 }
                 builder.net_type = Integer.valueOf(com.baidu.adp.lib.util.j.netType());
-                builder.oaid = com.baidu.helios.b.aj(TbadkCoreApplication.getInst()).uC();
+                builder.oaid = com.baidu.helios.b.ai(TbadkCoreApplication.getInst()).uF();
                 builder.sample_id = TbSingleton.getInstance().getSampleId();
-                builder.is_teenager = Integer.valueOf(com.baidu.tbadk.youngster.b.c.bJf() ? 1 : 0);
+                builder.is_teenager = Integer.valueOf(com.baidu.tbadk.youngster.b.c.bJj() ? 1 : 0);
                 builder.sdk_ver = TbadkCoreApplication.getInst().getSdk_ver();
                 builder.framework_ver = TbadkCoreApplication.getInst().getFramework_ver();
                 builder.swan_game_ver = TbadkCoreApplication.getInst().getSwan_game_ver();
-                builder.q_type = Integer.valueOf(com.baidu.tbadk.core.k.bkT().getViewImageQuality());
+                builder.q_type = Integer.valueOf(com.baidu.tbadk.core.k.bkV().getViewImageQuality());
                 builder.scr_h = Integer.valueOf(com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst()));
                 builder.scr_w = Integer.valueOf(com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()));
                 builder.scr_dip = Double.valueOf(com.baidu.adp.lib.util.l.getEquipmentDensity(TbadkCoreApplication.getInst()));

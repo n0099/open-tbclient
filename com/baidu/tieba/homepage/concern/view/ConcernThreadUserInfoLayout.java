@@ -23,7 +23,7 @@ public class ConcernThreadUserInfoLayout extends ThreadUserInfoLayout {
     @Override // com.baidu.tbadk.core.view.ThreadUserInfoLayout
     public boolean setData(cb cbVar) {
         if (super.setData(cbVar)) {
-            this.aka.setVisibility(8);
+            this.alt.setVisibility(8);
             return true;
         }
         return false;
@@ -31,16 +31,16 @@ public class ConcernThreadUserInfoLayout extends ThreadUserInfoLayout {
 
     @Override // com.baidu.tbadk.core.view.ThreadUserInfoLayout
     protected void j(cb cbVar) {
-        if (cbVar == null || StringUtils.isNull(cbVar.blo())) {
-            this.akf.setVisibility(8);
+        if (cbVar == null || StringUtils.isNull(cbVar.blq())) {
+            this.aly.setVisibility(8);
             return;
         }
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.akf.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aly.getLayoutParams();
         if (layoutParams != null && layoutParams.bottomMargin != 0) {
             layoutParams.bottomMargin = 0;
-            this.akf.setLayoutParams(layoutParams);
+            this.aly.setLayoutParams(layoutParams);
         }
-        this.akf.setText(cbVar.blo());
-        this.akf.setVisibility(0);
+        this.aly.setText(cbVar.blq());
+        this.aly.setVisibility(0);
     }
 }

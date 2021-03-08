@@ -411,7 +411,7 @@ public class d {
         throw new SocketException();
     }
 
-    public static String bL(String str) {
+    public static String bP(String str) {
         if (k.isEmpty(str)) {
             return "";
         }

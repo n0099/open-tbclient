@@ -1,79 +1,79 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class l {
-    private int RJ;
-    private int RK;
-    private boolean RL;
-    private boolean RO;
-    private int RP;
-    private int RQ;
-    private boolean RR;
-    private boolean RT;
-    private String Rc;
+    private String Sx;
+    private int Ti;
+    private int Tj;
+    private boolean Tk;
+    private boolean Tl;
+    private int Tm;
+    private int Tn;
+    private boolean To;
+    private boolean Tp;
 
     public l() {
-        this.Rc = null;
-        this.RJ = 32768;
-        this.RK = 131072;
-        this.RL = false;
-        this.RO = true;
-        this.RP = 30000;
-        this.RQ = 30000;
-        this.RR = true;
-        this.RT = true;
-        this.Rc = null;
+        this.Sx = null;
+        this.Ti = 32768;
+        this.Tj = 131072;
+        this.Tk = false;
+        this.Tl = true;
+        this.Tm = 30000;
+        this.Tn = 30000;
+        this.To = true;
+        this.Tp = true;
+        this.Sx = null;
     }
 
     public l(l lVar) {
-        this.Rc = null;
-        this.RJ = lVar.RJ;
-        this.RK = lVar.RK;
-        this.RL = lVar.RL;
-        this.RO = lVar.RO;
-        this.RP = lVar.RP;
-        this.RQ = lVar.RQ;
-        this.RR = lVar.RR;
-        this.RT = lVar.RT;
-        this.Rc = lVar.Rc;
+        this.Sx = null;
+        this.Ti = lVar.Ti;
+        this.Tj = lVar.Tj;
+        this.Tk = lVar.Tk;
+        this.Tl = lVar.Tl;
+        this.Tm = lVar.Tm;
+        this.Tn = lVar.Tn;
+        this.To = lVar.To;
+        this.Tp = lVar.Tp;
+        this.Sx = lVar.Sx;
     }
 
     public boolean op() {
-        return this.RL;
+        return this.Tk;
     }
 
     public int oq() {
-        return this.RJ;
+        return this.Ti;
     }
 
     public int or() {
-        return this.RK;
+        return this.Tj;
     }
 
     public boolean os() {
-        return this.RO;
+        return this.Tl;
     }
 
     public int ot() {
-        return this.RP;
+        return this.Tm;
     }
 
     public int ou() {
-        return this.RQ;
+        return this.Tn;
     }
 
     public boolean ov() {
-        return this.RR;
+        return this.To;
     }
 
     public boolean ow() {
-        return this.RT;
+        return this.Tp;
     }
 
     public String ox() {
-        return this.Rc;
+        return this.Sx;
     }
 
-    public void ch(String str) {
-        this.Rc = str;
+    public void cl(String str) {
+        this.Sx = str;
     }
 }

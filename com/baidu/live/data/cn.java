@@ -1,15 +1,15 @@
 package com.baidu.live.data;
 
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class cn {
-    public int aQt;
-    public int aRp;
-    public int aRq;
+    public int aRT;
+    public int aSP;
+    public int aSQ;
 
     public cn(JSONObject jSONObject) {
-        this.aRp = jSONObject.optInt("show_times_daily");
-        this.aRq = jSONObject.optInt("continue_show_times");
-        this.aQt = jSONObject.optInt("condition");
+        this.aSP = jSONObject.optInt("show_times_daily");
+        this.aSQ = jSONObject.optInt("continue_show_times");
+        this.aRT = jSONObject.optInt("condition");
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.sapi2.shell.listener;
 
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.utils.enums.AccountType;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public abstract class AuthorizationListener {
     public void beforeSuccess(SapiAccount sapiAccount) {
     }

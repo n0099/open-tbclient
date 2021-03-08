@@ -8,9 +8,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class ad implements aj<com.baidu.live.lottie.model.content.h> {
-    public static final ad buF = new ad();
+    public static final ad bwf = new ad();
 
     private ad() {
     }

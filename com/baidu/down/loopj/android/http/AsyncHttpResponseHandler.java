@@ -2,7 +2,7 @@ package com.baidu.down.loopj.android.http;
 
 import android.os.Message;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AsyncHttpResponseHandler {
     protected static final int DOWNLOAD_MESSAGE = 4;
     protected static final int FAILURE_MESSAGE = 1;

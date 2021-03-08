@@ -1,7 +1,7 @@
 package com.yy.mediaframework.screenshot;
 
 import android.graphics.Bitmap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface ScreenShotCallback {
     void onError(Throwable th);
 

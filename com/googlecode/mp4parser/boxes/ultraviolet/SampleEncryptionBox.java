@@ -1,7 +1,7 @@
 package com.googlecode.mp4parser.boxes.ultraviolet;
 
 import com.googlecode.mp4parser.boxes.AbstractSampleEncryptionBox;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SampleEncryptionBox extends AbstractSampleEncryptionBox {
     public static final String TYPE = "senc";
 

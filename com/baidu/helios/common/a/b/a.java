@@ -1,9 +1,9 @@
 package com.baidu.helios.common.a.b;
 
 import java.math.BigInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public interface a {
-    BigInteger vc();
+    BigInteger vf();
 
-    BigInteger vd();
+    BigInteger vg();
 }

@@ -14,16 +14,16 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements com.baidu.live.v.a {
-    ab bxN;
-    boolean ifp = false;
-    CustomMessageListener ifq = new CustomMessageListener(2913263) { // from class: com.baidu.tieba.ala.poke.a.1
+    ab bzn;
+    boolean igY = false;
+    CustomMessageListener igZ = new CustomMessageListener(2913263) { // from class: com.baidu.tieba.ala.poke.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() != null) {
-                a.this.ifp = ((Boolean) customResponsedMessage.getData()).booleanValue();
+                a.this.igY = ((Boolean) customResponsedMessage.getData()).booleanValue();
             }
         }
     };
@@ -36,41 +36,41 @@ public class a implements com.baidu.live.v.a {
 
     @Override // com.baidu.live.v.a
     public void b(ab abVar, String str) {
-        this.bxN = abVar;
+        this.bzn = abVar;
         this.mOtherParams = str;
-        MessageManager.getInstance().registerListener(this.ifq);
-        cos();
+        MessageManager.getInstance().registerListener(this.igZ);
+        coy();
     }
 
     @Override // com.baidu.live.v.a
     public void a(ab abVar) {
-        this.bxN = abVar;
+        this.bzn = abVar;
     }
 
     @Override // com.baidu.live.v.a
-    public void hs(String str) {
-        if (!this.ifp) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new r(this.mContext, this.bxN, this.mOtherParams, str)));
+    public void hy(String str) {
+        if (!this.igY) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new r(this.mContext, this.bzn, this.mOtherParams, str)));
             return;
         }
         BdUtilHelper.showToast(this.mContext, this.mContext.getString(a.h.sdk_poke_not_poke_twice));
     }
 
     @Override // com.baidu.live.v.a
-    public void xh() {
-        this.ifp = false;
-        MessageManager.getInstance().unRegisterListener(this.ifq);
+    public void xk() {
+        this.igY = false;
+        MessageManager.getInstance().unRegisterListener(this.igZ);
         MessageManager.getInstance().unRegisterTask(1021227);
     }
 
     @Override // com.baidu.live.v.a
     public void onDestroy() {
-        this.ifp = false;
-        MessageManager.getInstance().unRegisterListener(this.ifq);
+        this.igY = false;
+        MessageManager.getInstance().unRegisterListener(this.igZ);
         MessageManager.getInstance().unRegisterTask(1021227);
     }
 
-    private void cos() {
+    private void coy() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021227, TbConfig.SERVER_ADDRESS + "ala/live/poke");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);

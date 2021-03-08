@@ -8,15 +8,13 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.Keep;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class sysParamters {
-    private static volatile sysParamters pmH;
+    private static volatile sysParamters poP;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f5769a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f5770b;
+    private String f3895a;
+    private String b;
     private String c;
     private String d = "Android";
     @Keep
@@ -46,15 +44,15 @@ public class sysParamters {
         return a2.versionName;
     }
 
-    public static sysParamters ens() {
-        if (pmH == null) {
+    public static sysParamters enC() {
+        if (poP == null) {
             synchronized (sysParamters.class) {
-                if (pmH == null) {
-                    pmH = new sysParamters();
+                if (poP == null) {
+                    poP = new sysParamters();
                 }
             }
         }
-        return pmH;
+        return poP;
     }
 
     public static String f() {
@@ -71,11 +69,11 @@ public class sysParamters {
     }
 
     public String b() {
-        if (TextUtils.isEmpty(this.f5769a)) {
-            this.f5769a = a(b.a());
-            return this.f5769a;
+        if (TextUtils.isEmpty(this.f3895a)) {
+            this.f3895a = a(b.a());
+            return this.f3895a;
         }
-        return this.f5769a;
+        return this.f3895a;
     }
 
     public String c() {
@@ -83,12 +81,12 @@ public class sysParamters {
     }
 
     public String d() {
-        if (TextUtils.isEmpty(this.f5770b)) {
-            this.f5770b = Build.MODEL;
-            this.f5770b = this.f5770b.replace(" ", Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-            return this.f5770b;
+        if (TextUtils.isEmpty(this.b)) {
+            this.b = Build.MODEL;
+            this.b = this.b.replace(" ", Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+            return this.b;
         }
-        return this.f5770b;
+        return this.b;
     }
 
     public String e() {

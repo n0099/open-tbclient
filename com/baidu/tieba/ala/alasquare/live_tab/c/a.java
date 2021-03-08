@@ -9,12 +9,12 @@ import com.baidu.tieba.ala.alasquare.live_tab.message.AlaTabLiveResponsedMessage
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class a {
     private boolean hasMore = false;
-    private List<String> gDR = new ArrayList();
-    private List<SdkLiveInfoData> gDS = new ArrayList();
-    private List<n> gDT = new ArrayList();
+    private List<String> gFA = new ArrayList();
+    private List<SdkLiveInfoData> gFB = new ArrayList();
+    private List<n> gFC = new ArrayList();
 
     public a(AlaTabLiveResponsedMessage alaTabLiveResponsedMessage) {
         a(alaTabLiveResponsedMessage.tabAllLiveInfo);
@@ -24,16 +24,16 @@ public class a {
         if (jVar == null) {
             return false;
         }
-        boolean b2 = b(jVar);
+        boolean b = b(jVar);
         this.hasMore = jVar.hasMore;
-        return b2;
+        return b;
     }
 
     private boolean b(j jVar) {
         if (jVar == null) {
             return false;
         }
-        ArrayList<SdkLiveInfoData> arrayList = jVar.gAW;
+        ArrayList<SdkLiveInfoData> arrayList = jVar.gCF;
         if (y.isEmpty(arrayList)) {
             return false;
         }
@@ -43,18 +43,18 @@ public class a {
             SdkLiveInfoData next = it.next();
             if (next != null && com.baidu.tieba.ala.alasquare.live_tab.c.a(next)) {
                 String str = next.liveId;
-                if (!this.gDR.contains(str)) {
+                if (!this.gFA.contains(str)) {
                     arrayList2.add(next);
-                    this.gDR.add(str);
+                    this.gFA.add(str);
                 }
             }
         }
         if (y.isEmpty(arrayList2)) {
             return false;
         }
-        this.gDS.addAll(arrayList2);
-        this.gDT = cg(this.gDS);
-        return !y.isEmpty(this.gDT);
+        this.gFB.addAll(arrayList2);
+        this.gFC = cg(this.gFB);
+        return !y.isEmpty(this.gFC);
     }
 
     private ArrayList<n> cg(List<SdkLiveInfoData> list) {
@@ -63,17 +63,17 @@ public class a {
         for (int i = 0; i < size; i += 2) {
             e eVar = new e();
             com.baidu.tieba.ala.alasquare.a.a aVar = new com.baidu.tieba.ala.alasquare.a.a();
-            aVar.gyL = list.get(i);
+            aVar.gAu = list.get(i);
             aVar.isLeft = true;
-            eVar.gBa = aVar;
+            eVar.gCJ = aVar;
             if (i + 1 < size) {
                 com.baidu.tieba.ala.alasquare.a.a aVar2 = new com.baidu.tieba.ala.alasquare.a.a();
-                aVar2.gyL = list.get(i + 1);
-                eVar.gBb = aVar2;
+                aVar2.gAu = list.get(i + 1);
+                eVar.gCK = aVar2;
                 aVar2.isRight = true;
             } else {
                 aVar.isLeft = false;
-                aVar.gyM = true;
+                aVar.gAv = true;
             }
             arrayList.add(eVar);
         }
@@ -86,22 +86,22 @@ public class a {
 
     public List<n> getData() {
         ArrayList arrayList = new ArrayList();
-        if (!y.isEmpty(this.gDT)) {
-            arrayList.addAll(this.gDT);
+        if (!y.isEmpty(this.gFC)) {
+            arrayList.addAll(this.gFC);
         }
         return arrayList;
     }
 
     public void clear() {
         this.hasMore = false;
-        if (this.gDR != null) {
-            this.gDR.clear();
+        if (this.gFA != null) {
+            this.gFA.clear();
         }
-        if (this.gDS != null) {
-            this.gDS.clear();
+        if (this.gFB != null) {
+            this.gFB.clear();
         }
-        if (this.gDT != null) {
-            this.gDT.clear();
+        if (this.gFC != null) {
+            this.gFC.clear();
         }
     }
 }

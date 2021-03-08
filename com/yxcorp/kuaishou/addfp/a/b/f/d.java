@@ -16,11 +16,9 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes3.dex */
 public final class d {
     private Context e;
-    private com.yxcorp.kuaishou.addfp.a.b.b qmm;
-    public a qml = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f14361b = null;
+    private com.yxcorp.kuaishou.addfp.a.b.b qmO;
+    public a qmN = null;
+    private String b = null;
     private String c = null;
     private CountDownLatch f = new CountDownLatch(1);
     private ServiceConnection g = new e(this);
@@ -29,9 +27,9 @@ public final class d {
     private void a(boolean z) {
         try {
             if (z) {
-                this.qmm.a(this.qml);
+                this.qmO.a(this.qmN);
             } else {
-                this.qmm.e();
+                this.qmO.e();
             }
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -60,29 +58,29 @@ public final class d {
         String str2 = null;
         try {
             if (this.h) {
-                if (TextUtils.isEmpty(this.f14361b)) {
-                    this.f14361b = context.getPackageName();
+                if (TextUtils.isEmpty(this.b)) {
+                    this.b = context.getPackageName();
                 }
                 if (TextUtils.isEmpty(this.c)) {
-                    Signature[] signatureArr = context.getPackageManager().getPackageInfo(this.f14361b, 64).signatures;
+                    Signature[] signatureArr = context.getPackageManager().getPackageInfo(this.b, 64).signatures;
                     if (signatureArr != null && signatureArr.length > 0) {
                         byte[] byteArray = signatureArr[0].toByteArray();
                         MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
                         if (messageDigest != null) {
                             byte[] digest = messageDigest.digest(byteArray);
                             StringBuilder sb = new StringBuilder();
-                            for (byte b2 : digest) {
-                                sb.append(Integer.toHexString((b2 & 255) | 256).substring(1, 3));
+                            for (byte b : digest) {
+                                sb.append(Integer.toHexString((b & 255) | 256).substring(1, 3));
                             }
                             str2 = sb.toString();
                         }
                     }
                     this.c = str2;
                 }
-                if (TextUtils.isEmpty(this.c) || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f14361b)) {
+                if (TextUtils.isEmpty(this.c) || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.b)) {
                     return "";
                 }
-                String a2 = this.qml.a(this.f14361b, this.c, str);
+                String a2 = this.qmN.a(this.b, this.c, str);
                 return TextUtils.isEmpty(a2) ? "" : a2;
             }
             return "";
@@ -101,7 +99,7 @@ public final class d {
 
     public final void a(Context context, com.yxcorp.kuaishou.addfp.a.b.b bVar) {
         try {
-            this.qmm = bVar;
+            this.qmO = bVar;
             this.e = context;
             this.h = b(context);
             if (this.h) {
@@ -110,7 +108,7 @@ public final class d {
                 intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
                 if (context.bindService(intent, this.g, 1)) {
                     this.f.await(IMConnection.RETRY_DELAY_TIMES, TimeUnit.MILLISECONDS);
-                    if (this.qml != null) {
+                    if (this.qmN != null) {
                         a(true);
                     } else {
                         a(false);

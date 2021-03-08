@@ -3,7 +3,7 @@ package com.baidu.mobad.feeds;
 import com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class RequestParameters implements IXAdFeedsRequestParameters {
     public static final int ADS_TYPE_DOWNLOAD = 2;
     public static final int ADS_TYPE_OPENPAGE = 1;
@@ -15,10 +15,8 @@ public final class RequestParameters implements IXAdFeedsRequestParameters {
     public static final String TAG = "RequestParameters";
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f3230a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f3231b;
+    private final String f2322a;
+    private int b;
     private boolean c;
     private Map<String, String> d;
     private int e;
@@ -27,14 +25,12 @@ public final class RequestParameters implements IXAdFeedsRequestParameters {
     private boolean h;
     protected String mPlacementId;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f3232a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private Map<String, String> f3233b = new HashMap();
+        private String f2323a;
+        private Map<String, String> b = new HashMap();
         private int c = 3;
         private boolean d = false;
         private int e = 640;
@@ -71,9 +67,9 @@ public final class RequestParameters implements IXAdFeedsRequestParameters {
 
         public final Builder addExtra(String str, String str2) {
             if (ArticleInfo.PAGE_TITLE.equals(str)) {
-                this.f3233b.put("mpt", String.valueOf(1));
+                this.b.put("mpt", String.valueOf(1));
             }
-            this.f3233b.put(str, str2);
+            this.b.put(str, str2);
             return this;
         }
 
@@ -85,19 +81,19 @@ public final class RequestParameters implements IXAdFeedsRequestParameters {
     private RequestParameters(Builder builder) {
         this.e = 0;
         this.f = 0;
-        this.f3230a = builder.f3232a;
-        this.f3231b = builder.c;
+        this.f2322a = builder.f2323a;
+        this.b = builder.c;
         this.e = builder.e;
         this.f = builder.f;
         this.h = builder.h;
         this.c = builder.d;
         this.g = builder.g;
-        setExtras(builder.f3233b);
+        setExtras(builder.b);
     }
 
     @Override // com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters
     public final String getKeywords() {
-        return this.f3230a;
+        return this.f2322a;
     }
 
     public int getWidth() {
@@ -114,11 +110,11 @@ public final class RequestParameters implements IXAdFeedsRequestParameters {
 
     @Override // com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters
     public int getAdsType() {
-        return this.f3231b;
+        return this.b;
     }
 
     public void setAdsType(int i) {
-        this.f3231b = i;
+        this.b = i;
     }
 
     @Override // com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters
@@ -138,8 +134,8 @@ public final class RequestParameters implements IXAdFeedsRequestParameters {
     @Override // com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters
     public HashMap<String, Object> toHashMap() {
         HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("mKeywords", this.f3230a);
-        hashMap.put("adsType", Integer.valueOf(this.f3231b));
+        hashMap.put("mKeywords", this.f2322a);
+        hashMap.put("adsType", Integer.valueOf(this.b));
         hashMap.put("confirmDownloading", Boolean.valueOf(this.c));
         HashMap hashMap2 = new HashMap();
         if (this.d != null) {

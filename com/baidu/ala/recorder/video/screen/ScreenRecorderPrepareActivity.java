@@ -7,7 +7,7 @@ import android.media.projection.MediaProjection;
 import android.media.projection.MediaProjectionManager;
 import android.os.Bundle;
 import com.baidu.ala.tbadk.core.TbadkCoreApplicationProxy;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ScreenRecorderPrepareActivity extends Activity {
     private static final int REQUEST_CODE = 1;
     private MediaProjectionManager mMediaProjectionManager;

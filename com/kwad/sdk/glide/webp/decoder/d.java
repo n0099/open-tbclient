@@ -12,15 +12,13 @@ import java.nio.ByteBuffer;
 public class d implements com.kwad.sdk.glide.load.f<ByteBuffer, k> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<Boolean> f10374a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.webp.decoder.ByteBufferWebpDecoder.DisableAnimation", false);
-
-    /* renamed from: b  reason: collision with root package name */
-    private final Context f10375b;
+    public static final com.kwad.sdk.glide.load.d<Boolean> f6844a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.webp.decoder.ByteBufferWebpDecoder.DisableAnimation", false);
+    private final Context b;
     private final com.kwad.sdk.glide.load.engine.bitmap_recycle.e c;
     private final com.kwad.sdk.glide.load.resource.d.b d;
 
     public d(Context context, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar) {
-        this.f10375b = context.getApplicationContext();
+        this.b = context.getApplicationContext();
         this.c = eVar;
         this.d = new com.kwad.sdk.glide.load.resource.d.b(eVar, bVar);
     }
@@ -33,19 +31,19 @@ public class d implements com.kwad.sdk.glide.load.f<ByteBuffer, k> {
         byte[] bArr = new byte[remaining];
         byteBuffer.get(bArr, 0, remaining);
         WebpImage create = WebpImage.create(bArr);
-        i iVar = new i(this.d, create, byteBuffer, h.a(create.getWidth(), create.getHeight(), i, i2), (WebpFrameCacheStrategy) eVar.a(o.f10391a));
+        i iVar = new i(this.d, create, byteBuffer, h.a(create.getWidth(), create.getHeight(), i, i2), (WebpFrameCacheStrategy) eVar.a(o.f6853a));
         iVar.b();
         Bitmap h = iVar.h();
         if (h == null) {
             return null;
         }
-        return new m(new k(this.f10375b, iVar, this.c, com.kwad.sdk.glide.load.resource.b.a(), i, i2, h));
+        return new m(new k(this.b, iVar, this.c, com.kwad.sdk.glide.load.resource.b.a(), i, i2, h));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.f
     public boolean a(@NonNull ByteBuffer byteBuffer, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        if (((Boolean) eVar.a(f10374a)).booleanValue()) {
+        if (((Boolean) eVar.a(f6844a)).booleanValue()) {
             return false;
         }
         return WebpHeaderParser.c(WebpHeaderParser.a(byteBuffer));

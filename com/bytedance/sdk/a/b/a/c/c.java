@@ -6,7 +6,7 @@ import com.bytedance.sdk.a.b.b;
 import java.io.IOException;
 /* loaded from: classes6.dex */
 public interface c {
-    b.a Ba(boolean z) throws IOException;
+    b.a AZ(boolean z) throws IOException;
 
     r a(ab abVar, long j);
 

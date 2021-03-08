@@ -5,7 +5,7 @@ import androidx.annotation.RestrictTo;
 import java.io.InputStream;
 import java.io.OutputStream;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public class ParcelUtils {
     private ParcelUtils() {
     }

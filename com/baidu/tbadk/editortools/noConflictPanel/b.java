@@ -5,5 +5,5 @@ public interface b {
 
     void kT(boolean z);
 
-    void ra(int i);
+    void rb(int i);
 }

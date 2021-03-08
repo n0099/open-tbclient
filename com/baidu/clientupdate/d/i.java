@@ -3,14 +3,12 @@ package com.baidu.clientupdate.d;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class i implements ThreadFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    private final ThreadFactory f1678a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final String f1679b;
+    private final ThreadFactory f1370a;
+    private final String b;
     private final AtomicInteger c;
 
     public i(String str) {
@@ -19,17 +17,17 @@ public class i implements ThreadFactory {
 
     public i(String str, ThreadFactory threadFactory) {
         this.c = new AtomicInteger(0);
-        this.f1679b = str;
-        this.f1678a = threadFactory;
+        this.b = str;
+        this.f1370a = threadFactory;
     }
 
     private String a(int i) {
-        return String.format("%s-%d", this.f1679b, Integer.valueOf(i));
+        return String.format("%s-%d", this.b, Integer.valueOf(i));
     }
 
     @Override // java.util.concurrent.ThreadFactory
     public Thread newThread(Runnable runnable) {
-        Thread newThread = this.f1678a.newThread(runnable);
+        Thread newThread = this.f1370a.newThread(runnable);
         newThread.setName(a(this.c.getAndIncrement()));
         return newThread;
     }

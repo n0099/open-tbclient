@@ -6,29 +6,29 @@ import com.baidu.rtc.RtcParameterSettings;
 import com.baidu.rtc.g;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class BaiduRtcRoom {
-    private static ArrayList<com.baidu.rtc.a.a> ctc = new ArrayList<>();
+    private static ArrayList<com.baidu.rtc.a.a> cuH = new ArrayList<>();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public enum RtcLiveTransferMode {
         RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION,
         RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public enum RtcSoundMode {
         RTC_SOUND_MODE_SPEAKER,
         RTC_SOUND_MODE_EAR
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public enum RtcVideoFormat {
         RTC_VIDEO_FORMAT_YUV420,
         RTC_VIDEO_FORMAT_RGBA
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void onErrorInfoUpdate(int i);
 
@@ -39,26 +39,26 @@ public abstract class BaiduRtcRoom {
         void onRoomEventUpdate(int i, long j, String str);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void a(l lVar, long j);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class c {
         public long userId = 0;
         public String nicName = "";
         public int volumeLevel = 0;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class d {
         public String attribute;
         public long userId;
         public String userName;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class e {
     }
 
@@ -67,7 +67,7 @@ public abstract class BaiduRtcRoom {
             if (context != null) {
                 try {
                     com.baidu.rtc.a.a aVar = new com.baidu.rtc.a.a(context, str, str2, str3, z);
-                    ctc.add(aVar);
+                    cuH.add(aVar);
                     return aVar;
                 } finally {
                 }
@@ -110,7 +110,7 @@ public abstract class BaiduRtcRoom {
 
     public abstract void aZ(boolean z);
 
-    public abstract c[] aew();
+    public abstract c[] aez();
 
     public abstract boolean b(String str, boolean z, boolean z2, String str2, RtcLiveTransferMode rtcLiveTransferMode);
 
@@ -120,13 +120,15 @@ public abstract class BaiduRtcRoom {
 
     public abstract void d(long j, boolean z);
 
+    public abstract void d(boolean z, boolean z2, String str);
+
     public void destroy() {
         synchronized (this) {
-            if (ctc.size() > 0) {
+            if (cuH.size() > 0) {
                 if (this instanceof com.baidu.rtc.a.a) {
                     ((com.baidu.rtc.a.a) this).doDestroy();
                 }
-                ctc.remove(this);
+                cuH.remove(this);
                 System.gc();
             }
         }
@@ -144,9 +146,7 @@ public abstract class BaiduRtcRoom {
 
     public abstract void enableStatsToServer(boolean z, String str);
 
-    public abstract void f(boolean z, boolean z2, String str);
-
-    public abstract boolean ju(String str);
+    public abstract boolean jB(String str);
 
     public abstract boolean loginRtcRoomWithRoomName(String str, long j, String str2, boolean z);
 

@@ -4,78 +4,78 @@ import android.os.Debug;
 import android.os.SystemClock;
 import android.util.Printer;
 import com.baidu.android.imsdk.internal.IMConnection;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class g implements Printer {
-    private long pRg;
-    private long pRh = 0;
-    private long pRi = 0;
-    private a pRj;
-    private final boolean pRk;
+    private long pRV;
+    private long pRW = 0;
+    private long pRX = 0;
+    private a pRY;
+    private final boolean pRZ;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void d(long j, long j2, long j3, long j4);
     }
 
     public g(a aVar, long j, boolean z) {
-        this.pRg = IMConnection.RETRY_DELAY_TIMES;
-        this.pRj = null;
+        this.pRV = IMConnection.RETRY_DELAY_TIMES;
+        this.pRY = null;
         if (aVar == null) {
             throw new IllegalArgumentException("blockListener should not be null.");
         }
-        this.pRj = aVar;
-        this.pRg = j;
-        this.pRk = z;
+        this.pRY = aVar;
+        this.pRV = j;
+        this.pRZ = z;
     }
 
     @Override // android.util.Printer
     public void println(String str) {
-        if (!this.pRk || !Debug.isDebuggerConnected()) {
+        if (!this.pRZ || !Debug.isDebuggerConnected()) {
             if (str.charAt(0) == '>') {
-                this.pRh = System.currentTimeMillis();
-                this.pRi = SystemClock.currentThreadTimeMillis();
-                eAN();
+                this.pRW = System.currentTimeMillis();
+                this.pRX = SystemClock.currentThreadTimeMillis();
+                eAT();
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis();
             if (iR(currentTimeMillis)) {
                 iS(currentTimeMillis);
             }
-            eAO();
+            eAU();
         }
     }
 
     private boolean iR(long j) {
-        return j - this.pRh > this.pRg;
+        return j - this.pRW > this.pRV;
     }
 
     private void iS(final long j) {
-        final long j2 = this.pRh;
-        final long j3 = this.pRi;
+        final long j2 = this.pRW;
+        final long j3 = this.pRX;
         final long currentThreadTimeMillis = SystemClock.currentThreadTimeMillis();
-        e.eAL().post(new Runnable() { // from class: com.github.a.a.g.1
+        e.eAR().post(new Runnable() { // from class: com.github.a.a.g.1
             @Override // java.lang.Runnable
             public void run() {
-                g.this.pRj.d(j2, j, j3, currentThreadTimeMillis);
+                g.this.pRY.d(j2, j, j3, currentThreadTimeMillis);
             }
         });
     }
 
-    private void eAN() {
-        if (c.eAG().pQV != null) {
-            c.eAG().pQV.start();
+    private void eAT() {
+        if (c.eAM().pRK != null) {
+            c.eAM().pRK.start();
         }
-        if (c.eAG().pQW != null) {
-            c.eAG().pQW.start();
+        if (c.eAM().pRL != null) {
+            c.eAM().pRL.start();
         }
     }
 
-    private void eAO() {
-        if (c.eAG().pQV != null) {
-            c.eAG().pQV.stop();
+    private void eAU() {
+        if (c.eAM().pRK != null) {
+            c.eAM().pRK.stop();
         }
-        if (c.eAG().pQW != null) {
-            c.eAG().pQW.stop();
+        if (c.eAM().pRL != null) {
+            c.eAM().pRL.stop();
         }
     }
 }

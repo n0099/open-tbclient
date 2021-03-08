@@ -29,9 +29,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends aa {
-    public static String gmC = "com.baidu.tieba://";
+    public static String gol = "com.baidu.tieba://";
     private String mCallback;
 
     public b(j jVar) {
@@ -68,11 +68,11 @@ public class b extends aa {
             }
         }
         final String jSONObject = optJSONObject.toString();
-        eVar.aIW().b((Activity) context, "mapp_i_baiduapp_page_trans", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.tieba.aiapps.apps.h.b.1
+        eVar.aIZ().b((Activity) context, "mapp_i_baiduapp_page_trans", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.tieba.aiapps.apps.h.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
-            public void L(h<b.d> hVar) {
+            public void N(h<b.d> hVar) {
                 if (!com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                     com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, b.this.mCallback);
                 } else if (!b.this.h(context, optString, optString2, optString3, optString4, jSONObject)) {
@@ -105,7 +105,7 @@ public class b extends aa {
                     try {
                         String optString = new JSONObject(str5).optString("url");
                         if (!StringUtils.isNull(optString)) {
-                            Fp(optString);
+                            Fy(optString);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -122,13 +122,13 @@ public class b extends aa {
         return z;
     }
 
-    private void Fp(String str) {
-        com.baidu.swan.apps.process.messaging.client.a aIB;
-        com.baidu.swan.apps.runtime.e aIK = com.baidu.swan.apps.runtime.e.aIK();
-        if (aIK != null && (aIB = aIK.aIB()) != null) {
+    private void Fy(String str) {
+        com.baidu.swan.apps.process.messaging.client.a aIE;
+        com.baidu.swan.apps.runtime.e aIN = com.baidu.swan.apps.runtime.e.aIN();
+        if (aIN != null && (aIE = aIN.aIE()) != null) {
             Bundle bundle = new Bundle();
             bundle.putString("key_param_url", str);
-            aIB.b(bundle, a.class);
+            aIE.b(bundle, a.class);
         }
     }
 
@@ -154,7 +154,7 @@ public class b extends aa {
             if (TextUtils.isEmpty(str2)) {
                 str2 = str6 + str4;
             }
-            String str7 = gmC;
+            String str7 = gol;
             if (TextUtils.isEmpty(str2)) {
                 if (!TextUtils.isEmpty(str)) {
                     str7 = str7 + str;
@@ -185,7 +185,7 @@ public class b extends aa {
         if (!TextUtils.isEmpty(str) && str.contains("tbwebview")) {
             Uri parse = Uri.parse(str);
             if (f.r(parse)) {
-                f.bhH().a(str, parse, new f.a() { // from class: com.baidu.tieba.aiapps.apps.h.b.2
+                f.bhJ().a(str, parse, new f.a() { // from class: com.baidu.tieba.aiapps.apps.h.b.2
                     @Override // com.baidu.tbadk.BdToken.f.a
                     public void onCallBack(HashMap<String, Object> hashMap) {
                         if (hashMap != null && (hashMap.get(f.PARAM_URL) instanceof String)) {

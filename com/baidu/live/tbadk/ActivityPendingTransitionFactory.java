@@ -2,7 +2,7 @@ package com.baidu.live.tbadk;
 
 import android.app.Activity;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ActivityPendingTransitionFactory {
     public static final int TYPE_BIG_IMAGE = 2;
     public static final int TYPE_BOTTOM = 4;
@@ -10,14 +10,14 @@ public class ActivityPendingTransitionFactory {
     public static final int TYPE_NORMAL = 1;
     public static final int TYPE_NO_ANIMATION = 0;
     public static boolean IS_CUSTOM_FROM_THIRD_PARTY = false;
-    public static int RES_NFADE_IN = a.C0195a.sdk_fade_in;
-    public static int RES_FADE_OUT = a.C0195a.sdk_fade_out;
-    public static int RES_NORMAL_IN_FROM_RIGHT = a.C0195a.sdk_in_from_right;
-    public static int RES_NORMAL_IN_FROM_BOTTOM = a.C0195a.sdk_in_from_bottom;
-    public static int RES_NORMAL_OUT_TO_RIGHT = a.C0195a.sdk_out_to_right;
-    public static int RES_NORMAL_OUT_TO_BOTTOM = a.C0195a.sdk_out_to_bottom;
-    public static int RES_BIG_IMAGE_IN_FROM_RIGHT = a.C0195a.sdk_anim_alpha_0_to_1_duration_300;
-    public static int RES_BIG_IMAGE_OUT_TO_RIGHT = a.C0195a.sdk_anim_alpha_1_to_0_duration_300;
+    public static int RES_NFADE_IN = a.C0201a.sdk_fade_in;
+    public static int RES_FADE_OUT = a.C0201a.sdk_fade_out;
+    public static int RES_NORMAL_IN_FROM_RIGHT = a.C0201a.sdk_in_from_right;
+    public static int RES_NORMAL_IN_FROM_BOTTOM = a.C0201a.sdk_in_from_bottom;
+    public static int RES_NORMAL_OUT_TO_RIGHT = a.C0201a.sdk_out_to_right;
+    public static int RES_NORMAL_OUT_TO_BOTTOM = a.C0201a.sdk_out_to_bottom;
+    public static int RES_BIG_IMAGE_IN_FROM_RIGHT = a.C0201a.sdk_anim_alpha_0_to_1_duration_300;
+    public static int RES_BIG_IMAGE_OUT_TO_RIGHT = a.C0201a.sdk_anim_alpha_1_to_0_duration_300;
     public static int RES_CUSTOM_FADE_IN = 0;
     public static int RES_CUSTOM_FADE_OUT = 0;
     public static int RES_CUSTOM_IN_FROM_RIGHT = 0;

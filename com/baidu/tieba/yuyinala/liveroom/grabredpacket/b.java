@@ -5,12 +5,12 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b extends BdBaseModel {
-    private final HttpMessageListener bBe;
-    private a ovl;
+    private final HttpMessageListener bCE;
+    private a oxq;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(LootGiftHttpResponseMessage lootGiftHttpResponseMessage);
 
@@ -18,26 +18,26 @@ public class b extends BdBaseModel {
     }
 
     public b() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031083, com.baidu.live.a.avJ + "ala/audio/xiangqin/lootGift");
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031083, com.baidu.live.a.axj + "ala/audio/xiangqin/lootGift");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(LootGiftHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.bBe = new HttpMessageListener(1031083) { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.b.1
+        this.bCE = new HttpMessageListener(1031083) { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof LootGiftHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == b.this.getUniqueId() && b.this.ovl != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof LootGiftHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == b.this.getUniqueId() && b.this.oxq != null) {
                     LootGiftHttpResponseMessage lootGiftHttpResponseMessage = (LootGiftHttpResponseMessage) httpResponsedMessage;
                     if (lootGiftHttpResponseMessage.getError() != 0 || !lootGiftHttpResponseMessage.isSuccess()) {
-                        b.this.ovl.onFail(lootGiftHttpResponseMessage.getError(), lootGiftHttpResponseMessage.getErrorString());
+                        b.this.oxq.onFail(lootGiftHttpResponseMessage.getError(), lootGiftHttpResponseMessage.getErrorString());
                     } else {
-                        b.this.ovl.a(lootGiftHttpResponseMessage);
+                        b.this.oxq.a(lootGiftHttpResponseMessage);
                     }
                 }
             }
         };
-        registerListener(this.bBe);
+        registerListener(this.bCE);
     }
 
     public void j(String str, String str2, String str3, String str4, String str5, String str6) {
@@ -55,6 +55,6 @@ public class b extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.ovl = aVar;
+        this.oxq = aVar;
     }
 }

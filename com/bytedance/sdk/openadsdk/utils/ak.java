@@ -33,10 +33,8 @@ import org.json.JSONObject;
 public class ak {
 
     /* renamed from: a  reason: collision with root package name */
-    private static float f7556a = -1.0f;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static int f7557b = -1;
+    private static float f5122a = -1.0f;
+    private static int b = -1;
     private static float c = -1.0f;
     private static int d = -1;
     private static int e = -1;
@@ -47,7 +45,7 @@ public class ak {
     }
 
     private static boolean b() {
-        return f7556a < 0.0f || f7557b < 0 || c < 0.0f || d < 0 || e < 0;
+        return f5122a < 0.0f || b < 0 || c < 0.0f || d < 0 || e < 0;
     }
 
     public static void a(Context context) {
@@ -56,8 +54,8 @@ public class ak {
         if (a2 != null) {
             if (b()) {
                 DisplayMetrics displayMetrics = a2.getResources().getDisplayMetrics();
-                f7556a = displayMetrics.density;
-                f7557b = displayMetrics.densityDpi;
+                f5122a = displayMetrics.density;
+                b = displayMetrics.densityDpi;
                 c = displayMetrics.scaledDensity;
                 d = displayMetrics.widthPixels;
                 e = displayMetrics.heightPixels;
@@ -149,12 +147,12 @@ public class ak {
 
     public static float e(Context context) {
         a(context);
-        return f7556a;
+        return f5122a;
     }
 
     public static int f(Context context) {
         a(context);
-        return f7557b;
+        return b;
     }
 
     public static void a(View view, int i, int i2, int i3, int i4) {
@@ -268,38 +266,13 @@ public class ak {
         }
     }
 
-    public static Bitmap b(View view, int i) {
-        Bitmap bitmap = null;
-        if (view != null) {
-            try {
-                view.destroyDrawingCache();
-                view.setDrawingCacheEnabled(true);
-                view.buildDrawingCache();
-                bitmap = view.getDrawingCache();
-                if (i > 0 && bitmap != null) {
-                    if (bitmap.getRowBytes() * bitmap.getHeight() >= i) {
-                        bitmap = f.a(bitmap, 720, 0);
-                    }
-                    if (bitmap.getRowBytes() * bitmap.getHeight() >= i) {
-                        bitmap = f.a(bitmap, i);
-                    }
-                    if (bitmap != null && u.c()) {
-                        u.a("size: " + (bitmap.getRowBytes() * bitmap.getHeight()));
-                    }
-                }
-            } catch (Exception e2) {
-            }
-        }
-        return bitmap;
-    }
-
     public static JSONObject a(JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
         try {
             if (!jSONObject.has("app_scene")) {
-                jSONObject.put("app_scene", com.bytedance.sdk.openadsdk.core.i.c().a() ? 1 : 0);
+                jSONObject.put("app_scene", com.bytedance.sdk.openadsdk.core.i.d().a() ? 1 : 0);
             }
             if (!jSONObject.has("lock_scene")) {
                 jSONObject.put("lock_scene", !a() ? 1 : 0);
@@ -310,8 +283,7 @@ public class ak {
         return jSONObject;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static Bitmap d(WebView webView) {
+    private static Bitmap c(WebView webView) {
         Bitmap bitmap = null;
         try {
             Picture capturePicture = webView.capturePicture();
@@ -406,74 +378,11 @@ public class ak {
                 if (Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) {
                     activity.getWindow().getDecorView().setSystemUiVisibility(8);
                 } else if (Build.VERSION.SDK_INT >= 19) {
-                    activity.getWindow().getDecorView().setSystemUiVisibility(3842);
+                    activity.getWindow().getDecorView().setSystemUiVisibility(3846);
                     activity.getWindow().addFlags(134217728);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
-            }
-        }
-    }
-
-    public static void a(final Context context, final com.bytedance.sdk.openadsdk.core.d.l lVar, final String str, final WebView webView) {
-        if (webView != null && lVar != null && lVar.F() == null) {
-            webView.postDelayed(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.ak.3
-                @Override // java.lang.Runnable
-                public void run() {
-                    final Bitmap b2 = ak.b(webView, 0);
-                    if (b2 == null) {
-                        b2 = ak.d(webView);
-                    }
-                    com.bytedance.sdk.openadsdk.k.a.a().c(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.ak.3.1
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            ak.b(context, lVar, str, b2);
-                        }
-                    }, 5);
-                }
-            }, 500L);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void b(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, String str, Bitmap bitmap) {
-        Bitmap a2;
-        u.b("checkWebViewIsTransparent", "checkWebViewIsTransparent start .....bitmap=" + bitmap + ",materialMeta=" + lVar);
-        if (bitmap != null) {
-            try {
-                if (bitmap.getWidth() > 0 && bitmap.getHeight() > 0 && !bitmap.isRecycled() && (a2 = f.a(bitmap, bitmap.getWidth() / 6, bitmap.getHeight() / 6)) != null && !a2.isRecycled()) {
-                    int width = a2.getWidth();
-                    int height = a2.getHeight();
-                    int i = 0;
-                    int i2 = 0;
-                    long j = (long) (width * height * 0.05d);
-                    long j2 = (long) (width * height * 0.5d);
-                    for (int i3 = 0; i3 < height; i3++) {
-                        for (int i4 = 0; i4 < width; i4++) {
-                            int pixel = a2.getPixel(i4, i3);
-                            int red = Color.red(pixel);
-                            int green = Color.green(pixel);
-                            int blue = Color.blue(pixel);
-                            int alpha = Color.alpha(pixel);
-                            if (0 != red || 0 != green || 0 != blue) {
-                                i2++;
-                            }
-                            if (red == 0 && green == 0 && blue == 0 && alpha == 0) {
-                                i++;
-                            }
-                            if (i2 > j && i != i2) {
-                                u.b("checkWebViewIsTransparent", "wwww-TAG=" + str + ",checkWebViewIsTransparent....不满足透明不上报");
-                                return;
-                            } else if (i >= j2) {
-                                u.b("checkWebViewIsTransparent", "TAG=" + str + ",checkWebViewIsTransparent....满足透明上报..");
-                                com.bytedance.sdk.openadsdk.c.d.b(context, lVar, str, (Map<String, Object>) null);
-                                return;
-                            }
-                        }
-                    }
-                }
-            } catch (Throwable th) {
-                u.f("UIUtils", "(开发者可忽略此检测异常)checkWebViewIsTransparent->throwable ex>>>" + th.toString());
             }
         }
     }
@@ -495,20 +404,21 @@ public class ak {
     }
 
     public static Bitmap b(WebView webView) {
+        int layerType = webView.getLayerType();
         webView.setLayerType(1, null);
-        Bitmap e2 = e(webView);
-        if (e2 == null) {
-            e2 = d(webView);
+        Bitmap d2 = d(webView);
+        if (d2 == null) {
+            d2 = c(webView);
         }
-        webView.setLayerType(2, null);
-        if (e2 == null) {
+        webView.setLayerType(layerType, null);
+        if (d2 == null) {
             return null;
         }
-        return f.b(e2, e2.getWidth() / 6, e2.getHeight() / 6);
+        return f.a(d2, d2.getWidth() / 6, d2.getHeight() / 6);
     }
 
     public static void a(final Context context, final com.bytedance.sdk.openadsdk.core.d.l lVar, final String str, final String str2, final Bitmap bitmap, final boolean z, final int i) {
-        com.bytedance.sdk.openadsdk.k.a.a().c(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.ak.4
+        com.bytedance.sdk.openadsdk.j.e.a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.ak.3
             @Override // java.lang.Runnable
             public void run() {
                 ak.c(context, lVar, str, str2, bitmap, z, i);
@@ -592,7 +502,7 @@ public class ak {
         }
     }
 
-    private static Bitmap e(WebView webView) {
+    private static Bitmap d(WebView webView) {
         if (webView == null) {
             return null;
         }

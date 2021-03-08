@@ -3,19 +3,17 @@ package com.bytedance.sdk.adnet.b;
 import android.os.SystemClock;
 import androidx.annotation.NonNull;
 import com.bytedance.sdk.adnet.core.Request;
-import com.bytedance.sdk.adnet.core.p;
+import com.bytedance.sdk.adnet.core.o;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 /* loaded from: classes6.dex */
-public class i<T> implements p.a<T>, Future<p<T>> {
+public class i<T> implements o.a<T>, Future<o<T>> {
+    private boolean b = false;
+    private Request<?> pxq;
+    private o<T> pxt;
 
-    /* renamed from: b  reason: collision with root package name */
-    private boolean f6005b = false;
-    private Request<?> pvl;
-    private p<T> pvo;
-
-    public static <E> i<E> eqP() {
+    public static <E> i<E> eqX() {
         return new i<>();
     }
 
@@ -26,8 +24,8 @@ public class i<T> implements p.a<T>, Future<p<T>> {
     public synchronized boolean cancel(boolean z) {
         boolean z2 = false;
         synchronized (this) {
-            if (this.pvl != null && !isDone()) {
-                this.pvl.cancel();
+            if (this.pxq != null && !isDone()) {
+                this.pxq.cancel();
                 z2 = true;
             }
         }
@@ -36,8 +34,8 @@ public class i<T> implements p.a<T>, Future<p<T>> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.concurrent.Future
-    /* renamed from: eqO */
-    public p<T> get() throws InterruptedException {
+    /* renamed from: eqW */
+    public o<T> get() throws InterruptedException {
         try {
             return i(null);
         } catch (TimeoutException e) {
@@ -47,15 +45,15 @@ public class i<T> implements p.a<T>, Future<p<T>> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.concurrent.Future
-    /* renamed from: g */
-    public p<T> get(long j, @NonNull TimeUnit timeUnit) throws InterruptedException, TimeoutException {
+    /* renamed from: f */
+    public o<T> get(long j, @NonNull TimeUnit timeUnit) throws InterruptedException, TimeoutException {
         return i(Long.valueOf(TimeUnit.MILLISECONDS.convert(j, timeUnit)));
     }
 
-    private synchronized p<T> i(Long l) throws InterruptedException, TimeoutException {
-        p<T> pVar;
-        if (this.f6005b) {
-            pVar = this.pvo;
+    private synchronized o<T> i(Long l) throws InterruptedException, TimeoutException {
+        o<T> oVar;
+        if (this.b) {
+            oVar = this.pxt;
         } else {
             if (l == null) {
                 while (!isDone()) {
@@ -69,42 +67,42 @@ public class i<T> implements p.a<T>, Future<p<T>> {
                     uptimeMillis = SystemClock.uptimeMillis();
                 }
             }
-            if (!this.f6005b) {
+            if (!this.b) {
                 throw new TimeoutException();
             }
-            pVar = this.pvo;
+            oVar = this.pxt;
         }
-        return pVar;
+        return oVar;
     }
 
     @Override // java.util.concurrent.Future
     public boolean isCancelled() {
-        if (this.pvl == null) {
+        if (this.pxq == null) {
             return false;
         }
-        return this.pvl.isCanceled();
+        return this.pxq.isCanceled();
     }
 
     @Override // java.util.concurrent.Future
     public synchronized boolean isDone() {
         boolean z;
-        if (!this.f6005b) {
+        if (!this.b) {
             z = isCancelled();
         }
         return z;
     }
 
-    @Override // com.bytedance.sdk.adnet.core.p.a
-    public synchronized void a(p<T> pVar) {
-        this.f6005b = true;
-        this.pvo = pVar;
+    @Override // com.bytedance.sdk.adnet.core.o.a
+    public synchronized void a(o<T> oVar) {
+        this.b = true;
+        this.pxt = oVar;
         notifyAll();
     }
 
-    @Override // com.bytedance.sdk.adnet.core.p.a
-    public synchronized void b(p<T> pVar) {
-        this.f6005b = true;
-        this.pvo = pVar;
+    @Override // com.bytedance.sdk.adnet.core.o.a
+    public synchronized void b(o<T> oVar) {
+        this.b = true;
+        this.pxt = oVar;
         notifyAll();
     }
 }

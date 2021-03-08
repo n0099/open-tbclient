@@ -11,7 +11,7 @@ import com.baidu.swan.apps.runtime.config.b;
 import java.util.ArrayList;
 import java.util.List;
 import okhttp3.Interceptor;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class e implements com.baidu.swan.a.a {
     @Override // com.baidu.swan.a.a
     public boolean isDebug() {
@@ -24,20 +24,20 @@ public class e implements com.baidu.swan.a.a {
     }
 
     @Override // com.baidu.swan.a.a
-    public CookieManager ayn() {
-        return com.baidu.swan.apps.t.a.axv().aiy();
+    public CookieManager ayq() {
+        return com.baidu.swan.apps.t.a.axy().aiB();
     }
 
     @Override // com.baidu.swan.a.a
     public String getUserAgent() {
-        return SwanAppNetworkUtils.aDg();
+        return SwanAppNetworkUtils.aDj();
     }
 
     @Override // com.baidu.swan.a.a
-    public int ays() {
-        b.a ayu = ayu();
-        if (ayu != null) {
-            return ayu.dEL;
+    public int ayv() {
+        b.a ayx = ayx();
+        if (ayx != null) {
+            return ayx.dGm;
         }
         return -1;
     }
@@ -48,16 +48,16 @@ public class e implements com.baidu.swan.a.a {
     }
 
     @Override // com.baidu.swan.a.a
-    public int ayt() {
+    public int ayw() {
         return 60000;
     }
 
     @Override // com.baidu.swan.a.a
     public void a(String str, HttpRequestBuilder httpRequestBuilder) {
-        if (com.baidu.swan.apps.i.c.lR(str)) {
-            httpRequestBuilder.setHeader("x-u-id", com.baidu.swan.uuid.b.eK(AppRuntime.getAppContext()).getUUID());
+        if (com.baidu.swan.apps.i.c.lY(str)) {
+            httpRequestBuilder.setHeader("x-u-id", com.baidu.swan.uuid.b.eJ(AppRuntime.getAppContext()).getUUID());
             try {
-                httpRequestBuilder.setHeader("x-c2-id", com.baidu.swan.apps.t.a.axb().cb(AppRuntime.getAppContext()));
+                httpRequestBuilder.setHeader("x-c2-id", com.baidu.swan.apps.t.a.axe().ca(AppRuntime.getAppContext()));
             } catch (IllegalArgumentException e) {
             }
         }
@@ -70,23 +70,23 @@ public class e implements com.baidu.swan.a.a {
         return arrayList;
     }
 
-    private b.a ayu() {
-        com.baidu.swan.apps.runtime.e aIL = com.baidu.swan.apps.runtime.e.aIL();
-        if (aIL == null) {
+    private b.a ayx() {
+        com.baidu.swan.apps.runtime.e aIO = com.baidu.swan.apps.runtime.e.aIO();
+        if (aIO == null) {
             if (com.baidu.swan.apps.b.DEBUG) {
                 Log.e("SwanNetworkImpl", "swanapp is null");
                 return null;
             }
             return null;
         }
-        SwanAppConfigData aIT = aIL.aIT();
-        if (aIT == null || aIT.dEV == null) {
+        SwanAppConfigData aIW = aIO.aIW();
+        if (aIW == null || aIW.dGw == null) {
             if (com.baidu.swan.apps.b.DEBUG) {
                 Log.e("SwanNetworkImpl", "config or mNetworkConfig is null");
                 return null;
             }
             return null;
         }
-        return aIT.dEV;
+        return aIW.dGw;
     }
 }

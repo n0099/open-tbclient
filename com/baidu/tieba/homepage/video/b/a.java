@@ -10,13 +10,13 @@ import tbclient.RecomVideo.DislikeReason;
 import tbclient.RecomVideo.ThreadPersonalized;
 /* loaded from: classes2.dex */
 public class a {
-    public static void y(List<ThreadPersonalized> list, List<n> list2) {
-        z(list, list2);
+    public static void x(List<ThreadPersonalized> list, List<n> list2) {
+        y(list, list2);
     }
 
-    private static void z(List<ThreadPersonalized> list, List<n> list2) {
+    private static void y(List<ThreadPersonalized> list, List<n> list2) {
         com.baidu.tieba.card.data.b bVar;
-        cb bln;
+        cb blp;
         ThreadPersonalized threadPersonalized;
         if (list != null && list2 != null) {
             HashMap hashMap = new HashMap();
@@ -28,15 +28,15 @@ public class a {
             int count = y.getCount(list2);
             for (int i = 0; i < count; i++) {
                 n nVar = (n) y.getItem(list2, i);
-                if ((nVar instanceof com.baidu.tieba.card.data.b) && (bln = (bVar = (com.baidu.tieba.card.data.b) nVar).bln()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(bln.getTid())) != null) {
+                if ((nVar instanceof com.baidu.tieba.card.data.b) && (blp = (bVar = (com.baidu.tieba.card.data.b) nVar).blp()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(blp.getTid())) != null) {
                     bVar.setSource(threadPersonalized.source);
                     bVar.setWeight(threadPersonalized.weight);
-                    bVar.IQ(threadPersonalized.abtest_tag);
-                    bln.mRecomAbTag = threadPersonalized.abtest_tag;
-                    bln.mRecomSource = threadPersonalized.source;
-                    bln.mRecomWeight = threadPersonalized.weight;
-                    if (bln.boh() != null) {
-                        bVar.p(bln.boh().is_vertical);
+                    bVar.IZ(threadPersonalized.abtest_tag);
+                    blp.mRecomAbTag = threadPersonalized.abtest_tag;
+                    blp.mRecomSource = threadPersonalized.source;
+                    blp.mRecomWeight = threadPersonalized.weight;
+                    if (blp.boj() != null) {
+                        bVar.p(blp.boj().is_vertical);
                     }
                     List<DislikeReason> list3 = threadPersonalized.dislike_resource;
                     if (list3 != null) {

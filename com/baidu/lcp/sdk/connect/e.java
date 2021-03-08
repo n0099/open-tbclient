@@ -6,8 +6,8 @@ import java.net.Socket;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public class e {
-    Boolean auS = false;
-    Boolean auT = false;
+    Boolean aws = false;
+    Boolean awt = false;
     Socket socket = null;
     InputStream inputStream = null;
     OutputStream outputStream = null;

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ubcprocessor;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class BuildConfig {
     public static final String BUILD_TYPE = "release";
     public static final boolean DEBUG = false;

@@ -5,17 +5,17 @@ import com.baidu.tbadk.core.atomData.LowFlowsActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class n {
-    private String amC;
-    private String eTL;
-    private String fqH;
+    private String anU;
+    private String eVm;
+    private String fsi;
     private String mIcon;
     private int mVersion;
 
     public void parserData(JSONObject jSONObject) {
         this.mIcon = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
-        this.eTL = jSONObject.optString(LowFlowsActivityConfig.TAB_CODE);
-        this.fqH = jSONObject.optString("pop_text");
-        this.amC = jSONObject.optString("thread_id");
+        this.eVm = jSONObject.optString(LowFlowsActivityConfig.TAB_CODE);
+        this.fsi = jSONObject.optString("pop_text");
+        this.anU = jSONObject.optString("thread_id");
         this.mVersion = jSONObject.optInt("version");
     }
 
@@ -24,15 +24,15 @@ public class n {
     }
 
     public String getTabCode() {
-        return this.eTL;
+        return this.eVm;
     }
 
     public String getPopText() {
-        return this.fqH;
+        return this.fsi;
     }
 
     public String getTid() {
-        return this.amC;
+        return this.anU;
     }
 
     public int getVersion() {

@@ -5,7 +5,7 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.recapp.activity.newstyle.AdWebVideoActivityConfig;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AddLinkResponseMessage extends JsonHttpResponsedMessage {
     public static final int ERROR = -1;
     public static final int SUCCESS = 0;
@@ -23,7 +23,7 @@ public class AddLinkResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null) {
             this.addLinkResponseData = new com.baidu.tieba.write.a.a();
             this.errno = jSONObject.optInt(BaseJsonData.TAG_ERRNO, -1);
-            this.addLinkResponseData.ofN = this.errno == 0;
+            this.addLinkResponseData.ohS = this.errno == 0;
             if (this.errno == 0) {
                 this.errmsg = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
@@ -33,23 +33,23 @@ public class AddLinkResponseMessage extends JsonHttpResponsedMessage {
                     JSONArray optJSONArray = optJSONObject.optJSONArray("link_content");
                     if (optJSONArray != null && optJSONArray.length() != 0) {
                         JSONObject jSONObject2 = (JSONObject) optJSONArray.get(0);
-                        this.addLinkResponseData.ofO = jSONObject2.optInt("link_type");
-                        this.addLinkResponseData.eOb = jSONObject2.optString("link_title");
-                        this.addLinkResponseData.eOc = jSONObject2.optString("link_abstract");
-                        this.addLinkResponseData.ofP = jSONObject2.optString("link_head_pic");
-                        this.addLinkResponseData.ofQ = jSONObject2.optString("link_head_small_pic");
-                        this.addLinkResponseData.ofR = jSONObject2.optString("link_head_big_pic");
+                        this.addLinkResponseData.ohT = jSONObject2.optInt("link_type");
+                        this.addLinkResponseData.ePC = jSONObject2.optString("link_title");
+                        this.addLinkResponseData.ePD = jSONObject2.optString("link_abstract");
+                        this.addLinkResponseData.ohU = jSONObject2.optString("link_head_pic");
+                        this.addLinkResponseData.ohV = jSONObject2.optString("link_head_small_pic");
+                        this.addLinkResponseData.ohW = jSONObject2.optString("link_head_big_pic");
                         this.addLinkResponseData.videoUrl = jSONObject2.optString("video_url");
                         this.addLinkResponseData.videoDuration = jSONObject2.optInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, 0);
                         this.addLinkResponseData.videoFormat = jSONObject2.optString("video_format");
-                        this.addLinkResponseData.ofS = jSONObject2.optInt("video_from", 0);
+                        this.addLinkResponseData.ohX = jSONObject2.optInt("video_from", 0);
                         this.addLinkResponseData.videoHeight = jSONObject2.optInt("video_height", 0);
                         this.addLinkResponseData.videoWidth = jSONObject2.optInt("video_width", 0);
                         this.addLinkResponseData.videoSize = jSONObject2.optLong("video_size", 0L);
-                        this.addLinkResponseData.ofW = jSONObject2.optInt("thumbnail_height", 0);
-                        this.addLinkResponseData.ofV = jSONObject2.optInt("thumbnail_width", 0);
-                        this.addLinkResponseData.ofU = jSONObject2.optInt("thumbnail_pid", 0);
-                        this.addLinkResponseData.ofT = jSONObject2.optString("thumbnail_url");
+                        this.addLinkResponseData.oib = jSONObject2.optInt("thumbnail_height", 0);
+                        this.addLinkResponseData.oia = jSONObject2.optInt("thumbnail_width", 0);
+                        this.addLinkResponseData.ohZ = jSONObject2.optInt("thumbnail_pid", 0);
+                        this.addLinkResponseData.ohY = jSONObject2.optString("thumbnail_url");
                     }
                 }
             }

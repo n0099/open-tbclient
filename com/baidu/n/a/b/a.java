@@ -4,25 +4,25 @@ import android.content.Context;
 import com.b.a.a;
 import com.baidu.n.a.a.d;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a extends d {
     public a(Context context) {
         super(context);
-        this.oVj = "";
-        this.oVi = false;
-        this.oVI = false;
+        this.oXo = "";
+        this.oXn = false;
+        this.oXN = false;
         this.mStatusCode = -200;
     }
 
-    public com.baidu.n.a.a.c eiM() {
+    public com.baidu.n.a.a.c eiW() {
         final Object obj = new Object();
         final AtomicBoolean atomicBoolean = new AtomicBoolean(false);
         com.b.a.a.a(this.mCtx, new a.b() { // from class: com.baidu.n.a.b.a.1
             @Override // com.b.a.a.b
             public void bl(String str, boolean z) {
-                a.this.oVj = str;
-                a.this.oVi = z;
-                a.this.oVI = true;
+                a.this.oXo = str;
+                a.this.oXn = z;
+                a.this.oXN = true;
                 a.this.mStatusCode = 0;
                 atomicBoolean.set(true);
                 synchronized (obj) {
@@ -51,7 +51,7 @@ public class a extends d {
     }
 
     @Override // com.baidu.n.a.a.c
-    public com.baidu.n.a.a.c eiK() {
-        return eiM();
+    public com.baidu.n.a.a.c eiU() {
+        return eiW();
     }
 }

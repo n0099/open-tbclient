@@ -16,10 +16,8 @@ import java.util.concurrent.Executor;
 public class f<TranscodeType> extends com.kwad.sdk.glide.request.a<f<TranscodeType>> implements Cloneable {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static final com.kwad.sdk.glide.request.f f9980a = new com.kwad.sdk.glide.request.f().a(com.kwad.sdk.glide.load.engine.h.c).a(Priority.LOW).b(true);
-
-    /* renamed from: b  reason: collision with root package name */
-    private final Context f9981b;
+    protected static final com.kwad.sdk.glide.request.f f6605a = new com.kwad.sdk.glide.request.f().a(com.kwad.sdk.glide.load.engine.h.c).a(Priority.LOW).b(true);
+    private final Context b;
     private final g c;
     private final Class<TranscodeType> d;
     private final c e;
@@ -46,56 +44,56 @@ public class f<TranscodeType> extends com.kwad.sdk.glide.request.a<f<TranscodeTy
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        static final /* synthetic */ int[] f9982a;
+        static final /* synthetic */ int[] f6606a;
 
         static {
             try {
-                f9983b[Priority.LOW.ordinal()] = 1;
+                b[Priority.LOW.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                f9983b[Priority.NORMAL.ordinal()] = 2;
+                b[Priority.NORMAL.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                f9983b[Priority.HIGH.ordinal()] = 3;
+                b[Priority.HIGH.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
             try {
-                f9983b[Priority.IMMEDIATE.ordinal()] = 4;
+                b[Priority.IMMEDIATE.ordinal()] = 4;
             } catch (NoSuchFieldError e4) {
             }
-            f9982a = new int[ImageView.ScaleType.values().length];
+            f6606a = new int[ImageView.ScaleType.values().length];
             try {
-                f9982a[ImageView.ScaleType.CENTER_CROP.ordinal()] = 1;
+                f6606a[ImageView.ScaleType.CENTER_CROP.ordinal()] = 1;
             } catch (NoSuchFieldError e5) {
             }
             try {
-                f9982a[ImageView.ScaleType.CENTER_INSIDE.ordinal()] = 2;
+                f6606a[ImageView.ScaleType.CENTER_INSIDE.ordinal()] = 2;
             } catch (NoSuchFieldError e6) {
             }
             try {
-                f9982a[ImageView.ScaleType.FIT_CENTER.ordinal()] = 3;
+                f6606a[ImageView.ScaleType.FIT_CENTER.ordinal()] = 3;
             } catch (NoSuchFieldError e7) {
             }
             try {
-                f9982a[ImageView.ScaleType.FIT_START.ordinal()] = 4;
+                f6606a[ImageView.ScaleType.FIT_START.ordinal()] = 4;
             } catch (NoSuchFieldError e8) {
             }
             try {
-                f9982a[ImageView.ScaleType.FIT_END.ordinal()] = 5;
+                f6606a[ImageView.ScaleType.FIT_END.ordinal()] = 5;
             } catch (NoSuchFieldError e9) {
             }
             try {
-                f9982a[ImageView.ScaleType.FIT_XY.ordinal()] = 6;
+                f6606a[ImageView.ScaleType.FIT_XY.ordinal()] = 6;
             } catch (NoSuchFieldError e10) {
             }
             try {
-                f9982a[ImageView.ScaleType.CENTER.ordinal()] = 7;
+                f6606a[ImageView.ScaleType.CENTER.ordinal()] = 7;
             } catch (NoSuchFieldError e11) {
             }
             try {
-                f9982a[ImageView.ScaleType.MATRIX.ordinal()] = 8;
+                f6606a[ImageView.ScaleType.MATRIX.ordinal()] = 8;
             } catch (NoSuchFieldError e12) {
             }
         }
@@ -107,7 +105,7 @@ public class f<TranscodeType> extends com.kwad.sdk.glide.request.a<f<TranscodeTy
         this.e = cVar;
         this.c = gVar;
         this.d = cls;
-        this.f9981b = context;
+        this.b = context;
         this.g = gVar.b(cls);
         this.f = cVar.e();
         a(gVar.h());
@@ -117,16 +115,16 @@ public class f<TranscodeType> extends com.kwad.sdk.glide.request.a<f<TranscodeTy
     private <Y extends j<TranscodeType>> Y a(@NonNull Y y, @Nullable com.kwad.sdk.glide.request.e<TranscodeType> eVar, com.kwad.sdk.glide.request.a<?> aVar, Executor executor) {
         com.kwad.sdk.glide.g.j.a(y);
         if (this.n) {
-            com.kwad.sdk.glide.request.c b2 = b(y, eVar, aVar, executor);
-            com.kwad.sdk.glide.request.c b3 = y.b();
-            if (!b2.a(b3) || a(aVar, b3)) {
+            com.kwad.sdk.glide.request.c b = b(y, eVar, aVar, executor);
+            com.kwad.sdk.glide.request.c b2 = y.b();
+            if (!b.a(b2) || a(aVar, b2)) {
                 this.c.a((j<?>) y);
-                y.a(b2);
-                this.c.a(y, b2);
+                y.a(b);
+                this.c.a(y, b);
             } else {
-                b2.h();
-                if (!((com.kwad.sdk.glide.request.c) com.kwad.sdk.glide.g.j.a(b3)).c()) {
-                    b3.a();
+                b.h();
+                if (!((com.kwad.sdk.glide.request.c) com.kwad.sdk.glide.g.j.a(b2)).c()) {
+                    b2.a();
                 }
             }
             return y;
@@ -135,7 +133,7 @@ public class f<TranscodeType> extends com.kwad.sdk.glide.request.a<f<TranscodeTy
     }
 
     private com.kwad.sdk.glide.request.c a(j<TranscodeType> jVar, com.kwad.sdk.glide.request.e<TranscodeType> eVar, com.kwad.sdk.glide.request.a<?> aVar, com.kwad.sdk.glide.request.d dVar, h<?, ? super TranscodeType> hVar, Priority priority, int i, int i2, Executor executor) {
-        return SingleRequest.a(this.f9981b, this.f, this.h, this.d, aVar, i, i2, priority, jVar, eVar, this.i, dVar, this.f.c(), hVar.b(), executor);
+        return SingleRequest.a(this.b, this.f, this.h, this.d, aVar, i, i2, priority, jVar, eVar, this.i, dVar, this.f.c(), hVar.b(), executor);
     }
 
     private com.kwad.sdk.glide.request.c a(j<TranscodeType> jVar, @Nullable com.kwad.sdk.glide.request.e<TranscodeType> eVar, @Nullable com.kwad.sdk.glide.request.d dVar, h<?, ? super TranscodeType> hVar, Priority priority, int i, int i2, com.kwad.sdk.glide.request.a<?> aVar, Executor executor) {
@@ -149,9 +147,9 @@ public class f<TranscodeType> extends com.kwad.sdk.glide.request.a<f<TranscodeTy
             bVar = null;
             bVar2 = dVar;
         }
-        com.kwad.sdk.glide.request.c b2 = b(jVar, eVar, bVar2, hVar, priority, i, i2, aVar, executor);
+        com.kwad.sdk.glide.request.c b = b(jVar, eVar, bVar2, hVar, priority, i, i2, aVar, executor);
         if (bVar == null) {
-            return b2;
+            return b;
         }
         int A = this.k.A();
         int C = this.k.C();
@@ -159,7 +157,7 @@ public class f<TranscodeType> extends com.kwad.sdk.glide.request.a<f<TranscodeTy
             A = aVar.A();
             C = aVar.C();
         }
-        bVar.a(b2, this.k.a(jVar, eVar, bVar, this.k.g, this.k.z(), A, C, this.k, executor));
+        bVar.a(b, this.k.a(jVar, eVar, bVar, this.k.g, this.k.z(), A, C, this.k, executor));
         return bVar;
     }
 
@@ -293,7 +291,7 @@ public class f<TranscodeType> extends com.kwad.sdk.glide.request.a<f<TranscodeTy
         k.a();
         com.kwad.sdk.glide.g.j.a(imageView);
         if (!e() && d() && imageView.getScaleType() != null) {
-            switch (AnonymousClass1.f9982a[imageView.getScaleType().ordinal()]) {
+            switch (AnonymousClass1.f6606a[imageView.getScaleType().ordinal()]) {
                 case 1:
                     fVar = clone().f();
                     break;

@@ -19,20 +19,18 @@ import java.util.regex.Pattern;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<ScanResult> f2610a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private long f2611b;
+    public List<ScanResult> f1956a;
+    private long b;
     private long c;
     private boolean d = false;
     private boolean e;
 
     public h(List<ScanResult> list, long j) {
-        this.f2610a = null;
-        this.f2611b = 0L;
+        this.f1956a = null;
+        this.b = 0L;
         this.c = 0L;
-        this.f2611b = j;
-        this.f2610a = list;
+        this.b = j;
+        this.f1956a = list;
         this.c = System.currentTimeMillis();
         m();
     }
@@ -49,10 +47,10 @@ public class h {
     }
 
     private int l() {
-        if (this.f2610a == null) {
+        if (this.f1956a == null) {
             return 0;
         }
-        return this.f2610a.size();
+        return this.f1956a.size();
     }
 
     private void m() {
@@ -61,13 +59,13 @@ public class h {
             return;
         }
         boolean z2 = true;
-        for (int size = this.f2610a.size() - 1; size >= 1 && z2; size--) {
+        for (int size = this.f1956a.size() - 1; size >= 1 && z2; size--) {
             int i = 0;
             z2 = false;
             while (i < size) {
-                if (this.f2610a.get(i).level < this.f2610a.get(i + 1).level) {
-                    this.f2610a.set(i + 1, this.f2610a.get(i));
-                    this.f2610a.set(i, this.f2610a.get(i + 1));
+                if (this.f1956a.get(i).level < this.f1956a.get(i + 1).level) {
+                    this.f1956a.set(i + 1, this.f1956a.get(i));
+                    this.f1956a.set(i, this.f1956a.get(i + 1));
                     z = true;
                 } else {
                     z = z2;
@@ -79,10 +77,10 @@ public class h {
     }
 
     public int a() {
-        if (this.f2610a == null) {
+        if (this.f1956a == null) {
             return 0;
         }
-        return this.f2610a.size();
+        return this.f1956a.size();
     }
 
     public String a(int i) {
@@ -155,7 +153,7 @@ public class h {
                         boolean z6 = z5 ? z5 : z5 && z;
                         int i5 = 0;
                         int i6 = 0;
-                        size = this.f2610a.size();
+                        size = this.f1956a.size();
                         z3 = true;
                         if (size <= i) {
                             i = size;
@@ -167,10 +165,10 @@ public class h {
                             if (i4 < i) {
                                 break;
                             }
-                            if (this.f2610a.get(i4).level != 0) {
+                            if (this.f1956a.get(i4).level != 0) {
                                 if (z6) {
                                     try {
-                                        j2 = (j - this.f2610a.get(i4).timestamp) / TimeUtils.NANOS_PER_MS;
+                                        j2 = (j - this.f1956a.get(i4).timestamp) / TimeUtils.NANOS_PER_MS;
                                     } catch (Exception e2) {
                                         j2 = 0;
                                     }
@@ -185,20 +183,20 @@ public class h {
                                     if (z2) {
                                         stringBuffer2 = new StringBuffer();
                                         stringBuffer2.append("&wf_ch=");
-                                        stringBuffer2.append(b(this.f2610a.get(i4).frequency));
+                                        stringBuffer2.append(b(this.f1956a.get(i4).frequency));
                                     }
                                 } else {
                                     stringBuffer.append("|");
                                     if (z2 && stringBuffer2 != null) {
                                         stringBuffer2.append("|");
-                                        stringBuffer2.append(b(this.f2610a.get(i4).frequency));
+                                        stringBuffer2.append(b(this.f1956a.get(i4).frequency));
                                     }
                                 }
-                                String str3 = this.f2610a.get(i4).BSSID;
+                                String str3 = this.f1956a.get(i4).BSSID;
                                 if (str3 != null) {
                                     String replace2 = str3.replace(":", "");
                                     stringBuffer.append(replace2);
-                                    int i7 = this.f2610a.get(i4).level;
+                                    int i7 = this.f1956a.get(i4).level;
                                     if (i7 < 0) {
                                         i7 = -i7;
                                     }
@@ -206,25 +204,25 @@ public class h {
                                     i5++;
                                     boolean z7 = false;
                                     if (str2 != null && str2.equals(replace2)) {
-                                        this.e = a(this.f2610a.get(i4).capabilities);
+                                        this.e = a(this.f1956a.get(i4).capabilities);
                                         z7 = true;
                                         i6 = i5;
                                     }
                                     if (z7) {
-                                        stringBuffer.append(b(this.f2610a.get(i4).SSID));
+                                        stringBuffer.append(b(this.f1956a.get(i4).SSID));
                                     } else {
                                         if (c2 == 0) {
                                             try {
-                                                if (random.nextInt(10) == 2 && this.f2610a.get(i4).SSID != null && this.f2610a.get(i4).SSID.length() < 30) {
-                                                    stringBuffer.append(b(this.f2610a.get(i4).SSID));
+                                                if (random.nextInt(10) == 2 && this.f1956a.get(i4).SSID != null && this.f1956a.get(i4).SSID.length() < 30) {
+                                                    stringBuffer.append(b(this.f1956a.get(i4).SSID));
                                                     c = 1;
                                                 }
                                                 c = c2;
                                             } catch (Exception e3) {
                                             }
                                         } else {
-                                            if (c2 == 1 && random.nextInt(20) == 1 && this.f2610a.get(i4).SSID != null && this.f2610a.get(i4).SSID.length() < 30) {
-                                                stringBuffer.append(b(this.f2610a.get(i4).SSID));
+                                            if (c2 == 1 && random.nextInt(20) == 1 && this.f1956a.get(i4).SSID != null && this.f1956a.get(i4).SSID.length() < 30) {
+                                                stringBuffer.append(b(this.f1956a.get(i4).SSID));
                                                 c = 2;
                                             }
                                             c = c2;
@@ -262,11 +260,11 @@ public class h {
                                 stringBuffer.append(stringBuffer3.toString());
                             }
                             stringBuffer.append("&wf_st=");
-                            stringBuffer.append(this.f2611b);
+                            stringBuffer.append(this.b);
                             stringBuffer.append("&wf_et=");
                             stringBuffer.append(this.c);
                             stringBuffer.append("&wf_vt=");
-                            stringBuffer.append(i.f2612a);
+                            stringBuffer.append(i.f1957a);
                             if (i6 > 0) {
                                 this.d = true;
                                 stringBuffer.append("&wf_en=");
@@ -289,7 +287,7 @@ public class h {
                 }
                 int i52 = 0;
                 int i62 = 0;
-                size = this.f2610a.size();
+                size = this.f1956a.size();
                 z3 = true;
                 if (size <= i) {
                 }
@@ -337,15 +335,15 @@ public class h {
             if (j4 > 0) {
                 z = true;
                 j2 = j4;
-                if (z || this.f2610a == null || this.f2610a.size() == 0) {
+                if (z || this.f1956a == null || this.f1956a.size() == 0) {
                     return false;
                 }
-                int size = this.f2610a.size();
+                int size = this.f1956a.size();
                 i = size <= 16 ? 16 : size;
                 for (i2 = 0; i2 < i; i2++) {
-                    if (this.f2610a.get(i2).level != 0 && z) {
+                    if (this.f1956a.get(i2).level != 0 && z) {
                         try {
-                            j3 = (j2 - this.f2610a.get(i2).timestamp) / TimeUtils.NANOS_PER_MS;
+                            j3 = (j2 - this.f1956a.get(i2).timestamp) / TimeUtils.NANOS_PER_MS;
                         } catch (Error e3) {
                             j3 = 0;
                         } catch (Exception e4) {
@@ -365,7 +363,7 @@ public class h {
         if (z) {
             return false;
         }
-        int size2 = this.f2610a.size();
+        int size2 = this.f1956a.size();
         if (size2 <= 16) {
         }
         while (i2 < i) {
@@ -374,12 +372,12 @@ public class h {
     }
 
     public boolean a(h hVar) {
-        if (this.f2610a == null || hVar == null || hVar.f2610a == null) {
+        if (this.f1956a == null || hVar == null || hVar.f1956a == null) {
             return false;
         }
-        int size = this.f2610a.size() < hVar.f2610a.size() ? this.f2610a.size() : hVar.f2610a.size();
+        int size = this.f1956a.size() < hVar.f1956a.size() ? this.f1956a.size() : hVar.f1956a.size();
         for (int i = 0; i < size; i++) {
-            if (!this.f2610a.get(i).BSSID.equals(hVar.f2610a.get(i).BSSID)) {
+            if (!this.f1956a.get(i).BSSID.equals(hVar.f1956a.get(i).BSSID)) {
                 return false;
             }
         }
@@ -402,15 +400,15 @@ public class h {
     }
 
     public boolean b(h hVar) {
-        if (this.f2610a == null || hVar == null || hVar.f2610a == null) {
+        if (this.f1956a == null || hVar == null || hVar.f1956a == null) {
             return false;
         }
-        int size = this.f2610a.size() < hVar.f2610a.size() ? this.f2610a.size() : hVar.f2610a.size();
+        int size = this.f1956a.size() < hVar.f1956a.size() ? this.f1956a.size() : hVar.f1956a.size();
         for (int i = 0; i < size; i++) {
-            String str = this.f2610a.get(i).BSSID;
-            int i2 = this.f2610a.get(i).level;
-            String str2 = hVar.f2610a.get(i).BSSID;
-            int i3 = hVar.f2610a.get(i).level;
+            String str = this.f1956a.get(i).BSSID;
+            int i2 = this.f1956a.get(i).level;
+            String str2 = hVar.f1956a.get(i).BSSID;
+            int i3 = hVar.f1956a.get(i).level;
             if (!str.equals(str2) || i2 != i3) {
                 return false;
             }
@@ -433,12 +431,12 @@ public class h {
             return null;
         }
         StringBuffer stringBuffer = new StringBuffer(256);
-        int size = this.f2610a.size();
+        int size = this.f1956a.size();
         int i4 = size > com.baidu.location.d.j.O ? com.baidu.location.d.j.O : size;
         int i5 = 0;
         int i6 = 0;
         while (i5 < i4) {
-            if ((i3 & i) == 0 || this.f2610a.get(i5).BSSID == null) {
+            if ((i3 & i) == 0 || this.f1956a.get(i5).BSSID == null) {
                 i2 = i6;
             } else {
                 if (i6 == 0) {
@@ -446,9 +444,9 @@ public class h {
                 } else {
                     stringBuffer.append("|");
                 }
-                stringBuffer.append(this.f2610a.get(i5).BSSID.replace(":", ""));
+                stringBuffer.append(this.f1956a.get(i5).BSSID.replace(":", ""));
                 stringBuffer.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-                stringBuffer.append(b(this.f2610a.get(i5).SSID));
+                stringBuffer.append(b(this.f1956a.get(i5).SSID));
                 i2 = i6 + 1;
             }
             i5++;
@@ -488,7 +486,7 @@ public class h {
         int i;
         int i2;
         long j;
-        if (this.f2610a == null || this.f2610a.size() == 0) {
+        if (this.f1956a == null || this.f1956a.size() == 0) {
             return 0L;
         }
         long j2 = 0;
@@ -505,12 +503,12 @@ public class h {
             }
             if (j2 > 0) {
                 z = true;
-                int size = this.f2610a.size();
+                int size = this.f1956a.size();
                 i = size <= 16 ? 16 : size;
                 for (i2 = 0; i2 < i; i2++) {
-                    if (this.f2610a.get(i2).level != 0 && z) {
+                    if (this.f1956a.get(i2).level != 0 && z) {
                         try {
-                            j = (j2 - this.f2610a.get(i2).timestamp) / TimeUtils.NANOS_PER_MS;
+                            j = (j2 - this.f1956a.get(i2).timestamp) / TimeUtils.NANOS_PER_MS;
                         } catch (Error e3) {
                             j = 0;
                         } catch (Exception e4) {
@@ -527,7 +525,7 @@ public class h {
             }
         }
         z = false;
-        int size2 = this.f2610a.size();
+        int size2 = this.f1956a.size();
         if (size2 <= 16) {
         }
         while (i2 < i) {
@@ -538,7 +536,7 @@ public class h {
 
     public int g() {
         for (int i = 0; i < a(); i++) {
-            int i2 = -this.f2610a.get(i).level;
+            int i2 = -this.f1956a.get(i).level;
             if (i2 > 0) {
                 return i2;
             }
@@ -559,6 +557,6 @@ public class h {
     }
 
     public boolean k() {
-        return System.currentTimeMillis() - this.c > 0 && System.currentTimeMillis() - this.f2611b < 5000;
+        return System.currentTimeMillis() - this.c > 0 && System.currentTimeMillis() - this.b < 5000;
     }
 }

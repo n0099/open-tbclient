@@ -1,5 +1,5 @@
 package com.yy.mediaframework.beautystyle;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SoftLightStyle extends AbstractStyle {
     public SoftLightStyle() {
         this.sMinParams = new float[]{0.2f, 0.5f, 0.25f, 0.1f};

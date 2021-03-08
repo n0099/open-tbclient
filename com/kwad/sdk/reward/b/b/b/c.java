@@ -15,9 +15,7 @@ import com.kwad.sdk.reward.e;
 import com.kwad.sdk.utils.ao;
 /* loaded from: classes3.dex */
 public class c extends com.kwad.sdk.reward.d implements View.OnClickListener {
-
-    /* renamed from: b  reason: collision with root package name */
-    private TextView f10581b;
+    private TextView b;
     private ViewGroup c;
     private ImageView d;
     private AdTemplate e;
@@ -48,11 +46,11 @@ public class c extends com.kwad.sdk.reward.d implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(float f) {
-        if (this.f10581b.getVisibility() == 0) {
+        if (this.b.getVisibility() == 0) {
             int a2 = ao.a(o(), 40.0f);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f10581b.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.b.getLayoutParams();
             layoutParams.rightMargin = (int) (a2 * f);
-            this.f10581b.setLayoutParams(layoutParams);
+            this.b.setLayoutParams(layoutParams);
         }
     }
 
@@ -102,16 +100,16 @@ public class c extends com.kwad.sdk.reward.d implements View.OnClickListener {
 
     private void g() {
         String str = "观看完整视频即可获取奖励";
-        long b2 = com.kwad.sdk.core.response.b.a.b(this.f) * 1000;
+        long b = com.kwad.sdk.core.response.b.a.b(this.f) * 1000;
         int i = this.f.adBaseInfo.skipSecond;
         if (i > 0 && !com.kwad.sdk.core.response.b.a.l(this.f)) {
-            str = b2 > ((long) i) ? "观看视频" + i + "s即可获取奖励" : "观看完整视频即可获取奖励";
+            str = b > ((long) i) ? "观看视频" + i + "s即可获取奖励" : "观看完整视频即可获取奖励";
         }
         com.kwad.sdk.reward.e.a(this.i, str, new e.a() { // from class: com.kwad.sdk.reward.b.b.b.c.3
             @Override // com.kwad.sdk.reward.e.a
             public void a() {
-                c.this.f10652a.i.f();
-                com.kwad.sdk.core.report.b.j(c.this.e, c.this.f10652a.d);
+                c.this.f7028a.i.f();
+                com.kwad.sdk.core.report.b.j(c.this.e, c.this.f7028a.d);
             }
 
             @Override // com.kwad.sdk.reward.e.a
@@ -122,14 +120,14 @@ public class c extends com.kwad.sdk.reward.d implements View.OnClickListener {
 
             @Override // com.kwad.sdk.reward.e.a
             public void c() {
-                c.this.f10652a.i.e();
-                com.kwad.sdk.core.report.b.k(c.this.e, c.this.f10652a.d);
+                c.this.f7028a.i.e();
+                com.kwad.sdk.core.report.b.k(c.this.e, c.this.f7028a.d);
             }
         });
     }
 
     private void h() {
-        Activity activity = this.f10652a.g;
+        Activity activity = this.f7028a.g;
         if (activity != null) {
             activity.finish();
         }
@@ -137,28 +135,28 @@ public class c extends com.kwad.sdk.reward.d implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void p() {
-        this.f10652a.i.g();
+        this.f7028a.i.g();
     }
 
     private void q() {
-        this.f10652a.f10527b.e();
+        this.f7028a.b.e();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.e = this.f10652a.f;
+        this.e = this.f7028a.f;
         this.f = com.kwad.sdk.core.response.b.c.j(this.e);
-        this.i = this.f10652a.g;
-        this.f10652a.i.a(this.j);
+        this.i = this.f7028a.g;
+        this.f7028a.i.a(this.j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f10652a.i.b(this.j);
+        this.f7028a.i.b(this.j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -166,7 +164,7 @@ public class c extends com.kwad.sdk.reward.d implements View.OnClickListener {
     public void c() {
         super.c();
         this.c = (ViewGroup) b(R.id.ksad_reward_container_new);
-        this.f10581b = (TextView) b(R.id.ksad_detail_call_btn);
+        this.b = (TextView) b(R.id.ksad_detail_call_btn);
         this.d = (ImageView) b(R.id.ksad_detail_close_btn);
     }
 

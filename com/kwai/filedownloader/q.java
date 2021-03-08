@@ -10,27 +10,24 @@ import java.util.List;
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Object f10980a = new Object();
+    private static final Object f7236a = new Object();
     private static final Object c = new Object();
-
-    /* renamed from: b  reason: collision with root package name */
-    private v f10981b;
+    private v b;
     private u d;
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
-    public static final class a {
+    private static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final q f10982a = new q();
+        private static final q f7237a = new q();
     }
 
     public static q a() {
-        return a.f10982a;
+        return a.f7237a;
     }
 
     public static void a(Context context, c.a aVar) {
-        if (com.kwai.filedownloader.f.d.f10930a) {
+        if (com.kwai.filedownloader.f.d.f7212a) {
             com.kwai.filedownloader.f.d.c(q.class, "init Downloader with params: %s %s", context, aVar);
         }
         if (context == null) {
@@ -93,14 +90,14 @@ public class q {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v d() {
-        if (this.f10981b == null) {
-            synchronized (f10980a) {
-                if (this.f10981b == null) {
-                    this.f10981b = new aa();
+        if (this.b == null) {
+            synchronized (f7236a) {
+                if (this.b == null) {
+                    this.b = new aa();
                 }
             }
         }
-        return this.f10981b;
+        return this.b;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

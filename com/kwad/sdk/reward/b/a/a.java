@@ -10,9 +10,7 @@ import com.kwad.sdk.reward.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends d {
-
-    /* renamed from: b  reason: collision with root package name */
-    private AdTemplate f10530b;
+    private AdTemplate b;
     private AdInfo c;
     private List<Integer> d;
     private c e;
@@ -20,7 +18,7 @@ public class a extends d {
     private e g = new f() { // from class: com.kwad.sdk.reward.b.a.a.1
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void a() {
-            b.h(a.this.f10530b, a.this.f10652a.d);
+            b.h(a.this.b, a.this.f7028a.d);
             a.this.e.b();
         }
 
@@ -33,8 +31,8 @@ public class a extends d {
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void b() {
             super.b();
-            b.a(a.this.f10530b, a.this.f10652a.d);
-            b.g(a.this.f10530b, a.this.f10652a.d);
+            b.a(a.this.b, a.this.f7028a.d);
+            b.g(a.this.b, a.this.f7028a.d);
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
@@ -70,7 +68,7 @@ public class a extends d {
         }
         for (Integer num : this.d) {
             if (ceil >= num.intValue()) {
-                b.b(this.f10530b, ceil, this.f10652a.d);
+                b.b(this.b, ceil, this.f7028a.d);
                 this.d.remove(num);
                 return;
             }
@@ -82,18 +80,18 @@ public class a extends d {
     public void a() {
         super.a();
         this.e = new c();
-        this.f10530b = this.f10652a.f;
-        this.c = com.kwad.sdk.core.response.b.c.j(this.f10530b);
+        this.b = this.f7028a.f;
+        this.c = com.kwad.sdk.core.response.b.c.j(this.b);
         this.d = com.kwad.sdk.core.response.b.a.M(this.c);
-        this.f10652a.i.a(this.g);
+        this.f7028a.i.a(this.g);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f10652a.i.b(this.g);
+        this.f7028a.i.b(this.g);
         c.a c = this.e.c();
-        com.kwad.sdk.core.report.e.a(this.f10652a.f, this.f, c.b(), c.a());
+        com.kwad.sdk.core.report.e.a(this.f7028a.f, this.f, c.b(), c.a());
     }
 }

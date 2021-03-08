@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.v;
 import tbclient.GetBackground.DataReq;
 import tbclient.GetBackground.GetBackgroundReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BackgroundGetRequestMessage extends NetMessage {
     private int propId;
 

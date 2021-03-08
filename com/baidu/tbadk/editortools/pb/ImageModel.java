@@ -9,34 +9,34 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.o;
 /* loaded from: classes.dex */
 public class ImageModel extends BdBaseModel {
-    private a fDA;
+    private a fEZ;
     private String filename;
 
     public ImageModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.fDA = null;
+        this.fEZ = null;
         this.filename = null;
     }
 
-    public boolean CS(String str) {
+    public boolean CZ(String str) {
         this.filename = str;
         return LoadData();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     protected boolean LoadData() {
-        if (this.fDA != null) {
-            this.fDA.cancel();
+        if (this.fEZ != null) {
+            this.fEZ.cancel();
         }
-        this.fDA = new a(this.filename);
-        this.fDA.execute(new Object[0]);
+        this.fEZ = new a(this.filename);
+        this.fEZ.execute(new Object[0]);
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.fDA != null) {
-            this.fDA.cancel();
+        if (this.fEZ != null) {
+            this.fEZ.cancel();
             return true;
         }
         return true;
@@ -55,7 +55,7 @@ public class ImageModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: h */
+        /* renamed from: g */
         public Bitmap doInBackground(Object... objArr) {
             if (this.filename != null && !this.filename.equals(TbConfig.IMAGE_RESIZED_FILE)) {
                 o.dO("photos/" + this.filename, TbConfig.IMAGE_RESIZED_FILE);
@@ -65,7 +65,7 @@ public class ImageModel extends BdBaseModel {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            ImageModel.this.fDA = null;
+            ImageModel.this.fEZ = null;
             if (ImageModel.this.mLoadDataCallBack != null) {
                 ImageModel.this.mLoadDataCallBack.callback(null);
             }
@@ -83,7 +83,7 @@ public class ImageModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((a) bitmap);
-            ImageModel.this.fDA = null;
+            ImageModel.this.fEZ = null;
             if (ImageModel.this.mLoadDataCallBack != null) {
                 ImageModel.this.mLoadDataCallBack.callback(bitmap);
             }

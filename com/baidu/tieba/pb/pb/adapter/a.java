@@ -6,9 +6,9 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 public interface a {
     void C(View.OnClickListener onClickListener);
 
-    void U(View.OnClickListener onClickListener);
+    void V(View.OnClickListener onClickListener);
 
-    void gW(String str);
+    void hc(String str);
 
     void setData(com.baidu.tieba.pb.data.f fVar);
 

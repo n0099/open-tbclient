@@ -1,10 +1,10 @@
 package com.baidu.tieba.newfaceshop.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b implements Comparable<b> {
     public int height;
     public String id;
     public int index;
-    public String lAM;
+    public String lCO;
     public String name;
     public String thumbnail;
     public String url;

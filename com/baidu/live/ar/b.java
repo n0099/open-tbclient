@@ -10,66 +10,66 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    public static List<Point> aBI;
-    public static List<Point> aBJ;
-    public static List<Point> aBK;
-    public static List<Point> aBL;
-    public static List<List<Point>> aBM;
-    public float aBN = aBz;
-    public float aBO = aBA;
-    public float aBP = aBB;
-    public float aBQ = aBC;
-    public float aBR = aBD;
-    public float aBS = aBE;
-    public float aBT = aBF;
-    public float aBU = aBG;
-    public float aBV = aBH;
-    public List<Point> aBW = aBI;
-    public List<Point> aBX = aBJ;
-    public List<Point> aBY = aBK;
-    public List<Point> aBZ = aBL;
-    public static float aBz = 0.65f;
-    public static float aBA = 0.2f;
-    public static float aBB = 0.65f;
-    public static float aBC = 0.0f;
-    public static float aBD = 0.7f;
-    public static float aBE = 0.03f;
-    public static float aBF = 0.86f;
-    public static float aBG = 0.79f;
-    public static float aBH = 0.9f;
+    public static float aCZ = 0.65f;
+    public static float aDa = 0.2f;
+    public static float aDb = 0.65f;
+    public static float aDc = 0.0f;
+    public static float aDd = 0.7f;
+    public static float aDe = 0.03f;
+    public static float aDf = 0.86f;
+    public static float aDg = 0.79f;
+    public static float aDh = 0.9f;
+    public static List<Point> aDi;
+    public static List<Point> aDj;
+    public static List<Point> aDk;
+    public static List<Point> aDl;
+    public static List<List<Point>> aDm;
+    public float aDn = aCZ;
+    public float aDo = aDa;
+    public float aDp = aDb;
+    public float aDq = aDc;
+    public float aDr = aDd;
+    public float aDs = aDe;
+    public float aDt = aDf;
+    public float aDu = aDg;
+    public float aDv = aDh;
+    public List<Point> aDw = aDi;
+    public List<Point> aDx = aDj;
+    public List<Point> aDy = aDk;
+    public List<Point> aDz = aDl;
 
     static {
-        zr();
+        zu();
     }
 
-    public static void zr() {
-        aBI = new ArrayList();
-        aBI.add(new Point(0, 0));
-        aBI.add(new Point(75, 61));
-        aBI.add(new Point(175, 172));
-        aBI.add(new Point(255, 255));
-        aBJ = new ArrayList();
-        aBJ.add(new Point(0, 0));
-        aBJ.add(new Point(Constants.METHOD_IM_FRIEND_GROUP_DROP, 122));
-        aBJ.add(new Point(255, 255));
-        aBK = new ArrayList();
-        aBK.add(new Point(0, 0));
-        aBK.add(new Point(Constants.METHOD_IM_FRIEND_GROUP_ASSIGN, 117));
-        aBK.add(new Point(255, 255));
-        aBL = new ArrayList();
-        aBL.add(new Point(0, 0));
-        aBL.add(new Point(ThunderNetStateService.NetState.SYSNET_UNKNOWN, 111));
-        aBL.add(new Point(255, 255));
-        aBM = new ArrayList();
-        aBM.add(aBI);
-        aBM.add(aBJ);
-        aBM.add(aBK);
-        aBM.add(aBL);
+    public static void zu() {
+        aDi = new ArrayList();
+        aDi.add(new Point(0, 0));
+        aDi.add(new Point(75, 61));
+        aDi.add(new Point(175, 172));
+        aDi.add(new Point(255, 255));
+        aDj = new ArrayList();
+        aDj.add(new Point(0, 0));
+        aDj.add(new Point(Constants.METHOD_IM_FRIEND_GROUP_DROP, 122));
+        aDj.add(new Point(255, 255));
+        aDk = new ArrayList();
+        aDk.add(new Point(0, 0));
+        aDk.add(new Point(Constants.METHOD_IM_FRIEND_GROUP_ASSIGN, 117));
+        aDk.add(new Point(255, 255));
+        aDl = new ArrayList();
+        aDl.add(new Point(0, 0));
+        aDl.add(new Point(ThunderNetStateService.NetState.SYSNET_UNKNOWN, 111));
+        aDl.add(new Point(255, 255));
+        aDm = new ArrayList();
+        aDm.add(aDi);
+        aDm.add(aDj);
+        aDm.add(aDk);
+        aDm.add(aDl);
     }
 
-    public static b w(JSONObject jSONObject) {
+    public static b y(JSONObject jSONObject) {
         int i;
         int i2;
         int i3;
@@ -85,24 +85,24 @@ public class b {
         try {
             JSONObject jSONObject2 = jSONObject.getJSONObject("female");
             if (jSONObject2 != null) {
-                bVar.aBN = (float) jSONObject2.optDouble("intensity_smooth");
-                bVar.aBO = (float) jSONObject2.optDouble("intensity_white");
+                bVar.aDn = (float) jSONObject2.optDouble("intensity_smooth");
+                bVar.aDo = (float) jSONObject2.optDouble("intensity_white");
             }
             JSONObject jSONObject3 = jSONObject.getJSONObject("male");
             if (jSONObject3 != null) {
-                bVar.aBP = (float) jSONObject3.optDouble("intensity_smooth");
-                bVar.aBQ = (float) jSONObject3.optDouble("intensity_white");
+                bVar.aDp = (float) jSONObject3.optDouble("intensity_smooth");
+                bVar.aDq = (float) jSONObject3.optDouble("intensity_white");
             }
-            bVar.aBR = (float) jSONObject.optDouble("intensity_sharpness");
-            bVar.aBS = (float) jSONObject.optDouble("intensity_brightness");
-            bVar.aBT = (float) jSONObject.optDouble("intensity_contrast");
-            bVar.aBU = (float) jSONObject.optDouble("intensity_saturation");
+            bVar.aDr = (float) jSONObject.optDouble("intensity_sharpness");
+            bVar.aDs = (float) jSONObject.optDouble("intensity_brightness");
+            bVar.aDt = (float) jSONObject.optDouble("intensity_contrast");
+            bVar.aDu = (float) jSONObject.optDouble("intensity_saturation");
             JSONObject optJSONObject = jSONObject.optJSONObject("curves");
             if (optJSONObject != null && optJSONObject.length() > 0) {
-                bVar.aBV = (float) optJSONObject.optDouble("intensity_curves");
+                bVar.aDv = (float) optJSONObject.optDouble("intensity_curves");
                 JSONArray jSONArray = optJSONObject.getJSONArray("composite");
                 if (jSONArray != null && jSONArray.length() > 0) {
-                    bVar.aBW = new CopyOnWriteArrayList();
+                    bVar.aDw = new CopyOnWriteArrayList();
                     for (int i9 = 0; i9 < jSONArray.length(); i9++) {
                         JSONObject jSONObject4 = jSONArray.getJSONObject(i9);
                         if (jSONObject4 == null || jSONObject4.length() <= 0) {
@@ -112,12 +112,12 @@ public class b {
                             i8 = jSONObject4.optInt(Config.EVENT_HEAT_X);
                             i7 = jSONObject4.optInt("y");
                         }
-                        bVar.aBW.add(new Point(i8, i7));
+                        bVar.aDw.add(new Point(i8, i7));
                     }
                 }
                 JSONArray jSONArray2 = optJSONObject.getJSONArray("red");
                 if (jSONArray2 != null && jSONArray2.length() > 0) {
-                    bVar.aBX = new CopyOnWriteArrayList();
+                    bVar.aDx = new CopyOnWriteArrayList();
                     for (int i10 = 0; i10 < jSONArray2.length(); i10++) {
                         JSONObject jSONObject5 = jSONArray2.getJSONObject(i10);
                         if (jSONObject5 == null || jSONObject5.length() <= 0) {
@@ -127,12 +127,12 @@ public class b {
                             i6 = jSONObject5.optInt(Config.EVENT_HEAT_X);
                             i5 = jSONObject5.optInt("y");
                         }
-                        bVar.aBX.add(new Point(i6, i5));
+                        bVar.aDx.add(new Point(i6, i5));
                     }
                 }
                 JSONArray jSONArray3 = optJSONObject.getJSONArray("green");
                 if (jSONArray3 != null && jSONArray3.length() > 0) {
-                    bVar.aBY = new CopyOnWriteArrayList();
+                    bVar.aDy = new CopyOnWriteArrayList();
                     for (int i11 = 0; i11 < jSONArray3.length(); i11++) {
                         JSONObject jSONObject6 = jSONArray3.getJSONObject(i11);
                         if (jSONObject6 == null || jSONObject6.length() <= 0) {
@@ -142,12 +142,12 @@ public class b {
                             i4 = jSONObject6.optInt(Config.EVENT_HEAT_X);
                             i3 = jSONObject6.optInt("y");
                         }
-                        bVar.aBY.add(new Point(i4, i3));
+                        bVar.aDy.add(new Point(i4, i3));
                     }
                 }
                 JSONArray jSONArray4 = optJSONObject.getJSONArray("blue");
                 if (jSONArray4 != null && jSONArray4.length() > 0) {
-                    bVar.aBZ = new CopyOnWriteArrayList();
+                    bVar.aDz = new CopyOnWriteArrayList();
                     for (int i12 = 0; i12 < jSONArray4.length(); i12++) {
                         JSONObject jSONObject7 = jSONArray4.getJSONObject(i12);
                         if (jSONObject7 == null || jSONObject7.length() <= 0) {
@@ -157,7 +157,7 @@ public class b {
                             i2 = jSONObject7.optInt(Config.EVENT_HEAT_X);
                             i = jSONObject7.optInt("y");
                         }
-                        bVar.aBZ.add(new Point(i2, i));
+                        bVar.aDz.add(new Point(i2, i));
                     }
                     return bVar;
                 }

@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.Lego.DataRes;
 import tbclient.Lego.LegoResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class LegoHttpResponse extends HttpResponsedMessage {
     private DataRes resultData;
 

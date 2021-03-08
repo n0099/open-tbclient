@@ -10,26 +10,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class a {
-    public AudioTrack anB;
-    public com.baidu.cloudbase.c.a anE;
-
-    /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f1686b = true;
+    public AudioTrack apa;
+    public com.baidu.cloudbase.c.a apc;
+    public volatile boolean b = true;
     public volatile boolean c = true;
     public volatile boolean d = false;
-    public Thread anC = null;
-    public volatile BlockingQueue<b> anD = null;
-    public volatile List<a.a.a.a.a> g = null;
+    public Thread apb = null;
+    public volatile BlockingQueue<b> f = null;
+    public volatile List<a.a.a.a.b> g = null;
     public volatile int h = 0;
     public volatile float i = 1.0f;
     public volatile float j = 1.0f;
 
     /* renamed from: com.baidu.cloudbase.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public class RunnableC0095a implements Runnable {
-        public RunnableC0095a() {
+    /* loaded from: classes9.dex */
+    public class RunnableC0101a implements Runnable {
+        public RunnableC0101a() {
         }
 
         @Override // java.lang.Runnable
@@ -39,16 +37,14 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class b {
-        public MediaCodec.BufferInfo anF;
-
-        /* renamed from: b  reason: collision with root package name */
-        public ByteBuffer f1687b;
+        public MediaCodec.BufferInfo apd;
+        public ByteBuffer b;
 
         public b(a aVar, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
-            this.anF = bufferInfo;
-            this.f1687b = byteBuffer;
+            this.apd = bufferInfo;
+            this.b = byteBuffer;
         }
     }
 
@@ -58,23 +54,23 @@ public class a {
         while (this.d) {
             try {
                 try {
-                    b take = this.anD.take();
-                    if (take.f1687b == null) {
-                        if (this.anE != null) {
-                            this.anE.onFilteredFrameUpdate(null, take.anF);
+                    b take = this.f.take();
+                    if (take.b == null) {
+                        if (this.apc != null) {
+                            this.apc.onFilteredFrameUpdate(null, take.apd);
                             return;
                         }
                         return;
                     }
-                    MediaCodec.BufferInfo bufferInfo = take.anF;
+                    MediaCodec.BufferInfo bufferInfo = take.apd;
                     int i2 = bufferInfo.size;
                     int i3 = Integer.MAX_VALUE;
                     int i4 = 0;
                     while (i4 < this.h) {
                         i4++;
-                        i3 = Math.min(this.g.get(i4).f1031b, i3);
+                        i3 = Math.min(this.g.get(i4).b, i3);
                     }
-                    ByteBuffer byteBuffer = take.f1687b;
+                    ByteBuffer byteBuffer = take.b;
                     byte[] bArr2 = new byte[bufferInfo.size];
                     byteBuffer.get(bArr2);
                     int min = Math.min(i2, i3);
@@ -111,17 +107,17 @@ public class a {
                     } else {
                         bArr = null;
                     }
-                    if (this.f1686b) {
+                    if (this.b) {
                         bArr = bArr2;
                     } else if (this.h <= 0) {
                         bArr = null;
                     }
                     if (bArr != null && bArr.length > 0 && this.c) {
-                        this.anB.write(bArr, 0, min);
+                        this.apa.write(bArr, 0, min);
                     }
-                    if (this.anE != null) {
+                    if (this.apc != null) {
                         bufferInfo.offset = 0;
-                        this.anE.onFilteredFrameUpdate(bArr2, take.anF);
+                        this.apc.onFilteredFrameUpdate(bArr2, take.apd);
                     }
                 } catch (InterruptedException e) {
                     Log.d("AudioFilter", "break from mixingLoop, because queue.take is interrupt");
@@ -136,14 +132,14 @@ public class a {
     }
 
     public void a(com.baidu.cloudbase.c.a aVar) {
-        this.anE = aVar;
+        this.apc = aVar;
     }
 
     public void a(ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
         if (this.d) {
             try {
-                if (this.anD != null) {
-                    this.anD.put(new b(this, byteBuffer, bufferInfo));
+                if (this.f != null) {
+                    this.f.put(new b(this, byteBuffer, bufferInfo));
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -162,24 +158,24 @@ public class a {
     }
 
     public void a(boolean z, int i, int i2) {
-        this.anD = new ArrayBlockingQueue(256);
+        this.f = new ArrayBlockingQueue(256);
         this.g = new ArrayList(3);
         int minBufferSize = AudioTrack.getMinBufferSize(44100, 12, 2);
         Log.i("AudioFilter", "AudioTrack getMinBufferSize=" + minBufferSize + ";audioSessionId=" + i2);
         if (i2 >= 0) {
-            this.anB = new AudioTrack(i, 44100, 12, 2, minBufferSize, 1, i2);
+            this.apa = new AudioTrack(i, 44100, 12, 2, minBufferSize, 1, i2);
         } else {
-            this.anB = new AudioTrack(i, 44100, 12, 2, minBufferSize, 1);
+            this.apa = new AudioTrack(i, 44100, 12, 2, minBufferSize, 1);
         }
-        this.anB.play();
-        this.f1686b = z;
+        this.apa.play();
+        this.b = z;
         this.d = true;
-        this.anC = new Thread(new RunnableC0095a());
-        this.anC.start();
+        this.apb = new Thread(new RunnableC0101a());
+        this.apb.start();
     }
 
     public void aO(boolean z) {
-        this.f1686b = z;
+        this.b = z;
     }
 
     public void aP(boolean z) {
@@ -193,33 +189,33 @@ public class a {
     public void release() {
         this.d = false;
         try {
-            if (this.anC != null) {
-                this.anC.interrupt();
-                this.anC.join(1000L);
+            if (this.apb != null) {
+                this.apb.interrupt();
+                this.apb.join(1000L);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        AudioTrack audioTrack = this.anB;
+        AudioTrack audioTrack = this.apa;
         if (audioTrack != null) {
             audioTrack.release();
-            this.anB = null;
+            this.apa = null;
         }
         tV();
-        this.anD = null;
+        this.f = null;
         this.g = null;
     }
 
     public int tS() {
-        this.g.add(new a.a.a.a.a(TbConfig.THREAD_GIF_MIN_USE_MEMORY));
+        this.g.add(new a.a.a.a.b(TbConfig.THREAD_GIF_MIN_USE_MEMORY));
         int i = this.h;
         this.h = i + 1;
         return i;
     }
 
     public void tT() {
-        if (this.anD != null) {
-            this.anD.clear();
+        if (this.f != null) {
+            this.f.clear();
         }
         Log.d("AudioFilter", "clear master track over");
     }

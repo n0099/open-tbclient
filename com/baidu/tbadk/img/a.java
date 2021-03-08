@@ -9,17 +9,17 @@ import com.baidu.tieba.R;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class a<T> {
-    private final f fGh;
-    private int fGi;
+    private final f fHG;
+    private int fHH;
     private String mPath;
     public T progessObject;
-    private WeakReference<InterfaceC0577a<T>> mUploadProgressCallback = null;
-    private c fGf = null;
-    private a<T>.b fGg = null;
+    private WeakReference<InterfaceC0583a<T>> mUploadProgressCallback = null;
+    private c fHE = null;
+    private a<T>.b fHF = null;
 
     /* renamed from: com.baidu.tbadk.img.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0577a<T> {
+    public interface InterfaceC0583a<T> {
         void onImageProgessInUI(int i, T t);
     }
 
@@ -28,40 +28,40 @@ public class a<T> {
         void a(String str, ImageUploadResult imageUploadResult);
     }
 
-    public void rk(int i) {
-        this.fGi = i;
+    public void rl(int i) {
+        this.fHH = i;
     }
 
     public a(String str, String str2) {
         this.mPath = null;
         this.mPath = str;
-        this.fGh = new f(str2);
+        this.fHG = new f(str2);
     }
 
     public void setServersideResize(int i, int i2, int i3, int i4) {
-        this.fGh.setServersideResize(i, i2, i3, i4);
+        this.fHG.setServersideResize(i, i2, i3, i4);
     }
 
     public void loadPic(boolean z) {
-        if (this.fGg == null) {
-            this.fGg = new b();
-            this.fGg.setIsNeedAddWater(z);
-            this.fGg.rk(this.fGi);
-            this.fGg.execute(new String[0]);
+        if (this.fHF == null) {
+            this.fHF = new b();
+            this.fHF.setIsNeedAddWater(z);
+            this.fHF.rl(this.fHH);
+            this.fHF.execute(new String[0]);
         }
     }
 
     /* loaded from: classes.dex */
     private class b extends BdAsyncTask<String, Integer, ImageUploadResult> implements f.a {
-        private int fGi;
+        private int fHH;
         private boolean isNeedAddWater;
 
         private b() {
             this.isNeedAddWater = false;
         }
 
-        public void rk(int i) {
-            this.fGi = i;
+        public void rl(int i) {
+            this.fHH = i;
         }
 
         protected void setIsNeedAddWater(boolean z) {
@@ -73,13 +73,13 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: P */
         public ImageUploadResult doInBackground(String... strArr) {
-            return bCQ();
+            return bCT();
         }
 
-        private ImageUploadResult bCQ() {
-            a.this.fGh.a(this, (Object) null);
-            a.this.fGh.rk(this.fGi);
-            ImageUploadResult ax = a.this.fGh.ax(a.this.mPath, this.isNeedAddWater);
+        private ImageUploadResult bCT() {
+            a.this.fHG.a(this, (Object) null);
+            a.this.fHG.rl(this.fHH);
+            ImageUploadResult ax = a.this.fHG.ax(a.this.mPath, this.isNeedAddWater);
             publishProgress(100);
             return ax;
         }
@@ -103,7 +103,7 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onProgressUpdate(Integer... numArr) {
             if (numArr != null && numArr.length != 0 && a.this.mUploadProgressCallback != null && a.this.mUploadProgressCallback.get() != null) {
-                ((InterfaceC0577a) a.this.mUploadProgressCallback.get()).onImageProgessInUI(numArr[0].intValue(), a.this.progessObject);
+                ((InterfaceC0583a) a.this.mUploadProgressCallback.get()).onImageProgessInUI(numArr[0].intValue(), a.this.progessObject);
             }
         }
 
@@ -111,19 +111,19 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreCancel() {
             super.onPreCancel();
-            if (a.this.fGf != null) {
+            if (a.this.fHE != null) {
                 ImageUploadResult imageUploadResult = new ImageUploadResult();
                 imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_CALCELLED;
                 imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.send_error);
-                a.this.fGf.a(a.this.mPath, imageUploadResult);
+                a.this.fHE.a(a.this.mPath, imageUploadResult);
             }
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            a.this.fGg = null;
-            a.this.fGh.cancel();
+            a.this.fHF = null;
+            a.this.fHG.cancel();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -132,29 +132,29 @@ public class a<T> {
         /* renamed from: a */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             super.onPostExecute(imageUploadResult);
-            a.this.fGg = null;
-            if (a.this.fGf != null) {
+            a.this.fHF = null;
+            if (a.this.fHE != null) {
                 if (imageUploadResult == null) {
                     imageUploadResult = new ImageUploadResult();
                     imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_ERROR;
                     imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.send_error);
                     TiebaStatic.imgError(-1002, imageUploadResult.error_msg, "");
                 }
-                a.this.fGf.a(a.this.mPath, imageUploadResult);
+                a.this.fHE.a(a.this.mPath, imageUploadResult);
             }
         }
     }
 
-    public void a(InterfaceC0577a<T> interfaceC0577a) {
-        this.mUploadProgressCallback = new WeakReference<>(interfaceC0577a);
+    public void a(InterfaceC0583a<T> interfaceC0583a) {
+        this.mUploadProgressCallback = new WeakReference<>(interfaceC0583a);
     }
 
     public void a(c cVar) {
-        this.fGf = cVar;
+        this.fHE = cVar;
     }
 
     public void setGroupId(String str) {
-        this.fGh.setGroupId(str);
+        this.fHG.setGroupId(str);
     }
 
     public T getProgessObject() {
@@ -166,8 +166,8 @@ public class a<T> {
     }
 
     public void setServerResizeForIMImage() {
-        LocalViewSize.ImageSize bsp = LocalViewSize.bso().bsp();
-        LocalViewSize.ImageSize bsq = LocalViewSize.bso().bsq();
-        setServersideResize(bsq.width, bsq.height, bsp.width, bsp.height);
+        LocalViewSize.ImageSize bss = LocalViewSize.bsr().bss();
+        LocalViewSize.ImageSize bst = LocalViewSize.bsr().bst();
+        setServersideResize(bst.width, bst.height, bss.width, bss.height);
     }
 }

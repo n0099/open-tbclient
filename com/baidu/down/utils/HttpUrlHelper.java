@@ -18,7 +18,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import org.apache.http.HttpHost;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class HttpUrlHelper {
     static final String FORM_ENCODE_SET = " \"':;<=>@[]^`{}|/\\?#&!$(),~";
     static final String FRAGMENT_ENCODE_SET = "";
@@ -347,7 +347,7 @@ public final class HttpUrlHelper {
         return this.url;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder {
         String encodedFragment;
         List<String> encodedQueryNamesAndValues;
@@ -359,7 +359,7 @@ public final class HttpUrlHelper {
         final List<String> encodedPathSegments = new ArrayList();
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes4.dex */
+        /* loaded from: classes6.dex */
         public enum ParseResult {
             SUCCESS,
             MISSING_SCHEME,
@@ -1116,8 +1116,8 @@ public final class HttpUrlHelper {
                         e.printStackTrace();
                     }
                 } else if (codePointAt < 32 || codePointAt == 127 || ((codePointAt >= 128 && z4) || str2.indexOf(codePointAt) != -1 || (codePointAt == 37 && (!z || (z2 && !percentEncoded(str, i, i2)))))) {
-                    for (byte b2 : HttpUrlHelperUtil.writeUtf8CodePoint2(codePointAt)) {
-                        int i3 = b2 & 255;
+                    for (byte b : HttpUrlHelperUtil.writeUtf8CodePoint2(codePointAt)) {
+                        int i3 = b & 255;
                         sb.append(HttpUrlHelperUtil.writeByte(37));
                         sb.append(HttpUrlHelperUtil.writeByte(HEX_DIGITS[(i3 >> 4) & 15]));
                         sb.append(HttpUrlHelperUtil.writeByte(HEX_DIGITS[i3 & 15]));

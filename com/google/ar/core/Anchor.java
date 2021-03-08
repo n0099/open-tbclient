@@ -1,10 +1,10 @@
 package com.google.ar.core;
 
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class Anchor {
-    private final Session pRN = null;
-    long pRO = 0;
+    private final Session pSC = null;
+    long pSD = 0;
 
     private native void nativeDetach(long j, long j2);
 
@@ -18,7 +18,7 @@ public class Anchor {
 
     private static native void nativeReleaseAnchor(long j);
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public enum CloudAnchorState {
         NONE(0),
         TASK_IN_PROGRESS(1),
@@ -58,16 +58,16 @@ public class Anchor {
     }
 
     public boolean equals(Object obj) {
-        return obj != null && obj.getClass() == getClass() && ((Anchor) obj).pRO == this.pRO;
+        return obj != null && obj.getClass() == getClass() && ((Anchor) obj).pSD == this.pSD;
     }
 
     public int hashCode() {
-        return Long.valueOf(this.pRO).hashCode();
+        return Long.valueOf(this.pSD).hashCode();
     }
 
     protected void finalize() throws Throwable {
-        if (this.pRO != 0) {
-            nativeReleaseAnchor(this.pRO);
+        if (this.pSD != 0) {
+            nativeReleaseAnchor(this.pSD);
         }
         super.finalize();
     }

@@ -25,7 +25,7 @@ public class PbFirstFloorEnterForumAdapter extends com.baidu.adp.widget.ListView
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cE */
+    /* renamed from: cD */
     public PbFirstFloorEnterForumViewHolder e(ViewGroup viewGroup) {
         FrameLayout frameLayout = new FrameLayout(this.mContext);
         int dimens = l.getDimens(this.mContext, R.dimen.M_W_X007);
@@ -61,51 +61,51 @@ public class PbFirstFloorEnterForumAdapter extends com.baidu.adp.widget.ListView
         if (hVar != null) {
             pbFirstFloorEnterForumViewHolder.a(hVar);
         }
-        pbFirstFloorEnterForumViewHolder.bup();
+        pbFirstFloorEnterForumViewHolder.bus();
         return view;
     }
 
     /* loaded from: classes2.dex */
     public class PbFirstFloorEnterForumViewHolder extends TypeAdapter.ViewHolder implements View.OnClickListener {
-        View bQW;
-        View bTo;
-        ImageView jPF;
-        CardForumHeadLayout mbS;
-        private h mbT;
+        View bSw;
+        View bUO;
+        ImageView jRo;
+        CardForumHeadLayout mdU;
+        private h mdV;
 
         public PbFirstFloorEnterForumViewHolder(View view) {
             super(view);
-            this.mbS = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
-            if (this.mbS != null) {
-                this.mbS.setOnClickListener(this.mbS);
-                this.mbS.setAfterClickListener(this);
+            this.mdU = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
+            if (this.mdU != null) {
+                this.mdU.setOnClickListener(this.mdU);
+                this.mdU.setAfterClickListener(this);
             }
-            this.bTo = ((ViewGroup) view).getChildAt(1);
-            this.jPF = (ImageView) ((ViewGroup) view).getChildAt(2);
-            this.bQW = ((ViewGroup) view).getChildAt(3);
+            this.bUO = ((ViewGroup) view).getChildAt(1);
+            this.jRo = (ImageView) ((ViewGroup) view).getChildAt(2);
+            this.bSw = ((ViewGroup) view).getChildAt(3);
         }
 
         public void a(h hVar) {
             if (hVar != null) {
-                this.mbT = hVar;
-                this.bQW.setVisibility(hVar.lLl ? 0 : 8);
+                this.mdV = hVar;
+                this.bSw.setVisibility(hVar.lNn ? 0 : 8);
                 if (getView() != null) {
-                    getView().setPadding(0, 0, 0, hVar.lLl ? l.getDimens(PbFirstFloorEnterForumAdapter.this.mContext, R.dimen.tbds42) : 0);
+                    getView().setPadding(0, 0, 0, hVar.lNn ? l.getDimens(PbFirstFloorEnterForumAdapter.this.mContext, R.dimen.tbds42) : 0);
                 }
-                this.mbS.setData(hVar.forumName, hVar.lLk, hVar.postNum, hVar.memberNum);
+                this.mdU.setData(hVar.forumName, hVar.lNm, hVar.postNum, hVar.memberNum);
             }
         }
 
-        public void bup() {
-            WebPManager.a(this.jPF, R.drawable.icon_pure_list_arrow16_right, R.color.CAM_X0107, null);
-            ap.setBackgroundColor(this.bTo, R.color.CAM_X0203);
-            ap.setBackgroundColor(this.bQW, R.color.CAM_X0203);
-            this.mbS.onChangeSkinType();
+        public void bus() {
+            WebPManager.a(this.jRo, R.drawable.icon_pure_list_arrow16_right, R.color.CAM_X0107, null);
+            ap.setBackgroundColor(this.bUO, R.color.CAM_X0203);
+            ap.setBackgroundColor(this.bSw, R.color.CAM_X0203);
+            this.mdU.onChangeSkinType();
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TiebaStatic.log(new ar("c13698").dR("tid", this.mbT.tid).dR("fid", this.mbT.fid).v("uid", TbadkCoreApplication.getCurrentAccountId()));
+            TiebaStatic.log(new ar("c13698").dR("tid", this.mdV.tid).dR("fid", this.mdV.fid).v("uid", TbadkCoreApplication.getCurrentAccountId()));
         }
     }
 }

@@ -4,12 +4,10 @@ import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.search.core.l;
 /* loaded from: classes4.dex */
 public class SuggestionSearch extends l {
-
-    /* renamed from: b  reason: collision with root package name */
-    private boolean f2936b = false;
+    private boolean b = false;
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.platform.core.f.a f2935a = new com.baidu.platform.core.f.b();
+    com.baidu.platform.core.f.a f2149a = new com.baidu.platform.core.f.b();
 
     private SuggestionSearch() {
     }
@@ -20,31 +18,31 @@ public class SuggestionSearch extends l {
     }
 
     public void destroy() {
-        if (this.f2936b) {
+        if (this.b) {
             return;
         }
-        this.f2936b = true;
-        this.f2935a.a();
+        this.b = true;
+        this.f2149a.a();
         BMapManager.destroy();
     }
 
     public boolean requestSuggestion(SuggestionSearchOption suggestionSearchOption) {
-        if (this.f2935a == null) {
+        if (this.f2149a == null) {
             throw new IllegalStateException("suggestionsearch is null, please call newInstance() first.");
         }
         if (suggestionSearchOption == null || suggestionSearchOption.mKeyword == null || suggestionSearchOption.mCity == null) {
             throw new IllegalArgumentException("option or keyword or city can not be null");
         }
-        return this.f2935a.a(suggestionSearchOption);
+        return this.f2149a.a(suggestionSearchOption);
     }
 
     public void setOnGetSuggestionResultListener(OnGetSuggestionResultListener onGetSuggestionResultListener) {
-        if (this.f2935a == null) {
+        if (this.f2149a == null) {
             throw new IllegalStateException("suggestionsearch is null, please call newInstance() first.");
         }
         if (onGetSuggestionResultListener == null) {
             throw new IllegalArgumentException("listener can not be null");
         }
-        this.f2935a.a(onGetSuggestionResultListener);
+        this.f2149a.a(onGetSuggestionResultListener);
     }
 }

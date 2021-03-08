@@ -4,7 +4,7 @@ import androidx.constraintlayout.solver.LinearSystem;
 import androidx.constraintlayout.solver.SolverVariable;
 import androidx.constraintlayout.solver.widgets.ConstraintAnchor;
 import com.baidu.webkit.internal.blink.VideoFreeFlowConfigManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class ResolutionAnchor extends ResolutionNode {
     public static final int BARRIER_CONNECTION = 5;
     public static final int CENTER_CONNECTION = 2;

@@ -1,7 +1,7 @@
 package com.thunder.livesdk.video.serviceConfig;
 
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoLiveConfig {
     public int bframeswitch;
     public int entEncode;
@@ -9,7 +9,7 @@ public class VideoLiveConfig {
     public int playType;
     public List<ResolutionInfo> resolutions;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class ResolutionInfo {
         public int bframeNum;
         public int codeRate;
@@ -36,7 +36,7 @@ public class VideoLiveConfig {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class ModifyInfo {
         public int encode_id;
         public String encode_param;
@@ -51,7 +51,7 @@ public class VideoLiveConfig {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class EncodeType {
         public static final int PHONE_CODEC_HW_H264 = 200;
         public static final int PHONE_CODEC_HW_H265 = 220;
@@ -62,7 +62,7 @@ public class VideoLiveConfig {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class DecodeType {
         public static final int CODEC_DECODEC_H264_HW = 1;
         public static final int CODEC_DECODEC_H264_SOFT = 0;
@@ -74,7 +74,7 @@ public class VideoLiveConfig {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     class PreviewType {
         public static final int PREVIEW_TYPE_NO_SHARE_CTX = 0;
         public static final int PREVIEW_TYPE_SHARE_CTX = 1;
@@ -83,7 +83,7 @@ public class VideoLiveConfig {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     class UseClear {
         public static final int NOT_USE_CLEAR = 0;
         public static final int USE_CLEAR = 1;
@@ -92,7 +92,7 @@ public class VideoLiveConfig {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class StreamType {
         public static final int STREAM_TYPE_H264 = 1;
         public static final int STREAM_TYPE_H265 = 2;
@@ -101,7 +101,7 @@ public class VideoLiveConfig {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class PlayType {
         public static final int ACROSS = 3;
         public static final int ARENA_CROSS = 4;

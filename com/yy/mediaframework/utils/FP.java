@@ -15,20 +15,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.Callable;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FP {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface BinaryFunc<R, A, B> {
-        R apply(A a2, B b2);
+        R apply(A a2, B b);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface UnaryFunc<R, A> {
         R apply(A a2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static abstract class Pred<A> implements UnaryFunc<Boolean, A> {
         public abstract boolean pred(A a2);
 
@@ -47,7 +47,7 @@ public class FP {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static abstract class Eq<A> implements BinaryFunc<Boolean, A, A> {
         public abstract boolean eq(A a2, A a3);
 
@@ -59,25 +59,23 @@ public class FP {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class Tuple<A, B, C> {
 
         /* renamed from: a  reason: collision with root package name */
-        public A f14397a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public B f14398b;
+        public A f8630a;
+        public B b;
         public C c;
 
-        public Tuple(A a2, B b2, C c) {
-            this.f14397a = a2;
-            this.f14398b = b2;
+        public Tuple(A a2, B b, C c) {
+            this.f8630a = a2;
+            this.b = b;
             this.c = c;
         }
     }
 
-    public static <A, B, C> Tuple<A, B, C> makeTuple(A a2, B b2, C c) {
-        return new Tuple<>(a2, b2, c);
+    public static <A, B, C> Tuple<A, B, C> makeTuple(A a2, B b, C c) {
+        return new Tuple<>(a2, b, c);
     }
 
     public static <E> Pred<E> negate(final Pred<E> pred) {
@@ -812,7 +810,7 @@ public class FP {
         return arrayList;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class M {
         public static <K, V> List<Pair<K, V>> toList(Map<K, V> map) {
             ArrayList arrayList = new ArrayList();

@@ -2,7 +2,7 @@ package com.yy.mediaframework;
 
 import com.yy.mediaframework.base.VideoEncoderConfig;
 import com.yy.mediaframework.base.VideoEncoderType;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PublishVideoConfig extends VideoEncoderConfig {
     public static final int PUBLISH_VIDEO_MODE_HIGHQULITY = 1;
     public static final int PUBLISH_VIDEO_MODE_NORMAL = 0;

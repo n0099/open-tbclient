@@ -4,9 +4,7 @@ import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.internal.api.SceneImpl;
 /* loaded from: classes3.dex */
 public class i extends com.kwad.sdk.contentalliance.home.e {
-
-    /* renamed from: b  reason: collision with root package name */
-    com.kwad.sdk.core.i.a f8700b;
+    com.kwad.sdk.core.i.a b;
     private com.kwad.sdk.core.i.c c;
     private boolean d;
     private SceneImpl e;
@@ -18,14 +16,14 @@ public class i extends com.kwad.sdk.contentalliance.home.e {
     @Override // com.kwad.sdk.contentalliance.home.e, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        com.kwad.sdk.contentalliance.home.h hVar = this.f8736a.f;
+        com.kwad.sdk.contentalliance.home.h hVar = this.f5821a.f;
         if (hVar == null) {
             return;
         }
-        this.f8700b = hVar.f8744a;
-        if (this.f8700b != null) {
-            this.e = this.f8736a.e;
-            this.f = this.f8736a.f8737a;
+        this.b = hVar.f5826a;
+        if (this.b != null) {
+            this.e = this.f5821a.e;
+            this.f = this.f5821a.f5822a;
             this.h = String.valueOf(this.f.hashCode());
             if (this.c == null) {
                 this.c = new com.kwad.sdk.core.i.c() { // from class: com.kwad.sdk.contentalliance.home.b.i.1
@@ -49,7 +47,7 @@ public class i extends com.kwad.sdk.contentalliance.home.e {
                         i.this.g = System.currentTimeMillis();
                     }
                 };
-                this.f8700b.a(this.c);
+                this.b.a(this.c);
             }
         }
     }
@@ -58,10 +56,10 @@ public class i extends com.kwad.sdk.contentalliance.home.e {
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        if (this.c == null || this.f8700b == null) {
+        if (this.c == null || this.b == null) {
             return;
         }
-        this.f8700b.b(this.c);
+        this.b.b(this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

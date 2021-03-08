@@ -9,7 +9,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class e {
-    public static JSONObject Be(boolean z) throws JSONException {
+    public static JSONObject a(boolean z) throws JSONException {
         StackTraceElement[] stackTrace = Looper.getMainLooper().getThread().getStackTrace();
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("thread_number", 1);

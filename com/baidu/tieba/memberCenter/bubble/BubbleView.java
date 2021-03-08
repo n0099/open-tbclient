@@ -14,27 +14,27 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.bubble.BubbleListData;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BubbleView extends RelativeLayout {
-    private TextView llA;
-    private boolean llB;
-    private ViewGroup lln;
-    private TbImageView llo;
-    private ImageView llp;
-    private ImageView llq;
-    private ImageView llr;
-    private ImageView lls;
-    private ImageView llt;
-    private ImageView llu;
-    private View llv;
-    private ViewGroup llw;
-    private ViewGroup llx;
-    private TbImageView lly;
-    private TextView llz;
+    private ViewGroup lnA;
+    private TbImageView lnB;
+    private TextView lnC;
+    private TextView lnD;
+    private boolean lnE;
+    private ViewGroup lnq;
+    private TbImageView lnr;
+    private ImageView lns;
+    private ImageView lnt;
+    private ImageView lnu;
+    private ImageView lnv;
+    private ImageView lnw;
+    private ImageView lnx;
+    private View lny;
+    private ViewGroup lnz;
     private Context mContext;
 
     public void setShowName(boolean z) {
-        this.llB = z;
+        this.lnE = z;
     }
 
     public BubbleView(Context context, AttributeSet attributeSet, int i) {
@@ -57,20 +57,20 @@ public class BubbleView extends RelativeLayout {
 
     private void init() {
         View inflate = LayoutInflater.from(this.mContext).inflate(getXmlLayoutResId(), this);
-        this.lln = (ViewGroup) inflate.findViewById(R.id.bubble_layout);
-        this.llo = (TbImageView) inflate.findViewById(R.id.bubble_image);
-        this.llp = (ImageView) inflate.findViewById(R.id.bubble_iamge_bg);
-        this.llq = (ImageView) inflate.findViewById(R.id.free_tip);
-        this.llr = (ImageView) inflate.findViewById(R.id.defualt_tip);
-        this.lls = (ImageView) inflate.findViewById(R.id.bubble_notuse_iamge);
-        this.llt = (ImageView) inflate.findViewById(R.id.bubble_round_up);
-        this.llu = (ImageView) inflate.findViewById(R.id.bubble_round_full);
-        this.llv = inflate.findViewById(R.id.bubble_center_line);
-        this.llw = (ViewGroup) inflate.findViewById(R.id.bubble_bottom_layout);
-        this.llx = (ViewGroup) inflate.findViewById(R.id.has_icon_name);
-        this.lly = (TbImageView) inflate.findViewById(R.id.icon_iamge);
-        this.llz = (TextView) inflate.findViewById(R.id.bubble_name);
-        this.llA = (TextView) inflate.findViewById(R.id.no_icon_name);
+        this.lnq = (ViewGroup) inflate.findViewById(R.id.bubble_layout);
+        this.lnr = (TbImageView) inflate.findViewById(R.id.bubble_image);
+        this.lns = (ImageView) inflate.findViewById(R.id.bubble_iamge_bg);
+        this.lnt = (ImageView) inflate.findViewById(R.id.free_tip);
+        this.lnu = (ImageView) inflate.findViewById(R.id.defualt_tip);
+        this.lnv = (ImageView) inflate.findViewById(R.id.bubble_notuse_iamge);
+        this.lnw = (ImageView) inflate.findViewById(R.id.bubble_round_up);
+        this.lnx = (ImageView) inflate.findViewById(R.id.bubble_round_full);
+        this.lny = inflate.findViewById(R.id.bubble_center_line);
+        this.lnz = (ViewGroup) inflate.findViewById(R.id.bubble_bottom_layout);
+        this.lnA = (ViewGroup) inflate.findViewById(R.id.has_icon_name);
+        this.lnB = (TbImageView) inflate.findViewById(R.id.icon_iamge);
+        this.lnC = (TextView) inflate.findViewById(R.id.bubble_name);
+        this.lnD = (TextView) inflate.findViewById(R.id.no_icon_name);
     }
 
     public int getXmlLayoutResId() {
@@ -81,71 +81,71 @@ public class BubbleView extends RelativeLayout {
         if (bubbleData != null) {
             if (bubbleData.getBcode() == 0) {
                 setCurrentNotUse();
-                this.llr.setVisibility(z ? 0 : 8);
-                this.llp.setVisibility(z ? 0 : 8);
+                this.lnu.setVisibility(z ? 0 : 8);
+                this.lns.setVisibility(z ? 0 : 8);
                 return;
             }
-            this.lln.setVisibility(0);
-            this.lls.setVisibility(8);
+            this.lnq.setVisibility(0);
+            this.lnv.setVisibility(8);
             if (bubbleData.isDef()) {
-                this.llp.setVisibility(0);
-                this.llr.setVisibility(0);
+                this.lns.setVisibility(0);
+                this.lnu.setVisibility(0);
             } else {
-                this.llp.setVisibility(8);
-                this.llr.setVisibility(8);
+                this.lns.setVisibility(8);
+                this.lnu.setVisibility(8);
             }
             if (bubbleData.isFree()) {
-                this.llq.setVisibility(0);
+                this.lnt.setVisibility(0);
             } else {
-                this.llq.setVisibility(8);
+                this.lnt.setVisibility(8);
             }
             if (!TextUtils.isEmpty(bubbleData.getB_url())) {
-                this.llo.setTag(bubbleData.getB_url());
-                this.llo.startLoad(bubbleData.getB_url(), 10, false);
+                this.lnr.setTag(bubbleData.getB_url());
+                this.lnr.startLoad(bubbleData.getB_url(), 10, false);
             }
-            if (!this.llB) {
-                this.llv.setVisibility(8);
-                this.llw.setVisibility(8);
-                this.llt.setVisibility(8);
-                this.llu.setVisibility(0);
+            if (!this.lnE) {
+                this.lny.setVisibility(8);
+                this.lnz.setVisibility(8);
+                this.lnw.setVisibility(8);
+                this.lnx.setVisibility(0);
                 return;
             }
-            this.llv.setVisibility(0);
-            this.llw.setVisibility(0);
-            this.llt.setVisibility(0);
-            this.llu.setVisibility(8);
+            this.lny.setVisibility(0);
+            this.lnz.setVisibility(0);
+            this.lnw.setVisibility(0);
+            this.lnx.setVisibility(8);
             if (!TextUtils.isEmpty(bubbleData.getIcon_url())) {
-                this.llx.setVisibility(0);
-                this.llA.setVisibility(8);
-                this.llz.setText(bubbleData.getBname());
-                this.lly.setTag(bubbleData.getIcon_url());
-                this.lly.startLoad(bubbleData.getIcon_url(), 10, false);
+                this.lnA.setVisibility(0);
+                this.lnD.setVisibility(8);
+                this.lnC.setText(bubbleData.getBname());
+                this.lnB.setTag(bubbleData.getIcon_url());
+                this.lnB.startLoad(bubbleData.getIcon_url(), 10, false);
                 return;
             }
-            this.llx.setVisibility(8);
-            this.llA.setVisibility(0);
-            this.llA.setText(bubbleData.getBname());
+            this.lnA.setVisibility(8);
+            this.lnD.setVisibility(0);
+            this.lnD.setText(bubbleData.getBname());
         }
     }
 
     public void setCurrentNotUse() {
-        this.lln.setVisibility(8);
-        this.lls.setVisibility(0);
-        this.llq.setVisibility(8);
-        if (!this.llB) {
-            this.llv.setVisibility(8);
-            this.llw.setVisibility(8);
-            this.llt.setVisibility(8);
-            this.llu.setVisibility(0);
+        this.lnq.setVisibility(8);
+        this.lnv.setVisibility(0);
+        this.lnt.setVisibility(8);
+        if (!this.lnE) {
+            this.lny.setVisibility(8);
+            this.lnz.setVisibility(8);
+            this.lnw.setVisibility(8);
+            this.lnx.setVisibility(0);
             return;
         }
-        this.llv.setVisibility(0);
-        this.llw.setVisibility(0);
-        this.llt.setVisibility(0);
-        this.llu.setVisibility(8);
-        this.llx.setVisibility(8);
-        this.llA.setVisibility(0);
-        this.llA.setText(this.mContext.getString(R.string.bubble_notuse_text));
+        this.lny.setVisibility(0);
+        this.lnz.setVisibility(0);
+        this.lnw.setVisibility(0);
+        this.lnx.setVisibility(8);
+        this.lnA.setVisibility(8);
+        this.lnD.setVisibility(0);
+        this.lnD.setText(this.mContext.getString(R.string.bubble_notuse_text));
     }
 
     public void D(TbPageContext<?> tbPageContext) {

@@ -9,20 +9,18 @@ import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class ShareModel implements Parcelable {
     public static final Parcelable.Creator<ShareModel> CREATOR = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    private SapiAccount f5042a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private List<SapiAccount> f5043b;
+    private SapiAccount f3409a;
+    private List<SapiAccount> b;
     private ShareEvent c;
     private String d;
     private LoginShareStrategy e;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     static class a implements Parcelable.Creator<ShareModel> {
         a() {
         }
@@ -43,12 +41,12 @@ public class ShareModel implements Parcelable {
     }
 
     ShareModel() {
-        this.f5043b = new ArrayList();
+        this.b = new ArrayList();
     }
 
     void a(List<SapiAccount> list) {
         if (list != null) {
-            this.f5043b = list;
+            this.b = list;
         }
     }
 
@@ -59,7 +57,7 @@ public class ShareModel implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public List<SapiAccount> c() {
-        return this.f5043b;
+        return this.b;
     }
 
     @Override // android.os.Parcelable
@@ -68,14 +66,14 @@ public class ShareModel implements Parcelable {
     }
 
     public String toString() {
-        return "ShareModel{currentAccount=" + this.f5042a + ", shareAccounts=" + this.f5043b + ", event=" + this.c + ", from='" + this.d + "', senderStrategy=" + this.e + '}';
+        return "ShareModel{currentAccount=" + this.f3409a + ", shareAccounts=" + this.b + ", event=" + this.c + ", from='" + this.d + "', senderStrategy=" + this.e + '}';
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeSerializable(this.c);
-        parcel.writeTypedList(this.f5043b);
-        parcel.writeParcelable(this.f5042a, i);
+        parcel.writeTypedList(this.b);
+        parcel.writeParcelable(this.f3409a, i);
         parcel.writeSerializable(this.e);
         parcel.writeString(this.d);
     }
@@ -92,9 +90,9 @@ public class ShareModel implements Parcelable {
             arrayList.add(c.b(context, sapiAccount));
         }
         a(arrayList);
-        SapiAccount sapiAccount2 = this.f5042a;
+        SapiAccount sapiAccount2 = this.f3409a;
         if (sapiAccount2 != null) {
-            this.f5042a = c.b(context, sapiAccount2);
+            this.f3409a = c.b(context, sapiAccount2);
         }
         if (TextUtils.isEmpty(this.d)) {
             return;
@@ -103,7 +101,7 @@ public class ShareModel implements Parcelable {
     }
 
     ShareModel(Parcel parcel) {
-        this.f5043b = new ArrayList();
+        this.b = new ArrayList();
         a(parcel);
     }
 
@@ -118,7 +116,7 @@ public class ShareModel implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(SapiAccount sapiAccount) {
-        this.f5042a = sapiAccount;
+        this.f3409a = sapiAccount;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -128,8 +126,8 @@ public class ShareModel implements Parcelable {
 
     private void a(Parcel parcel) {
         this.c = (ShareEvent) parcel.readSerializable();
-        parcel.readTypedList(this.f5043b, SapiAccount.CREATOR);
-        this.f5042a = (SapiAccount) parcel.readParcelable(SapiAccount.class.getClassLoader());
+        parcel.readTypedList(this.b, SapiAccount.CREATOR);
+        this.f3409a = (SapiAccount) parcel.readParcelable(SapiAccount.class.getClassLoader());
         this.e = (LoginShareStrategy) parcel.readSerializable();
         this.d = parcel.readString();
     }
@@ -141,9 +139,9 @@ public class ShareModel implements Parcelable {
             arrayList.add(c.a(context, sapiAccount));
         }
         a(arrayList);
-        SapiAccount sapiAccount2 = this.f5042a;
+        SapiAccount sapiAccount2 = this.f3409a;
         if (sapiAccount2 != null) {
-            this.f5042a = c.a(context, sapiAccount2);
+            this.f3409a = c.a(context, sapiAccount2);
         }
         if (TextUtils.isEmpty(this.d)) {
             return;
@@ -153,18 +151,18 @@ public class ShareModel implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ShareModel(ShareEvent shareEvent) {
-        this.f5043b = new ArrayList();
+        this.b = new ArrayList();
         this.c = shareEvent;
     }
 
     ShareModel(ShareEvent shareEvent, SapiAccount sapiAccount) {
         this(shareEvent);
-        this.f5042a = sapiAccount;
+        this.f3409a = sapiAccount;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ShareModel(ShareEvent shareEvent, SapiAccount sapiAccount, List<SapiAccount> list) {
         this(shareEvent, sapiAccount);
-        this.f5043b = list;
+        this.b = list;
     }
 }

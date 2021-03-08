@@ -14,8 +14,8 @@ public class OfflineMapUtil {
             return null;
         }
         MKOLSearchRecord mKOLSearchRecord = new MKOLSearchRecord();
-        mKOLSearchRecord.cityID = qVar.f3065a;
-        mKOLSearchRecord.cityName = qVar.f3066b;
+        mKOLSearchRecord.cityID = qVar.f2229a;
+        mKOLSearchRecord.cityName = qVar.b;
         mKOLSearchRecord.cityType = qVar.d;
         long j2 = 0;
         if (qVar.a() != null) {
@@ -46,8 +46,8 @@ public class OfflineMapUtil {
             return null;
         }
         MKOLUpdateElement mKOLUpdateElement = new MKOLUpdateElement();
-        mKOLUpdateElement.cityID = tVar.f3070a;
-        mKOLUpdateElement.cityName = tVar.f3071b;
+        mKOLUpdateElement.cityID = tVar.f2232a;
+        mKOLUpdateElement.cityName = tVar.b;
         if (tVar.g != null) {
             mKOLUpdateElement.geoPt = CoordUtil.mc2ll(tVar.g);
         }

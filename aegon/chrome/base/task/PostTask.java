@@ -31,7 +31,7 @@ public class PostTask {
         return executor;
     }
 
-    public static native void nativePostDelayedTask(boolean z, int i, boolean z2, boolean z3, byte b2, byte[] bArr, Runnable runnable, long j);
+    public static native void nativePostDelayedTask(boolean z, int i, boolean z2, boolean z3, byte b, byte[] bArr, Runnable runnable, long j);
 
     @CalledByNative
     public static void onNativeSchedulerReady() {

@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public a() {
         registerTask();

@@ -94,23 +94,23 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.scr_w = Integer.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst()));
         builder.scr_h = Integer.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst()));
         builder.scr_dip = Double.valueOf(l.getEquipmentDensity(TbadkCoreApplication.getInst()));
-        builder.q_type = Integer.valueOf(av.bsS().bsT() ? 2 : 1);
+        builder.q_type = Integer.valueOf(av.bsV().bsW() ? 2 : 1);
         builder.need_forumlist = Integer.valueOf(this.needForumlist);
         builder.new_net_type = Integer.valueOf(com.baidu.adp.lib.util.j.netType());
         builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);
         builder.request_times = Integer.valueOf(this.requestTime);
         builder.invoke_source = this.sourceFrom;
-        builder.ad_context_list = com.baidu.tieba.recapp.report.b.dEt().RR("NEWINDEX");
-        builder.app_pos = com.baidu.tieba.recapp.c.a.dEm().dEr();
+        builder.ad_context_list = com.baidu.tieba.recapp.report.b.dEB().RX("NEWINDEX");
+        builder.app_pos = com.baidu.tieba.recapp.c.a.dEu().dEz();
         if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
             be pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
             builder.from_tid = Long.valueOf(com.baidu.adp.lib.f.b.toLong(pbToHomeUpdateData.tid, 0L));
-            builder.query_eqid = pbToHomeUpdateData.eOP;
+            builder.query_eqid = pbToHomeUpdateData.eQq;
             builder.first_dir = pbToHomeUpdateData.firstDir;
             builder.second_dir = pbToHomeUpdateData.secondDir;
             TbSingleton.getInstance().setPbToHomeUpdateData(null);
         }
-        builder.ad_ext_params = AdExtParam.a.bEU().DH(this.adFloorInfo).bEV();
+        builder.ad_ext_params = AdExtParam.a.bEY().DO(this.adFloorInfo).bEZ();
         PersonalizedReqIdl.Builder builder2 = new PersonalizedReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

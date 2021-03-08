@@ -4,9 +4,9 @@ import android.util.JsonReader;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class h implements aj<com.baidu.live.lottie.model.b> {
-    public static final h buz = new h();
+    public static final h bvZ = new h();
 
     private h() {
     }

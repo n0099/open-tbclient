@@ -2,7 +2,7 @@ package com.bytedance.sdk.openadsdk.preload.geckox.d;
 
 import android.net.Uri;
 import android.util.Pair;
-import com.bytedance.sdk.openadsdk.preload.a.k;
+import com.bytedance.sdk.openadsdk.preload.b.k;
 import com.bytedance.sdk.openadsdk.preload.geckox.model.UpdatePackage;
 import java.util.List;
 /* loaded from: classes6.dex */
@@ -11,7 +11,7 @@ public class h extends k<UpdatePackage, Pair<Uri, UpdatePackage>> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.bytedance.sdk.openadsdk.preload.a.k
+    @Override // com.bytedance.sdk.openadsdk.preload.b.k
     /* renamed from: a */
     public Pair<Uri, UpdatePackage> b() {
         UpdatePackage g = g();
@@ -21,7 +21,7 @@ public class h extends k<UpdatePackage, Pair<Uri, UpdatePackage>> {
         return new Pair<>(Uri.parse(urlList.get(i)), g);
     }
 
-    @Override // com.bytedance.sdk.openadsdk.preload.a.k
+    @Override // com.bytedance.sdk.openadsdk.preload.b.k
     protected boolean a(Throwable th) {
         com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "patch update failed", th);
         if (this.d >= g().getPatch().getUrlList().size()) {

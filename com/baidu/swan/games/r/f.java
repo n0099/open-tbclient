@@ -2,45 +2,45 @@ package com.baidu.swan.games.r;
 
 import android.text.TextUtils;
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class f {
-    private static volatile f ejH;
-    private boolean ejI;
-    private String ejJ;
-    private String ejK;
+    private static volatile f eli;
+    private boolean elj;
+    private String elk;
+    private String ell;
 
-    public static f aXK() {
-        if (ejH == null) {
+    public static f aXN() {
+        if (eli == null) {
             synchronized (f.class) {
-                if (ejH == null) {
-                    ejH = new f();
+                if (eli == null) {
+                    eli = new f();
                 }
             }
         }
-        return ejH;
+        return eli;
     }
 
     private f() {
     }
 
-    public boolean aXL() {
-        return this.ejI;
+    public boolean aXO() {
+        return this.elj;
     }
 
     /* renamed from: if  reason: not valid java name */
-    public void m28if(boolean z) {
-        this.ejI = z;
+    public void m29if(boolean z) {
+        this.elj = z;
     }
 
-    public String aXM() {
-        return TextUtils.isEmpty(this.ejK) ? "" : this.ejK + File.separator + "index.js";
+    public String aXP() {
+        return TextUtils.isEmpty(this.ell) ? "" : this.ell + File.separator + "index.js";
     }
 
-    public void xb(String str) {
-        this.ejJ = str;
+    public void xi(String str) {
+        this.elk = str;
     }
 
-    public void xc(String str) {
-        this.ejK = str;
+    public void xj(String str) {
+        this.ell = str;
     }
 }

@@ -5,7 +5,7 @@ public interface s {
 
     void c(m mVar);
 
-    void cCP();
+    void cCV();
 
-    void yA(int i);
+    void yB(int i);
 }

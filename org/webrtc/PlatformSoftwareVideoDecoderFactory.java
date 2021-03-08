@@ -2,7 +2,7 @@ package org.webrtc;
 
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class PlatformSoftwareVideoDecoderFactory extends MediaCodecVideoDecoderFactory {
     public PlatformSoftwareVideoDecoderFactory(@Nullable EglBase.Context context) {
         super(context, MediaCodecUtils.SOFTWARE_IMPLEMENTATION_PREFIXES, new String[0]);

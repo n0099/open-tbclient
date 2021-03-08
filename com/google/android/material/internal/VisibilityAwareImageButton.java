@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.ImageButton;
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class VisibilityAwareImageButton extends ImageButton {
     private int userSetVisibility;
 

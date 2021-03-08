@@ -22,22 +22,22 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class y extends PopupWindow {
-    private ViewGroup bMN;
-    private int bMP;
-    private ae iXb;
-    private a iXc;
+    private ViewGroup bOn;
+    private int bOp;
+    private ae iYK;
+    private a iYL;
     private Context mContext;
     private ListView mListView;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(int i, com.baidu.tbadk.album.a aVar);
     }
 
     public void a(a aVar) {
-        this.iXc = aVar;
+        this.iYL = aVar;
     }
 
     public y(Context context) {
@@ -61,30 +61,30 @@ public class y extends PopupWindow {
         bdListView.setDivider(null);
         bdListView.setDividerHeight(0);
         bdListView.setFadingEdgeLength(0);
-        this.iXb = new ae(this.mContext);
-        this.iXb.setData(list, str);
-        bdListView.setAdapter((ListAdapter) this.iXb);
+        this.iYK = new ae(this.mContext);
+        this.iYK.setData(list, str);
+        bdListView.setAdapter((ListAdapter) this.iYK);
         bdListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.faceshop.y.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                com.baidu.tbadk.album.a item = y.this.iXb.getItem(i);
+                com.baidu.tbadk.album.a item = y.this.iYK.getItem(i);
                 if (item instanceof com.baidu.tbadk.album.a) {
                     com.baidu.tbadk.album.a aVar = item;
-                    if (y.this.iXc != null) {
-                        y.this.iXc.a(i, aVar);
+                    if (y.this.iYL != null) {
+                        y.this.iYL.a(i, aVar);
                     }
                 }
-                y.this.UU();
+                y.this.UX();
             }
         });
         FrameLayout frameLayout = new FrameLayout(this.mContext);
         FrameLayout frameLayout2 = new FrameLayout(this.mContext);
-        this.bMN = frameLayout2;
+        this.bOn = frameLayout2;
         frameLayout2.setBackgroundColor(this.mContext.getResources().getColor(R.color.common_color_10175));
         frameLayout2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.faceshop.y.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                y.this.UU();
+                y.this.UX();
             }
         });
         frameLayout.addView(frameLayout2, new FrameLayout.LayoutParams(-1, -1));
@@ -95,7 +95,7 @@ public class y extends PopupWindow {
     public void setData(List<com.baidu.tbadk.album.a> list, String str) {
         int i;
         if (list != null) {
-            this.bMP = d(list, str);
+            this.bOp = d(list, str);
             if (list.size() <= 5) {
                 i = -2;
             } else {
@@ -108,8 +108,8 @@ public class y extends PopupWindow {
                 layoutParams.height = i;
             }
             this.mListView.setLayoutParams(layoutParams);
-            this.iXb.setData(list, str);
-            this.iXb.notifyDataSetChanged();
+            this.iYK.setData(list, str);
+            this.iYK.notifyDataSetChanged();
         }
     }
 
@@ -128,31 +128,31 @@ public class y extends PopupWindow {
     }
 
     public void O(View view) {
-        this.mListView.setSelection(this.bMP);
+        this.mListView.setSelection(this.bOp);
         if (Build.VERSION.SDK_INT < 24) {
             if (com.baidu.adp.lib.f.g.showPopupWindowAsDropDown(this, view)) {
-                UW();
+                UZ();
             }
         } else if (com.baidu.adp.lib.f.g.showPopupWindowAtLocation(this, view, 0, 0, view.getHeight())) {
-            UW();
+            UZ();
         }
     }
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
-        UU();
-    }
-
-    public void UU() {
         UX();
     }
 
+    public void UX() {
+        Va();
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
-    public void UV() {
+    public void UY() {
         super.dismiss();
     }
 
-    private void UW() {
+    private void UZ() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -1.0f, 1, 0.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setInterpolator(new DecelerateInterpolator());
@@ -160,10 +160,10 @@ public class y extends PopupWindow {
         alphaAnimation.setDuration(350L);
         alphaAnimation.setInterpolator(new LinearInterpolator());
         this.mListView.startAnimation(translateAnimation);
-        this.bMN.startAnimation(alphaAnimation);
+        this.bOn.startAnimation(alphaAnimation);
     }
 
-    private void UX() {
+    private void Va() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -1.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setFillAfter(true);
@@ -182,10 +182,10 @@ public class y extends PopupWindow {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                y.this.UV();
+                y.this.UY();
             }
         });
         this.mListView.startAnimation(translateAnimation);
-        this.bMN.startAnimation(alphaAnimation);
+        this.bOn.startAnimation(alphaAnimation);
     }
 }

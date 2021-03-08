@@ -7,18 +7,16 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class e {
-
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f11374b;
-    public static volatile e pYx;
+    public static boolean b;
+    public static volatile e pZl;
     public Boolean g;
     public BroadcastReceiver h;
-    public a pYy = new a("udid");
-    public a pYz = new a("oaid");
-    public a pYB = new a("vaid");
-    public a pYA = new a("aaid");
+    public a pZm = new a("udid");
+    public a pZn = new a("oaid");
+    public a pZp = new a("vaid");
+    public a pZo = new a("aaid");
 
     public static c D(Cursor cursor) {
         c cVar = new c(null, 0);
@@ -30,13 +28,13 @@ public class e {
             cursor.moveToFirst();
             int columnIndex = cursor.getColumnIndex("value");
             if (columnIndex >= 0) {
-                cVar.f11372a = cursor.getString(columnIndex);
+                cVar.f7464a = cursor.getString(columnIndex);
             } else {
                 a("parseValue fail, index < 0.");
             }
             int columnIndex2 = cursor.getColumnIndex("code");
             if (columnIndex2 >= 0) {
-                cVar.f11373b = cursor.getInt(columnIndex2);
+                cVar.b = cursor.getInt(columnIndex2);
             } else {
                 a("parseCode fail, index < 0.");
             }
@@ -51,18 +49,18 @@ public class e {
     }
 
     public static void a(String str) {
-        if (f11374b) {
+        if (b) {
             Log.d("OpenIdManager", str);
         }
     }
 
-    public static final e eCA() {
-        if (pYx == null) {
+    public static final e eCG() {
+        if (pZl == null) {
             synchronized (e.class) {
-                pYx = new e();
+                pZl = new e();
             }
         }
-        return pYx;
+        return pZl;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x00a2 */
@@ -91,7 +89,7 @@ public class e {
             return null;
         }
         if (aVar.a()) {
-            return aVar.f11371b;
+            return aVar.b;
         }
         a("queryId : " + aVar.c);
         Uri parse = Uri.parse("content://com.meizu.flyme.openidsdk/");
@@ -124,13 +122,13 @@ public class e {
         }
         if (parse != 0) {
             c D = D(parse);
-            str2 = D.f11372a;
+            str2 = D.f7464a;
             try {
                 aVar.a(str2);
                 aVar.a(D.c);
-                aVar.a(D.f11373b);
+                aVar.a(D.b);
                 a(aVar.c + " errorCode : " + aVar.d);
-                if (D.f11373b != 1000) {
+                if (D.b != 1000) {
                     a(context);
                     if (!a(context, false)) {
                         append = new StringBuilder().append("not support, forceQuery isSupported: ").append(a(context, true));
@@ -236,7 +234,7 @@ public class e {
         }
         if (cursor != null) {
             try {
-                String str2 = D(cursor).f11372a;
+                String str2 = D(cursor).f7464a;
                 cursor.close();
                 str = str2;
             } catch (Exception e2) {
@@ -249,18 +247,18 @@ public class e {
         }
     }
 
-    public a aaf(String str) {
+    public a aak(String str) {
         if ("oaid".equals(str)) {
-            return this.pYz;
+            return this.pZn;
         }
         if ("vaid".equals(str)) {
-            return this.pYB;
+            return this.pZp;
         }
         if ("aaid".equals(str)) {
-            return this.pYA;
+            return this.pZo;
         }
         if ("udid".equals(str)) {
-            return this.pYy;
+            return this.pZm;
         }
         return null;
     }

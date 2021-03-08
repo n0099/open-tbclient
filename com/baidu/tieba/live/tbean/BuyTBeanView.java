@@ -49,7 +49,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BuyTBeanView extends AbsBuyTBeanView {
     private Activity activity;
     private LinearLayout buyBeanCustomLayout;

@@ -15,45 +15,43 @@ import java.util.ArrayList;
 public class d extends TextView {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f4372a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private com.baidu.platform.comapi.walknavi.segmentbrowse.a f4373b;
+    private Context f3030a;
+    private com.baidu.platform.comapi.walknavi.segmentbrowse.a b;
     private int c;
 
     public d(Context context, com.baidu.platform.comapi.walknavi.segmentbrowse.a aVar, int i) {
         super(context);
-        this.f4372a = context;
+        this.f3030a = context;
         int i2 = Build.VERSION.SDK_INT;
-        if (this.f4373b == null) {
-            this.f4373b = new com.baidu.platform.comapi.walknavi.segmentbrowse.a();
+        if (this.b == null) {
+            this.b = new com.baidu.platform.comapi.walknavi.segmentbrowse.a();
         }
         this.c = i;
-        this.f4373b = aVar;
+        this.b = aVar;
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         Bitmap decodeResource;
-        if (canvas != null && this.f4372a != null && this.f4373b != null) {
+        if (canvas != null && this.f3030a != null && this.b != null) {
             canvas.save();
             Paint paint = new Paint();
-            paint.setTextSize(b.a(this.f4372a, 22.0f));
-            if (!TextUtils.isEmpty(this.f4373b.c())) {
-                if (this.f4373b.e() == com.baidu.platform.comapi.walknavi.segmentbrowse.c.a()) {
+            paint.setTextSize(b.a(this.f3030a, 22.0f));
+            if (!TextUtils.isEmpty(this.b.c())) {
+                if (this.b.e() == com.baidu.platform.comapi.walknavi.segmentbrowse.c.a()) {
                     if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() != null) {
                         if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() == com.baidu.platform.comapi.walknavi.segmentbrowse.b.REFRESH_SEGMENTBROWSE || com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() == com.baidu.platform.comapi.walknavi.segmentbrowse.b.GUIDING_TO_SEGMENTBROWSE || com.baidu.platform.comapi.walknavi.b.a().J() == 4) {
-                            decodeResource = BitmapFactory.decodeResource(getResources(), com.baidu.platform.comapi.walknavi.g.a.c.a(this.f4373b.c()));
+                            decodeResource = BitmapFactory.decodeResource(getResources(), com.baidu.platform.comapi.walknavi.g.a.c.a(this.b.c()));
                         } else {
-                            decodeResource = BitmapFactory.decodeResource(getResources(), com.baidu.platform.comapi.walknavi.g.a.c.b(this.f4373b.c()));
+                            decodeResource = BitmapFactory.decodeResource(getResources(), com.baidu.platform.comapi.walknavi.g.a.c.b(this.b.c()));
                         }
                     } else {
                         return;
                     }
                 } else {
-                    decodeResource = BitmapFactory.decodeResource(getResources(), com.baidu.platform.comapi.walknavi.g.a.c.a(this.f4373b.c()));
+                    decodeResource = BitmapFactory.decodeResource(getResources(), com.baidu.platform.comapi.walknavi.g.a.c.a(this.b.c()));
                 }
-                RectF rectF = new RectF(b.a(this.f4372a, 27.0f), b.a(this.f4372a, 21.0f), b.a(this.f4372a, 80.0f), b.a(this.f4372a, 74.0f));
+                RectF rectF = new RectF(b.a(this.f3030a, 27.0f), b.a(this.f3030a, 21.0f), b.a(this.f3030a, 80.0f), b.a(this.f3030a, 74.0f));
                 if (decodeResource != null && rectF != null) {
                     try {
                         canvas.drawBitmap(decodeResource, new Rect(0, 0, decodeResource.getWidth(), decodeResource.getHeight()), rectF, (Paint) null);
@@ -64,22 +62,22 @@ public class d extends TextView {
                 }
             }
             int i = 0;
-            int a2 = a(this.f4373b) + b(this.f4373b);
+            int a2 = a(this.b) + b(this.b);
             if (a2 == 1) {
-                i = b.a(this.f4372a, 51.0f);
+                i = b.a(this.f3030a, 51.0f);
             } else if (a2 == 2) {
-                i = b.a(this.f4372a, 40.0f);
+                i = b.a(this.f3030a, 40.0f);
             } else if (a2 == 3) {
-                i = b.a(this.f4372a, 30.0f);
+                i = b.a(this.f3030a, 30.0f);
             }
-            if (paint != null && canvas != null && this.f4373b.a() != null && this.f4373b.a().size() != 0) {
-                ArrayList<c> a3 = this.f4373b.a();
+            if (paint != null && canvas != null && this.b.a() != null && this.b.a().size() != 0) {
+                ArrayList<c> a3 = this.b.a();
                 int size = a3.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     c a4 = a3.get(i2).a();
-                    float a5 = b.a(this.f4372a, 100.0f);
-                    if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() == com.baidu.platform.comapi.walknavi.segmentbrowse.b.GUIDING && com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() == this.f4373b.e()) {
-                        float a6 = b.a(this.f4372a, 22.0f);
+                    float a5 = b.a(this.f3030a, 100.0f);
+                    if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() == com.baidu.platform.comapi.walknavi.segmentbrowse.b.GUIDING && com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() == this.b.e()) {
+                        float a6 = b.a(this.f3030a, 22.0f);
                         int length = a4.c.length;
                         int i3 = (int) ((((length * a6) + a5) - this.c) / a6);
                         if (i3 > 0 && i3 < length - 1) {
@@ -116,28 +114,28 @@ public class d extends TextView {
                         if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() == com.baidu.platform.comapi.walknavi.segmentbrowse.b.REFRESH_SEGMENTBROWSE || com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() == com.baidu.platform.comapi.walknavi.segmentbrowse.b.GUIDING_TO_SEGMENTBROWSE || com.baidu.platform.comapi.walknavi.b.a().J() == 4) {
                             paint.setColor(-13553101);
                         }
-                        if (a4.f4370a[i5] == 0) {
-                            paint.setTextSize(b.a(this.f4372a, 17.0f));
+                        if (a4.f3029a[i5] == 0) {
+                            paint.setTextSize(b.a(this.f3030a, 17.0f));
                         } else {
-                            paint.setTextSize(b.a(this.f4372a, 23.0f));
+                            paint.setTextSize(b.a(this.f3030a, 23.0f));
                         }
                         if (canvas != null && a4.c != null && paint != null) {
                             canvas.drawText(a4.c, i5, 1, a5, i, paint);
                         }
                         a5 += paint.measureText(String.valueOf(a4.c[i5]));
                     }
-                    i += b.a(this.f4372a, 26.0f);
+                    i += b.a(this.f3030a, 26.0f);
                 }
-                if (this.f4373b.b() != null && this.f4373b.b().size() != 0) {
-                    ArrayList<c> b2 = this.f4373b.b();
-                    int size2 = b2.size();
+                if (this.b.b() != null && this.b.b().size() != 0) {
+                    ArrayList<c> b = this.b.b();
+                    int size2 = b.size();
                     int i6 = 0;
                     int i7 = i;
                     while (i6 < size2) {
-                        c cVar = b2.get(i6);
-                        float a7 = b.a(this.f4372a, 100.0f);
-                        if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() == com.baidu.platform.comapi.walknavi.segmentbrowse.b.GUIDING && com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() == this.f4373b.e()) {
-                            float a8 = b.a(this.f4372a, 22.0f);
+                        c cVar = b.get(i6);
+                        float a7 = b.a(this.f3030a, 100.0f);
+                        if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() == com.baidu.platform.comapi.walknavi.segmentbrowse.b.GUIDING && com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() == this.b.e()) {
+                            float a8 = b.a(this.f3030a, 22.0f);
                             int length2 = cVar.c.length;
                             int i8 = (int) ((((length2 * a8) + a7) - this.c) / a8);
                             if (i8 > 0 && i8 < length2 - 1) {
@@ -151,10 +149,10 @@ public class d extends TextView {
                             if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() == com.baidu.platform.comapi.walknavi.segmentbrowse.b.REFRESH_SEGMENTBROWSE || com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() == com.baidu.platform.comapi.walknavi.segmentbrowse.b.GUIDING_TO_SEGMENTBROWSE || com.baidu.platform.comapi.walknavi.b.a().J() == 4) {
                                 paint.setColor(-13553101);
                             }
-                            if (cVar.f4370a[i10] == 0) {
-                                paint.setTextSize(b.a(this.f4372a, 16.0f));
+                            if (cVar.f3029a[i10] == 0) {
+                                paint.setTextSize(b.a(this.f3030a, 16.0f));
                             } else {
-                                paint.setTextSize(b.a(this.f4372a, 22.0f));
+                                paint.setTextSize(b.a(this.f3030a, 22.0f));
                             }
                             if (canvas != null && cVar.c != null && paint != null) {
                                 canvas.drawText(cVar.c, i10, 1, a7, i7, paint);
@@ -162,7 +160,7 @@ public class d extends TextView {
                             a7 += paint.measureText(String.valueOf(cVar.c[i10]));
                         }
                         i6++;
-                        i7 += b.a(this.f4372a, 20.0f);
+                        i7 += b.a(this.f3030a, 20.0f);
                     }
                     canvas.restore();
                 }

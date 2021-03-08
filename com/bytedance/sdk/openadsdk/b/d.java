@@ -11,33 +11,31 @@ import java.util.TreeMap;
 public class d extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    protected long f6216a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private volatile boolean f6217b;
+    protected long f4193a;
+    private volatile boolean b;
 
     public d() {
-        this.f6216a = 83886080L;
-        this.f6217b = false;
+        this.f4193a = 83886080L;
+        this.b = false;
     }
 
     public d(long j, boolean z) {
-        this.f6216a = j;
+        this.f4193a = j;
         if (j <= 0) {
-            this.f6216a = 83886080L;
+            this.f4193a = 83886080L;
         }
-        this.f6217b = z;
+        this.b = z;
     }
 
     @Override // com.bytedance.sdk.openadsdk.b.b
     protected boolean a(long j, int i) {
-        return j < this.f6216a;
+        return j < this.f4193a;
     }
 
     @Override // com.bytedance.sdk.openadsdk.b.b
     protected boolean a(File file, long j, int i) {
-        u.f("splashLoadAd", "缓存的最大内存 maxSize " + this.f6216a);
-        return j < this.f6216a / 2;
+        u.f("splashLoadAd", "缓存的最大内存 maxSize " + this.f4193a);
+        return j < this.f4193a / 2;
     }
 
     @Override // com.bytedance.sdk.openadsdk.b.b
@@ -47,7 +45,7 @@ public class d extends b {
 
     @Override // com.bytedance.sdk.openadsdk.b.b
     public void a(List<File> list) {
-        if (this.f6217b) {
+        if (this.b) {
             d(list);
         } else {
             c(list);
@@ -56,10 +54,10 @@ public class d extends b {
 
     private void c(List<File> list) {
         if (list != null && list.size() != 0) {
-            long b2 = b(list);
-            u.c("TotalSizeLruDiskUsage", "当前缓存文件的总size：" + ((b2 / 1024) / 1024) + "MB");
+            long b = b(list);
+            u.c("TotalSizeLruDiskUsage", "当前缓存文件的总size：" + ((b / 1024) / 1024) + "MB");
             int size = list.size();
-            boolean a2 = a(b2, size);
+            boolean a2 = a(b, size);
             if (a2) {
                 u.c("TotalSizeLruDiskUsage", "不满足删除条件，不执行删除操作(true)" + a2);
             } else {
@@ -75,14 +73,14 @@ public class d extends b {
                         long length = next.length();
                         if (next.delete()) {
                             i--;
-                            b2 -= length;
-                            u.c("TotalSizeLruDiskUsage", "删除 一个 Cache file 当前总大小totalSize：" + ((b2 / 1024) / 1024) + "MB");
+                            b -= length;
+                            u.c("TotalSizeLruDiskUsage", "删除 一个 Cache file 当前总大小totalSize：" + ((b / 1024) / 1024) + "MB");
                         } else {
                             u.f("TotalSizeLruDiskUsage", "Error deleting file " + next + " for trimming cache");
                         }
-                        boolean a3 = a(next, b2, i);
+                        boolean a3 = a(next, b, i);
                         if (a3) {
-                            u.c("TotalSizeLruDiskUsage", "当前总大小totalSize：" + ((b2 / 1024) / 1024) + "MB，最大值存储上限maxSize=" + ((this.f6216a / 1024) / 1024) + "MB，当前文件的总大小totalSize已小于等于maxSize一半，停止删除操作：minStopDeleteCondition=" + a3);
+                            u.c("TotalSizeLruDiskUsage", "当前总大小totalSize：" + ((b / 1024) / 1024) + "MB，最大值存储上限maxSize=" + ((this.f4193a / 1024) / 1024) + "MB，当前文件的总大小totalSize已小于等于maxSize一半，停止删除操作：minStopDeleteCondition=" + a3);
                             return;
                         }
                     }
@@ -96,13 +94,12 @@ public class d extends b {
 
     private void d(List<File> list) {
         int i;
-        u.f("splashLoadAd", "TotalSizeLruDiskUsage lruDeleteFile files.size() " + list.size());
         if (list != null) {
             try {
                 if (list.size() != 0) {
-                    long b2 = b(list);
+                    long b = b(list);
                     int size = list.size();
-                    boolean a2 = a(b2, size);
+                    boolean a2 = a(b, size);
                     if (a2) {
                         u.c("splashLoadAd", "不满足删除条件，不执行删除操作(true)" + a2);
                         return;
@@ -121,15 +118,15 @@ public class d extends b {
                                 long length = file2.length();
                                 if (file2.delete()) {
                                     i = size - 1;
-                                    b2 -= length;
-                                    u.c("splashLoadAd", "删除 一个 Cache file 当前总大小totalSize：" + ((((float) b2) / 1024.0f) / 1024.0f) + "MB");
+                                    b -= length;
+                                    u.c("splashLoadAd", "删除 一个 Cache file 当前总大小totalSize：" + ((((float) b) / 1024.0f) / 1024.0f) + "MB");
                                 } else {
                                     u.f("splashLoadAd", "Error deleting file " + file2 + " for trimming cache");
                                     i = size;
                                 }
-                                boolean a3 = a(b2);
+                                boolean a3 = a(b);
                                 if (a3) {
-                                    u.c("splashLoadAd", "当前总大小totalSize：" + ((((float) b2) / 1024.0f) / 1024.0f) + "MB，最大值存储上限maxSize=" + ((((float) this.f6216a) / 1024.0f) / 1024.0f) + "MB，当前文件的总大小totalSize已小于等于maxSize的80%，停止删除操作：minStopDeleteCondition=" + a3);
+                                    u.c("splashLoadAd", "当前总大小totalSize：" + ((((float) b) / 1024.0f) / 1024.0f) + "MB，最大值存储上限maxSize=" + ((((float) this.f4193a) / 1024.0f) / 1024.0f) + "MB，当前文件的总大小totalSize已小于等于maxSize的80%，停止删除操作：minStopDeleteCondition=" + a3);
                                     return;
                                 }
                             }
@@ -143,7 +140,7 @@ public class d extends b {
     }
 
     protected boolean a(long j) {
-        u.f("splashLoadAd", "缓存的最大内存 maxSize " + this.f6216a + " 最小内存 minSize 18874368");
+        u.f("splashLoadAd", "缓存的最大内存 maxSize " + this.f4193a + " 最小内存 minSize 18874368");
         return j <= 18874368;
     }
 }

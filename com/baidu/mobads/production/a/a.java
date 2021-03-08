@@ -17,7 +17,7 @@ import com.baidu.mobads.vo.d;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a extends com.baidu.mobads.production.a implements IXNonLinearAdSlot {
     private b z;
 

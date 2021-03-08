@@ -58,9 +58,9 @@ public class ForumRuleDafultItemView extends LinearLayout {
                 if (i3 < getChildCount()) {
                     EMTextView eMTextView = (EMTextView) getChildAt(i3);
                     if (i3 % 2 != 0) {
-                        com.baidu.tbadk.core.elementsMaven.c.br(eMTextView).nY(R.color.CAM_X0107).ob(R.dimen.M_T_X003);
+                        com.baidu.tbadk.core.elementsMaven.c.br(eMTextView).nZ(R.color.CAM_X0107).oc(R.dimen.M_T_X003);
                     } else {
-                        com.baidu.tbadk.core.elementsMaven.c.br(eMTextView).nY(R.color.CAM_X0107).oa(R.string.F_X02);
+                        com.baidu.tbadk.core.elementsMaven.c.br(eMTextView).nZ(R.color.CAM_X0107).ob(R.string.F_X02);
                     }
                     i2 = i3 + 1;
                 } else {

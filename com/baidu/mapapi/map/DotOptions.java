@@ -7,24 +7,22 @@ import com.baidu.mapapi.model.LatLng;
 public final class DotOptions extends OverlayOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2705a;
+    int f2015a;
     Bundle c;
     private LatLng d;
     private int e = ViewCompat.MEASURED_STATE_MASK;
     private int f = 5;
-
-    /* renamed from: b  reason: collision with root package name */
-    boolean f2706b = true;
+    boolean b = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Dot dot = new Dot();
-        dot.x = this.f2706b;
-        dot.w = this.f2705a;
+        dot.x = this.b;
+        dot.w = this.f2015a;
         dot.y = this.c;
-        dot.f2704b = this.e;
-        dot.f2703a = this.d;
+        dot.b = this.e;
+        dot.f2014a = this.d;
         dot.c = this.f;
         return dot;
     }
@@ -64,11 +62,11 @@ public final class DotOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2705a;
+        return this.f2015a;
     }
 
     public boolean isVisible() {
-        return this.f2706b;
+        return this.b;
     }
 
     public DotOptions radius(int i) {
@@ -79,12 +77,12 @@ public final class DotOptions extends OverlayOptions {
     }
 
     public DotOptions visible(boolean z) {
-        this.f2706b = z;
+        this.b = z;
         return this;
     }
 
     public DotOptions zIndex(int i) {
-        this.f2705a = i;
+        this.f2015a = i;
         return this;
     }
 }

@@ -18,49 +18,49 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class c implements b {
-    private final b.C0421b daP;
+    private final b.C0427b dcq;
 
-    private c(b.C0421b c0421b) {
-        this.daP = c0421b == null ? new b.C0421b() : c0421b;
+    private c(b.C0427b c0427b) {
+        this.dcq = c0427b == null ? new b.C0427b() : c0427b;
     }
 
-    public static c auk() {
-        return a((b.C0421b) null);
+    public static c aun() {
+        return a((b.C0427b) null);
     }
 
-    public static c a(b.C0421b c0421b) {
-        return new c(c0421b);
+    public static c a(b.C0427b c0427b) {
+        return new c(c0427b);
     }
 
-    public b.C0421b aul() {
-        return this.daP;
-    }
-
-    public c hh(int i) {
-        if (isValid() && i != this.daP.daO && (this.daP.daO == 0 || this.daP.daO == this.daP.daN)) {
-            this.daP.daO = i;
-        }
-        return this;
+    public b.C0427b auo() {
+        return this.dcq;
     }
 
     public c hi(int i) {
-        if (isValid()) {
-            this.daP.daN = i;
+        if (isValid() && i != this.dcq.dcp && (this.dcq.dcp == 0 || this.dcq.dcp == this.dcq.dco)) {
+            this.dcq.dcp = i;
         }
         return this;
     }
 
-    public int aum() {
-        return this.daP.daO == 0 ? this.daP.daN : this.daP.daO;
+    public c hj(int i) {
+        if (isValid()) {
+            this.dcq.dco = i;
+        }
+        return this;
     }
 
-    public c nJ(@Nullable String str) {
-        if (isValid() && !TextUtils.isEmpty(str) && !a(this.daP.daM.get(str))) {
-            a nI = a.nI(str);
-            if (a(nI)) {
-                this.daP.daM.put(nI.auj(), nI);
+    public int aup() {
+        return this.dcq.dcp == 0 ? this.dcq.dco : this.dcq.dcp;
+    }
+
+    public c nQ(@Nullable String str) {
+        if (isValid() && !TextUtils.isEmpty(str) && !a(this.dcq.dcn.get(str))) {
+            a nP = a.nP(str);
+            if (a(nP)) {
+                this.dcq.dcn.put(nP.aum(), nP);
             }
         }
         return this;
@@ -68,8 +68,8 @@ public final class c implements b {
 
     public boolean isValid() {
         boolean z;
-        synchronized (this.daP) {
-            z = this.daP.mIsValid;
+        synchronized (this.dcq) {
+            z = this.dcq.mIsValid;
         }
         return z;
     }
@@ -79,31 +79,31 @@ public final class c implements b {
     }
 
     @NonNull
-    private JSONArray aun() {
+    private JSONArray auq() {
         JSONArray jSONArray = new JSONArray();
         try {
-            Cursor V = com.baidu.swan.apps.database.a.b.V("", 400);
-            int count = V.getCount();
-            while (V.moveToNext()) {
-                String string = V.getString(V.getColumnIndex("app_id"));
+            Cursor W = com.baidu.swan.apps.database.a.b.W("", 400);
+            int count = W.getCount();
+            while (W.moveToNext()) {
+                String string = W.getString(W.getColumnIndex("app_id"));
                 if (!TextUtils.isEmpty(string)) {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("pkg_id", string);
                     jSONArray.put(jSONObject);
                 }
             }
-            if (daL) {
+            if (dcm) {
                 Log.i("PurgerStatistic", "queryHisList: cursor=" + count + " items=" + jSONArray.length());
             }
-            if (V != null) {
+            if (W != null) {
                 if (0 != 0) {
-                    V.close();
+                    W.close();
                 } else {
-                    V.close();
+                    W.close();
                 }
             }
         } catch (JSONException e) {
-            if (daL) {
+            if (dcm) {
                 e.printStackTrace();
                 Log.i("PurgerStatistic", "queryHisList: e=" + e);
             }
@@ -111,43 +111,43 @@ public final class c implements b {
         return jSONArray;
     }
 
-    public void auo() {
-        if (daL) {
-            Log.i("PurgerStatistic", "performReport: " + this.daP);
+    public void aur() {
+        if (dcm) {
+            Log.i("PurgerStatistic", "performReport: " + this.dcq);
         }
         if (isValid()) {
             ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.env.c.c.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    c.this.aup();
+                    c.this.aus();
                 }
             }, "PurgerStatistic", 3);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aup() {
+    public void aus() {
         String str;
         b.a value;
-        synchronized (this.daP) {
+        synchronized (this.dcq) {
             if (isValid()) {
-                this.daP.mIsValid = false;
+                this.dcq.mIsValid = false;
                 e eVar = new e();
                 eVar.mFrom = GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME;
                 eVar.mSource = "NA";
-                int aum = aum();
-                eVar.mType = String.valueOf(aum);
+                int aup = aup();
+                eVar.mType = String.valueOf(aup);
                 JSONArray jSONArray = new JSONArray();
-                for (Map.Entry<String, b.a> entry : this.daP.daM.entrySet()) {
+                for (Map.Entry<String, b.a> entry : this.dcq.dcn.entrySet()) {
                     if (!TextUtils.isEmpty(entry.getKey()) && (value = entry.getValue()) != null && value.isValid()) {
                         jSONArray.put(value.toJSONObject());
                     }
                 }
-                eVar.r("purged_list", jSONArray);
-                if (7 == aum) {
-                    eVar.r("history_list", aun());
+                eVar.s("purged_list", jSONArray);
+                if (7 == aup) {
+                    eVar.s("history_list", auq());
                 }
-                if (daL) {
+                if (dcm) {
                     JSONObject jSONObject = eVar.toJSONObject();
                     if (jSONObject == null) {
                         str = "null";

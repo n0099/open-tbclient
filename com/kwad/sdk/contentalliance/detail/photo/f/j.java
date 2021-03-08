@@ -36,17 +36,17 @@ public class j extends a<View> {
                 @Override // com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.a
                 public void a() {
                     j.this.g.setEnabled(false);
-                    j.this.f8395a.n = true;
+                    j.this.f5594a.n = true;
                 }
 
                 @Override // com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.a
                 public void b() {
                     j.this.g.setEnabled(true);
-                    j.this.f8395a.n = false;
+                    j.this.f5594a.n = false;
                 }
             });
-            this.f8395a.c.add(this.e);
-            this.e.a(this.f8395a.k, this.f8395a.j);
+            this.f5594a.c.add(this.e);
+            this.e.a(this.f5594a.k, this.f5594a.j);
             this.g.setEnabled(false);
         }
     }
@@ -55,8 +55,8 @@ public class j extends a<View> {
     @Override // com.kwad.sdk.contentalliance.detail.photo.f.a, com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.g = this.f8395a.l;
-        this.h = this.f8395a.j;
+        this.g = this.f5594a.l;
+        this.h = this.f5594a.j;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -64,7 +64,7 @@ public class j extends a<View> {
     public void b_() {
         super.b_();
         if (this.e != null) {
-            this.f8395a.c.remove(this.e);
+            this.f5594a.c.remove(this.e);
             this.e.setVisibility(8);
             this.e.b();
         }
@@ -76,7 +76,7 @@ public class j extends a<View> {
     public void c() {
         super.c();
         this.d = (ViewStub) b(R.id.ksad_related_panel_view_stub);
-        this.f8516b.setOnClickListener(this);
+        this.b.setOnClickListener(this);
     }
 
     @Override // com.kwad.sdk.contentalliance.detail.photo.f.d
@@ -86,7 +86,7 @@ public class j extends a<View> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (com.kwad.sdk.core.response.b.c.c(this.f8395a.j)) {
+        if (com.kwad.sdk.core.response.b.c.c(this.f5594a.j)) {
             p.a(view.getContext(), view.getContext().getString(R.string.ksad_ad_function_disable));
         } else {
             e();

@@ -2,7 +2,7 @@ package com.baidu.swan.support.v4.c;
 
 import android.graphics.Paint;
 import android.view.View;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 class g {
     public static void setLayerType(View view, int i, Paint paint) {
         view.setLayerType(i, paint);

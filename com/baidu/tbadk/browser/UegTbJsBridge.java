@@ -96,7 +96,7 @@ public class UegTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
 
     private void bindingMobileNumber(String str) {
         try {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2921372, j.bwj()));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921372, j.bwm()));
         } catch (Exception e) {
             e.printStackTrace();
         }

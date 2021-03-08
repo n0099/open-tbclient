@@ -12,7 +12,7 @@ import com.baidu.tieba.R;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class EMTextView extends TextView {
-    private a eWB;
+    private a eYa;
 
     public EMTextView(Context context) {
         this(context, null);
@@ -42,10 +42,10 @@ public class EMTextView extends TextView {
             } else {
                 spannableStringBuilder = new SpannableStringBuilder(charSequence);
             }
-            if (this.eWB == null) {
-                this.eWB = new a(this);
+            if (this.eYa == null) {
+                this.eYa = new a(this);
             }
-            spannableStringBuilder.setSpan(this.eWB, 0, charSequence.length(), 33);
+            spannableStringBuilder.setSpan(this.eYa, 0, charSequence.length(), 33);
             super.setText(spannableStringBuilder, bufferType);
         }
     }
@@ -53,94 +53,94 @@ public class EMTextView extends TextView {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a implements LineHeightSpan {
-        private WeakReference<TextView> eWC;
-        private ViewGroup.MarginLayoutParams eWD;
-        private int eWE = 0;
-        private int eWF = 0;
-        private int eWG = 0;
-        private int eWH = 0;
+        private WeakReference<TextView> eYb;
+        private ViewGroup.MarginLayoutParams eYc;
+        private int eYd = 0;
+        private int eYe = 0;
+        private int eYf = 0;
+        private int eYg = 0;
         private int textSize;
 
         public a(TextView textView) {
-            this.eWC = new WeakReference<>(textView);
+            this.eYb = new WeakReference<>(textView);
             init();
         }
 
-        public TextView bqZ() {
-            if (this.eWC == null || this.eWC.get() == null) {
+        public TextView bra() {
+            if (this.eYb == null || this.eYb.get() == null) {
                 return null;
             }
-            return this.eWC.get();
+            return this.eYb.get();
         }
 
         @Override // android.text.style.LineHeightSpan
         public void chooseHeight(CharSequence charSequence, int i, int i2, int i3, int i4, Paint.FontMetricsInt fontMetricsInt) {
-            bra();
+            brb();
             com.baidu.tbadk.core.elementsMaven.view.a.a(fontMetricsInt, this.textSize);
-            TextView bqZ = bqZ();
-            if (bqZ == null || (bqZ.getGravity() & 112) != 16) {
+            TextView bra = bra();
+            if (bra == null || (bra.getGravity() & 112) != 16) {
                 a(fontMetricsInt);
             }
         }
 
         public void init() {
-            TextView bqZ = bqZ();
-            if (bqZ != null) {
-                this.textSize = (int) bqZ.getTextSize();
+            TextView bra = bra();
+            if (bra != null) {
+                this.textSize = (int) bra.getTextSize();
             }
-            this.eWD = brc();
-            if (this.eWD != null) {
-                this.eWE = this.eWD.topMargin;
-                this.eWF = this.eWD.bottomMargin;
+            this.eYc = brd();
+            if (this.eYc != null) {
+                this.eYd = this.eYc.topMargin;
+                this.eYe = this.eYc.bottomMargin;
             }
-            this.eWG = 0;
-            this.eWH = 0;
+            this.eYf = 0;
+            this.eYg = 0;
         }
 
-        public void bra() {
-            if (brb()) {
+        public void brb() {
+            if (brc()) {
                 init();
                 return;
             }
-            ViewGroup.MarginLayoutParams brc = brc();
-            if (brc != null) {
-                brc.topMargin -= this.eWG;
-                brc.bottomMargin -= this.eWH;
-                TextView bqZ = bqZ();
-                if (bqZ != null) {
-                    this.textSize = (int) bqZ.getTextSize();
+            ViewGroup.MarginLayoutParams brd = brd();
+            if (brd != null) {
+                brd.topMargin -= this.eYf;
+                brd.bottomMargin -= this.eYg;
+                TextView bra = bra();
+                if (bra != null) {
+                    this.textSize = (int) bra.getTextSize();
                 }
-                this.eWG = 0;
-                this.eWH = 0;
+                this.eYf = 0;
+                this.eYg = 0;
             }
         }
 
         private void a(Paint.FontMetricsInt fontMetricsInt) {
-            ViewGroup.MarginLayoutParams brc = brc();
-            if (brc != null) {
-                this.eWE = brc.topMargin;
-                this.eWF = brc.bottomMargin;
-                this.eWG = fontMetricsInt.top - fontMetricsInt.ascent;
-                this.eWH = (fontMetricsInt.descent - fontMetricsInt.bottom) - UtilHelper.getDimenPixelSize(R.dimen.tbds3);
-                brc.topMargin += this.eWG;
-                brc.bottomMargin += this.eWH;
+            ViewGroup.MarginLayoutParams brd = brd();
+            if (brd != null) {
+                this.eYd = brd.topMargin;
+                this.eYe = brd.bottomMargin;
+                this.eYf = fontMetricsInt.top - fontMetricsInt.ascent;
+                this.eYg = (fontMetricsInt.descent - fontMetricsInt.bottom) - UtilHelper.getDimenPixelSize(R.dimen.tbds3);
+                brd.topMargin += this.eYf;
+                brd.bottomMargin += this.eYg;
             }
         }
 
-        public boolean brb() {
-            ViewGroup.MarginLayoutParams brc;
-            if (this.eWD == null || (brc = brc()) == null || this.eWD != brc) {
+        public boolean brc() {
+            ViewGroup.MarginLayoutParams brd;
+            if (this.eYc == null || (brd = brd()) == null || this.eYc != brd) {
                 return true;
             }
-            return ((this.eWE + this.eWG == brc.topMargin) && (this.eWF + this.eWH == brc.bottomMargin)) ? false : true;
+            return ((this.eYd + this.eYf == brd.topMargin) && (this.eYe + this.eYg == brd.bottomMargin)) ? false : true;
         }
 
-        private ViewGroup.MarginLayoutParams brc() {
-            TextView bqZ = bqZ();
-            if (bqZ == null) {
+        private ViewGroup.MarginLayoutParams brd() {
+            TextView bra = bra();
+            if (bra == null) {
                 return null;
             }
-            ViewGroup.LayoutParams layoutParams = bqZ.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = bra.getLayoutParams();
             return layoutParams instanceof ViewGroup.MarginLayoutParams ? (ViewGroup.MarginLayoutParams) layoutParams : null;
         }
     }

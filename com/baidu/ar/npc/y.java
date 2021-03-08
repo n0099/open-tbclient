@@ -5,11 +5,11 @@ import android.view.View;
 class y implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BaiduArView f1566a;
+    final /* synthetic */ BaiduArView f1306a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(BaiduArView baiduArView) {
-        this.f1566a = baiduArView;
+        this.f1306a = baiduArView;
     }
 
     @Override // android.view.View.OnClickListener

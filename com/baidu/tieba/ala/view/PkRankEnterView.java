@@ -23,28 +23,28 @@ import com.baidu.tieba.ala.g.p;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class PkRankEnterView extends RelativeLayout {
     Context context;
-    private PkRankView gRX;
-    int ikP;
-    ImageView ikQ;
-    ImageView ikR;
-    HeadImageView ikS;
-    TextView ikT;
-    TextView ikU;
-    TextView ikV;
-    TextView ikW;
-    TextView ikX;
-    RelativeLayout ikY;
-    Button ikZ;
-    RelativeLayout ila;
-    com.baidu.tieba.ala.f ilb;
-    p ilc;
-    com.baidu.tieba.ala.g.a ild;
-    com.baidu.tieba.ala.g.k ile;
-    i ilf;
-    com.baidu.tieba.ala.h.d ilg;
+    private PkRankView gTG;
+    ImageView imA;
+    ImageView imB;
+    HeadImageView imC;
+    TextView imD;
+    TextView imE;
+    TextView imF;
+    TextView imG;
+    TextView imH;
+    RelativeLayout imI;
+    Button imJ;
+    RelativeLayout imK;
+    com.baidu.tieba.ala.f imL;
+    p imM;
+    com.baidu.tieba.ala.g.a imN;
+    com.baidu.tieba.ala.g.k imO;
+    i imP;
+    com.baidu.tieba.ala.h.d imQ;
+    int imz;
     private View mView;
     int status;
 
@@ -54,56 +54,56 @@ public class PkRankEnterView extends RelativeLayout {
 
     public PkRankEnterView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ilc = new p();
-        this.ild = new com.baidu.tieba.ala.g.a();
-        this.ile = new com.baidu.tieba.ala.g.k();
+        this.imM = new p();
+        this.imN = new com.baidu.tieba.ala.g.a();
+        this.imO = new com.baidu.tieba.ala.g.k();
         this.context = context;
         initView();
     }
 
     private void initView() {
         this.mView = LayoutInflater.from(getContext()).inflate(a.g.sdk_rank_enter_layout, (ViewGroup) this, true);
-        this.ila = (RelativeLayout) this.mView.findViewById(a.f.enter_container);
-        this.ikS = (HeadImageView) this.mView.findViewById(a.f.enter_head);
-        this.ikS.setDefaultResource(a.e.sdk_icon_default_avatar100);
-        this.ikS.setDefaultErrorResource(a.e.sdk_icon_default_avatar100);
-        this.ikS.setIsRound(true);
-        this.ikS.setAutoChangeStyle(false);
-        this.ikQ = (ImageView) this.mView.findViewById(a.f.enter_bg);
-        this.ikR = (ImageView) this.mView.findViewById(a.f.enter_image);
-        this.ikT = (TextView) this.mView.findViewById(a.f.invite_id);
-        this.ikU = (TextView) this.mView.findViewById(a.f.invite_tip);
-        this.ikV = (TextView) this.mView.findViewById(a.f.new_invite_tip);
-        this.ikY = (RelativeLayout) this.mView.findViewById(a.f.bottom_button_layout);
-        this.ikZ = (Button) this.mView.findViewById(a.f.bottom_button);
-        this.ikW = (TextView) this.mView.findViewById(a.f.matching_tip);
-        this.ikX = (TextView) this.mView.findViewById(a.f.matching_time);
-        this.ilg = new com.baidu.tieba.ala.h.d(this.ikY);
-        this.ild.a(new a.InterfaceC0631a() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.1
-            @Override // com.baidu.tieba.ala.g.a.InterfaceC0631a
+        this.imK = (RelativeLayout) this.mView.findViewById(a.f.enter_container);
+        this.imC = (HeadImageView) this.mView.findViewById(a.f.enter_head);
+        this.imC.setDefaultResource(a.e.sdk_icon_default_avatar100);
+        this.imC.setDefaultErrorResource(a.e.sdk_icon_default_avatar100);
+        this.imC.setIsRound(true);
+        this.imC.setAutoChangeStyle(false);
+        this.imA = (ImageView) this.mView.findViewById(a.f.enter_bg);
+        this.imB = (ImageView) this.mView.findViewById(a.f.enter_image);
+        this.imD = (TextView) this.mView.findViewById(a.f.invite_id);
+        this.imE = (TextView) this.mView.findViewById(a.f.invite_tip);
+        this.imF = (TextView) this.mView.findViewById(a.f.new_invite_tip);
+        this.imI = (RelativeLayout) this.mView.findViewById(a.f.bottom_button_layout);
+        this.imJ = (Button) this.mView.findViewById(a.f.bottom_button);
+        this.imG = (TextView) this.mView.findViewById(a.f.matching_tip);
+        this.imH = (TextView) this.mView.findViewById(a.f.matching_time);
+        this.imQ = new com.baidu.tieba.ala.h.d(this.imI);
+        this.imN.a(new a.InterfaceC0637a() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.1
+            @Override // com.baidu.tieba.ala.g.a.InterfaceC0637a
             public void fN(long j) {
-                PkRankEnterView.this.ilc.cmn();
-                PkRankEnterView.this.cpV();
-                PkRankEnterView.this.gRX.getGetPkInfoModel().a(PkRankEnterView.this.gRX.aJZ.aId.userId, j, PkRankEnterView.this.gRX.aJZ.mLiveInfo.room_id, PkRankEnterView.this.gRX.aJZ.mLiveInfo.live_id, PkRankEnterView.this.gRX.isHost ? 1 : 0);
+                PkRankEnterView.this.imM.cmt();
+                PkRankEnterView.this.cqb();
+                PkRankEnterView.this.gTG.getGetPkInfoModel().a(PkRankEnterView.this.gTG.aLz.aJD.userId, j, PkRankEnterView.this.gTG.aLz.mLiveInfo.room_id, PkRankEnterView.this.gTG.aLz.mLiveInfo.live_id, PkRankEnterView.this.gTG.isHost ? 1 : 0);
             }
 
-            @Override // com.baidu.tieba.ala.g.a.InterfaceC0631a
+            @Override // com.baidu.tieba.ala.g.a.InterfaceC0637a
             public void bu(int i, String str) {
             }
         });
-        this.ile.a(new k.a() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.2
+        this.imO.a(new k.a() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.2
             @Override // com.baidu.tieba.ala.g.k.a
-            public void cmk() {
-                PkRankEnterView.this.ilc.cmn();
-                PkRankEnterView.this.cpQ();
-                PkRankEnterView.this.wH(1);
+            public void cmq() {
+                PkRankEnterView.this.imM.cmt();
+                PkRankEnterView.this.cpW();
+                PkRankEnterView.this.wI(1);
             }
 
             @Override // com.baidu.tieba.ala.g.k.a
             public void bv(int i, String str) {
             }
         });
-        this.ilc.a(new p.a() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.3
+        this.imM.a(new p.a() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.3
             @Override // com.baidu.tieba.ala.g.p.a
             public void fS(long j) {
                 AlaStatsItem alaStatsItem = new AlaStatsItem();
@@ -117,21 +117,21 @@ public class PkRankEnterView extends RelativeLayout {
                     e.printStackTrace();
                 }
                 UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_PK_RANK, "pk_competition_start_pk", "author_liveroom", "match_success").setContentExt(jSONObject));
-                PkRankEnterView.this.gRX.getGetPkInfoModel().a(PkRankEnterView.this.gRX.aJZ.aId.userId, j, PkRankEnterView.this.gRX.aJZ.mLiveInfo.room_id, PkRankEnterView.this.gRX.aJZ.mLiveInfo.live_id, PkRankEnterView.this.gRX.isHost ? 1 : 0);
-                PkRankEnterView.this.cpQ();
-                PkRankEnterView.this.cpV();
+                PkRankEnterView.this.gTG.getGetPkInfoModel().a(PkRankEnterView.this.gTG.aLz.aJD.userId, j, PkRankEnterView.this.gTG.aLz.mLiveInfo.room_id, PkRankEnterView.this.gTG.aLz.mLiveInfo.live_id, PkRankEnterView.this.gTG.isHost ? 1 : 0);
+                PkRankEnterView.this.cpW();
+                PkRankEnterView.this.cqb();
             }
 
             @Override // com.baidu.tieba.ala.g.p.a
-            public void cmq() {
-                PkRankEnterView.this.wH(3);
-                PkRankEnterView.this.cpQ();
-                PkRankEnterView.this.cpV();
+            public void cmw() {
+                PkRankEnterView.this.wI(3);
+                PkRankEnterView.this.cpW();
+                PkRankEnterView.this.cqb();
             }
 
             @Override // com.baidu.tieba.ala.g.p.a
             public void ae(ArrayList<String> arrayList) {
-                PkRankEnterView.this.wH(2);
+                PkRankEnterView.this.wI(2);
                 PkRankEnterView.this.ag(arrayList);
             }
 
@@ -141,61 +141,61 @@ public class PkRankEnterView extends RelativeLayout {
         });
     }
 
-    public void wH(int i) {
+    public void wI(int i) {
         this.status = i;
-        if (this.gRX.wJ(i)) {
-            if (!this.gRX.isHost) {
-                this.gRX.cqz();
+        if (this.gTG.wK(i)) {
+            if (!this.gTG.isHost) {
+                this.gTG.cqF();
                 setVisibility(8);
                 return;
             }
-            this.gRX.cqz();
-            cpW();
+            this.gTG.cqF();
+            cqc();
             switch (i) {
                 case 0:
-                    cpR();
+                    cpX();
                     break;
                 case 1:
-                    cpS();
+                    cpY();
                     break;
                 case 2:
-                    cpT();
+                    cpZ();
                     break;
                 case 3:
-                    cpU();
+                    cqa();
                     break;
             }
-            this.ikP = i;
+            this.imz = i;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ag(ArrayList<String> arrayList) {
-        if (this.ilf == null || !this.ilf.cpP()) {
-            this.ilf = new i(arrayList, this.ikS, this.ila);
-            this.ilf.sz();
+        if (this.imP == null || !this.imP.cpV()) {
+            this.imP = new i(arrayList, this.imC, this.imK);
+            this.imP.sz();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void cpQ() {
-        if (this.ilf != null) {
-            this.ilf.cmn();
+    public void cpW() {
+        if (this.imP != null) {
+            this.imP.cmt();
         }
     }
 
-    private void cpR() {
-        wI(10);
-        this.ikR.setVisibility(0);
-        this.ikR.setImageResource(a.e.pk_rank_enter_view_again);
-        this.ikQ.setImageResource(a.e.pk_rank_enter_view_black_bg);
-        this.ikZ.setVisibility(0);
-        this.ikZ.setText(a.h.sdk_pk_rank_restart);
-        this.ikZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.4
+    private void cpX() {
+        wJ(10);
+        this.imB.setVisibility(0);
+        this.imB.setImageResource(a.e.pk_rank_enter_view_again);
+        this.imA.setImageResource(a.e.pk_rank_enter_view_black_bg);
+        this.imJ.setVisibility(0);
+        this.imJ.setText(a.h.sdk_pk_rank_restart);
+        this.imJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PkRankEnterView.this.ilc.fR(com.baidu.live.ae.a.Qj().buX.aKw);
-                PkRankEnterView.this.ilc.fQ(PkRankEnterView.this.gRX.aJZ.aId.userId);
+                PkRankEnterView.this.imM.fR(com.baidu.live.ae.a.Qm().bwx.aLW);
+                PkRankEnterView.this.imM.fQ(PkRankEnterView.this.gTG.aLz.aJD.userId);
                 AlaStatsItem alaStatsItem = new AlaStatsItem();
                 alaStatsItem.addValue("source", "pk_pendant_rematch_btn_click");
                 AlaStatManager.getInstance().debug("pk_competition_start_match", alaStatsItem);
@@ -205,20 +205,20 @@ public class PkRankEnterView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cpS() {
-        this.gRX.inz = 1;
+    public void cpY() {
+        this.gTG.ipi = 1;
         this.status = 1;
-        this.ikP = 1;
-        this.ikR.setVisibility(0);
-        this.ikR.setImageResource(a.e.pk_rank_enter_view_main);
-        this.ikQ.setImageResource(a.e.pk_rank_enter_view_bg);
-        this.ikZ.setVisibility(0);
-        this.ikZ.setText(a.h.sdk_pk_rank_start);
-        this.ikZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.5
+        this.imz = 1;
+        this.imB.setVisibility(0);
+        this.imB.setImageResource(a.e.pk_rank_enter_view_main);
+        this.imA.setImageResource(a.e.pk_rank_enter_view_bg);
+        this.imJ.setVisibility(0);
+        this.imJ.setText(a.h.sdk_pk_rank_start);
+        this.imJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PkRankEnterView.this.ilc.fR(com.baidu.live.ae.a.Qj().buX.aKw);
-                PkRankEnterView.this.ilc.fQ(PkRankEnterView.this.gRX.aJZ.aId.userId);
+                PkRankEnterView.this.imM.fR(com.baidu.live.ae.a.Qm().bwx.aLW);
+                PkRankEnterView.this.imM.fQ(PkRankEnterView.this.gTG.aLz.aJD.userId);
                 AlaStatsItem alaStatsItem = new AlaStatsItem();
                 alaStatsItem.addValue("source", "pk_pendant_quick_start_btn_click");
                 AlaStatManager.getInstance().debug("pk_competition_start_match", alaStatsItem);
@@ -227,33 +227,33 @@ public class PkRankEnterView extends RelativeLayout {
         });
     }
 
-    private void cpT() {
-        wI(com.baidu.live.ae.a.Qj().buX.aKw);
-        this.ikS.setVisibility(0);
-        this.ikQ.setImageResource(a.e.pk_rank_enter_view_black_bg);
-        this.ikW.setVisibility(0);
-        this.ikX.setVisibility(0);
-        this.ikZ.setVisibility(0);
-        this.ikZ.setText(a.h.sdk_pk_rank_matching_cancel);
-        this.ikZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.6
+    private void cpZ() {
+        wJ(com.baidu.live.ae.a.Qm().bwx.aLW);
+        this.imC.setVisibility(0);
+        this.imA.setImageResource(a.e.pk_rank_enter_view_black_bg);
+        this.imG.setVisibility(0);
+        this.imH.setVisibility(0);
+        this.imJ.setVisibility(0);
+        this.imJ.setText(a.h.sdk_pk_rank_matching_cancel);
+        this.imJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PkRankEnterView.this.ile.fP(PkRankEnterView.this.gRX.aJZ.aId.userId);
+                PkRankEnterView.this.imO.fP(PkRankEnterView.this.gTG.aLz.aJD.userId);
             }
         });
     }
 
-    private void cpU() {
-        wI(10);
-        this.ikR.setVisibility(0);
-        this.ikR.setImageResource(a.e.pk_rank_enter_view_fail);
-        this.ikQ.setImageResource(a.e.pk_rank_enter_view_black_bg);
-        this.ikZ.setVisibility(0);
-        this.ikZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.7
+    private void cqa() {
+        wJ(10);
+        this.imB.setVisibility(0);
+        this.imB.setImageResource(a.e.pk_rank_enter_view_fail);
+        this.imA.setImageResource(a.e.pk_rank_enter_view_black_bg);
+        this.imJ.setVisibility(0);
+        this.imJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PkRankEnterView.this.ilc.fR(com.baidu.live.ae.a.Qj().buX.aKw);
-                PkRankEnterView.this.ilc.fQ(PkRankEnterView.this.gRX.aJZ.aId.userId);
+                PkRankEnterView.this.imM.fR(com.baidu.live.ae.a.Qm().bwx.aLW);
+                PkRankEnterView.this.imM.fQ(PkRankEnterView.this.gTG.aLz.aJD.userId);
                 AlaStatsItem alaStatsItem = new AlaStatsItem();
                 alaStatsItem.addValue("source", "pk_pendant_match_filed_btn_click");
                 AlaStatManager.getInstance().debug("pk_competition_start_match", alaStatsItem);
@@ -262,114 +262,114 @@ public class PkRankEnterView extends RelativeLayout {
         });
     }
 
-    private void eg(JSONObject jSONObject) {
-        this.ikQ.setImageResource(a.e.pk_rank_enter_view_black_bg);
-        wI(10);
+    private void ei(JSONObject jSONObject) {
+        this.imA.setImageResource(a.e.pk_rank_enter_view_black_bg);
+        wJ(10);
         final JSONObject optJSONObject = jSONObject.optJSONObject("rival_anchor");
-        this.ikV.setVisibility(0);
-        this.ikZ.setVisibility(0);
-        this.ikZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.8
+        this.imF.setVisibility(0);
+        this.imJ.setVisibility(0);
+        this.imJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.8
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PkRankEnterView.this.ild.D(PkRankEnterView.this.gRX.aJZ.aId.userId, optJSONObject.optLong("user_id"));
-                PkRankEnterView.this.ilg.stopAnim();
+                PkRankEnterView.this.imN.D(PkRankEnterView.this.gTG.aLz.aJD.userId, optJSONObject.optLong("user_id"));
+                PkRankEnterView.this.imQ.stopAnim();
             }
         });
-        this.ilg.startAnim();
+        this.imQ.startAnim();
     }
 
-    private void wI(int i) {
-        if ((this.ilb == null || !this.ilb.isRunning()) && i > 0) {
-            this.ikX.setText(i + "s");
-            this.ilb = new com.baidu.tieba.ala.f(i * 1000, 1000L);
-            this.ilb.a(new f.a() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.9
+    private void wJ(int i) {
+        if ((this.imL == null || !this.imL.isRunning()) && i > 0) {
+            this.imH.setText(i + "s");
+            this.imL = new com.baidu.tieba.ala.f(i * 1000, 1000L);
+            this.imL.a(new f.a() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.9
                 @Override // com.baidu.tieba.ala.f.a
                 public void onTick(long j) {
                     long round = Math.round(j / 1000.0d);
                     if (PkRankEnterView.this.status == 0 || PkRankEnterView.this.status == 3) {
-                        PkRankEnterView.this.ikZ.setText(PkRankEnterView.this.context.getString(a.h.sdk_pk_rank_restart_time, String.valueOf(round)));
+                        PkRankEnterView.this.imJ.setText(PkRankEnterView.this.context.getString(a.h.sdk_pk_rank_restart_time, String.valueOf(round)));
                     } else if (PkRankEnterView.this.status == 4) {
-                        PkRankEnterView.this.ikZ.setText(PkRankEnterView.this.context.getString(a.h.sdk_pk_rank_accept_time, String.valueOf(round)));
+                        PkRankEnterView.this.imJ.setText(PkRankEnterView.this.context.getString(a.h.sdk_pk_rank_accept_time, String.valueOf(round)));
                     } else if (PkRankEnterView.this.status == 2) {
-                        PkRankEnterView.this.ilc.fR(round);
-                        PkRankEnterView.this.ikX.setText(round + "s");
+                        PkRankEnterView.this.imM.fR(round);
+                        PkRankEnterView.this.imH.setText(round + "s");
                     }
                 }
 
                 @Override // com.baidu.tieba.ala.f.a
                 public void onFinish() {
                     if (PkRankEnterView.this.status == 2) {
-                        PkRankEnterView.this.ile.fP(PkRankEnterView.this.gRX.aJZ.aId.userId);
+                        PkRankEnterView.this.imO.fP(PkRankEnterView.this.gTG.aLz.aJD.userId);
                         return;
                     }
-                    PkRankEnterView.this.ilb.cancelTimer();
-                    PkRankEnterView.this.cpW();
-                    PkRankEnterView.this.cpS();
-                    PkRankEnterView.this.ilg.stopAnim();
+                    PkRankEnterView.this.imL.cancelTimer();
+                    PkRankEnterView.this.cqc();
+                    PkRankEnterView.this.cpY();
+                    PkRankEnterView.this.imQ.stopAnim();
                 }
             });
-            this.ilb.startTimer();
+            this.imL.startTimer();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cpV() {
-        if (this.ilb != null) {
-            this.ilb.cancelTimer();
-            this.ilb = null;
+    public void cqb() {
+        if (this.imL != null) {
+            this.imL.cancelTimer();
+            this.imL = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cpW() {
+    public void cqc() {
         setVisibility(0);
-        if (this.ikP != this.status) {
-            cpV();
+        if (this.imz != this.status) {
+            cqb();
         }
-        this.ikS.setVisibility(8);
-        this.ikW.setVisibility(8);
-        this.ikX.setVisibility(8);
-        this.ikR.setVisibility(8);
-        this.ikT.setVisibility(8);
-        this.ikU.setVisibility(8);
-        this.ikV.setVisibility(8);
-        this.ikZ.setVisibility(8);
+        this.imC.setVisibility(8);
+        this.imG.setVisibility(8);
+        this.imH.setVisibility(8);
+        this.imB.setVisibility(8);
+        this.imD.setVisibility(8);
+        this.imE.setVisibility(8);
+        this.imF.setVisibility(8);
+        this.imJ.setVisibility(8);
     }
 
     public void onDestroy() {
-        if (this.ilc != null) {
-            this.ilc.cmp();
+        if (this.imM != null) {
+            this.imM.cmv();
         }
-        if (this.ild != null) {
-            this.ild.cme();
+        if (this.imN != null) {
+            this.imN.cmk();
         }
-        if (this.ile != null) {
-            this.ile.cmj();
+        if (this.imO != null) {
+            this.imO.cmp();
         }
-        if (this.gRX.getGetPkInfoModel() != null) {
-            this.gRX.getGetPkInfoModel().cmm();
+        if (this.gTG.getGetPkInfoModel() != null) {
+            this.gTG.getGetPkInfoModel().cms();
         }
-        if (this.ilg != null) {
-            this.ilg.release();
-            this.ilg = null;
+        if (this.imQ != null) {
+            this.imQ.release();
+            this.imQ = null;
         }
-        cpV();
+        cqb();
     }
 
     public void setPkRankView(PkRankView pkRankView) {
-        this.gRX = pkRankView;
+        this.gTG = pkRankView;
     }
 
     public void d(JSONObject jSONObject, int i) {
-        if (this.gRX.wJ(i) && i == 4) {
-            this.ilc.cmn();
-            cpQ();
-            cpV();
-            this.gRX.cqz();
+        if (this.gTG.wK(i) && i == 4) {
+            this.imM.cmt();
             cpW();
-            this.ikP = i;
+            cqb();
+            this.gTG.cqF();
+            cqc();
+            this.imz = i;
             this.status = i;
-            eg(jSONObject);
+            ei(jSONObject);
         }
     }
 }

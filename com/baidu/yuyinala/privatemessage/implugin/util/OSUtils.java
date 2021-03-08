@@ -10,9 +10,9 @@ import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class OSUtils {
-    private static final ROM phw = emA();
+    private static final ROM pjE = emK();
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [332=17, 334=16, 335=16, 336=16] */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -21,7 +21,7 @@ public class OSUtils {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static ROM emA() {
+    private static ROM emK() {
         FileInputStream fileInputStream;
         Properties properties;
         ?? containsKey;
@@ -442,7 +442,7 @@ public class OSUtils {
         return rom2;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public enum ROM {
         MIUI,
         Flyme,

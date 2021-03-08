@@ -6,7 +6,7 @@ import com.yy.mediaframework.utils.YMFLog;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class HardEncoderFrameRateAdaptor {
     private int mModifiedEncFps;
     private boolean mEnableSyncFps = true;

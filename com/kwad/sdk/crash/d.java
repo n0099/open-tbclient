@@ -9,63 +9,61 @@ import com.kwad.sdk.crash.model.message.ExceptionMessage;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.kwad.sdk.crash.b.b f9637a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private b f9638b;
+    private com.kwad.sdk.crash.b.b f6380a;
+    private b b;
     private long c;
 
     /* loaded from: classes3.dex */
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final d f9639a = new d();
+        private static final d f6381a = new d();
     }
 
     private d() {
-        this.f9637a = new com.kwad.sdk.crash.b.b();
-        this.f9638b = new b.a().a();
+        this.f6380a = new com.kwad.sdk.crash.b.b();
+        this.b = new b.a().a();
     }
 
     public static d a() {
-        return a.f9639a;
+        return a.f6381a;
     }
 
     public void a(int i, ExceptionMessage exceptionMessage) {
-        e a2 = this.f9638b.a();
+        e a2 = this.b.a();
         if (a2 != null) {
             a2.a(i, exceptionMessage);
         }
     }
 
     public void a(@NonNull b bVar) {
-        this.f9638b = bVar;
+        this.b = bVar;
         this.c = SystemClock.elapsedRealtime();
-        this.f9637a.a(bVar.d, bVar.e);
+        this.f6380a.a(bVar.d, bVar.e);
     }
 
     public String[] b() {
-        return this.f9637a.a();
+        return this.f6380a.a();
     }
 
     public String[] c() {
-        return this.f9637a.b();
+        return this.f6380a.b();
     }
 
     public String d() {
-        return this.f9638b.f9623a.f9642a;
+        return this.b.f6372a.f6383a;
     }
 
     public String e() {
-        return this.f9638b.f9623a.f9643b;
+        return this.b.f6372a.b;
     }
 
     public Context f() {
-        return this.f9638b.g;
+        return this.b.g;
     }
 
     public f g() {
-        return this.f9638b.c;
+        return this.b.c;
     }
 
     public long h() {
@@ -73,6 +71,6 @@ public final class d {
     }
 
     public boolean i() {
-        return this.f9638b.b();
+        return this.b.b();
     }
 }

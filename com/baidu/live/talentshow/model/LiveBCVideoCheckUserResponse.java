@@ -4,9 +4,9 @@ import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class LiveBCVideoCheckUserResponse extends JsonHttpResponsedMessage {
-    private String bGw;
+    private String bHW;
     private int userStatus;
 
     public LiveBCVideoCheckUserResponse(int i) {
@@ -21,7 +21,7 @@ public class LiveBCVideoCheckUserResponse extends JsonHttpResponsedMessage {
         }
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             this.userStatus = JavaTypesHelper.toInt(optJSONObject.optString("status"), 1);
-            this.bGw = optJSONObject.optString("text");
+            this.bHW = optJSONObject.optString("text");
         }
     }
 
@@ -29,7 +29,7 @@ public class LiveBCVideoCheckUserResponse extends JsonHttpResponsedMessage {
         return this.userStatus;
     }
 
-    public String Tl() {
-        return this.bGw;
+    public String To() {
+        return this.bHW;
     }
 }

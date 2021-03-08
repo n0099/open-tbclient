@@ -6,13 +6,13 @@ import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tieba.R;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d {
-    public static String Oq(String str) {
-        return Or(trim(str));
+    public static String Ow(String str) {
+        return Ox(trim(str));
     }
 
-    private static String Or(String str) {
+    private static String Ox(String str) {
         Pattern compile = Pattern.compile(TbadkCoreApplication.getInst().getString(R.string.tail_remove_dupe_regex));
         boolean z = false;
         int i = 0;
@@ -33,25 +33,25 @@ public class d {
         return str.trim();
     }
 
-    public static String Os(String str) {
-        String Or = Or(str);
-        if (StringUtils.isNull(Or)) {
+    public static String Oy(String str) {
+        String Ox = Ox(str);
+        if (StringUtils.isNull(Ox)) {
             return TbadkCoreApplication.getInst().getString(R.string.tail_empty_toast);
         }
-        if (!Ou(Or)) {
+        if (!OA(Ox)) {
             return TbadkCoreApplication.getInst().getString(R.string.tail_invalid_emotion);
         }
         return "";
     }
 
-    public static String Ot(String str) {
-        return Or(str).trim();
+    public static String Oz(String str) {
+        return Ox(str).trim();
     }
 
-    public static boolean Ou(String str) {
-        Matcher matcher = Pattern.compile(TbFaceManager.fFX).matcher(str);
+    public static boolean OA(String str) {
+        Matcher matcher = Pattern.compile(TbFaceManager.fHw).matcher(str);
         while (matcher.find()) {
-            if (TbFaceManager.bCO().CL(matcher.group()) <= 0) {
+            if (TbFaceManager.bCR().CS(matcher.group()) <= 0) {
                 return false;
             }
         }

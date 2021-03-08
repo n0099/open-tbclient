@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.lego.card.model.c;
 import com.baidu.tieba.tbadkCore.v;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class MoreButton extends TextView {
     public MoreButton(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -28,12 +28,12 @@ public class MoreButton extends TextView {
             return;
         }
         setVisibility(0);
-        setText(cVar.dbP());
-        if (!TextUtils.isEmpty(cVar.dbR())) {
+        setText(cVar.dbY());
+        if (!TextUtils.isEmpty(cVar.dca())) {
             setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.view.MoreButton.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    v.j(tbPageContext, cVar.dbR());
+                    v.j(tbPageContext, cVar.dca());
                 }
             });
         } else {

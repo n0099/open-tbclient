@@ -11,7 +11,7 @@ import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 import javax.microedition.khronos.opengles.GL;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class EglCore {
     private static final String TAG = "EglCore";
     private EGLConfig mEGLConfig;

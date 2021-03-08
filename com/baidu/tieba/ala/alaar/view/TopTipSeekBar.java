@@ -8,22 +8,22 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class TopTipSeekBar extends SeekBar implements SeekBar.OnSeekBarChangeListener {
-    private SeekBar.OnSeekBarChangeListener ghW;
-    private TextView gxL;
-    private int gyc;
-    private int gyd;
-    private final int gye;
-    private final int gyf;
+    private SeekBar.OnSeekBarChangeListener gjA;
+    private int gzL;
+    private int gzM;
+    private final int gzN;
+    private final int gzO;
+    private TextView gzu;
     private int mOffset;
     private TextView mTipView;
 
     public void setProcessDiff(int i) {
-        this.gyc = i;
+        this.gzL = i;
         if (this.mTipView != null) {
             this.mTipView.setTranslationX(getThumb().getBounds().centerX() - (this.mTipView.getMeasuredWidth() / 2));
-            this.mTipView.setText((getProgress() - this.gyc) + "%");
+            this.mTipView.setText((getProgress() - this.gzL) + "%");
         }
     }
 
@@ -65,7 +65,7 @@ public class TopTipSeekBar extends SeekBar implements SeekBar.OnSeekBarChangeLis
         setDefThumbPos(this.mOffset + i3);
         if (this.mTipView != null) {
             this.mTipView.setTranslationX(getThumb().getBounds().centerX() - (this.mTipView.getMeasuredWidth() / 2));
-            this.mTipView.setText((getProgress() - this.gyc) + "%");
+            this.mTipView.setText((getProgress() - this.gzL) + "%");
         }
     }
 
@@ -78,13 +78,13 @@ public class TopTipSeekBar extends SeekBar implements SeekBar.OnSeekBarChangeLis
     }
 
     public void setDefThumb(TextView textView) {
-        this.gxL = textView;
+        this.gzu = textView;
     }
 
     public void setDefThumbPos(int i) {
-        this.gyd = i;
-        if (this.gxL != null) {
-            this.gxL.setTranslationX(((((getMeasuredWidth() - this.gye) * i) * 1.0f) / 100.0f) + this.gyf);
+        this.gzM = i;
+        if (this.gzu != null) {
+            this.gzu.setTranslationX(((((getMeasuredWidth() - this.gzN) * i) * 1.0f) / 100.0f) + this.gzO);
         }
     }
 
@@ -98,11 +98,11 @@ public class TopTipSeekBar extends SeekBar implements SeekBar.OnSeekBarChangeLis
 
     public TopTipSeekBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gyc = 0;
+        this.gzL = 0;
         this.mOffset = 0;
-        this.gyd = 50;
-        this.gye = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds48);
-        this.gyf = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds20);
+        this.gzM = 50;
+        this.gzN = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds48);
+        this.gzO = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds20);
         j(context, attributeSet);
     }
 
@@ -112,7 +112,7 @@ public class TopTipSeekBar extends SeekBar implements SeekBar.OnSeekBarChangeLis
 
     @Override // android.widget.SeekBar
     public void setOnSeekBarChangeListener(SeekBar.OnSeekBarChangeListener onSeekBarChangeListener) {
-        this.ghW = onSeekBarChangeListener;
+        this.gjA = onSeekBarChangeListener;
     }
 
     @Override // android.widget.AbsSeekBar, android.widget.ProgressBar, android.view.View
@@ -120,10 +120,10 @@ public class TopTipSeekBar extends SeekBar implements SeekBar.OnSeekBarChangeLis
         super.onDraw(canvas);
         if (this.mTipView != null) {
             this.mTipView.setTranslationX(getThumb().getBounds().centerX() - (this.mTipView.getMeasuredWidth() / 2));
-            this.mTipView.setText((getProgress() - this.gyc) + "%");
+            this.mTipView.setText((getProgress() - this.gzL) + "%");
         }
-        if (this.gxL != null) {
-            this.gxL.setTranslationX(((((getMeasuredWidth() - this.gye) * this.gyd) * 1.0f) / 100.0f) + this.gyf);
+        if (this.gzu != null) {
+            this.gzu.setTranslationX(((((getMeasuredWidth() - this.gzN) * this.gzM) * 1.0f) / 100.0f) + this.gzO);
         }
     }
 
@@ -137,22 +137,22 @@ public class TopTipSeekBar extends SeekBar implements SeekBar.OnSeekBarChangeLis
         if (com.baidu.tieba.ala.alaar.makeup.h.isDebug()) {
             com.baidu.tieba.ala.alaar.makeup.h.d("seekbar", "onProgressChanged " + i + ", to " + (i - this.mOffset));
         }
-        if (this.ghW != null) {
-            this.ghW.onProgressChanged(seekBar, i, z);
+        if (this.gjA != null) {
+            this.gjA.onProgressChanged(seekBar, i, z);
         }
     }
 
     @Override // android.widget.SeekBar.OnSeekBarChangeListener
     public void onStartTrackingTouch(SeekBar seekBar) {
-        if (this.ghW != null) {
-            this.ghW.onStartTrackingTouch(seekBar);
+        if (this.gjA != null) {
+            this.gjA.onStartTrackingTouch(seekBar);
         }
     }
 
     @Override // android.widget.SeekBar.OnSeekBarChangeListener
     public void onStopTrackingTouch(SeekBar seekBar) {
-        if (this.ghW != null) {
-            this.ghW.onStopTrackingTouch(seekBar);
+        if (this.gjA != null) {
+            this.gjA.onStopTrackingTouch(seekBar);
         }
     }
 }

@@ -9,9 +9,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.internal.api.SceneImpl;
 /* loaded from: classes3.dex */
 public class b extends com.kwad.sdk.contentalliance.detail.b {
-
-    /* renamed from: b  reason: collision with root package name */
-    private static boolean f8318b = false;
+    private static boolean b = false;
     private AdTemplate c;
     private int d;
     @Nullable
@@ -31,7 +29,7 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
                 b.this.g = SystemClock.elapsedRealtime();
             }
             b.this.j = SystemClock.elapsedRealtime();
-            if (b.f8318b) {
+            if (b.b) {
                 com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + b.this.d + " onVideoPlayStart");
             }
         }
@@ -48,7 +46,7 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void d() {
             super.d();
-            if (b.f8318b) {
+            if (b.b) {
                 com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + b.this.d + " onVideoPlaying");
             }
             b.this.g();
@@ -63,7 +61,7 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
         @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
         public void j() {
             super.j();
-            if (b.f8318b) {
+            if (b.b) {
                 com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + b.this.d + " becomesAttachedOnPageSelected");
             }
             b.this.g = SystemClock.elapsedRealtime();
@@ -77,7 +75,7 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
         @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
         public void k() {
             super.k();
-            if (b.f8318b) {
+            if (b.b) {
                 com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + b.this.d + " becomesDetachedOnPageSelected");
             }
             if (b.this.e == null) {
@@ -96,7 +94,7 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
 
         @Override // com.kwad.sdk.core.i.c
         public void c_() {
-            if (b.f8318b) {
+            if (b.b) {
                 com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + b.this.d + " onPageVisible");
             }
             b.this.k = true;
@@ -119,7 +117,7 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
         }
         this.h = true;
         long elapsedRealtime = SystemClock.elapsedRealtime() - this.g;
-        if (f8318b) {
+        if (b) {
             com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + this.d + " startPlayDuration startPlayDuration: " + elapsedRealtime);
         }
         com.kwad.sdk.core.report.e.a(this.c, elapsedRealtime);
@@ -129,17 +127,17 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        h hVar = this.f8395a.f8404a;
+        h hVar = this.f5594a.f5600a;
         if (hVar != null) {
-            this.e = hVar.f8744a;
+            this.e = hVar.f5826a;
             this.f = hVar.k;
         }
-        this.c = this.f8395a.j;
-        this.d = this.f8395a.i;
+        this.c = this.f5594a.j;
+        this.d = this.f5594a.i;
         f();
-        this.f8395a.f8405b.add(this.m);
-        if (this.f8395a.m != null) {
-            this.f8395a.m.a(this.l);
+        this.f5594a.b.add(this.m);
+        if (this.f5594a.m != null) {
+            this.f5594a.m.a(this.l);
         }
     }
 
@@ -147,9 +145,9 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f8395a.f8405b.remove(this.m);
-        if (this.f8395a.m != null) {
-            this.f8395a.m.b(this.l);
+        this.f5594a.b.remove(this.m);
+        if (this.f5594a.m != null) {
+            this.f5594a.m.b(this.l);
         }
     }
 }

@@ -10,13 +10,13 @@ import com.baidu.tbadk.editortools.h;
 import com.baidu.tbadk.editortools.view.a;
 import com.baidu.tieba.R;
 import java.util.LinkedList;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends com.baidu.tbadk.editortools.view.a {
-    private LinkedList<h> fBp;
+    private LinkedList<h> fCO;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void g(LinkedList<h> linkedList) {
-        this.fBp = linkedList;
+        this.fCO = linkedList;
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -24,17 +24,17 @@ public class a extends com.baidu.tbadk.editortools.view.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public DLauncher qV(int i) {
+    public DLauncher qW(int i) {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        return (DLauncher) this.fBp.get(i);
+        return (DLauncher) this.fCO.get(i);
     }
 
     @Override // com.baidu.tbadk.editortools.view.a
     public int getCount() {
-        if (this.fBp != null) {
-            return this.fBp.size();
+        if (this.fCO != null) {
+            return this.fCO.size();
         }
         return 0;
     }
@@ -42,28 +42,28 @@ public class a extends com.baidu.tbadk.editortools.view.a {
     @Override // com.baidu.tbadk.editortools.view.a
     public void init(Context context) {
         setColumn(4);
-        rh(2);
+        ri(2);
         setHorizontalSpacing(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X004));
         setPaddingLeft(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
         setPaddingRight(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
-        a(new a.InterfaceC0575a() { // from class: com.baidu.tieba.memberCenter.tail.privilegetool.a.1
-            @Override // com.baidu.tbadk.editortools.view.a.InterfaceC0575a
+        a(new a.InterfaceC0581a() { // from class: com.baidu.tieba.memberCenter.tail.privilegetool.a.1
+            @Override // com.baidu.tbadk.editortools.view.a.InterfaceC0581a
             public View getView(int i, View view, ViewGroup viewGroup) {
-                DLauncher qV = a.this.qV(i);
-                if (qV.getLayoutParams() == null) {
-                    qV.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
+                DLauncher qW = a.this.qW(i);
+                if (qW.getLayoutParams() == null) {
+                    qW.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
                 }
-                return qV;
+                return qW;
             }
         });
-        bCz().c(this);
+        bCC().c(this);
     }
 
     @Override // com.baidu.tbadk.editortools.view.a
     public void exit() {
-        if (this.fBp != null) {
-            this.fBp.clear();
-            this.fBp = null;
+        if (this.fCO != null) {
+            this.fCO.clear();
+            this.fCO = null;
         }
     }
 }

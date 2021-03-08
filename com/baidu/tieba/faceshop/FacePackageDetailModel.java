@@ -8,15 +8,15 @@ import com.baidu.tbadk.ProxyAdkBaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.au;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class FacePackageDetailModel extends BdBaseModel<l> {
-    private boolean gff;
-    private ProxyAdkBaseActivity.LoadDataCallBack iVg;
-    private int iVi;
-    private String iVj;
-    private FacePackageDetailData iVk;
-    private a iVl;
-    private float iVm;
+    private boolean ggI;
+    private ProxyAdkBaseActivity.LoadDataCallBack iWP;
+    private int iWR;
+    private String iWS;
+    private FacePackageDetailData iWT;
+    private a iWU;
+    private float iWV;
     private String mDownloadUrl;
     private String mPid;
     private int mScreenHeight;
@@ -28,36 +28,36 @@ public class FacePackageDetailModel extends BdBaseModel<l> {
         this.mDownloadUrl = null;
         this.mScreenWidth = 0;
         this.mScreenHeight = 0;
-        this.iVg = null;
-        this.iVl = null;
+        this.iWP = null;
+        this.iWU = null;
         TbadkApplication inst = TbadkApplication.getInst();
         this.mScreenWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(inst);
         this.mScreenHeight = com.baidu.adp.lib.util.l.getEquipmentHeight(inst);
-        this.iVm = inst.getResources().getDisplayMetrics().density;
+        this.iWV = inst.getResources().getDisplayMetrics().density;
     }
 
-    public FacePackageDetailData cyW() {
-        return this.iVk;
+    public FacePackageDetailData czc() {
+        return this.iWT;
     }
 
-    public void JK(String str) {
+    public void JT(String str) {
         this.mDownloadUrl = str;
     }
 
-    public String cyX() {
+    public String czd() {
         return this.mDownloadUrl;
     }
 
     public void qh(boolean z) {
-        this.gff = z;
+        this.ggI = z;
     }
 
-    public boolean cyY() {
-        return this.gff;
+    public boolean cze() {
+        return this.ggI;
     }
 
-    public int cyZ() {
-        return this.iVi;
+    public int czf() {
+        return this.iWR;
     }
 
     public void setPid(String str) {
@@ -76,19 +76,19 @@ public class FacePackageDetailModel extends BdBaseModel<l> {
         return this.mStType;
     }
 
-    public void JL(String str) {
-        this.iVj = str;
+    public void JU(String str) {
+        this.iWS = str;
     }
 
-    public String cza() {
-        return this.iVj;
+    public String czg() {
+        return this.iWS;
     }
 
     public void loadData() {
-        if (this.iVl == null) {
-            this.iVl = new a();
-            this.iVl.setPriority(3);
-            this.iVl.execute(new Object[0]);
+        if (this.iWU == null) {
+            this.iWU = new a();
+            this.iWU.setPriority(3);
+            this.iWU.execute(new Object[0]);
         }
     }
 
@@ -99,63 +99,63 @@ public class FacePackageDetailModel extends BdBaseModel<l> {
             int i3 = facePackageData.downloading;
             int i4 = facePackageData.downloaded;
             if (i3 == 1) {
-                this.iVi = 5;
+                this.iWR = 5;
             } else if (i4 == 1) {
-                this.iVi = 1;
+                this.iWR = 1;
             } else if (i == 2) {
-                this.iVi = 6;
+                this.iWR = 6;
             } else if (i == 1) {
                 if (i2 == 1) {
-                    this.iVi = 2;
+                    this.iWR = 2;
                 }
             } else if (i == 0) {
                 if (i2 == 1) {
-                    this.iVi = 3;
+                    this.iWR = 3;
                 } else {
-                    this.iVi = 4;
+                    this.iWR = 4;
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     private class a extends BdAsyncTask<Object, String, FacePackageDetailData> {
-        private com.baidu.tbadk.core.util.aa cml;
-        private volatile boolean iVn;
+        private com.baidu.tbadk.core.util.aa cnM;
+        private volatile boolean iWW;
 
         private a() {
-            this.iVn = false;
+            this.iWW = false;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: v */
+        /* renamed from: u */
         public FacePackageDetailData doInBackground(Object... objArr) {
             FacePackageDetailData facePackageDetailData;
             try {
-                if (FacePackageDetailModel.this.mPid == null || FacePackageDetailModel.this.mPid.length() <= 0 || this.iVn) {
+                if (FacePackageDetailModel.this.mPid == null || FacePackageDetailModel.this.mPid.length() <= 0 || this.iWW) {
                     return null;
                 }
-                com.baidu.adp.lib.cache.l<String> As = com.baidu.tbadk.core.c.a.bqr().As("tb_face_package");
-                if (As != null) {
-                    String str = As.get(TbadkApplication.getCurrentAccount() + FacePackageDetailModel.this.mPid);
+                com.baidu.adp.lib.cache.l<String> Az = com.baidu.tbadk.core.c.a.bqt().Az("tb_face_package");
+                if (Az != null) {
+                    String str = Az.get(TbadkApplication.getCurrentAccount() + FacePackageDetailModel.this.mPid);
                     if (!au.isEmpty(str)) {
                         publishProgress(str);
                     }
                 }
-                this.cml = new com.baidu.tbadk.core.util.aa(TbConfig.SERVER_ADDRESS + TbConfig.GET_PACKAGE_DETAIL);
-                this.cml.addPostData("scr_w", String.valueOf(FacePackageDetailModel.this.mScreenWidth));
-                this.cml.addPostData("scr_h", String.valueOf(FacePackageDetailModel.this.mScreenHeight));
-                this.cml.addPostData("scr_dip", String.valueOf(FacePackageDetailModel.this.iVm));
-                this.cml.addPostData("pid", FacePackageDetailModel.this.mPid);
-                this.cml.addPostData("st_type", FacePackageDetailModel.this.mStType);
-                String postNetData = this.cml.postNetData();
+                this.cnM = new com.baidu.tbadk.core.util.aa(TbConfig.SERVER_ADDRESS + TbConfig.GET_PACKAGE_DETAIL);
+                this.cnM.addPostData("scr_w", String.valueOf(FacePackageDetailModel.this.mScreenWidth));
+                this.cnM.addPostData("scr_h", String.valueOf(FacePackageDetailModel.this.mScreenHeight));
+                this.cnM.addPostData("scr_dip", String.valueOf(FacePackageDetailModel.this.iWV));
+                this.cnM.addPostData("pid", FacePackageDetailModel.this.mPid);
+                this.cnM.addPostData("st_type", FacePackageDetailModel.this.mStType);
+                String postNetData = this.cnM.postNetData();
                 facePackageDetailData = (FacePackageDetailData) OrmObject.objectWithJsonStr(postNetData, FacePackageDetailData.class);
                 if (facePackageDetailData != null) {
                     try {
                         if (facePackageDetailData.faces_list != null) {
-                            JM(postNetData);
+                            JV(postNetData);
                             return facePackageDetailData;
                         }
                         return facePackageDetailData;
@@ -178,17 +178,17 @@ public class FacePackageDetailModel extends BdBaseModel<l> {
         /* renamed from: a */
         public void onPostExecute(FacePackageDetailData facePackageDetailData) {
             super.onPostExecute(facePackageDetailData);
-            FacePackageDetailModel.this.iVl = null;
+            FacePackageDetailModel.this.iWU = null;
             if (facePackageDetailData != null) {
-                FacePackageDetailModel.this.iVk = facePackageDetailData;
+                FacePackageDetailModel.this.iWT = facePackageDetailData;
             }
-            FacePackageDetailModel.this.iVg.callback(facePackageDetailData, false);
+            FacePackageDetailModel.this.iWP.callback(facePackageDetailData, false);
         }
 
-        private void JM(String str) {
-            com.baidu.adp.lib.cache.l<String> As = com.baidu.tbadk.core.c.a.bqr().As("tb_face_package");
-            if (As != null) {
-                As.set(TbadkApplication.getCurrentAccount() + FacePackageDetailModel.this.mPid, str, 604800000L);
+        private void JV(String str) {
+            com.baidu.adp.lib.cache.l<String> Az = com.baidu.tbadk.core.c.a.bqt().Az("tb_face_package");
+            if (Az != null) {
+                Az.set(TbadkApplication.getCurrentAccount() + FacePackageDetailModel.this.mPid, str, 604800000L);
             }
         }
 
@@ -197,20 +197,20 @@ public class FacePackageDetailModel extends BdBaseModel<l> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onProgressUpdate(String... strArr) {
             FacePackageDetailData facePackageDetailData = (FacePackageDetailData) OrmObject.objectWithJsonStr(strArr[0], FacePackageDetailData.class);
-            FacePackageDetailModel.this.iVk = facePackageDetailData;
-            FacePackageDetailModel.this.iVg.callback(facePackageDetailData, true);
+            FacePackageDetailModel.this.iWT = facePackageDetailData;
+            FacePackageDetailModel.this.iWP.callback(facePackageDetailData, true);
             super.onProgressUpdate((Object[]) strArr);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            this.iVn = true;
-            if (this.cml != null) {
-                this.cml.cancelNetConnect();
-                this.cml = null;
+            this.iWW = true;
+            if (this.cnM != null) {
+                this.cnM.cancelNetConnect();
+                this.cnM = null;
             }
-            FacePackageDetailModel.this.iVl = null;
+            FacePackageDetailModel.this.iWU = null;
         }
     }
 
@@ -221,14 +221,14 @@ public class FacePackageDetailModel extends BdBaseModel<l> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.iVl != null) {
-            this.iVl.cancel();
+        if (this.iWU != null) {
+            this.iWU.cancel();
             return true;
         }
         return true;
     }
 
     public void a(ProxyAdkBaseActivity.LoadDataCallBack loadDataCallBack) {
-        this.iVg = loadDataCallBack;
+        this.iWP = loadDataCallBack;
     }
 }

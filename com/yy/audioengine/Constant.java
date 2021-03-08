@@ -1,8 +1,8 @@
 package com.yy.audioengine;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class Constant {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum AudioCoderType {
         SILK_CODEC,
         AAC_PLUS_CODEC,
@@ -14,7 +14,7 @@ public final class Constant {
         WAV_CODEC
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum AudioDeviceErrorType {
         AudioDeviceInitCaptureSuccess,
         AudioDeviceInitCaptureErrorOrNoPermission,
@@ -30,7 +30,7 @@ public final class Constant {
         AudioDeviceStartRenderError
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum AudioEngineMode {
         Voip,
         Common,
@@ -40,34 +40,34 @@ public final class Constant {
         KaraokeOffLine
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum AudioSaverMode {
         AudioSaverOnlyCapture,
         AudioSaverOnlyRender,
         AudioSaverBoth
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum AudioSaverWriteFileMode {
         AudioSaverFileAppend,
         AudioSaverFileOverride
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum AudioSourceType {
         AudioSourceTypeMic,
         AudioSourceTypeOuterPCM,
         AudioSourceTypeMix
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum DenoiseModuleType {
         AecImproveNsType,
         SpeexNsType,
         WebrtcNsType
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum EncoderType {
         SILK,
         LC_AAC,
@@ -77,7 +77,7 @@ public final class Constant {
         OPUS_48KHZ
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum ReverbMode {
         ReverbNone,
         ReverbPopular,
@@ -86,7 +86,7 @@ public final class Constant {
         ReverbKTV
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum VoiceBeautifyMode {
         VoiceSoft,
         VoiceClearness,
@@ -96,7 +96,7 @@ public final class Constant {
         VoiceVigorous
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum VoiceChangerMode {
         VeoNone,
         VeoEthereal,

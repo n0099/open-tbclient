@@ -1,78 +1,79 @@
 package com.bytedance.sdk.openadsdk.preload.a;
 
-import com.bytedance.sdk.openadsdk.preload.a.h;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.IOException;
+import java.io.StringWriter;
 /* loaded from: classes6.dex */
-abstract class l<IN, OUT> extends d<IN, OUT> {
-    private Map<String, a> d;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Map<String, a> a() {
-        return this.d;
+public abstract class l {
+    public boolean g() {
+        return this instanceof i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean a(List<h> list) {
-        if (list.isEmpty()) {
-            return false;
-        }
-        return list.get(list.size() + (-1)).f7424a == f.class;
+    public boolean h() {
+        return this instanceof o;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.bytedance.sdk.openadsdk.preload.a.d
-    public final void a(Object... objArr) {
-        super.a(objArr);
-        if (objArr == null || objArr.length != 1 || objArr[0] == null) {
-            throw new IllegalStateException("args error");
+    public boolean i() {
+        return this instanceof q;
+    }
+
+    public boolean j() {
+        return this instanceof n;
+    }
+
+    public o k() {
+        if (h()) {
+            return (o) this;
         }
+        throw new IllegalStateException("Not a JSON Object: " + this);
+    }
+
+    public i l() {
+        if (g()) {
+            return (i) this;
+        }
+        throw new IllegalStateException("Not a JSON Array: " + this);
+    }
+
+    public q m() {
+        if (i()) {
+            return (q) this;
+        }
+        throw new IllegalStateException("Not a JSON Primitive: " + this);
+    }
+
+    public boolean f() {
+        throw new UnsupportedOperationException(getClass().getSimpleName());
+    }
+
+    public Number a() {
+        throw new UnsupportedOperationException(getClass().getSimpleName());
+    }
+
+    public String b() {
+        throw new UnsupportedOperationException(getClass().getSimpleName());
+    }
+
+    public double c() {
+        throw new UnsupportedOperationException(getClass().getSimpleName());
+    }
+
+    public long d() {
+        throw new UnsupportedOperationException(getClass().getSimpleName());
+    }
+
+    public int e() {
+        throw new UnsupportedOperationException(getClass().getSimpleName());
+    }
+
+    public String toString() {
         try {
-            this.d = (Map) objArr[0];
-        } catch (ClassCastException e) {
-            throw new IllegalArgumentException(e);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b {
-
-        /* renamed from: a  reason: collision with root package name */
-        private Map<String, a> f7431a = new HashMap();
-
-        /* renamed from: b  reason: collision with root package name */
-        private com.bytedance.sdk.openadsdk.preload.a.b.a f7432b;
-
-        public a a(String str) {
-            if (this.f7431a.containsKey(str)) {
-                throw new IllegalArgumentException("duplicated branch name");
-            }
-            a aVar = new a();
-            this.f7431a.put(str, aVar);
-            return aVar;
-        }
-
-        public h a(Class<? extends l> cls) {
-            return h.a.a().a(cls).a(this.f7431a).a(this.f7432b).b();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class a {
-
-        /* renamed from: a  reason: collision with root package name */
-        List<h> f7430a = new ArrayList();
-
-        public a a(h hVar) {
-            this.f7430a.add(hVar);
-            return this;
-        }
-
-        public a a(List<h> list) {
-            this.f7430a.addAll(list);
-            return this;
+            StringWriter stringWriter = new StringWriter();
+            com.bytedance.sdk.openadsdk.preload.a.d.c cVar = new com.bytedance.sdk.openadsdk.preload.a.d.c(stringWriter);
+            cVar.b(true);
+            com.bytedance.sdk.openadsdk.preload.a.b.l.a(this, cVar);
+            return stringWriter.toString();
+        } catch (IOException e) {
+            throw new AssertionError(e);
         }
     }
 }

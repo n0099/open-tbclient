@@ -3,9 +3,9 @@ package com.baidu.live.ar;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class j {
-    public static String aCT;
+    public static String aEt;
     private static File cacheFile = getPrivateCaptureRootChildDir("duFilter");
 
     public static File getPrivateCaptureRootChildDir(String str) {
@@ -13,7 +13,7 @@ public class j {
         return TextUtils.isEmpty(str) ? new File(str2) : new File(str2, str);
     }
 
-    public static void fg(String str) {
-        aCT = str;
+    public static void fm(String str) {
+        aEt = str;
     }
 }

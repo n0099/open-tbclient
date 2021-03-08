@@ -8,7 +8,7 @@ import com.baidu.ala.helper.AlaAudioPlugins;
 import com.baidu.ala.ndk.AlaAudioFrame;
 import com.baidu.ala.ndk.AudioProcessModule;
 import com.baidu.ala.recorder.audio.IAudioService;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AlaSLRecorder implements IAudioService {
     private static final int STATUS_IDEL = 0;
     private static final int STATUS_WORK = 1;

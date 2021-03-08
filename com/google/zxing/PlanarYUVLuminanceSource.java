@@ -101,9 +101,9 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
             int i6 = (i3 + i) - 1;
             int i7 = i3;
             while (i7 < i5) {
-                byte b2 = bArr[i7];
+                byte b = bArr[i7];
                 bArr[i7] = bArr[i6];
-                bArr[i6] = b2;
+                bArr[i6] = b;
                 i7++;
                 i6--;
             }

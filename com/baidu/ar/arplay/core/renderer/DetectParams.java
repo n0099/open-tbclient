@@ -1,5 +1,5 @@
 package com.baidu.ar.arplay.core.renderer;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public abstract class DetectParams {
     private long mFrameBufferAddr;
     private long mTimestamp;

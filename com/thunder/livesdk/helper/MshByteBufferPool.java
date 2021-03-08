@@ -3,7 +3,7 @@ package com.thunder.livesdk.helper;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.HashSet;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MshByteBufferPool implements IByteBufferPool {
     static final int kSize16K = 16384;
     static final int kSize32K = 32768;
@@ -93,7 +93,7 @@ public class MshByteBufferPool implements IByteBufferPool {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class ByteBufferChunk {
         public static final int kFreeFlag = 1;
         public int[] mBlockFlags;

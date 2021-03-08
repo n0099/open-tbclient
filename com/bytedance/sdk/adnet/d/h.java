@@ -1,140 +1,30 @@
 package com.bytedance.sdk.adnet.d;
 
-import android.os.Build;
-import android.util.Log;
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.Socket;
-import java.security.SecureRandom;
-import java.security.cert.X509Certificate;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSocket;
-import javax.net.ssl.SSLSocketFactory;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public class h extends SSLSocketFactory {
+public class h extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final X509TrustManager f6058a;
+    private final WeakReference<a> f4057a;
 
-    /* renamed from: b  reason: collision with root package name */
-    private static final String[] f6059b;
-    private SSLSocketFactory pvS;
-
-    static {
-        if (Build.VERSION.SDK_INT >= 26) {
-            f6059b = new String[]{"TLSv1", "TLSv1.1", "TLSv1.2"};
-        } else if (Build.VERSION.SDK_INT >= 16) {
-            f6059b = new String[]{"SSLv3", "TLSv1", "TLSv1.1", "TLSv1.2"};
-        } else {
-            f6059b = new String[]{"SSLv3", "TLSv1"};
-        }
-        f6058a = new X509TrustManager() { // from class: com.bytedance.sdk.adnet.d.h.1
-            @Override // javax.net.ssl.X509TrustManager
-            public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) {
-            }
-
-            @Override // javax.net.ssl.X509TrustManager
-            public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) {
-            }
-
-            @Override // javax.net.ssl.X509TrustManager
-            public X509Certificate[] getAcceptedIssuers() {
-                return new X509Certificate[0];
-            }
-        };
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(Message message);
     }
 
-    private static void a(Socket socket) {
-        if (socket instanceof SSLSocket) {
-            ((SSLSocket) socket).setEnabledProtocols(f6059b);
-        }
+    public h(Looper looper, a aVar) {
+        super(looper);
+        this.f4057a = new WeakReference<>(aVar);
     }
 
-    public h() {
-        try {
-            SSLContext sSLContext = SSLContext.getInstance("TLS");
-            sSLContext.init(null, new TrustManager[]{f6058a}, new SecureRandom());
-            this.pvS = sSLContext.getSocketFactory();
-        } catch (Exception e) {
-            Log.e("TLSSocketFactory", "TLSSocketFactory error: ", e);
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        a aVar = this.f4057a.get();
+        if (aVar != null && message != null) {
+            aVar.a(message);
         }
-    }
-
-    @Override // javax.net.ssl.SSLSocketFactory
-    public String[] getDefaultCipherSuites() {
-        if (this.pvS != null) {
-            return this.pvS.getDefaultCipherSuites();
-        }
-        return null;
-    }
-
-    @Override // javax.net.ssl.SSLSocketFactory
-    public String[] getSupportedCipherSuites() {
-        if (this.pvS != null) {
-            return this.pvS.getSupportedCipherSuites();
-        }
-        return null;
-    }
-
-    @Override // javax.net.ssl.SSLSocketFactory
-    public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
-        if (this.pvS == null) {
-            return null;
-        }
-        Socket createSocket = this.pvS.createSocket(socket, str, i, z);
-        a(createSocket);
-        return createSocket;
-    }
-
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(String str, int i) throws IOException {
-        if (this.pvS == null) {
-            return null;
-        }
-        Socket createSocket = this.pvS.createSocket(str, i);
-        a(createSocket);
-        return createSocket;
-    }
-
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(String str, int i, InetAddress inetAddress, int i2) throws IOException {
-        if (this.pvS == null) {
-            return null;
-        }
-        Socket createSocket = this.pvS.createSocket(str, i, inetAddress, i2);
-        a(createSocket);
-        return createSocket;
-    }
-
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(InetAddress inetAddress, int i) throws IOException {
-        if (this.pvS == null) {
-            return null;
-        }
-        Socket createSocket = this.pvS.createSocket(inetAddress, i);
-        a(createSocket);
-        return createSocket;
-    }
-
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(InetAddress inetAddress, int i, InetAddress inetAddress2, int i2) throws IOException {
-        if (this.pvS == null) {
-            return null;
-        }
-        Socket createSocket = this.pvS.createSocket(inetAddress, i, inetAddress2, i2);
-        a(createSocket);
-        return createSocket;
-    }
-
-    @Override // javax.net.SocketFactory
-    public Socket createSocket() throws IOException {
-        if (this.pvS == null) {
-            return null;
-        }
-        Socket createSocket = this.pvS.createSocket();
-        a(createSocket);
-        return createSocket;
     }
 }

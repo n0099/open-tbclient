@@ -8,33 +8,31 @@ import com.sdk.base.framework.c.f;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f12868a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Context f12869b;
+    private static a f7657a;
+    private Context b;
 
     static {
         a.class.getName();
-        Boolean.valueOf(f.f12821b);
+        Boolean.valueOf(f.b);
     }
 
     private a(Context context) {
-        this.f12869b = context;
+        this.b = context;
     }
 
     public static a a(Context context) {
-        if (f12868a == null) {
+        if (f7657a == null) {
             synchronized (a.class) {
-                f12868a = new a(context);
+                f7657a = new a(context);
             }
         }
-        return f12868a;
+        return f7657a;
     }
 
     public final void a(String str, String str2) {
-        com.sdk.base.framework.f.b.a.a(this.f12869b, "public_key", str2);
+        com.sdk.base.framework.f.b.a.a(this.b, "public_key", str2);
         if (c.b(str).booleanValue()) {
-            com.sdk.base.framework.f.b.a.a(this.f12869b, Constants.API_KEY, str);
+            com.sdk.base.framework.f.b.a.a(this.b, Constants.API_KEY, str);
         }
     }
 }

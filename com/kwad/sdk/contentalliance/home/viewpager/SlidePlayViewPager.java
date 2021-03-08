@@ -35,8 +35,8 @@ public class SlidePlayViewPager extends SlidePlayTouchViewPager {
 
     private void t() {
         this.i = new d();
-        this.i.f8769a = this.k;
-        this.i.f8770b = this.g;
+        this.i.f5843a = this.k;
+        this.i.b = this.g;
         this.i.c = this;
         this.i.d = this.d;
     }
@@ -57,15 +57,15 @@ public class SlidePlayViewPager extends SlidePlayTouchViewPager {
 
     public void a(@NonNull f fVar, @NonNull e eVar) {
         this.n = fVar;
-        this.g = fVar.f8737a;
+        this.g = fVar.f5822a;
         this.d = eVar;
-        this.k = fVar.f8738b;
+        this.k = fVar.b;
         this.l = fVar.d;
         this.m = fVar.f;
         this.o = 0;
         b();
-        this.f8754a = fVar.k;
-        this.f8755b = true;
+        this.f5832a = fVar.k;
+        this.b = true;
         this.j = new b(this.g.getChildFragmentManager());
         this.j.a(this.l);
         this.j.a(this.m);
@@ -78,18 +78,18 @@ public class SlidePlayViewPager extends SlidePlayTouchViewPager {
     }
 
     public void a(@NonNull AdTemplate adTemplate) {
-        int b2 = this.k.b(adTemplate);
-        if (b2 > -1) {
-            a(b2, false);
+        int b = this.k.b(adTemplate);
+        if (b > -1) {
+            a(b, false);
         }
     }
 
     public void a(@NonNull AdTemplate adTemplate, int i) {
         this.o = i;
         if (this.o == 1) {
-            this.f8754a = false;
+            this.f5832a = false;
         } else {
-            this.f8754a = this.n.k;
+            this.f5832a = this.n.k;
         }
         this.j.a(this.k.d(), adTemplate, i, this.k.a(adTemplate), false);
     }
@@ -163,11 +163,11 @@ public class SlidePlayViewPager extends SlidePlayTouchViewPager {
     }
 
     public void h() {
-        this.f8754a = false;
+        this.f5832a = false;
     }
 
     public void i() {
-        this.f8754a = this.n.k;
+        this.f5832a = this.n.k;
     }
 
     public boolean j() {

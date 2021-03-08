@@ -8,7 +8,7 @@ import javax.annotation.Nullable;
 import org.webrtc.CameraSession;
 import org.webrtc.CameraVideoCapturer;
 @TargetApi(21)
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class Camera2Capturer extends CameraCapturer {
     @Nullable
     private final CameraManager cameraManager;

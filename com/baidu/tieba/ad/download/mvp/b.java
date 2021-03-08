@@ -17,7 +17,7 @@ public interface b {
 
     boolean ce(View view);
 
-    void fn(int i);
+    void fo(int i);
 
     View getActionBar();
 

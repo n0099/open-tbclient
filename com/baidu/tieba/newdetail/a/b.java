@@ -8,35 +8,35 @@ import com.baidu.tbadk.core.data.cb;
 import com.baidu.tbadk.core.util.y;
 import java.util.Iterator;
 import tbclient.ThreadInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b implements n {
     public String cover;
     public String desc;
-    public cb eJQ;
-    public int iBA;
-    public boolean jbD;
+    public cb eLr;
+    public int iDj;
+    public boolean jdm;
     public int likeNum;
     public int time;
 
     public b(ThreadInfo threadInfo, boolean z) {
         c(threadInfo);
-        this.jbD = z;
+        this.jdm = z;
     }
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return a.lzb;
+        return a.lBd;
     }
 
     private void c(ThreadInfo threadInfo) {
         if (threadInfo != null) {
-            this.eJQ = new cb();
-            this.eJQ.a(threadInfo);
+            this.eLr = new cb();
+            this.eLr.a(threadInfo);
             this.desc = threadInfo.title;
-            this.iBA = threadInfo.reply_num.intValue();
+            this.iDj = threadInfo.reply_num.intValue();
             this.likeNum = threadInfo.agree_num.intValue();
-            if (!y.isEmpty(this.eJQ.bnZ())) {
-                Iterator<MediaData> it = this.eJQ.bnZ().iterator();
+            if (!y.isEmpty(this.eLr.bob())) {
+                Iterator<MediaData> it = this.eLr.bob().iterator();
                 while (it.hasNext()) {
                     MediaData next = it.next();
                     if (next != null && next.getType() == 3) {

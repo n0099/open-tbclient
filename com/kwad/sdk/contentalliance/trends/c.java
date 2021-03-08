@@ -11,10 +11,8 @@ import java.util.List;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private List<TrendInfo> f8880a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private TrendInfo f8881b;
+    private List<TrendInfo> f5918a;
+    private TrendInfo b;
     private KsScene c;
 
     public c(@NonNull KsScene ksScene) {
@@ -28,13 +26,13 @@ public class c {
         if (arguments == null) {
             arguments = new Bundle();
         }
-        arguments.putString("KEY_TREND_LIST_DATA", TrendInfo.toString(this.f8880a));
-        arguments.putString("KEY_CURRENT_TREND", this.f8881b.toJson().toString());
+        arguments.putString("KEY_TREND_LIST_DATA", TrendInfo.toString(this.f5918a));
+        arguments.putString("KEY_CURRENT_TREND", this.b.toJson().toString());
         return a2;
     }
 
     public void a(@NonNull List<TrendInfo> list, @NonNull TrendInfo trendInfo) {
-        this.f8880a = list;
-        this.f8881b = trendInfo;
+        this.f5918a = list;
+        this.b = trendInfo;
     }
 }

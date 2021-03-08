@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.content.ContextCompat;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class ShortcutManagerCompat {
     @VisibleForTesting
     static final String ACTION_INSTALL_SHORTCUT = "com.android.launcher.action.INSTALL_SHORTCUT";

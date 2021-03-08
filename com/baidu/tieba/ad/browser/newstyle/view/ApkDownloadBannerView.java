@@ -15,11 +15,11 @@ import com.baidu.tieba.ad.download.mvp.b;
 import com.baidu.tieba.ad.download.state.DownloadStatus;
 /* loaded from: classes.dex */
 public class ApkDownloadBannerView extends LinearLayout implements b {
-    private int dWi;
-    private BannerDownloadProgressBar ghg;
-    private BannerDownloadStateBar ghh;
-    private BannerDownloadStateBar ghi;
-    private int ghj;
+    private int dXJ;
+    private BannerDownloadProgressBar giK;
+    private BannerDownloadStateBar giL;
+    private BannerDownloadStateBar giM;
+    private int giN;
     private View mRootView;
 
     public ApkDownloadBannerView(Context context) {
@@ -32,8 +32,8 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
 
     public ApkDownloadBannerView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dWi = 100;
-        this.ghj = 1;
+        this.dXJ = 100;
+        this.giN = 1;
         initView(context);
         setDownloadStateBarPosition(1);
     }
@@ -44,26 +44,26 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
         setGravity(16);
         int dip2px = l.dip2px(getContext(), 22.0f);
         setPadding(dip2px, 0, dip2px, 0);
-        this.ghg = (BannerDownloadProgressBar) this.mRootView.findViewById(R.id.apk_download_progress);
-        this.ghh = (BannerDownloadStateBar) this.mRootView.findViewById(R.id.apk_download_state_left);
-        this.ghi = (BannerDownloadStateBar) this.mRootView.findViewById(R.id.apk_download_state_right);
-        this.ghg.setTextColor(Color.parseColor("#999999"));
+        this.giK = (BannerDownloadProgressBar) this.mRootView.findViewById(R.id.apk_download_progress);
+        this.giL = (BannerDownloadStateBar) this.mRootView.findViewById(R.id.apk_download_state_left);
+        this.giM = (BannerDownloadStateBar) this.mRootView.findViewById(R.id.apk_download_state_right);
+        this.giK.setTextColor(Color.parseColor("#999999"));
     }
 
     public void setDownloadStateBarPosition(int i) {
-        this.ghj = i;
-        switch (this.ghj) {
+        this.giN = i;
+        switch (this.giN) {
             case 0:
-                this.ghh.setVisibility(0);
-                this.ghi.setVisibility(8);
+                this.giL.setVisibility(0);
+                this.giM.setVisibility(8);
                 return;
             case 1:
-                this.ghh.setVisibility(8);
-                this.ghi.setVisibility(0);
+                this.giL.setVisibility(8);
+                this.giM.setVisibility(0);
                 return;
             default:
-                this.ghh.setVisibility(0);
-                this.ghi.setVisibility(8);
+                this.giL.setVisibility(0);
+                this.giM.setVisibility(8);
                 return;
         }
     }
@@ -71,7 +71,7 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ad.download.mvp.b
     public BannerDownloadStateBar getActionBar() {
-        return this.ghh.getVisibility() == 0 ? this.ghh : this.ghi;
+        return this.giL.getVisibility() == 0 ? this.giL : this.giM;
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.b
@@ -85,29 +85,29 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.b
-    public void fn(int i) {
-        this.ghg.setProgress(i);
+    public void fo(int i) {
+        this.giK.setProgress(i);
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.b
     public void a(DownloadStatus downloadStatus, int i) {
         switch (downloadStatus) {
             case STATUS_NONE:
-                fn(0);
-                this.ghg.setText("");
+                fo(0);
+                this.giK.setText("");
                 break;
             case STATUS_SUCCESS:
             case STATUS_INSTALL_SUCCESS:
-                fn(this.dWi);
-                this.ghg.setText("");
+                fo(this.dXJ);
+                this.giK.setText("");
                 break;
             case STATUS_DOWNLOADING:
             case STATUS_PAUSED:
-                fn(i);
+                fo(i);
                 break;
             default:
-                fn(0);
-                this.ghg.setText("");
+                fo(0);
+                this.giK.setText("");
                 break;
         }
         a(downloadStatus);

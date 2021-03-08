@@ -17,9 +17,9 @@ import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes2.dex */
 public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.topic.topictab.b.a, ThreadCardViewHolder<com.baidu.tieba.homepage.topic.topictab.b.a>> implements com.baidu.tieba.a.f {
-    private String aif;
-    public BdUniqueId fGZ;
-    private NEGFeedBackView.a gdT;
+    private String ajx;
+    public BdUniqueId fIy;
+    private NEGFeedBackView.a gfx;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -37,22 +37,22 @@ public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         com.baidu.tieba.homepage.personalize.view.d dVar = new com.baidu.tieba.homepage.personalize.view.d(this.mContext, this.mPageContext);
         dVar.setTag(this.mPageId);
         aVar.c(dVar);
-        aVar.ti().bz(0);
         aVar.ti().bA(0);
         aVar.ti().bB(0);
+        aVar.ti().bC(0);
+        aVar.ti().bz(0);
         aVar.ti().by(0);
-        aVar.ti().bx(0);
         ak a2 = aVar.a(BaseCardInfo.SupportType.FULL, viewGroup);
         a2.setSourceForPb(2);
         ThreadCardViewHolder<com.baidu.tieba.homepage.topic.topictab.b.a> threadCardViewHolder = new ThreadCardViewHolder<>(a2);
-        threadCardViewHolder.setPageId(this.fGZ);
+        threadCardViewHolder.setPageId(this.fIy);
         a(new com.baidu.adp.widget.ListView.w() { // from class: com.baidu.tieba.homepage.personalize.adapter.s.1
             @Override // com.baidu.adp.widget.ListView.w
             public void a(View view, com.baidu.adp.widget.ListView.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
                 if ((nVar instanceof com.baidu.tieba.homepage.topic.topictab.b.a) && (view.getTag() instanceof ThreadCardViewHolder)) {
                     com.baidu.tieba.homepage.topic.topictab.b.a aVar2 = (com.baidu.tieba.homepage.topic.topictab.b.a) nVar;
                     if (aVar2 != null && aVar2.from != 1) {
-                        TiebaStatic.log(new ar("c13351").v("topic_id", aVar2.topicId).ap("obj_locate", aVar2.index));
+                        TiebaStatic.log(new ar("c13351").v("topic_id", aVar2.topicId).aq("obj_locate", aVar2.index));
                     }
                     if (aVar2 != null && aVar2.from == 1) {
                         TiebaStatic.log(new ar("c13449").v("topic_id", aVar2.topicId));
@@ -73,19 +73,19 @@ public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         }
         TiebaStatic.log(new ar("c13448").v("topic_id", aVar.topicId));
         threadCardViewHolder.tj().setPosition(i);
-        threadCardViewHolder.tj().setPage(this.aif);
-        threadCardViewHolder.aK(false).a(this.gdT);
+        threadCardViewHolder.tj().setPage(this.ajx);
+        threadCardViewHolder.aK(false).a(this.gfx);
         threadCardViewHolder.b((ThreadCardViewHolder<com.baidu.tieba.homepage.topic.topictab.b.a>) aVar);
         threadCardViewHolder.tj().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return threadCardViewHolder.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Ew(String str) {
-        this.aif = str;
+    public void ED(String str) {
+        this.ajx = str;
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.gdT = aVar;
+        this.gfx = aVar;
     }
 }

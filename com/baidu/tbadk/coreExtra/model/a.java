@@ -18,8 +18,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class a {
-    private boolean foB;
-    private C0570a ftC;
+    private boolean fqb;
+    private C0576a fvb;
     private com.baidu.adp.base.e mLoadDataCallBack;
     private TbPageContext mPageContext;
 
@@ -36,25 +36,25 @@ public class a {
     }
 
     public void a(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4, String str5) {
-        if (this.ftC == null) {
-            this.ftC = new C0570a();
-            this.ftC.setPriority(2);
-            this.ftC.ky(z);
-            this.ftC.setPortrait(str);
-            this.ftC.setToUid(str2);
-            this.ftC.setIsGod(z2);
-            this.ftC.setFrom(str3);
-            this.ftC.setPageId(bdUniqueId);
-            this.ftC.setForumId(str4);
-            this.ftC.setInLive(str5);
-            this.ftC.execute(new Integer[0]);
+        if (this.fvb == null) {
+            this.fvb = new C0576a();
+            this.fvb.setPriority(2);
+            this.fvb.ky(z);
+            this.fvb.setPortrait(str);
+            this.fvb.setToUid(str2);
+            this.fvb.setIsGod(z2);
+            this.fvb.setFrom(str3);
+            this.fvb.setPageId(bdUniqueId);
+            this.fvb.setForumId(str4);
+            this.fvb.setInLive(str5);
+            this.fvb.execute(new Integer[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tbadk.coreExtra.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0570a extends BdAsyncTask<Integer, Integer, String> {
+    public class C0576a extends BdAsyncTask<Integer, Integer, String> {
         private String authSid;
         private String forumId;
         private String from;
@@ -68,7 +68,7 @@ public class a {
         private String toUid;
         private AuthTokenData tokenData;
 
-        private C0570a() {
+        private C0576a() {
             this.mNetwork = null;
             this.isGod = false;
             this.from = "0";
@@ -134,7 +134,7 @@ public class a {
                     }
                     this.mNetwork.addPostData("in_live", this.inLive);
                     this.mNetwork.addPostData("authsid", this.authSid);
-                    this.mNetwork.bsr().bta().mIsNeedTbs = true;
+                    this.mNetwork.bsu().btd().mIsNeedTbs = true;
                     String postNetData = this.mNetwork.postNetData();
                     this.tokenData = AuthTokenData.parse(postNetData);
                     return postNetData;
@@ -150,19 +150,19 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             boolean[] i;
-            super.onPostExecute((C0570a) str);
-            a.this.ftC = null;
+            super.onPostExecute((C0576a) str);
+            a.this.fvb = null;
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.isSucc = this.mNetwork.bsr().btb().isRequestSuccess();
+                aVar.isSucc = this.mNetwork.bsu().bte().isRequestSuccess();
                 aVar.errorString = this.mNetwork.getErrorString();
                 aVar.isAttention = this.isAttention;
                 aVar.toUid = this.toUid;
                 aVar.isGod = this.isGod;
-                aVar.foB = a.this.foB;
+                aVar.fqb = a.this.fqb;
                 aVar.parserJson(str, this.showToastAfterAttentionSuc);
-                if (this.mNetwork.bsr().btb().isRequestSuccess()) {
-                    aVar.fsD = null;
+                if (this.mNetwork.bsu().bte().isRequestSuccess()) {
+                    aVar.fud = null;
                 }
                 int serverErrorCode = this.mNetwork.getServerErrorCode();
                 if (!AntiHelper.c(a.this.getContext(), serverErrorCode, aVar.blockUrl)) {
@@ -185,9 +185,9 @@ public class a {
                 this.mNetwork.cancelNetConnect();
                 this.mNetwork = null;
             }
-            if (a.this.ftC != null) {
-                a.this.ftC.cancel();
-                a.this.ftC = null;
+            if (a.this.fvb != null) {
+                a.this.fvb.cancel();
+                a.this.fvb = null;
             }
             if (a.this.mLoadDataCallBack != null) {
                 a.this.mLoadDataCallBack.callback(false);
@@ -203,8 +203,8 @@ public class a {
     }
 
     public void cancel() {
-        if (this.ftC != null) {
-            this.ftC.cancel();
+        if (this.fvb != null) {
+            this.fvb.cancel();
         }
     }
 
@@ -212,21 +212,21 @@ public class a {
     public boolean[] i(TbPageContext tbPageContext) {
         boolean[] zArr = null;
         String localClassName = (tbPageContext == null || tbPageContext.getPageActivity() == null) ? null : tbPageContext.getPageActivity().getLocalClassName();
-        if (("pb.pb.main.PbActivity".equals(localClassName) || "personPolymeric.PersonPolymericActivity".equals(localClassName) || "enterForum.hotuserrank.HotUserRankActivity".equals(localClassName)) && com.baidu.tbadk.core.sharedPref.b.brQ().getBoolean("first_call_attention", true)) {
-            com.baidu.tbadk.core.sharedPref.b.brQ().putBoolean("first_call_attention", false);
+        if (("pb.pb.main.PbActivity".equals(localClassName) || "personPolymeric.PersonPolymericActivity".equals(localClassName) || "enterForum.hotuserrank.HotUserRankActivity".equals(localClassName)) && com.baidu.tbadk.core.sharedPref.b.brR().getBoolean("first_call_attention", true)) {
+            com.baidu.tbadk.core.sharedPref.b.brR().putBoolean("first_call_attention", false);
             zArr = new boolean[2];
             zArr[0] = !NotificationManagerCompat.from(this.mPageContext.getPageActivity()).areNotificationsEnabled();
-            zArr[1] = !com.baidu.tbadk.coreExtra.messageCenter.d.bye().byg();
-            if (!zArr[0] && !zArr[1] && tbPageContext != null && !this.foB) {
+            zArr[1] = !com.baidu.tbadk.coreExtra.messageCenter.d.byh().byj();
+            if (!zArr[0] && !zArr[1] && tbPageContext != null && !this.fqb) {
                 tbPageContext.showToast(R.string.attention_success);
             }
-        } else if (tbPageContext != null && !this.foB) {
+        } else if (tbPageContext != null && !this.fqb) {
             tbPageContext.showToast(R.string.attention_success);
         }
         return zArr;
     }
 
     public void kg(boolean z) {
-        this.foB = z;
+        this.fqb = z;
     }
 }

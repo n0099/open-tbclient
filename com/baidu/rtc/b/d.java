@@ -16,9 +16,9 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class d {
-    private static d czJ;
+    private static d cBj;
     private OkHttpClient mOkHttpClient = new OkHttpClient().newBuilder().connectTimeout(10, TimeUnit.SECONDS).readTimeout(10, TimeUnit.SECONDS).writeTimeout(10, TimeUnit.SECONDS).build();
     private ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
 
@@ -42,14 +42,14 @@ public class d {
         });
     }
 
-    public static d afs() {
+    public static d afv() {
         d dVar;
         synchronized (d.class) {
             try {
-                if (czJ == null) {
-                    czJ = new d();
+                if (cBj == null) {
+                    cBj = new d();
                 }
-                dVar = czJ;
+                dVar = cBj;
             } catch (Throwable th) {
                 throw th;
             }
@@ -96,7 +96,7 @@ public class d {
         return "wifi";
     }
 
-    public void report(final String str, final int i) {
+    public void O(final String str, final int i) {
         synchronized (this) {
             this.executor.execute(new Runnable() { // from class: com.baidu.rtc.b.d.1
                 @Override // java.lang.Runnable

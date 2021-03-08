@@ -29,26 +29,26 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live_tab.AlaLiveTabFragment;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class MainBottomLiveTabFragment extends BaseFragment {
-    private CustomViewPager eZd;
-    private LinearLayout gyi;
-    private TextView gyj;
-    private NoNetworkView gyk;
-    private FragmentAdapter gyl;
-    private List<a> gym = new ArrayList();
-    private NoNetworkView.a gyn = new NoNetworkView.a() { // from class: com.baidu.tieba.ala.alasquare.MainBottomLiveTabFragment.1
+    private CustomViewPager faC;
+    private LinearLayout gzR;
+    private TextView gzS;
+    private NoNetworkView gzT;
+    private FragmentAdapter gzU;
+    private List<a> gzV = new ArrayList();
+    private NoNetworkView.a gzW = new NoNetworkView.a() { // from class: com.baidu.tieba.ala.alasquare.MainBottomLiveTabFragment.1
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void onNetworkChange(boolean z) {
-            if (z && MainBottomLiveTabFragment.this.isPrimary() && MainBottomLiveTabFragment.this.gyl.getCount() > 0) {
-                Fragment item = MainBottomLiveTabFragment.this.gyl.getItem(0);
+            if (z && MainBottomLiveTabFragment.this.isPrimary() && MainBottomLiveTabFragment.this.gzU.getCount() > 0) {
+                Fragment item = MainBottomLiveTabFragment.this.gzU.getItem(0);
                 if (item instanceof AlaLiveTabFragment) {
                     ((AlaLiveTabFragment) item).reload();
                 }
             }
         }
     };
-    private CustomMessageListener gyo = new CustomMessageListener(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK) { // from class: com.baidu.tieba.ala.alasquare.MainBottomLiveTabFragment.2
+    private CustomMessageListener gzX = new CustomMessageListener(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK) { // from class: com.baidu.tieba.ala.alasquare.MainBottomLiveTabFragment.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -61,43 +61,43 @@ public class MainBottomLiveTabFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        registerListener(this.gyo);
+        registerListener(this.gzX);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.main_bottom_live_tab_layout, (ViewGroup) null);
-        this.gyi = (LinearLayout) inflate.findViewById(R.id.tab_layout);
-        this.gyj = (TextView) inflate.findViewById(R.id.tab_view);
-        this.eZd = (CustomViewPager) inflate.findViewById(R.id.viewpager);
-        this.gyk = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
+        this.gzR = (LinearLayout) inflate.findViewById(R.id.tab_layout);
+        this.gzS = (TextView) inflate.findViewById(R.id.tab_view);
+        this.faC = (CustomViewPager) inflate.findViewById(R.id.viewpager);
+        this.gzT = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
         initView();
         return inflate;
     }
 
     private void initView() {
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.gyi.setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
+            this.gzR.setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
         }
-        this.gyk.a(this.gyn);
-        this.eZd.setViewPagerScroll(0);
-        this.gyl = new FragmentAdapter(getChildFragmentManager());
-        this.eZd.setAdapter(this.gyl);
+        this.gzT.a(this.gzW);
+        this.faC.setViewPagerScroll(0);
+        this.gzU = new FragmentAdapter(getChildFragmentManager());
+        this.faC.setAdapter(this.gzU);
         a aVar = new a();
-        aVar.gyq = new AlaLiveTabFragment();
+        aVar.gzZ = new AlaLiveTabFragment();
         aVar.title = TbadkCoreApplication.getInst().getResources().getString(R.string.ala_live);
-        this.gym.add(aVar);
-        this.gyl.setData(this.gym);
+        this.gzV.add(aVar);
+        this.gzU.setData(this.gzV);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void setUserVisibleHint(boolean z) {
         super.setUserVisibleHint(z);
-        if (z && this.gyl.getCount() > 0) {
-            Fragment item = this.gyl.getItem(0);
+        if (z && this.gzU.getCount() > 0) {
+            Fragment item = this.gzU.getItem(0);
             if (item instanceof AlaLiveTabFragment) {
                 AlaLiveTabFragment alaLiveTabFragment = (AlaLiveTabFragment) item;
-                if (alaLiveTabFragment.bRA()) {
+                if (alaLiveTabFragment.bRG()) {
                     alaLiveTabFragment.setUserVisibleHint(true);
                 }
             }
@@ -107,62 +107,62 @@ public class MainBottomLiveTabFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        ap.setViewTextColor(this.gyj, R.color.CAM_X0105);
-        ap.setBackgroundColor(this.gyi, R.color.CAM_X0207);
+        ap.setViewTextColor(this.gzS, R.color.CAM_X0105);
+        ap.setBackgroundColor(this.gzR, R.color.CAM_X0207);
         TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
         if (pageContext != null) {
-            this.gyk.onChangeSkinType(pageContext, i);
+            this.gzT.onChangeSkinType(pageContext, i);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.gyo);
+        MessageManager.getInstance().unRegisterListener(this.gzX);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class FragmentAdapter extends FragmentStatePagerAdapter {
-        private List<a> gym;
+        private List<a> gzV;
 
         public FragmentAdapter(FragmentManager fragmentManager) {
             super(fragmentManager);
-            this.gym = new ArrayList();
+            this.gzV = new ArrayList();
         }
 
         public void setData(List<a> list) {
-            this.gym.clear();
+            this.gzV.clear();
             if (!y.isEmpty(list)) {
-                this.gym.addAll(list);
+                this.gzV.addAll(list);
             }
             notifyDataSetChanged();
         }
 
         @Override // androidx.fragment.app.FragmentStatePagerAdapter
         public Fragment getItem(int i) {
-            a aVar = this.gym.get(i);
+            a aVar = this.gzV.get(i);
             if (aVar != null) {
-                return aVar.gyq;
+                return aVar.gzZ;
             }
             return null;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public int getCount() {
-            return this.gym.size();
+            return this.gzV.size();
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         @Nullable
         public CharSequence getPageTitle(int i) {
-            a aVar = this.gym.get(i);
+            a aVar = this.gzV.get(i);
             return aVar != null ? aVar.title : "";
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class a {
-        public AlaLiveTabFragment gyq;
+        public AlaLiveTabFragment gzZ;
         public String title;
 
         public a() {

@@ -9,7 +9,7 @@ import androidx.annotation.RestrictTo;
 import androidx.core.app.AppOpsManagerCompat;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public final class PermissionChecker {
     public static final int PERMISSION_DENIED = -1;
     public static final int PERMISSION_DENIED_APP_OP = -2;
@@ -17,7 +17,7 @@ public final class PermissionChecker {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public @interface PermissionResult {
     }
 

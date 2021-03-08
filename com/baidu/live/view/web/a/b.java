@@ -16,7 +16,7 @@ import com.baidu.live.tbadk.schemeability.ISchemeAbility;
 import com.baidu.live.tbadk.schemeability.SchemeAbilityManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.live.view.web.a {
     private Activity context;
     private boolean isHost;
@@ -35,7 +35,7 @@ public class b extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void is(String str) {
+    public void iy(String str) {
         ISchemeAbility buildSchemeAbility;
         Log.d("JsInterface", "@@ JsInterface-impl AudioPersonalCenterBridgeJsInterface params = " + str);
         try {
@@ -47,9 +47,9 @@ public class b extends com.baidu.live.view.web.a {
                 optString = ExtraParamsManager.getDecryptUserId(jSONObject.optString("uk"));
             }
             if (optBoolean) {
-                ab Yq = com.baidu.live.ao.a.Yj().Yq();
-                if (Yq != null && Yq.aIz != null && Yq.mLiveInfo != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.context, optString, null, null, 0, 0, null, null, 0L, 0L, 0L, 0, Long.toString(Yq.mLiveInfo.group_id), Long.toString(Yq.mLiveInfo.live_id), false, null, null, null, "")));
+                ab Yt = com.baidu.live.ao.a.Ym().Yt();
+                if (Yt != null && Yt.aJZ != null && Yt.mLiveInfo != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.context, optString, null, null, 0, 0, null, null, 0L, 0L, 0L, 0, Long.toString(Yt.mLiveInfo.group_id), Long.toString(Yt.mLiveInfo.live_id), false, null, null, null, "")));
                 }
             } else if (!this.isHost) {
                 if (TbadkCoreApplication.getInst().isMobileBaidu()) {

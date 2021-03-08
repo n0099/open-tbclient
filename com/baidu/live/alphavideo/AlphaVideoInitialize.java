@@ -5,7 +5,7 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlphaVideoInitialize {
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913180, new CustomMessageTask.CustomRunnable() { // from class: com.baidu.live.alphavideo.AlphaVideoInitialize.1

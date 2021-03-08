@@ -11,7 +11,7 @@ import android.widget.ListAdapter;
 import android.widget.WrapperListAdapter;
 import com.baidu.adp.widget.ListView.e;
 import com.baidu.adp.widget.ListView.o;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class BdSimplePreLoadListAdapter extends BaseAdapter implements o {
     private DataSetObserver mAdapterDataSetObserver;
     private Context mContext;

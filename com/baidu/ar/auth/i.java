@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class i {
     private volatile a jV = a.RUNNING;
     private volatile List<Integer> jW;
     private String jX;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         RUNNING,
         PASS,

@@ -28,7 +28,7 @@ import org.webrtc.EglBase14;
 import org.webrtc.VideoFrame;
 @TargetApi(19)
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class MediaCodecVideoEncoder {
     private static final int BITRATE_ADJUSTMENT_FPS = 30;
     private static final double BITRATE_CORRECTION_MAX_SCALE = 4.0d;
@@ -118,7 +118,7 @@ public class MediaCodecVideoEncoder {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: org.webrtc.MediaCodecVideoEncoder$1CaughtException  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class C1CaughtException {
         Exception e;
 
@@ -126,14 +126,14 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public enum BitrateAdjustmentType {
         NO_ADJUSTMENT,
         FRAMERATE_ADJUSTMENT,
         DYNAMIC_ADJUSTMENT
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class EncoderProperties {
         public final BitrateAdjustmentType bitrateAdjustmentType;
         public final String codecName;
@@ -146,7 +146,7 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public enum H264Profile {
         CONSTRAINED_BASELINE(0),
         BASELINE(1),
@@ -166,7 +166,7 @@ public class MediaCodecVideoEncoder {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class HwEncoderFactory implements VideoEncoderFactory {
         private final VideoCodecInfo[] supportedHardwareCodecs = getSupportedHardwareCodecs();
 
@@ -241,7 +241,7 @@ public class MediaCodecVideoEncoder {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class MediaCodecProperties {
         public final BitrateAdjustmentType bitrateAdjustmentType;
         public final String codecPrefix;
@@ -254,12 +254,12 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface MediaCodecVideoEncoderErrorCallback {
         void onMediaCodecVideoEncoderCriticalError(int i);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     static class OutputBufferInfo {
         public final ByteBuffer buffer;
         public final int index;
@@ -294,7 +294,7 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public enum VideoCodecType {
         VIDEO_CODEC_UNKNOWN,
         VIDEO_CODEC_VP8,

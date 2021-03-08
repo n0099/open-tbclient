@@ -3,7 +3,7 @@ package com.baidu.ar.arplay.core.engine;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class ARPContent {
     private c mCaseState = c.EUninit;
     private volatile boolean mIsEngineCreated = false;
@@ -19,12 +19,12 @@ public class ARPContent {
     private int mWindowHeight = 1280;
     private List<a> mCaseLoadListenerList = new ArrayList();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void onCaseLoaded(boolean z);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public enum b {
         LoadCase,
         UnloadCase,
@@ -33,7 +33,7 @@ public class ARPContent {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public enum c {
         EUninit,
         ECreating,

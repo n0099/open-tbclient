@@ -13,7 +13,7 @@ public abstract class b {
 
     abstract void b(byte[] bArr, int i, int i2, a aVar);
 
-    protected abstract boolean isInAlphabet(byte b2);
+    protected abstract boolean isInAlphabet(byte b);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
@@ -119,8 +119,8 @@ public abstract class b {
         if (bArr == null) {
             return false;
         }
-        for (byte b2 : bArr) {
-            if (61 == b2 || isInAlphabet(b2)) {
+        for (byte b : bArr) {
+            if (61 == b || isInAlphabet(b)) {
                 return true;
             }
         }

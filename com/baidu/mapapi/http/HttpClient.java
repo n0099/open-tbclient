@@ -21,10 +21,8 @@ public class HttpClient {
     public static boolean isHttpsEnable = false;
 
     /* renamed from: a  reason: collision with root package name */
-    HttpURLConnection f2683a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f2684b = null;
+    HttpURLConnection f2003a;
+    private String b = null;
     private String c = null;
     private int d;
     private int e;
@@ -55,7 +53,7 @@ public class HttpClient {
     private HttpURLConnection a() {
         HttpURLConnection httpURLConnection;
         try {
-            URL url = new URL(this.f2684b);
+            URL url = new URL(this.b);
             if (isHttpsEnable) {
                 httpURLConnection = (HttpsURLConnection) url.openConnection();
                 ((HttpsURLConnection) httpURLConnection).setHostnameVerifier(new b(this));
@@ -152,30 +150,30 @@ public class HttpClient {
         ?? r1;
         BufferedReader bufferedReader;
         InputStream inputStream;
-        this.f2684b = str;
+        this.b = str;
         if (!checkNetwork()) {
             this.g.onFailed(HttpStateError.NETWORK_ERROR);
             return;
         }
-        this.f2683a = a();
-        if (this.f2683a == null) {
+        this.f2003a = a();
+        if (this.f2003a == null) {
             Log.e("HttpClient", "url connection failed");
             this.g.onFailed(HttpStateError.INNER_ERROR);
-        } else if (TextUtils.isEmpty(this.f2684b)) {
+        } else if (TextUtils.isEmpty(this.b)) {
             this.g.onFailed(HttpStateError.REQUEST_ERROR);
         } else {
             BufferedReader bufferedReader2 = null;
             try {
-                this.f2683a.connect();
+                this.f2003a.connect();
                 try {
-                    r1 = this.f2683a.getResponseCode();
+                    r1 = this.f2003a.getResponseCode();
                     try {
                         if (200 != r1) {
                             Log.e("HttpClient", "responseCode is: " + ((int) r1));
                             HttpStateError httpStateError = HttpStateError.NO_ERROR;
                             HttpStateError httpStateError2 = r1 >= 500 ? HttpStateError.SERVER_ERROR : r1 >= 400 ? HttpStateError.REQUEST_ERROR : HttpStateError.INNER_ERROR;
                             if (Logger.debugEnable()) {
-                                inputStream = this.f2683a.getErrorStream();
+                                inputStream = this.f2003a.getErrorStream();
                                 Logger.logW("HttpClient", inputStream.toString());
                             } else {
                                 Logger.logW("HttpClient", "Get response from server failed, http response code=" + ((int) r1) + ", error=" + httpStateError2);
@@ -186,13 +184,13 @@ public class HttpClient {
                                 bufferedReader2.close();
                                 inputStream.close();
                             }
-                            if (this.f2683a != null) {
-                                this.f2683a.disconnect();
+                            if (this.f2003a != null) {
+                                this.f2003a.disconnect();
                                 return;
                             }
                             return;
                         }
-                        r1 = this.f2683a.getInputStream();
+                        r1 = this.f2003a.getInputStream();
                         bufferedReader = new BufferedReader(new InputStreamReader((InputStream) r1, "UTF-8"));
                         try {
                             try {
@@ -210,8 +208,8 @@ public class HttpClient {
                                     bufferedReader.close();
                                     r1.close();
                                 }
-                                if (this.f2683a != null) {
-                                    this.f2683a.disconnect();
+                                if (this.f2003a != null) {
+                                    this.f2003a.disconnect();
                                 }
                                 this.g.onSuccess(this.c);
                             } catch (Exception e) {
@@ -227,8 +225,8 @@ public class HttpClient {
                                     bufferedReader.close();
                                     r1.close();
                                 }
-                                if (this.f2683a != null) {
-                                    this.f2683a.disconnect();
+                                if (this.f2003a != null) {
+                                    this.f2003a.disconnect();
                                 }
                             }
                         } catch (Throwable th) {
@@ -237,8 +235,8 @@ public class HttpClient {
                                 bufferedReader.close();
                                 r1.close();
                             }
-                            if (this.f2683a != null) {
-                                this.f2683a.disconnect();
+                            if (this.f2003a != null) {
+                                this.f2003a.disconnect();
                             }
                             throw th;
                         }
@@ -252,7 +250,7 @@ public class HttpClient {
                             bufferedReader.close();
                             r1.close();
                         }
-                        if (this.f2683a != null) {
+                        if (this.f2003a != null) {
                         }
                         throw th;
                     }

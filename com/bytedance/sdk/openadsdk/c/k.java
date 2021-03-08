@@ -1,11 +1,11 @@
 package com.bytedance.sdk.openadsdk.c;
 
-import android.content.Context;
 import android.text.TextUtils;
 import com.bytedance.sdk.openadsdk.utils.aj;
 import com.bytedance.sdk.openadsdk.utils.u;
 import java.io.Serializable;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
@@ -13,22 +13,20 @@ import org.json.JSONObject;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile k f6236a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private c f6237b = c.a();
+    private static volatile k f4205a;
+    private c b = c.a();
     private Map<String, Object> c;
     private b d;
 
     public static k a() {
-        if (f6236a == null) {
+        if (f4205a == null) {
             synchronized (k.class) {
-                if (f6236a == null) {
-                    f6236a = new k();
+                if (f4205a == null) {
+                    f4205a = new k();
                 }
             }
         }
-        return f6236a;
+        return f4205a;
     }
 
     private k() {
@@ -36,16 +34,16 @@ public class k {
 
     public void a(com.bytedance.sdk.openadsdk.core.d.l lVar, String str, boolean z) {
         this.d = b.a(lVar, str, this.c, z);
-        com.bytedance.sdk.openadsdk.k.a.a().a((Runnable) new a(100), 0L);
+        com.bytedance.sdk.openadsdk.j.e.c().schedule(new a(100), 0L, TimeUnit.MILLISECONDS);
     }
 
     private void a(b bVar) {
         if (bVar != null) {
             bVar.b();
-            if (bVar.a() * this.f6237b.f6242a > this.f6237b.f6243b) {
+            if (bVar.a() * this.b.f4208a > this.b.b) {
                 c(bVar.a(false));
             } else {
-                com.bytedance.sdk.openadsdk.k.a.a().a(new a(100), this.f6237b.f6242a);
+                com.bytedance.sdk.openadsdk.j.e.c().schedule(new a(100), this.b.f4208a, TimeUnit.MILLISECONDS);
             }
         }
     }
@@ -53,8 +51,7 @@ public class k {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(b bVar) {
         if (bVar != null) {
-            Context a2 = com.bytedance.sdk.openadsdk.core.p.a();
-            if (aj.c(a2, a2.getPackageName())) {
+            if (aj.a()) {
                 a(bVar);
             } else {
                 c(bVar.a(true));
@@ -65,17 +62,15 @@ public class k {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public class a implements Runnable {
-
-        /* renamed from: b  reason: collision with root package name */
-        private int f6239b;
+        private int b;
 
         public a(int i) {
-            this.f6239b = i;
+            this.b = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f6239b == 100 && k.this.d != null) {
+            if (this.b == 100 && k.this.d != null) {
                 k.this.b(k.this.d);
             }
         }
@@ -83,7 +78,7 @@ public class k {
 
     private void c(b bVar) {
         if (bVar != null) {
-            com.bytedance.sdk.openadsdk.k.a.a().d(bVar, 5);
+            com.bytedance.sdk.openadsdk.j.e.a(bVar, 5);
         }
     }
 
@@ -92,10 +87,8 @@ public class k {
     public static class b implements Serializable, Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        public final AtomicInteger f6240a = new AtomicInteger(0);
-
-        /* renamed from: b  reason: collision with root package name */
-        public final AtomicBoolean f6241b = new AtomicBoolean(false);
+        public final AtomicInteger f4207a = new AtomicInteger(0);
+        public final AtomicBoolean b = new AtomicBoolean(false);
         public com.bytedance.sdk.openadsdk.core.d.l c;
         public String d;
         public Map<String, Object> e;
@@ -116,28 +109,28 @@ public class k {
         }
 
         public b a(boolean z) {
-            this.f6241b.set(z);
+            this.b.set(z);
             return this;
         }
 
         public int a() {
-            return this.f6240a.get();
+            return this.f4207a.get();
         }
 
         public void b() {
-            this.f6240a.incrementAndGet();
+            this.f4207a.incrementAndGet();
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.c == null || TextUtils.isEmpty(this.d)) {
-                u.a("materialMeta or eventTag is null, pls check");
+            if (this.c == null || TextUtils.isEmpty(this.d) || this.b == null) {
+                u.a("materialMeta or eventTag or sResult is null, pls check");
             } else if (this.f) {
-                u.b("DMLibManager", "落地页调起应用是否成功 sResult.get() " + this.f6241b.get());
-                d.b(com.bytedance.sdk.openadsdk.core.p.a(), this.c, this.d, this.f6241b.get() ? "lp_dpl_success" : "lp_dpl_failed");
+                u.b("DMLibManager", "落地页调起应用是否成功 sResult.get() " + this.b.get());
+                d.b(com.bytedance.sdk.openadsdk.core.p.a(), this.c, this.d, this.b.get() ? "lp_dpl_success" : "lp_dpl_failed");
             } else {
-                d.i(com.bytedance.sdk.openadsdk.core.p.a(), this.c, this.d, this.f6241b.get() ? "dpl_success" : "dpl_failed", this.e);
-                if (this.f6241b != null && this.f6241b.get() && this.c != null) {
+                d.i(com.bytedance.sdk.openadsdk.core.p.a(), this.c, this.d, this.b.get() ? "dpl_success" : "dpl_failed", this.e);
+                if (this.b != null && this.b.get() && this.c != null) {
                     k.b(this.c, this.d);
                 }
             }
@@ -148,10 +141,10 @@ public class k {
     public static void b(com.bytedance.sdk.openadsdk.core.d.l lVar, String str) {
         if (lVar != null && !TextUtils.isEmpty(str)) {
             com.bytedance.sdk.openadsdk.utils.k.a(System.currentTimeMillis());
-            JSONObject am = lVar.am();
-            if (am != null) {
-                com.bytedance.sdk.openadsdk.utils.k.c(am.toString());
-                com.bytedance.sdk.openadsdk.utils.k.b(str);
+            JSONObject aE = lVar.aE();
+            if (aE != null) {
+                com.bytedance.sdk.openadsdk.utils.k.d(aE.toString());
+                com.bytedance.sdk.openadsdk.utils.k.c(str);
             }
         }
     }
@@ -161,10 +154,10 @@ public class k {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f6242a = 500;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f6243b = 5000;
+        public int f4208a = 500;
+        public int b = 5000;
+        public int c = 1000;
+        public int d = 300;
 
         public static c a() {
             return new c();

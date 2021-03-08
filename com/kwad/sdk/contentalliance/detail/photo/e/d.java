@@ -53,7 +53,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void a(long j, long j2) {
-            if (com.kwad.sdk.core.response.b.c.B(d.this.f8395a.j) && d.this.f8395a.f8404a != null && d.this.f8395a.f8404a.l) {
+            if (com.kwad.sdk.core.response.b.c.B(d.this.f5594a.j) && d.this.f5594a.f5600a != null && d.this.f5594a.f5600a.l) {
                 d.this.a(1);
                 d.this.d.setVisibility(4);
             }
@@ -62,7 +62,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void b() {
             d.this.g();
-            d.this.e().a(new C1078d());
+            d.this.e().a(new C1095d());
             d.this.k = false;
         }
 
@@ -73,7 +73,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void d() {
-            d.this.e().a(new C1078d());
+            d.this.e().a(new C1095d());
         }
     };
     private Runnable j = new Runnable() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.d.4
@@ -81,17 +81,15 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
         public void run() {
             com.kwad.sdk.core.d.a.a("PhotoVideoControlPresenter", "mAutoHidePauseButtonCallback run=" + d.this.f);
             if (d.this.f != null) {
-                d.this.f.a(new C1078d());
+                d.this.f.a(new C1095d());
             }
         }
     };
-
-    /* renamed from: b  reason: collision with root package name */
-    View.OnClickListener f8500b = new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.d.5
+    View.OnClickListener b = new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.d.5
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             d.this.g();
-            if (d.this.e() instanceof C1078d) {
+            if (d.this.e() instanceof C1095d) {
                 d.this.e().b();
             } else {
                 d.this.e().a();
@@ -108,19 +106,17 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
     private GestureDetector.SimpleOnGestureListener m = new GestureDetector.SimpleOnGestureListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.d.7
 
         /* renamed from: a  reason: collision with root package name */
-        boolean f8507a = false;
-
-        /* renamed from: b  reason: collision with root package name */
-        long f8508b = 0;
+        boolean f5678a = false;
+        long b = 0;
 
         private boolean a() {
-            return SystemClock.elapsedRealtime() - this.f8508b < ((long) ViewConfiguration.getJumpTapTimeout());
+            return SystemClock.elapsedRealtime() - this.b < ((long) ViewConfiguration.getJumpTapTimeout());
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
         public boolean onDoubleTap(MotionEvent motionEvent) {
-            this.f8508b = SystemClock.elapsedRealtime();
-            return this.f8507a;
+            this.b = SystemClock.elapsedRealtime();
+            return this.f5678a;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
@@ -134,14 +130,14 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
             } else {
                 d.this.p.c();
             }
-            this.f8507a = false;
-            this.f8508b = 0L;
+            this.f5678a = false;
+            this.b = 0L;
             return true;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onSingleTapUp(MotionEvent motionEvent) {
-            this.f8507a = false;
+            this.f5678a = false;
             return true;
         }
     };
@@ -213,8 +209,8 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.kwad.sdk.contentalliance.detail.photo.e.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1078d extends a {
-        private C1078d() {
+    public class C1095d extends a {
+        private C1095d() {
             super();
         }
 
@@ -289,21 +285,21 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
     public void a() {
         super.a();
         this.k = false;
-        this.o = this.f8395a.l;
-        this.p = this.f8395a.f8404a.g;
-        this.e = this.f8395a.m;
+        this.o = this.f5594a.l;
+        this.p = this.f5594a.f5600a.g;
+        this.e = this.f5594a.m;
         this.e.a(this.l);
         this.e.a(this.i);
-        this.f8395a.f8405b.add(this.h);
+        this.f5594a.b.add(this.h);
         f();
-        this.d.setOnClickListener(this.f8500b);
+        this.d.setOnClickListener(this.b);
         this.n = new GestureDetector(o(), this.m);
         this.g.a(this.n);
-        if (com.kwad.sdk.core.response.b.c.B(this.f8395a.j)) {
-            this.f8395a.a(this.c);
+        if (com.kwad.sdk.core.response.b.c.B(this.f5594a.j)) {
+            this.f5594a.a(this.c);
         }
         a(this.o.getSourceType() == 0 ? 1.0f : 0.0f);
-        this.f8395a.e.add(this.q);
+        this.f5594a.e.add(this.q);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -313,11 +309,11 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
         this.e.b(this.l);
         this.e.b(this.i);
         this.d.setOnClickListener(null);
-        this.f8395a.f8405b.remove(this.h);
+        this.f5594a.b.remove(this.h);
         this.g.b(this.n);
         f();
-        this.f8395a.b(this.c);
-        this.f8395a.e.remove(this.q);
+        this.f5594a.b(this.c);
+        this.f5594a.e.remove(this.q);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -331,7 +327,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
 
     public b e() {
         if (this.f == null) {
-            this.f = new C1078d();
+            this.f = new C1095d();
         }
         return this.f;
     }

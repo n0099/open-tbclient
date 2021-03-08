@@ -7,12 +7,10 @@ import com.baidu.platform.comapi.wnplatform.o.e;
 import com.baidu.platform.comapi.wnplatform.walkmap.f;
 /* loaded from: classes4.dex */
 public class RGStateEntry extends RGStateCar3D {
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f4276b = 0;
+    private int b = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private f f4275a = new a(this);
+    private f f2957a = new a(this);
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGStateCar3D, com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionUI() {
@@ -34,7 +32,7 @@ public class RGStateEntry extends RGStateCar3D {
     protected void onActionMapStatus() {
         b.a().Q().o();
         b.a().G().b(true);
-        b.a().G().a(this.f4275a);
+        b.a().G().a(this.f2957a);
         GeoPoint e = b.a().D().e();
         MapStatus i = b.a().G().i();
         if (i != null) {
@@ -44,13 +42,13 @@ public class RGStateEntry extends RGStateCar3D {
             }
             builder.target(e.a(e));
             b.a().G().a(builder.build(), 500);
-            this.f4276b = 1;
+            this.b = 1;
         }
     }
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGStateCar3D, com.baidu.platform.comapi.walknavi.fsm.RGState
     public void exit() {
-        this.f4276b = 0;
+        this.b = 0;
         b.a().G().a((f) null);
     }
 }

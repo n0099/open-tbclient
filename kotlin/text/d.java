@@ -7,32 +7,32 @@ import kotlin.Pair;
 import kotlin.TypeCastException;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public final class d implements kotlin.sequences.c<kotlin.b.h> {
-    private final int bNG;
+    private final int bPg;
     private final int limit;
-    private final CharSequence quG;
-    private final kotlin.jvm.a.c<CharSequence, Integer, Pair<Integer, Integer>> quH;
+    private final CharSequence qvi;
+    private final kotlin.jvm.a.c<CharSequence, Integer, Pair<Integer, Integer>> qvj;
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: kotlin.jvm.a.c<? super java.lang.CharSequence, ? super java.lang.Integer, kotlin.Pair<java.lang.Integer, java.lang.Integer>> */
     /* JADX WARN: Multi-variable type inference failed */
     public d(CharSequence charSequence, int i, int i2, kotlin.jvm.a.c<? super CharSequence, ? super Integer, Pair<Integer, Integer>> cVar) {
-        kotlin.jvm.internal.p.o(charSequence, Config.INPUT_PART);
-        kotlin.jvm.internal.p.o(cVar, "getNextMatch");
-        this.quG = charSequence;
-        this.bNG = i;
+        kotlin.jvm.internal.p.p(charSequence, Config.INPUT_PART);
+        kotlin.jvm.internal.p.p(cVar, "getNextMatch");
+        this.qvi = charSequence;
+        this.bPg = i;
         this.limit = i2;
-        this.quH = cVar;
+        this.qvj = cVar;
     }
 
     @kotlin.e
-    /* loaded from: classes6.dex */
+    /* loaded from: classes14.dex */
     public static final class a implements Iterator<kotlin.b.h> {
         private int counter;
-        private int quI;
-        private int quJ;
-        private kotlin.b.h quK;
-        private int quv = -1;
+        private int quX = -1;
+        private int qvk;
+        private int qvl;
+        private kotlin.b.h qvm;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -41,70 +41,70 @@ public final class d implements kotlin.sequences.c<kotlin.b.h> {
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
-            this.quI = kotlin.b.l.ao(d.this.bNG, 0, d.this.quG.length());
-            this.quJ = this.quI;
+            this.qvk = kotlin.b.l.ao(d.this.bPg, 0, d.this.qvi.length());
+            this.qvl = this.qvk;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:9:0x0025, code lost:
-            if (r7.counter < r7.quL.limit) goto L13;
+            if (r7.counter < r7.qvn.limit) goto L13;
          */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        private final void eLK() {
-            if (this.quJ >= 0) {
+        private final void eLs() {
+            if (this.qvl >= 0) {
                 if (d.this.limit > 0) {
                     this.counter++;
                 }
-                if (this.quJ <= d.this.quG.length()) {
-                    Pair pair = (Pair) d.this.quH.invoke(d.this.quG, Integer.valueOf(this.quJ));
+                if (this.qvl <= d.this.qvi.length()) {
+                    Pair pair = (Pair) d.this.qvj.invoke(d.this.qvi, Integer.valueOf(this.qvl));
                     if (pair == null) {
-                        this.quK = new kotlin.b.h(this.quI, l.C(d.this.quG));
-                        this.quJ = -1;
+                        this.qvm = new kotlin.b.h(this.qvk, l.C(d.this.qvi));
+                        this.qvl = -1;
                     } else {
                         int intValue = ((Number) pair.component1()).intValue();
                         int intValue2 = ((Number) pair.component2()).intValue();
-                        this.quK = new kotlin.b.h(this.quI, intValue - 1);
-                        this.quI = intValue + intValue2;
-                        this.quJ = (intValue2 == 0 ? 1 : 0) + this.quI;
+                        this.qvm = new kotlin.b.h(this.qvk, intValue - 1);
+                        this.qvk = intValue + intValue2;
+                        this.qvl = (intValue2 == 0 ? 1 : 0) + this.qvk;
                     }
-                    this.quv = 1;
+                    this.quX = 1;
                     return;
                 }
-                this.quK = new kotlin.b.h(this.quI, l.C(d.this.quG));
-                this.quJ = -1;
-                this.quv = 1;
+                this.qvm = new kotlin.b.h(this.qvk, l.C(d.this.qvi));
+                this.qvl = -1;
+                this.quX = 1;
                 return;
             }
-            this.quv = 0;
-            this.quK = null;
+            this.quX = 0;
+            this.qvm = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
-        /* renamed from: eLL */
+        /* renamed from: eLt */
         public kotlin.b.h next() {
-            if (this.quv == -1) {
-                eLK();
+            if (this.quX == -1) {
+                eLs();
             }
-            if (this.quv == 0) {
+            if (this.quX == 0) {
                 throw new NoSuchElementException();
             }
-            kotlin.b.h hVar = this.quK;
+            kotlin.b.h hVar = this.qvm;
             if (hVar == null) {
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.ranges.IntRange");
             }
-            this.quK = null;
-            this.quv = -1;
+            this.qvm = null;
+            this.quX = -1;
             return hVar;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.quv == -1) {
-                eLK();
+            if (this.quX == -1) {
+                eLs();
             }
-            return this.quv == 1;
+            return this.quX == 1;
         }
     }
 

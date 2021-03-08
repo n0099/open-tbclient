@@ -13,16 +13,16 @@ import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.z;
 import com.baidu.tieba.frs.j;
 import com.baidu.tieba.frs.k;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class FrsAlaShareItemAdapter extends k<cb, FrsPageAlaShareHolder> implements com.baidu.tieba.a.f, z {
-    private String aif;
-    private com.baidu.tieba.ala.livecard.a.c hnf;
-    private ab<cb> hng;
+    private String ajx;
+    private com.baidu.tieba.ala.livecard.a.c hoP;
+    private ab<cb> hoQ;
     private String mForumName;
 
     public FrsAlaShareItemAdapter(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.hng = new ab<cb>() { // from class: com.baidu.tieba.ala.livecard.adapters.FrsAlaShareItemAdapter.1
+        this.hoQ = new ab<cb>() { // from class: com.baidu.tieba.ala.livecard.adapters.FrsAlaShareItemAdapter.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
@@ -51,11 +51,11 @@ public class FrsAlaShareItemAdapter extends k<cb, FrsPageAlaShareHolder> impleme
         if (this.mPageContext == null) {
             return null;
         }
-        this.hnf = new com.baidu.tieba.ala.livecard.a.c(this.mPageContext, this.mPageId);
-        this.hnf.o(this.mPageId);
-        this.hnf.setForumName(this.mForumName);
-        this.hnf.c(this.hng);
-        return new FrsPageAlaShareHolder(this.hnf);
+        this.hoP = new com.baidu.tieba.ala.livecard.a.c(this.mPageContext, this.mPageId);
+        this.hoP.o(this.mPageId);
+        this.hoP.setForumName(this.mForumName);
+        this.hoP.c(this.hoQ);
+        return new FrsPageAlaShareHolder(this.hoP);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -64,21 +64,21 @@ public class FrsAlaShareItemAdapter extends k<cb, FrsPageAlaShareHolder> impleme
     public View a(int i, View view, ViewGroup viewGroup, cb cbVar, FrsPageAlaShareHolder frsPageAlaShareHolder) {
         CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_FRS_LIVE_CARD_SHOW);
         int i2 = 0;
-        if (this.jfU != null) {
-            i2 = this.jfU.getTopThreadSize();
+        if (this.jhD != null) {
+            i2 = this.jhD.getTopThreadSize();
         }
-        cbVar.eOs = (i + 1) - i2;
+        cbVar.ePT = (i + 1) - i2;
         customMessage.setData(cbVar);
         this.mPageContext.sendMessage(customMessage);
         if (cbVar != null) {
-            if (frsPageAlaShareHolder.hni instanceof com.baidu.tieba.a.e) {
-                frsPageAlaShareHolder.hni.setPage(this.aif);
+            if (frsPageAlaShareHolder.hoS instanceof com.baidu.tieba.a.e) {
+                frsPageAlaShareHolder.hoS.setPage(this.ajx);
             }
-            frsPageAlaShareHolder.hni.setForumName(this.mForumName);
-            j.a(frsPageAlaShareHolder.hni.bYX(), this.jfU);
-            j.a(frsPageAlaShareHolder.hni.bYY(), this.jfU);
-            frsPageAlaShareHolder.hni.a(cbVar);
-            cbVar.bpd();
+            frsPageAlaShareHolder.hoS.setForumName(this.mForumName);
+            j.a(frsPageAlaShareHolder.hoS.bZd(), this.jhD);
+            j.a(frsPageAlaShareHolder.hoS.bZe(), this.jhD);
+            frsPageAlaShareHolder.hoS.a(cbVar);
+            cbVar.bpf();
         }
         return frsPageAlaShareHolder.getView();
     }
@@ -89,21 +89,21 @@ public class FrsAlaShareItemAdapter extends k<cb, FrsPageAlaShareHolder> impleme
     }
 
     @Override // com.baidu.tieba.card.z
-    public void uX(int i) {
+    public void uZ(int i) {
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Ew(String str) {
-        this.aif = str;
+    public void ED(String str) {
+        this.ajx = str;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class FrsPageAlaShareHolder extends TypeAdapter.ViewHolder {
-        public com.baidu.tieba.ala.livecard.a.c hni;
+        public com.baidu.tieba.ala.livecard.a.c hoS;
 
         public FrsPageAlaShareHolder(com.baidu.tieba.ala.livecard.a.c cVar) {
             super(cVar.getView());
-            this.hni = cVar;
+            this.hoS = cVar;
         }
     }
 }

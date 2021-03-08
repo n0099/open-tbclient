@@ -8,57 +8,57 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class o {
-    private String aGR;
-    private String aGS;
-    private a aGT = new a();
-    private List<b> aGU = new ArrayList();
-    private List<c> aGV = new ArrayList();
+    private String aIr;
+    private String aIs;
+    private a aIt = new a();
+    private List<b> aIu = new ArrayList();
+    private List<c> aIv = new ArrayList();
     private int userType;
 
-    public boolean By() {
+    public boolean BB() {
         return this.userType == 2;
     }
 
-    public boolean Bz() {
+    public boolean BC() {
         return (this.userType == 1 || this.userType == 2) ? false : true;
     }
 
-    public a BA() {
-        return this.aGT;
+    public a BD() {
+        return this.aIt;
     }
 
-    public String BB() {
-        return this.aGR;
+    public String BE() {
+        return this.aIr;
     }
 
-    public String BC() {
-        return this.aGS;
+    public String BF() {
+        return this.aIs;
     }
 
-    public List<b> BD() {
-        return this.aGU;
+    public List<b> BG() {
+        return this.aIu;
     }
 
-    public List<c> BE() {
-        return this.aGV;
+    public List<c> BH() {
+        return this.aIv;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.userType = jSONObject.optInt("user_type");
-                this.aGR = jSONObject.optString("h5_url");
-                this.aGS = jSONObject.optString("screen");
-                this.aGT.parseJson(jSONObject.optJSONObject("result"));
+                this.aIr = jSONObject.optString("h5_url");
+                this.aIs = jSONObject.optString("screen");
+                this.aIt.parseJson(jSONObject.optJSONObject("result"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("record");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         try {
                             c cVar = new c();
                             cVar.parseJson((JSONObject) optJSONArray.get(i));
-                            this.aGV.add(cVar);
+                            this.aIv.add(cVar);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -70,7 +70,7 @@ public class o {
                         try {
                             b bVar = new b();
                             bVar.parseJson((JSONObject) optJSONArray2.get(i2));
-                            this.aGU.add(bVar);
+                            this.aIu.add(bVar);
                         } catch (JSONException e2) {
                             e2.printStackTrace();
                         }
@@ -82,94 +82,94 @@ public class o {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public class a {
-        private double aGW;
-        private double aGX;
-        private double aGY;
-        private int aGZ;
-        private int aHa;
-        private String aHb;
-        private String aHc;
-        private int aHd;
-        private int aHe;
-        private int aHf;
-        private int aHg;
-        private String aHh;
+        private int aIA;
+        private String aIB;
+        private String aIC;
+        private int aID;
+        private int aIE;
+        private int aIF;
+        private int aIG;
+        private String aIH;
+        private double aIw;
+        private double aIx;
+        private double aIy;
+        private int aIz;
         private int answer;
 
         public a() {
         }
 
         public void parseJson(JSONObject jSONObject) {
-            this.aGW = jSONObject.optDouble("average_amount");
-            this.aGX = jSONObject.optDouble("my_amount");
-            this.aGY = jSONObject.optDouble("right_scale");
-            this.aGZ = jSONObject.optInt("total_amount");
-            this.aHa = jSONObject.optInt("currect_number");
-            this.aHd = jSONObject.optInt("ques_id");
-            this.aHb = jSONObject.optString("ques_name");
+            this.aIw = jSONObject.optDouble("average_amount");
+            this.aIx = jSONObject.optDouble("my_amount");
+            this.aIy = jSONObject.optDouble("right_scale");
+            this.aIz = jSONObject.optInt("total_amount");
+            this.aIA = jSONObject.optInt("currect_number");
+            this.aID = jSONObject.optInt("ques_id");
+            this.aIB = jSONObject.optString("ques_name");
             this.answer = jSONObject.optInt("answer");
-            this.aHc = jSONObject.optString("answer_option");
-            this.aHe = jSONObject.optInt("is_right");
-            this.aHf = jSONObject.optInt("team_multiple");
-            this.aHg = jSONObject.optInt("single_multiple");
-            this.aHh = jSONObject.optString("answer_content");
+            this.aIC = jSONObject.optString("answer_option");
+            this.aIE = jSONObject.optInt("is_right");
+            this.aIF = jSONObject.optInt("team_multiple");
+            this.aIG = jSONObject.optInt("single_multiple");
+            this.aIH = jSONObject.optString("answer_content");
         }
 
-        public double BF() {
-            return this.aGW;
+        public double BI() {
+            return this.aIw;
         }
 
-        public double BG() {
-            return this.aGX;
+        public double BJ() {
+            return this.aIx;
         }
 
-        public double BH() {
-            return this.aGY;
+        public double BK() {
+            return this.aIy;
         }
 
-        public int BI() {
-            return this.aGZ;
+        public int BL() {
+            return this.aIz;
         }
 
-        public String BJ() {
-            return this.aHh;
+        public String BM() {
+            return this.aIH;
         }
 
-        public int BK() {
-            return this.aHa;
+        public int BN() {
+            return this.aIA;
         }
 
         public int getAnswer() {
             return this.answer;
         }
 
-        public String BL() {
-            return this.aHc;
+        public String BO() {
+            return this.aIC;
         }
 
-        public int BM() {
-            return this.aHe;
+        public int BP() {
+            return this.aIE;
         }
 
-        public int BN() {
-            return this.aHf;
+        public int BQ() {
+            return this.aIF;
         }
 
-        public boolean BO() {
-            return this.aHg == 2;
+        public boolean BR() {
+            return this.aIG == 2;
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public class b {
-        private String aHj;
-        private int aHk;
-        private int aHl;
-        private String aHm;
-        private int aHn;
-        private String aHo;
+        private String aIJ;
+        private int aIK;
+        private int aIL;
+        private String aIM;
+        private int aIN;
+        private String aIO;
         private String avatar;
         private String nickname;
         private String user_id;
@@ -181,12 +181,12 @@ public class o {
             this.nickname = jSONObject.optString("nickname");
             this.avatar = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
             this.user_id = jSONObject.optString("user_id");
-            this.aHj = jSONObject.optString("is_answer");
-            this.aHk = jSONObject.optInt("user_answer");
-            this.aHl = jSONObject.optInt("is_double");
-            this.aHm = jSONObject.optString("team_id");
-            this.aHn = jSONObject.optInt("is_leader");
-            this.aHo = jSONObject.optString("subject_id");
+            this.aIJ = jSONObject.optString("is_answer");
+            this.aIK = jSONObject.optInt("user_answer");
+            this.aIL = jSONObject.optInt("is_double");
+            this.aIM = jSONObject.optString("team_id");
+            this.aIN = jSONObject.optInt("is_leader");
+            this.aIO = jSONObject.optString("subject_id");
         }
 
         public String getNickname() {
@@ -197,18 +197,18 @@ public class o {
             return this.avatar;
         }
 
-        public int BP() {
-            return this.aHk;
+        public int BS() {
+            return this.aIK;
         }
 
-        public int BQ() {
-            return this.aHl;
+        public int BT() {
+            return this.aIL;
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class c {
-        private double aHp;
+        private double aIP;
         private String icon;
         private String tips;
 
@@ -220,14 +220,14 @@ public class o {
             return this.icon;
         }
 
-        public double BR() {
-            return this.aHp;
+        public double BU() {
+            return this.aIP;
         }
 
         public void parseJson(JSONObject jSONObject) {
             this.tips = jSONObject.optString(TableDefine.MessageColumns.COLUME_TIPS);
             this.icon = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
-            this.aHp = jSONObject.optDouble(LogConfig.LOG_AMOUNT);
+            this.aIP = jSONObject.optDouble(LogConfig.LOG_AMOUNT);
         }
     }
 }

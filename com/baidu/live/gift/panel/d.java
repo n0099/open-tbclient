@@ -26,54 +26,54 @@ import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d extends c {
-    private CustomMessageListener bch;
-    private com.baidu.live.gift.container.e bgO;
-    private CustomMessageListener bgP;
-    private long bgM = 0;
-    private long bgN = 0;
-    private e.a baY = new e.a() { // from class: com.baidu.live.gift.panel.d.3
+    private CustomMessageListener bdH;
+    private com.baidu.live.gift.container.e biq;
+    private CustomMessageListener bir;
+    private long bio = 0;
+    private long bip = 0;
+    private e.a bcy = new e.a() { // from class: com.baidu.live.gift.panel.d.3
         @Override // com.baidu.live.gift.container.e.a
         public void b(int i, String str, boolean z, ArrayList<h> arrayList, ArrayList<i> arrayList2, ArrayList<l> arrayList3, ae aeVar) {
             if (i != 0 && !StringUtils.isNull(str)) {
                 BdUtilHelper.showToast(TbadkCoreApplication.getInst(), str);
             }
-            d.this.bgI.a(z, arrayList, arrayList2, arrayList3, i == 0, i);
-            d.this.bgI.b(aeVar);
+            d.this.bik.a(z, arrayList, arrayList2, arrayList3, i == 0, i);
+            d.this.bik.b(aeVar);
         }
     };
 
     @Override // com.baidu.live.gift.panel.c, com.baidu.live.tbadk.core.fragment.LazyLoadFragment
     protected void onInflate(View view, Bundle bundle) {
         super.onInflate(view, bundle);
-        this.bgI.setType(0);
-        this.bgI.bbt.setText("赠送");
+        this.bik.setType(0);
+        this.bik.bcT.setText("赠送");
     }
 
     @Override // com.baidu.live.gift.panel.c, com.baidu.live.tbadk.core.fragment.LazyLoadFragment
     protected void onInitial() {
         super.onInitial();
-        this.bgM = TbadkCoreApplication.getInst().currentAccountTdouNum;
-        this.bgN = TbadkCoreApplication.getInst().currentAccountFlowerNum;
-        Ie();
-        If();
-        this.bgO = new com.baidu.live.gift.container.e(getPageContext(), this.bgw.bdm);
-        this.bgO.a(this.baY);
-        this.bgO.gA(this.bgw.bdl);
+        this.bio = TbadkCoreApplication.getInst().currentAccountTdouNum;
+        this.bip = TbadkCoreApplication.getInst().currentAccountFlowerNum;
+        Ih();
+        Ii();
+        this.biq = new com.baidu.live.gift.container.e(getPageContext(), this.bhW.beO);
+        this.biq.a(this.bcy);
+        this.biq.gG(this.bhW.beN);
     }
 
     @Override // com.baidu.live.gift.panel.c, com.baidu.live.tbadk.core.fragment.LazyLoadFragment, com.baidu.live.tbadk.core.fragment.SupportXFragment
     public void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.bgP);
-        MessageManager.getInstance().unRegisterListener(this.bch);
+        MessageManager.getInstance().unRegisterListener(this.bir);
+        MessageManager.getInstance().unRegisterListener(this.bdH);
     }
 
     private boolean b(g gVar) {
-        if (com.baidu.live.ae.a.Qj().bAS != null && com.baidu.live.ae.a.Qj().bAS.aPL != null) {
-            String str = com.baidu.live.ae.a.Qj().bAS.aPL.aPc;
-            if (!TextUtils.isEmpty(str) && str.equals(String.valueOf(gVar.Eq()))) {
+        if (com.baidu.live.ae.a.Qm().bCs != null && com.baidu.live.ae.a.Qm().bCs.aRl != null) {
+            String str = com.baidu.live.ae.a.Qm().bCs.aRl.aQC;
+            if (!TextUtils.isEmpty(str) && str.equals(String.valueOf(gVar.Et()))) {
                 return true;
             }
         }
@@ -81,116 +81,116 @@ public class d extends c {
     }
 
     @Override // com.baidu.live.gift.panel.c
-    protected boolean Ib() {
-        g Gx = this.bgI.Gx();
-        if (Gx == null) {
+    protected boolean Ie() {
+        g GA = this.bik.GA();
+        if (GA == null) {
             BdUtilHelper.showToast(TbadkCoreApplication.getInst(), "请先选择一个礼物");
             return false;
         }
-        int Gy = this.bgI.Gy();
+        int GB = this.bik.GB();
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.putOpt("gift_num", Integer.valueOf(Gy));
-            jSONObject.putOpt(LogConfig.LOG_GIFT_ID, Gx.DR());
-            jSONObject.putOpt("gift_name", Gx.DS());
-            jSONObject.putOpt(LogConfig.LOG_GIFT_VALUE, Gx.getPrice());
-            jSONObject.putOpt("gift_type", Integer.valueOf(Gx.Eq()));
+            jSONObject.putOpt("gift_num", Integer.valueOf(GB));
+            jSONObject.putOpt(LogConfig.LOG_GIFT_ID, GA.DU());
+            jSONObject.putOpt("gift_name", GA.DV());
+            jSONObject.putOpt(LogConfig.LOG_GIFT_VALUE, GA.getPrice());
+            jSONObject.putOpt("gift_type", Integer.valueOf(GA.Et()));
         } catch (JSONException e) {
             e.printStackTrace();
         }
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "giftsend_clk").setContentExt(null, UbcStatConstant.SubPage.POPUP, jSONObject));
-        if (b(Gx) && !this.bbc) {
+        if (b(GA) && !this.bcC) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913179));
             return false;
         }
-        int i = this.bgw.aZD;
-        if (Gx.Ev()) {
-            if (Gx.Eq() == 6 && i < 3) {
+        int i = this.bhW.bbe;
+        if (GA.Ey()) {
+            if (GA.Et() == 6 && i < 3) {
                 return false;
             }
-            if (Gx.Eq() == 7 && i < 7) {
+            if (GA.Et() == 7 && i < 7) {
                 return false;
             }
-            if (Gx.Eq() == 8 && i < 13) {
+            if (GA.Et() == 8 && i < 13) {
                 return false;
             }
-            if (Gx.Eq() == 9 && i < 22) {
+            if (GA.Et() == 9 && i < 22) {
                 return false;
             }
-            if (Gx.Eq() == 10 && i < 29) {
+            if (GA.Et() == 10 && i < 29) {
                 return false;
             }
-            if (Gx.Eq() == 11 && i < 39) {
+            if (GA.Et() == 11 && i < 39) {
                 return false;
             }
-            if (Gx.Eq() == 12 && i < 47) {
+            if (GA.Et() == 12 && i < 47) {
                 return false;
             }
         }
-        if (a(Gx, Gy)) {
-            if (Gx.Eb()) {
-                if (this.bgM <= 0 || this.bgM < JavaTypesHelper.toLong(Gx.getPrice(), 0L) * Gy) {
-                    HX();
+        if (a(GA, GB)) {
+            if (GA.Ee()) {
+                if (this.bio <= 0 || this.bio < JavaTypesHelper.toLong(GA.getPrice(), 0L) * GB) {
+                    Ia();
                     return false;
                 }
-                Gx.aWe = this.bgJ != null ? this.bgJ.Ga() : null;
-                if (Gx.aWe == null) {
+                GA.aXE = this.bil != null ? this.bil.Gd() : null;
+                if (GA.aXE == null) {
                     return false;
                 }
-                this.bgM -= JavaTypesHelper.toLong(Gx.getPrice(), 0L) * Gy;
-                this.bgI.aQ(this.bgM);
-                Gx.aWe.aXk = Gx.DX();
-                com.baidu.live.gift.c.b.Hr().b(Gx, Gy, this.bgw.mUserId, this.bgw.mUserName, this.bgw.mLiveId, this.bgw.mRoomId, this.bgw.mAppId, this.bgw.bdj, this.bgw.otherParams, 0L);
+                this.bio -= JavaTypesHelper.toLong(GA.getPrice(), 0L) * GB;
+                this.bik.aQ(this.bio);
+                GA.aXE.aYK = GA.Ea();
+                com.baidu.live.gift.c.b.Hu().b(GA, GB, this.bhW.mUserId, this.bhW.mUserName, this.bhW.mLiveId, this.bhW.mRoomId, this.bhW.mAppId, this.bhW.beL, this.bhW.otherParams, 0L);
                 closeActivity();
-            } else if (Gx.Ee()) {
-                if (this.bgN <= 0 || this.bgN < JavaTypesHelper.toLong(Gx.getPrice(), 0L) * Gy) {
+            } else if (GA.Eh()) {
+                if (this.bip <= 0 || this.bip < JavaTypesHelper.toLong(GA.getPrice(), 0L) * GB) {
                     BdUtilHelper.showToast(getPageContext().getPageActivity(), getPageContext().getResources().getString(a.h.ala_free_gift_flower_no_enough), 1000);
                     return false;
                 }
-                this.bgN -= JavaTypesHelper.toLong(Gx.getPrice(), 0L) * Gy;
-                this.bgI.aR(this.bgN);
-                com.baidu.live.gift.c.b.Hr().b(Gx, Gy, this.bgw.mUserId, this.bgw.mUserName, this.bgw.mLiveId, this.bgw.mRoomId, this.bgw.mAppId, this.bgw.bdj, this.bgw.otherParams, 0L);
-            } else if (this.bgM <= 0 || this.bgM < JavaTypesHelper.toLong(Gx.getPrice(), 0L) * Gy) {
-                HX();
+                this.bip -= JavaTypesHelper.toLong(GA.getPrice(), 0L) * GB;
+                this.bik.aR(this.bip);
+                com.baidu.live.gift.c.b.Hu().b(GA, GB, this.bhW.mUserId, this.bhW.mUserName, this.bhW.mLiveId, this.bhW.mRoomId, this.bhW.mAppId, this.bhW.beL, this.bhW.otherParams, 0L);
+            } else if (this.bio <= 0 || this.bio < JavaTypesHelper.toLong(GA.getPrice(), 0L) * GB) {
+                Ia();
                 return false;
             } else {
-                this.bgM -= JavaTypesHelper.toLong(Gx.getPrice(), 0L) * Gy;
-                this.bgI.aQ(this.bgM);
-                com.baidu.live.gift.c.b.Hr().b(Gx, Gy, this.bgw.mUserId, this.bgw.mUserName, this.bgw.mLiveId, this.bgw.mRoomId, this.bgw.mAppId, this.bgw.bdj, this.bgw.otherParams, 0L);
+                this.bio -= JavaTypesHelper.toLong(GA.getPrice(), 0L) * GB;
+                this.bik.aQ(this.bio);
+                com.baidu.live.gift.c.b.Hu().b(GA, GB, this.bhW.mUserId, this.bhW.mUserName, this.bhW.mLiveId, this.bhW.mRoomId, this.bhW.mAppId, this.bhW.beL, this.bhW.otherParams, 0L);
             }
         }
         return true;
     }
 
     @Override // com.baidu.live.gift.panel.c
-    protected void Ic() {
-        this.bgO.gB(this.bgw.bdl);
+    protected void If() {
+        this.biq.gH(this.bhW.beN);
     }
 
-    private void Ie() {
-        this.bgP = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA) { // from class: com.baidu.live.gift.panel.d.1
+    private void Ih() {
+        this.bir = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA) { // from class: com.baidu.live.gift.panel.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (d.this.bgI != null) {
-                    d.this.bgM = TbadkCoreApplication.getInst().currentAccountTdouNum;
-                    d.this.bgN = TbadkCoreApplication.getInst().currentAccountFlowerNum;
-                    d.this.bgI.aQ(TbadkCoreApplication.getInst().currentAccountTdouNum);
-                    d.this.bgI.aR(TbadkCoreApplication.getInst().currentAccountFlowerNum);
+                if (d.this.bik != null) {
+                    d.this.bio = TbadkCoreApplication.getInst().currentAccountTdouNum;
+                    d.this.bip = TbadkCoreApplication.getInst().currentAccountFlowerNum;
+                    d.this.bik.aQ(TbadkCoreApplication.getInst().currentAccountTdouNum);
+                    d.this.bik.aR(TbadkCoreApplication.getInst().currentAccountFlowerNum);
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.bgP);
+        MessageManager.getInstance().registerListener(this.bir);
     }
 
-    private void If() {
-        this.bch = new CustomMessageListener(2913120) { // from class: com.baidu.live.gift.panel.d.2
+    private void Ii() {
+        this.bdH = new CustomMessageListener(2913120) { // from class: com.baidu.live.gift.panel.d.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                d.this.bbc = true;
+                d.this.bcC = true;
             }
         };
-        MessageManager.getInstance().registerListener(this.bch);
+        MessageManager.getInstance().registerListener(this.bdH);
     }
 }

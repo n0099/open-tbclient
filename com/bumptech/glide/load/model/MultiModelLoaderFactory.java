@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class MultiModelLoaderFactory {
     private static final Factory DEFAULT_FACTORY = new Factory();
     private static final ModelLoader<Object, Object> EMPTY_MODEL_LOADER = new EmptyModelLoader();
@@ -130,7 +130,7 @@ public class MultiModelLoaderFactory {
             } else if (z) {
                 emptyModelLoader = emptyModelLoader();
             } else {
-                throw new Registry.NoModelLoaderAvailableException(cls, cls2);
+                throw new Registry.NoModelLoaderAvailableException((Class<?>) cls, (Class<?>) cls2);
             }
         } catch (Throwable th) {
             this.alreadyUsedEntries.clear();
@@ -155,7 +155,7 @@ public class MultiModelLoaderFactory {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class Entry<Model, Data> {
         final Class<Data> dataClass;
         final ModelLoaderFactory<? extends Model, ? extends Data> factory;
@@ -176,7 +176,7 @@ public class MultiModelLoaderFactory {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     static class Factory {
         Factory() {
         }
@@ -187,7 +187,7 @@ public class MultiModelLoaderFactory {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static class EmptyModelLoader implements ModelLoader<Object, Object> {
         EmptyModelLoader() {
         }

@@ -1,29 +1,29 @@
 package com.win.opensdk;
 
-import android.text.TextUtils;
-import com.qq.e.comm.constants.Constants;
-import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public final class am {
-    int java = 101;
+import android.webkit.ConsoleMessage;
+import android.webkit.JsResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+/* loaded from: classes14.dex */
+public class am extends WebChromeClient {
+    public C0 qkf;
 
-    /* renamed from: java  reason: collision with other field name */
-    public String f23java;
-    JSONObject qkD;
+    public am(C0 c0, t tVar) {
+        this.qkf = c0;
+    }
 
-    public final void abR(String str) {
-        JSONObject jSONObject = new JSONObject(str);
-        this.java = jSONObject.optInt(Constants.KEYS.RET);
-        this.f23java = jSONObject.optString("msg");
-        String optString = jSONObject.optString("data");
-        try {
-            optString = bc.abU(optString);
-        } catch (Exception e) {
+    @Override // android.webkit.WebChromeClient
+    public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
+        return super.onConsoleMessage(consoleMessage);
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
+        C0 c0 = this.qkf;
+        if (c0 == null || c0.getDispatcher() == null) {
+            return super.onJsAlert(webView, str, str2, jsResult);
         }
-        if (!TextUtils.isEmpty(optString)) {
-            this.qkD = new JSONObject(optString);
-        } else {
-            this.qkD = new JSONObject();
-        }
+        ((e) this.qkf.getDispatcher()).b(str2, jsResult);
+        return false;
     }
 }

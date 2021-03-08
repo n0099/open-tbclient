@@ -15,7 +15,7 @@ public interface TTRewardVideoAd {
 
         void onAdVideoBarClick();
 
-        void onRewardVerify(boolean z, int i, String str);
+        void onRewardVerify(boolean z, int i, String str, int i2, String str2);
 
         void onSkippedVideo();
 

@@ -16,7 +16,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.forumMember.bawu.BawuTeamInfoActivityConfig;
 import tbclient.BawuRoleInfoPub;
 import tbclient.MemberGroupInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class i extends com.baidu.tieba.frs.k<j, FrsMemberTeamViewHolder> {
     private View.OnClickListener mClickListener;
 
@@ -32,8 +32,8 @@ public class i extends com.baidu.tieba.frs.k<j, FrsMemberTeamViewHolder> {
                 } else if (view.getId() == R.id.title_text_view) {
                     Object tag = view.getTag();
                     j jVar = ((tag instanceof Integer) && (i.this.getItem(((Integer) tag).intValue()) instanceof j)) ? (j) i.this.getItem(((Integer) tag).intValue()) : null;
-                    if (jVar != null && jVar.cAU() != null) {
-                        String[] split = !StringUtils.isNull(jVar.cAU().member_group_type) ? jVar.cAU().member_group_type.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) : null;
+                    if (jVar != null && jVar.cBa() != null) {
+                        String[] split = !StringUtils.isNull(jVar.cBa().member_group_type) ? jVar.cBa().member_group_type.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) : null;
                         if (split == null || split.length != 2) {
                             str = "";
                         } else {
@@ -61,18 +61,18 @@ public class i extends com.baidu.tieba.frs.k<j, FrsMemberTeamViewHolder> {
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, j jVar, FrsMemberTeamViewHolder frsMemberTeamViewHolder) {
         super.a(i, view, viewGroup, (ViewGroup) jVar, (j) frsMemberTeamViewHolder);
-        if (jVar != null && jVar.cAU() != null) {
-            MemberGroupInfo cAU = jVar.cAU();
-            if (cAU.member_group_list != null && cAU.member_group_list.size() > 0 && !StringUtils.isNull(cAU.member_group_type)) {
+        if (jVar != null && jVar.cBa() != null) {
+            MemberGroupInfo cBa = jVar.cBa();
+            if (cBa.member_group_list != null && cBa.member_group_list.size() > 0 && !StringUtils.isNull(cBa.member_group_type)) {
                 frsMemberTeamViewHolder.mTitleView.setTag(Integer.valueOf(i));
                 String str = "";
-                String[] split = !StringUtils.isNull(cAU.member_group_type) ? cAU.member_group_type.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) : null;
+                String[] split = !StringUtils.isNull(cBa.member_group_type) ? cBa.member_group_type.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) : null;
                 if (split != null && split.length == 2) {
                     str = split[1];
                 }
-                frsMemberTeamViewHolder.mTitleView.setText(str + "(" + cAU.member_group_num + ")");
+                frsMemberTeamViewHolder.mTitleView.setText(str + "(" + cBa.member_group_num + ")");
                 int i2 = 0;
-                for (BawuRoleInfoPub bawuRoleInfoPub : cAU.member_group_list) {
+                for (BawuRoleInfoPub bawuRoleInfoPub : cBa.member_group_list) {
                     if (i2 > 3) {
                         break;
                     } else if (bawuRoleInfoPub != null) {
@@ -81,12 +81,12 @@ public class i extends com.baidu.tieba.frs.k<j, FrsMemberTeamViewHolder> {
                     }
                 }
                 frsMemberTeamViewHolder.qn(this.mSkinType == 1);
-                ap.setBackgroundColor(frsMemberTeamViewHolder.jdi, R.color.CAM_X0201);
+                ap.setBackgroundColor(frsMemberTeamViewHolder.jeR, R.color.CAM_X0201);
                 ap.setViewTextColor(frsMemberTeamViewHolder.mTitleView, R.color.CAM_X0105, 1);
-                ap.setViewTextColor(frsMemberTeamViewHolder.jde, R.color.CAM_X0106, 1);
-                ap.setViewTextColor(frsMemberTeamViewHolder.jdf, R.color.CAM_X0106, 1);
-                ap.setViewTextColor(frsMemberTeamViewHolder.jdg, R.color.CAM_X0106, 1);
-                ap.setViewTextColor(frsMemberTeamViewHolder.jdh, R.color.CAM_X0106, 1);
+                ap.setViewTextColor(frsMemberTeamViewHolder.jeN, R.color.CAM_X0106, 1);
+                ap.setViewTextColor(frsMemberTeamViewHolder.jeO, R.color.CAM_X0106, 1);
+                ap.setViewTextColor(frsMemberTeamViewHolder.jeP, R.color.CAM_X0106, 1);
+                ap.setViewTextColor(frsMemberTeamViewHolder.jeQ, R.color.CAM_X0106, 1);
                 frsMemberTeamViewHolder.mTitleView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
             }
         }

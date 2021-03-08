@@ -1,11 +1,11 @@
 package com.baidu.browser.core.async;
 
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public final class b {
-    private static HashMap<String, a> afE = new HashMap<>();
+    private static HashMap<String, a> agX = new HashMap<>();
 
-    public static synchronized a dc(String str) {
+    public static synchronized a dg(String str) {
         a s;
         synchronized (b.class) {
             s = s(str, 0);
@@ -16,13 +16,13 @@ public final class b {
     static synchronized a s(String str, int i) {
         a aVar;
         synchronized (b.class) {
-            if (!afE.containsKey(str) || (aVar = afE.get(str)) == null) {
+            if (!agX.containsKey(str) || (aVar = agX.get(str)) == null) {
                 aVar = new a(str, i);
                 try {
                     aVar.start();
                 } catch (Exception e) {
                 }
-                afE.put(str, aVar);
+                agX.put(str, aVar);
             }
         }
         return aVar;
@@ -32,7 +32,7 @@ public final class b {
         synchronized (b.class) {
             if (aVar != null) {
                 aVar.sF();
-                afE.values().remove(aVar);
+                agX.values().remove(aVar);
             }
         }
     }

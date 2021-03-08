@@ -1,11 +1,11 @@
 package com.baidu.live.data;
 
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ai {
-    private boolean aJG;
-    private String aJH;
-    private String aJI;
+    private boolean aLg;
+    private String aLh;
+    private String aLi;
     private int height;
     private int position;
     private int width;
@@ -15,9 +15,9 @@ public class ai {
             this.position = jSONObject.optInt("position");
             this.height = jSONObject.optInt("high");
             this.width = jSONObject.optInt("wide");
-            this.aJG = jSONObject.optInt("is_show") == 1;
-            this.aJH = jSONObject.optString("pk_url");
-            this.aJI = jSONObject.optString("pk_data");
+            this.aLg = jSONObject.optInt("is_show") == 1;
+            this.aLh = jSONObject.optString("pk_url");
+            this.aLi = jSONObject.optString("pk_data");
         }
     }
 
@@ -25,23 +25,23 @@ public class ai {
         return this.height;
     }
 
-    public String BZ() {
-        return this.aJH;
+    public String Cc() {
+        return this.aLh;
     }
 
-    public String Ca() {
-        return this.aJI;
+    public String Cd() {
+        return this.aLi;
     }
 
     public int getWidth() {
         return this.width;
     }
 
-    public boolean Cb() {
-        return this.aJG;
+    public boolean Ce() {
+        return this.aLg;
     }
 
     public String toString() {
-        return "AlaPkPanelInfo{position=" + this.position + ", height=" + this.height + ", width=" + this.width + ", isOpenAction=" + this.aJG + ", pkUrl='" + this.aJH + "', urlDataParams='" + this.aJI + "'}";
+        return "AlaPkPanelInfo{position=" + this.position + ", height=" + this.height + ", width=" + this.width + ", isOpenAction=" + this.aLg + ", pkUrl='" + this.aLh + "', urlDataParams='" + this.aLi + "'}";
     }
 }

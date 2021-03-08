@@ -1,7 +1,7 @@
 package com.yy.mediaframework.gles;
 
 import java.nio.FloatBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class Drawable2d {
     private static final int SIZEOF_FLOAT = 4;
     private int mCoordsPerVertex;
@@ -28,7 +28,7 @@ public class Drawable2d {
     public static final FloatBuffer FULL_RECTANGLE_TEX_HORIZONTAL_FLIP_BUF = GlUtil.createFloatBuffer(FULL_RECTANGLE_TEX_COORDS_FLIP_HORIZONTAL);
     public static final FloatBuffer FULL_RECTANGLE_TEX_VERTICAL_FLIP_BUF = GlUtil.createFloatBuffer(FULL_RECTANGLE_TEX_COORDS_FLIP_VERTICAL);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum Prefab {
         TRIANGLE,
         RECTANGLE,

@@ -14,11 +14,11 @@ import javax.microedition.khronos.opengles.GL10;
 public class s implements com.baidu.mapsdkplatform.comapi.map.l {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TextureMapView f2810a;
+    final /* synthetic */ TextureMapView f2078a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(TextureMapView textureMapView) {
-        this.f2810a = textureMapView;
+        this.f2078a = textureMapView;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
@@ -37,44 +37,44 @@ public class s implements com.baidu.mapsdkplatform.comapi.map.l {
         TextView textView;
         TextView textView2;
         ac acVar8;
-        acVar = this.f2810a.f2771b;
+        acVar = this.f2078a.b;
         if (acVar != null) {
-            acVar2 = this.f2810a.f2771b;
+            acVar2 = this.f2078a.b;
             if (acVar2.b() == null) {
                 return;
             }
-            acVar3 = this.f2810a.f2771b;
-            float f3 = acVar3.b().E().f3038a;
-            acVar4 = this.f2810a.f2771b;
-            if (f3 < acVar4.b().f3051b) {
-                acVar8 = this.f2810a.f2771b;
-                f = acVar8.b().f3051b;
+            acVar3 = this.f2078a.b;
+            float f3 = acVar3.b().E().f2214a;
+            acVar4 = this.f2078a.b;
+            if (f3 < acVar4.b().b) {
+                acVar8 = this.f2078a.b;
+                f = acVar8.b().b;
             } else {
-                acVar5 = this.f2810a.f2771b;
-                if (f3 > acVar5.b().f3050a) {
-                    acVar6 = this.f2810a.f2771b;
-                    f = acVar6.b().f3050a;
+                acVar5 = this.f2078a.b;
+                if (f3 > acVar5.b().f2221a) {
+                    acVar6 = this.f2078a.b;
+                    f = acVar6.b().f2221a;
                 } else {
                     f = f3;
                 }
             }
-            f2 = this.f2810a.q;
+            f2 = this.f2078a.q;
             if (Math.abs(f2 - f) > 0.0f) {
                 sparseArray = TextureMapView.p;
                 int intValue = ((Integer) sparseArray.get(Math.round(f))).intValue();
-                acVar7 = this.f2810a.f2771b;
+                acVar7 = this.f2078a.b;
                 int i = (int) (intValue / acVar7.b().E().m);
-                imageView = this.f2810a.n;
+                imageView = this.f2078a.n;
                 imageView.setPadding(i / 2, 0, i / 2, 0);
                 String format = intValue >= 1000 ? String.format(" %d公里 ", Integer.valueOf(intValue / 1000)) : String.format(" %d米 ", Integer.valueOf(intValue));
-                textView = this.f2810a.l;
+                textView = this.f2078a.l;
                 textView.setText(format);
-                textView2 = this.f2810a.m;
+                textView2 = this.f2078a.m;
                 textView2.setText(format);
-                this.f2810a.q = f;
+                this.f2078a.q = f;
             }
-            this.f2810a.b();
-            this.f2810a.requestLayout();
+            this.f2078a.b();
+            this.f2078a.requestLayout();
         }
     }
 

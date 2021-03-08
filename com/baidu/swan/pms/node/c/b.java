@@ -16,30 +16,30 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-    private static volatile b evK;
-    private volatile boolean dVA = false;
-    private a evL = new a();
+    private static volatile b exl;
+    private volatile boolean dXb = false;
+    private a exm = new a();
 
-    public static b bdI() {
-        if (evK == null) {
+    public static b bdK() {
+        if (exl == null) {
             synchronized (b.class) {
-                if (evK == null) {
-                    evK = new b();
+                if (exl == null) {
+                    exl = new b();
                 }
             }
         }
-        return evK;
+        return exl;
     }
 
     private b() {
     }
 
-    public String bdJ() {
-        if (this.evL.contains("version")) {
-            return this.evL.getString("version", "0");
+    public String bdL() {
+        if (this.exm.contains("version")) {
+            return this.exm.getString("version", "0");
         }
-        if (aQj()) {
-            return this.evL.getString("version", "0");
+        if (aQm()) {
+            return this.exm.getString("version", "0");
         }
         return "0";
     }
@@ -49,9 +49,9 @@ public class b {
             if (com.baidu.swan.pms.d.DEBUG) {
                 Log.d(Node.TAG, "update host data version " + aVar.mVersion);
             }
-            SharedPreferences.Editor putString = this.evL.edit().putString("hostName", aVar.dOr).putString("schemeHead", aVar.evJ).putString("shareCallbackUrl", aVar.evH).putString(CameraActivityConfig.KEY_CONTENT_TYPE, aVar.mContentType).putInt("containerNo", aVar.evG).putInt("officialNo", aVar.evF).putString("version", aVar.mVersion);
-            if (aVar.evI != null && !aVar.evI.isEmpty()) {
-                putString.putStringSet(SocialOperation.GAME_SIGNATURE, aVar.evI);
+            SharedPreferences.Editor putString = this.exm.edit().putString("hostName", aVar.dPS).putString("schemeHead", aVar.exk).putString("shareCallbackUrl", aVar.exi).putString(CameraActivityConfig.KEY_CONTENT_TYPE, aVar.mContentType).putInt("containerNo", aVar.exh).putInt("officialNo", aVar.exg).putString("version", aVar.mVersion);
+            if (aVar.exj != null && !aVar.exj.isEmpty()) {
+                putString.putStringSet(SocialOperation.GAME_SIGNATURE, aVar.exj);
             }
             putString.apply();
         }
@@ -59,7 +59,7 @@ public class b {
 
     private void a(String str, String str2, String str3, String str4, Set<String> set) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str4)) {
-            SharedPreferences.Editor putString = this.evL.edit().putString("hostName", str).putString("schemeHead", str2).putString("shareCallbackUrl", str3).putString("version", str4);
+            SharedPreferences.Editor putString = this.exm.edit().putString("hostName", str).putString("schemeHead", str2).putString("shareCallbackUrl", str3).putString("version", str4);
             if (set != null && !set.isEmpty()) {
                 putString.putStringSet(SocialOperation.GAME_SIGNATURE, set);
             }
@@ -67,11 +67,11 @@ public class b {
         }
     }
 
-    private synchronized boolean aQj() {
+    private synchronized boolean aQm() {
         boolean z;
         HashSet hashSet;
         synchronized (this) {
-            if (this.dVA) {
+            if (this.dXb) {
                 z = true;
             } else {
                 String readAssetData = com.baidu.swan.c.d.readAssetData(AppRuntime.getAppContext(), "config/union-cfg.json");
@@ -99,7 +99,7 @@ public class b {
                             hashSet = hashSet2;
                         }
                         a(optString, optString2, optString3, String.valueOf(optInt), hashSet);
-                        this.dVA = true;
+                        this.dXb = true;
                         z = true;
                     } catch (JSONException e) {
                         if (com.baidu.swan.pms.d.DEBUG) {

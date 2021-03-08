@@ -10,35 +10,19 @@ import kotlin.jvm.internal.p;
 import kotlin.text.l;
 import org.apache.http.cookie.SM;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public final class c {
     public static final void a(com.baidu.poly.a.a.c cVar) {
         if (cVar != null) {
             cVar.g("channel", "cashiersdk");
             cVar.g(CashierData.DEVICE_TYPE, "ANDROID");
             cVar.g(CommandMessage.SDK_VERSION, "2.7.4");
-            cVar.g("appVersion", adl());
+            cVar.g("appVersion", ado());
             cVar.g("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
         }
     }
 
-    private static final String adl() {
-        Context adH = g.adH();
-        p.n(adH, "SdkRunTime.getAppContext()");
-        PackageManager packageManager = adH.getPackageManager();
-        try {
-            Context adH2 = g.adH();
-            p.n(adH2, "SdkRunTime.getAppContext()");
-            String str = packageManager.getPackageInfo(adH2.getPackageName(), 0).versionName;
-            p.n(str, "packageInfo.versionName");
-            return str;
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-            return "";
-        }
-    }
-
-    public static final com.baidu.poly.a.a.b ay(JSONObject jSONObject) {
+    public static final com.baidu.poly.a.a.b aA(JSONObject jSONObject) {
         com.baidu.poly.a.a.b bVar = new com.baidu.poly.a.a.b();
         if (jSONObject != null) {
             Iterator<String> keys = jSONObject.keys();
@@ -48,6 +32,22 @@ public final class c {
             }
         }
         return bVar;
+    }
+
+    private static final String ado() {
+        Context adK = g.adK();
+        p.o(adK, "SdkRunTime.getAppContext()");
+        PackageManager packageManager = adK.getPackageManager();
+        try {
+            Context adK2 = g.adK();
+            p.o(adK2, "SdkRunTime.getAppContext()");
+            String str = packageManager.getPackageInfo(adK2.getPackageName(), 0).versionName;
+            p.o(str, "packageInfo.versionName");
+            return str;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            return "";
+        }
     }
 
     public static final void a(com.baidu.poly.a.a.c cVar, String str) {

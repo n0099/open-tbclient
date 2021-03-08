@@ -34,44 +34,44 @@ import com.baidu.tieba.yuyinala.liveroom.grabredpacket.b;
 import com.baidu.tieba.yuyinala.liveroom.roomcard.AlaGetCollectRoomHttpResponseMessage;
 import com.baidu.tieba.yuyinala.liveroom.roomcard.h;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d extends Dialog {
-    private TextView acQ;
+    private TextView aek;
     private Context context;
-    private int frv;
-    private boolean gUb;
-    private ImageView lBS;
+    private int fsU;
+    private boolean gVK;
+    private ImageView lDU;
     private String mLiveId;
     private String mRoomId;
     private ViewGroup mRootView;
     private TextView mTvTitle;
-    private h orB;
-    private TextView ouu;
-    public CustomMessageListener oux;
-    private String ovA;
-    private boolean ovB;
-    private b ovC;
-    private Handler ovD;
-    private ViewGroup ovp;
-    private TextView ovq;
-    private TbImageView ovr;
-    private CheckBox ovs;
-    private RelativeLayout ovt;
-    private RedPacketView ovu;
-    private String ovv;
-    private String ovw;
-    private String ovx;
-    private String ovy;
-    private String ovz;
+    private h otG;
+    public CustomMessageListener owC;
+    private TextView owz;
+    private String oxA;
+    private String oxB;
+    private String oxC;
+    private String oxD;
+    private String oxE;
+    private String oxF;
+    private boolean oxG;
+    private b oxH;
+    private Handler oxI;
+    private ViewGroup oxu;
+    private TextView oxv;
+    private TbImageView oxw;
+    private CheckBox oxx;
+    private RelativeLayout oxy;
+    private RedPacketView oxz;
 
     public d(@NonNull Context context) {
         super(context);
-        this.oux = new CustomMessageListener(2501014) { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.9
+        this.owC = new CustomMessageListener(2501014) { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.9
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501014 && (customResponsedMessage.getData() instanceof g) && ((g) customResponsedMessage.getData()).Bm() != 1) {
-                    d.this.FA();
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501014 && (customResponsedMessage.getData() instanceof g) && ((g) customResponsedMessage.getData()).Bp() != 1) {
+                    d.this.FD();
                 }
             }
         };
@@ -84,28 +84,28 @@ public class d extends Dialog {
         setContentView(a.g.dialog_redpacket_yuyin);
         setCanceledOnTouchOutside(false);
         this.mRootView = (ViewGroup) findViewById(a.f.red_packget_root);
-        this.ovq = (TextView) findViewById(a.f.tv_time);
-        this.ovp = (ViewGroup) findViewById(a.f.background_view);
-        this.lBS = (ImageView) findViewById(a.f.iv_close);
-        this.ouu = (TextView) findViewById(a.f.tv_confirm);
-        this.ovr = (TbImageView) findViewById(a.f.tiv_result);
+        this.oxv = (TextView) findViewById(a.f.tv_time);
+        this.oxu = (ViewGroup) findViewById(a.f.background_view);
+        this.lDU = (ImageView) findViewById(a.f.iv_close);
+        this.owz = (TextView) findViewById(a.f.tv_confirm);
+        this.oxw = (TbImageView) findViewById(a.f.tiv_result);
         this.mTvTitle = (TextView) findViewById(a.f.tv_title);
-        this.acQ = (TextView) findViewById(a.f.tv_tip);
-        this.ovs = (CheckBox) findViewById(a.f.cb_collect);
-        this.ovt = (RelativeLayout) findViewById(a.f.rl_redpacket_lootgift_root);
-        this.ovu = (RedPacketView) findViewById(a.f.red_packets_view1);
-        Hf();
+        this.aek = (TextView) findViewById(a.f.tv_tip);
+        this.oxx = (CheckBox) findViewById(a.f.cb_collect);
+        this.oxy = (RelativeLayout) findViewById(a.f.rl_redpacket_lootgift_root);
+        this.oxz = (RedPacketView) findViewById(a.f.red_packets_view1);
+        Hi();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ebl() {
-        if (this.ovs.isChecked()) {
-            this.orB.y(this.mRoomId, this.mLiveId, 1);
-            this.ovs.setVisibility(8);
+    public void ebt() {
+        if (this.oxx.isChecked()) {
+            this.otG.y(this.mRoomId, this.mLiveId, 1);
+            this.oxx.setVisibility(8);
         }
     }
 
-    private void Hf() {
+    private void Hi() {
         setCancelable(true);
         setCanceledOnTouchOutside(true);
         Window window = getWindow();
@@ -127,20 +127,20 @@ public class d extends Dialog {
     }
 
     public void a(boolean z, int i, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, boolean z2) {
-        this.frv = i;
-        this.ovv = str;
-        this.ovw = str2;
+        this.fsU = i;
+        this.oxA = str;
+        this.oxB = str2;
         this.mRoomId = str3;
         this.mLiveId = str4;
-        this.ovz = str5;
-        this.ovx = str6;
-        this.ovy = str7;
-        this.ovA = str8;
-        this.ovB = z;
-        this.gUb = z2;
-        this.ovC = new b();
-        this.orB = new h(this.context);
-        this.orB.a(new h.a() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.1
+        this.oxE = str5;
+        this.oxC = str6;
+        this.oxD = str7;
+        this.oxF = str8;
+        this.oxG = z;
+        this.gVK = z2;
+        this.oxH = new b();
+        this.otG = new h(this.context);
+        this.otG.a(new h.a() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.1
             @Override // com.baidu.tieba.yuyinala.liveroom.roomcard.h.a
             public void a(AlaGetCollectRoomHttpResponseMessage alaGetCollectRoomHttpResponseMessage) {
                 MessageManager.getInstance().dispatchResponsedMessage(new YuyinFollowRoomMessage(new FollowRoom(true, d.this.mLiveId)));
@@ -150,36 +150,36 @@ public class d extends Dialog {
             public void onFail(int i2, String str9) {
             }
         });
-        this.ovD = new Handler();
-        this.ovp.removeAllViews();
+        this.oxI = new Handler();
+        this.oxu.removeAllViews();
         if (!isShowing()) {
             show();
             if (z) {
-                com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.eeo().a(this.ovp, this.ovv, this.ovw);
+                com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.eew().a(this.oxu, this.oxA, this.oxB);
             } else {
-                com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.eeo().b(this.ovp, this.ovv, this.ovw);
+                com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.eew().b(this.oxu, this.oxA, this.oxB);
             }
-            if (this.gUb) {
-                this.ovs.setVisibility(8);
+            if (this.gVK) {
+                this.oxx.setVisibility(8);
             } else {
-                this.ovs.setVisibility(0);
+                this.oxx.setVisibility(0);
             }
-            this.ovD.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.2
+            this.oxI.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.this.ebm();
+                    d.this.ebu();
                 }
-            }, (((int) (this.frv - (System.currentTimeMillis() / 1000))) - 15) * 1000);
-            this.lBS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.3
+            }, (((int) (this.fsU - (System.currentTimeMillis() / 1000))) - 15) * 1000);
+            this.lDU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (d.this.isShowing()) {
-                        d.this.FA();
+                        d.this.FD();
                     }
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                        jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, d.this.ovz);
+                        jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, d.this.oxE);
                         jSONObject.put("live_id", d.this.mLiveId);
                         jSONObject.put("live_id", d.this.mLiveId);
                         jSONObject.put("room_id", d.this.mRoomId);
@@ -189,42 +189,42 @@ public class d extends Dialog {
                     UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "giftrain_esc").setContentExt(jSONObject));
                 }
             });
-            this.ouu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.4
+            this.owz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    d.this.ovt.setVisibility(8);
+                    d.this.oxy.setVisibility(8);
                 }
             });
-            this.ovt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.5
+            this.oxy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    d.this.ovt.setVisibility(8);
+                    d.this.oxy.setVisibility(8);
                 }
             });
         }
     }
 
-    public void FA() {
+    public void FD() {
         dismiss();
-        this.ovp.removeAllViews();
-        ebo();
-        this.ovD.removeCallbacksAndMessages(null);
-        this.ovt.setVisibility(8);
+        this.oxu.removeAllViews();
+        ebw();
+        this.oxI.removeCallbacksAndMessages(null);
+        this.oxy.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ebm() {
-        ebn();
-        this.ovu.ebq();
-        this.ovu.setOnRedPacketClickListener(new RedPacketView.a() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.6
+    public void ebu() {
+        ebv();
+        this.oxz.eby();
+        this.oxz.setOnRedPacketClickListener(new RedPacketView.a() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.6
             @Override // com.baidu.tieba.yuyinala.liveroom.grabredpacket.RedPacketView.a
             public void a(c cVar) {
-                d.this.ebl();
-                d.this.ovC.j(d.this.mLiveId, d.this.mRoomId, d.this.ovz, d.this.ovx, d.this.ovy, d.this.ovA);
+                d.this.ebt();
+                d.this.oxH.j(d.this.mLiveId, d.this.mRoomId, d.this.oxE, d.this.oxC, d.this.oxD, d.this.oxF);
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                    jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, d.this.ovz);
+                    jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, d.this.oxE);
                     jSONObject.put("live_id", d.this.mLiveId);
                     jSONObject.put("live_id", d.this.mLiveId);
                     jSONObject.put("room_id", d.this.mRoomId);
@@ -234,18 +234,18 @@ public class d extends Dialog {
                 UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "giftrain_clk").setContentExt(jSONObject));
             }
         });
-        this.ovC.a(new b.a() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.7
+        this.oxH.a(new b.a() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.7
             @Override // com.baidu.tieba.yuyinala.liveroom.grabredpacket.b.a
             public void a(LootGiftHttpResponseMessage lootGiftHttpResponseMessage) {
                 if (!TextUtils.isEmpty(lootGiftHttpResponseMessage.image)) {
-                    d.this.ovt.setVisibility(0);
-                    d.this.ovr.startLoad(lootGiftHttpResponseMessage.image, 10, false);
+                    d.this.oxy.setVisibility(0);
+                    d.this.oxw.startLoad(lootGiftHttpResponseMessage.image, 10, false);
                     d.this.mTvTitle.setText(lootGiftHttpResponseMessage.text);
-                    d.this.acQ.setText(lootGiftHttpResponseMessage.tip);
+                    d.this.aek.setText(lootGiftHttpResponseMessage.tip);
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                        jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, d.this.ovz);
+                        jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, d.this.oxE);
                         jSONObject.put("live_id", d.this.mLiveId);
                         jSONObject.put("live_id", d.this.mLiveId);
                         jSONObject.put("room_id", d.this.mRoomId);
@@ -265,7 +265,7 @@ public class d extends Dialog {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.ovz);
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.oxE);
             jSONObject.put("live_id", this.mLiveId);
             jSONObject.put("live_id", this.mLiveId);
             jSONObject.put("room_id", this.mRoomId);
@@ -276,40 +276,40 @@ public class d extends Dialog {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ebn() {
-        this.ovD.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.8
+    public void ebv() {
+        this.oxI.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.8
             @Override // java.lang.Runnable
             public void run() {
-                int currentTimeMillis = (int) (d.this.frv - (System.currentTimeMillis() / 1000));
+                int currentTimeMillis = (int) (d.this.fsU - (System.currentTimeMillis() / 1000));
                 if (currentTimeMillis <= 0) {
                     if (d.this.isShowing()) {
-                        d.this.FA();
+                        d.this.FD();
                     }
-                    d.this.ovq.setVisibility(8);
+                    d.this.oxv.setVisibility(8);
                 } else if (currentTimeMillis > 15) {
-                    d.this.ovq.setVisibility(8);
+                    d.this.oxv.setVisibility(8);
                 } else {
-                    d.this.ovq.setVisibility(0);
-                    d.this.ovq.setText(currentTimeMillis + " S");
+                    d.this.oxv.setVisibility(0);
+                    d.this.oxv.setText(currentTimeMillis + " S");
                 }
-                d.this.ebn();
+                d.this.ebv();
             }
         }, 1000L);
     }
 
-    private void ebo() {
-        this.ovu.ebp();
+    private void ebw() {
+        this.oxz.ebx();
     }
 
     @Override // android.app.Dialog
     public void show() {
         super.show();
-        MessageManager.getInstance().registerListener(this.oux);
+        MessageManager.getInstance().registerListener(this.owC);
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
         super.dismiss();
-        MessageManager.getInstance().unRegisterListener(this.oux);
+        MessageManager.getInstance().unRegisterListener(this.owC);
     }
 }

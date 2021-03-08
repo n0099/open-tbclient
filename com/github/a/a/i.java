@@ -2,11 +2,11 @@ package com.github.a.a;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class i extends a {
-    private static final LinkedHashMap<Long, String> pRr = new LinkedHashMap<>();
+    private static final LinkedHashMap<Long, String> pSg = new LinkedHashMap<>();
     private Thread mCurrentThread;
-    private int pRs;
+    private int pSh;
 
     @Override // com.github.a.a.a
     public /* bridge */ /* synthetic */ void start() {
@@ -24,17 +24,17 @@ public class i extends a {
 
     public i(Thread thread, int i, long j) {
         super(j);
-        this.pRs = 100;
+        this.pSh = 100;
         this.mCurrentThread = thread;
-        this.pRs = i;
+        this.pSh = i;
     }
 
     public ArrayList<String> T(long j, long j2) {
         ArrayList<String> arrayList = new ArrayList<>();
-        synchronized (pRr) {
-            for (Long l : pRr.keySet()) {
+        synchronized (pSg) {
+            for (Long l : pSg.keySet()) {
                 if (j < l.longValue() && l.longValue() < j2) {
-                    arrayList.add(com.github.a.a.a.a.pRf.format(l) + "\r\n\r\n" + pRr.get(l));
+                    arrayList.add(com.github.a.a.a.a.pRU.format(l) + "\r\n\r\n" + pSg.get(l));
                 }
             }
         }
@@ -42,16 +42,16 @@ public class i extends a {
     }
 
     @Override // com.github.a.a.a
-    protected void eAC() {
+    protected void eAI() {
         StringBuilder sb = new StringBuilder();
         for (StackTraceElement stackTraceElement : this.mCurrentThread.getStackTrace()) {
             sb.append(stackTraceElement.toString()).append("\r\n");
         }
-        synchronized (pRr) {
-            if (pRr.size() == this.pRs && this.pRs > 0) {
-                pRr.remove(pRr.keySet().iterator().next());
+        synchronized (pSg) {
+            if (pSg.size() == this.pSh && this.pSh > 0) {
+                pSg.remove(pSg.keySet().iterator().next());
             }
-            pRr.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
+            pSg.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
         }
     }
 }

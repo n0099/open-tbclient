@@ -1,5 +1,5 @@
 package com.yy.mediaframework.model;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YUVImageBuffer extends ImageBuffer {
     public long mPts = 0;
     public int mStreamId = 0;

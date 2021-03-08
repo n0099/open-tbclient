@@ -5,57 +5,57 @@ import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.data.az;
 import com.baidu.live.data.ck;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static a oIU;
-    private int oIV = 0;
+    private static a oKZ;
+    private int oLa = 0;
 
-    public static a eeo() {
-        if (oIU == null) {
+    public static a eew() {
+        if (oKZ == null) {
             synchronized (a.class) {
-                if (oIU == null) {
-                    oIU = new a();
+                if (oKZ == null) {
+                    oKZ = new a();
                 }
             }
         }
-        return oIU;
+        return oKZ;
     }
 
     private a() {
     }
 
     public void a(ViewGroup viewGroup, c cVar) {
-        az CC = CC();
-        if (!a(CC) && a(CC, true)) {
-            b.eet().a(viewGroup, CC.Cv(), cVar);
+        az CF = CF();
+        if (!a(CF) && a(CF, true)) {
+            b.eeB().a(viewGroup, CF.Cy(), cVar);
         }
     }
 
     public void b(ViewGroup viewGroup, c cVar) {
-        az eep = eep();
-        if (!a(eep) && a(eep, true)) {
-            b.eet().a(viewGroup, eep.Cv(), cVar);
+        az eex = eex();
+        if (!a(eex) && a(eex, true)) {
+            b.eeB().a(viewGroup, eex.Cy(), cVar);
         }
     }
 
     public void c(ViewGroup viewGroup, c cVar) {
-        az eeq = eeq();
-        if (!a(eeq) && a(eeq, true)) {
-            b.eet().a(viewGroup, eeq.Cv(), cVar);
+        az eey = eey();
+        if (!a(eey) && a(eey, true)) {
+            b.eeB().a(viewGroup, eey.Cy(), cVar);
         }
     }
 
     public void d(ViewGroup viewGroup, c cVar) {
-        az eer = eer();
-        if (!a(eer) && a(eer, true)) {
-            b.eet().a(viewGroup, eer.Cv(), cVar);
+        az eez = eez();
+        if (!a(eez) && a(eez, true)) {
+            b.eeB().a(viewGroup, eez.Cy(), cVar);
         }
     }
 
     public void a(ViewGroup viewGroup, String str, String str2, c cVar) {
-        az CD = CD();
-        if (!a(CD) && a(CD, true) && !StringUtils.isNull(str, true) && !StringUtils.isNull(str2, true)) {
-            b.eet().a(viewGroup, CD.Cv(), str, str2, cVar);
+        az CG = CG();
+        if (!a(CG) && a(CG, true) && !StringUtils.isNull(str, true) && !StringUtils.isNull(str2, true)) {
+            b.eeB().a(viewGroup, CG.Cy(), str, str2, cVar);
         }
     }
 
@@ -64,9 +64,9 @@ public class a {
     }
 
     public void b(ViewGroup viewGroup, String str, String str2, c cVar) {
-        az CE = CE();
-        if (!a(CE) && a(CE, true) && !StringUtils.isNull(str, true) && !StringUtils.isNull(str2, true)) {
-            b.eet().b(viewGroup, CE.Cv(), str, str2, cVar);
+        az CH = CH();
+        if (!a(CH) && a(CH, true) && !StringUtils.isNull(str, true) && !StringUtils.isNull(str2, true)) {
+            b.eeB().b(viewGroup, CH.Cy(), str, str2, cVar);
         }
     }
 
@@ -75,9 +75,9 @@ public class a {
     }
 
     public void c(ViewGroup viewGroup, String str, String str2, c cVar) {
-        az CF = CF();
-        if (!a(CF) && a(CF, true) && !StringUtils.isNull(str, true) && !StringUtils.isNull(str2, true)) {
-            b.eet().c(viewGroup, CF.Cv(), str, str2, cVar);
+        az CI = CI();
+        if (!a(CI) && a(CI, true) && !StringUtils.isNull(str, true) && !StringUtils.isNull(str2, true)) {
+            b.eeB().c(viewGroup, CI.Cy(), str, str2, cVar);
         }
     }
 
@@ -85,120 +85,120 @@ public class a {
         if (azVar == null) {
             return false;
         }
-        boolean WK = com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.WK(azVar.Cv());
-        if (!WK && z) {
-            com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.b(azVar.getDownloadUrl(), azVar.Cv(), null);
-            return WK;
+        boolean WR = com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.WR(azVar.Cy());
+        if (!WR && z) {
+            com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.b(azVar.getDownloadUrl(), azVar.Cy(), null);
+            return WR;
         }
-        return WK;
-    }
-
-    private az CC() {
-        ck ees = ees();
-        if (ees == null) {
-            return null;
-        }
-        return ees.CC();
-    }
-
-    private az eep() {
-        ck ees = ees();
-        if (ees == null) {
-            return null;
-        }
-        return ees.CG();
-    }
-
-    private az eeq() {
-        ck ees = ees();
-        if (ees == null) {
-            return null;
-        }
-        return ees.CH();
-    }
-
-    private az eer() {
-        ck ees = ees();
-        if (ees == null) {
-            return null;
-        }
-        return ees.CI();
-    }
-
-    private az CD() {
-        ck ees = ees();
-        if (ees == null) {
-            return null;
-        }
-        return ees.CD();
-    }
-
-    private az CE() {
-        ck ees = ees();
-        if (ees == null) {
-            return null;
-        }
-        return ees.CE();
+        return WR;
     }
 
     private az CF() {
-        ck ees = ees();
-        if (ees == null) {
+        ck eeA = eeA();
+        if (eeA == null) {
             return null;
         }
-        return ees.CF();
+        return eeA.CF();
     }
 
-    private az CK() {
-        ck ees = ees();
-        if (ees == null) {
+    private az eex() {
+        ck eeA = eeA();
+        if (eeA == null) {
             return null;
         }
-        return ees.CK();
+        return eeA.CJ();
+    }
+
+    private az eey() {
+        ck eeA = eeA();
+        if (eeA == null) {
+            return null;
+        }
+        return eeA.CK();
+    }
+
+    private az eez() {
+        ck eeA = eeA();
+        if (eeA == null) {
+            return null;
+        }
+        return eeA.CL();
+    }
+
+    private az CG() {
+        ck eeA = eeA();
+        if (eeA == null) {
+            return null;
+        }
+        return eeA.CG();
+    }
+
+    private az CH() {
+        ck eeA = eeA();
+        if (eeA == null) {
+            return null;
+        }
+        return eeA.CH();
+    }
+
+    private az CI() {
+        ck eeA = eeA();
+        if (eeA == null) {
+            return null;
+        }
+        return eeA.CI();
+    }
+
+    private az CN() {
+        ck eeA = eeA();
+        if (eeA == null) {
+            return null;
+        }
+        return eeA.CN();
     }
 
     private static boolean a(az azVar) {
-        return azVar == null || StringUtils.isNull(azVar.getDownloadUrl(), true) || StringUtils.isNull(azVar.Cv(), true);
+        return azVar == null || StringUtils.isNull(azVar.getDownloadUrl(), true) || StringUtils.isNull(azVar.Cy(), true);
     }
 
-    private ck ees() {
-        if (com.baidu.live.ae.a.Qj().buX == null || com.baidu.live.ae.a.Qj().buX.aNt == null) {
+    private ck eeA() {
+        if (com.baidu.live.ae.a.Qm().bwx == null || com.baidu.live.ae.a.Qm().bwx.aOT == null) {
             return null;
         }
-        return com.baidu.live.ae.a.Qj().buX.aNt.aRi;
+        return com.baidu.live.ae.a.Qm().bwx.aOT.aSI;
     }
 
-    public void dh(ViewGroup viewGroup) {
-        dj(viewGroup);
+    public void dg(ViewGroup viewGroup) {
         di(viewGroup);
+        dh(viewGroup);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void di(ViewGroup viewGroup) {
+    public void dh(ViewGroup viewGroup) {
         if (viewGroup != null && viewGroup.findViewById(a.f.ala_audio_dating_lottie_view) != null) {
             viewGroup.removeView(viewGroup.findViewById(a.f.ala_audio_dating_lottie_view));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dj(ViewGroup viewGroup) {
+    public void di(ViewGroup viewGroup) {
         if (viewGroup != null && viewGroup.findViewById(a.f.ala_audio_dating_video_view) != null) {
             viewGroup.removeView(viewGroup.findViewById(a.f.ala_audio_dating_video_view));
         }
     }
 
-    public boolean WH(String str) {
+    public boolean WO(String str) {
         if (StringUtils.isNull(str, true)) {
             return false;
         }
-        String hH = com.baidu.live.storage.b.hH(str);
-        return com.baidu.live.h.a.existFile(hH) && com.baidu.live.h.a.isDirectory(hH) && !com.baidu.live.h.b.b(hH, com.baidu.live.h.b.fC(new StringBuilder().append("video_bg_md5_").append(str).toString()));
+        String hN = com.baidu.live.storage.b.hN(str);
+        return com.baidu.live.h.a.existFile(hN) && com.baidu.live.h.a.isDirectory(hN) && !com.baidu.live.h.b.b(hN, com.baidu.live.h.b.fI(new StringBuilder().append("video_bg_md5_").append(str).toString()));
     }
 
     public void e(ViewGroup viewGroup, c cVar) {
-        az CK = CK();
-        if (!a(CK) && a(CK, true)) {
-            b.eet().a(viewGroup, CK.Cv(), cVar);
+        az CN = CN();
+        if (!a(CN) && a(CN, true)) {
+            b.eeB().a(viewGroup, CN.Cy(), cVar);
         }
     }
 }

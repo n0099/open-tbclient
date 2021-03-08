@@ -2,38 +2,38 @@ package com.baidu.live.im.data;
 
 import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public String aWQ;
-    public int bot;
-    public String bpc;
-    public long bpd;
+    public String aYq;
+    public int bpT;
+    public String bqC;
+    public long bqD;
     public int giftId;
     public String giftName;
 
-    public static a T(JSONObject jSONObject) {
+    public static a V(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
         a aVar = new a();
         aVar.giftId = jSONObject.optInt(LogConfig.LOG_GIFT_ID);
-        aVar.bot = jSONObject.optInt("prize_num");
+        aVar.bpT = jSONObject.optInt("prize_num");
         aVar.giftName = jSONObject.optString("gift_name");
-        aVar.aWQ = jSONObject.optString("gift_url");
-        aVar.bpc = jSONObject.optString("prize_type");
-        aVar.bpd = jSONObject.optInt("prize_value");
+        aVar.aYq = jSONObject.optString("gift_url");
+        aVar.bqC = jSONObject.optString("prize_type");
+        aVar.bqD = jSONObject.optInt("prize_value");
         return aVar;
     }
 
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("prize_type", this.bpc);
+            jSONObject.put("prize_type", this.bqC);
             jSONObject.put(LogConfig.LOG_GIFT_ID, this.giftId);
-            jSONObject.put("prize_num", this.bot);
+            jSONObject.put("prize_num", this.bpT);
             jSONObject.put("gift_name", this.giftName);
-            jSONObject.put("gift_url", this.aWQ);
-            jSONObject.put("prize_value", this.bpd);
+            jSONObject.put("gift_url", this.aYq);
+            jSONObject.put("prize_value", this.bqD);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -14,7 +14,7 @@ import com.baidu.mobstat.Config;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
 @TargetApi(18)
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 class EglBase14 implements EglBase {
     private static final int CURRENT_SDK_VERSION = Build.VERSION.SDK_INT;
     private static final int EGLExt_SDK_VERSION = 18;
@@ -25,7 +25,7 @@ class EglBase14 implements EglBase {
     private EGLSurface eglSurface = EGL14.EGL_NO_SURFACE;
     private EGLDisplay eglDisplay = getEglDisplay();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class Context implements EglBase.Context {
         private final EGLContext egl14Context;
 

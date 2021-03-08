@@ -14,7 +14,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoDataStat {
     private static final String TAG = "VideoDataStat";
     private static VideoDataStat mInstance = null;
@@ -46,7 +46,7 @@ public class VideoDataStat {
     private final Object mPreprocessObject = new Object();
     private final Object syncLock = new Object();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private interface AnchorHiidoStatInfoKey {
         public static final String ANDROID_ID = "dr30";
         public static final String APP_PK = "dr29";
@@ -94,7 +94,7 @@ public class VideoDataStat {
         public static final String VideoRenderPtsMeanDiff = "dr46";
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class VideoRenderTimeStamp {
         public List<Long> mVideoRenderPtsMaxDiffList = new ArrayList();
         public List<Long> mVideoRenderPtsMeanDiffList = new ArrayList();

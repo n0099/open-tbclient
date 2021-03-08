@@ -16,15 +16,13 @@ import javax.net.ssl.HttpsURLConnection;
 public class h extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f2638a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ e f2639b;
+    final /* synthetic */ String f1972a;
+    final /* synthetic */ e b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(e eVar, String str) {
-        this.f2639b = eVar;
-        this.f2638a = str;
+        this.b = eVar;
+        this.f1972a = str;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -37,25 +35,25 @@ public class h extends Thread {
         HttpsURLConnection httpsURLConnection;
         Exception e;
         Error e2;
-        this.f2639b.a();
-        this.f2639b.b();
-        this.f2639b.h = this.f2638a;
+        this.b.a();
+        this.b.b();
+        this.b.h = this.f1972a;
         try {
             try {
                 StringBuffer stringBuffer = new StringBuffer();
-                url = new URL(this.f2639b.h);
+                url = new URL(this.b.h);
                 try {
                     HttpsURLConnection httpsURLConnection2 = (HttpsURLConnection) url.openConnection();
                     try {
                         httpsURLConnection2.setInstanceFollowRedirects(false);
                         httpsURLConnection2.setDoOutput(true);
                         httpsURLConnection2.setDoInput(true);
-                        httpsURLConnection2.setConnectTimeout(a.f2622b);
+                        httpsURLConnection2.setConnectTimeout(a.b);
                         httpsURLConnection2.setReadTimeout(a.c);
                         httpsURLConnection2.setRequestMethod("POST");
                         httpsURLConnection2.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
                         httpsURLConnection2.setRequestProperty(Headers.ACCEPT_ENCODING, "gzip");
-                        for (Map.Entry<String, Object> entry : this.f2639b.k.entrySet()) {
+                        for (Map.Entry<String, Object> entry : this.b.k.entrySet()) {
                             stringBuffer.append(entry.getKey());
                             stringBuffer.append("=");
                             stringBuffer.append(entry.getValue());
@@ -98,15 +96,15 @@ public class h extends Thread {
                                         }
                                         byteArrayOutputStream.write(bArr, 0, read);
                                     }
-                                    this.f2639b.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
-                                    this.f2639b.a(true);
+                                    this.b.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
+                                    this.b.a(true);
                                 } catch (Error e5) {
                                     e2 = e5;
                                     httpsURLConnection = httpsURLConnection2;
                                     e2.printStackTrace();
-                                    Log.i(a.f2621a, "https NetworkCommunicationError!");
-                                    this.f2639b.j = null;
-                                    this.f2639b.a(false);
+                                    Log.i(a.f1963a, "https NetworkCommunicationError!");
+                                    this.b.j = null;
+                                    this.b.a(false);
                                     if (httpsURLConnection != null) {
                                         httpsURLConnection.disconnect();
                                     }
@@ -116,21 +114,21 @@ public class h extends Thread {
                                         try {
                                             outputStream.close();
                                         } catch (Exception e6) {
-                                            Log.d(a.f2621a, "close os IOException!");
+                                            Log.d(a.f1963a, "close os IOException!");
                                         }
                                     }
                                     if (inputStream != null) {
                                         try {
                                             inputStream.close();
                                         } catch (Exception e7) {
-                                            Log.d(a.f2621a, "close is IOException!");
+                                            Log.d(a.f1963a, "close is IOException!");
                                         }
                                     }
                                     if (byteArrayOutputStream != null) {
                                         try {
                                             byteArrayOutputStream.close();
                                         } catch (Exception e8) {
-                                            Log.d(a.f2621a, "close baos IOException!");
+                                            Log.d(a.f1963a, "close baos IOException!");
                                         }
                                     }
                                     return;
@@ -138,9 +136,9 @@ public class h extends Thread {
                                     e = e9;
                                     httpsURLConnection = httpsURLConnection2;
                                     e.printStackTrace();
-                                    Log.i(a.f2621a, "https NetworkCommunicationException!");
-                                    this.f2639b.j = null;
-                                    this.f2639b.a(false);
+                                    Log.i(a.f1963a, "https NetworkCommunicationException!");
+                                    this.b.j = null;
+                                    this.b.a(false);
                                     if (httpsURLConnection != null) {
                                         httpsURLConnection.disconnect();
                                     }
@@ -150,21 +148,21 @@ public class h extends Thread {
                                         try {
                                             outputStream.close();
                                         } catch (Exception e10) {
-                                            Log.d(a.f2621a, "close os IOException!");
+                                            Log.d(a.f1963a, "close os IOException!");
                                         }
                                     }
                                     if (inputStream != null) {
                                         try {
                                             inputStream.close();
                                         } catch (Exception e11) {
-                                            Log.d(a.f2621a, "close is IOException!");
+                                            Log.d(a.f1963a, "close is IOException!");
                                         }
                                     }
                                     if (byteArrayOutputStream != null) {
                                         try {
                                             byteArrayOutputStream.close();
                                         } catch (Exception e12) {
-                                            Log.d(a.f2621a, "close baos IOException!");
+                                            Log.d(a.f1963a, "close baos IOException!");
                                         }
                                     }
                                     return;
@@ -180,28 +178,28 @@ public class h extends Thread {
                                         try {
                                             outputStream.close();
                                         } catch (Exception e13) {
-                                            Log.d(a.f2621a, "close os IOException!");
+                                            Log.d(a.f1963a, "close os IOException!");
                                         }
                                     }
                                     if (inputStream != null) {
                                         try {
                                             inputStream.close();
                                         } catch (Exception e14) {
-                                            Log.d(a.f2621a, "close is IOException!");
+                                            Log.d(a.f1963a, "close is IOException!");
                                         }
                                     }
                                     if (byteArrayOutputStream != null) {
                                         try {
                                             byteArrayOutputStream.close();
                                         } catch (Exception e15) {
-                                            Log.d(a.f2621a, "close baos IOException!");
+                                            Log.d(a.f1963a, "close baos IOException!");
                                         }
                                     }
                                     throw th;
                                 }
                             } else {
-                                this.f2639b.j = null;
-                                this.f2639b.a(false);
+                                this.b.j = null;
+                                this.b.a(false);
                                 byteArrayOutputStream = null;
                                 inputStream = null;
                             }
@@ -214,21 +212,21 @@ public class h extends Thread {
                                 try {
                                     outputStream.close();
                                 } catch (Exception e16) {
-                                    Log.d(a.f2621a, "close os IOException!");
+                                    Log.d(a.f1963a, "close os IOException!");
                                 }
                             }
                             if (inputStream != null) {
                                 try {
                                     inputStream.close();
                                 } catch (Exception e17) {
-                                    Log.d(a.f2621a, "close is IOException!");
+                                    Log.d(a.f1963a, "close is IOException!");
                                 }
                             }
                             if (byteArrayOutputStream != null) {
                                 try {
                                     byteArrayOutputStream.close();
                                 } catch (Exception e18) {
-                                    Log.d(a.f2621a, "close baos IOException!");
+                                    Log.d(a.f1963a, "close baos IOException!");
                                 }
                             }
                         } catch (Error e19) {

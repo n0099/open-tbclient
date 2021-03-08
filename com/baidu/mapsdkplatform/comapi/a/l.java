@@ -13,10 +13,8 @@ import com.baidu.mapapi.model.LatLng;
 public class l extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Animator f3013a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    private long f3014b = 0;
+    private Animator f2197a = null;
+    private long b = 0;
     private Interpolator c = null;
     private Animation.AnimationListener d = null;
     private int e = 1;
@@ -76,7 +74,7 @@ public class l extends c {
         if (ofObject != null) {
             ofObject.setRepeatCount(this.f);
             ofObject.setRepeatMode(c());
-            ofObject.setDuration(this.f3014b);
+            ofObject.setDuration(this.b);
             if (this.c != null) {
                 ofObject.setInterpolator(this.c);
             }
@@ -87,10 +85,10 @@ public class l extends c {
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a() {
-        if (this.f3013a == null) {
+        if (this.f2197a == null) {
             return;
         }
-        this.f3013a.start();
+        this.f2197a.start();
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -103,7 +101,7 @@ public class l extends c {
         if (j < 0) {
             j = 0;
         }
-        this.f3014b = j;
+        this.b = j;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -128,16 +126,16 @@ public class l extends c {
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a(Marker marker, Animation animation) {
-        this.f3013a = a(marker);
-        a(this.f3013a);
+        this.f2197a = a(marker);
+        a(this.f2197a);
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void b() {
-        if (this.f3013a != null) {
-            this.f3013a.cancel();
-            this.f3013a = null;
+        if (this.f2197a != null) {
+            this.f2197a.cancel();
+            this.f2197a = null;
         }
     }
 

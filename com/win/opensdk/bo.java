@@ -1,7 +1,30 @@
 package com.win.opensdk;
-/* loaded from: classes3.dex */
-public interface bo {
-    void abR(String str);
+/* loaded from: classes14.dex */
+public class bo implements PBInterstitialListener {
+    public bo(bq bqVar) {
+    }
 
-    boolean hC(String str, String str2);
+    @Override // com.win.opensdk.PBListener
+    public void onClicked() {
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onFail(PBError pBError) {
+    }
+
+    @Override // com.win.opensdk.PBInterstitialListener
+    public void onInterstitialDismissed() {
+    }
+
+    @Override // com.win.opensdk.PBInterstitialListener
+    public void onInterstitialDisplayed() {
+    }
+
+    @Override // com.win.opensdk.PBInterstitialListener
+    public void onInterstitialShowFail(String str) {
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onLoaded() {
+    }
 }

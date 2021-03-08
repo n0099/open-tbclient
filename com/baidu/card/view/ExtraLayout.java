@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.view.commonBtn.b;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ExtraLayout extends RelativeLayout {
-    private com.baidu.tbadk.core.data.a agj;
-    private TBSpecificationBtn aku;
-    private TextView akv;
-    private TextView akw;
-    private View.OnClickListener akx;
+    private com.baidu.tbadk.core.data.a ahB;
+    private TBSpecificationBtn alN;
+    private TextView alO;
+    private TextView alP;
+    private View.OnClickListener alQ;
     private final View.OnClickListener mOnClickListener;
 
     public ExtraLayout(Context context) {
@@ -27,8 +27,8 @@ public class ExtraLayout extends RelativeLayout {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.card.view.ExtraLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ExtraLayout.this.akx != null) {
-                    ExtraLayout.this.akx.onClick(view);
+                if (ExtraLayout.this.alQ != null) {
+                    ExtraLayout.this.alQ.onClick(view);
                 }
             }
         };
@@ -40,8 +40,8 @@ public class ExtraLayout extends RelativeLayout {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.card.view.ExtraLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ExtraLayout.this.akx != null) {
-                    ExtraLayout.this.akx.onClick(view);
+                if (ExtraLayout.this.alQ != null) {
+                    ExtraLayout.this.alQ.onClick(view);
                 }
             }
         };
@@ -53,8 +53,8 @@ public class ExtraLayout extends RelativeLayout {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.card.view.ExtraLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ExtraLayout.this.akx != null) {
-                    ExtraLayout.this.akx.onClick(view);
+                if (ExtraLayout.this.alQ != null) {
+                    ExtraLayout.this.alQ.onClick(view);
                 }
             }
         };
@@ -63,50 +63,50 @@ public class ExtraLayout extends RelativeLayout {
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.card_home_page_extra_item, (ViewGroup) this, true);
-        this.akv = (TextView) inflate.findViewById(R.id.extra_text);
-        this.akv.setCompoundDrawablePadding(l.getDimens(context, R.dimen.tbds10));
-        this.akw = (TextView) inflate.findViewById(R.id.extra_tag);
-        this.aku = (TBSpecificationBtn) inflate.findViewById(R.id.extra_btn);
-        this.aku.setOnClickListener(this.mOnClickListener);
+        this.alO = (TextView) inflate.findViewById(R.id.extra_text);
+        this.alO.setCompoundDrawablePadding(l.getDimens(context, R.dimen.tbds10));
+        this.alP = (TextView) inflate.findViewById(R.id.extra_tag);
+        this.alN = (TBSpecificationBtn) inflate.findViewById(R.id.extra_btn);
+        this.alN.setOnClickListener(this.mOnClickListener);
         b bVar = new b();
-        bVar.pR(R.color.CAM_X0302);
-        this.aku.setConfig(bVar);
-        this.aku.setText(getResources().getString(R.string.download_just_now));
+        bVar.pS(R.color.CAM_X0302);
+        this.alN.setConfig(bVar);
+        this.alN.setText(getResources().getString(R.string.download_just_now));
     }
 
     public void setData(com.baidu.tbadk.core.data.a aVar) {
         boolean z;
         boolean z2 = true;
-        this.agj = aVar;
-        cb bln = aVar.bln();
-        if (!TextUtils.isEmpty(bln.eUe)) {
-            this.akv.setVisibility(0);
-            this.akv.setText(bln.eUe);
-            this.akv.setOnClickListener(null);
+        this.ahB = aVar;
+        cb blp = aVar.blp();
+        if (!TextUtils.isEmpty(blp.eVD)) {
+            this.alO.setVisibility(0);
+            this.alO.setText(blp.eVD);
+            this.alO.setOnClickListener(null);
             z = true;
         } else {
-            this.akv.setVisibility(8);
+            this.alO.setVisibility(8);
             z = false;
         }
-        if (!TextUtils.isEmpty(bln.eUf)) {
-            this.akw.setVisibility(0);
-            this.akw.setText(bln.eUf);
-            this.akw.setOnClickListener(null);
+        if (!TextUtils.isEmpty(blp.eVE)) {
+            this.alP.setVisibility(0);
+            this.alP.setText(blp.eVE);
+            this.alP.setOnClickListener(null);
             z = true;
         } else {
-            this.akw.setVisibility(8);
+            this.alP.setVisibility(8);
         }
-        if (!TextUtils.isEmpty(bln.buttonText)) {
-            this.aku.setVisibility(0);
-            this.aku.setText(bln.buttonText);
+        if (!TextUtils.isEmpty(blp.buttonText)) {
+            this.alN.setVisibility(0);
+            this.alN.setText(blp.buttonText);
         } else {
-            this.aku.setVisibility(4);
+            this.alN.setVisibility(4);
             z2 = z;
         }
         setVisibility(z2 ? 0 : 8);
     }
 
     public void setOnAfterClickListener(View.OnClickListener onClickListener) {
-        this.akx = onClickListener;
+        this.alQ = onClickListener;
     }
 }

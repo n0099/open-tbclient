@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.live.tbadk.extraparams.ResultCallback;
 import com.baidu.live.tbadk.scheme.SchemeCallback;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class k extends com.baidu.live.view.web.a {
     private SchemeCallback schemeCallback;
 
@@ -20,7 +20,7 @@ public class k extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void is(final String str) {
+    public void iy(final String str) {
         if (this.schemeCallback != null) {
             ExtraParamsManager.addLoginCallback(new ResultCallback() { // from class: com.baidu.live.view.web.a.k.1
                 @Override // com.baidu.live.tbadk.extraparams.ResultCallback

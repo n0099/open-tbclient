@@ -13,10 +13,8 @@ import org.apache.http.HttpHost;
 public class x<Data> implements n<Uri, Data> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Set<String> f10132a = Collections.unmodifiableSet(new HashSet(Arrays.asList(HttpHost.DEFAULT_SCHEME_NAME, "https")));
-
-    /* renamed from: b  reason: collision with root package name */
-    private final n<g, Data> f10133b;
+    private static final Set<String> f6708a = Collections.unmodifiableSet(new HashSet(Arrays.asList(HttpHost.DEFAULT_SCHEME_NAME, "https")));
+    private final n<g, Data> b;
 
     /* loaded from: classes3.dex */
     public static class a implements o<Uri, InputStream> {
@@ -28,18 +26,18 @@ public class x<Data> implements n<Uri, Data> {
     }
 
     public x(n<g, Data> nVar) {
-        this.f10133b = nVar;
+        this.b = nVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.b.n
     public n.a<Data> a(@NonNull Uri uri, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        return this.f10133b.a(new g(uri.toString()), i, i2, eVar);
+        return this.b.a(new g(uri.toString()), i, i2, eVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.b.n
     public boolean a(@NonNull Uri uri) {
-        return f10132a.contains(uri.getScheme());
+        return f6708a.contains(uri.getScheme());
     }
 }

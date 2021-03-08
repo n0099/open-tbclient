@@ -70,7 +70,7 @@ public final class r {
                         httpURLConnection2.setRequestProperty("EncryptType", "RSA-AES");
                     }
                     httpURLConnection2.setRequestProperty("EncryptData", p);
-                    httpURLConnection2.setRequestProperty("User-Agent", g.a(str2, h.dD(str3)));
+                    httpURLConnection2.setRequestProperty("User-Agent", g.a(str2, h.n(str3)));
                 }
                 httpURLConnection2.setConnectTimeout(8000);
                 httpURLConnection2.setReadTimeout(8000);
@@ -80,7 +80,7 @@ public final class r {
                     dataOutputStream.flush();
                     dataOutputStream.close();
                     StringBuffer stringBuffer = new StringBuffer();
-                    com.baidu.crabsdk.c.a.ds("response code is " + httpURLConnection2.getResponseCode());
+                    com.baidu.crabsdk.c.a.dw("response code is " + httpURLConnection2.getResponseCode());
                     if (httpURLConnection2.getResponseCode() == 200) {
                         inputStreamReader = new InputStreamReader(httpURLConnection2.getInputStream());
                         try {
@@ -283,7 +283,7 @@ public final class r {
     private static HttpURLConnection b(long j, String str, String str2) {
         HttpURLConnection httpURLConnection;
         try {
-            com.baidu.crabsdk.c.a.ds("发送数据的 url is : " + str2);
+            com.baidu.crabsdk.c.a.dw("发送数据的 url is : " + str2);
             httpURLConnection = (HttpURLConnection) new URL(str2).openConnection();
             try {
                 httpURLConnection.setRequestMethod("POST");

@@ -6,65 +6,65 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private static a giZ;
-    private List<com.baidu.tbadk.coreExtra.relationship.a> gja;
-    private List<InterfaceC0594a> mObservers = new ArrayList();
+    private static a gkC;
+    private List<com.baidu.tbadk.coreExtra.relationship.a> gkD;
+    private List<InterfaceC0600a> mObservers = new ArrayList();
 
     /* renamed from: com.baidu.tieba.addresslist.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC0594a {
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0600a {
         void bU(List<com.baidu.tbadk.coreExtra.relationship.a> list);
     }
 
     private a() {
     }
 
-    public static synchronized a bLS() {
+    public static synchronized a bLW() {
         a aVar;
         synchronized (a.class) {
-            if (giZ == null) {
-                giZ = new a();
+            if (gkC == null) {
+                gkC = new a();
             }
-            aVar = giZ;
+            aVar = gkC;
         }
         return aVar;
     }
 
-    public void a(InterfaceC0594a interfaceC0594a) {
-        if (interfaceC0594a != null && !this.mObservers.contains(interfaceC0594a)) {
-            this.mObservers.add(interfaceC0594a);
+    public void a(InterfaceC0600a interfaceC0600a) {
+        if (interfaceC0600a != null && !this.mObservers.contains(interfaceC0600a)) {
+            this.mObservers.add(interfaceC0600a);
         }
     }
 
-    public void b(InterfaceC0594a interfaceC0594a) {
-        if (interfaceC0594a != null) {
-            this.mObservers.remove(interfaceC0594a);
+    public void b(InterfaceC0600a interfaceC0600a) {
+        if (interfaceC0600a != null) {
+            this.mObservers.remove(interfaceC0600a);
         }
     }
 
     public void bV(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.gja = list;
-        if (this.gja != null) {
-            Collections.sort(this.gja, new ContactComparator());
+        this.gkD = list;
+        if (this.gkD != null) {
+            Collections.sort(this.gkD, new ContactComparator());
         }
-        bLU();
+        bLY();
     }
 
     public void a(com.baidu.tbadk.coreExtra.relationship.a aVar) {
         boolean z;
         boolean z2 = false;
-        if (this.gja != null && aVar != null) {
-            String byZ = aVar.byZ();
-            if (TextUtils.isEmpty(byZ)) {
-                byZ = "#";
-                aVar.Ci("#");
+        if (this.gkD != null && aVar != null) {
+            String bzc = aVar.bzc();
+            if (TextUtils.isEmpty(bzc)) {
+                bzc = "#";
+                aVar.Cp("#");
             }
-            String str = byZ;
+            String str = bzc;
             String userName = aVar.getUserName();
             String str2 = userName == null ? "" : userName;
-            Iterator<com.baidu.tbadk.coreExtra.relationship.a> it = this.gja.iterator();
+            Iterator<com.baidu.tbadk.coreExtra.relationship.a> it = this.gkD.iterator();
             boolean z3 = false;
             while (true) {
                 z = z2;
@@ -75,58 +75,58 @@ public class a {
                 if (str2.equals(next.getUserName())) {
                     z3 = true;
                 }
-                z2 = str.equals(next.byZ()) ? true : z;
+                z2 = str.equals(next.bzc()) ? true : z;
             }
             if (!z3) {
                 if (!z) {
                     com.baidu.tbadk.coreExtra.relationship.a aVar2 = new com.baidu.tbadk.coreExtra.relationship.a();
-                    aVar2.Ci(str);
-                    this.gja.add(aVar2);
+                    aVar2.Cp(str);
+                    this.gkD.add(aVar2);
                 }
-                this.gja.add(aVar);
-                Collections.sort(this.gja, new ContactComparator());
-                bLU();
+                this.gkD.add(aVar);
+                Collections.sort(this.gkD, new ContactComparator());
+                bLY();
             }
         }
     }
 
     public void eS(long j) {
-        if (this.gja != null) {
+        if (this.gkD != null) {
             String str = null;
-            Iterator<com.baidu.tbadk.coreExtra.relationship.a> it = this.gja.iterator();
+            Iterator<com.baidu.tbadk.coreExtra.relationship.a> it = this.gkD.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 com.baidu.tbadk.coreExtra.relationship.a next = it.next();
                 if (next.getUserId() == j) {
-                    str = next.byZ();
-                    this.gja.remove(next);
+                    str = next.bzc();
+                    this.gkD.remove(next);
                     break;
                 }
             }
             if (str != null) {
                 ArrayList arrayList = new ArrayList();
-                for (com.baidu.tbadk.coreExtra.relationship.a aVar : this.gja) {
-                    if (str.equals(aVar.byZ())) {
+                for (com.baidu.tbadk.coreExtra.relationship.a aVar : this.gkD) {
+                    if (str.equals(aVar.bzc())) {
                         arrayList.add(aVar);
                     }
                 }
                 if (arrayList.size() <= 1) {
-                    this.gja.removeAll(arrayList);
+                    this.gkD.removeAll(arrayList);
                 }
             }
-            bLU();
+            bLY();
         }
     }
 
-    public List<com.baidu.tbadk.coreExtra.relationship.a> bLT() {
-        return this.gja;
+    public List<com.baidu.tbadk.coreExtra.relationship.a> bLX() {
+        return this.gkD;
     }
 
-    private void bLU() {
-        for (InterfaceC0594a interfaceC0594a : this.mObservers) {
-            interfaceC0594a.bU(this.gja);
+    private void bLY() {
+        for (InterfaceC0600a interfaceC0600a : this.mObservers) {
+            interfaceC0600a.bU(this.gkD);
         }
     }
 }

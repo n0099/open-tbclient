@@ -9,60 +9,60 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.Executor;
-/* loaded from: classes10.dex */
-public class g implements a.InterfaceC0000a, b.a, com.baidu.cloudbase.download.a.d {
+/* loaded from: classes9.dex */
+public class g implements a.InterfaceC0006a, b.a, com.baidu.cloudbase.download.a.d {
+    public com.baidu.cloudbase.download.b BZ;
+    public a Ca;
+    public a.a.a.b.b Cb;
+    public d.a Cc;
+    public c Cd;
+    public a.a.a.b.a.a Ce;
     public Executor c;
     public String d;
     public int g;
     public List<a.a.a.b.a.b> j = new LinkedList();
-    public com.baidu.cloudbase.download.b zn;
-    public a zo;
-    public a.a.a.b.b zp;
-    public d.a zq;
-    public c zr;
-    public a.a.a.b.a.a zs;
 
     public g(com.baidu.cloudbase.download.b bVar, a aVar, Executor executor, String str, a.a.a.b.b bVar2, d.a aVar2) {
-        this.zn = bVar;
-        this.zo = aVar;
+        this.BZ = bVar;
+        this.Ca = aVar;
         this.c = executor;
         this.d = str;
-        this.zp = bVar2;
-        this.zq = aVar2;
-        this.zr = new c(this.zn.getName().toString(), this.zn.getUri(), this.zn.getFolder());
+        this.Cb = bVar2;
+        this.Cc = aVar2;
+        this.Cd = new c(this.BZ.getName().toString(), this.BZ.getUri(), this.BZ.getFolder());
     }
 
     public final void a() {
-        c cVar = this.zr;
-        File file = new File(cVar.f1038b, cVar.f1037a);
+        c cVar = this.Cd;
+        File file = new File(cVar.b, cVar.f1018a);
         if (file.exists() && file.isFile()) {
             file.delete();
         }
     }
 
     public void a(long j, long j2) {
-        a aVar = this.zo;
-        aVar.zl.setFinished(j);
-        aVar.zl.setLength(j2);
-        aVar.zl.setPercent((int) ((100 * j) / j2));
-        aVar.zl.setStatus(104);
-        aVar.zk.a(aVar.zl);
+        a aVar = this.Ca;
+        aVar.BX.setFinished(j);
+        aVar.BX.setLength(j2);
+        aVar.BX.setPercent((int) ((100 * j) / j2));
+        aVar.BX.setStatus(104);
+        aVar.BW.a(aVar.BX);
     }
 
     public void a(DownloadException downloadException) {
-        if (((b) this.zs).b()) {
+        if (((b) this.Ce).b()) {
             b();
             return;
         }
-        if (((b) this.zs).c == 106) {
+        if (((b) this.Ce).c == 106) {
             d();
             return;
         }
         this.g = 108;
-        a aVar = this.zo;
-        aVar.zl.d(downloadException);
-        aVar.zl.setStatus(108);
-        aVar.zk.a(aVar.zl);
+        a aVar = this.Ca;
+        aVar.BX.d(downloadException);
+        aVar.BX.setStatus(108);
+        aVar.BW.a(aVar.BX);
         onDestroy();
     }
 
@@ -89,10 +89,10 @@ public class g implements a.InterfaceC0000a, b.a, com.baidu.cloudbase.download.a
         }
         if (z) {
             this.g = 105;
-            a aVar = this.zo;
-            aVar.zl.setStatus(105);
-            aVar.zl.setSavedPath(str);
-            aVar.zk.a(aVar.zl);
+            a aVar = this.Ca;
+            aVar.BX.setStatus(105);
+            aVar.BX.setSavedPath(str);
+            aVar.BW.a(aVar.BX);
             onDestroy();
         }
     }
@@ -100,9 +100,9 @@ public class g implements a.InterfaceC0000a, b.a, com.baidu.cloudbase.download.a
     public void b() {
         a();
         this.g = 107;
-        a aVar = this.zo;
-        aVar.zl.setStatus(107);
-        aVar.zk.a(aVar.zl);
+        a aVar = this.Ca;
+        aVar.BX.setStatus(107);
+        aVar.BW.a(aVar.BX);
         onDestroy();
     }
 
@@ -120,10 +120,10 @@ public class g implements a.InterfaceC0000a, b.a, com.baidu.cloudbase.download.a
         }
         if (z) {
             this.g = 108;
-            a aVar = this.zo;
-            aVar.zl.d(downloadException);
-            aVar.zl.setStatus(108);
-            aVar.zk.a(aVar.zl);
+            a aVar = this.Ca;
+            aVar.BX.d(downloadException);
+            aVar.BX.setStatus(108);
+            aVar.BW.a(aVar.BX);
             onDestroy();
         }
     }
@@ -143,16 +143,16 @@ public class g implements a.InterfaceC0000a, b.a, com.baidu.cloudbase.download.a
         if (z) {
             a();
             this.g = 107;
-            a aVar = this.zo;
-            aVar.zl.setStatus(107);
-            aVar.zk.a(aVar.zl);
+            a aVar = this.Ca;
+            aVar.BX.setStatus(107);
+            aVar.BW.a(aVar.BX);
             onDestroy();
         }
     }
 
     @Override // com.baidu.cloudbase.download.a.d
     public void cancel() {
-        a.a.a.b.a.a aVar = this.zs;
+        a.a.a.b.a.a aVar = this.Ce;
         if (aVar != null) {
             ((b) aVar).c = 107;
         }
@@ -179,9 +179,9 @@ public class g implements a.InterfaceC0000a, b.a, com.baidu.cloudbase.download.a
         }
         if (z) {
             this.g = 106;
-            a aVar = this.zo;
-            aVar.zl.setStatus(106);
-            aVar.zk.a(aVar.zl);
+            a aVar = this.Ca;
+            aVar.BX.setStatus(106);
+            aVar.BW.a(aVar.BX);
             onDestroy();
         }
     }
@@ -193,12 +193,12 @@ public class g implements a.InterfaceC0000a, b.a, com.baidu.cloudbase.download.a
     }
 
     public void onDestroy() {
-        this.zq.a(this.d, this);
+        this.Cc.a(this.d, this);
     }
 
     @Override // com.baidu.cloudbase.download.a.d
     public void pause() {
-        a.a.a.b.a.a aVar = this.zs;
+        a.a.a.b.a.a aVar = this.Ce;
         if (aVar != null) {
             ((b) aVar).c = 106;
         }
@@ -214,10 +214,10 @@ public class g implements a.InterfaceC0000a, b.a, com.baidu.cloudbase.download.a
     @Override // com.baidu.cloudbase.download.a.d
     public void start() {
         this.g = 101;
-        a aVar = this.zo;
-        aVar.zl.setStatus(101);
-        aVar.zl.tY().onStarted();
-        this.zs = new b(this.zn.getUri(), this);
-        this.c.execute(this.zs);
+        a aVar = this.Ca;
+        aVar.BX.setStatus(101);
+        aVar.BX.tY().onStarted();
+        this.Ce = new b(this.BZ.getUri(), this);
+        this.c.execute(this.Ce);
     }
 }

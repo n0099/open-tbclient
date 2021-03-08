@@ -3,7 +3,7 @@ package com.baidu.tieba.write.share;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class CheckResponse extends JsonHttpResponsedMessage {
     private c mCheckResponseData;
 
@@ -20,10 +20,10 @@ public class CheckResponse extends JsonHttpResponsedMessage {
                 this.mCheckResponseData = new c();
                 this.mCheckResponseData.appKey = jSONObject.optString("tbopen_app_key");
                 this.mCheckResponseData.appName = jSONObject.optString("tbopen_app_name");
-                this.mCheckResponseData.eKQ = jSONObject.optString("tbopen_app_icon");
+                this.mCheckResponseData.eMr = jSONObject.optString("tbopen_app_icon");
                 JSONObject optJSONObject = jSONObject.optJSONObject("config");
                 if (optJSONObject != null) {
-                    this.mCheckResponseData.ogC = optJSONObject.optString("default_pic");
+                    this.mCheckResponseData.oiH = optJSONObject.optString("default_pic");
                 }
             }
         }

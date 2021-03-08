@@ -15,43 +15,43 @@ import com.baidu.live.tbadk.core.dialog.BdAlertDialog;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.yuyinala.privatemessage.implugin.common.ChatInfo;
 import com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b extends Dialog implements View.OnClickListener {
-    private TextView bYe;
+    private TextView bZE;
     private long mPaid;
     private long mUid;
-    private boolean pbr;
-    private TextView pkA;
-    private TextView pkB;
-    private InterfaceC0982b pkC;
-    private ActivityChat pkD;
-    private int pkE;
-    private int pkF;
+    private boolean pdx;
+    private TextView pmF;
+    private TextView pmG;
+    private InterfaceC0988b pmH;
+    private ActivityChat pmI;
+    private int pmJ;
+    private int pmK;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void onConfirm();
     }
 
     /* renamed from: com.baidu.yuyinala.privatemessage.session.view.b$b  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0982b {
-        void Og(int i);
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0988b {
+        void Ok(int i);
 
-        void emX();
+        void eni();
 
         void onCancel();
     }
 
     public b(ActivityChat activityChat, long j, boolean z, long j2) {
         super(activityChat, a.i.theme_manage_dialog);
-        this.pkE = -1;
-        this.pkF = 0;
-        this.pkD = activityChat;
+        this.pmJ = -1;
+        this.pmK = 0;
+        this.pmI = activityChat;
         this.mUid = j;
         this.mPaid = j2;
-        this.pbr = z;
+        this.pdx = z;
     }
 
     @Override // android.app.Dialog
@@ -61,34 +61,34 @@ public class b extends Dialog implements View.OnClickListener {
         resize();
         setCanceledOnTouchOutside(true);
         setCancelable(true);
-        this.bYe = (TextView) findViewById(a.f.ala_person_manage_cancel);
-        this.pkA = (TextView) findViewById(a.f.ala_clean_message);
-        this.pkB = (TextView) findViewById(a.f.ala_shield_user);
-        this.pkB.setOnClickListener(this);
-        this.pkA.setOnClickListener(this);
-        this.bYe.setOnClickListener(this);
-        IMBoxManager.getShield(this.pkD.getActivity(), ChatInfo.mContacter, new IGetShieldAndTopListener() { // from class: com.baidu.yuyinala.privatemessage.session.view.b.1
+        this.bZE = (TextView) findViewById(a.f.ala_person_manage_cancel);
+        this.pmF = (TextView) findViewById(a.f.ala_clean_message);
+        this.pmG = (TextView) findViewById(a.f.ala_shield_user);
+        this.pmG.setOnClickListener(this);
+        this.pmF.setOnClickListener(this);
+        this.bZE.setOnClickListener(this);
+        IMBoxManager.getShield(this.pmI.getActivity(), ChatInfo.mContacter, new IGetShieldAndTopListener() { // from class: com.baidu.yuyinala.privatemessage.session.view.b.1
             @Override // com.baidu.android.imsdk.shield.IGetShieldAndTopListener
             public void onResult(GetShieldAndTopResult getShieldAndTopResult) {
                 if (getShieldAndTopResult.getShield() == 1) {
                     SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.session.view.b.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            b.this.pkB.setText("接受此人消息");
-                            b.this.pkB.setVisibility(0);
+                            b.this.pmG.setText("接受此人消息");
+                            b.this.pmG.setVisibility(0);
                         }
                     });
-                    b.this.pkF = 0;
+                    b.this.pmK = 0;
                     return;
                 }
                 SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.session.view.b.1.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        b.this.pkB.setText("不接受此人消息");
-                        b.this.pkB.setVisibility(0);
+                        b.this.pmG.setText("不接受此人消息");
+                        b.this.pmG.setVisibility(0);
                     }
                 });
-                b.this.pkF = 1;
+                b.this.pmK = 1;
             }
         });
     }
@@ -96,38 +96,38 @@ public class b extends Dialog implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         dismiss();
-        if (this.pkC != null) {
-            if (view == this.pkA) {
+        if (this.pmH != null) {
+            if (view == this.pmF) {
                 a(new a() { // from class: com.baidu.yuyinala.privatemessage.session.view.b.2
                     @Override // com.baidu.yuyinala.privatemessage.session.view.b.a
                     public void onConfirm() {
-                        if (b.this.pkC != null) {
-                            b.this.pkC.emX();
+                        if (b.this.pmH != null) {
+                            b.this.pmH.eni();
                         }
                     }
                 }, "确定要清空聊天记录吗？");
-            } else if (view == this.pkB) {
+            } else if (view == this.pmG) {
                 a aVar = new a() { // from class: com.baidu.yuyinala.privatemessage.session.view.b.3
                     @Override // com.baidu.yuyinala.privatemessage.session.view.b.a
                     public void onConfirm() {
-                        if (b.this.pkC != null) {
-                            b.this.pkC.Og(b.this.pkF);
+                        if (b.this.pmH != null) {
+                            b.this.pmH.Ok(b.this.pmK);
                         }
                     }
                 };
-                if (this.pkF == 0) {
+                if (this.pmK == 0) {
                     a(aVar, "确定接受此人消息吗？");
                 } else {
                     a(aVar, "确定不接受此人消息吗？");
                 }
-            } else if (view == this.bYe) {
-                this.pkC.onCancel();
+            } else if (view == this.bZE) {
+                this.pmH.onCancel();
             }
         }
     }
 
     private void a(final a aVar, String str) {
-        BdAlertDialog bdAlertDialog = new BdAlertDialog(this.pkD.getActivity());
+        BdAlertDialog bdAlertDialog = new BdAlertDialog(this.pmI.getActivity());
         bdAlertDialog.setAutoNight(false);
         bdAlertDialog.setTitle((String) null);
         bdAlertDialog.setMessage(str);
@@ -146,17 +146,17 @@ public class b extends Dialog implements View.OnClickListener {
                 bdAlertDialog2.dismiss();
             }
         });
-        bdAlertDialog.create(this.pkD.getPageContext()).show();
+        bdAlertDialog.create(this.pmI.getPageContext()).show();
     }
 
-    public void a(InterfaceC0982b interfaceC0982b) {
-        this.pkC = interfaceC0982b;
+    public void a(InterfaceC0988b interfaceC0988b) {
+        this.pmH = interfaceC0988b;
     }
 
     public void resize() {
-        int[] screenDimensions = BdUtilHelper.getScreenDimensions(this.pkD);
+        int[] screenDimensions = BdUtilHelper.getScreenDimensions(this.pmI);
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
-        if (UtilHelper.getRealScreenOrientation(this.pkD) == 2) {
+        if (UtilHelper.getRealScreenOrientation(this.pmI) == 2) {
             attributes.width = Math.max(screenDimensions[0], screenDimensions[1]);
         } else {
             attributes.width = Math.min(screenDimensions[0], screenDimensions[1]);

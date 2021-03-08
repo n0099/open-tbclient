@@ -6,10 +6,8 @@ import androidx.annotation.Nullable;
 public class d implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final GradientType f8071a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final Path.FillType f8072b;
+    private final GradientType f5388a;
+    private final Path.FillType b;
     private final com.ksad.lottie.model.a.c c;
     private final com.ksad.lottie.model.a.d d;
     private final com.ksad.lottie.model.a.f e;
@@ -21,8 +19,8 @@ public class d implements b {
     private final com.ksad.lottie.model.a.b i;
 
     public d(String str, GradientType gradientType, Path.FillType fillType, com.ksad.lottie.model.a.c cVar, com.ksad.lottie.model.a.d dVar, com.ksad.lottie.model.a.f fVar, com.ksad.lottie.model.a.f fVar2, com.ksad.lottie.model.a.b bVar, com.ksad.lottie.model.a.b bVar2) {
-        this.f8071a = gradientType;
-        this.f8072b = fillType;
+        this.f5388a = gradientType;
+        this.b = fillType;
         this.c = cVar;
         this.d = dVar;
         this.e = fVar;
@@ -42,11 +40,11 @@ public class d implements b {
     }
 
     public GradientType b() {
-        return this.f8071a;
+        return this.f5388a;
     }
 
     public Path.FillType c() {
-        return this.f8072b;
+        return this.b;
     }
 
     public com.ksad.lottie.model.a.c d() {

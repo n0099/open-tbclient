@@ -5,72 +5,72 @@ import android.view.ViewGroup;
 import com.baidu.live.data.ab;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.ala.AlaLastLiveroomInfo;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.tieba.ala.liveroom.a {
-    private b huj;
-    private boolean huk;
+    private b hvS;
+    private boolean hvT;
     private TbPageContext mTbPageContext;
 
     public a(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.huk = false;
+        this.hvT = false;
         this.mTbPageContext = tbPageContext;
-        this.huj = new b(this.mTbPageContext);
+        this.hvS = new b(this.mTbPageContext);
     }
 
     public void a(ab abVar, AlaLastLiveroomInfo alaLastLiveroomInfo) {
-        if (abVar == null || abVar.mLiveInfo == null || alaLastLiveroomInfo == null || this.huj == null || this.huj.getView() == null || abVar.mLiveInfo.live_id == alaLastLiveroomInfo.getLastLiveId()) {
-            this.huk = false;
+        if (abVar == null || abVar.mLiveInfo == null || alaLastLiveroomInfo == null || this.hvS == null || this.hvS.getView() == null || abVar.mLiveInfo.live_id == alaLastLiveroomInfo.getLastLiveId()) {
+            this.hvT = false;
         } else if (alaLastLiveroomInfo.getLastLiveId() <= 0 && alaLastLiveroomInfo.getLastRoomId() <= 0) {
-            this.huk = false;
+            this.hvT = false;
         } else {
-            this.huj.d(alaLastLiveroomInfo);
-            this.huj.getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.e.a.1
+            this.hvS.d(alaLastLiveroomInfo);
+            this.hvS.getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.e.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.huj.ccC();
+                    a.this.hvS.ccI();
                 }
             });
-            this.huj.show();
-            this.huk = true;
+            this.hvS.show();
+            this.hvT = true;
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void aF(ViewGroup viewGroup) {
-        if (this.huk) {
-            this.huj.aH(viewGroup);
+        if (this.hvT) {
+            this.hvS.aH(viewGroup);
         }
     }
 
-    public void cr(int i) {
-        if (this.huj != null && this.huk) {
-            this.huj.ccF();
+    public void cs(int i) {
+        if (this.hvS != null && this.hvT) {
+            this.hvS.ccL();
             if (i == 1) {
-                this.huj.show();
+                this.hvS.show();
             } else if (i == 2) {
-                this.huj.hide();
+                this.hvS.hide();
             }
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
-    public void Ar() {
-        if (this.huj != null) {
-            this.huj.ccE();
+    public void Au() {
+        if (this.hvS != null) {
+            this.hvS.ccK();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
-        if (this.huj != null) {
-            this.huj.onDestroy();
+        if (this.hvS != null) {
+            this.hvS.onDestroy();
         }
     }
 
     public void setId(int i) {
-        if (this.huj != null && this.huj.getView() != null) {
-            this.huj.getView().setId(i);
+        if (this.hvS != null && this.hvS.getView() != null) {
+            this.hvS.getView().setId(i);
         }
     }
 }

@@ -8,7 +8,7 @@ public class f extends g {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile f f6538a;
+    private static volatile f f4428a;
 
     @Override // com.bytedance.sdk.openadsdk.core.g
     public /* bridge */ /* synthetic */ g.c a() {
@@ -16,14 +16,14 @@ public class f extends g {
     }
 
     public static f a(Context context) {
-        if (f6538a == null) {
+        if (f4428a == null) {
             synchronized (f.class) {
-                if (f6538a == null) {
-                    f6538a = new f(context);
+                if (f4428a == null) {
+                    f4428a = new f(context);
                 }
             }
         }
-        return f6538a;
+        return f4428a;
     }
 
     private f(Context context) {

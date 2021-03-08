@@ -12,37 +12,37 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.forumsearch.controller.e;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d extends com.baidu.tieba.card.b<com.baidu.tieba.forumsearch.b.b> {
-    private BarImageView jeV;
-    private TextView jeW;
-    private TextView jeX;
-    private TextView jeY;
-    private com.baidu.tieba.forumsearch.b.b jeZ;
-    private View.OnClickListener jef;
+    private View.OnClickListener jfO;
+    private BarImageView jgE;
+    private TextView jgF;
+    private TextView jgG;
+    private TextView jgH;
+    private com.baidu.tieba.forumsearch.b.b jgI;
     private int mSkinType;
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.jeV = (BarImageView) getView().findViewById(R.id.forum_avatar);
-        this.jeW = (TextView) getView().findViewById(R.id.forum_name);
-        this.jeX = (TextView) getView().findViewById(R.id.forum_attention);
-        this.jeY = (TextView) getView().findViewById(R.id.forum_thread_count);
+        this.jgE = (BarImageView) getView().findViewById(R.id.forum_avatar);
+        this.jgF = (TextView) getView().findViewById(R.id.forum_name);
+        this.jgG = (TextView) getView().findViewById(R.id.forum_attention);
+        this.jgH = (TextView) getView().findViewById(R.id.forum_thread_count);
         getView().setOnClickListener(this);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void A(View.OnClickListener onClickListener) {
-        this.jef = onClickListener;
+        this.jfO = onClickListener;
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ap.setViewTextColor(this.jeW, R.color.CAM_X0105);
-            ap.setViewTextColor(this.jeX, R.color.CAM_X0109);
-            ap.setViewTextColor(this.jeY, R.color.CAM_X0109);
+            ap.setViewTextColor(this.jgF, R.color.CAM_X0105);
+            ap.setViewTextColor(this.jgG, R.color.CAM_X0109);
+            ap.setViewTextColor(this.jgH, R.color.CAM_X0109);
             ap.setBackgroundResource(getView(), R.drawable.square_search_item_bg);
             this.mSkinType = i;
         }
@@ -58,11 +58,11 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.forumsearch.b.b> {
     /* renamed from: c */
     public void a(com.baidu.tieba.forumsearch.b.b bVar) {
         if (bVar != null) {
-            this.jeZ = bVar;
-            this.jeV.startLoad(bVar.getAvatar(), 10, false);
-            this.jeW.setText(eW(bVar.getForumName(), bVar.cBn()));
-            this.jeX.setText(String.format(this.mTbPageContext.getString(R.string.concern), bVar.cBl()));
-            this.jeY.setText(String.format(this.mTbPageContext.getString(R.string.search_bar_thread), bVar.cBm()));
+            this.jgI = bVar;
+            this.jgE.startLoad(bVar.getAvatar(), 10, false);
+            this.jgF.setText(eW(bVar.getForumName(), bVar.cBt()));
+            this.jgG.setText(String.format(this.mTbPageContext.getString(R.string.concern), bVar.cBr()));
+            this.jgH.setText(String.format(this.mTbPageContext.getString(R.string.search_bar_thread), bVar.cBs()));
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -84,12 +84,12 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.forumsearch.b.b> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.jeZ != null) {
+        if (this.jgI != null) {
             TiebaStatic.log("c12261");
-            e.Kd(this.jeZ.cBn());
-            view.setTag(this.jeZ);
-            if (this.jef != null) {
-                this.jef.onClick(view);
+            e.Km(this.jgI.cBt());
+            view.setTag(this.jgI);
+            if (this.jfO != null) {
+                this.jfO.onClick(view);
             }
         }
     }

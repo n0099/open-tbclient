@@ -11,39 +11,36 @@ import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class c {
     @SuppressLint({"StaticFieldLeak"})
-    private static c pwY = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Context f7697b;
-    private com.cmic.sso.sdk.c.c.a pwX = com.cmic.sso.sdk.c.c.a.erx();
+    private static c pzd = null;
+    private Context b;
+    private com.cmic.sso.sdk.c.c.a pzc = com.cmic.sso.sdk.c.c.a.erG();
 
     private c(Context context) {
-        this.f7697b = context.getApplicationContext();
+        this.b = context.getApplicationContext();
     }
 
-    /* renamed from: if  reason: not valid java name */
-    public static c m54if(Context context) {
-        if (pwY == null) {
+    public static c ie(Context context) {
+        if (pzd == null) {
             synchronized (c.class) {
-                if (pwY == null) {
-                    pwY = new c(context);
+                if (pzd == null) {
+                    pzd = new c(context);
                 }
             }
         }
-        return pwY;
+        return pzd;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(com.cmic.sso.sdk.a aVar, d dVar) {
         com.cmic.sso.sdk.e.c.b("AuthnBusiness", "LoginCheck method start");
-        int b2 = aVar.b("logintype", 0);
+        int b = aVar.b("logintype", 0);
         if (aVar.b("isCacheScrip", false)) {
-            String b3 = aVar.b("securityphone", "");
-            if (b2 == 3) {
-                dVar.b("103000", "true", aVar, e.a(b3));
+            String b2 = aVar.b("securityphone", "");
+            if (b == 3) {
+                dVar.b("103000", "true", aVar, e.a(b2));
                 return;
             } else {
                 c(aVar, dVar);
@@ -55,8 +52,8 @@ public class c {
 
     private void b(final com.cmic.sso.sdk.a aVar, final d dVar) {
         com.cmic.sso.sdk.e.c.b("AuthnBusiness", "getPrePhonescrip start");
-        String packageName = this.f7697b.getPackageName();
-        String a2 = com.cmic.sso.sdk.e.d.a(l.a(this.f7697b, packageName));
+        String packageName = this.b.getPackageName();
+        String a2 = com.cmic.sso.sdk.e.d.a(l.a(this.b, packageName));
         aVar.a("apppackage", packageName);
         aVar.a("appsign", a2);
         byte[] bArr = new byte[0];
@@ -71,9 +68,9 @@ public class c {
                 e.printStackTrace();
             }
         }
-        aVar.a(b.a.f7692a, bArr);
+        aVar.a(b.a.f5203a, bArr);
         aVar.a("authtype", "3");
-        this.pwX.a(aVar, new com.cmic.sso.sdk.c.c.d() { // from class: com.cmic.sso.sdk.b.c.1
+        this.pzc.a(aVar, new com.cmic.sso.sdk.c.c.d() { // from class: com.cmic.sso.sdk.b.c.1
             /* JADX WARN: Removed duplicated region for block: B:21:0x00ca  */
             /* JADX WARN: Removed duplicated region for block: B:32:0x011f  */
             @Override // com.cmic.sso.sdk.c.c.d
@@ -81,7 +78,7 @@ public class c {
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public void i(String str, String str2, JSONObject jSONObject) {
-                String b2;
+                String b;
                 String str3;
                 String str4;
                 String str5;
@@ -91,12 +88,12 @@ public class c {
                 if ("103000".equals(str)) {
                     String optString = jSONObject.optString("resultdata");
                     if (TextUtils.isEmpty(optString)) {
-                        b2 = jSONObject.toString();
+                        b = jSONObject.toString();
                     } else {
-                        b2 = com.cmic.sso.sdk.e.a.b(aVar.a(b.a.f7692a), optString);
+                        b = com.cmic.sso.sdk.e.a.b(aVar.a(b.a.f5203a), optString);
                     }
                     try {
-                        jSONObject2 = new JSONObject(b2);
+                        jSONObject2 = new JSONObject(b);
                         try {
                             str7 = jSONObject2.optString("phonescrip");
                             try {
@@ -106,10 +103,10 @@ public class c {
                                     str3 = aVar.b("imsi", "");
                                 }
                                 try {
-                                    k.a erD = k.erD();
+                                    k.a erM = k.erM();
                                     str6 = jSONObject2.optString("securityphone");
                                     try {
-                                        erD.a("securityphone", str6);
+                                        erM.a("securityphone", str6);
                                         str5 = jSONObject2.optString("openId");
                                         try {
                                             if (TextUtils.isEmpty(str5)) {
@@ -126,9 +123,9 @@ public class c {
                                         str5 = null;
                                     }
                                     try {
-                                        erD.a("sourceid", str4);
-                                        erD.a("allcapaids", jSONObject2.optString("capaids", "acd"));
-                                        erD.b();
+                                        erM.a("sourceid", str4);
+                                        erM.a("allcapaids", jSONObject2.optString("capaids", "acd"));
+                                        erM.b();
                                     } catch (JSONException e4) {
                                         e = e4;
                                         e.printStackTrace();
@@ -181,7 +178,7 @@ public class c {
                     }
                     com.cmic.sso.sdk.e.c.a("AuthnBusiness", "预取号==>");
                     if (jSONObject2 != null) {
-                        h.a(c.this.f7697b, str7, jSONObject2.optLong("phonescripED"), str3);
+                        h.a(c.this.b, str7, jSONObject2.optLong("phonescripED"), str3);
                     }
                     dVar.b("103000", "true", aVar, e.a(str6));
                     return;
@@ -199,7 +196,7 @@ public class c {
         } else if (aVar.c("logintype") == 0) {
             aVar.a("userCapaid", "50");
         }
-        this.pwX.b(aVar, new com.cmic.sso.sdk.c.c.d() { // from class: com.cmic.sso.sdk.b.c.2
+        this.pzc.b(aVar, new com.cmic.sso.sdk.c.c.d() { // from class: com.cmic.sso.sdk.b.c.2
             @Override // com.cmic.sso.sdk.c.c.d
             public void i(String str, String str2, JSONObject jSONObject) {
                 com.cmic.sso.sdk.e.c.c("AuthnBusiness", "获取平台token 》》》》" + jSONObject.toString());
@@ -207,9 +204,9 @@ public class c {
                     long optLong = jSONObject.optLong("phonescripED");
                     String optString = jSONObject.optString("phonescrip");
                     if (aVar.b("keyIsSimKeyICCID", false)) {
-                        h.a(c.this.f7697b, optString, optLong, aVar.b("iccid", ""));
+                        h.a(c.this.b, optString, optLong, aVar.b("iccid", ""));
                     } else {
-                        h.a(c.this.f7697b, optString, optLong, aVar.b("imsi", ""));
+                        h.a(c.this.b, optString, optLong, aVar.b("imsi", ""));
                     }
                     aVar.a("openId", jSONObject.optString("openId"));
                 }

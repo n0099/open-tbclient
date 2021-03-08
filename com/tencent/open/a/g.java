@@ -5,26 +5,24 @@ import java.io.Writer;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class g implements Iterable<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    private ConcurrentLinkedQueue<String> f13382a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private AtomicInteger f13383b;
+    private ConcurrentLinkedQueue<String> f7956a;
+    private AtomicInteger b;
 
     public g() {
-        this.f13382a = null;
-        this.f13383b = null;
-        this.f13382a = new ConcurrentLinkedQueue<>();
-        this.f13383b = new AtomicInteger(0);
+        this.f7956a = null;
+        this.b = null;
+        this.f7956a = new ConcurrentLinkedQueue<>();
+        this.b = new AtomicInteger(0);
     }
 
     public int a(String str) {
         int length = str.length();
-        this.f13382a.add(str);
-        return this.f13383b.addAndGet(length);
+        this.f7956a.add(str);
+        return this.b.addAndGet(length);
     }
 
     public void a(Writer writer, char[] cArr) throws IOException {
@@ -62,16 +60,16 @@ public class g implements Iterable<String> {
     }
 
     public int a() {
-        return this.f13383b.get();
+        return this.b.get();
     }
 
     public void b() {
-        this.f13382a.clear();
-        this.f13383b.set(0);
+        this.f7956a.clear();
+        this.b.set(0);
     }
 
     @Override // java.lang.Iterable
     public Iterator<String> iterator() {
-        return this.f13382a.iterator();
+        return this.f7956a.iterator();
     }
 }

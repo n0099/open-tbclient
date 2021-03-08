@@ -6,8 +6,8 @@ import androidx.annotation.Nullable;
 import com.baidu.webkit.net.BdNetTask;
 import com.baidubce.http.Headers;
 import com.bytedance.sdk.adnet.core.Request;
-import com.bytedance.sdk.adnet.core.l;
-import com.bytedance.sdk.adnet.core.p;
+import com.bytedance.sdk.adnet.core.k;
+import com.bytedance.sdk.adnet.core.o;
 import com.bytedance.sdk.adnet.err.VAdError;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
@@ -20,17 +20,17 @@ public class c extends Request<File> {
     private final Object e;
     @Nullable
     @GuardedBy("mLock")
-    private p.a<File> pva;
+    private o.a<File> pxf;
 
     /* loaded from: classes6.dex */
-    public interface a extends p.a<File> {
+    public interface a extends o.a<File> {
         void a(long j, long j2);
     }
 
-    public c(String str, String str2, p.a<File> aVar) {
+    public c(String str, String str2, o.a<File> aVar) {
         super(str2, aVar);
         this.e = new Object();
-        this.pva = aVar;
+        this.pxf = aVar;
         this.c = new File(str);
         this.d = new File(str + ".tmp");
         try {
@@ -47,7 +47,7 @@ public class c extends Request<File> {
         return this.c;
     }
 
-    public File g() {
+    public File eqU() {
         return this.d;
     }
 
@@ -55,7 +55,7 @@ public class c extends Request<File> {
     public void cancel() {
         super.cancel();
         synchronized (this.e) {
-            this.pva = null;
+            this.pxf = null;
         }
     }
 
@@ -69,20 +69,20 @@ public class c extends Request<File> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bytedance.sdk.adnet.core.Request
-    public p<File> a(l lVar) {
+    public o<File> a(k kVar) {
         if (!isCanceled()) {
             if (this.d.canRead() && this.d.length() > 0) {
                 if (this.d.renameTo(this.c)) {
-                    return p.a((Object) null, com.bytedance.sdk.adnet.d.c.c(lVar));
+                    return o.a((Object) null, com.bytedance.sdk.adnet.d.b.c(kVar));
                 }
                 h();
-                return p.c(new VAdError("Can't rename the download temporary file!"));
+                return o.c(new VAdError("Can't rename the download temporary file!"));
             }
             h();
-            return p.c(new VAdError("Download temporary file was invalid!"));
+            return o.c(new VAdError("Download temporary file was invalid!"));
         }
         h();
-        return p.c(new VAdError("Request was Canceled!"));
+        return o.c(new VAdError("Request was Canceled!"));
     }
 
     private void h() {
@@ -117,9 +117,9 @@ public class c extends Request<File> {
             if (r0 > 0) goto L16
             java.lang.String r0 = "Response doesn't present Content-Length!"
             java.lang.Object[] r1 = new java.lang.Object[r12]
-            com.bytedance.sdk.adnet.core.r.b(r0, r1)
+            com.bytedance.sdk.adnet.core.q.b(r0, r1)
         L16:
-            java.io.File r0 = r14.g()
+            java.io.File r0 = r14.eqU()
             long r0 = r0.length()
             boolean r8 = r14.c(r15)
             if (r8 == 0) goto L96
@@ -152,7 +152,7 @@ public class c extends Request<File> {
             java.lang.StringBuilder r1 = r1.append(r4)
             java.lang.String r2 = "], please remove the temporary file ["
             java.lang.StringBuilder r1 = r1.append(r2)
-            java.io.File r2 = r14.g()
+            java.io.File r2 = r14.eqU()
             java.lang.StringBuilder r1 = r1.append(r2)
             java.lang.String r2 = "]."
             java.lang.StringBuilder r1 = r1.append(r2)
@@ -167,7 +167,7 @@ public class c extends Request<File> {
             int r4 = (r10 > r6 ? 1 : (r10 == r6 ? 0 : -1))
             if (r4 != 0) goto Lb5
             java.io.File r0 = r14.f()
-            java.io.File r1 = r14.g()
+            java.io.File r1 = r14.eqU()
             r0.renameTo(r1)
             r14.a(r6, r6)
         Lb4:
@@ -182,7 +182,7 @@ public class c extends Request<File> {
             r4.delete()
         Lcc:
             java.io.RandomAccessFile r4 = new java.io.RandomAccessFile     // Catch: java.lang.Throwable -> L1b5
-            java.io.File r9 = r14.g()     // Catch: java.lang.Throwable -> L1b5
+            java.io.File r9 = r14.eqU()     // Catch: java.lang.Throwable -> L1b5
             java.lang.String r10 = "rw"
             r4.<init>(r9, r10)     // Catch: java.lang.Throwable -> L1b5
             if (r8 == 0) goto L126
@@ -225,7 +225,7 @@ public class c extends Request<File> {
             r0 = move-exception
             java.lang.String r0 = "Error occured when calling tmpFile.close"
             java.lang.Object[] r1 = new java.lang.Object[r12]
-            com.bytedance.sdk.adnet.core.r.a(r0, r1)
+            com.bytedance.sdk.adnet.core.q.a(r0, r1)
             goto Lb4
         L126:
             r8 = 0
@@ -236,13 +236,13 @@ public class c extends Request<File> {
             r0 = move-exception
             java.lang.String r0 = "Error occured when calling InputStream.close"
             java.lang.Object[] r1 = new java.lang.Object[r12]
-            com.bytedance.sdk.adnet.core.r.a(r0, r1)
+            com.bytedance.sdk.adnet.core.q.a(r0, r1)
             goto L113
         L137:
             r0 = move-exception
             java.lang.String r0 = "Error occured when calling consumingContent"
             java.lang.Object[] r1 = new java.lang.Object[r12]
-            com.bytedance.sdk.adnet.core.r.a(r0, r1)
+            com.bytedance.sdk.adnet.core.q.a(r0, r1)
             goto L118
         L141:
             r0 = move-exception
@@ -251,7 +251,7 @@ public class c extends Request<File> {
             java.lang.String r1 = "Error occured when FileRequest.parseHttpResponse"
             r3 = 0
             java.lang.Object[] r3 = new java.lang.Object[r3]     // Catch: java.lang.Throwable -> L1ac
-            com.bytedance.sdk.adnet.core.r.a(r1, r3)     // Catch: java.lang.Throwable -> L1ac
+            com.bytedance.sdk.adnet.core.q.a(r1, r3)     // Catch: java.lang.Throwable -> L1ac
             if (r0 == 0) goto L151
             r0.close()     // Catch: java.lang.Throwable -> L166
         L151:
@@ -264,19 +264,19 @@ public class c extends Request<File> {
             r0 = move-exception
             java.lang.String r0 = "Error occured when calling tmpFile.close"
             java.lang.Object[] r1 = new java.lang.Object[r12]
-            com.bytedance.sdk.adnet.core.r.a(r0, r1)
+            com.bytedance.sdk.adnet.core.q.a(r0, r1)
             goto Lb4
         L166:
             r1 = move-exception
             java.lang.String r1 = "Error occured when calling InputStream.close"
             java.lang.Object[] r3 = new java.lang.Object[r12]
-            com.bytedance.sdk.adnet.core.r.a(r1, r3)
+            com.bytedance.sdk.adnet.core.q.a(r1, r3)
             goto L151
         L170:
             r0 = move-exception
             java.lang.String r0 = "Error occured when calling consumingContent"
             java.lang.Object[] r1 = new java.lang.Object[r12]
-            com.bytedance.sdk.adnet.core.r.a(r0, r1)
+            com.bytedance.sdk.adnet.core.q.a(r0, r1)
             goto L156
         L17a:
             r0 = move-exception
@@ -296,19 +296,19 @@ public class c extends Request<File> {
             r0 = move-exception
             java.lang.String r0 = "Error occured when calling InputStream.close"
             java.lang.Object[] r4 = new java.lang.Object[r12]
-            com.bytedance.sdk.adnet.core.r.a(r0, r4)
+            com.bytedance.sdk.adnet.core.q.a(r0, r4)
             goto L182
         L195:
             r0 = move-exception
             java.lang.String r0 = "Error occured when calling consumingContent"
             java.lang.Object[] r3 = new java.lang.Object[r12]
-            com.bytedance.sdk.adnet.core.r.a(r0, r3)
+            com.bytedance.sdk.adnet.core.q.a(r0, r3)
             goto L187
         L19f:
             r0 = move-exception
             java.lang.String r0 = "Error occured when calling tmpFile.close"
             java.lang.Object[] r2 = new java.lang.Object[r12]
-            com.bytedance.sdk.adnet.core.r.a(r0, r2)
+            com.bytedance.sdk.adnet.core.q.a(r0, r2)
             goto L18a
         L1a9:
             r0 = move-exception
@@ -351,8 +351,8 @@ public class c extends Request<File> {
     }
 
     private String a(com.bytedance.sdk.adnet.core.b bVar, String str) {
-        if (bVar != null && bVar.eqT() != null && !bVar.eqT().isEmpty()) {
-            for (com.bytedance.sdk.adnet.core.a aVar : bVar.eqT()) {
+        if (bVar != null && bVar.erb() != null && !bVar.erb().isEmpty()) {
+            for (com.bytedance.sdk.adnet.core.a aVar : bVar.erb()) {
                 if (aVar != null && TextUtils.equals(aVar.getName(), str)) {
                     return aVar.getValue();
                 }
@@ -363,21 +363,21 @@ public class c extends Request<File> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bytedance.sdk.adnet.core.Request
-    public void a(p<File> pVar) {
-        p.a<File> aVar;
+    public void a(o<File> oVar) {
+        o.a<File> aVar;
         synchronized (this.e) {
-            aVar = this.pva;
+            aVar = this.pxf;
         }
         if (aVar != null) {
-            aVar.a(p.a(this.c, pVar.pvO));
+            aVar.a(o.a(this.c, oVar.pxS));
         }
     }
 
     @Override // com.bytedance.sdk.adnet.core.Request
     protected void a(long j, long j2) {
-        p.a<File> aVar;
+        o.a<File> aVar;
         synchronized (this.e) {
-            aVar = this.pva;
+            aVar = this.pxf;
         }
         if (aVar instanceof a) {
             ((a) aVar).a(j, j2);

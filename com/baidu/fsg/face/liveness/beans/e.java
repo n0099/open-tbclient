@@ -13,13 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class e extends l {
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f2271b;
+    private String b;
     private String c;
 
     public void a(String str) {
-        this.f2271b = str;
+        this.b = str;
     }
 
     public e(Context context) {
@@ -40,10 +38,10 @@ public class e extends l {
             arrayList.add(new RestNameValuePair("processid", livenessRecogDTO.processid));
             arrayList.add(new RestNameValuePair("exuid", livenessRecogDTO.exUid));
         }
-        arrayList.add(new RestNameValuePair("imgdigests", this.f2271b));
+        arrayList.add(new RestNameValuePair("imgdigests", this.b));
         String randomString = RandomUtils.getRandomString(4096);
         try {
-            arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f2278a, randomString).getBytes("UTF-8"))));
+            arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f1755a, randomString).getBytes("UTF-8"))));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }

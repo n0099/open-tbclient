@@ -3,10 +3,10 @@ package com.baidu.browser.core;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.SharedPreferences;
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public class b extends ContextWrapper {
-    private static b aeY;
-    private h aeZ;
+    private static b agr;
+    private h ags;
 
     public b() {
         super(null);
@@ -16,10 +16,10 @@ public class b extends ContextWrapper {
     @Override // android.content.ContextWrapper, android.content.Context
     /* renamed from: st */
     public h getResources() {
-        if (this.aeZ == null) {
-            this.aeZ = new h(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
+        if (this.ags == null) {
+            this.ags = new h(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
         }
-        return this.aeZ;
+        return this.ags;
     }
 
     @Override // android.content.ContextWrapper
@@ -30,16 +30,16 @@ public class b extends ContextWrapper {
     public static synchronized b su() {
         b bVar;
         synchronized (b.class) {
-            if (aeY == null) {
-                aeY = new b();
+            if (agr == null) {
+                agr = new b();
             }
-            bVar = aeY;
+            bVar = agr;
         }
         return bVar;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public SharedPreferences getSharedPreferences(String str, int i) {
-        return com.baidu.browser.core.util.c.R(this) ? d.c(str, this) : super.getSharedPreferences(str, i);
+        return com.baidu.browser.core.util.c.Q(this) ? d.c(str, this) : super.getSharedPreferences(str, i);
     }
 }

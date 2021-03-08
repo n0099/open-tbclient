@@ -11,12 +11,12 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 import androidx.annotation.NonNull;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class SceneLoadingView extends View {
-    private ValueAnimator dwJ;
-    private int hDb;
-    private ValueAnimator.AnimatorUpdateListener hDc;
-    private int hxA;
+    private ValueAnimator dyk;
+    private int hEK;
+    private ValueAnimator.AnimatorUpdateListener hEL;
+    private int hzj;
     private Paint mPaint;
     private int mSize;
 
@@ -30,34 +30,34 @@ public class SceneLoadingView extends View {
 
     public SceneLoadingView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hDb = 0;
-        this.hDc = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.exclusive.SceneLoadingView.1
+        this.hEK = 0;
+        this.hEL = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.exclusive.SceneLoadingView.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                SceneLoadingView.this.hDb = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+                SceneLoadingView.this.hEK = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                 SceneLoadingView.this.invalidate();
             }
         };
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.j.SceneLoadingView, i, 0);
-        this.mSize = obtainStyledAttributes.getDimensionPixelSize(a.j.SceneLoadingView_loading_view_size, vy(32));
-        this.hxA = obtainStyledAttributes.getInt(a.j.SceneLoadingView_android_color, -1);
+        this.mSize = obtainStyledAttributes.getDimensionPixelSize(a.j.SceneLoadingView_loading_view_size, vA(32));
+        this.hzj = obtainStyledAttributes.getInt(a.j.SceneLoadingView_android_color, -1);
         obtainStyledAttributes.recycle();
         rX();
     }
 
-    protected int vy(int i) {
+    protected int vA(int i) {
         return (int) TypedValue.applyDimension(1, i, getResources().getDisplayMetrics());
     }
 
     private void rX() {
         this.mPaint = new Paint();
-        this.mPaint.setColor(this.hxA);
+        this.mPaint.setColor(this.hzj);
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStrokeCap(Paint.Cap.ROUND);
     }
 
     public void setColor(int i) {
-        this.hxA = i;
+        this.hzj = i;
         this.mPaint.setColor(i);
         invalidate();
     }
@@ -68,25 +68,25 @@ public class SceneLoadingView extends View {
     }
 
     public void start() {
-        if (this.dwJ == null) {
-            this.dwJ = ValueAnimator.ofInt(0, 11);
-            this.dwJ.addUpdateListener(this.hDc);
-            this.dwJ.setDuration(600L);
-            this.dwJ.setRepeatMode(1);
-            this.dwJ.setRepeatCount(-1);
-            this.dwJ.setInterpolator(new LinearInterpolator());
-            this.dwJ.start();
-        } else if (!this.dwJ.isStarted()) {
-            this.dwJ.start();
+        if (this.dyk == null) {
+            this.dyk = ValueAnimator.ofInt(0, 11);
+            this.dyk.addUpdateListener(this.hEL);
+            this.dyk.setDuration(600L);
+            this.dyk.setRepeatMode(1);
+            this.dyk.setRepeatCount(-1);
+            this.dyk.setInterpolator(new LinearInterpolator());
+            this.dyk.start();
+        } else if (!this.dyk.isStarted()) {
+            this.dyk.start();
         }
     }
 
     public void stop() {
-        if (this.dwJ != null) {
-            this.dwJ.removeUpdateListener(this.hDc);
-            this.dwJ.removeAllUpdateListeners();
-            this.dwJ.cancel();
-            this.dwJ = null;
+        if (this.dyk != null) {
+            this.dyk.removeUpdateListener(this.hEL);
+            this.dyk.removeAllUpdateListeners();
+            this.dyk.cancel();
+            this.dyk = null;
         }
     }
 
@@ -121,7 +121,7 @@ public class SceneLoadingView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         int saveLayer = canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, 31);
-        b(canvas, this.hDb * 30);
+        b(canvas, this.hEK * 30);
         canvas.restoreToCount(saveLayer);
     }
 

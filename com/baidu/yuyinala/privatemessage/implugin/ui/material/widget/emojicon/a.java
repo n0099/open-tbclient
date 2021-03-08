@@ -11,16 +11,16 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.emoji.Emojicon;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements AdapterView.OnItemClickListener {
-    private static b pfj;
-    private static b pfk;
-    private View bUP;
+    private static b pho;
+    private static b php;
+    private View bWp;
     private Context mContext;
-    private Emojicon[] pfl;
-    private Emojicon[] pfm;
+    private Emojicon[] phq;
+    private Emojicon[] phr;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         void a(Emojicon emojicon);
 
@@ -32,33 +32,33 @@ public class a implements AdapterView.OnItemClickListener {
     }
 
     public a(Context context, Emojicon[] emojiconArr) {
-        this.pfl = emojiconArr;
+        this.phq = emojiconArr;
         this.mContext = context;
         com.baidu.yuyinala.privatemessage.implugin.util.c.d("EmojiconGridFragment", "EmojiconGridFragment is creating, emojicons.length = " + emojiconArr.length);
     }
 
-    public GridView XO() {
-        this.bUP = LayoutInflater.from(this.mContext).inflate(a.g.bd_im_emojicon_grid, (ViewGroup) null);
-        GridView gridView = (GridView) this.bUP.findViewById(a.f.Emoji_GridView);
-        this.pfm = new Emojicon[this.pfl.length + 1];
-        for (int i = 0; i < this.pfl.length; i++) {
-            this.pfm[i] = this.pfl[i];
+    public GridView XR() {
+        this.bWp = LayoutInflater.from(this.mContext).inflate(a.g.bd_im_emojicon_grid, (ViewGroup) null);
+        GridView gridView = (GridView) this.bWp.findViewById(a.f.Emoji_GridView);
+        this.phr = new Emojicon[this.phq.length + 1];
+        for (int i = 0; i < this.phq.length; i++) {
+            this.phr[i] = this.phq[i];
         }
         c(gridView);
-        gridView.setAdapter((ListAdapter) new C0972a(this.mContext, this.pfm));
+        gridView.setAdapter((ListAdapter) new C0978a(this.mContext, this.phr));
         gridView.setOnItemClickListener(this);
         com.baidu.yuyinala.privatemessage.implugin.util.c.d("EmojiconGridFragment", "onViewCreated, gridView.count = " + gridView.getCount());
         return gridView;
     }
 
     private void c(GridView gridView) {
-        int k = com.baidu.yuyinala.privatemessage.implugin.util.c.b.k(this.mContext, com.baidu.yuyinala.privatemessage.implugin.util.c.a.pij, 0);
-        if (k > 100) {
+        int j = com.baidu.yuyinala.privatemessage.implugin.util.c.b.j(this.mContext, com.baidu.yuyinala.privatemessage.implugin.util.c.a.pkq, 0);
+        if (j > 100) {
             int dimension = (int) this.mContext.getResources().getDimension(a.d.bd_im_emoji_bar_height);
             int dimension2 = ((int) this.mContext.getResources().getDimension(a.d.bd_im_emoji_pager_dot_height)) * 4;
             int dimension3 = ((int) this.mContext.getResources().getDimension(a.d.bd_im_emoji_row_height)) * 3;
             int dimension4 = (int) this.mContext.getResources().getDimension(a.d.bd_im_emoji_row_max_space);
-            int i = (((k - dimension) - dimension2) - dimension3) / 2;
+            int i = (((j - dimension) - dimension2) - dimension3) / 2;
             int i2 = i > 0 ? i : 0;
             if (i2 <= dimension4) {
                 dimension4 = i2;
@@ -69,37 +69,37 @@ public class a implements AdapterView.OnItemClickListener {
 
     public static void a(b bVar) {
         if (bVar instanceof b) {
-            pfk = bVar;
-            pfj = bVar;
+            php = bVar;
+            pho = bVar;
             return;
         }
         throw new IllegalArgumentException(bVar + " must implement interface " + b.class.getSimpleName());
     }
 
-    public static void elC() {
-        pfj = null;
-        pfk = null;
+    public static void elM() {
+        pho = null;
+        php = null;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (pfj != null) {
-            if (i != this.pfm.length - 1) {
-                pfj.a((Emojicon) adapterView.getItemAtPosition(i));
+        if (pho != null) {
+            if (i != this.phr.length - 1) {
+                pho.a((Emojicon) adapterView.getItemAtPosition(i));
                 return;
             } else {
-                pfj.aj(view);
+                pho.aj(view);
                 return;
             }
         }
-        pfj = pfk;
+        pho = php;
         com.baidu.yuyinala.privatemessage.implugin.util.c.e("EmojiconGridFragment", "mOnEmojiconClickedListener is null");
     }
 
     /* renamed from: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    class C0972a extends ArrayAdapter<Emojicon> {
-        public C0972a(Context context, Emojicon[] emojiconArr) {
+    /* loaded from: classes10.dex */
+    class C0978a extends ArrayAdapter<Emojicon> {
+        public C0978a(Context context, Emojicon[] emojiconArr) {
             super(context, a.g.bd_im_emojicon_item, emojiconArr);
         }
 
@@ -107,28 +107,28 @@ public class a implements AdapterView.OnItemClickListener {
         public View getView(int i, View view, ViewGroup viewGroup) {
             if (view == null) {
                 view = View.inflate(getContext(), a.g.bd_im_emojicon_item, null);
-                C0973a c0973a = new C0973a();
-                c0973a.icon = (TextView) view.findViewById(a.f.emojicon_icon);
-                view.setTag(c0973a);
+                C0979a c0979a = new C0979a();
+                c0979a.icon = (TextView) view.findViewById(a.f.emojicon_icon);
+                view.setTag(c0979a);
             }
             if (i == getCount() - 1) {
                 return View.inflate(getContext(), a.g.bd_im_emojicon_backspace, null);
             }
             Emojicon item = getItem(i);
-            C0973a c0973a2 = (C0973a) view.getTag();
-            if (c0973a2 != null && c0973a2.icon != null && item != null) {
-                c0973a2.icon.setText(item.getEmoji());
+            C0979a c0979a2 = (C0979a) view.getTag();
+            if (c0979a2 != null && c0979a2.icon != null && item != null) {
+                c0979a2.icon.setText(item.getEmoji());
                 return view;
             }
             return view;
         }
 
         /* renamed from: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes11.dex */
-        class C0973a {
+        /* loaded from: classes10.dex */
+        class C0979a {
             TextView icon;
 
-            C0973a() {
+            C0979a() {
             }
         }
     }

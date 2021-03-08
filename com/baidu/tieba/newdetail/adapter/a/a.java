@@ -4,9 +4,9 @@ import android.content.Context;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class a<T, V extends TypeAdapter.ViewHolder> extends com.baidu.adp.widget.ListView.a<T, V> {
-    private boolean lyE;
+    private boolean lAG;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId) {
@@ -14,10 +14,10 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> extends com.baidu.a
     }
 
     public void up(boolean z) {
-        this.lyE = z;
+        this.lAG = z;
     }
 
-    public boolean dik() {
-        return this.lyE;
+    public boolean dit() {
+        return this.lAG;
     }
 }

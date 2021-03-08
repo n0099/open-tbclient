@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public interface b {
-    a Zc(String str);
+    a Zj(String str);
 
     void a();
 
@@ -15,10 +15,8 @@ public interface b {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f6063a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public byte[] f6064b;
+        public int f4058a;
+        public byte[] b;
         public String c;
         public long d;
         public long e;

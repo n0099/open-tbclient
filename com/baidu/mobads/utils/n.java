@@ -4,24 +4,24 @@ import com.baidu.live.adp.lib.cache.BdKVCache;
 import java.io.File;
 import java.util.Arrays;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class n extends com.baidu.mobads.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f3503a;
+    final /* synthetic */ String f2490a;
     final /* synthetic */ m c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(m mVar, String str) {
         this.c = mVar;
-        this.f3503a = str;
+        this.f2490a = str;
     }
 
     @Override // com.baidu.mobads.f.a
     protected Object a() {
         long j;
         try {
-            File file = new File(this.f3503a);
+            File file = new File(this.f2490a);
             if (!file.exists()) {
                 file.mkdirs();
             } else {
@@ -33,7 +33,7 @@ public class n extends com.baidu.mobads.f.a {
                         File file2 = listFiles[length];
                         if (file2.exists()) {
                             if (System.currentTimeMillis() - file2.lastModified() <= BdKVCache.MILLS_30Days) {
-                                j = m.f3499a;
+                                j = m.f2488a;
                                 if (file2.length() + j2 > j) {
                                     file2.delete();
                                 } else {

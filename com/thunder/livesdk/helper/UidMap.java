@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class UidMap {
     private static final String TAG = "UidMap";
     private static Map<Long, String> mUidToStringMap = new HashMap();

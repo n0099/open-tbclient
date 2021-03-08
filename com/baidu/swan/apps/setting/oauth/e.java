@@ -7,41 +7,41 @@ import java.util.List;
 import java.util.Locale;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class e {
-    public JSONObject dJb;
-    public boolean dJc;
-    public a dJj;
-    public JSONObject dJk;
-    public String dJl;
-    public String dJm;
-    public String dJn;
-    public List<e> dJo;
+    public JSONObject dKC;
+    public boolean dKD;
+    public a dKK;
+    public JSONObject dKL;
+    public String dKM;
+    public String dKN;
+    public String dKO;
+    public List<e> dKP;
     public boolean forbidden;
     public final String id;
     public String grade = "";
     public String name = "";
-    public String dJd = "";
+    public String dKE = "";
     public String description = "";
-    public List<String> dJe = new ArrayList();
-    public final List<String> dJf = new ArrayList();
-    public int dJg = -1;
+    public List<String> dKF = new ArrayList();
+    public final List<String> dKG = new ArrayList();
+    public int dKH = -1;
     private String type = "";
-    public String dJh = "";
-    public String dJi = "";
+    public String dKI = "";
+    public String dKJ = "";
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a {
-        public String dJp;
-        public String dJq;
-        public String dJr;
-        public String dJs;
-        public JSONArray dJt;
+        public String dKQ;
+        public String dKR;
+        public String dKS;
+        public String dKT;
+        public JSONArray dKU;
         public String detailUrl;
     }
 
     public void aW(List<e> list) {
-        this.dJo = list;
+        this.dKP = list;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -49,19 +49,19 @@ public class e {
         this.id = str;
     }
 
-    public boolean aKH() {
-        return this.dJg > 0;
+    public boolean aKK() {
+        return this.dKH > 0;
     }
 
-    public boolean aKI() {
-        return this.dJg != 0;
+    public boolean aKL() {
+        return this.dKH != 0;
     }
 
-    public boolean aKJ() {
+    public boolean aKM() {
         return "1".equals(this.type);
     }
 
-    public static e bY(JSONObject jSONObject) {
+    public static e ca(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
@@ -69,58 +69,58 @@ public class e {
         if (TextUtils.isEmpty(optString)) {
             return null;
         }
-        return l(optString, jSONObject);
+        return m(optString, jSONObject);
     }
 
-    public static e l(String str, JSONObject jSONObject) {
+    public static e m(String str, JSONObject jSONObject) {
         e eVar = new e(str);
-        eVar.dJb = jSONObject;
-        eVar.dJc = jSONObject.optBoolean("permit", false);
+        eVar.dKC = jSONObject;
+        eVar.dKD = jSONObject.optBoolean("permit", false);
         eVar.forbidden = jSONObject.optBoolean("forbidden", true);
         eVar.grade = jSONObject.optString("grade");
         eVar.type = jSONObject.optString("type", "");
         eVar.name = jSONObject.optString("name", "");
-        eVar.dJd = jSONObject.optString("short_name", "");
+        eVar.dKE = jSONObject.optString("short_name", "");
         eVar.description = jSONObject.optString("description", "");
-        eVar.dJg = jSONObject.optInt("tip_status", -1);
-        eVar.dJh = jSONObject.optString("explain", "");
-        eVar.dJi = jSONObject.optString("sub_explain", "");
+        eVar.dKH = jSONObject.optInt("tip_status", -1);
+        eVar.dKI = jSONObject.optString("explain", "");
+        eVar.dKJ = jSONObject.optString("sub_explain", "");
         JSONArray optJSONArray = jSONObject.optJSONArray("ext");
         if (optJSONArray != null) {
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
-                eVar.dJf.add(optJSONArray.optString(i));
+                eVar.dKG.add(optJSONArray.optString(i));
             }
         }
         JSONArray optJSONArray2 = jSONObject.optJSONArray(Message.RULE);
         if (optJSONArray2 != null) {
             int length2 = optJSONArray2.length();
             for (int i2 = 0; i2 < length2; i2++) {
-                eVar.dJe.add(optJSONArray2.optString(i2));
+                eVar.dKF.add(optJSONArray2.optString(i2));
             }
         }
-        eVar.dJk = jSONObject.optJSONObject("other");
-        eVar.dJl = jSONObject.optString("plugin_app_name");
-        eVar.dJm = jSONObject.optString("plugin_icon_url");
+        eVar.dKL = jSONObject.optJSONObject("other");
+        eVar.dKM = jSONObject.optString("plugin_app_name");
+        eVar.dKN = jSONObject.optString("plugin_icon_url");
         return eVar;
     }
 
-    public void aKK() {
-        if (this.dJk != null && this.dJk.keys() != null && this.dJk.keys().hasNext()) {
-            this.dJj = new a();
-            this.dJj.dJp = this.dJk.optString("detail_text");
-            this.dJj.detailUrl = this.dJk.optString("detail_url");
-            this.dJj.dJq = this.dJk.optString("text_color");
-            this.dJj.dJr = this.dJk.optString("keyword");
-            this.dJj.dJs = this.dJk.optString("key_color");
-            JSONObject optJSONObject = this.dJk.optJSONObject("developer_agreements");
+    public void aKN() {
+        if (this.dKL != null && this.dKL.keys() != null && this.dKL.keys().hasNext()) {
+            this.dKK = new a();
+            this.dKK.dKQ = this.dKL.optString("detail_text");
+            this.dKK.detailUrl = this.dKL.optString("detail_url");
+            this.dKK.dKR = this.dKL.optString("text_color");
+            this.dKK.dKS = this.dKL.optString("keyword");
+            this.dKK.dKT = this.dKL.optString("key_color");
+            JSONObject optJSONObject = this.dKL.optJSONObject("developer_agreements");
             if (optJSONObject != null) {
-                this.dJj.dJt = optJSONObject.optJSONArray("details");
+                this.dKK.dKU = optJSONObject.optJSONArray("details");
             }
         }
     }
 
     public String toString() {
-        return String.format(Locale.getDefault(), "Scope(%s) tipStatus=%d", this.id, Integer.valueOf(this.dJg));
+        return String.format(Locale.getDefault(), "Scope(%s) tipStatus=%d", this.id, Integer.valueOf(this.dKH));
     }
 }

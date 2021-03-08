@@ -5,9 +5,9 @@ import java.io.InterruptedIOException;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
 public class t {
-    public static final t pot = new t() { // from class: com.bytedance.sdk.a.a.t.1
+    public static final t pqA = new t() { // from class: com.bytedance.sdk.a.a.t.1
         @Override // com.bytedance.sdk.a.a.t
-        public t c(long j, TimeUnit timeUnit) {
+        public t b(long j, TimeUnit timeUnit) {
             return this;
         }
 
@@ -22,13 +22,11 @@ public class t {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f5853a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private long f5854b;
+    private boolean f3943a;
+    private long b;
     private long d;
 
-    public t c(long j, TimeUnit timeUnit) {
+    public t b(long j, TimeUnit timeUnit) {
         if (j < 0) {
             throw new IllegalArgumentException("timeout < 0: " + j);
         }
@@ -39,34 +37,34 @@ public class t {
         return this;
     }
 
-    public long eoK() {
+    public long eoR() {
         return this.d;
     }
 
     public boolean c() {
-        return this.f5853a;
+        return this.f3943a;
     }
 
-    public long eoL() {
-        if (this.f5853a) {
-            return this.f5854b;
+    public long eoS() {
+        if (this.f3943a) {
+            return this.b;
         }
         throw new IllegalStateException("No deadline");
     }
 
     public t ip(long j) {
-        this.f5853a = true;
-        this.f5854b = j;
+        this.f3943a = true;
+        this.b = j;
         return this;
     }
 
-    public t eoM() {
+    public t eoT() {
         this.d = 0L;
         return this;
     }
 
-    public t eoN() {
-        this.f5853a = false;
+    public t eoU() {
+        this.f3943a = false;
         return this;
     }
 
@@ -74,7 +72,7 @@ public class t {
         if (Thread.interrupted()) {
             Thread.currentThread().interrupt();
             throw new InterruptedIOException("interrupted");
-        } else if (this.f5853a && this.f5854b - System.nanoTime() <= 0) {
+        } else if (this.f3943a && this.b - System.nanoTime() <= 0) {
             throw new InterruptedIOException("deadline reached");
         }
     }

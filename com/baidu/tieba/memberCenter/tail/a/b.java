@@ -10,7 +10,7 @@ import com.baidu.adp.base.BdBaseActivity;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.coreExtra.data.u;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
     public void a(BdBaseActivity<?> bdBaseActivity, final EditText editText, u uVar) {
         if (((ImageSpan[]) editText.getText().getSpans(0, editText.getText().length(), ImageSpan.class)).length >= 10) {
@@ -18,7 +18,7 @@ public class b {
             return;
         }
         String name = uVar.getName();
-        final EmotionGroupType bwv = uVar.bwv();
+        final EmotionGroupType bwy = uVar.bwy();
         if (name != null) {
             final int selectionStart = editText.getSelectionStart();
             final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(name);
@@ -29,7 +29,7 @@ public class b {
                 public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                     super.onLoaded((AnonymousClass1) aVar, str, i);
                     if (aVar != null) {
-                        b.this.a(editText, spannableStringBuilder, selectionStart, aVar, bwv);
+                        b.this.a(editText, spannableStringBuilder, selectionStart, aVar, bwy);
                     }
                 }
             }, 0, 0, bdBaseActivity.getUniqueId(), null, name, false, null);

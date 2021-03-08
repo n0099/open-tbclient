@@ -14,10 +14,8 @@ public final class AnimatorProxy extends Animation {
     public static final boolean NEEDS_PROXY;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final WeakHashMap<View, AnimatorProxy> f2007a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final WeakReference<View> f2008b;
+    private static final WeakHashMap<View, AnimatorProxy> f1573a;
+    private final WeakReference<View> b;
     private boolean g;
     private float i;
     private float j;
@@ -36,21 +34,21 @@ public final class AnimatorProxy extends Animation {
 
     static {
         NEEDS_PROXY = Integer.valueOf(Build.VERSION.SDK).intValue() < 11;
-        f2007a = new WeakHashMap<>();
+        f1573a = new WeakHashMap<>();
     }
 
     private AnimatorProxy(View view) {
         setDuration(0L);
         setFillAfter(true);
         view.setAnimation(this);
-        this.f2008b = new WeakReference<>(view);
+        this.b = new WeakReference<>(view);
     }
 
     public static AnimatorProxy wrap(View view) {
-        AnimatorProxy animatorProxy = f2007a.get(view);
+        AnimatorProxy animatorProxy = f1573a.get(view);
         if (animatorProxy == null || animatorProxy != view.getAnimation()) {
             AnimatorProxy animatorProxy2 = new AnimatorProxy(view);
-            f2007a.put(view, animatorProxy2);
+            f1573a.put(view, animatorProxy2);
             return animatorProxy2;
         }
         return animatorProxy;
@@ -63,7 +61,7 @@ public final class AnimatorProxy extends Animation {
     public void setAlpha(float f) {
         if (this.h != f) {
             this.h = f;
-            View view = this.f2008b.get();
+            View view = this.b.get();
             if (view != null) {
                 view.invalidate();
             }
@@ -157,7 +155,7 @@ public final class AnimatorProxy extends Animation {
     }
 
     public int getScrollX() {
-        View view = this.f2008b.get();
+        View view = this.b.get();
         if (view == null) {
             return 0;
         }
@@ -165,14 +163,14 @@ public final class AnimatorProxy extends Animation {
     }
 
     public void setScrollX(int i) {
-        View view = this.f2008b.get();
+        View view = this.b.get();
         if (view != null) {
             view.scrollTo(i, view.getScrollY());
         }
     }
 
     public int getScrollY() {
-        View view = this.f2008b.get();
+        View view = this.b.get();
         if (view == null) {
             return 0;
         }
@@ -180,7 +178,7 @@ public final class AnimatorProxy extends Animation {
     }
 
     public void setScrollY(int i) {
-        View view = this.f2008b.get();
+        View view = this.b.get();
         if (view != null) {
             view.scrollTo(view.getScrollX(), i);
         }
@@ -211,7 +209,7 @@ public final class AnimatorProxy extends Animation {
     }
 
     public float getX() {
-        View view = this.f2008b.get();
+        View view = this.b.get();
         if (view == null) {
             return 0.0f;
         }
@@ -219,14 +217,14 @@ public final class AnimatorProxy extends Animation {
     }
 
     public void setX(float f) {
-        View view = this.f2008b.get();
+        View view = this.b.get();
         if (view != null) {
             setTranslationX(f - view.getLeft());
         }
     }
 
     public float getY() {
-        View view = this.f2008b.get();
+        View view = this.b.get();
         if (view == null) {
             return 0.0f;
         }
@@ -234,21 +232,21 @@ public final class AnimatorProxy extends Animation {
     }
 
     public void setY(float f) {
-        View view = this.f2008b.get();
+        View view = this.b.get();
         if (view != null) {
             setTranslationY(f - view.getTop());
         }
     }
 
     private void a() {
-        View view = this.f2008b.get();
+        View view = this.b.get();
         if (view != null) {
             a(this.d, view);
         }
     }
 
     private void b() {
-        View view = this.f2008b.get();
+        View view = this.b.get();
         if (view != null && view.getParent() != null) {
             RectF rectF = this.e;
             a(rectF, view);
@@ -307,7 +305,7 @@ public final class AnimatorProxy extends Animation {
 
     @Override // android.view.animation.Animation
     protected void applyTransformation(float f, Transformation transformation) {
-        View view = this.f2008b.get();
+        View view = this.b.get();
         if (view != null) {
             transformation.setAlpha(this.h);
             a(transformation.getMatrix(), view);

@@ -7,10 +7,8 @@ public class BusInfo extends TransitBaseInfo {
     public static final Parcelable.Creator<BusInfo> CREATOR = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2835a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f2836b;
+    private int f2095a;
+    private int b;
 
     public BusInfo() {
     }
@@ -18,8 +16,8 @@ public class BusInfo extends TransitBaseInfo {
     /* JADX INFO: Access modifiers changed from: protected */
     public BusInfo(Parcel parcel) {
         super(parcel);
-        this.f2835a = parcel.readInt();
-        this.f2836b = parcel.readInt();
+        this.f2095a = parcel.readInt();
+        this.b = parcel.readInt();
     }
 
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
@@ -28,25 +26,25 @@ public class BusInfo extends TransitBaseInfo {
     }
 
     public int getStopNum() {
-        return this.f2836b;
+        return this.b;
     }
 
     public int getType() {
-        return this.f2835a;
+        return this.f2095a;
     }
 
     public void setStopNum(int i) {
-        this.f2836b = i;
+        this.b = i;
     }
 
     public void setType(int i) {
-        this.f2835a = i;
+        this.f2095a = i;
     }
 
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         super.writeToParcel(parcel, i);
-        parcel.writeInt(this.f2835a);
-        parcel.writeInt(this.f2836b);
+        parcel.writeInt(this.f2095a);
+        parcel.writeInt(this.b);
     }
 }

@@ -1,5 +1,5 @@
 package com.yy.mediaframework.gpuimage.custom;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GPUImageBeautyControl {
     private IGPUProcess mGPUImageProcess = null;
 

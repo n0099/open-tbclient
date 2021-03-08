@@ -14,22 +14,22 @@ public interface e extends s, ReadableByteChannel {
 
     String b(Charset charset) throws IOException;
 
-    long e(byte b2) throws IOException;
+    long e(byte b) throws IOException;
 
     String e(long j) throws IOException;
 
     boolean e() throws IOException;
 
-    InputStream eoB();
-
-    byte eoC() throws IOException;
-
-    short eoD() throws IOException;
-
-    short eoE() throws IOException;
-
     @Deprecated
-    c eoz();
+    c eoG();
+
+    InputStream eoI();
+
+    byte eoJ() throws IOException;
+
+    short eoK() throws IOException;
+
+    short eoL() throws IOException;
 
     void h(long j) throws IOException;
 

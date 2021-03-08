@@ -1,5 +1,6 @@
 package com.bumptech.glide.request.target;
 
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -7,8 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.transition.Transition;
-/* loaded from: classes15.dex */
-public final class PreloadTarget<Z> extends SimpleTarget<Z> {
+/* loaded from: classes14.dex */
+public final class PreloadTarget<Z> extends CustomTarget<Z> {
     private static final Handler HANDLER = new Handler(Looper.getMainLooper(), new Handler.Callback() { // from class: com.bumptech.glide.request.target.PreloadTarget.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
@@ -34,6 +35,10 @@ public final class PreloadTarget<Z> extends SimpleTarget<Z> {
     @Override // com.bumptech.glide.request.target.Target
     public void onResourceReady(@NonNull Z z, @Nullable Transition<? super Z> transition) {
         HANDLER.obtainMessage(1, this).sendToTarget();
+    }
+
+    @Override // com.bumptech.glide.request.target.Target
+    public void onLoadCleared(@Nullable Drawable drawable) {
     }
 
     void clear() {

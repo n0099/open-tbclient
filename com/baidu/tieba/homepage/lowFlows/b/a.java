@@ -12,37 +12,37 @@ import com.baidu.tieba.homepage.lowFlows.message.MoreTreasureTroveReqMsg;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class a implements a.InterfaceC0747a {
-    private com.baidu.adp.framework.listener.a eDt;
-    private String eTL;
+public class a implements a.InterfaceC0753a {
+    private com.baidu.adp.framework.listener.a eEU;
+    private String eVm;
     private boolean isLoading;
-    private a.b khB;
+    private a.b kjE;
     private String mLFUser;
     private String mTaskId;
-    private BdUniqueId agC = null;
-    private final HashMap<String, List<n>> kgs = new HashMap<>();
+    private BdUniqueId ahU = null;
+    private final HashMap<String, List<n>> kiv = new HashMap<>();
 
     public a(a.b bVar) {
-        this.khB = bVar;
-        cQN();
+        this.kjE = bVar;
+        cQU();
     }
 
-    @Override // com.baidu.tieba.homepage.lowFlows.a.InterfaceC0747a
+    @Override // com.baidu.tieba.homepage.lowFlows.a.InterfaceC0753a
     public boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3) {
         if (!j.isNetworkAvailableForImmediately() || bdUniqueId == null || StringUtils.isNull(str) || StringUtils.isNull(str2)) {
-            if (this.khB != null) {
-                this.khB.BT(-1);
+            if (this.kjE != null) {
+                this.kjE.BW(-1);
                 return false;
             }
             return false;
         } else if (this.isLoading) {
             return false;
         } else {
-            if (this.eTL != null && this.eTL.equals(str) && this.kgs.size() > 0) {
-                this.khB.setData(this.kgs.get(str));
+            if (this.eVm != null && this.eVm.equals(str) && this.kiv.size() > 0) {
+                this.kjE.setData(this.kiv.get(str));
                 return true;
             }
-            t(bdUniqueId);
+            u(bdUniqueId);
             setTabCode(str);
             setLFUser(str2);
             setTaskId(str3);
@@ -56,37 +56,37 @@ public class a implements a.InterfaceC0747a {
         }
     }
 
-    private void cQN() {
-        this.eDt = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_LOW_FLOWS_PAGE, 309691) { // from class: com.baidu.tieba.homepage.lowFlows.b.a.1
+    private void cQU() {
+        this.eEU = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_LOW_FLOWS_PAGE, 309691) { // from class: com.baidu.tieba.homepage.lowFlows.b.a.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 a.this.isLoading = false;
-                if (a.this.khB != null) {
+                if (a.this.kjE != null) {
                     if (!(responsedMessage instanceof com.baidu.tieba.homepage.lowFlows.message.a)) {
-                        a.this.khB.BT(-1);
-                    } else if (responsedMessage.getOrginalMessage() == null || a.this.agC != responsedMessage.getOrginalMessage().getTag()) {
-                        a.this.khB.BT(-1);
+                        a.this.kjE.BW(-1);
+                    } else if (responsedMessage.getOrginalMessage() == null || a.this.ahU != responsedMessage.getOrginalMessage().getTag()) {
+                        a.this.kjE.BW(-1);
                     } else if (responsedMessage.hasError() && responsedMessage.getError() == 0) {
-                        a.this.khB.BT(responsedMessage.getError());
+                        a.this.kjE.BW(responsedMessage.getError());
                     } else {
                         com.baidu.tieba.homepage.lowFlows.message.a aVar = (com.baidu.tieba.homepage.lowFlows.message.a) responsedMessage;
                         if (aVar.getDataList() == null || aVar.getDataList().size() <= 0) {
-                            a.this.khB.BT(-1);
+                            a.this.kjE.BW(-1);
                             return;
                         }
-                        if (!StringUtils.isNull(a.this.eTL)) {
-                            a.this.kgs.put(a.this.eTL, aVar.getDataList());
+                        if (!StringUtils.isNull(a.this.eVm)) {
+                            a.this.kiv.put(a.this.eVm, aVar.getDataList());
                         }
-                        a.this.khB.a(responsedMessage.getError(), aVar);
+                        a.this.kjE.a(responsedMessage.getError(), aVar);
                     }
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.eDt);
+        MessageManager.getInstance().registerListener(this.eEU);
     }
 
     public void setTabCode(String str) {
-        this.eTL = str;
+        this.eVm = str;
     }
 
     public void setLFUser(String str) {
@@ -97,7 +97,7 @@ public class a implements a.InterfaceC0747a {
         this.mTaskId = str;
     }
 
-    public void t(BdUniqueId bdUniqueId) {
-        this.agC = bdUniqueId;
+    public void u(BdUniqueId bdUniqueId) {
+        this.ahU = bdUniqueId;
     }
 }

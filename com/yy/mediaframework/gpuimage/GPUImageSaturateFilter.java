@@ -2,7 +2,7 @@ package com.yy.mediaframework.gpuimage;
 
 import android.opengl.GLES20;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GPUImageSaturateFilter extends GPUImageFilter implements IFilterParams {
     public static final String FRAGMENT_SHADER = "precision highp float;\n\nvarying highp vec2 textureCoordinate;\n\nuniform sampler2D inputImageTexture;\nuniform float params; \n\nconst mat3 saturateMatrix = mat3(\n\t\t1.1102,-0.0598,-0.061,\n\t\t-0.0774,1.0826,-0.1186,\n\t\t-0.0228,-0.0228,1.1772);\n\t\t\n\nvoid main(){\n\n     gl_FragColor = texture2D(inputImageTexture, textureCoordinate);\n     vec3 satcolor = gl_FragColor.rgb * saturateMatrix;\n     gl_FragColor.rgb = mix(gl_FragColor.rgb, satcolor, params);\n}";
     private int mParamsLocation;

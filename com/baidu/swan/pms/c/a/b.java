@@ -5,11 +5,11 @@ import com.baidu.swan.pms.c.a.d.f;
 public abstract class b {
     public abstract boolean a(f fVar);
 
-    public abstract f bcQ();
+    public abstract f bcS();
 
     public abstract void iB(boolean z);
 
     public String toString() {
-        return "task=" + bcQ();
+        return "task=" + bcS();
     }
 }

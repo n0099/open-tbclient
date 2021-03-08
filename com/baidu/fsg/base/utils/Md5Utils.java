@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public final class Md5Utils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static char[] f1982a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private static char[] f1557a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     private Md5Utils() {
     }
@@ -98,8 +98,8 @@ public final class Md5Utils {
                 messageDigest.update(bArr);
                 byte[] digest = messageDigest.digest();
                 StringBuilder sb = new StringBuilder();
-                for (byte b2 : digest) {
-                    sb.append(Integer.toHexString((b2 & 255) | InputDeviceCompat.SOURCE_ANY).substring(6));
+                for (byte b : digest) {
+                    sb.append(Integer.toHexString((b & 255) | InputDeviceCompat.SOURCE_ANY).substring(6));
                 }
                 str = sb.toString();
             } catch (NoSuchAlgorithmException e) {
@@ -142,8 +142,8 @@ public final class Md5Utils {
             if (i > 0 && ch != null) {
                 stringBuffer.append(ch.charValue());
             }
-            stringBuffer.append(f1982a[i2]);
-            stringBuffer.append(f1982a[i3]);
+            stringBuffer.append(f1557a[i2]);
+            stringBuffer.append(f1557a[i3]);
         }
         return stringBuffer.toString();
     }
@@ -213,8 +213,8 @@ public final class Md5Utils {
                 }
                 a2.update(bArr, 0, read);
             }
-            for (byte b2 : a2.digest()) {
-                sb.append(Integer.toHexString((b2 & 255) | InputDeviceCompat.SOURCE_ANY).substring(6));
+            for (byte b : a2.digest()) {
+                sb.append(Integer.toHexString((b & 255) | InputDeviceCompat.SOURCE_ANY).substring(6));
             }
         } catch (IOException e) {
             e.printStackTrace();

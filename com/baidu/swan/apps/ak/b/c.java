@@ -10,7 +10,7 @@ import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c extends aa {
     public c(j jVar) {
         super(jVar, "/swanAPI/stopMediaVolumeListen");
@@ -46,7 +46,7 @@ public class c extends aa {
                 com.baidu.swan.apps.console.c.e("stopMediaVolumeListen", "id is empty");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
-            } else if (!d.aMD().tz(optString)) {
+            } else if (!d.aMG().tG(optString)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else {

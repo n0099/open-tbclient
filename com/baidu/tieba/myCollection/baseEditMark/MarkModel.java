@@ -9,87 +9,87 @@ import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.aa;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MarkModel extends BdBaseModel {
-    private boolean lxJ;
-    private MarkData lxK;
-    private a lxL;
-    private a.InterfaceC0554a lxM;
+    private boolean lzM;
+    private MarkData lzN;
+    private a lzO;
+    private a.InterfaceC0560a lzP;
 
-    public void a(a.InterfaceC0554a interfaceC0554a) {
-        this.lxM = interfaceC0554a;
+    public void a(a.InterfaceC0560a interfaceC0560a) {
+        this.lzP = interfaceC0560a;
     }
 
     public MarkModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.lxJ = false;
-        this.lxK = null;
-        this.lxL = null;
-        this.lxM = null;
-        this.lxK = new MarkData();
+        this.lzM = false;
+        this.lzN = null;
+        this.lzO = null;
+        this.lzP = null;
+        this.lzN = new MarkData();
     }
 
     public MarkModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.lxJ = false;
-        this.lxK = null;
-        this.lxL = null;
-        this.lxM = null;
-        this.lxK = new MarkData();
+        this.lzM = false;
+        this.lzN = null;
+        this.lzO = null;
+        this.lzP = null;
+        this.lzN = new MarkData();
     }
 
-    public boolean bjZ() {
-        return this.lxJ;
+    public boolean bkb() {
+        return this.lzM;
     }
 
-    public MarkData bkc() {
-        return this.lxK;
+    public MarkData bke() {
+        return this.lzN;
     }
 
     public void a(MarkData markData) {
-        this.lxK = markData;
+        this.lzN = markData;
     }
 
     public void ja(boolean z) {
-        this.lxJ = z;
+        this.lzM = z;
     }
 
-    public String bjY() {
-        if (this.lxK != null) {
-            return this.lxK.getPostId();
+    public String bka() {
+        if (this.lzN != null) {
+            return this.lzN.getPostId();
         }
         return null;
     }
 
-    public void bkb() {
-        if (this.lxL != null) {
-            this.lxL.cancel();
+    public void bkd() {
+        if (this.lzO != null) {
+            this.lzO.cancel();
         }
-        this.lxL = new a(true);
-        this.lxL.setPriority(3);
-        this.lxL.execute(new Boolean[0]);
+        this.lzO = new a(true);
+        this.lzO.setPriority(3);
+        this.lzO.execute(new Boolean[0]);
     }
 
-    public void bka() {
-        if (this.lxL != null) {
-            this.lxL.cancel();
+    public void bkc() {
+        if (this.lzO != null) {
+            this.lzO.cancel();
         }
-        this.lxL = new a(false);
-        this.lxL.setPriority(3);
-        this.lxL.execute(new Boolean[0]);
+        this.lzO = new a(false);
+        this.lzO.setPriority(3);
+        this.lzO.execute(new Boolean[0]);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     private class a extends BdAsyncTask<Boolean, Integer, Boolean> {
-        private aa cml = null;
-        private boolean iCw;
-        private c lxF;
+        private aa cnM = null;
+        private boolean iEf;
+        private c lzI;
 
         public a(boolean z) {
-            this.iCw = true;
-            this.lxF = null;
-            this.iCw = z;
-            this.lxF = new c();
+            this.iEf = true;
+            this.lzI = null;
+            this.iEf = z;
+            this.lzI = new c();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -102,20 +102,20 @@ public class MarkModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public Boolean doInBackground(Boolean... boolArr) {
-            if (this.iCw) {
-                this.cml = new aa(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
+            if (this.iEf) {
+                this.cnM = new aa(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
                 com.baidu.tieba.myCollection.baseEditMark.a aVar = new com.baidu.tieba.myCollection.baseEditMark.a();
-                aVar.f(MarkModel.this.lxK);
-                this.cml.addPostData("data", aVar.cV(0, 1));
+                aVar.f(MarkModel.this.lzN);
+                this.cnM.addPostData("data", aVar.cV(0, 1));
             } else {
-                this.cml = new aa(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
-                this.cml.addPostData("user_id", MarkModel.this.lxK.getAccount());
-                this.cml.addPostData("tid", MarkModel.this.lxK.getId());
-                this.cml.addPostData("fid", MarkModel.this.lxK.getForumId());
+                this.cnM = new aa(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
+                this.cnM.addPostData("user_id", MarkModel.this.lzN.getAccount());
+                this.cnM.addPostData("tid", MarkModel.this.lzN.getId());
+                this.cnM.addPostData("fid", MarkModel.this.lzN.getForumId());
             }
-            this.lxF.parserJson(this.cml.postNetData());
-            boolean z = this.lxF.getErrorCode() == 0;
-            if (this.cml.bsr().btb().isRequestSuccess() && z) {
+            this.lzI.parserJson(this.cnM.postNetData());
+            boolean z = this.lzI.getErrorCode() == 0;
+            if (this.cnM.bsu().bte().isRequestSuccess() && z) {
                 return true;
             }
             return false;
@@ -124,10 +124,10 @@ public class MarkModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            if (this.cml != null) {
-                this.cml.cancelNetConnect();
+            if (this.cnM != null) {
+                this.cnM.cancelNetConnect();
             }
-            MarkModel.this.lxL = null;
+            MarkModel.this.lzO = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -135,21 +135,21 @@ public class MarkModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             try {
-                if (this.lxF != null) {
-                    com.baidu.tbadk.core.d.a.a("collection", 0L, 0, "add_collection_thread", this.lxF.getErrorCode(), this.lxF.getErrorString(), new Object[0]);
+                if (this.lzI != null) {
+                    com.baidu.tbadk.core.d.a.a("collection", 0L, 0, "add_collection_thread", this.lzI.getErrorCode(), this.lzI.getErrorString(), new Object[0]);
                 }
                 if (bool.booleanValue()) {
-                    if (MarkModel.this.lxM != null) {
-                        MarkModel.this.lxM.g(true, this.iCw, null);
+                    if (MarkModel.this.lzP != null) {
+                        MarkModel.this.lzP.e(true, this.iEf, null);
                     }
-                } else if (MarkModel.this.lxM != null) {
-                    if (this.cml == null || this.cml.bsr().btb().isRequestSuccess()) {
-                        MarkModel.this.lxM.g(false, this.iCw, this.lxF.getErrorString());
+                } else if (MarkModel.this.lzP != null) {
+                    if (this.cnM == null || this.cnM.bsu().bte().isRequestSuccess()) {
+                        MarkModel.this.lzP.e(false, this.iEf, this.lzI.getErrorString());
                     } else {
-                        MarkModel.this.lxM.g(false, this.iCw, this.cml.getErrorString());
+                        MarkModel.this.lzP.e(false, this.iEf, this.cnM.getErrorString());
                     }
                 }
-                MarkModel.this.lxL = null;
+                MarkModel.this.lzO = null;
             } catch (Throwable th) {
                 BdLog.e(th.toString());
             }
@@ -163,8 +163,8 @@ public class MarkModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.lxL != null) {
-            this.lxL.cancel();
+        if (this.lzO != null) {
+            this.lzO.cancel();
             return false;
         }
         return false;

@@ -7,10 +7,8 @@ public class CoachInfo extends TransitBaseInfo {
     public static final Parcelable.Creator<CoachInfo> CREATOR = new c();
 
     /* renamed from: a  reason: collision with root package name */
-    private double f2837a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f2838b;
+    private double f2096a;
+    private String b;
     private String c;
     private String d;
 
@@ -20,8 +18,8 @@ public class CoachInfo extends TransitBaseInfo {
     /* JADX INFO: Access modifiers changed from: protected */
     public CoachInfo(Parcel parcel) {
         super(parcel);
-        this.f2837a = parcel.readDouble();
-        this.f2838b = parcel.readString();
+        this.f2096a = parcel.readDouble();
+        this.b = parcel.readString();
         this.c = parcel.readString();
         this.d = parcel.readString();
     }
@@ -32,11 +30,11 @@ public class CoachInfo extends TransitBaseInfo {
     }
 
     public String getBooking() {
-        return this.f2838b;
+        return this.b;
     }
 
     public double getPrice() {
-        return this.f2837a;
+        return this.f2096a;
     }
 
     public String getProviderName() {
@@ -48,11 +46,11 @@ public class CoachInfo extends TransitBaseInfo {
     }
 
     public void setBooking(String str) {
-        this.f2838b = str;
+        this.b = str;
     }
 
     public void setPrice(double d) {
-        this.f2837a = d;
+        this.f2096a = d;
     }
 
     public void setProviderName(String str) {
@@ -66,8 +64,8 @@ public class CoachInfo extends TransitBaseInfo {
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         super.writeToParcel(parcel, i);
-        parcel.writeDouble(this.f2837a);
-        parcel.writeString(this.f2838b);
+        parcel.writeDouble(this.f2096a);
+        parcel.writeString(this.b);
         parcel.writeString(this.c);
         parcel.writeString(this.d);
     }

@@ -1,8 +1,8 @@
 package com.bytedance.sdk.openadsdk.core.widget.webview.a;
 
 import android.webkit.WebResourceResponse;
-import com.bytedance.sdk.openadsdk.core.d.p;
 import com.bytedance.sdk.openadsdk.core.d.q;
+import com.bytedance.sdk.openadsdk.core.d.r;
 import com.bytedance.sdk.openadsdk.core.widget.webview.a.e;
 import com.bytedance.sdk.openadsdk.utils.j;
 import com.bytedance.sdk.openadsdk.utils.l;
@@ -12,6 +12,10 @@ import java.io.FileInputStream;
 import java.util.Set;
 /* loaded from: classes6.dex */
 public class a {
+
+    /* renamed from: a  reason: collision with root package name */
+    static Object f4627a = new Object();
+
     public static void a() {
         b.a();
         d.a();
@@ -36,11 +40,15 @@ public class a {
         d.a().a(lVar);
     }
 
+    public static void b(com.bytedance.sdk.openadsdk.core.d.l lVar) {
+        d.a().b(lVar);
+    }
+
     public static String c() {
         return c.c();
     }
 
-    public static q a(String str) {
+    public static r a(String str) {
         return d.a().a(str);
     }
 
@@ -48,11 +56,11 @@ public class a {
         return d.a().b(str);
     }
 
-    public static q b(com.bytedance.sdk.openadsdk.core.d.l lVar) {
-        if (lVar == null || lVar.B() == null) {
+    public static r c(com.bytedance.sdk.openadsdk.core.d.l lVar) {
+        if (lVar == null || lVar.M() == null) {
             return null;
         }
-        q a2 = d.a().a(lVar.B().b());
+        r a2 = d.a().a(lVar.M().b());
         if (a2 != null) {
             a2.a(Long.valueOf(System.currentTimeMillis()));
             a(a2);
@@ -61,16 +69,31 @@ public class a {
         return a2;
     }
 
-    private static void a(final q qVar) {
-        com.bytedance.sdk.openadsdk.k.a.a().c(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.widget.webview.a.a.1
+    public static r d(com.bytedance.sdk.openadsdk.core.d.l lVar) {
+        if (lVar == null || lVar.N() == null) {
+            return null;
+        }
+        r a2 = d.a().a(lVar.N().b());
+        if (a2 != null) {
+            a2.a(Long.valueOf(System.currentTimeMillis()));
+            a(a2);
+            return a2;
+        }
+        return a2;
+    }
+
+    private static void a(final r rVar) {
+        com.bytedance.sdk.openadsdk.j.e.a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.widget.webview.a.a.1
             @Override // java.lang.Runnable
             public void run() {
-                c.a().a(q.this);
+                synchronized (a.f4627a) {
+                    c.a().a(r.this);
+                }
             }
         }, 10);
     }
 
-    public static p d() {
+    public static q d() {
         return b.a().c();
     }
 
@@ -85,7 +108,7 @@ public class a {
     public static WebResourceResponse a(String str, e.a aVar) {
         File file;
         if (e()) {
-            for (p.a aVar2 : d().d()) {
+            for (q.a aVar2 : d().e()) {
                 if (aVar2.a() != null && aVar2.a().equals(str)) {
                     file = new File(b.e(), j.a(aVar2.a()));
                     String a2 = j.a(file);

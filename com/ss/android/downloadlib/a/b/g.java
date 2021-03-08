@@ -15,11 +15,11 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class a {
-        private static g qbF = new g();
+        private static g qct = new g();
     }
 
-    public static g eEE() {
-        return a.qbF;
+    public static g eEI() {
+        return a.qct;
     }
 
     private g() {
@@ -42,9 +42,9 @@ public class g {
             if (entry.getValue() != null) {
                 try {
                     long longValue = Long.valueOf(entry.getKey()).longValue();
-                    com.ss.android.b.a.b.a fc = com.ss.android.b.a.b.a.fc(new JSONObject(String.valueOf(entry.getValue())));
-                    if (longValue > 0 && fc != null) {
-                        concurrentHashMap.put(Long.valueOf(longValue), fc);
+                    com.ss.android.b.a.b.a ff = com.ss.android.b.a.b.a.ff(new JSONObject(String.valueOf(entry.getValue())));
+                    if (longValue > 0 && ff != null) {
+                        concurrentHashMap.put(Long.valueOf(longValue), ff);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -63,13 +63,13 @@ public class g {
     public synchronized void a(final Collection<com.ss.android.b.a.b.a> collection) {
         if (collection != null) {
             if (!collection.isEmpty()) {
-                com.ss.android.downloadlib.f.eFh().d(new Runnable() { // from class: com.ss.android.downloadlib.a.b.g.1
+                com.ss.android.downloadlib.f.eFl().d(new Runnable() { // from class: com.ss.android.downloadlib.a.b.g.1
                     @Override // java.lang.Runnable
                     public void run() {
                         SharedPreferences.Editor edit = g.this.c().edit();
                         for (com.ss.android.b.a.b.a aVar : collection) {
                             if (aVar != null && aVar.j() != 0) {
-                                edit.putString(String.valueOf(aVar.j()), aVar.eEs().toString());
+                                edit.putString(String.valueOf(aVar.j()), aVar.eEw().toString());
                             }
                         }
                         edit.apply();
@@ -81,7 +81,7 @@ public class g {
 
     public void a(final List<String> list) {
         if (list != null && !list.isEmpty()) {
-            com.ss.android.downloadlib.f.eFh().d(new Runnable() { // from class: com.ss.android.downloadlib.a.b.g.2
+            com.ss.android.downloadlib.f.eFl().d(new Runnable() { // from class: com.ss.android.downloadlib.a.b.g.2
                 @Override // java.lang.Runnable
                 public void run() {
                     SharedPreferences.Editor edit = g.this.c().edit();

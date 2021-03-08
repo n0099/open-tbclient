@@ -13,10 +13,8 @@ import java.lang.reflect.Method;
 public class ag implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    private Thread.UncaughtExceptionHandler f7548a = Thread.getDefaultUncaughtExceptionHandler();
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f7549b;
+    private Thread.UncaughtExceptionHandler f5119a = Thread.getDefaultUncaughtExceptionHandler();
+    private String b;
 
     public static ag a() {
         return new ag();
@@ -34,12 +32,12 @@ public class ag implements Thread.UncaughtExceptionHandler {
             try {
                 if ("mounted".equals(Environment.getExternalStorageState()) && (externalFilesDir = a2.getExternalFilesDir("TTCache")) != null) {
                     externalFilesDir.mkdirs();
-                    this.f7549b = externalFilesDir.getPath();
+                    this.b = externalFilesDir.getPath();
                 }
-                if (TextUtils.isEmpty(this.f7549b)) {
+                if (TextUtils.isEmpty(this.b)) {
                     File file = new File(a2.getFilesDir(), "TTCache");
                     file.mkdirs();
-                    this.f7549b = file.getPath();
+                    this.b = file.getPath();
                 }
             } catch (Throwable th) {
             }
@@ -61,8 +59,8 @@ public class ag implements Thread.UncaughtExceptionHandler {
         if (z) {
             a(thread, th);
         }
-        if (this.f7548a != null && this.f7548a != this) {
-            this.f7548a.uncaughtException(thread, th);
+        if (this.f5119a != null && this.f5119a != this) {
+            this.f5119a.uncaughtException(thread, th);
         }
     }
 
@@ -83,12 +81,12 @@ public class ag implements Thread.UncaughtExceptionHandler {
             r4 = 1
             r1 = 0
             r3 = 0
-            java.lang.String r5 = r12.f7549b     // Catch: java.lang.Throwable -> L170
+            java.lang.String r5 = r12.b     // Catch: java.lang.Throwable -> L170
             boolean r5 = android.text.TextUtils.isEmpty(r5)     // Catch: java.lang.Throwable -> L170
             if (r5 == 0) goto L10
             r12.b()     // Catch: java.lang.Throwable -> L170
         L10:
-            java.lang.String r5 = r12.f7549b     // Catch: java.lang.Throwable -> L170
+            java.lang.String r5 = r12.b     // Catch: java.lang.Throwable -> L170
             boolean r5 = android.text.TextUtils.isEmpty(r5)     // Catch: java.lang.Throwable -> L170
             if (r5 == 0) goto L23
             if (r2 == 0) goto L1d
@@ -100,7 +98,7 @@ public class ag implements Thread.UncaughtExceptionHandler {
             return
         L23:
             java.io.File r6 = new java.io.File     // Catch: java.lang.Throwable -> L170
-            java.lang.String r1 = r12.f7549b     // Catch: java.lang.Throwable -> L170
+            java.lang.String r1 = r12.b     // Catch: java.lang.Throwable -> L170
             java.lang.String r3 = "tt_crash_count.properties"
             r6.<init>(r1, r3)     // Catch: java.lang.Throwable -> L170
             boolean r1 = r6.exists()     // Catch: java.lang.Throwable -> L170
@@ -305,7 +303,7 @@ public class ag implements Thread.UncaughtExceptionHandler {
         } catch (Throwable th2) {
         }
         try {
-            com.bytedance.sdk.openadsdk.core.h.i.a();
+            com.bytedance.sdk.openadsdk.core.h.f.a();
         } catch (Throwable th3) {
         }
         try {
@@ -313,9 +311,9 @@ public class ag implements Thread.UncaughtExceptionHandler {
         } catch (Throwable th4) {
         }
         try {
-            String b2 = com.bytedance.sdk.adnet.a.b(com.bytedance.sdk.openadsdk.core.p.a());
-            if (!TextUtils.isEmpty(b2)) {
-                File file = new File(b2);
+            String b = com.bytedance.sdk.adnet.a.b(com.bytedance.sdk.openadsdk.core.p.a());
+            if (!TextUtils.isEmpty(b)) {
+                File file = new File(b);
                 if (file.exists()) {
                     l.c(file);
                 }
@@ -323,7 +321,7 @@ public class ag implements Thread.UncaughtExceptionHandler {
         } catch (Throwable th5) {
         }
         try {
-            com.bytedance.sdk.openadsdk.downloadnew.a.e.e();
+            com.bytedance.sdk.openadsdk.downloadnew.a.g.e();
         } catch (Throwable th6) {
         }
     }

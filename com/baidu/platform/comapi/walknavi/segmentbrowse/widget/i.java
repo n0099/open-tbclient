@@ -12,10 +12,8 @@ import java.util.ArrayList;
 public class i extends ViewGroup {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f4382a = 600;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Context f4383b;
+    public static int f3035a = 600;
+    private Context b;
     private int c;
     private Scroller d;
     private boolean e;
@@ -43,13 +41,13 @@ public class i extends ViewGroup {
                     this.g.remove(0);
                     this.g.remove(0);
                 }
-                a aVar = new a(this.f4383b, "", -1);
+                a aVar = new a(this.b, "", -1);
                 aVar.setTag(Integer.valueOf(com.baidu.platform.comapi.walknavi.segmentbrowse.c.c()));
                 a a2 = a(aVar, com.baidu.platform.comapi.walknavi.segmentbrowse.c.e());
                 addView(a2);
                 this.g.add(0, a2);
                 if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() < com.baidu.platform.comapi.walknavi.segmentbrowse.c.h()) {
-                    a aVar2 = new a(this.f4383b, "", -1);
+                    a aVar2 = new a(this.b, "", -1);
                     aVar2.setTag(Integer.valueOf(com.baidu.platform.comapi.walknavi.segmentbrowse.c.b()));
                     a a3 = a(aVar2, com.baidu.platform.comapi.walknavi.segmentbrowse.c.f());
                     addView(a3);
@@ -161,7 +159,7 @@ public class i extends ViewGroup {
                 VelocityTracker velocityTracker = this.n;
                 velocityTracker.computeCurrentVelocity(1000);
                 int xVelocity = (int) velocityTracker.getXVelocity();
-                if (xVelocity > f4382a) {
+                if (xVelocity > f3035a) {
                     this.j = true;
                     if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() == com.baidu.platform.comapi.walknavi.segmentbrowse.c.g()) {
                         this.j = false;
@@ -215,12 +213,12 @@ public class i extends ViewGroup {
         if (aVar2 != null && this.k != null) {
             int d = aVar2.d();
             if (d >= 0 && d < 30) {
-                if (this.k.f4281a != null) {
-                    aVar.setBackgroundDrawable(new BitmapDrawable(this.k.f4281a));
+                if (this.k.f2961a != null) {
+                    aVar.setBackgroundDrawable(new BitmapDrawable(this.k.f2961a));
                 }
             } else if (d >= 30 && d < 150) {
-                if (this.k.f4282b != null) {
-                    aVar.setBackgroundDrawable(new BitmapDrawable(this.k.f4282b));
+                if (this.k.b != null) {
+                    aVar.setBackgroundDrawable(new BitmapDrawable(this.k.b));
                 }
             } else if (d >= 150 && this.k.c != null) {
                 aVar.setBackgroundDrawable(new BitmapDrawable(this.k.c));

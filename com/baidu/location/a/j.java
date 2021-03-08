@@ -9,10 +9,8 @@ import org.json.JSONObject;
 public class j implements LBSAuthManagerListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Object f2558a = new Object();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static j f2559b = null;
+    private static Object f1919a = new Object();
+    private static j b = null;
     private int c = 0;
     private Context d = null;
     private long e = 0;
@@ -20,11 +18,11 @@ public class j implements LBSAuthManagerListener {
 
     public static j a() {
         j jVar;
-        synchronized (f2558a) {
-            if (f2559b == null) {
-                f2559b = new j();
+        synchronized (f1919a) {
+            if (b == null) {
+                b = new j();
             }
-            jVar = f2559b;
+            jVar = b;
         }
         return jVar;
     }
@@ -77,9 +75,9 @@ public class j implements LBSAuthManagerListener {
     public void onAuthResult(int i, String str) {
         this.c = i;
         if (this.c == 0) {
-            Log.i(com.baidu.location.d.a.f2621a, "LocationAuthManager Authentication AUTHENTICATE_SUCC");
+            Log.i(com.baidu.location.d.a.f1963a, "LocationAuthManager Authentication AUTHENTICATE_SUCC");
         } else {
-            Log.i(com.baidu.location.d.a.f2621a, "LocationAuthManager Authentication Error errorcode = " + i + " , msg = " + str);
+            Log.i(com.baidu.location.d.a.f1963a, "LocationAuthManager Authentication Error errorcode = " + i + " , msg = " + str);
         }
         if (str != null) {
             try {

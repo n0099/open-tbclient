@@ -6,7 +6,7 @@ import android.util.JsonToken;
 import android.util.Log;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static com.airbnb.lottie.model.a.l e(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {
         com.airbnb.lottie.model.a.e eVar;
@@ -99,7 +99,7 @@ public class c {
                     continue;
                     gVar2 = gVar;
                 case 3:
-                    dVar.bc("Lottie doesn't support 3D layers.");
+                    dVar.bg("Lottie doesn't support 3D layers.");
                     break;
                 case 4:
                     break;

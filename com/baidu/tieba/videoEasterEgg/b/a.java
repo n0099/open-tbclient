@@ -1,15 +1,15 @@
 package com.baidu.tieba.videoEasterEgg.b;
 /* loaded from: classes2.dex */
 public interface a {
-    void cMO();
+    void cMU();
 
-    void dVh();
+    void dVp();
 
-    void dVi();
+    void dVq();
 
-    void dVj();
+    void dVr();
 
-    void daw();
+    void daF();
 
     void onClose();
 

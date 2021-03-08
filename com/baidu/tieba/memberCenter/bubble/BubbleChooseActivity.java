@@ -25,38 +25,38 @@ import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 import com.baidu.tieba.memberCenter.bubble.BubbleListModel;
 import com.baidu.tieba.memberCenter.bubble.c;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
-    private b lkS;
-    private BubbleListModel lkT;
-    private final int lkU = 0;
-    private final int lkV = 50;
-    private BubbleListModel.a lkW = new BubbleListModel.a() { // from class: com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity.1
+    private b lmU;
+    private BubbleListModel lmV;
+    private final int lmW = 0;
+    private final int lmX = 50;
+    private BubbleListModel.a lmY = new BubbleListModel.a() { // from class: com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity.1
         @Override // com.baidu.tieba.memberCenter.bubble.BubbleListModel.a
         public void a(BubbleListData bubbleListData) {
             List<BubbleListData.BubbleData> b_info;
-            BubbleChooseActivity.this.lkS.hideProgressBar();
+            BubbleChooseActivity.this.lmU.hideProgressBar();
             if (bubbleListData != null) {
-                BubbleChooseActivity.this.lkS.setData(bubbleListData.getB_info(), BubbleListModel.eR(bubbleListData.getB_info()));
-                if (BubbleChooseActivity.this.lkT.dfe() > 0 && (b_info = bubbleListData.getB_info()) != null && b_info.size() != 0) {
+                BubbleChooseActivity.this.lmU.setData(bubbleListData.getB_info(), BubbleListModel.eR(bubbleListData.getB_info()));
+                if (BubbleChooseActivity.this.lmV.dfn() > 0 && (b_info = bubbleListData.getB_info()) != null && b_info.size() != 0) {
                     for (BubbleListData.BubbleData bubbleData : b_info) {
-                        if (bubbleData != null && bubbleData.getBcode() == BubbleChooseActivity.this.lkT.dfe()) {
+                        if (bubbleData != null && bubbleData.getBcode() == BubbleChooseActivity.this.lmV.dfn()) {
                             if (!bubbleData.canUse() && !bubbleData.isFree()) {
                                 break;
                             }
-                            BubbleChooseActivity.this.lkT.Eq(BubbleChooseActivity.this.lkT.dfe());
-                            BubbleChooseActivity.this.lkT.W(BubbleChooseActivity.this.lkT.dfe(), l.getEquipmentWidth(BubbleChooseActivity.this.getPageContext().getPageActivity()), l.getEquipmentHeight(BubbleChooseActivity.this.getPageContext().getPageActivity()));
+                            BubbleChooseActivity.this.lmV.Et(BubbleChooseActivity.this.lmV.dfn());
+                            BubbleChooseActivity.this.lmV.W(BubbleChooseActivity.this.lmV.dfn(), l.getEquipmentWidth(BubbleChooseActivity.this.getPageContext().getPageActivity()), l.getEquipmentHeight(BubbleChooseActivity.this.getPageContext().getPageActivity()));
                         }
                     }
-                    BubbleChooseActivity.this.lkT.Er(-1);
+                    BubbleChooseActivity.this.lmV.Eu(-1);
                 }
             }
         }
 
         @Override // com.baidu.tieba.memberCenter.bubble.BubbleListModel.a
         public void b(BubbleListData bubbleListData) {
-            BubbleChooseActivity.this.lkS.hideProgressBar();
-            BubbleChooseActivity.this.lkS.setData(null, false);
+            BubbleChooseActivity.this.lmU.hideProgressBar();
+            BubbleChooseActivity.this.lmU.setData(null, false);
             if (bubbleListData != null) {
                 if (!bubbleListData.getError_code().equals("0")) {
                     if (!TextUtils.isEmpty(bubbleListData.getError_msg())) {
@@ -73,30 +73,30 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             BubbleChooseActivity.this.showToast(R.string.neterror);
         }
     };
-    private BubbleListModel.b lkX = new BubbleListModel.b() { // from class: com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity.2
+    private BubbleListModel.b lmZ = new BubbleListModel.b() { // from class: com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity.2
         @Override // com.baidu.tieba.memberCenter.bubble.BubbleListModel.b
         public void a(SetBubbleResultData setBubbleResultData) {
-            BubbleChooseActivity.this.lkS.hideProgressBar();
-            int dfd = BubbleChooseActivity.this.lkT.dfd();
-            a dfa = BubbleChooseActivity.this.lkS.dfa();
-            if (dfd == 0) {
-                dfa.tT(true);
-                for (BubbleListData.BubbleData bubbleData : dfa.cSi()) {
+            BubbleChooseActivity.this.lmU.hideProgressBar();
+            int dfm = BubbleChooseActivity.this.lmV.dfm();
+            a dfj = BubbleChooseActivity.this.lmU.dfj();
+            if (dfm == 0) {
+                dfj.tT(true);
+                for (BubbleListData.BubbleData bubbleData : dfj.cSp()) {
                     if (bubbleData.getBcode() != 0 && bubbleData.isDef()) {
                         bubbleData.setIs_def(0);
                     }
                 }
-                dfa.notifyDataSetChanged();
+                dfj.notifyDataSetChanged();
             } else if (setBubbleResultData.getB_info().canUser()) {
-                for (BubbleListData.BubbleData bubbleData2 : dfa.cSi()) {
-                    if (bubbleData2.getBcode() == dfd) {
+                for (BubbleListData.BubbleData bubbleData2 : dfj.cSp()) {
+                    if (bubbleData2.getBcode() == dfm) {
                         bubbleData2.setIs_def(1);
                     } else if (bubbleData2.isDef()) {
                         bubbleData2.setIs_def(0);
                     }
                 }
-                dfa.tT(false);
-                dfa.notifyDataSetChanged();
+                dfj.tT(false);
+                dfj.notifyDataSetChanged();
             } else {
                 BubbleChooseActivity.this.showToast(R.string.setdefualt_error);
             }
@@ -104,7 +104,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
 
         @Override // com.baidu.tieba.memberCenter.bubble.BubbleListModel.b
         public void b(SetBubbleResultData setBubbleResultData) {
-            BubbleChooseActivity.this.lkS.hideProgressBar();
+            BubbleChooseActivity.this.lmU.hideProgressBar();
             if (setBubbleResultData != null) {
                 if (!setBubbleResultData.getError_code().equals("0")) {
                     if (!TextUtils.isEmpty(setBubbleResultData.getError_msg())) {
@@ -121,32 +121,32 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             BubbleChooseActivity.this.showToast(R.string.neterror);
         }
     };
-    private c.a lkY = new c.a() { // from class: com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity.3
+    private c.a lna = new c.a() { // from class: com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity.3
         @Override // com.baidu.tieba.memberCenter.bubble.c.a
-        public void Eo(int i) {
-            BubbleChooseActivity.this.En(i);
-            BubbleChooseActivity.this.lkS.showProgressBar();
+        public void Er(int i) {
+            BubbleChooseActivity.this.Eq(i);
+            BubbleChooseActivity.this.lmU.showProgressBar();
         }
 
         @Override // com.baidu.tieba.memberCenter.bubble.c.a
-        public void deZ() {
+        public void dfi() {
         }
     };
-    private c.a lkZ = new c.a() { // from class: com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity.4
+    private c.a lnb = new c.a() { // from class: com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity.4
         @Override // com.baidu.tieba.memberCenter.bubble.c.a
-        public void Eo(int i) {
+        public void Er(int i) {
             TiebaStatic.eventStat(BubbleChooseActivity.this.getPageContext().getPageActivity(), "consume_19", "click");
-            BubbleChooseActivity.this.lkT.Er(i);
+            BubbleChooseActivity.this.lmV.Eu(i);
             MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) BubbleChooseActivity.this.getPageContext().getPageActivity(), true, (int) RequestResponseCode.REQUEST_PAY_BUBBLE_CODE, "pop_unable", 7);
             memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_ALL_BUBBLE, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, memberPayActivityConfig));
         }
 
         @Override // com.baidu.tieba.memberCenter.bubble.c.a
-        public void deZ() {
+        public void dfi() {
         }
     };
-    public CustomMessageListener lla = new CustomMessageListener(CmdConfigCustom.BUBBLE_LIST_REFRESH) { // from class: com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity.5
+    public CustomMessageListener lnc = new CustomMessageListener(CmdConfigCustom.BUBBLE_LIST_REFRESH) { // from class: com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -164,43 +164,43 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
     }
 
     private void initData() {
-        this.lkT = new BubbleListModel(getPageContext());
-        this.lkT.a(this.lkW);
-        this.lkT.a(this.lkX);
-        this.lkT.a(this.lla);
+        this.lmV = new BubbleListModel(getPageContext());
+        this.lmV.a(this.lmY);
+        this.lmV.a(this.lmZ);
+        this.lmV.a(this.lnc);
         registerTask();
     }
 
     private void initView() {
-        this.lkS = new b(getPageContext());
-        this.lkS.dfc().setOnItemClickListener(this);
-        this.lkS.showProgressBar();
+        this.lmU = new b(getPageContext());
+        this.lmU.dfl().setOnItemClickListener(this);
+        this.lmU.showProgressBar();
     }
 
     private void registerTask() {
-        this.lkT.dff();
-        this.lkT.dfg();
+        this.lmV.dfo();
+        this.lmV.dfp();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void loadData() {
-        this.lkT.I(0, 50, l.getEquipmentWidth(getPageContext().getPageActivity()), l.getEquipmentHeight(getPageContext().getPageActivity()));
+        this.lmV.I(0, 50, l.getEquipmentWidth(getPageContext().getPageActivity()), l.getEquipmentHeight(getPageContext().getPageActivity()));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.lkT != null) {
-            this.lkT.unRegisterListener();
-            this.lkT.b(this.lla);
+        if (this.lmV != null) {
+            this.lmV.unRegisterListener();
+            this.lmV.b(this.lnc);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.lkS.dfb()) {
+        if (view == this.lmU.dfk()) {
             com.baidu.tbadk.browser.a.startWebActivity(getPageContext().getPageActivity(), getPageContext().getString(R.string.web_title_bubble_explain), e.SERVER_ADDRESS_WEB_VIEW + Config.BUBBLE_EXPLAIN + TbConfig.getVersion(), true, true, true);
         }
     }
@@ -209,29 +209,29 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.lkS.onChangeSkinType(i);
+        this.lmU.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        BubbleListData.BubbleData Ep;
+        BubbleListData.BubbleData Es;
         super.onItemClick(adapterView, view, i, j);
-        if (adapterView == this.lkS.dfc() && view != null && (view instanceof BubbleView) && (Ep = this.lkS.Ep(i)) != null) {
-            if (Ep.getBcode() == 0 || Ep.canUse()) {
-                En(Ep.getBcode());
-                this.lkS.showProgressBar();
-            } else if (Ep.isFree()) {
-                c.a(getPageContext(), Ep, this.lkY);
+        if (adapterView == this.lmU.dfl() && view != null && (view instanceof BubbleView) && (Es = this.lmU.Es(i)) != null) {
+            if (Es.getBcode() == 0 || Es.canUse()) {
+                Eq(Es.getBcode());
+                this.lmU.showProgressBar();
+            } else if (Es.isFree()) {
+                c.a(getPageContext(), Es, this.lna);
             } else {
-                c.b(getPageContext(), Ep, this.lkZ);
+                c.b(getPageContext(), Es, this.lnb);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void En(int i) {
-        this.lkT.W(i, l.getEquipmentWidth(getPageContext().getPageActivity()), l.getEquipmentHeight(getPageContext().getPageActivity()));
-        this.lkT.Eq(i);
+    public void Eq(int i) {
+        this.lmV.W(i, l.getEquipmentWidth(getPageContext().getPageActivity()), l.getEquipmentHeight(getPageContext().getPageActivity()));
+        this.lmV.Et(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

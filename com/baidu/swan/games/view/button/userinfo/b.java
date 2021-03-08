@@ -3,7 +3,7 @@ package com.baidu.swan.games.view.button.userinfo;
 import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.swan.apps.ao.ak;
 import com.baidu.swan.games.v.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends com.baidu.swan.games.view.button.base.b {
     public b(JsObject jsObject, com.baidu.swan.games.f.b bVar) {
         super(jsObject, bVar);
@@ -11,22 +11,22 @@ public class b extends com.baidu.swan.games.view.button.base.b {
             @Override // java.lang.Runnable
             public void run() {
                 if (com.baidu.swan.games.view.c.getViewContext() != null) {
-                    b.this.emi = new UserInfoButton(com.baidu.swan.games.view.c.getViewContext(), b.this);
-                    b.this.emi.setType(b.this.type);
-                    b.this.emi.setButtonText(b.this.text);
-                    b.this.emi.setImageUrl(b.this.image);
-                    b.this.emi.setApiButtonStyle(b.this.style);
-                    b.this.aZF();
-                    b.this.aZJ();
+                    b.this.enL = new UserInfoButton(com.baidu.swan.games.view.c.getViewContext(), b.this);
+                    b.this.enL.setType(b.this.type);
+                    b.this.enL.setButtonText(b.this.text);
+                    b.this.enL.setImageUrl(b.this.image);
+                    b.this.enL.setApiButtonStyle(b.this.style);
+                    b.this.aZI();
+                    b.this.aZM();
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aZJ() {
-        if (!d.aYn()) {
-            com.baidu.swan.games.v.c.xk("Button shows early.");
+    public void aZM() {
+        if (!d.aYq()) {
+            com.baidu.swan.games.v.c.xr("Button shows early.");
         }
     }
 }

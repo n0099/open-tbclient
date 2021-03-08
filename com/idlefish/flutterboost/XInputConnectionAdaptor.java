@@ -12,7 +12,7 @@ import android.view.inputmethod.InputMethodManager;
 import com.baidu.searchbox.perfframe.basic.PerfFrameTrackUIUtil;
 import io.flutter.Log;
 import io.flutter.embedding.engine.systemchannels.TextInputChannel;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 class XInputConnectionAdaptor extends BaseInputConnection {
     private int mBatchCount;
     private final int mClient;

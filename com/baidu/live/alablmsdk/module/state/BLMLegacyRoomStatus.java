@@ -1,5 +1,5 @@
 package com.baidu.live.alablmsdk.module.state;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public enum BLMLegacyRoomStatus {
     LOGIC_ACTIVE(1),
     LOGIC_END_SUCCESS(2),

@@ -43,7 +43,7 @@ public class SwitchManager {
 
     public void crash(String str) {
         Iterator<c> it = this.mSwitchs.values().iterator();
-        while (it.hasNext() && !it.next().bE(str)) {
+        while (it.hasNext() && !it.next().bI(str)) {
         }
     }
 
@@ -69,8 +69,8 @@ public class SwitchManager {
             for (c cVar : this.mSwitchs.values()) {
                 if (cVar != null) {
                     cVar.al(0);
-                    edit.putInt(cVar.getName() + c.Lo, 0);
-                    edit.putInt(cVar.getName() + c.Lp, cVar.getDefaultType());
+                    edit.putInt(cVar.getName() + c.MP, 0);
+                    edit.putInt(cVar.getName() + c.MQ, cVar.getDefaultType());
                 }
             }
             edit.commit();

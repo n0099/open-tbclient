@@ -18,9 +18,9 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class f {
-    private static final Map<String, n<e>> BW = new HashMap();
+    private static final Map<String, n<e>> Du = new HashMap();
 
     public static n<e> G(Context context, String str) {
         return com.baidu.live.lottie.network.b.J(context, str);
@@ -31,7 +31,7 @@ public class f {
         return c(str, new Callable<m<e>>() { // from class: com.baidu.live.lottie.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: Ne */
+            /* renamed from: Nh */
             public m<e> call() {
                 return f.I(app, str);
             }
@@ -59,7 +59,7 @@ public class f {
         return c(X(i), new Callable<m<e>>() { // from class: com.baidu.live.lottie.f.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: Ne */
+            /* renamed from: Nh */
             public m<e> call() {
                 return f.q(app, i);
             }
@@ -83,7 +83,7 @@ public class f {
         return c(str, new Callable<m<e>>() { // from class: com.baidu.live.lottie.f.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: Ne */
+            /* renamed from: Nh */
             public m<e> call() {
                 return f.f(inputStream, str);
             }
@@ -110,7 +110,7 @@ public class f {
         return c(str, new Callable<m<e>>() { // from class: com.baidu.live.lottie.f.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: Ne */
+            /* renamed from: Nh */
             public m<e> call() {
                 return f.f(jsonReader, str);
             }
@@ -121,7 +121,7 @@ public class f {
     public static m<e> f(JsonReader jsonReader, @Nullable String str) {
         try {
             e i = t.i(jsonReader);
-            com.baidu.live.lottie.model.g.Nr().a(str, i);
+            com.baidu.live.lottie.model.g.Nu().a(str, i);
             return new m<>(i);
         } catch (Exception e) {
             return new m<>(e);
@@ -175,7 +175,7 @@ public class f {
                     return new m<>(new IllegalStateException("There is no image for " + entry2.getValue().getFileName()));
                 }
             }
-            com.baidu.live.lottie.model.g.Nr().a(str, eVar2);
+            com.baidu.live.lottie.model.g.Nu().a(str, eVar2);
             return new m<>(eVar2);
         } catch (IOException e) {
             return new m<>(e);
@@ -193,20 +193,20 @@ public class f {
     }
 
     private static n<e> c(@Nullable final String str, Callable<m<e>> callable) {
-        final e ho = com.baidu.live.lottie.model.g.Nr().ho(str);
-        if (ho != null) {
+        final e hu = com.baidu.live.lottie.model.g.Nu().hu(str);
+        if (hu != null) {
             return new n<>(new Callable<m<e>>() { // from class: com.baidu.live.lottie.f.6
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.concurrent.Callable
-                /* renamed from: Ne */
+                /* renamed from: Nh */
                 public m<e> call() {
                     Log.d("Gabe", "call\treturning from cache");
                     return new m<>(e.this);
                 }
             });
         }
-        if (BW.containsKey(str)) {
-            return BW.get(str);
+        if (Du.containsKey(str)) {
+            return Du.get(str);
         }
         n<e> nVar = new n<>(callable);
         nVar.a(new j<e>() { // from class: com.baidu.live.lottie.f.7
@@ -214,9 +214,9 @@ public class f {
             @Override // com.baidu.live.lottie.j
             public void onResult(e eVar) {
                 if (str != null) {
-                    com.baidu.live.lottie.model.g.Nr().a(str, eVar);
+                    com.baidu.live.lottie.model.g.Nu().a(str, eVar);
                 }
-                f.BW.remove(str);
+                f.Du.remove(str);
             }
         });
         nVar.c(new j<Throwable>() { // from class: com.baidu.live.lottie.f.2
@@ -224,10 +224,10 @@ public class f {
             @Override // com.baidu.live.lottie.j
             /* renamed from: f */
             public void onResult(Throwable th) {
-                f.BW.remove(str);
+                f.Du.remove(str);
             }
         });
-        BW.put(str, nVar);
+        Du.put(str, nVar);
         return nVar;
     }
 }

@@ -3,13 +3,13 @@ package com.yy.mediaframework.stat;
 import com.yy.mediaframework.base.VideoEncoderType;
 import com.yy.mediaframework.base.VideoPublisheParam;
 import com.yy.mediaframework.utils.YMFLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFLiveUsrBehaviorStat {
     private static YMFLiveUsrBehaviorStat mInstance;
     private String tag = "YMFLive";
     public IYMFBehaviorEventListener mBehaviorListener = null;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private interface UsrBehaviorStatInfoKey {
         public static final String CallApi = "callApi";
         public static final String CameraCaptureState = "cameraState";

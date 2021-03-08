@@ -1,7 +1,7 @@
 package com.googlecode.mp4parser.boxes.apple;
 
 import com.googlecode.mp4parser.AbstractContainerBox;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class GenericMediaHeaderAtom extends AbstractContainerBox {
     public static final String TYPE = "gmhd";
 

@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
 import com.google.android.material.circularreveal.CircularRevealWidget;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class CircularRevealLinearLayout extends LinearLayout implements CircularRevealWidget {
     private final CircularRevealHelper helper;
 

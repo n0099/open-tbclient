@@ -1,28 +1,26 @@
 package com.baidu.browser.sailor.util;
 
 import com.baidu.android.imsdk.internal.Constants;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f1595a;
+    static final /* synthetic */ boolean f1320a;
 
     /* renamed from: com.baidu.browser.sailor.util.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    static abstract class AbstractC0085a {
+    /* loaded from: classes14.dex */
+    static abstract class AbstractC0091a {
 
         /* renamed from: a  reason: collision with root package name */
-        public byte[] f1596a;
+        public byte[] f1321a;
+        public int b;
 
-        /* renamed from: b  reason: collision with root package name */
-        public int f1597b;
-
-        AbstractC0085a() {
+        AbstractC0091a() {
         }
     }
 
-    /* loaded from: classes4.dex */
-    static class b extends AbstractC0085a {
+    /* loaded from: classes14.dex */
+    static class b extends AbstractC0091a {
         static final /* synthetic */ boolean j;
         private static final byte[] k;
         private static final byte[] l;
@@ -41,7 +39,7 @@ public class a {
         }
 
         public b() {
-            this.f1596a = null;
+            this.f1321a = null;
             this.f = false;
             this.g = false;
             this.h = false;
@@ -53,7 +51,7 @@ public class a {
     }
 
     static {
-        f1595a = !a.class.desiredAssertionStatus();
+        f1320a = !a.class.desiredAssertionStatus();
     }
 
     private a() {
@@ -90,9 +88,9 @@ public class a {
         if (bVar.g && length > 0) {
             i9 += (bVar.h ? 2 : 1) * (((length - 1) / 57) + 1);
         }
-        bVar.f1596a = new byte[i9];
+        bVar.f1321a = new byte[i9];
         byte[] bArr2 = bVar.i;
-        byte[] bArr3 = bVar.f1596a;
+        byte[] bArr3 = bVar.f1321a;
         int i10 = bVar.e;
         int i11 = length + 0;
         switch (bVar.d) {
@@ -255,10 +253,10 @@ public class a {
         }
         if (b.j || bVar.d == 0) {
             if (b.j || i == i11) {
-                bVar.f1597b = i3;
+                bVar.b = i3;
                 bVar.e = i10;
-                if (f1595a || bVar.f1597b == i9) {
-                    return bVar.f1596a;
+                if (f1320a || bVar.b == i9) {
+                    return bVar.f1321a;
                 }
                 throw new AssertionError();
             }

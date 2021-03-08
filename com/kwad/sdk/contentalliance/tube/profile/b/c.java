@@ -11,9 +11,7 @@ import com.kwad.sdk.contentalliance.tube.profile.TubeProfileParam;
 import com.kwad.sdk.utils.ag;
 /* loaded from: classes3.dex */
 public class c extends com.kwad.sdk.contentalliance.tube.profile.a.a {
-
-    /* renamed from: b  reason: collision with root package name */
-    private LinearLayout f8971b;
+    private LinearLayout b;
     private TextView c;
     private TextView d;
     private TextView e;
@@ -41,7 +39,7 @@ public class c extends com.kwad.sdk.contentalliance.tube.profile.a.a {
             this.f.setText(String.format(o().getString(R.string.ksad_tube_update_unfinished_format_text), ag.a(valueOf, string)));
         }
         this.g.setText(ag.a(tubeInfo.summary, string));
-        this.f8971b.setVisibility(0);
+        this.b.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -49,15 +47,15 @@ public class c extends com.kwad.sdk.contentalliance.tube.profile.a.a {
     public void a() {
         super.a();
         com.kwad.sdk.core.d.a.a("TubeProfileHeaderPresenter", "TubeProfileHeaderPresenter onBind");
-        this.f8955a.e.add(this.i);
-        TubeProfileParam tubeProfileParam = this.f8955a.c;
+        this.f5963a.e.add(this.i);
+        TubeProfileParam tubeProfileParam = this.f5963a.c;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f8955a.e.remove(this.i);
+        this.f5963a.e.remove(this.i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -65,7 +63,7 @@ public class c extends com.kwad.sdk.contentalliance.tube.profile.a.a {
     public void c() {
         super.c();
         com.kwad.sdk.core.d.a.a("TubeProfileHeaderPresenter", "TubeProfileHeaderPresenter onCreate");
-        this.f8971b = (LinearLayout) b(R.id.ksad_tube_author_info_area);
+        this.b = (LinearLayout) b(R.id.ksad_tube_author_info_area);
         this.c = (TextView) b(R.id.ksad_tube_name);
         this.d = (TextView) b(R.id.ksad_tube_author_name);
         this.e = (TextView) b(R.id.ksad_tube_author_name_label);

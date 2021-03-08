@@ -2,7 +2,7 @@ package com.yy.mediaframework.stat;
 
 import java.lang.ref.WeakReference;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class LocalEncodeParamTipsMgr {
     private volatile LocalEncodeParamTipsMgr singleton;
     private WeakReference<IEncodeParamListener> mParamListenerRef = new WeakReference<>(null);

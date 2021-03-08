@@ -10,18 +10,18 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    private static String mRi = TbadkCoreApplication.getInst().getApp().getExternalCacheDir() + "/nadDir";
+    private static String mTn = TbadkCoreApplication.getInst().getApp().getExternalCacheDir() + "/nadDir";
 
-    public static File Rk(@NonNull String str) {
-        return !com.baidu.tieba.a.bJg().bJo() ? com.baidu.tbadk.core.util.o.GetFile(str) : Ro(getFilePath(str));
+    public static File Rq(@NonNull String str) {
+        return !com.baidu.tieba.a.bJk().bJs() ? com.baidu.tbadk.core.util.o.GetFile(str) : Ru(getFilePath(str));
     }
 
-    public static String Rl(String str) {
-        return getFilePath(Rm(str));
+    public static String Rr(String str) {
+        return getFilePath(Rs(str));
     }
 
     private static String getFilePath(@NonNull String str) {
-        if (!com.baidu.tieba.a.bJg().bJo()) {
+        if (!com.baidu.tieba.a.bJk().bJs()) {
             StringBuilder sb = new StringBuilder();
             sb.append(com.baidu.tbadk.core.util.o.getCacheDir());
             File file = new File(sb.toString());
@@ -33,7 +33,7 @@ public class b {
             return sb.toString();
         }
         StringBuilder sb2 = new StringBuilder();
-        sb2.append(mRi);
+        sb2.append(mTn);
         File file2 = new File(sb2.toString());
         if (!file2.exists()) {
             file2.mkdirs();
@@ -43,7 +43,7 @@ public class b {
         return sb2.toString();
     }
 
-    public static String Rm(@NonNull String str) {
+    public static String Rs(@NonNull String str) {
         return str.replace(".", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) + ".apk";
     }
 
@@ -51,30 +51,30 @@ public class b {
         return str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str2 + ".tmp";
     }
 
-    public static boolean Rn(@NonNull String str) {
+    public static boolean Rt(@NonNull String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return af(Rk(Rm(str)));
+        return af(Rq(Rs(str)));
     }
 
     public static boolean gi(@NonNull String str, @NonNull String str2) {
         if (TbadkCoreApplication.getInst().getSharedPreferences(SharedPrefConfig.APP_DOWNLOAD_PROGRESS, 0).getLong(str, 0L) == 0) {
             return false;
         }
-        return af(Rk(gh(str, str2)));
+        return af(Rq(gh(str, str2)));
     }
 
     public static File createFileIfNotFound(@NonNull String str) {
         return com.baidu.tbadk.core.util.o.CreateFileIfNotFoundAbsolutePath(getFilePath(str));
     }
 
-    public static File Ro(@NonNull String str) {
+    public static File Ru(@NonNull String str) {
         return com.baidu.tbadk.core.util.o.GetFileByAbsolutePath(str);
     }
 
-    public static void Rp(String str) {
-        deleteFileOrDir(Rk(Rm(str)));
+    public static void Rv(String str) {
+        deleteFileOrDir(Rq(Rs(str)));
     }
 
     public static void deleteFileOrDir(File file) {

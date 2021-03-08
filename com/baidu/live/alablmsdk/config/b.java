@@ -8,57 +8,57 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private static volatile b axy;
-    private volatile boolean axz = false;
-    private volatile boolean axA = false;
-    private Map<String, BLMRtcType> axB = new ConcurrentHashMap();
+    private static volatile b ayY;
+    private volatile boolean ayZ = false;
+    private volatile boolean aza = false;
+    private Map<String, BLMRtcType> azb = new ConcurrentHashMap();
 
     private b() {
         initData();
     }
 
-    public static b xN() {
-        if (axy == null) {
+    public static b xQ() {
+        if (ayY == null) {
             synchronized (b.class) {
-                if (axy == null) {
-                    axy = new b();
+                if (ayY == null) {
+                    ayY = new b();
                 }
             }
         }
-        return axy;
+        return ayY;
     }
 
-    public synchronized void ev(String str) {
+    public synchronized void eC(String str) {
         if (!TextUtils.isEmpty(str)) {
-            d.xp().putString("blm_rtc_config_sp", str);
-            if (!this.axz) {
+            d.xs().putString("blm_rtc_config_sp", str);
+            if (!this.ayZ) {
                 parse(str);
             } else {
-                this.axA = true;
+                this.aza = true;
             }
         }
     }
 
-    public synchronized void xO() {
-        this.axz = true;
+    public synchronized void xR() {
+        this.ayZ = true;
     }
 
-    public synchronized void xP() {
-        this.axz = false;
-        if (this.axA) {
+    public synchronized void xS() {
+        this.ayZ = false;
+        if (this.aza) {
             initData();
-            this.axA = false;
+            this.aza = false;
         }
     }
 
-    public synchronized BLMRtcType eJ(String str) {
+    public synchronized BLMRtcType eP(String str) {
         BLMRtcType bLMRtcType;
         if (TextUtils.isEmpty(str)) {
             bLMRtcType = BLMRtcType.NONE;
-        } else if (this.axB.containsKey(str)) {
-            bLMRtcType = this.axB.get(str);
+        } else if (this.azb.containsKey(str)) {
+            bLMRtcType = this.azb.get(str);
         } else {
             bLMRtcType = BLMRtcType.NONE;
         }
@@ -66,7 +66,7 @@ public class b {
     }
 
     private synchronized void initData() {
-        parse(d.xp().getString("blm_rtc_config_sp"));
+        parse(d.xs().getString("blm_rtc_config_sp"));
     }
 
     private void parse(String str) {
@@ -75,15 +75,15 @@ public class b {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("rtc_type")) != null && optJSONArray.length() > 0) {
-                    this.axB.clear();
+                    this.azb.clear();
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         String optString = jSONObject2.optString("source");
                         String optString2 = jSONObject2.optString("type");
                         if (BLMRtcType.BDRTC.getRtcType().equals(optString2)) {
-                            this.axB.put(optString, BLMRtcType.BDRTC);
+                            this.azb.put(optString, BLMRtcType.BDRTC);
                         } else if (BLMRtcType.YYRTC.getRtcType().equals(optString2)) {
-                            this.axB.put(optString, BLMRtcType.YYRTC);
+                            this.azb.put(optString, BLMRtcType.YYRTC);
                         }
                     }
                 }

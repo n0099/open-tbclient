@@ -13,14 +13,14 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class aq {
     public static final Map<Long, Pair<String, String>> mMap = new HashMap();
-    private static com.baidu.adp.lib.e.c faT = new com.baidu.adp.lib.e.c<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.core.util.aq.2
+    private static com.baidu.adp.lib.e.c fct = new com.baidu.adp.lib.e.c<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.core.util.aq.2
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.e.c
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             super.onLoaded((AnonymousClass2) aVar, str, i);
             if (aVar != null) {
-                com.baidu.tbadk.imageManager.c.bCP().addBitmap(str, aVar.getRawBitmap());
+                com.baidu.tbadk.imageManager.c.bCS().addBitmap(str, aVar.getRawBitmap());
             }
         }
     };
@@ -47,22 +47,22 @@ public class aq {
     }
 
     public static void a(cb cbVar, SpannableString spannableString, String str, int i) {
-        com.baidu.adp.widget.ImageView.a as;
-        com.baidu.adp.widget.ImageView.a as2;
+        com.baidu.adp.widget.ImageView.a at;
+        com.baidu.adp.widget.ImageView.a at2;
         BitmapDrawable bitmapDrawable;
         if (cbVar != null && spannableString != null && !StringUtils.isNull(str)) {
-            String boH = cbVar.boH();
-            String boI = cbVar.boI();
-            if (!StringUtils.isNull(boH) && !StringUtils.isNull(boI)) {
-                Bitmap bitmap = com.baidu.tbadk.imageManager.c.bCP().getBitmap(boH);
-                if ((bitmap == null || !com.baidu.tbadk.core.util.d.s.ar(boH, 10)) && (as = com.baidu.tbadk.core.util.d.s.as(boH, 10)) != null) {
-                    bitmap = as.getRawBitmap();
-                    com.baidu.tbadk.imageManager.c.bCP().addBitmap(boH, bitmap);
+            String boJ = cbVar.boJ();
+            String boK = cbVar.boK();
+            if (!StringUtils.isNull(boJ) && !StringUtils.isNull(boK)) {
+                Bitmap bitmap = com.baidu.tbadk.imageManager.c.bCS().getBitmap(boJ);
+                if ((bitmap == null || !com.baidu.tbadk.core.util.d.s.as(boJ, 10)) && (at = com.baidu.tbadk.core.util.d.s.at(boJ, 10)) != null) {
+                    bitmap = at.getRawBitmap();
+                    com.baidu.tbadk.imageManager.c.bCS().addBitmap(boJ, bitmap);
                 }
-                Bitmap bitmap2 = com.baidu.tbadk.imageManager.c.bCP().getBitmap(boI);
-                if ((bitmap2 == null || !com.baidu.tbadk.core.util.d.s.ar(boI, 10)) && (as2 = com.baidu.tbadk.core.util.d.s.as(boI, 10)) != null) {
-                    bitmap2 = as2.getRawBitmap();
-                    com.baidu.tbadk.imageManager.c.bCP().addBitmap(boI, bitmap2);
+                Bitmap bitmap2 = com.baidu.tbadk.imageManager.c.bCS().getBitmap(boK);
+                if ((bitmap2 == null || !com.baidu.tbadk.core.util.d.s.as(boK, 10)) && (at2 = com.baidu.tbadk.core.util.d.s.at(boK, 10)) != null) {
+                    bitmap2 = at2.getRawBitmap();
+                    com.baidu.tbadk.imageManager.c.bCS().addBitmap(boK, bitmap2);
                 }
                 Bitmap bitmap3 = bitmap2;
                 if (bitmap != null && !bitmap.isRecycled() && bitmap3 != null && !bitmap3.isRecycled()) {
@@ -77,34 +77,34 @@ public class aq {
                                 bitmapDrawable.setBounds(0, 0, bitmap3.getWidth(), bitmap3.getHeight());
                             }
                             com.baidu.tbadk.core.view.k kVar = new com.baidu.tbadk.core.view.k(bitmapDrawable);
-                            kVar.setOffset(com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), cbVar.eRg));
+                            kVar.setOffset(com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), cbVar.eSH));
                             spannableString.setSpan(kVar, i + i3, i + i3 + 1, 33);
                             i2++;
                         }
                     }
                     return;
                 }
-                dQ(boH, boI);
+                dQ(boJ, boK);
             }
         }
     }
 
     public static void dQ(final String str, final String str2) {
-        Bitmap bitmap = com.baidu.tbadk.imageManager.c.bCP().getBitmap(str);
-        Bitmap bitmap2 = com.baidu.tbadk.imageManager.c.bCP().getBitmap(str2);
+        Bitmap bitmap = com.baidu.tbadk.imageManager.c.bCS().getBitmap(str);
+        Bitmap bitmap2 = com.baidu.tbadk.imageManager.c.bCS().getBitmap(str2);
         if (bitmap == null || bitmap2 == null) {
             if (!com.baidu.adp.lib.util.l.isMainThread()) {
                 com.baidu.adp.lib.f.e.mA().post(new Runnable() { // from class: com.baidu.tbadk.core.util.aq.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.baidu.adp.lib.e.d.mw().a(str, 10, aq.faT, null);
-                        com.baidu.adp.lib.e.d.mw().a(str2, 10, aq.faT, null);
+                        com.baidu.adp.lib.e.d.mw().a(str, 10, aq.fct, null);
+                        com.baidu.adp.lib.e.d.mw().a(str2, 10, aq.fct, null);
                     }
                 });
                 return;
             }
-            com.baidu.adp.lib.e.d.mw().a(str, 10, faT, null);
-            com.baidu.adp.lib.e.d.mw().a(str2, 10, faT, null);
+            com.baidu.adp.lib.e.d.mw().a(str, 10, fct, null);
+            com.baidu.adp.lib.e.d.mw().a(str2, 10, fct, null);
         }
     }
 }

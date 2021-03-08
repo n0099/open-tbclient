@@ -12,10 +12,8 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 public final class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f10169a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final int f10170b;
+    private final int f6728a;
+    private final int b;
     private final Context c;
     private final int d;
 
@@ -23,10 +21,8 @@ public final class i {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final int f10171a;
-
-        /* renamed from: b  reason: collision with root package name */
-        final Context f10172b;
+        static final int f6729a;
+        final Context b;
         ActivityManager c;
         c d;
         float f;
@@ -36,12 +32,12 @@ public final class i {
         int i = 4194304;
 
         static {
-            f10171a = Build.VERSION.SDK_INT < 26 ? 4 : 1;
+            f6729a = Build.VERSION.SDK_INT < 26 ? 4 : 1;
         }
 
         public a(Context context) {
-            this.f = f10171a;
-            this.f10172b = context;
+            this.f = f6729a;
+            this.b = context;
             this.c = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
             this.d = new b(context.getResources().getDisplayMetrics());
             if (Build.VERSION.SDK_INT < 26 || !i.a(this.c)) {
@@ -59,20 +55,20 @@ public final class i {
     private static final class b implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        private final DisplayMetrics f10173a;
+        private final DisplayMetrics f6730a;
 
         b(DisplayMetrics displayMetrics) {
-            this.f10173a = displayMetrics;
+            this.f6730a = displayMetrics;
         }
 
         @Override // com.kwad.sdk.glide.load.engine.a.i.c
         public int a() {
-            return this.f10173a.widthPixels;
+            return this.f6730a.widthPixels;
         }
 
         @Override // com.kwad.sdk.glide.load.engine.a.i.c
         public int b() {
-            return this.f10173a.heightPixels;
+            return this.f6730a.heightPixels;
         }
     }
 
@@ -84,7 +80,7 @@ public final class i {
     }
 
     i(a aVar) {
-        this.c = aVar.f10172b;
+        this.c = aVar.b;
         this.d = a(aVar.c) ? aVar.i / 2 : aVar.i;
         int a2 = a(aVar.c, aVar.g, aVar.h);
         int a3 = aVar.d.a() * aVar.d.b() * 4;
@@ -92,15 +88,15 @@ public final class i {
         int round2 = Math.round(a3 * aVar.e);
         int i = a2 - this.d;
         if (round2 + round <= i) {
-            this.f10170b = round2;
-            this.f10169a = round;
+            this.b = round2;
+            this.f6728a = round;
         } else {
             float f = i / (aVar.f + aVar.e);
-            this.f10170b = Math.round(aVar.e * f);
-            this.f10169a = Math.round(f * aVar.f);
+            this.b = Math.round(aVar.e * f);
+            this.f6728a = Math.round(f * aVar.f);
         }
         if (Log.isLoggable("MemorySizeCalculator", 3)) {
-            Log.d("MemorySizeCalculator", "Calculation complete, Calculated memory cache size: " + a(this.f10170b) + ", pool size: " + a(this.f10169a) + ", byte array size: " + a(this.d) + ", memory class limited? " + (round2 + round > a2) + ", max size: " + a(a2) + ", memoryClass: " + aVar.c.getMemoryClass() + ", isLowMemoryDevice: " + a(aVar.c));
+            Log.d("MemorySizeCalculator", "Calculation complete, Calculated memory cache size: " + a(this.b) + ", pool size: " + a(this.f6728a) + ", byte array size: " + a(this.d) + ", memory class limited? " + (round2 + round > a2) + ", max size: " + a(a2) + ", memoryClass: " + aVar.c.getMemoryClass() + ", isLowMemoryDevice: " + a(aVar.c));
         }
     }
 
@@ -126,11 +122,11 @@ public final class i {
     }
 
     public int a() {
-        return this.f10170b;
+        return this.b;
     }
 
     public int b() {
-        return this.f10169a;
+        return this.f6728a;
     }
 
     public int c() {

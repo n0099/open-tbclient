@@ -4,32 +4,30 @@ import android.os.Bundle;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class gh extends gj {
 
     /* renamed from: a  reason: collision with root package name */
-    private a f14047a;
+    private a f8385a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final Map<String, String> f469a;
+    private final Map<String, String> f390a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f14048a = new a("get");
-
-        /* renamed from: b  reason: collision with root package name */
-        public static final a f14049b = new a("set");
+        public static final a f8386a = new a("get");
+        public static final a b = new a("set");
         public static final a c = new a("result");
         public static final a d = new a(BdStatsConstant.StatsType.ERROR);
         public static final a e = new a("command");
 
         /* renamed from: a  reason: collision with other field name */
-        private String f470a;
+        private String f391a;
 
         private a(String str) {
-            this.f470a = str;
+            this.f391a = str;
         }
 
         public static a a(String str) {
@@ -37,11 +35,11 @@ public class gh extends gj {
                 return null;
             }
             String lowerCase = str.toLowerCase();
-            if (f14048a.toString().equals(lowerCase)) {
-                return f14048a;
+            if (f8386a.toString().equals(lowerCase)) {
+                return f8386a;
             }
-            if (f14049b.toString().equals(lowerCase)) {
-                return f14049b;
+            if (b.toString().equals(lowerCase)) {
+                return b;
             }
             if (d.toString().equals(lowerCase)) {
                 return d;
@@ -56,36 +54,36 @@ public class gh extends gj {
         }
 
         public String toString() {
-            return this.f470a;
+            return this.f391a;
         }
     }
 
     public gh() {
-        this.f14047a = a.f14048a;
-        this.f469a = new HashMap();
+        this.f8385a = a.f8386a;
+        this.f390a = new HashMap();
     }
 
     public gh(Bundle bundle) {
         super(bundle);
-        this.f14047a = a.f14048a;
-        this.f469a = new HashMap();
+        this.f8385a = a.f8386a;
+        this.f390a = new HashMap();
         if (bundle.containsKey("ext_iq_type")) {
-            this.f14047a = a.a(bundle.getString("ext_iq_type"));
+            this.f8385a = a.a(bundle.getString("ext_iq_type"));
         }
     }
 
     @Override // com.xiaomi.push.gj
     public Bundle a() {
         Bundle a2 = super.a();
-        if (this.f14047a != null) {
-            a2.putString("ext_iq_type", this.f14047a.toString());
+        if (this.f8385a != null) {
+            a2.putString("ext_iq_type", this.f8385a.toString());
         }
         return a2;
     }
 
     @Override // com.xiaomi.push.gj
     public a a() {
-        return this.f14047a;
+        return this.f8385a;
     }
 
     @Override // com.xiaomi.push.gj
@@ -104,23 +102,23 @@ public class gh extends gj {
         if (k() != null) {
             sb.append("chid=\"").append(gu.a(k())).append("\" ");
         }
-        for (Map.Entry<String, String> entry : this.f469a.entrySet()) {
+        for (Map.Entry<String, String> entry : this.f390a.entrySet()) {
             sb.append(gu.a(entry.getKey())).append("=\"");
             sb.append(gu.a(entry.getValue())).append("\" ");
         }
-        if (this.f14047a == null) {
+        if (this.f8385a == null) {
             sb.append("type=\"get\">");
         } else {
             sb.append("type=\"").append(a()).append("\">");
         }
-        String b2 = b();
-        if (b2 != null) {
-            sb.append(b2);
+        String b = b();
+        if (b != null) {
+            sb.append(b);
         }
         sb.append(o());
         gn a2 = a();
         if (a2 != null) {
-            sb.append(a2.m343a());
+            sb.append(a2.m322a());
         }
         sb.append("</iq>");
         return sb.toString();
@@ -128,14 +126,14 @@ public class gh extends gj {
 
     public void a(a aVar) {
         if (aVar == null) {
-            this.f14047a = a.f14048a;
+            this.f8385a = a.f8386a;
         } else {
-            this.f14047a = aVar;
+            this.f8385a = aVar;
         }
     }
 
     public synchronized void a(Map<String, String> map) {
-        this.f469a.putAll(map);
+        this.f390a.putAll(map);
     }
 
     @Override // com.xiaomi.push.gj

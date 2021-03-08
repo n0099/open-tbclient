@@ -9,13 +9,11 @@ import java.util.WeakHashMap;
 /* loaded from: classes3.dex */
 public class b {
     private static volatile b d;
-    private static volatile int e = com.baidu.fsg.base.statistics.b.f1933b;
+    private static volatile int e = com.baidu.fsg.base.statistics.b.b;
 
     /* renamed from: a  reason: collision with root package name */
-    static volatile boolean f9305a = true;
-
-    /* renamed from: b  reason: collision with root package name */
-    static volatile boolean f9306b = false;
+    static volatile boolean f6177a = true;
+    static volatile boolean b = false;
     static volatile Set<c> c = Collections.newSetFromMap(new WeakHashMap());
 
     public static b a() {
@@ -47,14 +45,14 @@ public class b {
     }
 
     public void a(boolean z) {
-        f9306b = z;
+        b = z;
     }
 
     public void a(boolean z, int i) {
         if (i > 0) {
             e = i * 1024;
         }
-        f9305a = z;
+        f6177a = z;
     }
 
     public InputStream b(InputStream inputStream) {
@@ -62,7 +60,7 @@ public class b {
     }
 
     public boolean b() {
-        return f9305a;
+        return f6177a;
     }
 
     public int c() {

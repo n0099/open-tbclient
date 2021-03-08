@@ -1,21 +1,19 @@
 package com.baidu.tieba.l;
 /* loaded from: classes.dex */
 public interface e {
-    void OA(String str);
+    void OF(String str);
 
-    boolean OB(String str);
+    void OG(String str);
 
-    boolean OC(String str);
+    boolean OH(String str);
 
-    void Oz(String str);
+    boolean OI(String str);
 
     void e(String str, int i, int i2, String str2);
 
     void fN(String str, String str2);
 
     void fO(String str, String str2);
-
-    void p(String str, int i, String str2);
 
     void q(String str, int i, String str2);
 
@@ -24,4 +22,6 @@ public interface e {
     void report(String str);
 
     void s(String str, int i, String str2);
+
+    void t(String str, int i, String str2);
 }

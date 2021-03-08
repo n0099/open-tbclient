@@ -15,33 +15,33 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a {
-    private ViewGroup bkk;
-    private com.baidu.tbadk.BdToken.completeTask.a eKl;
-    private EMTextView eKm;
-    private EMTextView eKn;
-    private EMTextView eKo;
-    private EMTextView eKp;
-    private InterfaceC0556a eKq;
+    private ViewGroup blK;
+    private com.baidu.tbadk.BdToken.completeTask.a eLM;
+    private EMTextView eLN;
+    private EMTextView eLO;
+    private EMTextView eLP;
+    private EMTextView eLQ;
+    private InterfaceC0562a eLR;
     private final Activity mActivity;
     private AlertDialog mDialog;
     private View mRootView;
     private boolean mDialogCreated = false;
     private boolean cancelableFlag = true;
     private int mDialogGravity = -1;
-    private View.OnClickListener eKr = new View.OnClickListener() { // from class: com.baidu.tbadk.core.business.a.1
+    private View.OnClickListener eLS = new View.OnClickListener() { // from class: com.baidu.tbadk.core.business.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.eKq != null) {
-                a.this.eKq.onCancel();
+            if (a.this.eLR != null) {
+                a.this.eLR.onCancel();
                 a.this.mDialog.dismiss();
             }
         }
     };
-    private View.OnClickListener eKs = new View.OnClickListener() { // from class: com.baidu.tbadk.core.business.a.2
+    private View.OnClickListener eLT = new View.OnClickListener() { // from class: com.baidu.tbadk.core.business.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.eKq != null) {
-                a.this.eKq.bkt();
+            if (a.this.eLR != null) {
+                a.this.eLR.bkv();
                 a.this.mDialog.dismiss();
             }
         }
@@ -49,49 +49,49 @@ public class a {
 
     /* renamed from: com.baidu.tbadk.core.business.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0556a {
-        void bkt();
+    public interface InterfaceC0562a {
+        void bkv();
 
         void onCancel();
     }
 
     public a(Activity activity) {
         this.mActivity = activity;
-        this.bkk = (ViewGroup) LayoutInflater.from(activity).inflate(R.layout.business_alert_dialog, (ViewGroup) null);
+        this.blK = (ViewGroup) LayoutInflater.from(activity).inflate(R.layout.business_alert_dialog, (ViewGroup) null);
     }
 
     public void a(com.baidu.tbadk.BdToken.completeTask.a aVar) {
-        this.eKl = aVar;
+        this.eLM = aVar;
     }
 
-    public void a(InterfaceC0556a interfaceC0556a) {
-        this.eKq = interfaceC0556a;
+    public void a(InterfaceC0562a interfaceC0562a) {
+        this.eLR = interfaceC0562a;
     }
 
-    public a blf() {
+    public a blh() {
         if (!this.mDialogCreated) {
             this.mDialogCreated = true;
-            this.mRootView = this.bkk.findViewById(R.id.root_dialog_view);
-            this.eKm = (EMTextView) this.bkk.findViewById(R.id.title);
-            this.eKn = (EMTextView) this.bkk.findViewById(R.id.content);
-            this.eKo = (EMTextView) this.bkk.findViewById(R.id.cancel);
-            this.eKp = (EMTextView) this.bkk.findViewById(R.id.confirm);
-            this.eKo.setClickable(true);
-            this.eKp.setClickable(true);
-            this.eKo.setOnClickListener(this.eKr);
-            this.eKp.setOnClickListener(this.eKs);
+            this.mRootView = this.blK.findViewById(R.id.root_dialog_view);
+            this.eLN = (EMTextView) this.blK.findViewById(R.id.title);
+            this.eLO = (EMTextView) this.blK.findViewById(R.id.content);
+            this.eLP = (EMTextView) this.blK.findViewById(R.id.cancel);
+            this.eLQ = (EMTextView) this.blK.findViewById(R.id.confirm);
+            this.eLP.setClickable(true);
+            this.eLQ.setClickable(true);
+            this.eLP.setOnClickListener(this.eLS);
+            this.eLQ.setOnClickListener(this.eLT);
         }
         return this;
     }
 
-    public a blg() {
+    public a bli() {
         if (!this.mDialogCreated) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
         this.mDialog = new AlertDialog.Builder(this.mActivity).create();
         this.mDialog.setCanceledOnTouchOutside(this.cancelableFlag);
         g.showDialog(this.mDialog, this.mActivity);
-        bkL();
+        bkN();
         onChangeSkinType();
         Window window = this.mDialog.getWindow();
         if (this.mDialogGravity == -1) {
@@ -113,26 +113,26 @@ public class a {
         }
         attributes.height = -2;
         window.setAttributes(attributes);
-        window.setContentView(this.bkk);
+        window.setContentView(this.blK);
         return this;
     }
 
-    private void bkL() {
-        if (this.eKl != null) {
-            this.eKm.setText(this.eKl.title);
-            this.eKn.setText(this.eKl.subTitle);
-            this.eKo.setText(this.eKl.eFL);
-            this.eKp.setText(this.eKl.eFO);
+    private void bkN() {
+        if (this.eLM != null) {
+            this.eLN.setText(this.eLM.title);
+            this.eLO.setText(this.eLM.subTitle);
+            this.eLP.setText(this.eLM.eHm);
+            this.eLQ.setText(this.eLM.eHp);
         }
     }
 
     private void onChangeSkinType() {
-        if (this.eKl != null) {
-            com.baidu.tbadk.core.elementsMaven.c.br(this.mRootView).og(R.string.J_X06).setBackGroundColor(R.color.CAM_X0201);
-            com.baidu.tbadk.core.elementsMaven.c.br(this.eKm).oa(R.string.F_X02).nY(R.color.CAM_X0105);
-            com.baidu.tbadk.core.elementsMaven.c.br(this.eKn).nY(R.color.CAM_X0107);
-            com.baidu.tbadk.core.elementsMaven.c.br(this.eKo).nY(R.color.CAM_X0105).og(R.string.J_X07).ok(R.dimen.L_X02).oj(R.color.CAM_X0902);
-            com.baidu.tbadk.core.elementsMaven.c.br(this.eKp).nY(R.color.CAM_X0304).og(R.string.J_X07).ol(R.string.A_X07).ok(R.dimen.L_X02).oj(R.color.CAM_X0304);
+        if (this.eLM != null) {
+            com.baidu.tbadk.core.elementsMaven.c.br(this.mRootView).oh(R.string.J_X06).setBackGroundColor(R.color.CAM_X0201);
+            com.baidu.tbadk.core.elementsMaven.c.br(this.eLN).ob(R.string.F_X02).nZ(R.color.CAM_X0105);
+            com.baidu.tbadk.core.elementsMaven.c.br(this.eLO).nZ(R.color.CAM_X0107);
+            com.baidu.tbadk.core.elementsMaven.c.br(this.eLP).nZ(R.color.CAM_X0105).oh(R.string.J_X07).ol(R.dimen.L_X02).ok(R.color.CAM_X0902);
+            com.baidu.tbadk.core.elementsMaven.c.br(this.eLQ).nZ(R.color.CAM_X0304).oh(R.string.J_X07).om(R.string.A_X07).ol(R.dimen.L_X02).ok(R.color.CAM_X0304);
         }
     }
 }

@@ -3,34 +3,34 @@ package com.baidu.live.lottie.model.content;
 import android.graphics.PointF;
 import com.baidu.live.lottie.a.a.n;
 import com.baidu.live.lottie.model.a.m;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class f implements b {
-    private final com.baidu.live.lottie.model.a.f btC;
-    private final com.baidu.live.lottie.model.a.b btV;
-    private final m<PointF, PointF> btw;
+    private final m<PointF, PointF> buX;
+    private final com.baidu.live.lottie.model.a.f bvd;
+    private final com.baidu.live.lottie.model.a.b bvw;
     private final String name;
 
     public f(String str, m<PointF, PointF> mVar, com.baidu.live.lottie.model.a.f fVar, com.baidu.live.lottie.model.a.b bVar) {
         this.name = str;
-        this.btw = mVar;
-        this.btC = fVar;
-        this.btV = bVar;
+        this.buX = mVar;
+        this.bvd = fVar;
+        this.bvw = bVar;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public com.baidu.live.lottie.model.a.b NU() {
-        return this.btV;
+    public com.baidu.live.lottie.model.a.b NX() {
+        return this.bvw;
     }
 
-    public com.baidu.live.lottie.model.a.f NC() {
-        return this.btC;
+    public com.baidu.live.lottie.model.a.f NF() {
+        return this.bvd;
     }
 
-    public m<PointF, PointF> Nv() {
-        return this.btw;
+    public m<PointF, PointF> Ny() {
+        return this.buX;
     }
 
     @Override // com.baidu.live.lottie.model.content.b
@@ -39,6 +39,6 @@ public class f implements b {
     }
 
     public String toString() {
-        return "RectangleShape{position=" + this.btw + ", size=" + this.btC + '}';
+        return "RectangleShape{position=" + this.buX + ", size=" + this.bvd + '}';
     }
 }

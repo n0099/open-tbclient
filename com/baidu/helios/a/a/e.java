@@ -8,24 +8,24 @@ import com.baidu.mobstat.Config;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 class e implements h {
     @Override // com.baidu.helios.a.a.h
     public String a(Context context) {
-        return com.baidu.helios.b.aj(context.getApplicationContext()).uB();
+        return com.baidu.helios.b.ai(context.getApplicationContext()).uE();
     }
 
     @Override // com.baidu.helios.a.a.h
-    public JSONArray an(Context context) {
-        b.C0120b c0120b;
+    public JSONArray am(Context context) {
+        b.C0126b c0126b;
         c cVar = new c();
-        com.baidu.helios.b.aj(context).a(cVar);
+        com.baidu.helios.b.ai(context).a(cVar);
         boolean a2 = cVar.a(10000);
         JSONArray jSONArray = new JSONArray();
         if (a2) {
-            c.b uV = cVar.uV();
-            if (uV != null && uV.result != 0 && (c0120b = (b.C0120b) uV.result) != null && c0120b.uF() != null) {
-                for (b.c cVar2 : c0120b.uF()) {
+            c.b uY = cVar.uY();
+            if (uY != null && uY.result != 0 && (c0126b = (b.C0126b) uY.result) != null && c0126b.uI() != null) {
+                for (b.c cVar2 : c0126b.uI()) {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("aid", cVar2.aid);
@@ -38,7 +38,7 @@ class e implements h {
                 }
             }
         } else {
-            cVar.uW();
+            cVar.uZ();
         }
         return jSONArray;
     }
@@ -46,35 +46,35 @@ class e implements h {
     @Override // com.baidu.helios.a.a.h
     public String c(Context context) {
         c cVar = new c();
-        com.baidu.helios.b.aj(context).b(cVar);
+        com.baidu.helios.b.ai(context).b(cVar);
         if (!cVar.a(10000)) {
-            cVar.uW();
+            cVar.uZ();
             return null;
         }
-        c.b uV = cVar.uV();
-        if (uV == null || TextUtils.isEmpty((CharSequence) uV.result)) {
+        c.b uY = cVar.uY();
+        if (uY == null || TextUtils.isEmpty((CharSequence) uY.result)) {
             return null;
         }
-        return (String) uV.result;
+        return (String) uY.result;
     }
 
     @Override // com.baidu.helios.a.a.h
     public String d(Context context) {
         c cVar = new c();
-        com.baidu.helios.b.aj(context).c(cVar);
+        com.baidu.helios.b.ai(context).c(cVar);
         if (!cVar.a(10000)) {
-            cVar.uW();
+            cVar.uZ();
             return null;
         }
-        c.b uV = cVar.uV();
-        if (uV == null || TextUtils.isEmpty((CharSequence) uV.result)) {
+        c.b uY = cVar.uY();
+        if (uY == null || TextUtils.isEmpty((CharSequence) uY.result)) {
             return null;
         }
-        return (String) uV.result;
+        return (String) uY.result;
     }
 
     @Override // com.baidu.helios.a.a.h
     public String e(Context context) {
-        return com.baidu.helios.b.aj(context.getApplicationContext()).getIid();
+        return com.baidu.helios.b.ai(context.getApplicationContext()).getIid();
     }
 }

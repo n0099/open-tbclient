@@ -7,10 +7,10 @@ import android.graphics.BitmapFactory;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Bitmap f3903a;
+    public static Bitmap f2718a;
 
     public static void a(Context context) {
-        f3903a = a("com/baidu/pano/platform/res/indoor_in.png");
+        f2718a = a("com/baidu/pano/platform/res/indoor_in.png");
     }
 
     private static Bitmap a(String str) {

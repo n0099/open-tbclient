@@ -4,23 +4,23 @@ import android.view.KeyEvent;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.live.data.ab;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
-    void H(Object obj);
+    void J(Object obj);
 
-    boolean Rn();
+    boolean Rq();
 
     void VA();
 
-    void VB();
+    boolean VB();
 
     void VC();
 
-    void Vx();
+    void VD();
 
-    boolean Vy();
+    void VE();
 
-    void Vz();
+    void VF();
 
     void a(FrameLayout frameLayout);
 

@@ -1,14 +1,15 @@
 package com.bumptech.glide.util;
 
+import android.graphics.drawable.Drawable;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bumptech.glide.ListPreloader;
+import com.bumptech.glide.request.target.CustomViewTarget;
 import com.bumptech.glide.request.target.SizeReadyCallback;
-import com.bumptech.glide.request.target.ViewTarget;
 import com.bumptech.glide.request.transition.Transition;
 import java.util.Arrays;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ViewPreloadSizeProvider<T> implements ListPreloader.PreloadSizeProvider<T>, SizeReadyCallback {
     private int[] size;
     private SizeViewTarget viewTarget;
@@ -17,7 +18,8 @@ public class ViewPreloadSizeProvider<T> implements ListPreloader.PreloadSizeProv
     }
 
     public ViewPreloadSizeProvider(@NonNull View view) {
-        this.viewTarget = new SizeViewTarget(view, this);
+        this.viewTarget = new SizeViewTarget(view);
+        this.viewTarget.getSize(this);
     }
 
     @Override // com.bumptech.glide.ListPreloader.PreloadSizeProvider
@@ -37,15 +39,23 @@ public class ViewPreloadSizeProvider<T> implements ListPreloader.PreloadSizeProv
 
     public void setView(@NonNull View view) {
         if (this.size == null && this.viewTarget == null) {
-            this.viewTarget = new SizeViewTarget(view, this);
+            this.viewTarget = new SizeViewTarget(view);
+            this.viewTarget.getSize(this);
         }
     }
 
-    /* loaded from: classes15.dex */
-    private static final class SizeViewTarget extends ViewTarget<View, Object> {
-        SizeViewTarget(@NonNull View view, @NonNull SizeReadyCallback sizeReadyCallback) {
+    /* loaded from: classes14.dex */
+    static final class SizeViewTarget extends CustomViewTarget<View, Object> {
+        SizeViewTarget(@NonNull View view) {
             super(view);
-            getSize(sizeReadyCallback);
+        }
+
+        @Override // com.bumptech.glide.request.target.CustomViewTarget
+        protected void onResourceCleared(@Nullable Drawable drawable) {
+        }
+
+        @Override // com.bumptech.glide.request.target.Target
+        public void onLoadFailed(@Nullable Drawable drawable) {
         }
 
         @Override // com.bumptech.glide.request.target.Target

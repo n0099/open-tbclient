@@ -4,29 +4,53 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.bytedance.sdk.openadsdk.core.i;
 import com.bytedance.sdk.openadsdk.core.m;
-import com.bytedance.sdk.openadsdk.i.e;
-import com.bytedance.sdk.openadsdk.utils.p;
+import com.bytedance.sdk.openadsdk.core.p;
+import com.bytedance.sdk.openadsdk.g.a;
+import com.bytedance.sdk.openadsdk.h.d;
+import com.bytedance.sdk.openadsdk.j.e;
 import com.bytedance.sdk.openadsdk.utils.u;
 import com.bytedance.sdk.openadsdk.utils.z;
 import java.util.concurrent.atomic.AtomicBoolean;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class TTAdSdk {
 
     /* renamed from: a  reason: collision with root package name */
-    private static AtomicBoolean f6087a = new AtomicBoolean(false);
+    private static AtomicBoolean f4075a = new AtomicBoolean(false);
 
-    public static TTAdManager init(Context context, TTAdConfig tTAdConfig) {
+    public static TTAdManager init(Context context, final TTAdConfig tTAdConfig) {
+        final long currentTimeMillis = System.currentTimeMillis();
         z.a((Object) context, "Context is null, please check.");
         z.a(tTAdConfig, "TTAdConfig is null, please check.");
+        p.a(context);
         updateAdConfig(tTAdConfig);
         if (tTAdConfig != null) {
             updatePaid(tTAdConfig.isPaid());
         }
-        if (!f6087a.get()) {
+        if (!f4075a.get()) {
             a(context, tTAdConfig);
-            f6087a.set(true);
+            f4075a.set(true);
         }
-        return getAdManager();
+        TTAdManager adManager = getAdManager();
+        e.a().execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.TTAdSdk.1
+            @Override // java.lang.Runnable
+            public void run() {
+                try {
+                    long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("init_time_cusuming", currentTimeMillis2);
+                    jSONObject.put("is_async", tTAdConfig.isAsyncInit());
+                    jSONObject.put("is_multi_process", tTAdConfig.isSupportMultiProcess());
+                    jSONObject.put("is_debug", tTAdConfig.isDebug());
+                    jSONObject.put("isuse_texture_view", tTAdConfig.isUseTextureView());
+                    a.a().a("pangle_sdk_init", jSONObject);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        return adManager;
     }
 
     public static TTAdManager getAdManager() {
@@ -35,12 +59,15 @@ public final class TTAdSdk {
 
     private static void a(Context context, TTAdConfig tTAdConfig) {
         if (tTAdConfig.getHttpStack() != null) {
-            e.a(tTAdConfig.getHttpStack());
+            d.a(tTAdConfig.getHttpStack());
         }
-        m.f6609a = tTAdConfig.isAsyncInit();
-        m.f6610b = tTAdConfig.getCustomController();
+        e.a(true);
+        e.a(new com.bytedance.sdk.openadsdk.g.b.a());
+        m.f4464a = tTAdConfig.isAsyncInit();
+        m.b = tTAdConfig.getCustomController();
         if (tTAdConfig.isDebug()) {
             u.b();
+            i.d().a(tTAdConfig.getAppId());
         }
         TTAdManager tTAdManagerFactory = TTAdManagerFactory.getInstance(context, tTAdConfig.isSupportMultiProcess());
         if (tTAdConfig.isDebug()) {
@@ -48,7 +75,7 @@ public final class TTAdSdk {
         }
         tTAdManagerFactory.setAppId(tTAdConfig.getAppId()).setName(tTAdConfig.getAppName()).setPaid(tTAdConfig.isPaid()).setKeywords(tTAdConfig.getKeywords()).setData(tTAdConfig.getData()).setTitleBarTheme(tTAdConfig.getTitleBarTheme()).setAllowShowNotifiFromSDK(tTAdConfig.isAllowShowNotify()).setAllowLandingPageShowWhenScreenLock(tTAdConfig.isAllowShowPageWhenScreenLock()).setDirectDownloadNetworkType(tTAdConfig.getDirectDownloadNetworkType()).isUseTextureView(tTAdConfig.isUseTextureView()).setTTDownloadEventLogger(tTAdConfig.getTTDownloadEventLogger()).setNeedClearTaskReset(tTAdConfig.getNeedClearTaskReset()).setTTSecAbs(tTAdConfig.getTTSecAbs()).setCustomController(tTAdConfig.getCustomController());
         try {
-            p.a();
+            com.bytedance.sdk.openadsdk.utils.p.a();
         } catch (Throwable th) {
         }
     }
@@ -56,15 +83,15 @@ public final class TTAdSdk {
     public static void updateAdConfig(TTAdConfig tTAdConfig) {
         if (tTAdConfig != null) {
             if (!TextUtils.isEmpty(tTAdConfig.getData())) {
-                i.c().d(tTAdConfig.getData());
+                i.d().d(tTAdConfig.getData());
             }
             if (!TextUtils.isEmpty(tTAdConfig.getKeywords())) {
-                i.c().c(tTAdConfig.getKeywords());
+                i.d().c(tTAdConfig.getKeywords());
             }
         }
     }
 
     public static void updatePaid(boolean z) {
-        i.c().a(z);
+        i.d().a(z);
     }
 }

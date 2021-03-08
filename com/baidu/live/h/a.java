@@ -7,7 +7,7 @@ import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.FileHelper;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static String getFileMd5(File file) {
         String md5 = Md5.toMd5(FileHelper.GetStreamFromFile(file));

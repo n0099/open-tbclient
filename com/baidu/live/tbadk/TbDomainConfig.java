@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class TbDomainConfig {
     public static final String DOMAIN_HTTPS_BAIDU = "http://www.baidu.com/";
     public static final String DOMAIN_HTTPS_BCS_CDN = "http://bcscdn.baidu.com/";

@@ -5,7 +5,7 @@ import com.yy.videoplayer.utils.YMFLog;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFImageBuffer {
     private static int mDirectoryBufferOffset;
     public int mBufSize;

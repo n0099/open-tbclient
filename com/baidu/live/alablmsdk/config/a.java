@@ -9,52 +9,52 @@ import com.baidu.live.alablmsdk.config.enums.BLMLiveTransferMode;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.yy.mediaframework.base.VideoEncoderConfig;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static final BLMAudioSampleRate axk = BLMAudioSampleRate.BLM_AUDIO_SAMPLE_RATE_48000HZ;
-    private final String axb = "360p";
-    private final String axc = "480p";
-    private final String axd = "540p";
-    private final String axe = "544p";
-    private final String axf = "720p";
-    private final String axg = "4_3";
-    private final String axh = "16_9";
-    private final String axi = "3_4";
-    private final String axj = "9_16";
-    public C0161a axl;
-    public C0161a axm;
-    public BLMLiveTransferMode axn;
+    private static final BLMAudioSampleRate ayK = BLMAudioSampleRate.BLM_AUDIO_SAMPLE_RATE_48000HZ;
+    private final String ayB = "360p";
+    private final String ayC = "480p";
+    private final String ayD = "540p";
+    private final String ayE = "544p";
+    private final String ayF = "720p";
+    private final String ayG = "4_3";
+    private final String ayH = "16_9";
+    private final String ayI = "3_4";
+    private final String ayJ = "9_16";
+    public C0167a ayL;
+    public C0167a ayM;
+    public BLMLiveTransferMode ayN;
 
     /* renamed from: com.baidu.live.alablmsdk.config.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public static class C0161a {
-        public com.baidu.live.alablmsdk.config.a.b axo;
-        public String axr;
-        public com.baidu.live.alablmsdk.config.a.b axt;
-        public List<com.baidu.live.alablmsdk.config.a.a> axu;
-        public List<com.baidu.live.alablmsdk.config.a.a> axv;
-        public String axw;
-        public String axx;
+    /* loaded from: classes10.dex */
+    public static class C0167a {
+        public com.baidu.live.alablmsdk.config.a.b ayO;
+        public String ayR;
+        public com.baidu.live.alablmsdk.config.a.b ayT;
+        public List<com.baidu.live.alablmsdk.config.a.a> ayU;
+        public List<com.baidu.live.alablmsdk.config.a.a> ayV;
+        public String ayW;
+        public String ayX;
         public int fps = 15;
-        public BLMAudioSampleRate axp = a.axk;
-        public int axq = FeatureCodes.ADVANCE_BEAUTY;
-        public boolean axs = true;
+        public BLMAudioSampleRate ayP = a.ayK;
+        public int ayQ = FeatureCodes.ADVANCE_BEAUTY;
+        public boolean ayS = true;
 
-        public boolean xM() {
-            return !TextUtils.isEmpty(this.axr);
+        public boolean xP() {
+            return !TextUtils.isEmpty(this.ayR);
         }
     }
 
-    public String a(C0161a c0161a) {
-        if (c0161a == null) {
+    public String a(C0167a c0167a) {
+        if (c0167a == null) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
-        sb.append("custom_layout").append("-v:").append(a(c0161a.axo)).append("-b:").append(ce(c0161a.axq)).append("-f:").append(cf(c0161a.fps)).append("-ar:").append(a(c0161a.axp));
-        if (!com.baidu.live.alablmsdk.a.a.isEmpty(c0161a.axv)) {
-            sb.append("-bgp:").append(eI(c0161a.axw)).append("-wd:").append("{").append(b(c0161a.axo, c0161a.axt, c0161a.axv)).append("}");
+        sb.append("custom_layout").append("-v:").append(a(c0167a.ayO)).append("-b:").append(cf(c0167a.ayQ)).append("-f:").append(cg(c0167a.fps)).append("-ar:").append(a(c0167a.ayP));
+        if (!com.baidu.live.alablmsdk.a.a.isEmpty(c0167a.ayV)) {
+            sb.append("-bgp:").append(eO(c0167a.ayW)).append("-wd:").append("{").append(b(c0167a.ayO, c0167a.ayT, c0167a.ayV)).append("}");
         } else {
-            sb.append("-wp:").append("{").append(a(c0161a.axo, c0161a.axt, c0161a.axu)).append("}");
+            sb.append("-wp:").append("{").append(a(c0167a.ayO, c0167a.ayT, c0167a.ayU)).append("}");
         }
         String sb2 = sb.toString();
         com.baidu.live.alablmsdk.a.b.a.ag(" template " + sb2, "");
@@ -103,39 +103,39 @@ public class a {
     }
 
     private com.baidu.live.alablmsdk.config.a.c d(com.baidu.live.alablmsdk.config.a.b bVar) {
-        String b2 = b(bVar);
+        String b = b(bVar);
         String c = c(bVar);
         com.baidu.live.alablmsdk.config.a.c cVar = new com.baidu.live.alablmsdk.config.a.c();
         boolean z = "4_3".equals(c) || "3_4".equals(c);
-        if ("360p".equals(b2)) {
+        if ("360p".equals(b)) {
             cVar.min = EncoderTextureDrawer.X264_WIDTH;
             if (z) {
                 cVar.max = 480;
             } else {
                 cVar.max = 640;
             }
-        } else if ("480p".equals(b2)) {
+        } else if ("480p".equals(b)) {
             cVar.min = 480;
             if (z) {
                 cVar.max = 640;
             } else {
                 cVar.max = 854;
             }
-        } else if ("540p".equals(b2)) {
+        } else if ("540p".equals(b)) {
             cVar.min = 540;
             if (z) {
                 cVar.max = 720;
             } else {
                 cVar.max = 960;
             }
-        } else if ("544p".equals(b2)) {
+        } else if ("544p".equals(b)) {
             cVar.min = VideoEncoderConfig.DEFAULT_ENCODE_HIGH_WIDTH;
             if (z) {
                 cVar.max = 720;
             } else {
                 cVar.max = 960;
             }
-        } else if ("720p".equals(b2)) {
+        } else if ("720p".equals(b)) {
             cVar.min = 720;
             if (z) {
                 cVar.max = 960;
@@ -146,11 +146,11 @@ public class a {
         return cVar;
     }
 
-    private int ce(int i) {
+    private int cf(int i) {
         return i > 0 ? i : FeatureCodes.ADVANCE_BEAUTY;
     }
 
-    private int cf(int i) {
+    private int cg(int i) {
         if (i != 0) {
             return i;
         }
@@ -158,7 +158,7 @@ public class a {
     }
 
     private int a(BLMAudioSampleRate bLMAudioSampleRate) {
-        return bLMAudioSampleRate != null ? bLMAudioSampleRate.getSampleRate() : axk.getSampleRate();
+        return bLMAudioSampleRate != null ? bLMAudioSampleRate.getSampleRate() : ayK.getSampleRate();
     }
 
     private String a(com.baidu.live.alablmsdk.config.a.b bVar, com.baidu.live.alablmsdk.config.a.b bVar2, List<com.baidu.live.alablmsdk.config.a.a> list) {
@@ -170,7 +170,7 @@ public class a {
         for (int i = 0; i < list.size(); i++) {
             com.baidu.live.alablmsdk.config.a.a aVar = list.get(i);
             if (aVar != null) {
-                d dVar = aVar.axE;
+                d dVar = aVar.aze;
                 int i2 = i + 1;
                 if (dVar != null) {
                     if (!z) {
@@ -185,8 +185,8 @@ public class a {
     }
 
     private String a(com.baidu.live.alablmsdk.config.a.b bVar, com.baidu.live.alablmsdk.config.a.b bVar2, d dVar) {
-        d b2 = b(bVar, bVar2, dVar);
-        return b2 == null ? "" : b2.xR();
+        d b = b(bVar, bVar2, dVar);
+        return b == null ? "" : b.xU();
     }
 
     public d b(com.baidu.live.alablmsdk.config.a.b bVar, com.baidu.live.alablmsdk.config.a.b bVar2, d dVar) {
@@ -196,25 +196,25 @@ public class a {
             return null;
         }
         float width = (bVar.getWidth() * 1.0f) / bVar2.getWidth();
-        int q = com.baidu.live.alablmsdk.a.b.q(dVar.x * width);
-        int q2 = com.baidu.live.alablmsdk.a.b.q(dVar.y * width);
-        int q3 = com.baidu.live.alablmsdk.a.b.q(dVar.width * width);
-        int q4 = com.baidu.live.alablmsdk.a.b.q(width * dVar.height);
+        int u = com.baidu.live.alablmsdk.a.b.u(dVar.x * width);
+        int u2 = com.baidu.live.alablmsdk.a.b.u(dVar.y * width);
+        int u3 = com.baidu.live.alablmsdk.a.b.u(dVar.width * width);
+        int u4 = com.baidu.live.alablmsdk.a.b.u(width * dVar.height);
         com.baidu.live.alablmsdk.config.a.c d = d(bVar);
         if (bVar.getWidth() >= bVar.getHeight() || d == null || d.min == 0 || d.max == 0) {
-            i = q3;
+            i = u3;
         } else {
-            if (q + q3 <= d.min || (i = d.min - q) <= 0) {
-                i = q3;
+            if (u + u3 <= d.min || (i = d.min - u) <= 0) {
+                i = u3;
             }
-            if (q2 + q4 > d.max && (i2 = d.max - q2) > 0) {
-                q4 = i2;
+            if (u2 + u4 > d.max && (i2 = d.max - u2) > 0) {
+                u4 = i2;
             }
         }
-        return new d(q, q2, i, q4);
+        return new d(u, u2, i, u4);
     }
 
-    private String eI(String str) {
+    private String eO(String str) {
         return !TextUtils.isEmpty(str) ? str : "meg_public_show_2x.png";
     }
 
@@ -231,7 +231,7 @@ public class a {
                 if (!z) {
                     sb.append(",");
                 }
-                sb.append(aVar.tag).append(":s:").append(aVar.axC.getShapeType()).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(aVar.r(a2));
+                sb.append(aVar.tag).append(":s:").append(aVar.azc.getShapeType()).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(aVar.v(a2));
                 z = false;
             }
         }
@@ -239,7 +239,7 @@ public class a {
     }
 
     private float a(com.baidu.live.alablmsdk.config.a.b bVar, com.baidu.live.alablmsdk.config.a.b bVar2) {
-        if (bVar == null || bVar.xQ() || bVar2 == null || bVar2.xQ()) {
+        if (bVar == null || bVar.xT() || bVar2 == null || bVar2.xT()) {
             return 1.0f;
         }
         if ((bVar.getWidth() * 1.0f) / bVar.getHeight() < (bVar2.getWidth() * 1.0f) / bVar2.getHeight()) {

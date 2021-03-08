@@ -1,5 +1,6 @@
 package com.bytedance.sdk.openadsdk.utils;
 
+import android.content.Context;
 import android.text.TextUtils;
 import com.bytedance.sdk.openadsdk.IListenerManager;
 import com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity;
@@ -10,10 +11,8 @@ import java.util.Map;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Map<String, a> f7581a = Collections.synchronizedMap(new HashMap());
-
-    /* renamed from: b  reason: collision with root package name */
-    private static IListenerManager f7582b;
+    private static final Map<String, a> f5135a = Collections.synchronizedMap(new HashMap());
+    private static IListenerManager b;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -49,6 +48,35 @@ public class g {
         TTDelegateActivity.a(str);
     }
 
+    public static void a(final com.bytedance.sdk.openadsdk.core.d.l lVar, final Context context, final String str) {
+        if (lVar != null && context != null && !TextUtils.isEmpty(str)) {
+            a(lVar.ag(), lVar.Q(), new a() { // from class: com.bytedance.sdk.openadsdk.utils.g.1
+                @Override // com.bytedance.sdk.openadsdk.utils.g.a
+                public void a() {
+                    g.b(com.bytedance.sdk.openadsdk.core.d.l.this, context, str);
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.utils.g.a
+                public void b() {
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.utils.g.a
+                public void c() {
+                }
+            }, com.bytedance.sdk.openadsdk.downloadnew.a.f.a(lVar), lVar.T() == 4);
+        }
+    }
+
+    public static void b(com.bytedance.sdk.openadsdk.core.d.l lVar, Context context, String str) {
+        if (lVar != null && context != null && lVar.T() == 4) {
+            com.bytedance.sdk.openadsdk.downloadnew.core.a a2 = com.bytedance.sdk.openadsdk.downloadnew.a.a(context, lVar, str);
+            if (a2 instanceof com.bytedance.sdk.openadsdk.downloadnew.a.d) {
+                ((com.bytedance.sdk.openadsdk.downloadnew.a.d) a2).g(false);
+            }
+            a2.g();
+        }
+    }
+
     public static void a(String str, String str2, String str3, String str4, String str5, a aVar) {
         if (!TextUtils.isEmpty(str) && aVar != null) {
             a(str, aVar);
@@ -71,7 +99,7 @@ public class g {
     public static void a(final String str, final a aVar) {
         if (!TextUtils.isEmpty(str) && aVar != null) {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                com.bytedance.sdk.openadsdk.k.a.a().a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.g.1
+                com.bytedance.sdk.openadsdk.j.e.b(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.g.2
                     @Override // java.lang.Runnable
                     public void run() {
                         try {
@@ -81,7 +109,7 @@ public class g {
                     }
                 }, 5);
             } else {
-                f7581a.put(str, aVar);
+                f5135a.put(str, aVar);
             }
         }
     }
@@ -90,13 +118,13 @@ public class g {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return f7581a.remove(str);
+        return f5135a.remove(str);
     }
 
     private static void a(final String str, final int i) {
         if (!TextUtils.isEmpty(str)) {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                com.bytedance.sdk.openadsdk.k.a.a().a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.g.2
+                com.bytedance.sdk.openadsdk.j.e.b(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.g.3
                     @Override // java.lang.Runnable
                     public void run() {
                         try {
@@ -129,9 +157,9 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static IListenerManager b() {
-        if (f7582b == null) {
-            f7582b = com.bytedance.sdk.openadsdk.multipro.aidl.a.c.asInterface(com.bytedance.sdk.openadsdk.multipro.aidl.a.a(com.bytedance.sdk.openadsdk.core.p.a()).a(2));
+        if (b == null) {
+            b = com.bytedance.sdk.openadsdk.multipro.aidl.a.c.asInterface(com.bytedance.sdk.openadsdk.multipro.aidl.a.a(com.bytedance.sdk.openadsdk.core.p.a()).a(2));
         }
-        return f7582b;
+        return b;
     }
 }

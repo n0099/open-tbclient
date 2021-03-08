@@ -5,17 +5,15 @@ import android.content.Context;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private static float f3918a = 0.0f;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static float f3919b = 0.0f;
+    private static float f2726a = 0.0f;
+    private static float b = 0.0f;
     private static int c;
 
     public static float a(Context context) {
-        if (f3918a == 0.0f) {
-            f3918a = context.getResources().getDisplayMetrics().density;
+        if (f2726a == 0.0f) {
+            f2726a = context.getResources().getDisplayMetrics().density;
         }
-        return f3918a;
+        return f2726a;
     }
 
     public static int b(Context context) {
@@ -26,10 +24,10 @@ public class h {
     }
 
     public static float c(Context context) {
-        if (f3919b == 0.0f) {
-            f3919b = context.getResources().getDisplayMetrics().scaledDensity;
+        if (b == 0.0f) {
+            b = context.getResources().getDisplayMetrics().scaledDensity;
         }
-        return f3919b;
+        return b;
     }
 
     public static int a(int i, Context context) {

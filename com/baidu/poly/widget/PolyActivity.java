@@ -14,36 +14,36 @@ import com.baidu.tieba.ala.live.walletconfig.CashierData;
 import com.heytap.mcssdk.mode.CommandMessage;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class PolyActivity extends Activity implements m.l {
-    private static com.baidu.poly.d.a.c cpf;
-    private static a.b cpg;
-    private static PolyActivity cph;
+    private static com.baidu.poly.d.a.c cqH;
+    private static a.b cqI;
+    private static PolyActivity cqJ;
     private static boolean o;
-    private m cpi;
-    private Bundle cpj;
+    private m cqK;
+    private Bundle cqL;
 
     private static void Y() {
-        if (cph != null) {
-            if (cpg != null) {
+        if (cqJ != null) {
+            if (cqI != null) {
                 String a2 = com.baidu.poly.util.b.a(2, null, "repeat_pay_cancel");
-                cpg.onResult(2, a2);
+                cqI.onResult(2, a2);
                 d.b(2, a2);
             }
-            cph.finish();
+            cqJ.finish();
         }
     }
 
     private void Z() {
-        this.cpj = getIntent().getBundleExtra("pay_arguements");
+        this.cqL = getIntent().getBundleExtra("pay_arguements");
     }
 
     public static void a(Context context, com.baidu.poly.d.a.c cVar, a.b bVar, Bundle bundle) {
         if (o) {
             Y();
         }
-        cpf = cVar;
-        cpg = bVar;
+        cqH = cVar;
+        cqI = bVar;
         Intent intent = new Intent(context, PolyActivity.class);
         intent.putExtra("pay_arguements", bundle);
         if (!(context instanceof Activity)) {
@@ -53,7 +53,7 @@ public class PolyActivity extends Activity implements m.l {
         context.startActivity(intent);
     }
 
-    private String adI() {
+    private String adL() {
         try {
             return getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
         } catch (PackageManager.NameNotFoundException e) {
@@ -66,9 +66,9 @@ public class PolyActivity extends Activity implements m.l {
         if (bundle == null) {
             return new Bundle();
         }
-        d.cof = bundle.getString("bduss");
-        d.cog = bundle.getString("tpOrderId");
-        d.coi = bundle.getString("nativeAppId");
+        d.cpI = bundle.getString("bduss");
+        d.cpJ = bundle.getString("tpOrderId");
+        d.cpL = bundle.getString("nativeAppId");
         bundle.putString(CashierData.DEVICE_TYPE, "ANDROID");
         bundle.putString("channel", "cashiersdk");
         bundle.putString(CommandMessage.SDK_VERSION, "2.7.5");
@@ -86,12 +86,12 @@ public class PolyActivity extends Activity implements m.l {
     }
 
     private void clear() {
-        this.cpi = null;
-        cpf = null;
-        this.cpj = null;
-        cpg = null;
+        this.cqK = null;
+        cqH = null;
+        this.cqL = null;
+        cqI = null;
         o = false;
-        cph = null;
+        cqJ = null;
     }
 
     @Override // android.app.Activity
@@ -107,10 +107,10 @@ public class PolyActivity extends Activity implements m.l {
         super.onActivityResult(i, i2, intent);
         if (i == 200) {
             if (i2 == -1) {
-                com.baidu.poly.a.j.a.adB().a((Context) this, intent.getExtras(), this.cpi, true);
+                com.baidu.poly.a.j.a.adE().a((Context) this, intent.getExtras(), this.cqK, true);
                 return;
             }
-            m mVar = this.cpi;
+            m mVar = this.cqK;
             if (mVar != null) {
                 mVar.a(3, "pay canceled , back from H5. ");
             }
@@ -119,7 +119,7 @@ public class PolyActivity extends Activity implements m.l {
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        m mVar = this.cpi;
+        m mVar = this.cqK;
         if (mVar == null) {
             super.onBackPressed();
             return;
@@ -138,7 +138,7 @@ public class PolyActivity extends Activity implements m.l {
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         o = true;
-        cph = this;
+        cqJ = this;
         d.H();
         super.onCreate(bundle);
         overridePendingTransition(0, 0);
@@ -170,19 +170,19 @@ public class PolyActivity extends Activity implements m.l {
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        if (z && this.cpi == null && !isFinishing() && this.cpj != null) {
-            this.cpi = new m(this);
-            setContentView(this.cpi);
-            this.cpi.setResultListener(cpg);
-            this.cpi.setCloseListener(this);
-            this.cpi.setWalletList(new com.baidu.poly.a.j.c(new com.baidu.poly.a.j.b(this, cpf)));
-            String string = this.cpj.getString("chosenChannel");
-            if (TextUtils.equals(this.cpj.getString("panelType"), "NONE") && !TextUtils.isEmpty(string)) {
-                this.cpi.c(c(this.cpj), string);
+        if (z && this.cqK == null && !isFinishing() && this.cqL != null) {
+            this.cqK = new m(this);
+            setContentView(this.cqK);
+            this.cqK.setResultListener(cqI);
+            this.cqK.setCloseListener(this);
+            this.cqK.setWalletList(new com.baidu.poly.a.j.c(new com.baidu.poly.a.j.b(this, cqH)));
+            String string = this.cqL.getString("chosenChannel");
+            if (TextUtils.equals(this.cqL.getString("panelType"), "NONE") && !TextUtils.isEmpty(string)) {
+                this.cqK.c(c(this.cqL), string);
                 return;
             }
-            this.cpi.a(c(this.cpj));
-            this.cpi.adS();
+            this.cqK.a(c(this.cqL));
+            this.cqK.adV();
         }
     }
 
@@ -197,7 +197,7 @@ public class PolyActivity extends Activity implements m.l {
                     jSONObject.put("z", string);
                     jSONObject.put("mac", com.baidu.poly.util.a.getMacAddress());
                     jSONObject.put("app", HttpConstants.OS_TYPE_VALUE);
-                    jSONObject.put("ver", adI());
+                    jSONObject.put("ver", adL());
                     bundle.putString("deviceInfo", jSONObject.toString());
                 }
             } catch (Exception e) {

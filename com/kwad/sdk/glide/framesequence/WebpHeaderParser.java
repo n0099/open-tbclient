@@ -14,7 +14,7 @@ import java.nio.ByteOrder;
 public class WebpHeaderParser {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9988a = a();
+    public static final boolean f6609a = a();
 
     /* loaded from: classes3.dex */
     public enum WebpImageType {
@@ -47,10 +47,10 @@ public class WebpHeaderParser {
     private static final class a implements b {
 
         /* renamed from: a  reason: collision with root package name */
-        private final ByteBuffer f9989a;
+        private final ByteBuffer f6610a;
 
         a(ByteBuffer byteBuffer) {
-            this.f9989a = byteBuffer;
+            this.f6610a = byteBuffer;
             byteBuffer.order(ByteOrder.BIG_ENDIAN);
         }
 
@@ -61,17 +61,17 @@ public class WebpHeaderParser {
 
         @Override // com.kwad.sdk.glide.framesequence.WebpHeaderParser.b
         public long a(long j) {
-            int min = (int) Math.min(this.f9989a.remaining(), j);
-            this.f9989a.position(this.f9989a.position() + min);
+            int min = (int) Math.min(this.f6610a.remaining(), j);
+            this.f6610a.position(this.f6610a.position() + min);
             return min;
         }
 
         @Override // com.kwad.sdk.glide.framesequence.WebpHeaderParser.b
         public int b() {
-            if (this.f9989a.remaining() < 1) {
+            if (this.f6610a.remaining() < 1) {
                 return -1;
             }
-            return this.f9989a.get();
+            return this.f6610a.get();
         }
     }
 
@@ -89,15 +89,15 @@ public class WebpHeaderParser {
     private static final class c implements b {
 
         /* renamed from: a  reason: collision with root package name */
-        private final InputStream f9990a;
+        private final InputStream f6611a;
 
         c(InputStream inputStream) {
-            this.f9990a = inputStream;
+            this.f6611a = inputStream;
         }
 
         @Override // com.kwad.sdk.glide.framesequence.WebpHeaderParser.b
         public int a() {
-            return ((this.f9990a.read() << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | (this.f9990a.read() & 255);
+            return ((this.f6611a.read() << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | (this.f6611a.read() & 255);
         }
 
         @Override // com.kwad.sdk.glide.framesequence.WebpHeaderParser.b
@@ -107,10 +107,10 @@ public class WebpHeaderParser {
             }
             long j2 = j;
             while (j2 > 0) {
-                long skip = this.f9990a.skip(j2);
+                long skip = this.f6611a.skip(j2);
                 if (skip > 0) {
                     j2 -= skip;
-                } else if (this.f9990a.read() == -1) {
+                } else if (this.f6611a.read() == -1) {
                     break;
                 } else {
                     j2--;
@@ -121,19 +121,19 @@ public class WebpHeaderParser {
 
         @Override // com.kwad.sdk.glide.framesequence.WebpHeaderParser.b
         public int b() {
-            return this.f9990a.read();
+            return this.f6611a.read();
         }
     }
 
     private static WebpImageType a(b bVar) {
-        if ((((bVar.a() << 16) & SupportMenu.CATEGORY_MASK) | (bVar.a() & SupportMenu.USER_MASK)) != 1380533830) {
+        if ((((bVar.a() << 16) & SupportMenu.CATEGORY_MASK) | (bVar.a() & 65535)) != 1380533830) {
             return WebpImageType.NONE_WEBP;
         }
         bVar.a(4L);
-        if ((((bVar.a() << 16) & SupportMenu.CATEGORY_MASK) | (bVar.a() & SupportMenu.USER_MASK)) != 1464156752) {
+        if ((((bVar.a() << 16) & SupportMenu.CATEGORY_MASK) | (bVar.a() & 65535)) != 1464156752) {
             return WebpImageType.NONE_WEBP;
         }
-        int a2 = ((bVar.a() << 16) & SupportMenu.CATEGORY_MASK) | (bVar.a() & SupportMenu.USER_MASK);
+        int a2 = ((bVar.a() << 16) & SupportMenu.CATEGORY_MASK) | (bVar.a() & 65535);
         if (a2 == 1448097824) {
             return WebpImageType.WEBP_SIMPLE;
         }

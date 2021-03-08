@@ -1,5 +1,5 @@
 package com.yy.mediaframework;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class CameraPreviewConfig {
     public static final int DEFAULT_PREVIEW_FRAMERATE = 24;
     public static final int DEFAULT_PREVIEW_HEIGHT = 640;
@@ -17,7 +17,7 @@ public class CameraPreviewConfig {
     public boolean mIsTorchOn;
     public float mZoomFactor;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum CameraResolutionMode {
         CAMERA_RESOLUTION_PRECISE_MODE,
         CAMERA_RESOLUTION_RANGE_MODE

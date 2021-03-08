@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ArrayMap<K, V> extends SimpleArrayMap<K, V> implements Map<K, V> {
     @Nullable
     MapCollections<K, V> mCollections;

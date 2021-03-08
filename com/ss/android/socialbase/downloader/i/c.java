@@ -3,22 +3,20 @@ package com.ss.android.socialbase.downloader.i;
 class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private final double f13174a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final int f13175b;
+    private final double f7844a;
+    private final int b;
     private double c = -1.0d;
     private int d;
 
     public c(double d) {
-        this.f13174a = d;
-        this.f13175b = d == 0.0d ? Integer.MAX_VALUE : (int) Math.ceil(1.0d / d);
+        this.f7844a = d;
+        this.b = d == 0.0d ? Integer.MAX_VALUE : (int) Math.ceil(1.0d / d);
     }
 
     public void a(double d) {
-        double d2 = 1.0d - this.f13174a;
-        if (this.d > this.f13175b) {
-            this.c = Math.exp((d2 * Math.log(this.c)) + (this.f13174a * Math.log(d)));
+        double d2 = 1.0d - this.f7844a;
+        if (this.d > this.b) {
+            this.c = Math.exp((d2 * Math.log(this.c)) + (this.f7844a * Math.log(d)));
         } else if (this.d > 0) {
             double d3 = (d2 * this.d) / (this.d + 1.0d);
             this.c = Math.exp((d3 * Math.log(this.c)) + ((1.0d - d3) * Math.log(d)));

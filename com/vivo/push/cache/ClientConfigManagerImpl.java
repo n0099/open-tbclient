@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.vivo.push.util.p;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ClientConfigManagerImpl implements e {
     private static final Object SLOCK = new Object();
     private static final String TAG = "ClientConfigManager";

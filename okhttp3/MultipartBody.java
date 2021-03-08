@@ -10,7 +10,7 @@ import okhttp3.internal.Util;
 import okio.Buffer;
 import okio.BufferedSink;
 import okio.ByteString;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class MultipartBody extends RequestBody {
     private final ByteString boundary;
     private long contentLength = -1;
@@ -153,7 +153,7 @@ public final class MultipartBody extends RequestBody {
         return sb;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class Part {
         final RequestBody body;
         @Nullable
@@ -208,7 +208,7 @@ public final class MultipartBody extends RequestBody {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class Builder {
         private final ByteString boundary;
         private final List<Part> parts;

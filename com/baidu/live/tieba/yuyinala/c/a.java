@@ -1,31 +1,31 @@
 package com.baidu.live.tieba.yuyinala.c;
 
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private String bNp;
-    private int bNq = 1;
+    private String bOP;
+    private int bOQ = 1;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.bNp = jSONObject.optString("content");
-            this.bNq = jSONObject.optInt("type", 1);
+            this.bOP = jSONObject.optString("content");
+            this.bOQ = jSONObject.optInt("type", 1);
         }
     }
 
-    public String Vb() {
-        return this.bNp;
+    public String Ve() {
+        return this.bOP;
     }
 
-    public int Vc() {
-        return this.bNq;
+    public int Vf() {
+        return this.bOQ;
     }
 
-    public void hW(String str) {
-        this.bNp = str;
+    public void ic(String str) {
+        this.bOP = str;
     }
 
-    public void eY(int i) {
-        this.bNq = i;
+    public void eZ(int i) {
+        this.bOQ = i;
     }
 }

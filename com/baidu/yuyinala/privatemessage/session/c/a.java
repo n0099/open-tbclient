@@ -21,16 +21,16 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.yuyinala.privatemessage.model.a {
     private Handler mHandler;
-    private boolean pkb;
-    private volatile CopyOnWriteArrayList<com.baidu.yuyinala.privatemessage.session.b.a> pka = new CopyOnWriteArrayList<>();
-    private com.baidu.yuyinala.privatemessage.session.a pkc = new com.baidu.yuyinala.privatemessage.session.a(BdBaseApplication.getInst());
+    private boolean pmh;
+    private volatile CopyOnWriteArrayList<com.baidu.yuyinala.privatemessage.session.b.a> pmg = new CopyOnWriteArrayList<>();
+    private com.baidu.yuyinala.privatemessage.session.a pmi = new com.baidu.yuyinala.privatemessage.session.a(BdBaseApplication.getInst());
 
     @Override // com.baidu.yuyinala.privatemessage.model.a
     public synchronized List<com.baidu.yuyinala.privatemessage.session.b.a> getDataList() {
-        return this.pka;
+        return this.pmg;
     }
 
     @Override // com.baidu.yuyinala.privatemessage.model.a
@@ -44,27 +44,27 @@ public class a extends com.baidu.yuyinala.privatemessage.model.a {
                 }
             }
             if (bVar != null) {
-                bVar.x("", -1, "Im 未登录");
+                bVar.y("", -1, "Im 未登录");
             }
         } else if (i != 4) {
-            this.pkb = true;
-            this.pkc.a(new a.InterfaceC0978a<ChatSession>() { // from class: com.baidu.yuyinala.privatemessage.session.c.a.1
-                @Override // com.baidu.yuyinala.privatemessage.session.a.InterfaceC0978a
+            this.pmh = true;
+            this.pmi.a(new a.InterfaceC0984a<ChatSession>() { // from class: com.baidu.yuyinala.privatemessage.session.c.a.1
+                @Override // com.baidu.yuyinala.privatemessage.session.a.InterfaceC0984a
                 public void a(a.b<ChatSession> bVar2) {
-                    a.this.pkb = false;
+                    a.this.pmh = false;
                     if (bVar2 != null) {
-                        a.this.pka.clear();
-                        a.this.pka.addAll(a.this.gD(bVar2.getList()));
+                        a.this.pmg.clear();
+                        a.this.pmg.addAll(a.this.gD(bVar2.getList()));
                         if (bVar != null) {
-                            bVar.Oe(i);
+                            bVar.Oi(i);
                         }
                     } else if (bVar != null) {
-                        bVar.x("", -1, "无消息");
+                        bVar.y("", -1, "无消息");
                     }
                 }
             });
         } else if (bVar != null) {
-            bVar.Oe(i);
+            bVar.Oi(i);
         }
     }
 
@@ -99,7 +99,7 @@ public class a extends com.baidu.yuyinala.privatemessage.model.a {
                 break;
             }
             if (a(chatSession)) {
-                eVar = new i().aW(chatSession);
+                eVar = new i().aY(chatSession);
             } else {
                 eVar = null;
             }
@@ -120,8 +120,8 @@ public class a extends com.baidu.yuyinala.privatemessage.model.a {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.pkc != null) {
-            this.pkc.destory();
+        if (this.pmi != null) {
+            this.pmi.destory();
         }
     }
 
@@ -129,10 +129,10 @@ public class a extends com.baidu.yuyinala.privatemessage.model.a {
     public void a(Context context, j jVar, IMediaDeleteChatSessionListener iMediaDeleteChatSessionListener) {
         if (jVar != null) {
             if (jVar.isMediaRole) {
-                BIMManager.mediaDeleteChatSession(context, jVar.pjW, jVar.pjV, null);
+                BIMManager.mediaDeleteChatSession(context, jVar.pmc, jVar.pmb, null);
             } else {
-                IMBoxManager.setMarkTop(context, jVar.pjW, 0, null);
-                BIMManager.deleteMsgs(context, jVar.pjU, jVar.contacter, false);
+                IMBoxManager.setMarkTop(context, jVar.pmc, 0, null);
+                BIMManager.deleteMsgs(context, jVar.pma, jVar.contacter, false);
             }
             if (iMediaDeleteChatSessionListener != null) {
                 iMediaDeleteChatSessionListener.onMediaDeleteChatSessionResult(0, "success");

@@ -3,10 +3,8 @@ package com.baidu.mapsdkplatform.comapi.synchronization.data;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3118a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f3119b;
+    private String f2260a;
+    private String b;
     private String c;
     private b d;
     private int e;
@@ -40,7 +38,7 @@ public final class f {
     }
 
     public String a() {
-        return this.f3118a;
+        return this.f2260a;
     }
 
     public void a(int i) {
@@ -48,15 +46,15 @@ public final class f {
     }
 
     public void a(String str) {
-        this.f3118a = str;
+        this.f2260a = str;
     }
 
     public String b() {
-        return this.f3119b;
+        return this.b;
     }
 
     public void b(String str) {
-        this.f3119b = str;
+        this.b = str;
     }
 
     public String c() {

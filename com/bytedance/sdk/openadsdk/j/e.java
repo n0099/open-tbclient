@@ -1,88 +1,117 @@
 package com.bytedance.sdk.openadsdk.j;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.util.Log;
-import com.bytedance.sdk.openadsdk.j.a.c;
-import com.bytedance.sdk.openadsdk.utils.u;
-import java.util.Set;
+import com.bytedance.sdk.openadsdk.j.a;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.PriorityBlockingQueue;
+import java.util.concurrent.RejectedExecutionHandler;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
 public class e {
+    public static c b;
+    private static volatile ThreadPoolExecutor d;
+    private static volatile ThreadPoolExecutor e;
+    private static volatile ScheduledExecutorService f;
 
     /* renamed from: a  reason: collision with root package name */
-    static volatile com.bytedance.sdk.openadsdk.j.a.b f7258a;
+    public static final int f4866a = Runtime.getRuntime().availableProcessors();
+    public static boolean c = true;
 
-    /* renamed from: b  reason: collision with root package name */
-    static volatile com.bytedance.sdk.openadsdk.j.a.c f7259b;
-    public static volatile boolean d;
-    static volatile boolean f;
-    public static volatile Integer i;
-    private static volatile com.bytedance.sdk.openadsdk.j.b.c j;
-    @SuppressLint({"StaticFieldLeak"})
-    private static volatile Context k;
-    public static final boolean c = u.c();
-    static volatile boolean e = true;
-    static volatile int g = 0;
-    public static volatile int h = 3;
+    public static ExecutorService a() {
+        if (d == null) {
+            synchronized (e.class) {
+                if (d == null) {
+                    d = new a.C1038a().a("io").a(2).b(8).a(5L).a(TimeUnit.SECONDS).a(new PriorityBlockingQueue()).a(e()).a();
+                    d.allowCoreThreadTimeOut(true);
+                }
+            }
+        }
+        return d;
+    }
 
-    public static Context a() {
-        return k;
+    public static void a(g gVar) {
+        if (d == null) {
+            a();
+        }
+        if (d != null) {
+            d.execute(gVar);
+        }
+    }
+
+    public static void a(final Runnable runnable, int i) {
+        if (d == null) {
+            a();
+        }
+        if (d != null) {
+            d.execute(new g(i) { // from class: com.bytedance.sdk.openadsdk.j.e.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    runnable.run();
+                }
+            });
+        }
+    }
+
+    public static void b(final Runnable runnable, int i) {
+        if (e == null) {
+            b();
+        }
+        if (e != null) {
+            e.execute(new g(i) { // from class: com.bytedance.sdk.openadsdk.j.e.2
+                @Override // java.lang.Runnable
+                public void run() {
+                    runnable.run();
+                }
+            });
+        }
+    }
+
+    public static ExecutorService b() {
+        if (e == null) {
+            synchronized (e.class) {
+                if (e == null) {
+                    e = new a.C1038a().a("aidl").a(0).b(4).a(5L).a(TimeUnit.SECONDS).a(new PriorityBlockingQueue()).a(e()).a();
+                    e.allowCoreThreadTimeOut(true);
+                }
+            }
+        }
+        return e;
+    }
+
+    public static ScheduledExecutorService c() {
+        if (f == null) {
+            synchronized (e.class) {
+                if (f == null) {
+                    f = Executors.newSingleThreadScheduledExecutor(new h(5, "scheduled"));
+                }
+            }
+        }
+        return f;
+    }
+
+    public static boolean d() {
+        return c;
     }
 
     public static void a(boolean z) {
-        e = z;
+        c = z;
     }
 
-    public static void b(boolean z) {
-        f = z;
-    }
-
-    public static void a(int i2) {
-        g = i2;
-    }
-
-    public static void a(com.bytedance.sdk.openadsdk.j.a.c cVar, Context context) {
-        if (cVar == null || context == null) {
-            throw new IllegalArgumentException("DiskLruCache and Context can't be null !!!");
-        }
-        k = context.getApplicationContext();
-        if (f7259b == null) {
-            com.bytedance.sdk.openadsdk.j.a.b bVar = f7258a;
-            if (bVar != null && bVar.f7222a.getAbsolutePath().equals(cVar.f7224a.getAbsolutePath())) {
-                throw new IllegalArgumentException("DiskLruCache 和 DiskCache 不能使用相同的目录");
+    public static RejectedExecutionHandler e() {
+        return new RejectedExecutionHandler() { // from class: com.bytedance.sdk.openadsdk.j.e.3
+            @Override // java.util.concurrent.RejectedExecutionHandler
+            public void rejectedExecution(Runnable runnable, ThreadPoolExecutor threadPoolExecutor) {
             }
-            f7259b = cVar;
-            j = com.bytedance.sdk.openadsdk.j.b.c.a(context);
-            f7259b.a(new c.a() { // from class: com.bytedance.sdk.openadsdk.j.e.1
-                @Override // com.bytedance.sdk.openadsdk.j.a.c.a
-                public void a(String str) {
-                    if (e.c) {
-                        Log.i("TAG_PROXY_DiskLruCache", "new cache created: " + str);
-                    }
-                }
-
-                @Override // com.bytedance.sdk.openadsdk.j.a.c.a
-                public void a(Set<String> set) {
-                    e.j.a(set, 0);
-                    if (e.c) {
-                        Log.i("TAG_PROXY_DiskLruCache", "cache file removed, " + set);
-                    }
-                }
-            });
-            f a2 = f.a();
-            a2.a(cVar);
-            a2.a(j);
-            d c2 = d.c();
-            c2.a(cVar);
-            c2.a(j);
-        }
+        };
     }
 
-    public static com.bytedance.sdk.openadsdk.j.a.c b() {
-        return f7259b;
+    public static c f() {
+        return b;
     }
 
-    public static com.bytedance.sdk.openadsdk.j.a.b c() {
-        return f7258a;
+    public static void a(c cVar) {
+        b = cVar;
     }
 }

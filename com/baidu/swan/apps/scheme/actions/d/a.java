@@ -13,25 +13,25 @@ import com.baidu.swan.apps.ao.ak;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.res.ui.FloatButton;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static volatile a dHm;
-    private FloatButton dHn;
-    private JSONObject dHo;
+    private static volatile a dIN;
+    private FloatButton dIO;
+    private JSONObject dIP;
     private Activity mActivity;
     private String mApkName = "";
     private String mText;
 
-    public static a aJZ() {
-        if (dHm == null) {
+    public static a aKc() {
+        if (dIN == null) {
             synchronized (a.class) {
-                if (dHm == null) {
-                    dHm = new a();
+                if (dIN == null) {
+                    dIN = new a();
                 }
             }
         }
-        return dHm;
+        return dIN;
     }
 
     private a() {
@@ -45,36 +45,35 @@ public class a {
             this.mActivity = activity;
             this.mApkName = jSONObject.optString("name");
             this.mText = ak.isAppInstalled(activity, this.mApkName) ? activity.getString(a.h.swan_app_hover_button_open) : activity.getString(a.h.swan_app_hover_button_download);
-            this.dHo = jSONObject.optJSONObject("style");
+            this.dIP = jSONObject.optJSONObject("style");
         }
     }
 
-    public FloatButton aKa() {
+    public FloatButton aKd() {
         if (!(this.mActivity instanceof SwanAppActivity)) {
             return null;
         }
-        if (this.dHn == null) {
-            this.dHn = g(this.mActivity, (ViewGroup) this.mActivity.findViewById(16908290));
+        if (this.dIO == null) {
+            this.dIO = g(this.mActivity, (ViewGroup) this.mActivity.findViewById(16908290));
         }
-        this.dHn.setFloatButtonText(this.mText);
-        this.dHn.setFloatButtonDrawable(this.mActivity.getResources().getDrawable(a.e.swan_app_hover_button_shape));
-        this.dHn.setFloatButtonDefaultPosition();
-        this.dHn.setFloatButtonStyle(this.dHo);
-        this.dHn.setVisibility(0);
-        return this.dHn;
+        this.dIO.setFloatButtonText(this.mText);
+        this.dIO.setFloatButtonDrawable(this.mActivity.getResources().getDrawable(a.e.swan_app_hover_button_shape));
+        this.dIO.setFloatButtonDefaultPosition();
+        this.dIO.setFloatButtonStyle(this.dIP);
+        this.dIO.setVisibility(0);
+        return this.dIO;
     }
 
     private FloatButton g(Context context, ViewGroup viewGroup) {
         if (context == null || viewGroup == null) {
             return null;
         }
-        FloatButton m27do = m27do(context);
-        viewGroup.addView(m27do);
-        return m27do;
+        FloatButton dn = dn(context);
+        viewGroup.addView(dn);
+        return dn;
     }
 
-    /* renamed from: do  reason: not valid java name */
-    private FloatButton m27do(Context context) {
+    private FloatButton dn(Context context) {
         if (context == null) {
             return null;
         }
@@ -82,7 +81,7 @@ public class a {
     }
 
     public void x(Intent intent) {
-        if (intent != null && this.dHn != null) {
+        if (intent != null && this.dIO != null) {
             String dataString = intent.getDataString();
             if (!TextUtils.isEmpty(dataString)) {
                 String substring = dataString.substring(8);
@@ -92,27 +91,27 @@ public class a {
                     } else if (TextUtils.equals("android.intent.action.PACKAGE_REMOVED", intent.getAction())) {
                         this.mText = this.mActivity.getResources().getString(a.h.swan_app_hover_button_download);
                     }
-                    this.dHn.setFloatButtonText(this.mText);
+                    this.dIO.setFloatButtonText(this.mText);
                 }
             }
         }
     }
 
-    public FloatButton aKb() {
-        return this.dHn;
+    public FloatButton aKe() {
+        return this.dIO;
     }
 
     public void a(FloatButton floatButton) {
-        this.dHn = floatButton;
+        this.dIO = floatButton;
     }
 
-    public void sl(String str) {
+    public void st(String str) {
         this.mApkName = str;
     }
 
     public static void release() {
-        if (dHm != null) {
-            dHm = null;
+        if (dIN != null) {
+            dIN = null;
         }
     }
 }

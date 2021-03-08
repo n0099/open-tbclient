@@ -5,21 +5,21 @@ import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal.operators.flowable.a<T, R> {
     final io.reactivex.b.c<? super T, ? super U, ? extends R> combiner;
-    final org.a.b<? extends U> qoQ;
+    final org.a.b<? extends U> qps;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
         WithLatestFromSubscriber withLatestFromSubscriber = new WithLatestFromSubscriber(bVar, this.combiner);
         bVar.onSubscribe(withLatestFromSubscriber);
-        this.qoQ.subscribe(new a(withLatestFromSubscriber));
-        this.qow.a((j) withLatestFromSubscriber);
+        this.qps.subscribe(new a(withLatestFromSubscriber));
+        this.qoY.a((j) withLatestFromSubscriber);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class WithLatestFromSubscriber<T, U, R> extends AtomicReference<U> implements io.reactivex.internal.a.a<T>, d {
         private static final long serialVersionUID = -312246233408980075L;
         final org.a.c<? super R> actual;
@@ -50,7 +50,7 @@ public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal
             U u = get();
             if (u != null) {
                 try {
-                    this.actual.onNext(io.reactivex.internal.functions.a.m(this.combiner.apply(t, u), "The combiner returned a null value"));
+                    this.actual.onNext(io.reactivex.internal.functions.a.n(this.combiner.apply(t, u), "The combiner returned a null value"));
                     return true;
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.N(th);
@@ -95,29 +95,29 @@ public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     final class a implements j<U> {
-        private final WithLatestFromSubscriber<T, U, R> qpr;
+        private final WithLatestFromSubscriber<T, U, R> qpT;
 
         a(WithLatestFromSubscriber<T, U, R> withLatestFromSubscriber) {
-            this.qpr = withLatestFromSubscriber;
+            this.qpT = withLatestFromSubscriber;
         }
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(d dVar) {
-            if (this.qpr.setOther(dVar)) {
+            if (this.qpT.setOther(dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
         @Override // org.a.c
         public void onNext(U u) {
-            this.qpr.lazySet(u);
+            this.qpT.lazySet(u);
         }
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            this.qpr.otherError(th);
+            this.qpT.otherError(th);
         }
 
         @Override // org.a.c

@@ -4,9 +4,9 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import androidx.annotation.DrawableRes;
+import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.util.Pools;
 import com.baidu.mobstat.Config;
 import com.bumptech.glide.GlideContext;
 import com.bumptech.glide.Priority;
@@ -20,55 +20,64 @@ import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.TransitionFactory;
 import com.bumptech.glide.util.LogTime;
 import com.bumptech.glide.util.Util;
-import com.bumptech.glide.util.pool.FactoryPools;
 import com.bumptech.glide.util.pool.StateVerifier;
 import java.util.List;
-/* loaded from: classes15.dex */
-public final class SingleRequest<R> implements Request, ResourceCallback, SizeReadyCallback, FactoryPools.Poolable {
+import java.util.concurrent.Executor;
+/* loaded from: classes14.dex */
+public final class SingleRequest<R> implements Request, ResourceCallback, SizeReadyCallback {
     private static final String GLIDE_TAG = "Glide";
-    private TransitionFactory<? super R> animationFactory;
-    private Context context;
-    private Engine engine;
+    private final TransitionFactory<? super R> animationFactory;
+    private final Executor callbackExecutor;
+    private final Context context;
+    private volatile Engine engine;
+    @Nullable
+    @GuardedBy("requestLock")
     private Drawable errorDrawable;
+    @Nullable
+    @GuardedBy("requestLock")
     private Drawable fallbackDrawable;
-    private GlideContext glideContext;
+    private final GlideContext glideContext;
+    @GuardedBy("requestLock")
     private int height;
+    @GuardedBy("requestLock")
     private boolean isCallingCallbacks;
+    @GuardedBy("requestLock")
     private Engine.LoadStatus loadStatus;
     @Nullable
-    private Object model;
-    private int overrideHeight;
-    private int overrideWidth;
-    private Drawable placeholderDrawable;
-    private Priority priority;
-    private RequestCoordinator requestCoordinator;
+    private final Object model;
+    private final int overrideHeight;
+    private final int overrideWidth;
     @Nullable
-    private List<RequestListener<R>> requestListeners;
-    private RequestOptions requestOptions;
+    @GuardedBy("requestLock")
+    private Drawable placeholderDrawable;
+    private final Priority priority;
+    private final RequestCoordinator requestCoordinator;
+    @Nullable
+    private final List<RequestListener<R>> requestListeners;
+    private final Object requestLock;
+    private final BaseRequestOptions<?> requestOptions;
+    @Nullable
+    private RuntimeException requestOrigin;
+    @GuardedBy("requestLock")
     private Resource<R> resource;
+    @GuardedBy("requestLock")
     private long startTime;
     private final StateVerifier stateVerifier;
+    @GuardedBy("requestLock")
     private Status status;
     @Nullable
     private final String tag;
-    private Target<R> target;
+    private final Target<R> target;
     @Nullable
-    private RequestListener<R> targetListener;
-    private Class<R> transcodeClass;
+    private final RequestListener<R> targetListener;
+    private final Class<R> transcodeClass;
+    @GuardedBy("requestLock")
     private int width;
-    private static final Pools.Pool<SingleRequest<?>> POOL = FactoryPools.simple(150, new FactoryPools.Factory<SingleRequest<?>>() { // from class: com.bumptech.glide.request.SingleRequest.1
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.bumptech.glide.util.pool.FactoryPools.Factory
-        public SingleRequest<?> create() {
-            return new SingleRequest<>();
-        }
-    });
     private static final String TAG = "Request";
     private static final boolean IS_VERBOSE_LOGGABLE = Log.isLoggable(TAG, 2);
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public enum Status {
         PENDING,
         RUNNING,
@@ -78,26 +87,19 @@ public final class SingleRequest<R> implements Request, ResourceCallback, SizeRe
         CLEARED
     }
 
-    public static <R> SingleRequest<R> obtain(Context context, GlideContext glideContext, Object obj, Class<R> cls, RequestOptions requestOptions, int i, int i2, Priority priority, Target<R> target, RequestListener<R> requestListener, @Nullable List<RequestListener<R>> list, RequestCoordinator requestCoordinator, Engine engine, TransitionFactory<? super R> transitionFactory) {
-        SingleRequest<R> singleRequest = (SingleRequest<R>) POOL.acquire();
-        if (singleRequest == null) {
-            singleRequest = new SingleRequest<>();
-        }
-        singleRequest.init(context, glideContext, obj, cls, requestOptions, i, i2, priority, target, requestListener, list, requestCoordinator, engine, transitionFactory);
-        return singleRequest;
+    public static <R> SingleRequest<R> obtain(Context context, GlideContext glideContext, Object obj, Object obj2, Class<R> cls, BaseRequestOptions<?> baseRequestOptions, int i, int i2, Priority priority, Target<R> target, RequestListener<R> requestListener, @Nullable List<RequestListener<R>> list, RequestCoordinator requestCoordinator, Engine engine, TransitionFactory<? super R> transitionFactory, Executor executor) {
+        return new SingleRequest<>(context, glideContext, obj, obj2, cls, baseRequestOptions, i, i2, priority, target, requestListener, list, requestCoordinator, engine, transitionFactory, executor);
     }
 
-    SingleRequest() {
+    private SingleRequest(Context context, GlideContext glideContext, @NonNull Object obj, @Nullable Object obj2, Class<R> cls, BaseRequestOptions<?> baseRequestOptions, int i, int i2, Priority priority, Target<R> target, @Nullable RequestListener<R> requestListener, @Nullable List<RequestListener<R>> list, RequestCoordinator requestCoordinator, Engine engine, TransitionFactory<? super R> transitionFactory, Executor executor) {
         this.tag = IS_VERBOSE_LOGGABLE ? String.valueOf(super.hashCode()) : null;
         this.stateVerifier = StateVerifier.newInstance();
-    }
-
-    private void init(Context context, GlideContext glideContext, Object obj, Class<R> cls, RequestOptions requestOptions, int i, int i2, Priority priority, Target<R> target, RequestListener<R> requestListener, @Nullable List<RequestListener<R>> list, RequestCoordinator requestCoordinator, Engine engine, TransitionFactory<? super R> transitionFactory) {
+        this.requestLock = obj;
         this.context = context;
         this.glideContext = glideContext;
-        this.model = obj;
+        this.model = obj2;
         this.transcodeClass = cls;
-        this.requestOptions = requestOptions;
+        this.requestOptions = baseRequestOptions;
         this.overrideWidth = i;
         this.overrideHeight = i2;
         this.priority = priority;
@@ -107,72 +109,49 @@ public final class SingleRequest<R> implements Request, ResourceCallback, SizeRe
         this.requestCoordinator = requestCoordinator;
         this.engine = engine;
         this.animationFactory = transitionFactory;
+        this.callbackExecutor = executor;
         this.status = Status.PENDING;
-    }
-
-    @Override // com.bumptech.glide.util.pool.FactoryPools.Poolable
-    @NonNull
-    public StateVerifier getVerifier() {
-        return this.stateVerifier;
-    }
-
-    @Override // com.bumptech.glide.request.Request
-    public void recycle() {
-        assertNotCallingCallbacks();
-        this.context = null;
-        this.glideContext = null;
-        this.model = null;
-        this.transcodeClass = null;
-        this.requestOptions = null;
-        this.overrideWidth = -1;
-        this.overrideHeight = -1;
-        this.target = null;
-        this.requestListeners = null;
-        this.targetListener = null;
-        this.requestCoordinator = null;
-        this.animationFactory = null;
-        this.loadStatus = null;
-        this.errorDrawable = null;
-        this.placeholderDrawable = null;
-        this.fallbackDrawable = null;
-        this.width = -1;
-        this.height = -1;
-        POOL.release(this);
+        if (this.requestOrigin == null && glideContext.isLoggingRequestOriginsEnabled()) {
+            this.requestOrigin = new RuntimeException("Glide request origin trace");
+        }
     }
 
     @Override // com.bumptech.glide.request.Request
     public void begin() {
-        assertNotCallingCallbacks();
-        this.stateVerifier.throwIfRecycled();
-        this.startTime = LogTime.getLogTime();
-        if (this.model == null) {
-            if (Util.isValidDimensions(this.overrideWidth, this.overrideHeight)) {
-                this.width = this.overrideWidth;
-                this.height = this.overrideHeight;
-            }
-            onLoadFailed(new GlideException("Received null model"), getFallbackDrawable() == null ? 5 : 3);
-        } else if (this.status == Status.RUNNING) {
-            throw new IllegalArgumentException("Cannot restart a running request");
-        } else {
-            if (this.status == Status.COMPLETE) {
-                onResourceReady(this.resource, DataSource.MEMORY_CACHE);
-                return;
-            }
-            this.status = Status.WAITING_FOR_SIZE;
-            if (Util.isValidDimensions(this.overrideWidth, this.overrideHeight)) {
-                onSizeReady(this.overrideWidth, this.overrideHeight);
+        synchronized (this.requestLock) {
+            assertNotCallingCallbacks();
+            this.stateVerifier.throwIfRecycled();
+            this.startTime = LogTime.getLogTime();
+            if (this.model == null) {
+                if (Util.isValidDimensions(this.overrideWidth, this.overrideHeight)) {
+                    this.width = this.overrideWidth;
+                    this.height = this.overrideHeight;
+                }
+                onLoadFailed(new GlideException("Received null model"), getFallbackDrawable() == null ? 5 : 3);
+            } else if (this.status == Status.RUNNING) {
+                throw new IllegalArgumentException("Cannot restart a running request");
             } else {
-                this.target.getSize(this);
-            }
-            if ((this.status == Status.RUNNING || this.status == Status.WAITING_FOR_SIZE) && canNotifyStatusChanged()) {
-                this.target.onLoadStarted(getPlaceholderDrawable());
-            }
-            if (IS_VERBOSE_LOGGABLE) {
-                logV("finished run method in " + LogTime.getElapsedMillis(this.startTime));
+                if (this.status == Status.COMPLETE) {
+                    onResourceReady(this.resource, DataSource.MEMORY_CACHE);
+                    return;
+                }
+                this.status = Status.WAITING_FOR_SIZE;
+                if (Util.isValidDimensions(this.overrideWidth, this.overrideHeight)) {
+                    onSizeReady(this.overrideWidth, this.overrideHeight);
+                } else {
+                    this.target.getSize(this);
+                }
+                if ((this.status == Status.RUNNING || this.status == Status.WAITING_FOR_SIZE) && canNotifyStatusChanged()) {
+                    this.target.onLoadStarted(getPlaceholderDrawable());
+                }
+                if (IS_VERBOSE_LOGGABLE) {
+                    logV("finished run method in " + LogTime.getElapsedMillis(this.startTime));
+                }
             }
         }
     }
 
+    @GuardedBy("requestLock")
     private void cancel() {
         assertNotCallingCallbacks();
         this.stateVerifier.throwIfRecycled();
@@ -183,6 +162,7 @@ public final class SingleRequest<R> implements Request, ResourceCallback, SizeRe
         }
     }
 
+    @GuardedBy("requestLock")
     private void assertNotCallingCallbacks() {
         if (this.isCallingCallbacks) {
             throw new IllegalStateException("You can't start or clear loads in RequestListener or Target callbacks. If you're trying to start a fallback request when a load fails, use RequestBuilder#error(RequestBuilder). Otherwise consider posting your into() or clear() calls to the main thread using a Handler instead.");
@@ -191,51 +171,73 @@ public final class SingleRequest<R> implements Request, ResourceCallback, SizeRe
 
     @Override // com.bumptech.glide.request.Request
     public void clear() {
-        Util.assertMainThread();
-        assertNotCallingCallbacks();
-        this.stateVerifier.throwIfRecycled();
-        if (this.status != Status.CLEARED) {
-            cancel();
-            if (this.resource != null) {
-                releaseResource(this.resource);
+        Resource<R> resource = null;
+        synchronized (this.requestLock) {
+            assertNotCallingCallbacks();
+            this.stateVerifier.throwIfRecycled();
+            if (this.status != Status.CLEARED) {
+                cancel();
+                if (this.resource != null) {
+                    resource = this.resource;
+                    this.resource = null;
+                }
+                if (canNotifyCleared()) {
+                    this.target.onLoadCleared(getPlaceholderDrawable());
+                }
+                this.status = Status.CLEARED;
+                if (resource != null) {
+                    this.engine.release(resource);
+                }
             }
-            if (canNotifyCleared()) {
-                this.target.onLoadCleared(getPlaceholderDrawable());
-            }
-            this.status = Status.CLEARED;
         }
     }
 
-    private void releaseResource(Resource<?> resource) {
-        this.engine.release(resource);
-        this.resource = null;
+    @Override // com.bumptech.glide.request.Request
+    public void pause() {
+        synchronized (this.requestLock) {
+            if (isRunning()) {
+                clear();
+            }
+        }
     }
 
     @Override // com.bumptech.glide.request.Request
     public boolean isRunning() {
-        return this.status == Status.RUNNING || this.status == Status.WAITING_FOR_SIZE;
+        boolean z;
+        synchronized (this.requestLock) {
+            z = this.status == Status.RUNNING || this.status == Status.WAITING_FOR_SIZE;
+        }
+        return z;
     }
 
     @Override // com.bumptech.glide.request.Request
     public boolean isComplete() {
-        return this.status == Status.COMPLETE;
-    }
-
-    @Override // com.bumptech.glide.request.Request
-    public boolean isResourceSet() {
-        return isComplete();
+        boolean z;
+        synchronized (this.requestLock) {
+            z = this.status == Status.COMPLETE;
+        }
+        return z;
     }
 
     @Override // com.bumptech.glide.request.Request
     public boolean isCleared() {
-        return this.status == Status.CLEARED;
+        boolean z;
+        synchronized (this.requestLock) {
+            z = this.status == Status.CLEARED;
+        }
+        return z;
     }
 
-    @Override // com.bumptech.glide.request.Request
-    public boolean isFailed() {
-        return this.status == Status.FAILED;
+    @Override // com.bumptech.glide.request.Request, com.bumptech.glide.request.RequestCoordinator
+    public boolean isAnyResourceSet() {
+        boolean z;
+        synchronized (this.requestLock) {
+            z = this.status == Status.COMPLETE;
+        }
+        return z;
     }
 
+    @GuardedBy("requestLock")
     private Drawable getErrorDrawable() {
         if (this.errorDrawable == null) {
             this.errorDrawable = this.requestOptions.getErrorPlaceholder();
@@ -246,6 +248,7 @@ public final class SingleRequest<R> implements Request, ResourceCallback, SizeRe
         return this.errorDrawable;
     }
 
+    @GuardedBy("requestLock")
     private Drawable getPlaceholderDrawable() {
         if (this.placeholderDrawable == null) {
             this.placeholderDrawable = this.requestOptions.getPlaceholderDrawable();
@@ -256,6 +259,7 @@ public final class SingleRequest<R> implements Request, ResourceCallback, SizeRe
         return this.placeholderDrawable;
     }
 
+    @GuardedBy("requestLock")
     private Drawable getFallbackDrawable() {
         if (this.fallbackDrawable == null) {
             this.fallbackDrawable = this.requestOptions.getFallbackDrawable();
@@ -266,10 +270,12 @@ public final class SingleRequest<R> implements Request, ResourceCallback, SizeRe
         return this.fallbackDrawable;
     }
 
+    @GuardedBy("requestLock")
     private Drawable loadDrawable(@DrawableRes int i) {
         return DrawableDecoderCompat.getDrawable(this.glideContext, i, this.requestOptions.getTheme() != null ? this.requestOptions.getTheme() : this.context.getTheme());
     }
 
+    @GuardedBy("requestLock")
     private void setErrorPlaceholder() {
         if (canNotifyStatusChanged()) {
             Drawable drawable = null;
@@ -289,23 +295,25 @@ public final class SingleRequest<R> implements Request, ResourceCallback, SizeRe
     @Override // com.bumptech.glide.request.target.SizeReadyCallback
     public void onSizeReady(int i, int i2) {
         this.stateVerifier.throwIfRecycled();
-        if (IS_VERBOSE_LOGGABLE) {
-            logV("Got onSizeReady in " + LogTime.getElapsedMillis(this.startTime));
-        }
-        if (this.status == Status.WAITING_FOR_SIZE) {
-            this.status = Status.RUNNING;
-            float sizeMultiplier = this.requestOptions.getSizeMultiplier();
-            this.width = maybeApplySizeMultiplier(i, sizeMultiplier);
-            this.height = maybeApplySizeMultiplier(i2, sizeMultiplier);
+        synchronized (this.requestLock) {
             if (IS_VERBOSE_LOGGABLE) {
-                logV("finished setup for calling load in " + LogTime.getElapsedMillis(this.startTime));
+                logV("Got onSizeReady in " + LogTime.getElapsedMillis(this.startTime));
             }
-            this.loadStatus = this.engine.load(this.glideContext, this.model, this.requestOptions.getSignature(), this.width, this.height, this.requestOptions.getResourceClass(), this.transcodeClass, this.priority, this.requestOptions.getDiskCacheStrategy(), this.requestOptions.getTransformations(), this.requestOptions.isTransformationRequired(), this.requestOptions.isScaleOnlyOrNoTransform(), this.requestOptions.getOptions(), this.requestOptions.isMemoryCacheable(), this.requestOptions.getUseUnlimitedSourceGeneratorsPool(), this.requestOptions.getUseAnimationPool(), this.requestOptions.getOnlyRetrieveFromCache(), this);
-            if (this.status != Status.RUNNING) {
-                this.loadStatus = null;
-            }
-            if (IS_VERBOSE_LOGGABLE) {
-                logV("finished onSizeReady in " + LogTime.getElapsedMillis(this.startTime));
+            if (this.status == Status.WAITING_FOR_SIZE) {
+                this.status = Status.RUNNING;
+                float sizeMultiplier = this.requestOptions.getSizeMultiplier();
+                this.width = maybeApplySizeMultiplier(i, sizeMultiplier);
+                this.height = maybeApplySizeMultiplier(i2, sizeMultiplier);
+                if (IS_VERBOSE_LOGGABLE) {
+                    logV("finished setup for calling load in " + LogTime.getElapsedMillis(this.startTime));
+                }
+                this.loadStatus = this.engine.load(this.glideContext, this.model, this.requestOptions.getSignature(), this.width, this.height, this.requestOptions.getResourceClass(), this.transcodeClass, this.priority, this.requestOptions.getDiskCacheStrategy(), this.requestOptions.getTransformations(), this.requestOptions.isTransformationRequired(), this.requestOptions.isScaleOnlyOrNoTransform(), this.requestOptions.getOptions(), this.requestOptions.isMemoryCacheable(), this.requestOptions.getUseUnlimitedSourceGeneratorsPool(), this.requestOptions.getUseAnimationPool(), this.requestOptions.getOnlyRetrieveFromCache(), this, this.callbackExecutor);
+                if (this.status != Status.RUNNING) {
+                    this.loadStatus = null;
+                }
+                if (IS_VERBOSE_LOGGABLE) {
+                    logV("finished onSizeReady in " + LogTime.getElapsedMillis(this.startTime));
+                }
             }
         }
     }
@@ -314,56 +322,141 @@ public final class SingleRequest<R> implements Request, ResourceCallback, SizeRe
         return i == Integer.MIN_VALUE ? i : Math.round(i * f);
     }
 
+    @GuardedBy("requestLock")
     private boolean canSetResource() {
         return this.requestCoordinator == null || this.requestCoordinator.canSetImage(this);
     }
 
+    @GuardedBy("requestLock")
     private boolean canNotifyCleared() {
         return this.requestCoordinator == null || this.requestCoordinator.canNotifyCleared(this);
     }
 
+    @GuardedBy("requestLock")
     private boolean canNotifyStatusChanged() {
         return this.requestCoordinator == null || this.requestCoordinator.canNotifyStatusChanged(this);
     }
 
+    @GuardedBy("requestLock")
     private boolean isFirstReadyResource() {
-        return this.requestCoordinator == null || !this.requestCoordinator.isAnyResourceSet();
+        return this.requestCoordinator == null || !this.requestCoordinator.getRoot().isAnyResourceSet();
     }
 
+    @GuardedBy("requestLock")
     private void notifyLoadSuccess() {
         if (this.requestCoordinator != null) {
             this.requestCoordinator.onRequestSuccess(this);
         }
     }
 
+    @GuardedBy("requestLock")
     private void notifyLoadFailed() {
         if (this.requestCoordinator != null) {
             this.requestCoordinator.onRequestFailed(this);
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.bumptech.glide.request.SingleRequest<R> */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [578=6, 579=5] */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.bumptech.glide.request.SingleRequest<R> */
+    /* JADX WARN: Code restructure failed: missing block: B:10:0x0034, code lost:
+        if (0 == 0) goto L15;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x0036, code lost:
+        r5.engine.release(null);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x003b, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x00a7, code lost:
+        if (r6 == null) goto L47;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x00a9, code lost:
+        r5.engine.release(r6);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x00c5, code lost:
+        if (r6 == null) goto L28;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x00c7, code lost:
+        r5.engine.release(r6);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x00d2, code lost:
+        if (0 == 0) goto L34;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x00d4, code lost:
+        r5.engine.release(null);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:60:?, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:61:?, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:62:?, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:63:?, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:64:?, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:65:?, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:66:?, code lost:
+        return;
+     */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.bumptech.glide.request.ResourceCallback
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void onResourceReady(Resource<?> resource, DataSource dataSource) {
+        Resource<?> resource2 = null;
         this.stateVerifier.throwIfRecycled();
-        this.loadStatus = null;
-        if (resource == null) {
-            onLoadFailed(new GlideException("Expected to receive a Resource<R> with an object of " + this.transcodeClass + " inside, but instead got null."));
-            return;
+        try {
+            synchronized (this.requestLock) {
+                try {
+                    try {
+                        this.loadStatus = null;
+                        if (resource == null) {
+                            onLoadFailed(new GlideException("Expected to receive a Resource<R> with an object of " + this.transcodeClass + " inside, but instead got null."));
+                        } else {
+                            Object obj = resource.get();
+                            if (obj == null || !this.transcodeClass.isAssignableFrom(obj.getClass())) {
+                                this.resource = null;
+                                onLoadFailed(new GlideException("Expected to receive an object of " + this.transcodeClass + " but instead got " + (obj != null ? obj.getClass() : "") + "{" + obj + "} inside Resource{" + resource + "}." + (obj != null ? "" : " To indicate failure return a null Resource object, rather than a Resource object containing null data.")));
+                            } else if (canSetResource()) {
+                                onResourceReady(resource, obj, dataSource);
+                            } else {
+                                this.resource = null;
+                                this.status = Status.COMPLETE;
+                            }
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    resource = null;
+                }
+            }
+        } catch (Throwable th3) {
+            th = th3;
         }
-        Object obj = resource.get();
-        if (obj == null || !this.transcodeClass.isAssignableFrom(obj.getClass())) {
-            releaseResource(resource);
-            onLoadFailed(new GlideException("Expected to receive an object of " + this.transcodeClass + " but instead got " + (obj != null ? obj.getClass() : "") + "{" + obj + "} inside Resource{" + resource + "}." + (obj != null ? "" : " To indicate failure return a null Resource object, rather than a Resource object containing null data.")));
-        } else if (!canSetResource()) {
-            releaseResource(resource);
-            this.status = Status.COMPLETE;
-        } else {
-            onResourceReady(resource, obj, dataSource);
+        try {
+            throw th;
+        } catch (Throwable th4) {
+            th = th4;
+            resource2 = resource;
+            if (resource2 != null) {
+                this.engine.release(resource2);
+            }
+            throw th;
         }
     }
 
+    @GuardedBy("requestLock")
     private void onResourceReady(Resource<R> resource, R r, DataSource dataSource) {
         boolean z;
         boolean isFirstReadyResource = isFirstReadyResource();
@@ -398,20 +491,27 @@ public final class SingleRequest<R> implements Request, ResourceCallback, SizeRe
         onLoadFailed(glideException, 5);
     }
 
+    @Override // com.bumptech.glide.request.ResourceCallback
+    public Object getLock() {
+        this.stateVerifier.throwIfRecycled();
+        return this.requestLock;
+    }
+
     private void onLoadFailed(GlideException glideException, int i) {
         boolean z;
         this.stateVerifier.throwIfRecycled();
-        int logLevel = this.glideContext.getLogLevel();
-        if (logLevel <= i) {
-            Log.w(GLIDE_TAG, "Load failed for " + this.model + " with size [" + this.width + Config.EVENT_HEAT_X + this.height + "]", glideException);
-            if (logLevel <= 4) {
-                glideException.logRootCauses(GLIDE_TAG);
+        synchronized (this.requestLock) {
+            glideException.setOrigin(this.requestOrigin);
+            int logLevel = this.glideContext.getLogLevel();
+            if (logLevel <= i) {
+                Log.w(GLIDE_TAG, "Load failed for " + this.model + " with size [" + this.width + Config.EVENT_HEAT_X + this.height + "]", glideException);
+                if (logLevel <= 4) {
+                    glideException.logRootCauses(GLIDE_TAG);
+                }
             }
-        }
-        this.loadStatus = null;
-        this.status = Status.FAILED;
-        this.isCallingCallbacks = true;
-        try {
+            this.loadStatus = null;
+            this.status = Status.FAILED;
+            this.isCallingCallbacks = true;
             if (this.requestListeners != null) {
                 z = false;
                 for (RequestListener<R> requestListener : this.requestListeners) {
@@ -425,23 +525,48 @@ public final class SingleRequest<R> implements Request, ResourceCallback, SizeRe
             }
             this.isCallingCallbacks = false;
             notifyLoadFailed();
-        } catch (Throwable th) {
-            this.isCallingCallbacks = false;
-            throw th;
         }
     }
 
     @Override // com.bumptech.glide.request.Request
     public boolean isEquivalentTo(Request request) {
-        if (request instanceof SingleRequest) {
-            SingleRequest singleRequest = (SingleRequest) request;
-            return this.overrideWidth == singleRequest.overrideWidth && this.overrideHeight == singleRequest.overrideHeight && Util.bothModelsNullEquivalentOrEquals(this.model, singleRequest.model) && this.transcodeClass.equals(singleRequest.transcodeClass) && this.requestOptions.equals(singleRequest.requestOptions) && this.priority == singleRequest.priority && listenerCountEquals(this, singleRequest);
+        int i;
+        int i2;
+        Object obj;
+        Class<R> cls;
+        BaseRequestOptions<?> baseRequestOptions;
+        Priority priority;
+        int size;
+        int i3;
+        int i4;
+        Object obj2;
+        Class<R> cls2;
+        BaseRequestOptions<?> baseRequestOptions2;
+        Priority priority2;
+        int size2;
+        if (!(request instanceof SingleRequest)) {
+            return false;
         }
-        return false;
-    }
-
-    private static boolean listenerCountEquals(SingleRequest<?> singleRequest, SingleRequest<?> singleRequest2) {
-        return (((SingleRequest) singleRequest).requestListeners == null ? 0 : ((SingleRequest) singleRequest).requestListeners.size()) == (((SingleRequest) singleRequest2).requestListeners == null ? 0 : ((SingleRequest) singleRequest2).requestListeners.size());
+        synchronized (this.requestLock) {
+            i = this.overrideWidth;
+            i2 = this.overrideHeight;
+            obj = this.model;
+            cls = this.transcodeClass;
+            baseRequestOptions = this.requestOptions;
+            priority = this.priority;
+            size = this.requestListeners != null ? this.requestListeners.size() : 0;
+        }
+        SingleRequest singleRequest = (SingleRequest) request;
+        synchronized (singleRequest.requestLock) {
+            i3 = singleRequest.overrideWidth;
+            i4 = singleRequest.overrideHeight;
+            obj2 = singleRequest.model;
+            cls2 = singleRequest.transcodeClass;
+            baseRequestOptions2 = singleRequest.requestOptions;
+            priority2 = singleRequest.priority;
+            size2 = singleRequest.requestListeners != null ? singleRequest.requestListeners.size() : 0;
+        }
+        return i == i3 && i2 == i4 && Util.bothModelsNullEquivalentOrEquals(obj, obj2) && cls.equals(cls2) && baseRequestOptions.equals(baseRequestOptions2) && priority == priority2 && size == size2;
     }
 
     private void logV(String str) {

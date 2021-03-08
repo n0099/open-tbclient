@@ -1,18 +1,18 @@
 package com.baidu.swan.apps.ao.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class a implements Runnable {
-    private b dQm;
+    private b dRN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a a(b bVar) {
-        this.dQm = bVar;
+        this.dRN = bVar;
         return this;
     }
 
     public void finish() {
-        if (this.dQm != null) {
-            this.dQm.a(this);
-            this.dQm = null;
+        if (this.dRN != null) {
+            this.dRN.a(this);
+            this.dRN = null;
         }
     }
 }

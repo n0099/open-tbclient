@@ -9,10 +9,8 @@ import java.util.List;
 class n<T extends a> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final g f2799a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final int f2800b;
+    private final g f2071a;
+    private final int b;
     private List<T> c;
     private List<n<T>> d;
 
@@ -32,16 +30,16 @@ class n<T extends a> {
 
     private n(g gVar, int i) {
         this.d = null;
-        this.f2799a = gVar;
-        this.f2800b = i;
+        this.f2071a = gVar;
+        this.b = i;
     }
 
     private void a() {
         this.d = new ArrayList(4);
-        this.d.add(new n<>(this.f2799a.f2792a, this.f2799a.e, this.f2799a.f2793b, this.f2799a.f, this.f2800b + 1));
-        this.d.add(new n<>(this.f2799a.e, this.f2799a.c, this.f2799a.f2793b, this.f2799a.f, this.f2800b + 1));
-        this.d.add(new n<>(this.f2799a.f2792a, this.f2799a.e, this.f2799a.f, this.f2799a.d, this.f2800b + 1));
-        this.d.add(new n<>(this.f2799a.e, this.f2799a.c, this.f2799a.f, this.f2799a.d, this.f2800b + 1));
+        this.d.add(new n<>(this.f2071a.f2066a, this.f2071a.e, this.f2071a.b, this.f2071a.f, this.b + 1));
+        this.d.add(new n<>(this.f2071a.e, this.f2071a.c, this.f2071a.b, this.f2071a.f, this.b + 1));
+        this.d.add(new n<>(this.f2071a.f2066a, this.f2071a.e, this.f2071a.f, this.f2071a.d, this.b + 1));
+        this.d.add(new n<>(this.f2071a.e, this.f2071a.c, this.f2071a.f, this.f2071a.d, this.b + 1));
         List<T> list = this.c;
         this.c = null;
         for (T t : list) {
@@ -55,17 +53,17 @@ class n<T extends a> {
                 this.c = new ArrayList();
             }
             this.c.add(t);
-            if (this.c.size() <= 40 || this.f2800b >= 40) {
+            if (this.c.size() <= 40 || this.b >= 40) {
                 return;
             }
             a();
-        } else if (d2 < this.f2799a.f) {
-            if (d < this.f2799a.e) {
+        } else if (d2 < this.f2071a.f) {
+            if (d < this.f2071a.e) {
                 this.d.get(0).a(d, d2, t);
             } else {
                 this.d.get(1).a(d, d2, t);
             }
-        } else if (d < this.f2799a.e) {
+        } else if (d < this.f2071a.e) {
             this.d.get(2).a(d, d2, t);
         } else {
             this.d.get(3).a(d, d2, t);
@@ -73,13 +71,13 @@ class n<T extends a> {
     }
 
     private void a(g gVar, Collection<T> collection) {
-        if (this.f2799a.a(gVar)) {
+        if (this.f2071a.a(gVar)) {
             if (this.d != null) {
                 for (n<T> nVar : this.d) {
                     nVar.a(gVar, collection);
                 }
             } else if (this.c != null) {
-                if (gVar.b(this.f2799a)) {
+                if (gVar.b(this.f2071a)) {
                     collection.addAll(this.c);
                     return;
                 }
@@ -100,7 +98,7 @@ class n<T extends a> {
 
     public void a(T t) {
         Point a2 = t.a();
-        if (this.f2799a.a(a2.x, a2.y)) {
+        if (this.f2071a.a(a2.x, a2.y)) {
             a(a2.x, a2.y, t);
         }
     }

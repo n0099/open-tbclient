@@ -8,7 +8,7 @@ import androidx.annotation.RestrictTo;
 import androidx.core.util.Preconditions;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public final class FontRequest {
     private final List<List<byte[]>> mCertificates;
     private final int mCertificatesArray;

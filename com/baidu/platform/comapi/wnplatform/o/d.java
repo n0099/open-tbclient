@@ -7,10 +7,8 @@ import java.io.BufferedReader;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f4453a = d.class.getSimpleName();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static String f4454b = null;
+    private static String f3080a = d.class.getSimpleName();
+    private static String b = null;
     private static Handler c = new Handler();
     private static int d = 0;
     private static int e = 0;

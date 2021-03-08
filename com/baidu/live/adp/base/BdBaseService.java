@@ -3,7 +3,7 @@ package com.baidu.live.adp.base;
 import android.content.Intent;
 import com.baidu.live.adp.framework.client.socket.link.ServiceOnCreateCallBack;
 import com.baidu.megapp.ma.MAService;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class BdBaseService extends MAService {
     private static ServiceOnCreateCallBack sCallBack;
     public static int serviceStartFlag = 1;

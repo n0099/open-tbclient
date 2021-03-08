@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetBgByCategory.GetBgByCategoryResIdl;
 import tbclient.GetBgByCategory.ThemeBgInMain;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BackgroundGroupHttpResponseMessage extends TbHttpResponsedMessage {
     private List<b> mBackgroundGroupList;
     private com.baidu.tieba.themeCenter.dressCenter.e mRecommand;

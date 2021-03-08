@@ -1,9 +1,9 @@
 package com.baidu.live.gift;
 
 import android.view.View;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface ag {
-    View Fz();
+    View FC();
 
     void bC(boolean z);
 

@@ -5,10 +5,8 @@ import org.json.JSONObject;
 public class b implements com.ss.android.a.a.b.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f12914a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f12915b;
+    private String f7682a;
+    private String b;
     private String c;
     private String d;
     private String e;
@@ -20,14 +18,14 @@ public class b implements com.ss.android.a.a.b.b {
     private boolean k;
     private boolean l;
     private String m;
-    private JSONObject pxm;
+    private JSONObject pzr;
 
     public b() {
     }
 
     private b(a aVar) {
-        this.f12914a = aVar.f12916a;
-        this.f12915b = aVar.f12917b;
+        this.f7682a = aVar.f7683a;
+        this.b = aVar.b;
         this.c = aVar.c;
         this.d = aVar.d;
         this.e = aVar.e;
@@ -39,7 +37,7 @@ public class b implements com.ss.android.a.a.b.b {
         this.k = aVar.k;
         this.l = aVar.l;
         this.m = aVar.m;
-        this.pxm = aVar.pxm;
+        this.pzr = aVar.pzr;
     }
 
     @Override // com.ss.android.a.a.b.b
@@ -49,12 +47,12 @@ public class b implements com.ss.android.a.a.b.b {
 
     @Override // com.ss.android.a.a.b.b
     public String b() {
-        return this.f12914a;
+        return this.f7682a;
     }
 
     @Override // com.ss.android.a.a.b.b
     public String c() {
-        return this.f12915b;
+        return this.b;
     }
 
     @Override // com.ss.android.a.a.b.b
@@ -88,7 +86,7 @@ public class b implements com.ss.android.a.a.b.b {
     }
 
     @Override // com.ss.android.a.a.b.b
-    public Object eEb() {
+    public Object eEh() {
         return this.i;
     }
 
@@ -108,18 +106,16 @@ public class b implements com.ss.android.a.a.b.b {
     }
 
     @Override // com.ss.android.a.a.b.b
-    public JSONObject eEc() {
-        return this.pxm;
+    public JSONObject n() {
+        return this.pzr;
     }
 
     /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f12916a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private String f12917b;
+        private String f7683a;
+        private String b;
         private String c;
         private String d;
         private String e;
@@ -131,74 +127,74 @@ public class b implements com.ss.android.a.a.b.b {
         private boolean k = true;
         private boolean l = false;
         private String m;
-        private JSONObject pxm;
+        private JSONObject pzr;
 
-        public a aaz(String str) {
-            this.f12916a = str;
+        public a aaE(String str) {
+            this.f7683a = str;
             return this;
         }
 
-        public a aaA(String str) {
-            this.f12917b = str;
+        public a aaF(String str) {
+            this.b = str;
             return this;
         }
 
-        public a aaB(String str) {
+        public a aaG(String str) {
             this.d = str;
             return this;
         }
 
-        public a aaC(String str) {
+        public a aaH(String str) {
             this.e = str;
             return this;
         }
 
-        public a aaD(String str) {
+        public a aaI(String str) {
             this.f = str;
             return this;
         }
 
-        public a aaE(String str) {
+        public a aaJ(String str) {
             this.g = str;
             return this;
         }
 
         @Deprecated
-        public a aaF(String str) {
+        public a aaK(String str) {
             return this;
         }
 
-        public a aaG(String str) {
+        public a aaL(String str) {
             this.h = str;
             return this;
         }
 
-        public a QQ(int i) {
+        public a QU(int i) {
             this.j = i;
             return this;
         }
 
-        public a BQ(boolean z) {
+        public a BO(boolean z) {
             this.k = z;
             return this;
         }
 
         @Deprecated
-        public a BR(boolean z) {
+        public a BP(boolean z) {
             return this;
         }
 
-        public a BS(boolean z) {
+        public a BQ(boolean z) {
             this.l = z;
             return this;
         }
 
-        public a aaH(String str) {
+        public a aaM(String str) {
             this.m = str;
             return this;
         }
 
-        public b eEn() {
+        public b eEr() {
             return new b(this);
         }
     }

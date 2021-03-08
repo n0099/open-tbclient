@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Queue;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class Util {
     private static final int HASH_ACCUMULATOR = 17;
     private static final int HASH_MULTIPLIER = 31;
@@ -84,7 +84,7 @@ public final class Util {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.bumptech.glide.util.Util$1  reason: invalid class name */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config = new int[Bitmap.Config.values().length];
 

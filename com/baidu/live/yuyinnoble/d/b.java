@@ -13,53 +13,53 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.widget.CommonEmptyView;
 import com.baidu.live.view.AlaLoadingView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private String buH;
-    private LinearLayout bwE;
-    private CommonEmptyView bwJ;
-    private boolean cdL;
-    private com.baidu.live.yuyinnoble.d.a cdV;
-    private AlaLoadingView cdW;
-    private com.baidu.live.yuyinnoble.a.a cdX;
-    private a cdY;
-    private LinearLayout cdZ;
+    private String bwh;
+    private LinearLayout bye;
+    private CommonEmptyView byj;
+    private boolean cfl;
+    private com.baidu.live.yuyinnoble.d.a cfv;
+    private AlaLoadingView cfw;
+    private com.baidu.live.yuyinnoble.a.a cfx;
+    private a cfy;
+    private LinearLayout cfz;
     private boolean mIsHost;
     private BdListView mListView;
     private String mLiveId;
     private View mRootView;
     private TbPageContext mTbPageContext;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void OP();
+        void OS();
     }
 
     public b(TbPageContext tbPageContext, String str, String str2, boolean z, boolean z2) {
-        this.cdL = true;
+        this.cfl = true;
         this.mTbPageContext = tbPageContext;
         this.mLiveId = str;
-        this.buH = str2;
+        this.bwh = str2;
         this.mIsHost = z;
-        this.cdL = z2;
+        this.cfl = z2;
         this.mRootView = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.g.yuyin_ala_noble_list_main_layout, (ViewGroup) null);
         this.mListView = (BdListView) this.mRootView.findViewById(a.f.noble_list_view);
-        this.cdZ = (LinearLayout) LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.g.yuyin_noble_list_footer_view, (ViewGroup) null);
-        this.mListView.addFooterView(this.cdZ);
-        this.cdZ.setVisibility(0);
-        this.cdW = (AlaLoadingView) this.mRootView.findViewById(a.f.noble_loading_view);
-        this.bwJ = (CommonEmptyView) this.mRootView.findViewById(a.f.noble_list_empty_view);
-        this.cdX = new com.baidu.live.yuyinnoble.a.a(this.mTbPageContext, this.mLiveId, this.buH, this.mIsHost);
-        this.mListView.setAdapter((ListAdapter) this.cdX);
-        Pa();
+        this.cfz = (LinearLayout) LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.g.yuyin_noble_list_footer_view, (ViewGroup) null);
+        this.mListView.addFooterView(this.cfz);
+        this.cfz.setVisibility(0);
+        this.cfw = (AlaLoadingView) this.mRootView.findViewById(a.f.noble_loading_view);
+        this.byj = (CommonEmptyView) this.mRootView.findViewById(a.f.noble_list_empty_view);
+        this.cfx = new com.baidu.live.yuyinnoble.a.a(this.mTbPageContext, this.mLiveId, this.bwh, this.mIsHost);
+        this.mListView.setAdapter((ListAdapter) this.cfx);
+        Pd();
     }
 
-    private void Pa() {
-        this.bwE = (LinearLayout) this.mRootView.findViewById(a.f.noble_list_bottom_container);
-        this.cdV = new com.baidu.live.yuyinnoble.d.a(this.mTbPageContext);
+    private void Pd() {
+        this.bye = (LinearLayout) this.mRootView.findViewById(a.f.noble_list_bottom_container);
+        this.cfv = new com.baidu.live.yuyinnoble.d.a(this.mTbPageContext);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        if (this.cdV != null && this.cdV.getRootView() != null && this.cdV.getRootView().getParent() == null) {
-            this.bwE.addView(this.cdV.getRootView(), layoutParams);
+        if (this.cfv != null && this.cfv.getRootView() != null && this.cfv.getRootView().getParent() == null) {
+            this.bye.addView(this.cfv.getRootView(), layoutParams);
         }
     }
 
@@ -75,17 +75,17 @@ public class b {
         if (ListUtils.isEmpty(dVar.list)) {
             dQ(true);
         } else {
-            this.cdX.setList(dVar.list);
+            this.cfx.setList(dVar.list);
             this.mListView.setVisibility(0);
-            Pb();
+            Pe();
             this.mListView.post(new Runnable() { // from class: com.baidu.live.yuyinnoble.d.b.1
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
                         if (b.this.mListView.getHeight() < b.this.mListView.getContext().getResources().getDimensionPixelSize(a.d.sdk_ds144) * dVar.list.size()) {
-                            b.this.fv(0);
+                            b.this.fw(0);
                         } else {
-                            b.this.fv(4);
+                            b.this.fw(4);
                         }
                     } catch (Exception e) {
                     }
@@ -93,87 +93,87 @@ public class b {
             });
         }
         if (this.mIsHost) {
-            this.bwE.setVisibility(8);
-        } else if (this.cdL) {
-            this.bwE.setVisibility(0);
-            this.cdV.b(dVar);
+            this.bye.setVisibility(8);
+        } else if (this.cfl) {
+            this.bye.setVisibility(0);
+            this.cfv.b(dVar);
         } else {
-            this.bwE.setVisibility(8);
+            this.bye.setVisibility(8);
         }
     }
 
     public void a(Configuration configuration) {
         if (configuration != null) {
             if (configuration.orientation == 2) {
-                this.bwE.setBackgroundResource(a.e.ala_noble_ulist_land_bottom_bg);
+                this.bye.setBackgroundResource(a.e.ala_noble_ulist_land_bottom_bg);
             } else {
-                this.bwE.setBackgroundResource(a.e.ala_noble_ulist_portrait_bottom_bg);
+                this.bye.setBackgroundResource(a.e.ala_noble_ulist_portrait_bottom_bg);
             }
         }
     }
 
     public void dQ(boolean z) {
         if (z) {
-            fv(8);
-            this.bwJ.reset();
-            this.bwJ.setTitle("还没有贵族哦~");
-            this.bwJ.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
-            this.bwJ.setTextColor(this.mTbPageContext.getResources().getColor(a.c.sdk_color_525252));
-            this.bwJ.setVisibility(0);
+            fw(8);
+            this.byj.reset();
+            this.byj.setTitle("还没有贵族哦~");
+            this.byj.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
+            this.byj.setTextColor(this.mTbPageContext.getResources().getColor(a.c.sdk_color_525252));
+            this.byj.setVisibility(0);
         } else {
-            this.bwJ.setVisibility(8);
+            this.byj.setVisibility(8);
         }
         this.mListView.setVisibility(8);
     }
 
     public void cK(boolean z) {
-        fv(8);
-        if (this.bwJ != null) {
-            this.bwJ.reset();
+        fw(8);
+        if (this.byj != null) {
+            this.byj.reset();
             if (z) {
-                this.bwJ.setRefreshButton("点击重试", new View.OnClickListener() { // from class: com.baidu.live.yuyinnoble.d.b.2
+                this.byj.setRefreshButton("点击重试", new View.OnClickListener() { // from class: com.baidu.live.yuyinnoble.d.b.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (b.this.cdY != null) {
-                            b.this.cdY.OP();
+                        if (b.this.cfy != null) {
+                            b.this.cfy.OS();
                         }
                     }
                 });
-                this.bwJ.setTitle("网络加载失败了哦~");
-                this.bwJ.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
-                this.bwJ.setTextColor(this.mTbPageContext.getResources().getColor(a.c.sdk_color_525252));
+                this.byj.setTitle("网络加载失败了哦~");
+                this.byj.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
+                this.byj.setTextColor(this.mTbPageContext.getResources().getColor(a.c.sdk_color_525252));
             }
-            this.bwJ.setVisibility(0);
+            this.byj.setVisibility(0);
         }
         if (z) {
-            this.bwE.setVisibility(8);
+            this.bye.setVisibility(8);
         }
         this.mListView.setVisibility(8);
     }
 
-    public void Pb() {
-        if (this.bwJ != null) {
-            this.bwJ.setVisibility(8);
+    public void Pe() {
+        if (this.byj != null) {
+            this.byj.setVisibility(8);
         }
     }
 
     public void dR(boolean z) {
-        if (this.cdW != null) {
+        if (this.cfw != null) {
             if (z) {
-                this.cdW.setVisibility(0);
+                this.cfw.setVisibility(0);
             } else {
-                this.cdW.setVisibility(8);
+                this.cfw.setVisibility(8);
             }
         }
     }
 
     public void a(a aVar) {
-        this.cdY = aVar;
+        this.cfy = aVar;
     }
 
-    public void fv(int i) {
-        if (this.cdZ != null) {
-            this.cdZ.setVisibility(i);
+    public void fw(int i) {
+        if (this.cfz != null) {
+            this.cfz.setVisibility(i);
         }
     }
 }

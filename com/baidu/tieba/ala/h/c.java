@@ -12,20 +12,20 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c {
-    private DownloadData aUc;
+    private DownloadData aVC;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void y(String str, String str2, final String str3, final String str4) {
-        this.aUc = new DownloadData();
-        this.aUc.setId("pk_rank_anti_kill");
-        this.aUc.setName("pk_rank_anti_kill");
-        this.aUc.setUrl(str);
-        this.aUc.setCheck(str2);
-        this.aUc.setType(27);
-        this.aUc.setPath(str3);
-        this.aUc.setCallback(new FileDownloadCallBack() { // from class: com.baidu.tieba.ala.h.c.1
+        this.aVC = new DownloadData();
+        this.aVC.setId("pk_rank_anti_kill");
+        this.aVC.setName("pk_rank_anti_kill");
+        this.aVC.setUrl(str);
+        this.aVC.setCheck(str2);
+        this.aVC.setType(27);
+        this.aVC.setPath(str3);
+        this.aVC.setCallback(new FileDownloadCallBack() { // from class: com.baidu.tieba.ala.h.c.1
             @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
             public void onFileUpdateProgress(DownloadData downloadData) {
             }
@@ -49,13 +49,13 @@ public class c {
             public void onFileDownloadFailed(DownloadData downloadData, int i, String str5) {
             }
         });
-        FileSerialDownLoader.getInstance().startDownLoadWithoutMax(this.aUc);
+        FileSerialDownLoader.getInstance().startDownLoadWithoutMax(this.aVC);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void release() {
-        if (this.aUc != null) {
-            this.aUc.setCallback(null);
+        if (this.aVC != null) {
+            this.aVC.setCallback(null);
         }
     }
 
@@ -70,8 +70,8 @@ public class c {
                 public List<cb> doInBackground(Void... voidArr) {
                     List<cb> A = c.this.A(str, str2, str3, str4);
                     if (A == null || A.isEmpty()) {
-                        c.this.fH(str3);
-                        c.this.fH(str4);
+                        c.this.fN(str3);
+                        c.this.fN(str4);
                     }
                     return A;
                 }
@@ -83,7 +83,7 @@ public class c {
                 public void onPostExecute(List<cb> list) {
                     super.onPostExecute(list);
                     if (list != null && !list.isEmpty()) {
-                        b.coT().cL(list);
+                        b.coZ().cL(list);
                     }
                 }
             }.execute(new Void[0]);
@@ -128,7 +128,7 @@ public class c {
             com.baidu.live.data.cb r5 = new com.baidu.live.data.cb     // Catch: java.lang.Throwable -> L51
             r5.<init>()     // Catch: java.lang.Throwable -> L51
             r5.downloadUrl = r8     // Catch: java.lang.Throwable -> L51
-            r5.aQJ = r9     // Catch: java.lang.Throwable -> L51
+            r5.aSj = r9     // Catch: java.lang.Throwable -> L51
             java.lang.String r6 = r4.getAbsolutePath()     // Catch: java.lang.Throwable -> L51
             r5.videoPath = r6     // Catch: java.lang.Throwable -> L51
             java.lang.String r4 = com.baidu.live.h.a.getFileMd5(r4)     // Catch: java.lang.Throwable -> L51
@@ -321,7 +321,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fH(String str) {
+    public void fN(String str) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.live.h.a.cleanDir(new File(str));
         }

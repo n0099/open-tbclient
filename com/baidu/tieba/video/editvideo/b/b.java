@@ -4,24 +4,24 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import java.io.File;
 @TargetApi(18)
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
     private Context mContext;
     private String mFilterName;
     private boolean mIsRunning = false;
     private String mSourcePath;
-    private String nLb;
-    private a nMM;
-    private f nMN;
-    private d nMO;
-    private e nMP;
-    private volatile boolean nMQ;
-    private volatile boolean nMR;
-    private volatile boolean nMS;
+    private String nNg;
+    private a nOR;
+    private f nOS;
+    private d nOT;
+    private e nOU;
+    private volatile boolean nOV;
+    private volatile boolean nOW;
+    private volatile boolean nOX;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void Ut(String str);
+        void UA(String str);
 
         void cd(int i, String str);
 
@@ -31,77 +31,77 @@ public class b {
     public b(Context context, String str, String str2, String str3) {
         this.mContext = context;
         this.mSourcePath = str;
-        this.nLb = str2;
+        this.nNg = str2;
         this.mFilterName = str3;
     }
 
-    public void dSK() {
+    public void dSS() {
         if (!this.mIsRunning) {
             this.mIsRunning = true;
-            this.nMQ = false;
-            this.nMR = false;
-            this.nMS = false;
+            this.nOV = false;
+            this.nOW = false;
+            this.nOX = false;
             try {
-                File file = new File(new File(this.nLb).getParent());
+                File file = new File(new File(this.nNg).getParent());
                 if (!file.exists()) {
                     file.mkdirs();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                if (this.nMM != null) {
-                    this.nMM.cd(222, com.baidu.tieba.l.a.o(e));
+                if (this.nOR != null) {
+                    this.nOR.cd(222, com.baidu.tieba.l.a.o(e));
                 }
             }
             try {
-                this.nMP = new e(this.nLb);
-                this.nMN = new f(this.mContext, this.mSourcePath, this.mFilterName, this.nMP, this.nMM) { // from class: com.baidu.tieba.video.editvideo.b.b.1
+                this.nOU = new e(this.nNg);
+                this.nOS = new f(this.mContext, this.mSourcePath, this.mFilterName, this.nOU, this.nOR) { // from class: com.baidu.tieba.video.editvideo.b.b.1
                     @Override // com.baidu.tieba.video.editvideo.b.f
                     public void onPostExecute() {
-                        b.this.nMQ = true;
-                        b.this.dSM();
+                        b.this.nOV = true;
+                        b.this.dSU();
                     }
                 };
-                this.nMN.start();
-                this.nMO = new d(this.mContext, this.mSourcePath, this.nMP, this.nMM) { // from class: com.baidu.tieba.video.editvideo.b.b.2
+                this.nOS.start();
+                this.nOT = new d(this.mContext, this.mSourcePath, this.nOU, this.nOR) { // from class: com.baidu.tieba.video.editvideo.b.b.2
                     @Override // com.baidu.tieba.video.editvideo.b.d
                     public void onPostExecute() {
-                        b.this.nMR = true;
-                        b.this.dSM();
+                        b.this.nOW = true;
+                        b.this.dSU();
                     }
                 };
-                this.nMO.start();
+                this.nOT.start();
             } catch (Exception e2) {
             }
         }
     }
 
-    public void dSL() {
-        if (this.nMN != null) {
-            this.nMN.interrupt();
-            this.nMN = null;
+    public void dST() {
+        if (this.nOS != null) {
+            this.nOS.interrupt();
+            this.nOS = null;
         }
-        if (this.nMO != null) {
-            this.nMO.interrupt();
-            this.nMO = null;
+        if (this.nOT != null) {
+            this.nOT.interrupt();
+            this.nOT = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dSM() {
-        if (this.nMQ && this.nMR && !this.nMS) {
-            this.nMP.stop();
-            this.nMS = true;
-            dSN();
+    public void dSU() {
+        if (this.nOV && this.nOW && !this.nOX) {
+            this.nOU.stop();
+            this.nOX = true;
+            dSV();
         }
     }
 
-    private void dSN() {
-        if (this.nMM != null) {
-            File file = new File(this.nLb);
+    private void dSV() {
+        if (this.nOR != null) {
+            File file = new File(this.nNg);
             if (file.exists() && file.length() > 0) {
-                this.nMM.Ut(this.nLb);
+                this.nOR.UA(this.nNg);
             } else {
-                this.nMM.cd(223, "Err empty outputFile");
+                this.nOR.cd(223, "Err empty outputFile");
             }
         }
         this.mIsRunning = false;
@@ -112,6 +112,6 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.nMM = aVar;
+        this.nOR = aVar;
     }
 }

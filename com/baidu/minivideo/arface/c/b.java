@@ -9,44 +9,44 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class b {
-    private static volatile b clk = null;
-    private Long cll;
-    private Long clm;
-    private RandomAccessFile cln;
-    private RandomAccessFile clo;
+    private static volatile b cmL = null;
+    private Long cmM;
+    private Long cmN;
+    private RandomAccessFile cmO;
+    private RandomAccessFile cmP;
     private String mPackageName;
 
     private b() {
     }
 
-    public static b acs() {
-        if (clk == null) {
+    public static b acv() {
+        if (cmL == null) {
             synchronized (b.class) {
-                if (clk == null) {
-                    clk = new b();
+                if (cmL == null) {
+                    cmL = new b();
                 }
             }
         }
-        return clk;
+        return cmL;
     }
 
-    public ActivityManager.MemoryInfo act() {
+    public ActivityManager.MemoryInfo acw() {
         ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
         ((ActivityManager) com.baidu.minivideo.arface.b.getContext().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
         return memoryInfo;
     }
 
-    public double acu() {
-        double acw = acw();
-        if (acw <= 0.0d) {
-            acw = acv();
+    public double acx() {
+        double acz = acz();
+        if (acz <= 0.0d) {
+            acz = acy();
         }
-        if (acw <= 0.0d) {
+        if (acz <= 0.0d) {
             return getCpuUsageStatistic();
         }
-        return acw;
+        return acz;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:17:? A[RETURN, SYNTHETIC] */
@@ -54,13 +54,13 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public double acv() {
+    public double acy() {
         double doubleValue;
         if (Build.VERSION.SDK_INT >= 26) {
-            String ji = ji(this.mPackageName);
-            if (!TextUtils.isEmpty(ji)) {
+            String jo = jo(this.mPackageName);
+            if (!TextUtils.isEmpty(jo)) {
                 try {
-                    doubleValue = Double.valueOf(ji).doubleValue();
+                    doubleValue = Double.valueOf(jo).doubleValue();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -73,7 +73,7 @@ public class b {
             if (doubleValue <= 0.0d) {
             }
         } else {
-            return acw();
+            return acz();
         }
     }
 
@@ -83,7 +83,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private String ji(String str) {
+    private String jo(String str) {
         try {
             Process exec = Runtime.getRuntime().exec(new String[]{"sh", "-c", "top -n 1"});
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(exec.getInputStream()));
@@ -108,31 +108,31 @@ public class b {
         return "";
     }
 
-    public double acw() {
+    public double acz() {
         double d = 0.0d;
         try {
-            if (this.cln == null || this.clo == null) {
-                this.cln = new RandomAccessFile("/proc/stat", "r");
-                this.clo = new RandomAccessFile("/proc/" + Process.myPid() + "/stat", "r");
+            if (this.cmO == null || this.cmP == null) {
+                this.cmO = new RandomAccessFile("/proc/stat", "r");
+                this.cmP = new RandomAccessFile("/proc/" + Process.myPid() + "/stat", "r");
             } else {
-                this.cln.seek(0L);
-                this.clo.seek(0L);
+                this.cmO.seek(0L);
+                this.cmP.seek(0L);
             }
-            String readLine = this.cln.readLine();
-            String readLine2 = this.clo.readLine();
+            String readLine = this.cmO.readLine();
+            String readLine2 = this.cmP.readLine();
             String[] split = readLine.split(" ");
             String[] split2 = readLine2.split(" ");
             long parseLong = Long.parseLong(split[2]) + Long.parseLong(split[3]) + Long.parseLong(split[4]) + Long.parseLong(split[5]) + Long.parseLong(split[6]) + Long.parseLong(split[7]) + Long.parseLong(split[8]);
             long parseLong2 = Long.parseLong(split2[14]) + Long.parseLong(split2[13]);
-            if (this.cll == null && this.clm == null) {
-                this.cll = Long.valueOf(parseLong);
-                this.clm = Long.valueOf(parseLong2);
+            if (this.cmM == null && this.cmN == null) {
+                this.cmM = Long.valueOf(parseLong);
+                this.cmN = Long.valueOf(parseLong2);
             } else {
-                if (this.cll != null && this.clm != null) {
-                    d = ((parseLong2 - this.clm.longValue()) / (parseLong - this.cll.longValue())) * 100.0d;
+                if (this.cmM != null && this.cmN != null) {
+                    d = ((parseLong2 - this.cmN.longValue()) / (parseLong - this.cmM.longValue())) * 100.0d;
                 }
-                this.cll = Long.valueOf(parseLong);
-                this.clm = Long.valueOf(parseLong2);
+                this.cmM = Long.valueOf(parseLong);
+                this.cmN = Long.valueOf(parseLong2);
             }
         } catch (Exception e) {
             e.printStackTrace();

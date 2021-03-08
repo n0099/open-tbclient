@@ -3,10 +3,8 @@ package com.baidu.fsg.base.activity;
 class a implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f1869a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ Object f1870b;
+    final /* synthetic */ int f1490a;
+    final /* synthetic */ Object b;
     final /* synthetic */ String c;
     final /* synthetic */ String d;
     final /* synthetic */ BeanActivity e;
@@ -14,8 +12,8 @@ class a implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(BeanActivity beanActivity, int i, Object obj, String str, String str2) {
         this.e = beanActivity;
-        this.f1869a = i;
-        this.f1870b = obj;
+        this.f1490a = i;
+        this.b = obj;
         this.c = str;
         this.d = str2;
     }
@@ -23,8 +21,8 @@ class a implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         if (this.e.mAct != null) {
-            this.e.handleResponse(this.f1869a, this.f1870b, this.c);
-            this.e.handleResponse(this.f1869a, this.f1870b, this.c, this.d);
+            this.e.handleResponse(this.f1490a, this.b, this.c);
+            this.e.handleResponse(this.f1490a, this.b, this.c, this.d);
         }
     }
 }

@@ -10,20 +10,18 @@ import java.util.concurrent.TimeUnit;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static HandlerThread f9618a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static volatile boolean f9619b = false;
+    private static HandlerThread f6369a;
+    private static volatile boolean b = false;
     private static volatile boolean c = false;
 
     public static void a() {
-        if (f9619b) {
+        if (b) {
             return;
         }
-        f9619b = true;
-        f9618a = new HandlerThread("ex-uploader");
-        f9618a.start();
-        new Handler(f9618a.getLooper()).postDelayed(new Runnable() { // from class: com.kwad.sdk.crash.a.4
+        b = true;
+        f6369a = new HandlerThread("ex-uploader");
+        f6369a.start();
+        new Handler(f6369a.getLooper()).postDelayed(new Runnable() { // from class: com.kwad.sdk.crash.a.4
             @Override // java.lang.Runnable
             public void run() {
                 try {
@@ -84,11 +82,11 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public static void e() {
         try {
-            if (f9618a != null && f9618a.isAlive()) {
+            if (f6369a != null && f6369a.isAlive()) {
                 if (Build.VERSION.SDK_INT >= 18) {
-                    f9618a.quitSafely();
+                    f6369a.quitSafely();
                 } else {
-                    f9618a.quit();
+                    f6369a.quit();
                 }
             }
         } catch (Throwable th) {

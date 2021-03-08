@@ -13,10 +13,10 @@ import java.util.List;
 import tbclient.GetTopicRelateThread.DataRes;
 import tbclient.Hottopic.HotThread;
 import tbclient.ThreadInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d extends cb {
-    public List<com.baidu.tieba.card.data.b> gcy;
-    public String kut;
+    public List<com.baidu.tieba.card.data.b> gdY;
+    public String kwv;
     public long lastId;
     public List<com.baidu.adp.widget.ListView.n> list = new ArrayList();
     public az pageData;
@@ -34,33 +34,33 @@ public class d extends cb {
 
     public void a(HotThread hotThread) {
         if (hotThread != null) {
-            this.kut = hotThread.hot_title;
+            this.kwv = hotThread.hot_title;
             if (hotThread.thread_list != null) {
-                this.gcy = new ArrayList();
+                this.gdY = new ArrayList();
                 for (ThreadInfo threadInfo : hotThread.thread_list) {
                     if (threadInfo != null) {
                         cb cbVar = new cb();
                         cbVar.a(threadInfo);
-                        cbVar.nj(5);
+                        cbVar.nk(5);
                         com.baidu.tieba.card.data.k kVar = null;
                         if (cbVar.isShareThread) {
                             com.baidu.tieba.card.data.k kVar2 = new com.baidu.tieba.card.data.k();
-                            kVar2.eJQ = cbVar;
+                            kVar2.eLr = cbVar;
                             kVar = kVar2;
                         } else if (com.baidu.tieba.card.data.l.ae(cbVar)) {
                             kVar = new com.baidu.tieba.card.data.l(cbVar);
                         } else if (com.baidu.tieba.card.data.k.ae(cbVar)) {
                             com.baidu.tieba.card.data.k kVar3 = new com.baidu.tieba.card.data.k();
-                            kVar3.eJQ = cbVar;
+                            kVar3.eLr = cbVar;
                             kVar = kVar3;
                         }
                         if (kVar != null && kVar.isValid()) {
-                            kVar.IR("c10816");
-                            this.gcy.add(kVar);
+                            kVar.Ja("c10816");
+                            this.gdY.add(kVar);
                         }
                     }
                 }
-                ej(this.gcy);
+                ej(this.gdY);
                 ek(hotThread.thread_list);
             }
             if (hotThread.page != null) {
@@ -73,8 +73,8 @@ public class d extends cb {
     private void ej(List<com.baidu.tieba.card.data.b> list) {
         if (!y.isEmpty(list)) {
             com.baidu.tieba.card.data.b bVar = list.get(list.size() - 1);
-            if (bVar.bln() != null) {
-                this.lastId = com.baidu.adp.lib.f.b.toLong(bVar.bln().getTid(), 0L);
+            if (bVar.blp() != null) {
+                this.lastId = com.baidu.adp.lib.f.b.toLong(bVar.blp().getTid(), 0L);
             }
         }
     }
@@ -82,27 +82,27 @@ public class d extends cb {
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (dataRes.thread_list != null) {
-                this.gcy = new ArrayList();
+                this.gdY = new ArrayList();
                 for (ThreadInfo threadInfo : dataRes.thread_list) {
                     if (threadInfo != null) {
                         cb cbVar = new cb();
                         cbVar.a(threadInfo);
-                        cbVar.nj(5);
+                        cbVar.nk(5);
                         com.baidu.tieba.card.data.l lVar = null;
                         if (com.baidu.tieba.card.data.l.ae(cbVar)) {
                             lVar = new com.baidu.tieba.card.data.l(cbVar);
                         } else if (com.baidu.tieba.card.data.k.ae(cbVar)) {
                             com.baidu.tieba.card.data.k kVar = new com.baidu.tieba.card.data.k();
-                            kVar.eJQ = cbVar;
+                            kVar.eLr = cbVar;
                             lVar = kVar;
                         }
                         if (lVar != null && lVar.isValid()) {
-                            lVar.IR("c10816");
-                            this.gcy.add(lVar);
+                            lVar.Ja("c10816");
+                            this.gdY.add(lVar);
                         }
                     }
                 }
-                ej(this.gcy);
+                ej(this.gdY);
                 ek(dataRes.thread_list);
             }
             if (dataRes.page != null) {
@@ -116,14 +116,14 @@ public class d extends cb {
         for (ThreadInfo threadInfo : list) {
             cb cbVar = new cb();
             cbVar.a(threadInfo);
-            cbVar.bns();
+            cbVar.bnu();
             this.list.add(cbVar);
         }
     }
 
     private void a(ArrayList<com.baidu.adp.widget.ListView.n> arrayList, bo boVar) {
         int i;
-        if (boVar != null && !y.isEmpty(boVar.bmW())) {
+        if (boVar != null && !y.isEmpty(boVar.bmY())) {
             int size = arrayList.size();
             int i2 = 0;
             int i3 = 0;
@@ -159,73 +159,73 @@ public class d extends cb {
             if (next instanceof cb) {
                 cb cbVar = (cb) next;
                 int[] imageWidthAndHeight = cbVar.getImageWidthAndHeight();
-                if (cbVar.getType() == cb.eQm) {
+                if (cbVar.getType() == cb.eRN) {
                     ca caVar = new ca();
-                    caVar.eJQ = cbVar;
+                    caVar.eLr = cbVar;
                     caVar.position = i;
-                    caVar.ePR = true;
+                    caVar.eRs = true;
                     arrayList2.add(caVar);
                     ca caVar2 = new ca();
-                    caVar2.eJQ = cbVar;
+                    caVar2.eLr = cbVar;
                     caVar2.position = i;
-                    if (cbVar.bpN()) {
-                        caVar2.ePW = true;
-                    } else if (cbVar.boX() == 1) {
-                        caVar2.ePU = true;
-                        caVar2.eQj = imageWidthAndHeight[0];
-                        caVar2.eQk = imageWidthAndHeight[1];
-                    } else if (cbVar.boX() >= 2) {
-                        caVar2.ePV = true;
+                    if (cbVar.bpP()) {
+                        caVar2.eRx = true;
+                    } else if (cbVar.boZ() == 1) {
+                        caVar2.eRv = true;
+                        caVar2.eRK = imageWidthAndHeight[0];
+                        caVar2.eRL = imageWidthAndHeight[1];
+                    } else if (cbVar.boZ() >= 2) {
+                        caVar2.eRw = true;
                     } else {
-                        caVar2.ePS = true;
+                        caVar2.eRt = true;
                     }
                     arrayList2.add(caVar2);
-                    if (cbVar.bpW() != null) {
+                    if (cbVar.bpY() != null) {
                         ca caVar3 = new ca();
-                        caVar3.eQe = true;
-                        caVar3.eJQ = cbVar;
+                        caVar3.eRF = true;
+                        caVar3.eLr = cbVar;
                         caVar3.position = i;
                         arrayList2.add(caVar3);
                     }
                     ca caVar4 = new ca();
-                    caVar4.eQd = true;
-                    caVar4.eJQ = cbVar;
+                    caVar4.eRE = true;
+                    caVar4.eLr = cbVar;
                     caVar4.position = i;
                     arrayList2.add(caVar4);
                     ca caVar5 = new ca();
-                    caVar5.ePX = true;
-                    caVar5.eJQ = cbVar;
+                    caVar5.eRy = true;
+                    caVar5.eLr = cbVar;
                     caVar5.position = i;
                     arrayList2.add(caVar5);
-                } else if (cbVar.getType() == cb.eQK) {
+                } else if (cbVar.getType() == cb.eSl) {
                     ca caVar6 = new ca();
-                    caVar6.eJQ = cbVar;
+                    caVar6.eLr = cbVar;
                     caVar6.position = i;
-                    caVar6.ePR = true;
+                    caVar6.eRs = true;
                     arrayList2.add(caVar6);
                     ca caVar7 = new ca();
-                    caVar7.eJQ = cbVar;
+                    caVar7.eLr = cbVar;
                     caVar7.position = i;
-                    caVar7.ePZ = true;
+                    caVar7.eRA = true;
                     arrayList2.add(caVar7);
-                    if (cbVar.bpW() != null) {
+                    if (cbVar.bpY() != null) {
                         ca caVar8 = new ca();
-                        caVar8.eQe = true;
-                        caVar8.eJQ = cbVar;
+                        caVar8.eRF = true;
+                        caVar8.eLr = cbVar;
                         caVar8.position = i;
                         arrayList2.add(caVar8);
                     }
                     ca caVar9 = new ca();
-                    caVar9.eQd = true;
-                    caVar9.eJQ = cbVar;
+                    caVar9.eRE = true;
+                    caVar9.eLr = cbVar;
                     caVar9.position = i;
                     arrayList2.add(caVar9);
                     ca caVar10 = new ca();
-                    caVar10.ePX = true;
-                    caVar10.eJQ = cbVar;
+                    caVar10.eRy = true;
+                    caVar10.eLr = cbVar;
                     caVar10.position = i;
                     arrayList2.add(caVar10);
-                } else if (cbVar.getType() == cb.eQB && cbVar.bmx()) {
+                } else if (cbVar.getType() == cb.eSc && cbVar.bmz()) {
                     cbVar.position = i;
                     arrayList2.add(cbVar);
                 } else if (com.baidu.tieba.card.data.j.ae(cbVar)) {
@@ -234,7 +234,7 @@ public class d extends cb {
                     arrayList2.add(jVar);
                 } else {
                     ca caVar11 = new ca();
-                    caVar11.eJQ = cbVar;
+                    caVar11.eLr = cbVar;
                     caVar11.position = i;
                     arrayList2.add(caVar11);
                 }

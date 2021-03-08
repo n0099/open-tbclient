@@ -2,7 +2,7 @@ package com.thunder.livesdk.log;
 
 import android.util.Log;
 import com.thunder.livesdk.helper.ThunderNative;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderLog {
     private static volatile ThunderLog instance = null;
     public static final String kLogTagCall = "ycall-Java";
@@ -13,7 +13,7 @@ public class ThunderLog {
     private static Object syncLock = new Object();
     private static int logLevel = 10;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class YYLogModule {
         public static final int YYLOG_MODULE_AUDIO = 101;
         public static final int YYLOG_MODULE_PLATFORM = 100;

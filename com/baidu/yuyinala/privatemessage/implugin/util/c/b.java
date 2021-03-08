@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Looper;
 import android.preference.PreferenceManager;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static String A(Context context, String str, String str2) {
         return PreferenceManager.getDefaultSharedPreferences(context).getString(str, str2);
@@ -23,11 +23,11 @@ public class b {
         commitEditor(PreferenceManager.getDefaultSharedPreferences(context).edit().putBoolean(str, z));
     }
 
-    public static void j(Context context, String str, int i) {
+    public static void i(Context context, String str, int i) {
         commitEditor(PreferenceManager.getDefaultSharedPreferences(context).edit().putInt(str, i));
     }
 
-    public static int k(Context context, String str, int i) {
+    public static int j(Context context, String str, int i) {
         return PreferenceManager.getDefaultSharedPreferences(context).getInt(str, i);
     }
 

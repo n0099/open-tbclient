@@ -5,7 +5,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e {
     public String d;
     public String e;
@@ -40,11 +40,11 @@ public class e {
         return new String(com.baidu.cesium.d.a.a(str.getBytes()));
     }
 
-    public static e di(String str) {
-        return dj(e(str));
+    public static e dm(String str) {
+        return dn(e(str));
     }
 
-    private static e dj(String str) {
+    private static e dn(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

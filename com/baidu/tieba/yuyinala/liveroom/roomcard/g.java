@@ -6,13 +6,13 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class g extends BdBaseModel {
-    private final HttpMessageListener bBe;
-    private Context bNw;
-    private a ozF;
+    private final HttpMessageListener bCE;
+    private Context bOW;
+    private a oBK;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void b(AlaGetRoomCardInfoHttpResponseMessage alaGetRoomCardInfoHttpResponseMessage);
 
@@ -20,31 +20,31 @@ public class g extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.ozF = aVar;
+        this.oBK = aVar;
     }
 
     public g(Context context) {
-        this.bNw = context;
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031019, com.baidu.live.a.avJ + "ala/audio/room/showInfo");
+        this.bOW = context;
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031019, com.baidu.live.a.axj + "ala/audio/room/showInfo");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(AlaGetRoomCardInfoHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.bBe = new HttpMessageListener(1031019) { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.g.1
+        this.bCE = new HttpMessageListener(1031019) { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetRoomCardInfoHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == g.this.getUniqueId() && g.this.ozF != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetRoomCardInfoHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == g.this.getUniqueId() && g.this.oBK != null) {
                     AlaGetRoomCardInfoHttpResponseMessage alaGetRoomCardInfoHttpResponseMessage = (AlaGetRoomCardInfoHttpResponseMessage) httpResponsedMessage;
                     if (alaGetRoomCardInfoHttpResponseMessage.getError() != 0 || !alaGetRoomCardInfoHttpResponseMessage.isSuccess()) {
-                        g.this.ozF.onFail(alaGetRoomCardInfoHttpResponseMessage.getError(), alaGetRoomCardInfoHttpResponseMessage.getErrorString());
+                        g.this.oBK.onFail(alaGetRoomCardInfoHttpResponseMessage.getError(), alaGetRoomCardInfoHttpResponseMessage.getErrorString());
                     } else {
-                        g.this.ozF.b(alaGetRoomCardInfoHttpResponseMessage);
+                        g.this.oBK.b(alaGetRoomCardInfoHttpResponseMessage);
                     }
                 }
             }
         };
-        registerListener(this.bBe);
+        registerListener(this.bCE);
     }
 
     public void request(String str) {

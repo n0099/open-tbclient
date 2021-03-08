@@ -1,5 +1,5 @@
 package com.yy.android.medialibrary.audiocodec;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AudioEncoder {
     private static final String TAG = "AudioEncoder";
     private long mCodecCtx;

@@ -17,7 +17,7 @@ public final class bg implements bi {
     }
 
     @Override // com.bytedance.embedapplog.bi
-    public bi.a hS(Context context) {
+    public bi.a hR(Context context) {
         Bundle call;
         Uri parse = Uri.parse("content://cn.nubia.identity/identity");
         try {
@@ -39,14 +39,14 @@ public final class bg implements bi {
             if (call != null) {
                 if (call.getInt("code", -1) == 0) {
                     bi.a aVar = new bi.a();
-                    aVar.f5803b = call.getString("id");
+                    aVar.b = call.getString("id");
                     return aVar;
                 }
                 String string = call.getString("message");
                 if (TextUtils.isEmpty(string)) {
                     return null;
                 }
-                Log.e(bh.f5801a, string);
+                Log.e(bh.f3915a, string);
                 return null;
             }
             return null;

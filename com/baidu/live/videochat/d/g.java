@@ -24,22 +24,22 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class g implements a {
-    private ab aDd;
-    private AlaLiveRecorder bFr;
-    private com.baidu.live.alablmsdk.a bPQ;
-    private f bPR;
+    private ab aED;
+    private AlaLiveRecorder bGR;
+    private com.baidu.live.alablmsdk.a bRq;
+    private f bRr;
     private Handler mMainHandler;
-    private com.baidu.live.alablmsdk.module.c bPS = null;
-    private com.baidu.live.alablmsdk.module.c bPT = null;
-    private JSONObject bPU = null;
-    private int mChatStatus = c.bFG;
-    private String bPV = null;
-    private long bPW = 0;
+    private com.baidu.live.alablmsdk.module.c bRs = null;
+    private com.baidu.live.alablmsdk.module.c bRt = null;
+    private JSONObject bRu = null;
+    private int mChatStatus = c.bHg;
+    private String bRv = null;
+    private long bRw = 0;
     private boolean isMute = false;
-    private boolean bPX = true;
-    private com.baidu.live.alablmsdk.c.d bPY = new com.baidu.live.alablmsdk.c.d() { // from class: com.baidu.live.videochat.d.g.5
+    private boolean bRx = true;
+    private com.baidu.live.alablmsdk.c.d bRy = new com.baidu.live.alablmsdk.c.d() { // from class: com.baidu.live.videochat.d.g.5
         @Override // com.baidu.live.alablmsdk.c.d
         public void f(final int i, final int i2, final String str) {
             BdLog.e("blmsdk:type=" + i + "|status=" + i2 + "|msg=" + str);
@@ -61,7 +61,7 @@ public class g implements a {
             });
         }
     };
-    private com.baidu.live.alablmsdk.c.c bPZ = new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.live.videochat.d.g.6
+    private com.baidu.live.alablmsdk.c.c bRz = new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.live.videochat.d.g.6
         @Override // com.baidu.live.alablmsdk.c.c
         public void a(final int i, BLMJoinRoomStage bLMJoinRoomStage, final com.baidu.live.alablmsdk.module.common.a aVar) {
             if (bLMJoinRoomStage != null && bLMJoinRoomStage == BLMJoinRoomStage.HOST_TRANS) {
@@ -83,7 +83,7 @@ public class g implements a {
             com.baidu.live.alablmsdk.a.b.a.ag(" JoinRoomListener stage=" + bLMJoinRoomStage, "");
         }
     };
-    private com.baidu.live.alablmsdk.c.c bQa = new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.live.videochat.d.g.7
+    private com.baidu.live.alablmsdk.c.c bRA = new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.live.videochat.d.g.7
         @Override // com.baidu.live.alablmsdk.c.c
         public void a(final int i, BLMJoinRoomStage bLMJoinRoomStage, final com.baidu.live.alablmsdk.module.common.a aVar) {
             if (bLMJoinRoomStage != null && bLMJoinRoomStage == BLMJoinRoomStage.HOST_TRANS && g.this.mMainHandler != null) {
@@ -100,7 +100,7 @@ public class g implements a {
             }
         }
     };
-    private com.baidu.live.alablmsdk.c.b bFs = new com.baidu.live.alablmsdk.c.b() { // from class: com.baidu.live.videochat.d.g.8
+    private com.baidu.live.alablmsdk.c.b bGS = new com.baidu.live.alablmsdk.c.b() { // from class: com.baidu.live.videochat.d.g.8
         @Override // com.baidu.live.alablmsdk.c.b
         public void g(int i, String str) {
             BdLog.e("blmsdk:chatStatus=" + g.this.mChatStatus + "|errorCode=" + i + "|msg=" + str);
@@ -113,7 +113,7 @@ public class g implements a {
                 g.this.mMainHandler.post(new Runnable() { // from class: com.baidu.live.videochat.d.g.8.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        g.this.WE();
+                        g.this.WH();
                     }
                 });
             }
@@ -121,19 +121,19 @@ public class g implements a {
 
         @Override // com.baidu.live.alablmsdk.c.b
         public void a(com.baidu.live.alablmsdk.module.rtc.c cVar, final int i) {
-            BdLog.e("blmsdk:leavedForSeconds sec=" + i + " stream.imUk=" + cVar.ayk);
-            g.this.bPX = true;
-            if (g.this.bPS != null && g.this.bPS.ayk == cVar.ayk) {
-                g.this.bPX = false;
+            BdLog.e("blmsdk:leavedForSeconds sec=" + i + " stream.imUk=" + cVar.azK);
+            g.this.bRx = true;
+            if (g.this.bRs != null && g.this.bRs.azK == cVar.azK) {
+                g.this.bRx = false;
             }
-            if (g.this.bPT != null && g.this.bPT.ayk == cVar.ayk) {
-                g.this.bPX = false;
+            if (g.this.bRt != null && g.this.bRt.azK == cVar.azK) {
+                g.this.bRx = false;
             }
             g.this.mMainHandler.post(new Runnable() { // from class: com.baidu.live.videochat.d.g.8.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (g.this.bPR != null) {
-                        g.this.bPR.q(i, g.this.bPX);
+                    if (g.this.bRr != null) {
+                        g.this.bRr.q(i, g.this.bRx);
                     }
                 }
             });
@@ -233,12 +233,12 @@ public class g implements a {
         }
 
         @Override // com.baidu.live.alablmsdk.c.b
-        public void ey(final String str) {
+        public void eE(final String str) {
             BdLog.e("blmsdk:onRoomClosed callback chatStatus=" + g.this.mChatStatus);
             g.this.mMainHandler.post(new Runnable() { // from class: com.baidu.live.videochat.d.g.8.9
                 @Override // java.lang.Runnable
                 public void run() {
-                    g.this.hO(str);
+                    g.this.hU(str);
                 }
             });
         }
@@ -250,7 +250,7 @@ public class g implements a {
                     jSONObject2 = new JSONObject();
                 }
                 try {
-                    jSONObject2.put("blm_from", c.bPt);
+                    jSONObject2.put("blm_from", c.bQT);
                 } catch (JSONException e) {
                 }
                 UbcStatisticManager.getInstance().logLMSdkEvent(str, jSONObject, jSONObject2);
@@ -258,18 +258,18 @@ public class g implements a {
         }
 
         @Override // com.baidu.live.alablmsdk.c.b
-        public String xn() {
+        public String xq() {
             return null;
         }
     };
-    com.baidu.live.alablmsdk.c.b.e bFt = new com.baidu.live.alablmsdk.c.b.e() { // from class: com.baidu.live.videochat.d.g.9
+    com.baidu.live.alablmsdk.c.b.e bGT = new com.baidu.live.alablmsdk.c.b.e() { // from class: com.baidu.live.videochat.d.g.9
         @Override // com.baidu.live.alablmsdk.c.b.e
         public void a(String str, String str2, final com.baidu.live.alablmsdk.c.b.a aVar) {
-            com.baidu.live.yyrtc.a.ZK().a(str, str2, new com.baidu.live.yyrtc.b() { // from class: com.baidu.live.videochat.d.g.9.1
+            com.baidu.live.yyrtc.a.ZN().a(str, str2, new com.baidu.live.yyrtc.b() { // from class: com.baidu.live.videochat.d.g.9.1
                 @Override // com.baidu.live.yyrtc.b
                 public void ai(String str3, String str4) {
-                    if (g.this.bPQ != null) {
-                        g.this.bPQ.ew(str3);
+                    if (g.this.bRq != null) {
+                        g.this.bRq.eD(str3);
                     }
                     if (aVar != null) {
                         aVar.ai(str3, str4);
@@ -282,16 +282,16 @@ public class g implements a {
     @Override // com.baidu.live.videochat.d.a
     public void init(Context context) {
         BdLog.e("blmsdk：LiveBBVideoChatLogicController init context = " + context);
-        if (this.bPQ == null) {
-            this.bPQ = new com.baidu.live.alablmsdk.a(TbadkCoreApplication.getInst());
-            this.bPQ.ev(com.baidu.live.ae.a.Qj().buX.aNE);
-            this.bPQ.a(this.bFt);
-            this.bPQ.a(this.bFs);
+        if (this.bRq == null) {
+            this.bRq = new com.baidu.live.alablmsdk.a(TbadkCoreApplication.getInst());
+            this.bRq.eC(com.baidu.live.ae.a.Qm().bwx.aPe);
+            this.bRq.a(this.bGT);
+            this.bRq.a(this.bGS);
             this.mMainHandler = new Handler(Looper.getMainLooper());
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("room_mode", BLMRoomMode.BLMROOMMODE_1V1);
-            hashMap.put("rtc_room_source_key", c.bFF);
-            hashMap.put("rtc_business_source_key", c.bPt);
+            hashMap.put("rtc_room_source_key", c.bHf);
+            hashMap.put("rtc_business_source_key", c.bQT);
             hashMap.put("is_auto_publish", true);
             hashMap.put("has_audio", true);
             hashMap.put("has_video", true);
@@ -299,51 +299,51 @@ public class g implements a {
             arrayList.add(10);
             arrayList.add(30);
             hashMap.put("blm_rtc_stream_leaved_listen_seconds_key", arrayList);
-            hashMap.put("encode_bitrate", Integer.valueOf(com.baidu.live.ae.a.Qj().buX.aNv.maxBitrate));
-            hashMap.put("encode_min_bitrate", Integer.valueOf(com.baidu.live.ae.a.Qj().buX.aNv.aSM));
+            hashMap.put("encode_bitrate", Integer.valueOf(com.baidu.live.ae.a.Qm().bwx.aOV.maxBitrate));
+            hashMap.put("encode_min_bitrate", Integer.valueOf(com.baidu.live.ae.a.Qm().bwx.aOV.aUm));
             hashMap.put("external_audio_capture", true);
             HashMap hashMap2 = new HashMap();
-            hashMap2.put("yy_rtc_app_id_key", c.bPu);
+            hashMap2.put("yy_rtc_app_id_key", c.bQU);
             hashMap2.put("yy_rtc_room_mode_key", 0);
             hashMap2.put("yy_rtc_media_mode_key", 1);
             hashMap2.put("yy_rtc_audio_config_key", 8);
             hashMap2.put("yy_rtc_commu_mode_key", 2);
             hashMap2.put("yy_rtc_scenario_mode_key", 1);
-            hashMap2.put("yy_rtc_publish_codec_mode", Integer.valueOf(com.baidu.live.ae.a.Qj().buX.aNv.aSN));
+            hashMap2.put("yy_rtc_publish_codec_mode", Integer.valueOf(com.baidu.live.ae.a.Qm().bwx.aOV.aUn));
             hashMap2.put("yy_rtc_publish_play_type_key", 1);
             hashMap.put("yy_rtc_private_params_key", hashMap2);
-            this.bPQ.v(hashMap);
-            this.bPQ.a(this.bFt);
+            this.bRq.v(hashMap);
+            this.bRq.a(this.bGT);
         }
     }
 
     @Override // com.baidu.live.videochat.d.a
     public void t(ab abVar) {
-        this.aDd = abVar;
+        this.aED = abVar;
     }
 
     @Override // com.baidu.live.videochat.d.a
     public void a(f fVar) {
-        this.bPR = fVar;
+        this.bRr = fVar;
     }
 
     @Override // com.baidu.live.videochat.d.a
     public void a(AlaLiveRecorder alaLiveRecorder) {
-        if (this.bFr == null) {
-            this.bFr = alaLiveRecorder;
+        if (this.bGR == null) {
+            this.bGR = alaLiveRecorder;
             com.baidu.live.alablmsdk.config.a aVar = new com.baidu.live.alablmsdk.config.a();
-            a.C0161a c0161a = new a.C0161a();
-            c0161a.fps = com.baidu.live.ae.a.Qj().buX.aNv.fps;
-            c0161a.axo = new com.baidu.live.alablmsdk.config.a.b(alaLiveRecorder.getVideoConfig().getVideoWidth(), alaLiveRecorder.getVideoConfig().getVideoHeight());
-            c0161a.axs = true;
-            c0161a.axr = this.bFr.getPushUrl();
-            List<cw.a> list = com.baidu.live.ae.a.Qj().buX.aNv.dataList;
-            cw.a aVar2 = list.get(0) == null ? cw.a.aSP.get(0) : list.get(0);
+            a.C0167a c0167a = new a.C0167a();
+            c0167a.fps = com.baidu.live.ae.a.Qm().bwx.aOV.fps;
+            c0167a.ayO = new com.baidu.live.alablmsdk.config.a.b(alaLiveRecorder.getVideoConfig().getVideoWidth(), alaLiveRecorder.getVideoConfig().getVideoHeight());
+            c0167a.ayS = true;
+            c0167a.ayR = this.bGR.getPushUrl();
+            List<cw.a> list = com.baidu.live.ae.a.Qm().bwx.aOV.dataList;
+            cw.a aVar2 = list.get(0) == null ? cw.a.aUp.get(0) : list.get(0);
             com.baidu.live.alablmsdk.config.a.d dVar = new com.baidu.live.alablmsdk.config.a.d(aVar2.x, aVar2.y, aVar2.width, aVar2.height);
-            cw.a aVar3 = list.get(1) == null ? cw.a.aSP.get(1) : list.get(1);
+            cw.a aVar3 = list.get(1) == null ? cw.a.aUp.get(1) : list.get(1);
             com.baidu.live.alablmsdk.config.a.d dVar2 = new com.baidu.live.alablmsdk.config.a.d(aVar3.x, aVar3.y, aVar3.width, aVar3.height);
             ArrayList arrayList = new ArrayList();
-            if ((this.aDd == null || this.aDd.mLiveInfo == null) ? false : this.aDd.mLiveInfo.isPubShow) {
+            if ((this.aED == null || this.aED.mLiveInfo == null) ? false : this.aED.mLiveInfo.isPubShow) {
                 com.baidu.live.alablmsdk.config.a.a aVar4 = new com.baidu.live.alablmsdk.config.a.a("", 1, BLMViewShapeType.RECTANGLE, dVar2);
                 com.baidu.live.alablmsdk.config.a.a aVar5 = new com.baidu.live.alablmsdk.config.a.a("", 0, BLMViewShapeType.RECTANGLE, dVar);
                 arrayList.add(aVar4);
@@ -354,86 +354,86 @@ public class g implements a {
                 arrayList.add(aVar6);
                 arrayList.add(aVar7);
             }
-            c0161a.axu = arrayList;
-            c0161a.axt = new com.baidu.live.alablmsdk.config.a.b(com.baidu.live.ae.a.Qj().buX.aNv.aSK, com.baidu.live.ae.a.Qj().buX.aNv.aSL);
-            c0161a.axq = com.baidu.live.ae.a.Qj().buX.aNv.maxBitrate;
-            c0161a.axx = aVar.a(c0161a);
-            aVar.axn = BLMLiveTransferMode.BLM_LIVE_TRANSFER_MODE_ANCHOR;
-            aVar.axm = c0161a;
-            if (this.bPQ != null) {
-                this.bPQ.a(aVar);
+            c0167a.ayU = arrayList;
+            c0167a.ayT = new com.baidu.live.alablmsdk.config.a.b(com.baidu.live.ae.a.Qm().bwx.aOV.aUk, com.baidu.live.ae.a.Qm().bwx.aOV.aUl);
+            c0167a.ayQ = com.baidu.live.ae.a.Qm().bwx.aOV.maxBitrate;
+            c0167a.ayX = aVar.a(c0167a);
+            aVar.ayN = BLMLiveTransferMode.BLM_LIVE_TRANSFER_MODE_ANCHOR;
+            aVar.ayM = c0167a;
+            if (this.bRq != null) {
+                this.bRq.a(aVar);
             }
         }
     }
 
-    private void ej(int i) {
+    private void ek(int i) {
         this.mChatStatus = i;
     }
 
     @Override // com.baidu.live.videochat.d.a
-    public int SV() {
+    public int SY() {
         return this.mChatStatus;
     }
 
-    private boolean WB() {
-        BdLog.e("mCurInvitedUser=" + this.bPS);
-        return this.bPS != null;
+    private boolean WE() {
+        BdLog.e("mCurInvitedUser=" + this.bRs);
+        return this.bRs != null;
     }
 
     @Override // com.baidu.live.videochat.d.a
-    public com.baidu.live.alablmsdk.module.c Wy() {
-        return this.bPS;
+    public com.baidu.live.alablmsdk.module.c WB() {
+        return this.bRs;
     }
 
     @Override // com.baidu.live.videochat.d.a
     public void setMute(boolean z) {
         BdLog.e("LogicControllerSetMute " + z);
         this.isMute = z;
-        if (this.bPQ != null) {
+        if (this.bRq != null) {
             BdLog.e("LogicControllerSetMute2 " + z);
-            this.bPQ.aY(z);
+            this.bRq.aY(z);
         }
     }
 
     @Override // com.baidu.live.videochat.d.a
-    public void VA() {
-        if (this.bPQ != null) {
-            this.bPQ.enterBackground();
+    public void VD() {
+        if (this.bRq != null) {
+            this.bRq.enterBackground();
         }
     }
 
     @Override // com.baidu.live.videochat.d.a
-    public void VB() {
-        if (this.bPQ != null) {
-            this.bPQ.enterForeground();
+    public void VE() {
+        if (this.bRq != null) {
+            this.bRq.enterForeground();
         }
     }
 
     @Override // com.baidu.live.videochat.d.a
-    public JSONObject Wz() {
-        return this.bPU;
+    public JSONObject WC() {
+        return this.bRu;
     }
 
-    private String WC() {
+    private String WF() {
         StringBuilder sb = new StringBuilder();
-        if (this.bPU != null) {
-            b ap = d.ap(this.bPU);
+        if (this.bRu != null) {
+            b ar = d.ar(this.bRu);
             sb.append("sender:");
-            if (ap.bPr != null) {
-                sb.append(ap.bPr.userId);
+            if (ar.bQR != null) {
+                sb.append(ar.bQR.userId);
             }
             sb.append(",");
             sb.append("receiver:");
-            if (ap.bPs != null) {
-                sb.append(ap.bPs.userId);
+            if (ar.bQS != null) {
+                sb.append(ar.bQS.userId);
             }
-            if (this.bPS != null) {
+            if (this.bRs != null) {
                 sb.append(",");
                 sb.append("imuk:");
-                sb.append(this.bPS.ayk);
+                sb.append(this.bRs.azK);
                 sb.append(",");
                 sb.append("cuid:");
-                sb.append(this.bPS.cuid);
+                sb.append(this.bRs.cuid);
             }
         }
         return sb.toString();
@@ -446,13 +446,13 @@ public class g implements a {
             return false;
         }
         BdLog.e("blmsdk:chatStatus=" + this.mChatStatus + "|ext=" + jSONObject + "|user=" + cVar.toString());
-        if (this.mChatStatus == c.bFG) {
-            ej(c.bPw);
-            this.bPW = System.currentTimeMillis();
-            WD();
-            this.bPS = cVar;
-            this.bPU = jSONObject;
-            this.bPQ.a(new com.baidu.live.alablmsdk.c.a() { // from class: com.baidu.live.videochat.d.g.1
+        if (this.mChatStatus == c.bHg) {
+            ek(c.bQW);
+            this.bRw = System.currentTimeMillis();
+            WG();
+            this.bRs = cVar;
+            this.bRu = jSONObject;
+            this.bRq.a(new com.baidu.live.alablmsdk.c.a() { // from class: com.baidu.live.videochat.d.g.1
                 @Override // com.baidu.live.alablmsdk.c.a
                 public void c(final String str, final int i, final String str2) {
                     g.this.mMainHandler.post(new Runnable() { // from class: com.baidu.live.videochat.d.g.1.1
@@ -470,56 +470,56 @@ public class g implements a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, int i, String str2, JSONObject jSONObject, com.baidu.live.alablmsdk.module.c cVar) {
-        BdLog.e("blmsdk:createRoom costTime=" + (System.currentTimeMillis() - this.bPW) + "|chatRoomId=" + str + "|status=" + i + "|msg=" + str2 + "|mChatStatus=" + this.mChatStatus + "|ext=" + jSONObject);
-        this.bPW = System.currentTimeMillis();
-        if (this.mChatStatus == c.bPw) {
+        BdLog.e("blmsdk:createRoom costTime=" + (System.currentTimeMillis() - this.bRw) + "|chatRoomId=" + str + "|status=" + i + "|msg=" + str2 + "|mChatStatus=" + this.mChatStatus + "|ext=" + jSONObject);
+        this.bRw = System.currentTimeMillis();
+        if (this.mChatStatus == c.bQW) {
             if (i == 0) {
-                this.bPV = str;
+                this.bRv = str;
                 a(str, jSONObject, cVar);
                 return;
             }
-            if (this.bPR != null) {
-                this.bPR.a(c.bFM, true, i, str2, str, WC());
+            if (this.bRr != null) {
+                this.bRr.a(c.bHm, true, i, str2, str, WF());
             }
-            ej(c.bFG);
-            WD();
-            if (this.bPR != null) {
-                this.bPR.p(c.bFM, true);
+            ek(c.bHg);
+            WG();
+            if (this.bRr != null) {
+                this.bRr.p(c.bHm, true);
             }
         }
     }
 
     private void a(String str, JSONObject jSONObject, com.baidu.live.alablmsdk.module.c cVar) {
         BdLog.e("blmsdk:chatStatus=" + this.mChatStatus + "|invitedUser=" + cVar + "|chatRoomId=" + str + "|senderExtStr=" + jSONObject);
-        if (this.mChatStatus == c.bPw) {
+        if (this.mChatStatus == c.bQW) {
             ArrayList arrayList = new ArrayList();
             arrayList.clear();
             arrayList.add(cVar);
-            this.bPQ.a(str, arrayList, jSONObject, this.bPY);
+            this.bRq.a(str, arrayList, jSONObject, this.bRy);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void W(int i, String str) {
-        BdLog.e("blmsdk:inviteUsers costTime=" + (System.currentTimeMillis() - this.bPW) + "|mChatStatus=" + this.mChatStatus + "|msg=" + str);
-        this.bPW = System.currentTimeMillis();
-        if (this.mChatStatus == c.bPw) {
+        BdLog.e("blmsdk:inviteUsers costTime=" + (System.currentTimeMillis() - this.bRw) + "|mChatStatus=" + this.mChatStatus + "|msg=" + str);
+        this.bRw = System.currentTimeMillis();
+        if (this.mChatStatus == c.bQW) {
             if (i == 0) {
-                ej(c.bPx);
-                if (this.bPR != null) {
-                    this.bPR.VS();
+                ek(c.bQX);
+                if (this.bRr != null) {
+                    this.bRr.VV();
                     return;
                 }
                 return;
             }
-            this.bPQ.c(this.bPV, d.aP("invite_fail", this.bPV), this.bPY);
-            if (this.bPR != null) {
-                this.bPR.a(c.bFN, true, i, str, this.bPV, WC());
+            this.bRq.c(this.bRv, d.aP("invite_fail", this.bRv), this.bRy);
+            if (this.bRr != null) {
+                this.bRr.a(c.bHn, true, i, str, this.bRv, WF());
             }
-            ej(c.bFG);
-            WD();
-            if (this.bPR != null) {
-                this.bPR.p(c.bFN, true);
+            ek(c.bHg);
+            WG();
+            if (this.bRr != null) {
+                this.bRr.p(c.bHn, true);
             }
         }
     }
@@ -527,93 +527,93 @@ public class g implements a {
     /* JADX INFO: Access modifiers changed from: private */
     public void m(String str, com.baidu.live.alablmsdk.module.c cVar) {
         BdLog.e("blmsdk:chatStatus=" + this.mChatStatus);
-        if (WB() && this.mChatStatus == c.bPx) {
+        if (WE() && this.mChatStatus == c.bQX) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(this.bPS);
-            this.bPQ.b(this.bPV, arrayList, null, this.bPY);
-            this.bPQ.c(this.bPV, d.aP("invite_time_out", str), this.bPY);
-            if (this.bPR != null) {
-                this.bPR.a(c.bFR, true, c.bFR, "inviteTimeOut", str, WC());
+            arrayList.add(this.bRs);
+            this.bRq.b(this.bRv, arrayList, null, this.bRy);
+            this.bRq.c(this.bRv, d.aP("invite_time_out", str), this.bRy);
+            if (this.bRr != null) {
+                this.bRr.a(c.bHr, true, c.bHr, "inviteTimeOut", str, WF());
             }
-            ej(c.bFG);
-            WD();
-            if (this.bPR != null) {
-                this.bPR.p(c.bFR, true);
+            ek(c.bHg);
+            WG();
+            if (this.bRr != null) {
+                this.bRr.p(c.bHr, true);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j(String str, com.baidu.live.alablmsdk.module.c cVar, JSONObject jSONObject) {
-        BdLog.e("blmsdk:chatStatus=" + this.mChatStatus + "|chatRoomId=" + str + "|userInfo=" + cVar + "|mChatRoomId=" + this.bPV + "|isChatSender()=" + WB() + "|costTime=" + (System.currentTimeMillis() - this.bPW));
-        this.bPW = System.currentTimeMillis();
-        if (this.mChatStatus == c.bPx && this.bPV != null && this.bPV.equals(str) && cVar != null && this.bPS != null) {
-            BdLog.e("blmsdk:user uk=" + cVar.ayk + "|invite user uk" + this.bPS.ayk);
-            if (cVar.ayk == this.bPS.ayk) {
-                ej(c.bFJ);
-                RY();
-                hQ(str);
+        BdLog.e("blmsdk:chatStatus=" + this.mChatStatus + "|chatRoomId=" + str + "|userInfo=" + cVar + "|mChatRoomId=" + this.bRv + "|isChatSender()=" + WE() + "|costTime=" + (System.currentTimeMillis() - this.bRw));
+        this.bRw = System.currentTimeMillis();
+        if (this.mChatStatus == c.bQX && this.bRv != null && this.bRv.equals(str) && cVar != null && this.bRs != null) {
+            BdLog.e("blmsdk:user uk=" + cVar.azK + "|invite user uk" + this.bRs.azK);
+            if (cVar.azK == this.bRs.azK) {
+                ek(c.bHj);
+                Sb();
+                hW(str);
                 return;
             }
             ArrayList arrayList = new ArrayList();
-            arrayList.add(this.bPS);
-            this.bPQ.b(this.bPV, arrayList, null, this.bPY);
-            this.bPQ.c(this.bPV, d.aP("user_data_error", str), this.bPY);
-            if (this.bPR != null) {
-                this.bPR.a(c.bFO, true, c.bFO, "inviteAcceptDataError", str, WC());
+            arrayList.add(this.bRs);
+            this.bRq.b(this.bRv, arrayList, null, this.bRy);
+            this.bRq.c(this.bRv, d.aP("user_data_error", str), this.bRy);
+            if (this.bRr != null) {
+                this.bRr.a(c.bHo, true, c.bHo, "inviteAcceptDataError", str, WF());
             }
-            ej(c.bFG);
-            WD();
-            if (this.bPR != null) {
-                this.bPR.p(c.bFO, true);
+            ek(c.bHg);
+            WG();
+            if (this.bRr != null) {
+                this.bRr.p(c.bHo, true);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k(String str, com.baidu.live.alablmsdk.module.c cVar, JSONObject jSONObject) {
-        BdLog.e("blmsdk:chatStatus=" + this.mChatStatus + "|isChatSender()=" + WB() + "|chatRoomId=" + str + "|costTime=" + (System.currentTimeMillis() - this.bPW) + "ext=" + jSONObject);
-        this.bPW = System.currentTimeMillis();
-        if (WB() && this.mChatStatus == c.bPx) {
-            this.bPQ.c(str, d.aP("invite_reject", str), this.bPY);
-            ej(c.bFG);
-            WD();
-            if (this.bPR != null) {
-                this.bPR.p(c.bFS, true);
+        BdLog.e("blmsdk:chatStatus=" + this.mChatStatus + "|isChatSender()=" + WE() + "|chatRoomId=" + str + "|costTime=" + (System.currentTimeMillis() - this.bRw) + "ext=" + jSONObject);
+        this.bRw = System.currentTimeMillis();
+        if (WE() && this.mChatStatus == c.bQX) {
+            this.bRq.c(str, d.aP("invite_reject", str), this.bRy);
+            ek(c.bHg);
+            WG();
+            if (this.bRr != null) {
+                this.bRr.p(c.bHs, true);
             }
         }
     }
 
-    private void hQ(String str) {
-        BdLog.e("blmsdk:chatStatus=" + this.mChatStatus + "|costTime=" + (System.currentTimeMillis() - this.bPW));
-        this.bPW = System.currentTimeMillis();
-        if (this.mChatStatus == c.bFJ) {
-            this.bPQ.a(str, this.bPZ);
+    private void hW(String str) {
+        BdLog.e("blmsdk:chatStatus=" + this.mChatStatus + "|costTime=" + (System.currentTimeMillis() - this.bRw));
+        this.bRw = System.currentTimeMillis();
+        if (this.mChatStatus == c.bHj) {
+            this.bRq.a(str, this.bRz);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void X(int i, String str) {
-        BdLog.e("blmsdk:joinRoom costTime=" + (System.currentTimeMillis() - this.bPW) + "|msg=" + str + "|status=" + i + "|mChatStatus=" + this.mChatStatus);
-        this.bPW = System.currentTimeMillis();
-        if (this.mChatStatus == c.bFJ) {
+        BdLog.e("blmsdk:joinRoom costTime=" + (System.currentTimeMillis() - this.bRw) + "|msg=" + str + "|status=" + i + "|mChatStatus=" + this.mChatStatus);
+        this.bRw = System.currentTimeMillis();
+        if (this.mChatStatus == c.bHj) {
             if (i == 0) {
-                ej(c.bFK);
-                if (this.bPR != null) {
-                    this.bPR.C(this.bPV, WB());
+                ek(c.bHk);
+                if (this.bRr != null) {
+                    this.bRr.C(this.bRv, WE());
                     return;
                 }
                 return;
             }
-            this.bPQ.c(this.bPV, d.aP("join_fail", this.bPV), this.bPY);
-            RX();
-            if (this.bPR != null) {
-                this.bPR.a(c.bFP, true, i, str, this.bPV, WC());
+            this.bRq.c(this.bRv, d.aP("join_fail", this.bRv), this.bRy);
+            Sa();
+            if (this.bRr != null) {
+                this.bRr.a(c.bHp, true, i, str, this.bRv, WF());
             }
-            ej(c.bFG);
-            WD();
-            if (this.bPR != null) {
-                this.bPR.p(c.bFP, true);
+            ek(c.bHg);
+            WG();
+            if (this.bRr != null) {
+                this.bRr.p(c.bHp, true);
             }
         }
     }
@@ -627,172 +627,172 @@ public class g implements a {
     }
 
     private void dA(boolean z) {
-        if (this.mChatStatus == c.bPw) {
-            if (this.bPV != null) {
-                this.bPQ.c(this.bPV, d.aP("closed_by_user_in_create", this.bPV), this.bPY);
+        if (this.mChatStatus == c.bQW) {
+            if (this.bRv != null) {
+                this.bRq.c(this.bRv, d.aP("closed_by_user_in_create", this.bRv), this.bRy);
             }
-            ej(c.bFG);
-            WD();
+            ek(c.bHg);
+            WG();
             if (z) {
-                if (this.bPR != null) {
-                    this.bPR.p(c.bPA, true);
+                if (this.bRr != null) {
+                    this.bRr.p(c.bRa, true);
                 }
-            } else if (this.bPR != null) {
-                this.bPR.p(c.bPB, true);
+            } else if (this.bRr != null) {
+                this.bRr.p(c.bRb, true);
             }
-        } else if (this.mChatStatus == c.bPx) {
+        } else if (this.mChatStatus == c.bQX) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(this.bPS);
-            this.bPQ.b(this.bPV, arrayList, null, this.bPY);
-            this.bPQ.c(this.bPV, d.aP(z ? "closed_by_user_wait_connect" : "closed_by_time_out", this.bPV), this.bPY);
-            ej(c.bFG);
-            WD();
+            arrayList.add(this.bRs);
+            this.bRq.b(this.bRv, arrayList, null, this.bRy);
+            this.bRq.c(this.bRv, d.aP(z ? "closed_by_user_wait_connect" : "closed_by_time_out", this.bRv), this.bRy);
+            ek(c.bHg);
+            WG();
             if (z) {
-                if (this.bPR != null) {
-                    this.bPR.p(c.bPA, true);
+                if (this.bRr != null) {
+                    this.bRr.p(c.bRa, true);
                 }
-            } else if (this.bPR != null) {
-                this.bPR.p(c.bPB, true);
+            } else if (this.bRr != null) {
+                this.bRr.p(c.bRb, true);
             }
-        } else if (this.mChatStatus == c.bFJ) {
-            this.bPQ.c(this.bPV, d.aP("closed_by_user_in_connecting", this.bPV), this.bPY);
-            RX();
-            ej(c.bFG);
-            WD();
+        } else if (this.mChatStatus == c.bHj) {
+            this.bRq.c(this.bRv, d.aP("closed_by_user_in_connecting", this.bRv), this.bRy);
+            Sa();
+            ek(c.bHg);
+            WG();
             if (z) {
-                if (this.bPR != null) {
-                    this.bPR.p(c.bPA, true);
+                if (this.bRr != null) {
+                    this.bRr.p(c.bRa, true);
                 }
-            } else if (this.bPR != null) {
-                this.bPR.p(c.bPB, true);
+            } else if (this.bRr != null) {
+                this.bRr.p(c.bRb, true);
             }
-        } else if (this.mChatStatus == c.bFK) {
-            this.bPQ.c(this.bPV, d.aP("closed_by_user", this.bPV), this.bPY);
-            RX();
-            ej(c.bFG);
-            WD();
-            if (this.bPR != null) {
-                this.bPR.D(this.bPV, true);
+        } else if (this.mChatStatus == c.bHk) {
+            this.bRq.c(this.bRv, d.aP("closed_by_user", this.bRv), this.bRy);
+            Sa();
+            ek(c.bHg);
+            WG();
+            if (this.bRr != null) {
+                this.bRr.D(this.bRv, true);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(String str, com.baidu.live.alablmsdk.module.c cVar, JSONObject jSONObject) {
-        BdLog.e("blmsdk:chatStatus=" + this.mChatStatus + "|chatRoomId=" + str + "|currentRoomId=" + this.bPV + "|ext=" + jSONObject);
-        if (this.mChatStatus == c.bFG) {
-            this.bPV = str;
-            this.bPT = cVar;
-            this.bPU = d.a(d.an(jSONObject), this.aDd, d.bPN);
-            ej(c.bPv);
-            if (this.bPR != null) {
-                this.bPR.a(cVar, jSONObject);
+        BdLog.e("blmsdk:chatStatus=" + this.mChatStatus + "|chatRoomId=" + str + "|currentRoomId=" + this.bRv + "|ext=" + jSONObject);
+        if (this.mChatStatus == c.bHg) {
+            this.bRv = str;
+            this.bRt = cVar;
+            this.bRu = d.a(d.ap(jSONObject), this.aED, d.bRn);
+            ek(c.bQV);
+            if (this.bRr != null) {
+                this.bRr.a(cVar, jSONObject);
             }
         }
     }
 
     @Override // com.baidu.live.videochat.d.a
-    public void Wx() {
-        ej(c.bFG);
-        WD();
+    public void WA() {
+        ek(c.bHg);
+        WG();
     }
 
     @Override // com.baidu.live.videochat.d.a
-    public void al(JSONObject jSONObject) {
+    public void an(JSONObject jSONObject) {
         BdLog.e("blmsdk:chatStatus=" + this.mChatStatus);
-        if (this.mChatStatus == c.bPv) {
-            ej(c.bFJ);
-            RY();
-            this.bPQ.a(this.bPV, jSONObject, this.bQa);
+        if (this.mChatStatus == c.bQV) {
+            ek(c.bHj);
+            Sb();
+            this.bRq.a(this.bRv, jSONObject, this.bRA);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aa(int i, String str) {
         BdLog.e("blmsdk:chatStatus=" + this.mChatStatus + "|msg=" + str);
-        if (this.mChatStatus == c.bFJ) {
+        if (this.mChatStatus == c.bHj) {
             if (i == 0) {
-                ej(c.bFK);
-                if (this.bPR != null) {
-                    this.bPR.C(this.bPV, WB());
+                ek(c.bHk);
+                if (this.bRr != null) {
+                    this.bRr.C(this.bRv, WE());
                     return;
                 }
                 return;
             }
-            RX();
-            if (this.bPR != null) {
-                this.bPR.a(c.bFQ, false, i, str, this.bPV, WC());
+            Sa();
+            if (this.bRr != null) {
+                this.bRr.a(c.bHq, false, i, str, this.bRv, WF());
             }
-            if (this.bPR != null) {
-                this.bPR.p(c.bFQ, false);
+            if (this.bRr != null) {
+                this.bRr.p(c.bHq, false);
             }
-            ej(c.bFG);
-            WD();
+            ek(c.bHg);
+            WG();
         }
     }
 
     @Override // com.baidu.live.videochat.d.a
-    public String WA() {
-        return this.bPV;
+    public String WD() {
+        return this.bRv;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void l(String str, com.baidu.live.alablmsdk.module.c cVar, JSONObject jSONObject) {
         BdLog.e("blmsdk:chatStatus=" + this.mChatStatus);
-        boolean WB = WB();
-        if (this.mChatStatus == c.bPv) {
-            ej(c.bFG);
-            WD();
-            if (this.bPR != null) {
-                this.bPR.p(c.bPy, WB);
+        boolean WE = WE();
+        if (this.mChatStatus == c.bQV) {
+            ek(c.bHg);
+            WG();
+            if (this.bRr != null) {
+                this.bRr.p(c.bQY, WE);
             }
-        } else if (this.mChatStatus == c.bFJ) {
-            RX();
-            if (this.bPR != null) {
-                this.bPR.D(str, WB);
+        } else if (this.mChatStatus == c.bHj) {
+            Sa();
+            if (this.bRr != null) {
+                this.bRr.D(str, WE);
             }
-            ej(c.bFG);
-            WD();
+            ek(c.bHg);
+            WG();
         }
     }
 
     @Override // com.baidu.live.videochat.d.a
-    public void am(JSONObject jSONObject) {
+    public void ao(JSONObject jSONObject) {
         BdLog.e("blmsdk:chatStatus=" + this.mChatStatus);
-        if (this.mChatStatus == c.bPv) {
-            this.bPQ.a(this.bPV, jSONObject, this.bPY);
+        if (this.mChatStatus == c.bQV) {
+            this.bRq.a(this.bRv, jSONObject, this.bRy);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ab(int i, String str) {
-        ej(c.bFG);
-        WD();
-        if (this.bPR != null) {
-            this.bPR.p(c.bPB, false);
+        ek(c.bHg);
+        WG();
+        if (this.bRr != null) {
+            this.bRr.p(c.bRb, false);
         }
     }
 
     private void dB(boolean z) {
-        if (this.mChatStatus == c.bFJ) {
-            this.bPQ.b(this.bPV, d.aP(z ? "leave_by_time_out" : "leave_by_user_in_connecting", this.bPV), this.bPY);
-            RX();
-            ej(c.bFG);
-            WD();
+        if (this.mChatStatus == c.bHj) {
+            this.bRq.b(this.bRv, d.aP(z ? "leave_by_time_out" : "leave_by_user_in_connecting", this.bRv), this.bRy);
+            Sa();
+            ek(c.bHg);
+            WG();
             if (z) {
-                if (this.bPR != null) {
-                    this.bPR.p(c.bPA, false);
+                if (this.bRr != null) {
+                    this.bRr.p(c.bRa, false);
                 }
-            } else if (this.bPR != null) {
-                this.bPR.p(c.bPB, false);
+            } else if (this.bRr != null) {
+                this.bRr.p(c.bRb, false);
             }
-        } else if (this.mChatStatus == c.bFK) {
-            this.bPQ.b(this.bPV, d.aP("leave_by_user", this.bPV), this.bPY);
-            RX();
-            ej(c.bFG);
-            WD();
-            if (this.bPR != null) {
-                this.bPR.D(this.bPV, true);
+        } else if (this.mChatStatus == c.bHk) {
+            this.bRq.b(this.bRv, d.aP("leave_by_user", this.bRv), this.bRy);
+            Sa();
+            ek(c.bHg);
+            WG();
+            if (this.bRr != null) {
+                this.bRr.D(this.bRv, true);
             }
         }
     }
@@ -803,86 +803,86 @@ public class g implements a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void o(String str, com.baidu.live.alablmsdk.module.c cVar) {
-        BdLog.e("blmsdk:dealUserLeaved chatStatus=" + this.mChatStatus + "isChatSender =" + WB());
-        if (WB()) {
-            if (this.mChatStatus == c.bFK) {
-                this.bPQ.c(str, d.aP("user_leave", str), this.bPY);
-                RX();
-                ej(c.bFG);
-                WD();
-                if (this.bPR != null) {
-                    this.bPR.D(str, false);
+        BdLog.e("blmsdk:dealUserLeaved chatStatus=" + this.mChatStatus + "isChatSender =" + WE());
+        if (WE()) {
+            if (this.mChatStatus == c.bHk) {
+                this.bRq.c(str, d.aP("user_leave", str), this.bRy);
+                Sa();
+                ek(c.bHg);
+                WG();
+                if (this.bRr != null) {
+                    this.bRr.D(str, false);
                 }
-            } else if (this.mChatStatus == c.bFJ) {
-                this.bPQ.c(str, d.aP("user_leave_in_connecting", str), this.bPY);
-                RX();
-                ej(c.bFG);
-                WD();
-                if (this.bPR != null) {
-                    this.bPR.p(c.bPz, true);
+            } else if (this.mChatStatus == c.bHj) {
+                this.bRq.c(str, d.aP("user_leave_in_connecting", str), this.bRy);
+                Sa();
+                ek(c.bHg);
+                WG();
+                if (this.bRr != null) {
+                    this.bRr.p(c.bQZ, true);
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hO(String str) {
+    public void hU(String str) {
         BdLog.e("blmsdk:dealRoomClosed chatStatus=" + this.mChatStatus + "|chatRoomId=" + str);
-        if (!WB()) {
-            if (this.mChatStatus == c.bFK) {
-                this.bPQ.b(this.bPV, d.aP("room_closed", this.bPV), this.bPY);
-                RX();
-                ej(c.bFG);
-                WD();
-                if (this.bPR != null) {
-                    this.bPR.D(this.bPV, false);
+        if (!WE()) {
+            if (this.mChatStatus == c.bHk) {
+                this.bRq.b(this.bRv, d.aP("room_closed", this.bRv), this.bRy);
+                Sa();
+                ek(c.bHg);
+                WG();
+                if (this.bRr != null) {
+                    this.bRr.D(this.bRv, false);
                 }
-            } else if (this.mChatStatus == c.bFJ) {
-                RX();
-                ej(c.bFG);
-                WD();
-                if (this.bPR != null) {
-                    this.bPR.p(c.bPz, true);
+            } else if (this.mChatStatus == c.bHj) {
+                Sa();
+                ek(c.bHg);
+                WG();
+                if (this.bRr != null) {
+                    this.bRr.p(c.bQZ, true);
                 }
             }
         }
     }
 
-    private void WD() {
-        this.bPS = null;
-        this.bPT = null;
-        this.bPV = null;
+    private void WG() {
+        this.bRs = null;
+        this.bRt = null;
+        this.bRv = null;
     }
 
     @Override // com.baidu.live.videochat.d.a
     public void dz(boolean z) {
-        BdLog.e("blmsdk:chatStatus=" + this.mChatStatus + "|isChatSender()=" + WB());
-        if (WB()) {
+        BdLog.e("blmsdk:chatStatus=" + this.mChatStatus + "|isChatSender()=" + WE());
+        if (WE()) {
             dA(z);
         } else {
             dB(z);
         }
     }
 
-    private void RY() {
-        BdLog.e("blmsdk:chatStatus=" + this.mChatStatus + "|mAuthorLiveRecorder=" + this.bFr);
-        final com.baidu.live.alablmsdk.c.a.a yG = this.bPQ.xl().yG();
-        if (this.bFr != null) {
-            this.bFr.setRecorderErrorCallback(new RecorderErrorCallback() { // from class: com.baidu.live.videochat.d.g.2
+    private void Sb() {
+        BdLog.e("blmsdk:chatStatus=" + this.mChatStatus + "|mAuthorLiveRecorder=" + this.bGR);
+        final com.baidu.live.alablmsdk.c.a.a yJ = this.bRq.xo().yJ();
+        if (this.bGR != null) {
+            this.bGR.setRecorderErrorCallback(new RecorderErrorCallback() { // from class: com.baidu.live.videochat.d.g.2
                 @Override // com.baidu.ala.recorder.RecorderErrorCallback
                 public void onError(int i, String str) {
-                    if (yG != null) {
-                        yG.onError(i, str);
+                    if (yJ != null) {
+                        yJ.onError(i, str);
                     }
                 }
             });
-            this.bFr.setEnableCloudRtc(true, new EGLTextureReader.OnPixelReadCallback() { // from class: com.baidu.live.videochat.d.g.3
+            this.bGR.setEnableCloudRtc(true, new EGLTextureReader.OnPixelReadCallback() { // from class: com.baidu.live.videochat.d.g.3
                 @Override // com.baidu.ala.dumixar.EGLTextureReader.OnPixelReadCallback
                 public void onPixelRead(byte[] bArr, int i, int i2) {
-                    if (yG == null) {
-                        BdLog.e("blmsdk:chatStatus=" + g.this.mChatStatus + "|capturer=" + yG);
+                    if (yJ == null) {
+                        BdLog.e("blmsdk:chatStatus=" + g.this.mChatStatus + "|capturer=" + yJ);
                     } else {
-                        yG.onPixelRead(bArr, i, i2);
+                        yJ.onPixelRead(bArr, i, i2);
                     }
                 }
             });
@@ -890,30 +890,30 @@ public class g implements a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void WE() {
+    public void WH() {
         BdLog.e("blmsdk:chatStatus=" + this.mChatStatus);
-        if (this.bPQ != null) {
+        if (this.bRq != null) {
             com.baidu.live.alablmsdk.a.b.a.d("StreamArrive" + this.isMute);
-            this.bPQ.aY(this.isMute);
+            this.bRq.aY(this.isMute);
         }
-        if (this.bPR != null) {
-            this.bPR.VT();
+        if (this.bRr != null) {
+            this.bRr.VW();
         }
     }
 
     @Override // com.baidu.live.videochat.d.a
-    public View MS() {
+    public View MV() {
         BdLog.e("blmsdk:chatStatus=" + this.mChatStatus);
-        return WB() ? this.bPQ.xl().j(this.bPS) : this.bPQ.xl().j(this.bPT);
+        return WE() ? this.bRq.xo().j(this.bRs) : this.bRq.xo().j(this.bRt);
     }
 
-    private void RX() {
+    private void Sa() {
         BdLog.e("blmsdk:chatStatus=" + this.mChatStatus);
         this.mMainHandler.post(new Runnable() { // from class: com.baidu.live.videochat.d.g.4
             @Override // java.lang.Runnable
             public void run() {
-                g.this.bFr.setEnableCloudRtc(false, null);
-                g.this.bFr.startPush();
+                g.this.bGR.setEnableCloudRtc(false, null);
+                g.this.bGR.startPush();
             }
         });
     }
@@ -921,15 +921,15 @@ public class g implements a {
     @Override // com.baidu.live.videochat.d.a
     public void onDestroy() {
         BdLog.e("blmsdk:chatStatus=" + this.mChatStatus);
-        this.bFr = null;
+        this.bGR = null;
         if (this.mMainHandler != null) {
             this.mMainHandler.removeCallbacksAndMessages(null);
             this.mMainHandler = null;
         }
-        if (this.bPQ != null) {
-            this.bPQ.onRelease();
-            this.bPQ = null;
+        if (this.bRq != null) {
+            this.bRq.onRelease();
+            this.bRq = null;
         }
-        com.baidu.live.yyrtc.a.ZK().release();
+        com.baidu.live.yyrtc.a.ZN().release();
     }
 }

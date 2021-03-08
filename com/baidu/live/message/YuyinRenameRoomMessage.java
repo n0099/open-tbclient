@@ -1,16 +1,16 @@
 package com.baidu.live.message;
 
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class YuyinRenameRoomMessage extends CustomResponsedMessage<RenameRoom> {
-    private RenameRoom bvk;
+    private RenameRoom bwK;
 
     public YuyinRenameRoomMessage(RenameRoom renameRoom) {
         super(2501029);
-        this.bvk = renameRoom;
+        this.bwK = renameRoom;
     }
 
-    public RenameRoom OB() {
-        return this.bvk;
+    public RenameRoom OE() {
+        return this.bwK;
     }
 }

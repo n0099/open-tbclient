@@ -15,7 +15,7 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public final class a {
     static {
-        String[] strArr = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "getNetworkIso", com.baidu.pass.biometrics.face.liveness.d.b.f4046a, "c", "d", "e", "f"};
+        String[] strArr = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "getNetworkIso", com.baidu.pass.biometrics.face.liveness.d.b.f2804a, "c", "d", "e", "f"};
     }
 
     public static boolean a() {
@@ -35,9 +35,9 @@ public final class a {
         int i4 = 0;
         while (i2 < 256) {
             int i5 = ((bArr[i4] & 255) + (bArr2[i2] & 255) + i3) & 255;
-            byte b2 = bArr2[i2];
+            byte b = bArr2[i2];
             bArr2[i2] = bArr2[i5];
-            bArr2[i5] = b2;
+            bArr2[i5] = b;
             i4 = (i4 + 1) % bArr.length;
             i2++;
             i3 = i5;
@@ -104,9 +104,9 @@ public final class a {
         while (i < bArr.length) {
             i3 = (i3 + 1) & 255;
             int i4 = ((a2[i3] & 255) + i2) & 255;
-            byte b2 = a2[i3];
+            byte b = a2[i3];
             a2[i3] = a2[i4];
-            a2[i4] = b2;
+            a2[i4] = b;
             bArr3[i] = (byte) (a2[((a2[i3] & 255) + (a2[i4] & 255)) & 255] ^ bArr[i]);
             bArr3[i] = (byte) (bArr3[i] ^ 42);
             i++;
@@ -115,7 +115,7 @@ public final class a {
         return bArr3;
     }
 
-    public static String[] jg(Context context) {
+    public static String[] ja(Context context) {
         List<SubscriptionInfo> activeSubscriptionInfoList;
         String str;
         try {

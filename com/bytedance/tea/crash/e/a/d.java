@@ -9,7 +9,7 @@ import android.content.IntentFilter;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f7640a;
+    private int f5170a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(Context context) {
@@ -24,7 +24,7 @@ public class d {
     }
 
     public int a() {
-        return this.f7640a;
+        return this.f5170a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -36,7 +36,7 @@ public class d {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if ("android.intent.action.BATTERY_CHANGED".equals(intent.getAction())) {
-                d.this.f7640a = (int) ((intent.getIntExtra("level", 0) * 100.0f) / intent.getIntExtra("scale", 100));
+                d.this.f5170a = (int) ((intent.getIntExtra("level", 0) * 100.0f) / intent.getIntExtra("scale", 100));
             }
         }
     }

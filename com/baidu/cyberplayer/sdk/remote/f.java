@@ -16,10 +16,8 @@ import org.json.JSONObject;
 public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerManager.OnBufferingUpdateListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnMediaSourceChangedListener, CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnSeekCompleteListener, CyberPlayerManager.OnVideoSizeChangedListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private CyberPlayer f1801a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f1802b;
+    private CyberPlayer f1448a;
+    private int b;
     private RemotePlayerService c;
     private Surface e;
     private RemoteCallbackList<d> d = new RemoteCallbackList<>();
@@ -27,22 +25,22 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(int i, RemotePlayerService remotePlayerService) {
-        this.f1802b = i;
+        this.b = i;
         this.c = remotePlayerService;
-        this.f1801a = new CyberPlayer(this.f1802b, this, false);
-        this.f1801a.setIsInMainProcess(false);
-        this.f1801a.setOnPreparedListener(this);
-        this.f1801a.setOnCompletionListener(this);
-        this.f1801a.setOnBufferingUpdateListener(this);
-        this.f1801a.setOnVideoSizeChangedListener(this);
-        this.f1801a.setOnSeekCompleteListener(this);
-        this.f1801a.setOnErrorListener(this);
-        this.f1801a.setOnInfoListener(this);
-        this.f1801a.setOnMediaSourceChangedListener(this);
+        this.f1448a = new CyberPlayer(this.b, this, false);
+        this.f1448a.setIsInMainProcess(false);
+        this.f1448a.setOnPreparedListener(this);
+        this.f1448a.setOnCompletionListener(this);
+        this.f1448a.setOnBufferingUpdateListener(this);
+        this.f1448a.setOnVideoSizeChangedListener(this);
+        this.f1448a.setOnSeekCompleteListener(this);
+        this.f1448a.setOnErrorListener(this);
+        this.f1448a.setOnInfoListener(this);
+        this.f1448a.setOnMediaSourceChangedListener(this);
     }
 
     private CyberPlayer q() {
-        return this.f1801a;
+        return this.f1448a;
     }
 
     @Override // com.baidu.cyberplayer.sdk.remote.b
@@ -244,8 +242,8 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     @Override // com.baidu.cyberplayer.sdk.remote.b
     public void l() {
         synchronized (this) {
-            if (this.f1801a != null) {
-                this.f1801a.release();
+            if (this.f1448a != null) {
+                this.f1448a.release();
             }
         }
         synchronized (this.d) {
@@ -344,7 +342,7 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
     public boolean onInfo(int i, int i2, Object obj) {
         boolean z;
-        boolean b2;
+        boolean b;
         synchronized (this.d) {
             int beginBroadcast = this.d.beginBroadcast();
             int i3 = 0;
@@ -353,16 +351,16 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                 d broadcastItem = this.d.getBroadcastItem(i3);
                 if (broadcastItem != null) {
                     try {
-                        b2 = broadcastItem.b(i, i2, obj instanceof String ? (String) obj : null);
+                        b = broadcastItem.b(i, i2, obj instanceof String ? (String) obj : null);
                     } catch (RemoteException e) {
                         e.printStackTrace();
                     }
                     i3++;
-                    z = b2;
+                    z = b;
                 }
-                b2 = z;
+                b = z;
                 i3++;
-                z = b2;
+                z = b;
             }
             this.d.finishBroadcast();
         }

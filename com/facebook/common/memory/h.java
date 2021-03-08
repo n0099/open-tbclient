@@ -3,27 +3,27 @@ package com.facebook.common.memory;
 import java.io.InputStream;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class h extends InputStream {
     int mOffset;
-    final PooledByteBuffer pzB;
-    int pzC;
+    final PooledByteBuffer pBG;
+    int pBH;
 
     public h(PooledByteBuffer pooledByteBuffer) {
         com.facebook.common.internal.g.checkArgument(!pooledByteBuffer.isClosed());
-        this.pzB = (PooledByteBuffer) com.facebook.common.internal.g.checkNotNull(pooledByteBuffer);
+        this.pBG = (PooledByteBuffer) com.facebook.common.internal.g.checkNotNull(pooledByteBuffer);
         this.mOffset = 0;
-        this.pzC = 0;
+        this.pBH = 0;
     }
 
     @Override // java.io.InputStream
     public int available() {
-        return this.pzB.size() - this.mOffset;
+        return this.pBG.size() - this.mOffset;
     }
 
     @Override // java.io.InputStream
     public void mark(int i) {
-        this.pzC = this.mOffset;
+        this.pBH = this.mOffset;
     }
 
     @Override // java.io.InputStream
@@ -36,10 +36,10 @@ public class h extends InputStream {
         if (available() <= 0) {
             return -1;
         }
-        PooledByteBuffer pooledByteBuffer = this.pzB;
+        PooledByteBuffer pooledByteBuffer = this.pBG;
         int i = this.mOffset;
         this.mOffset = i + 1;
-        return pooledByteBuffer.OV(i) & 255;
+        return pooledByteBuffer.OZ(i) & 255;
     }
 
     @Override // java.io.InputStream
@@ -60,14 +60,14 @@ public class h extends InputStream {
             return 0;
         }
         int min = Math.min(available, i2);
-        this.pzB.c(this.mOffset, bArr, i, min);
+        this.pBG.c(this.mOffset, bArr, i, min);
         this.mOffset += min;
         return min;
     }
 
     @Override // java.io.InputStream
     public void reset() {
-        this.mOffset = this.pzC;
+        this.mOffset = this.pBH;
     }
 
     @Override // java.io.InputStream

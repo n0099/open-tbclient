@@ -8,7 +8,7 @@ import android.os.Looper;
 import android.webkit.ValueCallback;
 import com.baidu.webkit.sdk.CookieManager;
 import com.baidu.webkit.sdk.WebView;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 final class CookieManagerImpl extends CookieManager {
     static final /* synthetic */ boolean $assertionsDisabled;
     private HandlerThread cookieThread;

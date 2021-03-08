@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.v;
 import tbclient.GetIconList.GetIconListReqIdl;
 import tbclient.GetIconList.ReqData;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class GetYinJiRequestMessage extends NetMessage {
     private String st_type;
 

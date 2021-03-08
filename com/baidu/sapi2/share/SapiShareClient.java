@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public final class SapiShareClient {
     public static final String EXTRA_APP_PKG = "PKG";
     public static final String EXTRA_FACE_LOGIN_MODEL = "FACE_LOGIN_MODEL";
@@ -49,47 +49,41 @@ public final class SapiShareClient {
     static final String j = "baidu.intent.action.account.SHARE_ACTIVITY";
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile int f5020a = 0;
-
-    /* renamed from: b  reason: collision with root package name */
-    private volatile boolean f5021b = true;
+    private volatile int f3397a = 0;
+    private volatile boolean b = true;
     private static final SapiShareClient m = new SapiShareClient();
     private static SapiConfiguration k = SapiAccountManager.getInstance().getSapiConfiguration();
     private static SapiContext l = SapiContext.getInstance();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ List f5022a;
-
-        /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ Handler f5023b;
+        final /* synthetic */ List f3398a;
+        final /* synthetic */ Handler b;
         final /* synthetic */ SapiAccount c;
         final /* synthetic */ boolean d;
         final /* synthetic */ HandlerThread e;
 
         /* renamed from: com.baidu.sapi2.share.SapiShareClient$a$a  reason: collision with other inner class name */
-        /* loaded from: classes15.dex */
-        class ServiceConnectionC0324a implements ServiceConnection {
+        /* loaded from: classes3.dex */
+        class ServiceConnectionC0330a implements ServiceConnection {
 
             /* renamed from: a  reason: collision with root package name */
-            final /* synthetic */ Runnable f5024a;
+            final /* synthetic */ Runnable f3399a;
 
             /* renamed from: com.baidu.sapi2.share.SapiShareClient$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes15.dex */
-            class RunnableC0325a implements Runnable {
+            /* loaded from: classes3.dex */
+            class RunnableC0331a implements Runnable {
 
                 /* renamed from: a  reason: collision with root package name */
-                final /* synthetic */ IBinder f5026a;
+                final /* synthetic */ IBinder f3400a;
+                final /* synthetic */ ServiceConnection b;
 
-                /* renamed from: b  reason: collision with root package name */
-                final /* synthetic */ ServiceConnection f5027b;
-
-                RunnableC0325a(IBinder iBinder, ServiceConnection serviceConnection) {
-                    this.f5026a = iBinder;
-                    this.f5027b = serviceConnection;
+                RunnableC0331a(IBinder iBinder, ServiceConnection serviceConnection) {
+                    this.f3400a = iBinder;
+                    this.b = serviceConnection;
                 }
 
                 /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, IGET, IGET, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
@@ -100,40 +94,40 @@ public final class SapiShareClient {
                         if (a.this.d) {
                             shareModel = new ShareModel(ShareEvent.VALIDATE);
                         }
-                        this.f5026a.transact(0, SapiShareClient.a(shareModel, a.this.d), Parcel.obtain(), 0);
+                        this.f3400a.transact(0, SapiShareClient.a(shareModel, a.this.d), Parcel.obtain(), 0);
                     } catch (Throwable th) {
                         try {
                             Log.e(th);
                             try {
-                                SapiShareClient.k.context.unbindService(this.f5027b);
+                                SapiShareClient.k.context.unbindService(this.b);
                             } catch (Throwable th2) {
                                 Log.e(th2);
                             }
                         } finally {
                             try {
-                                SapiShareClient.k.context.unbindService(this.f5027b);
+                                SapiShareClient.k.context.unbindService(this.b);
                             } catch (Throwable th3) {
                                 Log.e(th3);
                             }
                         }
                     }
-                    a.this.f5022a.remove(0);
-                    if (!a.this.f5022a.isEmpty()) {
-                        ServiceConnectionC0324a serviceConnectionC0324a = ServiceConnectionC0324a.this;
-                        a.this.f5023b.post(serviceConnectionC0324a.f5024a);
+                    a.this.f3398a.remove(0);
+                    if (!a.this.f3398a.isEmpty()) {
+                        ServiceConnectionC0330a serviceConnectionC0330a = ServiceConnectionC0330a.this;
+                        a.this.b.post(serviceConnectionC0330a.f3399a);
                         return;
                     }
                     a.this.e.quit();
                 }
             }
 
-            ServiceConnectionC0324a(Runnable runnable) {
-                this.f5024a = runnable;
+            ServiceConnectionC0330a(Runnable runnable) {
+                this.f3399a = runnable;
             }
 
             @Override // android.content.ServiceConnection
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                a.this.f5023b.post(new RunnableC0325a(iBinder, this));
+                a.this.b.post(new RunnableC0331a(iBinder, this));
             }
 
             @Override // android.content.ServiceConnection
@@ -142,8 +136,8 @@ public final class SapiShareClient {
         }
 
         a(List list, Handler handler, SapiAccount sapiAccount, boolean z, HandlerThread handlerThread) {
-            this.f5022a = list;
-            this.f5023b = handler;
+            this.f3398a = list;
+            this.b = handler;
             this.c = sapiAccount;
             this.d = z;
             this.e = handlerThread;
@@ -151,12 +145,12 @@ public final class SapiShareClient {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (!this.f5022a.isEmpty()) {
+            if (!this.f3398a.isEmpty()) {
                 try {
-                    if (!SapiShareClient.k.context.bindService((Intent) this.f5022a.get(0), new ServiceConnectionC0324a(this), 1)) {
-                        this.f5022a.remove(0);
-                        if (!this.f5022a.isEmpty()) {
-                            this.f5023b.post(this);
+                    if (!SapiShareClient.k.context.bindService((Intent) this.f3398a.get(0), new ServiceConnectionC0330a(this), 1)) {
+                        this.f3398a.remove(0);
+                        if (!this.f3398a.isEmpty()) {
+                            this.b.post(this);
                         } else {
                             this.e.quit();
                         }
@@ -169,63 +163,59 @@ public final class SapiShareClient {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ List f5028a;
-
-        /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ Handler f5029b;
+        final /* synthetic */ List f3401a;
+        final /* synthetic */ Handler b;
         final /* synthetic */ SapiAccount c;
         final /* synthetic */ HandlerThread d;
 
-        /* loaded from: classes15.dex */
+        /* loaded from: classes3.dex */
         class a implements ServiceConnection {
 
             /* renamed from: a  reason: collision with root package name */
-            final /* synthetic */ Runnable f5030a;
+            final /* synthetic */ Runnable f3402a;
 
             /* renamed from: com.baidu.sapi2.share.SapiShareClient$b$a$a  reason: collision with other inner class name */
-            /* loaded from: classes15.dex */
-            class RunnableC0326a implements Runnable {
+            /* loaded from: classes3.dex */
+            class RunnableC0332a implements Runnable {
 
                 /* renamed from: a  reason: collision with root package name */
-                final /* synthetic */ IBinder f5032a;
+                final /* synthetic */ IBinder f3403a;
+                final /* synthetic */ ServiceConnection b;
 
-                /* renamed from: b  reason: collision with root package name */
-                final /* synthetic */ ServiceConnection f5033b;
-
-                RunnableC0326a(IBinder iBinder, ServiceConnection serviceConnection) {
-                    this.f5032a = iBinder;
-                    this.f5033b = serviceConnection;
+                RunnableC0332a(IBinder iBinder, ServiceConnection serviceConnection) {
+                    this.f3403a = iBinder;
+                    this.b = serviceConnection;
                 }
 
                 /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, IGET, IGET, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        this.f5032a.transact(0, SapiShareClient.a(new ShareModel(ShareEvent.INVALIDATE, null, Collections.singletonList(b.this.c)), false), Parcel.obtain(), 0);
+                        this.f3403a.transact(0, SapiShareClient.a(new ShareModel(ShareEvent.INVALIDATE, null, Collections.singletonList(b.this.c)), false), Parcel.obtain(), 0);
                     } catch (Throwable th) {
                         try {
                             Log.e(th);
                             try {
-                                SapiShareClient.k.context.unbindService(this.f5033b);
+                                SapiShareClient.k.context.unbindService(this.b);
                             } catch (Throwable th2) {
                                 Log.e(th2);
                             }
                         } finally {
                             try {
-                                SapiShareClient.k.context.unbindService(this.f5033b);
+                                SapiShareClient.k.context.unbindService(this.b);
                             } catch (Throwable th3) {
                                 Log.e(th3);
                             }
                         }
                     }
-                    b.this.f5028a.remove(0);
-                    if (!b.this.f5028a.isEmpty()) {
+                    b.this.f3401a.remove(0);
+                    if (!b.this.f3401a.isEmpty()) {
                         a aVar = a.this;
-                        b.this.f5029b.post(aVar.f5030a);
+                        b.this.b.post(aVar.f3402a);
                         return;
                     }
                     b.this.d.quit();
@@ -233,12 +223,12 @@ public final class SapiShareClient {
             }
 
             a(Runnable runnable) {
-                this.f5030a = runnable;
+                this.f3402a = runnable;
             }
 
             @Override // android.content.ServiceConnection
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                b.this.f5029b.post(new RunnableC0326a(iBinder, this));
+                b.this.b.post(new RunnableC0332a(iBinder, this));
             }
 
             @Override // android.content.ServiceConnection
@@ -247,20 +237,20 @@ public final class SapiShareClient {
         }
 
         b(List list, Handler handler, SapiAccount sapiAccount, HandlerThread handlerThread) {
-            this.f5028a = list;
-            this.f5029b = handler;
+            this.f3401a = list;
+            this.b = handler;
             this.c = sapiAccount;
             this.d = handlerThread;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (!this.f5028a.isEmpty()) {
+            if (!this.f3401a.isEmpty()) {
                 try {
-                    if (!SapiShareClient.k.context.bindService((Intent) this.f5028a.get(0), new a(this), 1)) {
-                        this.f5028a.remove(0);
-                        if (!this.f5028a.isEmpty()) {
-                            this.f5029b.post(this);
+                    if (!SapiShareClient.k.context.bindService((Intent) this.f3401a.get(0), new a(this), 1)) {
+                        this.f3401a.remove(0);
+                        if (!this.f3401a.isEmpty()) {
+                            this.b.post(this);
                         } else {
                             this.d.quit();
                         }
@@ -272,36 +262,32 @@ public final class SapiShareClient {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     static class c implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ List f5034a;
-
-        /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ boolean f5035b;
+        final /* synthetic */ List f3404a;
+        final /* synthetic */ boolean b;
         final /* synthetic */ Handler c;
         final /* synthetic */ HandlerThread d;
 
-        /* loaded from: classes15.dex */
+        /* loaded from: classes3.dex */
         class a implements ServiceConnection {
 
             /* renamed from: a  reason: collision with root package name */
-            final /* synthetic */ Runnable f5036a;
+            final /* synthetic */ Runnable f3405a;
 
             /* renamed from: com.baidu.sapi2.share.SapiShareClient$c$a$a  reason: collision with other inner class name */
-            /* loaded from: classes15.dex */
-            class RunnableC0327a implements Runnable {
+            /* loaded from: classes3.dex */
+            class RunnableC0333a implements Runnable {
 
                 /* renamed from: a  reason: collision with root package name */
-                final /* synthetic */ IBinder f5038a;
+                final /* synthetic */ IBinder f3406a;
+                final /* synthetic */ ServiceConnection b;
 
-                /* renamed from: b  reason: collision with root package name */
-                final /* synthetic */ ServiceConnection f5039b;
-
-                RunnableC0327a(IBinder iBinder, ServiceConnection serviceConnection) {
-                    this.f5038a = iBinder;
-                    this.f5039b = serviceConnection;
+                RunnableC0333a(IBinder iBinder, ServiceConnection serviceConnection) {
+                    this.f3406a = iBinder;
+                    this.b = serviceConnection;
                 }
 
                 /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, IGET, IGET, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
@@ -310,10 +296,10 @@ public final class SapiShareClient {
                     try {
                         Parcel a2 = SapiShareClient.a(new ShareModel(ShareEvent.SYNC_REQ), false);
                         Parcel obtain = Parcel.obtain();
-                        if (this.f5038a.transact(0, a2, obtain, 0)) {
+                        if (this.f3406a.transact(0, a2, obtain, 0)) {
                             SapiShareClient.b(obtain);
                         }
-                        if (c.this.f5035b) {
+                        if (c.this.b) {
                             HashMap hashMap = new HashMap();
                             hashMap.put("cuid", SapiUtils.getClientId(SapiShareClient.k.context));
                             hashMap.put(Config.DEVICE_PART, Build.MODEL);
@@ -331,22 +317,22 @@ public final class SapiShareClient {
                         try {
                             Log.e(th);
                             try {
-                                SapiShareClient.k.context.unbindService(this.f5039b);
+                                SapiShareClient.k.context.unbindService(this.b);
                             } catch (Throwable th2) {
                                 Log.e(th2);
                             }
                         } finally {
                             try {
-                                SapiShareClient.k.context.unbindService(this.f5039b);
+                                SapiShareClient.k.context.unbindService(this.b);
                             } catch (Throwable th3) {
                                 Log.e(th3);
                             }
                         }
                     }
-                    c.this.f5034a.remove(0);
-                    if (!c.this.f5034a.isEmpty() && SapiShareClient.l.getShareAccounts().size() < 5) {
+                    c.this.f3404a.remove(0);
+                    if (!c.this.f3404a.isEmpty() && SapiShareClient.l.getShareAccounts().size() < 5) {
                         a aVar = a.this;
-                        c.this.c.post(aVar.f5036a);
+                        c.this.c.post(aVar.f3405a);
                         return;
                     }
                     c.this.d.quit();
@@ -354,12 +340,12 @@ public final class SapiShareClient {
             }
 
             a(Runnable runnable) {
-                this.f5036a = runnable;
+                this.f3405a = runnable;
             }
 
             @Override // android.content.ServiceConnection
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                c.this.c.post(new RunnableC0327a(iBinder, this));
+                c.this.c.post(new RunnableC0333a(iBinder, this));
             }
 
             @Override // android.content.ServiceConnection
@@ -368,26 +354,26 @@ public final class SapiShareClient {
         }
 
         c(List list, boolean z, Handler handler, HandlerThread handlerThread) {
-            this.f5034a = list;
-            this.f5035b = z;
+            this.f3404a = list;
+            this.b = z;
             this.c = handler;
             this.d = handlerThread;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (!this.f5034a.isEmpty()) {
+            if (!this.f3404a.isEmpty()) {
                 try {
-                    if (this.f5035b) {
+                    if (this.b) {
                         HashMap hashMap = new HashMap();
                         hashMap.put("cuid", SapiUtils.getClientId(SapiShareClient.k.context));
                         hashMap.put(Config.DEVICE_PART, Build.MODEL);
-                        hashMap.put("num", this.f5034a.size() + "");
+                        hashMap.put("num", this.f3404a.size() + "");
                         k.a("share_silent_account", hashMap);
                     }
-                    if (!SapiShareClient.k.context.bindService((Intent) this.f5034a.get(0), new a(this), 1)) {
-                        this.f5034a.remove(0);
-                        if (!this.f5034a.isEmpty() && SapiShareClient.l.getShareAccounts().size() < 5) {
+                    if (!SapiShareClient.k.context.bindService((Intent) this.f3404a.get(0), new a(this), 1)) {
+                        this.f3404a.remove(0);
+                        if (!this.f3404a.isEmpty() && SapiShareClient.l.getShareAccounts().size() < 5) {
                             this.c.post(this);
                         } else {
                             this.d.quit();
@@ -400,7 +386,7 @@ public final class SapiShareClient {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     class d implements Application.ActivityLifecycleCallbacks {
         d() {
         }
@@ -427,9 +413,9 @@ public final class SapiShareClient {
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(Activity activity) {
-            if (SapiShareClient.this.f5020a == 0) {
-                if (SapiShareClient.this.f5021b) {
-                    SapiShareClient.this.f5021b = false;
+            if (SapiShareClient.this.f3397a == 0) {
+                if (SapiShareClient.this.b) {
+                    SapiShareClient.this.b = false;
                 } else {
                     new com.baidu.sapi2.share.b().a(1);
                 }
@@ -447,8 +433,8 @@ public final class SapiShareClient {
     }
 
     static /* synthetic */ int c(SapiShareClient sapiShareClient) {
-        int i2 = sapiShareClient.f5020a;
-        sapiShareClient.f5020a = i2 - 1;
+        int i2 = sapiShareClient.f3397a;
+        sapiShareClient.f3397a = i2 - 1;
         return i2;
     }
 
@@ -508,7 +494,7 @@ public final class SapiShareClient {
     }
 
     public List<ShareStorage.StorageModel> getShareStorageModel(Context context) {
-        if (k.loginShareStrategy() != LoginShareStrategy.DISABLED && !com.baidu.sapi2.utils.enums.a.f5131b.equals(k.loginShareDirection())) {
+        if (k.loginShareStrategy() != LoginShareStrategy.DISABLED && !com.baidu.sapi2.utils.enums.a.b.equals(k.loginShareDirection())) {
             return e.a();
         }
         return new ArrayList(0);
@@ -518,7 +504,7 @@ public final class SapiShareClient {
     public void invalidate(SapiAccount sapiAccount) {
         if (sapiAccount != null && !sapiAccount.isGuestAccount() && k.loginShareStrategy() != LoginShareStrategy.DISABLED) {
             l.removeShareAccount(sapiAccount);
-            if (!isInShareBlackList() && !c() && !com.baidu.sapi2.utils.enums.a.f5130a.equals(k.loginShareDirection())) {
+            if (!isInShareBlackList() && !c() && !com.baidu.sapi2.utils.enums.a.f3460a.equals(k.loginShareDirection())) {
                 HandlerThread handlerThread = new HandlerThread("InvalidateThread");
                 handlerThread.start();
                 Handler handler = new Handler(handlerThread.getLooper());
@@ -580,8 +566,8 @@ public final class SapiShareClient {
     }
 
     static /* synthetic */ int b(SapiShareClient sapiShareClient) {
-        int i2 = sapiShareClient.f5020a;
-        sapiShareClient.f5020a = i2 + 1;
+        int i2 = sapiShareClient.f3397a;
+        sapiShareClient.f3397a = i2 + 1;
         return i2;
     }
 
@@ -595,7 +581,7 @@ public final class SapiShareClient {
 
     @TargetApi(5)
     private static void d() {
-        if (!c() && !com.baidu.sapi2.utils.enums.a.f5131b.equals(k.loginShareDirection())) {
+        if (!c() && !com.baidu.sapi2.utils.enums.a.b.equals(k.loginShareDirection())) {
             HandlerThread handlerThread = new HandlerThread("SyncThread");
             handlerThread.start();
             Handler handler = new Handler(handlerThread.getLooper());
@@ -605,7 +591,7 @@ public final class SapiShareClient {
 
     @TargetApi(5)
     void a(SapiAccount sapiAccount, List<Intent> list, boolean z) {
-        if (!com.baidu.sapi2.utils.enums.a.f5130a.equals(k.loginShareDirection()) && !sapiAccount.isGuestAccount()) {
+        if (!com.baidu.sapi2.utils.enums.a.f3460a.equals(k.loginShareDirection()) && !sapiAccount.isGuestAccount()) {
             HandlerThread handlerThread = new HandlerThread("ValidateThread");
             handlerThread.start();
             Handler handler = new Handler(handlerThread.getLooper());

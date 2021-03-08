@@ -3,9 +3,9 @@ package com.baidu.swan.apps.canvas.a.a;
 import android.graphics.Canvas;
 import android.graphics.DashPathEffect;
 import org.json.JSONArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ab extends a {
-    private DashPathEffect cKl;
+    private DashPathEffect cLL;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
@@ -15,19 +15,19 @@ public class ab extends a {
         if (jSONArray.length() > 0 && (optJSONArray = jSONArray.optJSONArray(0)) != null && (length = optJSONArray.length()) > 0) {
             fArr = new float[length];
             for (int i = 0; i < length; i++) {
-                fArr[i] = com.baidu.swan.apps.ao.ah.P((float) optJSONArray.optDouble(i));
+                fArr[i] = com.baidu.swan.apps.ao.ah.T((float) optJSONArray.optDouble(i));
             }
         }
-        int P = jSONArray.length() > 1 ? com.baidu.swan.apps.ao.ah.P((float) jSONArray.optDouble(1)) : 0;
-        if (fArr != null && P >= 0) {
-            this.cKl = new DashPathEffect(fArr, P);
+        int T = jSONArray.length() > 1 ? com.baidu.swan.apps.ao.ah.T((float) jSONArray.optDouble(1)) : 0;
+        if (fArr != null && T >= 0) {
+            this.cLL = new DashPathEffect(fArr, T);
         }
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (this.cKl != null) {
-            bVar.mStrokePaint.setPathEffect(this.cKl);
+        if (this.cLL != null) {
+            bVar.mStrokePaint.setPathEffect(this.cLL);
         }
     }
 }

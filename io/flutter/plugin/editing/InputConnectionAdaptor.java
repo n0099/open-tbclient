@@ -20,7 +20,7 @@ import com.baidu.searchbox.perfframe.basic.PerfFrameTrackUIUtil;
 import io.flutter.Log;
 import io.flutter.embedding.engine.systemchannels.TextInputChannel;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class InputConnectionAdaptor extends BaseInputConnection {
     private final boolean isSamsung;
     private int mBatchCount;

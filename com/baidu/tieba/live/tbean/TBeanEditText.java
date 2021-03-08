@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.widget.EditText;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class TBeanEditText extends EditText {
     public TBeanEditText(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);

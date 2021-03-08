@@ -5,7 +5,7 @@ import com.baidu.live.adp.lib.util.SecureHelper;
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class d {
     public static SecretKey a() {
         return new SecretKeySpec("aaskdffdaaskdffd".getBytes(), com.baidu.sapi2.utils.e.q);

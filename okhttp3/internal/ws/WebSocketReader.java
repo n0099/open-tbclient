@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 import okio.Buffer;
 import okio.BufferedSource;
 import okio.ByteString;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 final class WebSocketReader {
     boolean closed;
     final FrameCallback frameCallback;
@@ -23,7 +23,7 @@ final class WebSocketReader {
     private final Buffer controlFrameBuffer = new Buffer();
     private final Buffer messageFrameBuffer = new Buffer();
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface FrameCallback {
         void onReadClose(int i, String str);
 

@@ -5,10 +5,8 @@ import androidx.annotation.NonNull;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f11014a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final String f11015b;
+    private final int f7256a;
+    private final String b;
     private final String c;
     private final String d;
     private final String e;
@@ -23,15 +21,13 @@ public final class c {
 
     /* loaded from: classes3.dex */
     public static class a {
-
-        /* renamed from: b  reason: collision with root package name */
-        private String f11017b;
+        private String b;
         private String k;
         private byte[] l;
         private boolean m;
 
         /* renamed from: a  reason: collision with root package name */
-        private int f11016a = 3;
+        private int f7257a = 3;
         private String c = "sodler";
         private String d = "code-cache";
         private String e = "lib";
@@ -43,7 +39,7 @@ public final class c {
 
         public a a(int i) {
             if (i > 0) {
-                this.f11016a = i;
+                this.f7257a = i;
             }
             return this;
         }
@@ -59,13 +55,13 @@ public final class c {
         }
 
         public c a() {
-            return new c(this.j, this.i, this.f11017b, this.c, this.d, this.e, this.f, this.h, this.g, this.f11016a, this.k, this.l, this.m);
+            return new c(this.j, this.i, this.b, this.c, this.d, this.e, this.f, this.h, this.g, this.f7257a, this.k, this.l, this.m);
         }
     }
 
     private c(boolean z, boolean z2, String str, String str2, String str3, String str4, String str5, String str6, String str7, int i, String str8, byte[] bArr, boolean z3) {
-        this.f11014a = i;
-        this.f11015b = str2;
+        this.f7256a = i;
+        this.b = str2;
         this.c = str3;
         this.d = str4;
         this.e = str5;
@@ -80,11 +76,11 @@ public final class c {
     }
 
     public int a() {
-        return this.f11014a;
+        return this.f7256a;
     }
 
     public String b() {
-        return this.f11015b;
+        return this.b;
     }
 
     public String c() {

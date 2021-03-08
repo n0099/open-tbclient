@@ -3,35 +3,35 @@ package com.baidu.ubc;
 import android.text.TextUtils;
 /* loaded from: classes4.dex */
 public class k {
-    private int eyA;
-    private String eyB;
-    private String eyv;
-    private String eyw;
-    private int eyx;
-    private String eyy;
-    private int eyz;
+    private int eAa;
+    private int eAb;
+    private String eAc;
+    private String ezW;
+    private String ezX;
+    private int ezY;
+    private String ezZ;
     private String mCategory;
     private String mId;
     private int mRate;
     private String mType;
     private String mVersion;
-    private String oTB;
-    private String oTC;
-    private String oTD;
-    private String oTE;
-    private String oTF;
-    private int oTG = 2;
+    private String oVG;
+    private String oVH;
+    private String oVI;
+    private String oVJ;
+    private String oVK;
+    private int oVL = 2;
 
     public k(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
-        this.eyv = str2;
-        this.eyw = str3;
-        this.eyx = i;
+        this.ezW = str2;
+        this.ezX = str3;
+        this.ezY = i;
         this.mType = str4;
-        this.eyy = str5;
+        this.ezZ = str5;
     }
 
-    public void mj(int i) {
+    public void mk(int i) {
         this.mRate = i;
     }
 
@@ -39,47 +39,47 @@ public class k {
         this.mCategory = str;
     }
 
-    public void mk(int i) {
-        this.eyz = i;
-    }
-
     public void ml(int i) {
-        this.eyA = i;
+        this.eAa = i;
     }
 
-    public void Xw(String str) {
-        this.oTB = str;
+    public void mm(int i) {
+        this.eAb = i;
+    }
+
+    public void XD(String str) {
+        this.oVG = str;
     }
 
     public String getId() {
         return this.mId;
     }
 
-    public String beJ() {
-        return this.eyv;
+    public String beL() {
+        return this.ezW;
     }
 
-    public String beK() {
-        return this.eyw;
+    public String beM() {
+        return this.ezX;
     }
 
     public int getTimeout() {
-        return this.eyx;
+        return this.ezY;
     }
 
     public String getType() {
         return this.mType;
     }
 
-    public String beL() {
-        return this.eyy;
+    public String beN() {
+        return this.ezZ;
     }
 
-    public String ehJ() {
-        return this.oTB;
+    public String ehR() {
+        return this.oVG;
     }
 
-    public int beM() {
+    public int beO() {
         return this.mRate;
     }
 
@@ -87,28 +87,28 @@ public class k {
         return this.mCategory;
     }
 
-    public int beN() {
-        return this.eyz;
+    public int beP() {
+        return this.eAa;
     }
 
-    public int beO() {
-        return this.eyA;
+    public int beQ() {
+        return this.eAb;
     }
 
-    public void yF(String str) {
-        this.eyB = str;
+    public void yM(String str) {
+        this.eAc = str;
     }
 
-    public String beP() {
-        return this.eyB;
+    public String beR() {
+        return this.eAc;
     }
 
-    public String ehK() {
-        return this.oTC;
+    public String ehS() {
+        return this.oVH;
     }
 
-    public void Xx(String str) {
-        this.oTC = str;
+    public void XE(String str) {
+        this.oVH = str;
     }
 
     public void setVersion(String str) {
@@ -119,35 +119,35 @@ public class k {
         return TextUtils.isEmpty(this.mVersion) ? "0" : this.mVersion;
     }
 
-    public void Xy(String str) {
-        this.oTD = str;
+    public void XF(String str) {
+        this.oVI = str;
     }
 
-    public String ehL() {
-        return this.oTD;
+    public String ehT() {
+        return this.oVI;
     }
 
-    public void Xz(String str) {
-        this.oTE = str;
+    public void XG(String str) {
+        this.oVJ = str;
     }
 
-    public String ehM() {
-        return this.oTE;
+    public String ehU() {
+        return this.oVJ;
     }
 
-    public String ehN() {
-        return this.oTF;
+    public String ehV() {
+        return this.oVK;
     }
 
-    public void XA(String str) {
-        this.oTF = str;
+    public void XH(String str) {
+        this.oVK = str;
     }
 
-    public int ehO() {
-        return this.oTG;
+    public int ehW() {
+        return this.oVL;
     }
 
-    public void Nj(int i) {
-        this.oTG = i;
+    public void Nn(int i) {
+        this.oVL = i;
     }
 }

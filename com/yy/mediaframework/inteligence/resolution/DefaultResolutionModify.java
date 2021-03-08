@@ -6,7 +6,7 @@ import com.yy.mediaframework.inteligence.common.ResolutionModifyNotFoundExceptio
 import com.yy.mediaframework.utils.YMFLog;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class DefaultResolutionModify implements IResolutionModify {
     protected static final long ONE_SECOND = 1000000000;
     public static final String TAG = DefaultResolutionModify.class.getSimpleName();

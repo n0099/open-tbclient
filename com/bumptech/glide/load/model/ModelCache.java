@@ -6,7 +6,7 @@ import androidx.annotation.VisibleForTesting;
 import com.bumptech.glide.util.LruCache;
 import com.bumptech.glide.util.Util;
 import java.util.Queue;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ModelCache<A, B> {
     private static final int DEFAULT_SIZE = 250;
     private final LruCache<ModelKey<A>, B> cache;
@@ -22,7 +22,7 @@ public class ModelCache<A, B> {
                 onItemEvicted((ModelKey) ((ModelKey) obj), (ModelKey<A>) obj2);
             }
 
-            protected void onItemEvicted(@NonNull ModelKey<A> modelKey, @Nullable B b2) {
+            protected void onItemEvicted(@NonNull ModelKey<A> modelKey, @Nullable B b) {
                 modelKey.release();
             }
         };
@@ -31,13 +31,13 @@ public class ModelCache<A, B> {
     @Nullable
     public B get(A a2, int i, int i2) {
         ModelKey<A> modelKey = ModelKey.get(a2, i, i2);
-        B b2 = this.cache.get(modelKey);
+        B b = this.cache.get(modelKey);
         modelKey.release();
-        return b2;
+        return b;
     }
 
-    public void put(A a2, int i, int i2, B b2) {
-        this.cache.put(ModelKey.get(a2, i, i2), b2);
+    public void put(A a2, int i, int i2, B b) {
+        this.cache.put(ModelKey.get(a2, i, i2), b);
     }
 
     public void clear() {
@@ -46,7 +46,7 @@ public class ModelCache<A, B> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class ModelKey<A> {
         private static final Queue<ModelKey<?>> KEY_QUEUE = Util.createQueue(0);
         private int height;

@@ -10,7 +10,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class AlgoHandleController {
     private HandlerThread mo;
     private a mp;
@@ -20,7 +20,7 @@ public class AlgoHandleController {
     private long mn = 0;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static final class a extends Handler {
         private boolean cC;
 

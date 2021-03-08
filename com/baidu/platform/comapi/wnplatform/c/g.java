@@ -8,11 +8,11 @@ import android.os.Bundle;
 public class g implements LocationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f4404a;
+    final /* synthetic */ d f3050a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(d dVar) {
-        this.f4404a = dVar;
+        this.f3050a = dVar;
     }
 
     @Override // android.location.LocationListener
@@ -21,20 +21,20 @@ public class g implements LocationListener {
         Location location3;
         Location location4;
         if (location != null) {
-            location2 = this.f4404a.u;
+            location2 = this.f3050a.u;
             if (location2 == null) {
-                this.f4404a.a(location);
+                this.f3050a.a(location);
             } else {
-                d dVar = this.f4404a;
-                location3 = this.f4404a.u;
+                d dVar = this.f3050a;
+                location3 = this.f3050a.u;
                 if (dVar.a(location, location3)) {
-                    this.f4404a.u = location;
+                    this.f3050a.u = location;
                 }
-                d dVar2 = this.f4404a;
-                location4 = this.f4404a.u;
+                d dVar2 = this.f3050a;
+                location4 = this.f3050a.u;
                 dVar2.a(location4);
             }
-            this.f4404a.h = true;
+            this.f3050a.h = true;
         }
     }
 
@@ -44,7 +44,7 @@ public class g implements LocationListener {
 
     @Override // android.location.LocationListener
     public void onProviderEnabled(String str) {
-        for (a aVar : this.f4404a.f) {
+        for (a aVar : this.f3050a.f) {
             if (aVar != null) {
                 aVar.d(4);
             }
@@ -53,7 +53,7 @@ public class g implements LocationListener {
 
     @Override // android.location.LocationListener
     public void onProviderDisabled(String str) {
-        for (a aVar : this.f4404a.f) {
+        for (a aVar : this.f3050a.f) {
             if (aVar != null) {
                 aVar.d(5);
             }

@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.v;
 import tbclient.Bigvip.BigvipReqIdl;
 import tbclient.Bigvip.DataReq;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class RecommendDetailRequestMessage extends NetMessage {
     private long mUserId;
 

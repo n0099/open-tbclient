@@ -5,6 +5,7 @@ import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
@@ -24,7 +25,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class TransformationUtils {
     private static final Lock BITMAP_DRAWABLE_LOCK;
     private static final Paint CIRCLE_CROP_BITMAP_PAINT;
@@ -34,6 +35,12 @@ public final class TransformationUtils {
     private static final Paint DEFAULT_PAINT = new Paint(6);
     private static final Paint CIRCLE_CROP_SHAPE_PAINT = new Paint(7);
     private static final Set<String> MODELS_REQUIRING_BITMAP_LOCK = new HashSet(Arrays.asList("XT1085", "XT1092", "XT1093", "XT1094", "XT1095", "XT1096", "XT1097", "XT1098", "XT1031", "XT1028", "XT937C", "XT1032", "XT1008", "XT1033", "XT1035", "XT1034", "XT939G", "XT1039", "XT1040", "XT1042", "XT1045", "XT1063", "XT1064", "XT1068", "XT1069", "XT1072", "XT1077", "XT1078", "XT1079"));
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes14.dex */
+    public interface DrawRoundedCornerFn {
+        void drawRoundedCorners(Canvas canvas, Paint paint, RectF rectF);
+    }
 
     static {
         BITMAP_DRAWABLE_LOCK = MODELS_REQUIRING_BITMAP_LOCK.contains(Build.MODEL) ? new ReentrantLock() : new NoLock();
@@ -164,6 +171,7 @@ public final class TransformationUtils {
             matrix.mapRect(rectF);
             Bitmap bitmap2 = bitmapPool.get(Math.round(rectF.width()), Math.round(rectF.height()), getNonNullConfig(bitmap));
             matrix.postTranslate(-rectF.left, -rectF.top);
+            bitmap2.setHasAlpha(bitmap.hasAlpha());
             applyMatrix(bitmap, bitmap2, matrix);
             return bitmap2;
         }
@@ -236,8 +244,28 @@ public final class TransformationUtils {
         return roundedCorners(bitmapPool, bitmap, i3);
     }
 
-    public static Bitmap roundedCorners(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i) {
+    public static Bitmap roundedCorners(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, final int i) {
         Preconditions.checkArgument(i > 0, "roundingRadius must be greater than 0.");
+        return roundedCorners(bitmapPool, bitmap, new DrawRoundedCornerFn() { // from class: com.bumptech.glide.load.resource.bitmap.TransformationUtils.1
+            @Override // com.bumptech.glide.load.resource.bitmap.TransformationUtils.DrawRoundedCornerFn
+            public void drawRoundedCorners(Canvas canvas, Paint paint, RectF rectF) {
+                canvas.drawRoundRect(rectF, i, i, paint);
+            }
+        });
+    }
+
+    public static Bitmap roundedCorners(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, final float f, final float f2, final float f3, final float f4) {
+        return roundedCorners(bitmapPool, bitmap, new DrawRoundedCornerFn() { // from class: com.bumptech.glide.load.resource.bitmap.TransformationUtils.2
+            @Override // com.bumptech.glide.load.resource.bitmap.TransformationUtils.DrawRoundedCornerFn
+            public void drawRoundedCorners(Canvas canvas, Paint paint, RectF rectF) {
+                Path path = new Path();
+                path.addRoundRect(rectF, new float[]{f, f, f2, f2, f3, f3, f4, f4}, Path.Direction.CW);
+                canvas.drawPath(path, paint);
+            }
+        });
+    }
+
+    private static Bitmap roundedCorners(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, DrawRoundedCornerFn drawRoundedCornerFn) {
         Bitmap.Config alphaSafeConfig = getAlphaSafeConfig(bitmap);
         Bitmap alphaSafeBitmap = getAlphaSafeBitmap(bitmapPool, bitmap);
         Bitmap bitmap2 = bitmapPool.get(alphaSafeBitmap.getWidth(), alphaSafeBitmap.getHeight(), alphaSafeConfig);
@@ -251,7 +279,7 @@ public final class TransformationUtils {
         try {
             Canvas canvas = new Canvas(bitmap2);
             canvas.drawColor(0, PorterDuff.Mode.CLEAR);
-            canvas.drawRoundRect(rectF, i, i, paint);
+            drawRoundedCornerFn.drawRoundedCorners(canvas, paint, rectF);
             clear(canvas);
             BITMAP_DRAWABLE_LOCK.unlock();
             if (!alphaSafeBitmap.equals(bitmap)) {
@@ -316,7 +344,7 @@ public final class TransformationUtils {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static final class NoLock implements Lock {
         NoLock() {
         }

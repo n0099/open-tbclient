@@ -12,10 +12,8 @@ import java.util.List;
 public class t implements d.a<Object>, e {
 
     /* renamed from: a  reason: collision with root package name */
-    private final e.a f10250a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final f<?> f10251b;
+    private final e.a f6772a;
+    private final f<?> b;
     private int c;
     private int d = -1;
     private com.kwad.sdk.glide.load.c e;
@@ -27,8 +25,8 @@ public class t implements d.a<Object>, e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(f<?> fVar, e.a aVar) {
-        this.f10251b = fVar;
-        this.f10250a = aVar;
+        this.b = fVar;
+        this.f6772a = aVar;
     }
 
     private boolean c() {
@@ -37,27 +35,27 @@ public class t implements d.a<Object>, e {
 
     @Override // com.kwad.sdk.glide.load.a.d.a
     public void a(@NonNull Exception exc) {
-        this.f10250a.a(this.j, exc, this.h.c, DataSource.RESOURCE_DISK_CACHE);
+        this.f6772a.a(this.j, exc, this.h.c, DataSource.RESOURCE_DISK_CACHE);
     }
 
     @Override // com.kwad.sdk.glide.load.a.d.a
     public void a(Object obj) {
-        this.f10250a.a(this.e, obj, this.h.c, DataSource.RESOURCE_DISK_CACHE, this.j);
+        this.f6772a.a(this.e, obj, this.h.c, DataSource.RESOURCE_DISK_CACHE, this.j);
     }
 
     @Override // com.kwad.sdk.glide.load.engine.e
     public boolean a() {
         boolean z;
-        List<com.kwad.sdk.glide.load.c> o = this.f10251b.o();
+        List<com.kwad.sdk.glide.load.c> o = this.b.o();
         if (o.isEmpty()) {
             return false;
         }
-        List<Class<?>> l = this.f10251b.l();
+        List<Class<?>> l = this.b.l();
         if (l.isEmpty()) {
-            if (File.class.equals(this.f10251b.j())) {
+            if (File.class.equals(this.b.j())) {
                 return false;
             }
-            throw new IllegalStateException("Failed to find any load path from " + this.f10251b.k() + " to " + this.f10251b.j());
+            throw new IllegalStateException("Failed to find any load path from " + this.b.k() + " to " + this.b.j());
         }
         while (true) {
             if (this.f != null && c()) {
@@ -67,12 +65,12 @@ public class t implements d.a<Object>, e {
                     List<com.kwad.sdk.glide.load.b.n<File, ?>> list = this.f;
                     int i = this.g;
                     this.g = i + 1;
-                    this.h = list.get(i).a(this.i, this.f10251b.g(), this.f10251b.h(), this.f10251b.e());
-                    if (this.h == null || !this.f10251b.a(this.h.c.a())) {
+                    this.h = list.get(i).a(this.i, this.b.g(), this.b.h(), this.b.e());
+                    if (this.h == null || !this.b.a(this.h.c.a())) {
                         z = z2;
                     } else {
                         z = true;
-                        this.h.c.a(this.f10251b.d(), this);
+                        this.h.c.a(this.b.d(), this);
                     }
                     z2 = z;
                 }
@@ -88,11 +86,11 @@ public class t implements d.a<Object>, e {
             }
             com.kwad.sdk.glide.load.c cVar = o.get(this.c);
             Class<?> cls = l.get(this.d);
-            this.j = new u(this.f10251b.i(), cVar, this.f10251b.f(), this.f10251b.g(), this.f10251b.h(), this.f10251b.c(cls), cls, this.f10251b.e());
-            this.i = this.f10251b.b().a(this.j);
+            this.j = new u(this.b.i(), cVar, this.b.f(), this.b.g(), this.b.h(), this.b.c(cls), cls, this.b.e());
+            this.i = this.b.b().a(this.j);
             if (this.i != null) {
                 this.e = cVar;
-                this.f = this.f10251b.a(this.i);
+                this.f = this.b.a(this.i);
                 this.g = 0;
             }
         }

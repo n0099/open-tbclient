@@ -77,9 +77,9 @@ public class g extends c<UnRegisterStatus> {
             return unRegisterStatus;
         }
         this.i = o();
-        com.meizu.cloud.pushsdk.b.a.c b2 = this.j.b(this.f, this.g, this.i);
-        if (b2.b()) {
-            UnRegisterStatus unRegisterStatus2 = new UnRegisterStatus((String) b2.a());
+        com.meizu.cloud.pushsdk.b.a.c b = this.j.b(this.f, this.g, this.i);
+        if (b.b()) {
+            UnRegisterStatus unRegisterStatus2 = new UnRegisterStatus((String) b.a());
             com.meizu.cloud.a.a.e("Strategy", "network unRegisterStatus " + unRegisterStatus2);
             if (BasicPushStatus.SUCCESS_CODE.equals(unRegisterStatus2.getCode())) {
                 com.meizu.cloud.pushsdk.util.b.g(this.e, "", this.h);
@@ -87,7 +87,7 @@ public class g extends c<UnRegisterStatus> {
             }
             return unRegisterStatus2;
         }
-        com.meizu.cloud.pushsdk.b.b.a c = b2.c();
+        com.meizu.cloud.pushsdk.b.b.a c = b.c();
         if (c.a() != null) {
             com.meizu.cloud.a.a.e("Strategy", "status code=" + c.b() + " data=" + c.a());
         }

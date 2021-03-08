@@ -25,7 +25,7 @@ import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class c {
     private TbPageContext mPageContext;
-    public a meE = new a() { // from class: com.baidu.tieba.pb.pb.main.b.c.1
+    public a mgG = new a() { // from class: com.baidu.tieba.pb.pb.main.b.c.1
         @Override // com.baidu.tieba.pb.pb.main.b.c.a
         public void a(f fVar, cb cbVar, PostData postData, com.baidu.tbadk.widget.richText.a aVar) {
             String shareImageUrl;
@@ -39,7 +39,7 @@ public class c {
                     if (!StringUtils.isNull(shareImageUrl) && shareImageUrl.startsWith(TbConfig.URL_IMAGE_PREFIX)) {
                         shareImageUrl = shareImageUrl.substring(TbConfig.URL_IMAGE_PREFIX.length());
                     }
-                    cbVar = fVar.dlg();
+                    cbVar = fVar.dlp();
                     if (cbVar == null) {
                         return;
                     }
@@ -47,7 +47,7 @@ public class c {
                 n nVar = new n();
                 nVar.setContent(cbVar.getAbstract());
                 if (!StringUtils.isNull(shareImageUrl)) {
-                    nVar.Pn(shareImageUrl);
+                    nVar.Pt(shareImageUrl);
                 }
                 nVar.setThreadType(cbVar.getThreadType());
                 nVar.b(aVar);
@@ -57,17 +57,17 @@ public class c {
                     title = cbVar.getAbstract();
                 }
                 nVar.setContent(title);
-                if (cbVar.bmz()) {
+                if (cbVar.bmB()) {
                     tid = cbVar.getBaijiahaoData().oriUgcTid;
                     str = "?share=9105&fr=dshare&dtype=" + cbVar.getBaijiahaoData().oriUgcType + "&dvid=" + cbVar.getBaijiahaoData().oriUgcVid + "&nid=" + cbVar.getBaijiahaoData().oriUgcNid;
                 } else {
                     tid = cbVar.getTid();
                     str = "?share=9105&fr=share";
                 }
-                nVar.E(c.this.PU("http://tieba.baidu.com/p/" + tid + (str + "&post_id=" + postData.getId() + "&share_from=comment&post_sort=1")));
+                nVar.E(c.this.Qa("http://tieba.baidu.com/p/" + tid + (str + "&post_id=" + postData.getId() + "&share_from=comment&post_sort=1")));
                 ShareItem shareItem = new ShareItem();
                 shareItem.shareType = 1;
-                shareItem.fuO = true;
+                shareItem.fwn = true;
                 shareItem.extData = tid;
                 shareItem.pid = postData.getId();
                 Bundle bundle = new Bundle();
@@ -82,13 +82,13 @@ public class c {
                 ar arVar = new ar(TbadkCoreStatisticKey.KEY_SHARE_CLICK);
                 arVar.dR("tid", tid);
                 arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
-                if (cbVar.bpG() != null) {
-                    arVar.dR("fid", cbVar.bpG().forumId);
+                if (cbVar.bpI() != null) {
+                    arVar.dR("fid", cbVar.bpI().forumId);
                 }
-                if (cbVar.bpv() != null) {
+                if (cbVar.bpx() != null) {
                     arVar.dR("post_id", postData.getId());
                 }
-                arVar.ap("obj_locate", 21);
+                arVar.aq("obj_locate", 21);
                 TiebaStatic.log(arVar);
             }
         }
@@ -104,7 +104,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Bitmap PU(String str) {
+    public Bitmap Qa(String str) {
         CustomResponsedMessage runTask;
         if (str == null || str.length() == 0 || (runTask = MessageManager.getInstance().runTask(2921388, Bitmap.class, str)) == null || runTask.getData() == null) {
             return null;
@@ -118,21 +118,21 @@ public class c {
         if (cbVar == null) {
             return null;
         }
-        if (cbVar.boj() != null && !TextUtils.isEmpty(cbVar.boj().cover)) {
-            return cbVar.boj().cover;
+        if (cbVar.bol() != null && !TextUtils.isEmpty(cbVar.bol().cover)) {
+            return cbVar.bol().cover;
         }
-        if (cbVar.bnZ() == null) {
+        if (cbVar.bob() == null) {
             return null;
         }
-        ArrayList<MediaData> bnZ = cbVar.bnZ();
-        int size = bnZ.size();
+        ArrayList<MediaData> bob = cbVar.bob();
+        int size = bob.size();
         int i = 0;
         while (true) {
             if (i >= size) {
                 str = null;
                 break;
             }
-            MediaData mediaData = bnZ.get(i);
+            MediaData mediaData = bob.get(i);
             if (mediaData != null && (mediaData.getType() == 3 || mediaData.getType() == 5)) {
                 if (!StringUtils.isNull(mediaData.getThumbnails_url())) {
                     str = mediaData.getThumbnails_url();
@@ -144,8 +144,8 @@ public class c {
             }
             i++;
         }
-        if (str == null && cbVar.boh() != null && !TextUtils.isEmpty(cbVar.boh().thumbnail_url)) {
-            return cbVar.boh().thumbnail_url;
+        if (str == null && cbVar.boj() != null && !TextUtils.isEmpty(cbVar.boj().thumbnail_url)) {
+            return cbVar.boj().thumbnail_url;
         }
         return str;
     }

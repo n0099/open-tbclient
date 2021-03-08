@@ -2,7 +2,7 @@ package com.baidu.swan.games.f.d;
 
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.v8engine.V8EngineConfiguration;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class a implements b {
     @Override // com.baidu.swan.games.f.d.b
     public String getInitBasePath() {
@@ -10,13 +10,13 @@ public abstract class a implements b {
     }
 
     @Override // com.baidu.swan.games.f.d.b
-    public String aqo() {
+    public String aqr() {
         return null;
     }
 
     @Override // com.baidu.swan.games.f.d.b
     @Nullable
-    public V8EngineConfiguration.CodeCacheSetting aqn() {
+    public V8EngineConfiguration.CodeCacheSetting aqq() {
         return null;
     }
 

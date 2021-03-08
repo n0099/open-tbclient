@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.InputStream;
 import java.io.RandomAccessFile;
 import org.apache.http.client.methods.HttpHead;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class Downloader {
     private String rs;
     private int rt = 0;

@@ -2,13 +2,13 @@ package com.baidu.live.challenge;
 
 import com.baidu.live.data.bg;
 import com.baidu.live.data.bk;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface g {
-    void Av();
+    void AA();
 
-    void Aw();
+    void Ay();
 
-    void Ax();
+    void Az();
 
     void a(bg bgVar, bk bkVar, bk bkVar2);
 

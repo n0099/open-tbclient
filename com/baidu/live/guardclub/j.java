@@ -2,7 +2,7 @@ package com.baidu.live.guardclub;
 
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface j {
     void c(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
 
@@ -12,5 +12,5 @@ public interface j {
 
     void setOtherParams(String str);
 
-    void xh();
+    void xk();
 }

@@ -1,10 +1,10 @@
 package com.baidu.swan.apps.model.a.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a implements Cloneable {
-    protected boolean dnQ = false;
-    protected boolean dnR = false;
-    private boolean dnS = false;
-    private boolean dnT;
+    protected boolean dpu = false;
+    protected boolean dpv = false;
+    private boolean dpw = false;
+    private boolean dpx;
     protected int height;
     protected int left;
     protected int top;
@@ -20,7 +20,7 @@ public class a implements Cloneable {
         this.height = i4;
     }
 
-    public static a aCC() {
+    public static a aCF() {
         a aVar = new a();
         aVar.gj(true);
         aVar.gk(true);
@@ -34,26 +34,26 @@ public class a implements Cloneable {
     }
 
     public void gj(boolean z) {
-        this.dnQ = z;
+        this.dpu = z;
     }
 
     public void gk(boolean z) {
-        this.dnR = z;
+        this.dpv = z;
     }
 
     public boolean isFixed() {
-        return this.dnT;
+        return this.dpx;
     }
 
     public void gl(boolean z) {
-        this.dnT = z;
+        this.dpx = z;
     }
 
     public int getLeft() {
         return this.left;
     }
 
-    public void im(int i) {
+    public void in(int i) {
         this.left = i;
     }
 
@@ -61,7 +61,7 @@ public class a implements Cloneable {
         return this.top;
     }
 
-    public void in(int i) {
+    public void io(int i) {
         this.top = i;
     }
 
@@ -83,8 +83,8 @@ public class a implements Cloneable {
 
     public boolean isValid() {
         boolean z = false;
-        boolean z2 = this.dnQ || this.width >= 0;
-        if (this.dnR || this.height >= 0) {
+        boolean z2 = this.dpu || this.width >= 0;
+        if (this.dpv || this.height >= 0) {
             z = true;
         }
         return z2 & z;
@@ -96,16 +96,16 @@ public class a implements Cloneable {
         }
         if (obj instanceof a) {
             a aVar = (a) obj;
-            return this.left == aVar.left && this.top == aVar.top && this.height == aVar.height && this.width == aVar.width && this.dnT == aVar.dnT;
+            return this.left == aVar.left && this.top == aVar.top && this.height == aVar.height && this.width == aVar.width && this.dpx == aVar.dpx;
         }
         return false;
     }
 
     public boolean a(a aVar) {
-        return !equals(aVar) || this.dnS;
+        return !equals(aVar) || this.dpw;
     }
 
     public String toString() {
-        return "Position{l=" + this.left + ", t=" + this.top + ", w=" + this.width + ", h=" + this.height + ", WAuto=" + this.dnQ + ", HAuto=" + this.dnR + ", fixed=" + this.dnT + '}';
+        return "Position{l=" + this.left + ", t=" + this.top + ", w=" + this.width + ", h=" + this.height + ", WAuto=" + this.dpu + ", HAuto=" + this.dpv + ", fixed=" + this.dpx + '}';
     }
 }

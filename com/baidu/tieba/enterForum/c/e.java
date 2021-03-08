@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class e {
-    private boolean ajp;
-    private ImageView iRG;
+    private boolean akH;
+    private ImageView iTp;
     private TbPageContext<?> mPageContext;
     private TextView mTitleView;
     private View mView;
@@ -25,16 +25,16 @@ public class e {
         this.mPageContext = tbPageContext;
         this.mView = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.recommend_forum_title_item_view, (ViewGroup) null);
         this.mTitleView = (TextView) this.mView.findViewById(R.id.text_title);
-        this.iRG = (ImageView) this.mView.findViewById(R.id.icon_into);
-        this.iRG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.c.e.1
+        this.iTp = (ImageView) this.mView.findViewById(R.id.icon_into);
+        this.iTp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.c.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 com.baidu.tieba.enterForum.b.d(e.this.mPageContext, null);
                 ar arVar = new ar("c13645");
                 arVar.v("uid", TbadkApplication.getCurrentAccountId());
-                arVar.ap("obj_locate", 1);
-                arVar.ap("obj_type", e.this.ajp ? 5 : 1);
-                arVar.ap("obj_source", 2);
+                arVar.aq("obj_locate", 1);
+                arVar.aq("obj_type", e.this.akH ? 5 : 1);
+                arVar.aq("obj_source", 2);
                 TiebaStatic.log(arVar);
             }
         });
@@ -50,10 +50,10 @@ public class e {
             this.mTitleView.setText(title);
         }
         ap.setViewTextColor(this.mTitleView, R.color.CAM_X0105);
-        SvgManager.bsR().a(this.iRG, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.bsU().a(this.iTp, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
     }
 
     public void setHasLikeForum(boolean z) {
-        this.ajp = z;
+        this.akH = z;
     }
 }

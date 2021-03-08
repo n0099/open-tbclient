@@ -9,31 +9,29 @@ import java.util.Map;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f13164a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final Map<String, c> f13165b;
+    protected int f7838a;
+    private final Map<String, c> b;
     private final Map<String, d> c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str, c cVar) {
-        synchronized (this.f13165b) {
-            this.f13165b.put(str, cVar);
+        synchronized (this.b) {
+            this.b.put(str, cVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(int i) {
-        this.f13164a = i;
+        this.f7838a = i;
     }
 
     public c w(String str, List<e> list) {
         c remove;
-        synchronized (this.f13165b) {
-            remove = this.f13165b.remove(str);
+        synchronized (this.b) {
+            remove = this.b.remove(str);
         }
         if (remove != null) {
-            if (com.ss.android.socialbase.downloader.m.d.a(remove.h(), list)) {
+            if (com.ss.android.socialbase.downloader.m.d.H(remove.h(), list)) {
                 try {
                     remove.d();
                 } catch (InterruptedException e) {
@@ -52,7 +50,7 @@ public class a {
     }
 
     public boolean a(String str) {
-        c cVar = this.f13165b.get(str);
+        c cVar = this.b.get(str);
         if (cVar != null) {
             if (cVar.g()) {
                 return true;
@@ -68,7 +66,7 @@ public class a {
             remove = this.c.remove(str);
         }
         if (remove != null) {
-            if (com.ss.android.socialbase.downloader.m.d.a(remove.f(), list)) {
+            if (com.ss.android.socialbase.downloader.m.d.H(remove.f(), list)) {
                 try {
                     remove.e();
                 } catch (InterruptedException e) {
@@ -88,17 +86,17 @@ public class a {
 
     /* renamed from: com.ss.android.socialbase.downloader.i.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private static final class C1255a {
-        private static final a qgI = new a();
+    private static final class C1245a {
+        private static final a qhx = new a();
     }
 
-    public static a eIu() {
-        return C1255a.qgI;
+    public static a eIw() {
+        return C1245a.qhx;
     }
 
     private a() {
-        this.f13165b = new HashMap();
+        this.b = new HashMap();
         this.c = new LinkedHashMap(3);
-        this.f13164a = 3;
+        this.f7838a = 3;
     }
 }

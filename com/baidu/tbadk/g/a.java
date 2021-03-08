@@ -7,5 +7,5 @@ public interface a {
 
     void onAdDismiss();
 
-    void zv(String str);
+    void zC(String str);
 }

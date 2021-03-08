@@ -3,7 +3,7 @@ package io.flutter.plugin.common;
 import androidx.annotation.Nullable;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class MethodCall {
     public final Object arguments;
     public final String method;

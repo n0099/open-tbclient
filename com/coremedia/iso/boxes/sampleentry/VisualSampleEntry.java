@@ -1,6 +1,5 @@
 package com.coremedia.iso.boxes.sampleentry;
 
-import androidx.core.internal.view.SupportMenu;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -10,7 +9,7 @@ import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class VisualSampleEntry extends AbstractSampleEntry implements Container {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final String TYPE1 = "mp4v";
@@ -182,7 +181,7 @@ public final class VisualSampleEntry extends AbstractSampleEntry implements Cont
             allocate.put((byte) 0);
         }
         IsoTypeWriter.writeUInt16(allocate, getDepth());
-        IsoTypeWriter.writeUInt16(allocate, SupportMenu.USER_MASK);
+        IsoTypeWriter.writeUInt16(allocate, 65535);
         writableByteChannel.write((ByteBuffer) allocate.rewind());
         writeContainer(writableByteChannel);
     }

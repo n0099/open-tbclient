@@ -11,7 +11,7 @@ import com.baidu.swan.apps.media.b.c;
 import com.baidu.swan.apps.runtime.e;
 /* loaded from: classes5.dex */
 public class RewardVideoView extends RelativeLayout {
-    private a cDB;
+    private a cFb;
     private Context mContext;
     private boolean mIsMute;
 
@@ -30,16 +30,16 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     public void start(String str) {
-        c aRp = aRp();
-        aRp.mSrc = str;
-        this.cDB.d(aRp);
-        this.cDB.fR(false);
+        c aRs = aRs();
+        aRs.mSrc = str;
+        this.cFb.d(aRs);
+        this.cFb.fR(false);
     }
 
     public void mute(boolean z) {
-        if (this.cDB != null) {
+        if (this.cFb != null) {
             this.mIsMute = z;
-            this.cDB.mute(z);
+            this.cFb.mute(z);
         }
     }
 
@@ -48,16 +48,16 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     public a getPlayer() {
-        return this.cDB;
+        return this.cFb;
     }
 
     private void initPlayer() {
-        e aIK = e.aIK();
-        if (aIK != null) {
-            this.cDB = new a(aIK.aIE(), aRp());
+        e aIN = e.aIN();
+        if (aIN != null) {
+            this.cFb = new a(aIN.aIH(), aRs());
             FrameLayout frameLayout = new FrameLayout(this.mContext);
             addView(frameLayout, new RelativeLayout.LayoutParams(-1, -1));
-            this.cDB.f(frameLayout);
+            this.cFb.f(frameLayout);
         }
     }
 
@@ -67,15 +67,15 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     @NonNull
-    private c aRp() {
+    private c aRs() {
         c cVar = new c();
-        cVar.diq = "SwanAdPlayer";
-        cVar.cLq = "SwanAdPlayer";
-        cVar.diB = true;
+        cVar.djT = "SwanAdPlayer";
+        cVar.cMQ = "SwanAdPlayer";
+        cVar.dkc = true;
         cVar.mMute = this.mIsMute;
-        cVar.dmF = false;
-        cVar.dmO = false;
-        cVar.dmL = false;
+        cVar.doi = false;
+        cVar.dor = false;
+        cVar.doo = false;
         return cVar;
     }
 }

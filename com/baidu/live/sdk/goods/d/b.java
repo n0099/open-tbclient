@@ -10,13 +10,13 @@ import com.baidu.searchbox.perfframe.basic.PerfFrameTrackUIUtil;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static void N(Context context, String str) {
         Log.i("PreDowanloadSwanHelper", "@@ preDowanloadSwan doPreDowanloadSwan1 scheme=" + str);
-        bv bvVar = com.baidu.live.ae.a.Qj().bAS;
-        if (bvVar != null && bvVar.aPQ != null) {
-            int i = bvVar.aPQ.aSI;
+        bv bvVar = com.baidu.live.ae.a.Qm().bCs;
+        if (bvVar != null && bvVar.aRq != null) {
+            int i = bvVar.aRq.aUi;
             Log.i("PreDowanloadSwanHelper", "@@ preDowanloadSwan doPreDowanloadSwan1 preDownload=" + i);
             if (isDebug()) {
                 Log.i("PreDowanloadSwanHelper", "@@ preDowanloadSwan doPreDowanloadSwan1 debug");
@@ -34,9 +34,9 @@ public class b {
 
     public static void e(Context context, ArrayList<String> arrayList) {
         Log.i("PreDowanloadSwanHelper", "@@ preDowanloadSwan doPreDowanloadSwan2 appkeys=" + arrayList);
-        bv bvVar = com.baidu.live.ae.a.Qj().bAS;
-        if (bvVar != null && bvVar.aPQ != null) {
-            int i = bvVar.aPQ.aSI;
+        bv bvVar = com.baidu.live.ae.a.Qm().bCs;
+        if (bvVar != null && bvVar.aRq != null) {
+            int i = bvVar.aRq.aUi;
             Log.i("PreDowanloadSwanHelper", "@@ preDowanloadSwan doPreDowanloadSwan2 preDownload=" + i);
             if (isDebug()) {
                 Log.i("PreDowanloadSwanHelper", "@@ preDowanloadSwan doPreDowanloadSwan2 debug");

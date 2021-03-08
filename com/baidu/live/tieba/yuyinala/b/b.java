@@ -9,19 +9,19 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tieba.yuyinala.d.a;
 import com.baidu.live.tieba.yuyinala.d.c;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private String bMT;
-    private c bNg;
-    private com.baidu.live.tieba.yuyinala.d.b bNh;
-    private com.baidu.live.tieba.yuyinala.d.a bNl;
-    private com.baidu.live.tieba.yuyinala.e.b bNm;
+    private c bOG;
+    private com.baidu.live.tieba.yuyinala.d.b bOH;
+    private com.baidu.live.tieba.yuyinala.d.a bOL;
+    private com.baidu.live.tieba.yuyinala.e.b bOM;
+    private String bOt;
     private String mLiveId;
     private String mRoomId;
     private TbPageContext mTbPageContext;
-    private final c.a bNi = new c.a() { // from class: com.baidu.live.tieba.yuyinala.b.b.1
+    private final c.a bOI = new c.a() { // from class: com.baidu.live.tieba.yuyinala.b.b.1
         @Override // com.baidu.live.tieba.yuyinala.d.c.a
-        public void Pg() {
+        public void Pj() {
             BdUtilHelper.showToast(b.this.mTbPageContext.getPageActivity(), a.h.txt_person_report_success);
             b.this.mTbPageContext.getPageActivity().finish();
         }
@@ -34,34 +34,34 @@ public class b {
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.live.tieba.yuyinala.b.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.bNm.Vi() != null) {
-                if (b.this.bNg == null) {
-                    if (b.this.bNh != null) {
-                        b.this.bNh.D(b.this.mRoomId, b.this.bNm.Vi().Vb(), b.this.bMT);
+            if (b.this.bOM.Vl() != null) {
+                if (b.this.bOG == null) {
+                    if (b.this.bOH != null) {
+                        b.this.bOH.D(b.this.mRoomId, b.this.bOM.Vl().Ve(), b.this.bOt);
                         return;
                     }
                     return;
                 }
-                b.this.bNg.aO(b.this.mRoomId, b.this.bNm.Vi().Vb());
+                b.this.bOG.aO(b.this.mRoomId, b.this.bOM.Vl().Ve());
             }
         }
     };
-    private final a.InterfaceC0220a bNn = new a.InterfaceC0220a() { // from class: com.baidu.live.tieba.yuyinala.b.b.3
-        @Override // com.baidu.live.tieba.yuyinala.d.a.InterfaceC0220a
+    private final a.InterfaceC0226a bON = new a.InterfaceC0226a() { // from class: com.baidu.live.tieba.yuyinala.b.b.3
+        @Override // com.baidu.live.tieba.yuyinala.d.a.InterfaceC0226a
         public void aj(List<com.baidu.live.tieba.yuyinala.c.a> list) {
             if (ListUtils.isEmpty(list)) {
-                list = b.this.bNl.Vg();
+                list = b.this.bOL.Vj();
             }
             if (!ListUtils.isEmpty(list)) {
-                b.this.bNm.setData(list);
+                b.this.bOM.setData(list);
             }
         }
 
-        @Override // com.baidu.live.tieba.yuyinala.d.a.InterfaceC0220a
+        @Override // com.baidu.live.tieba.yuyinala.d.a.InterfaceC0226a
         public void onFail(int i, String str) {
-            List<com.baidu.live.tieba.yuyinala.c.a> Vg = b.this.bNl.Vg();
-            if (!ListUtils.isEmpty(Vg)) {
-                b.this.bNm.setData(Vg);
+            List<com.baidu.live.tieba.yuyinala.c.a> Vj = b.this.bOL.Vj();
+            if (!ListUtils.isEmpty(Vj)) {
+                b.this.bOM.setData(Vj);
             }
         }
     };
@@ -70,44 +70,44 @@ public class b {
         this.mTbPageContext = tbPageContext;
         this.mLiveId = str;
         this.mRoomId = str2;
-        this.bNl = new com.baidu.live.tieba.yuyinala.d.a(this.mTbPageContext, this.bNn);
-        this.bNl.aN(this.mLiveId, this.mRoomId);
-        this.bNm = new com.baidu.live.tieba.yuyinala.e.b(this.mTbPageContext, this.mOnClickListener);
-        this.bNm.aN(this.mLiveId, this.mRoomId);
-        this.bNl.Vf();
-        this.bNg = new c(this.mTbPageContext.getPageActivity());
-        this.bNg.a(this.bNi);
+        this.bOL = new com.baidu.live.tieba.yuyinala.d.a(this.mTbPageContext, this.bON);
+        this.bOL.aN(this.mLiveId, this.mRoomId);
+        this.bOM = new com.baidu.live.tieba.yuyinala.e.b(this.mTbPageContext, this.mOnClickListener);
+        this.bOM.aN(this.mLiveId, this.mRoomId);
+        this.bOL.Vi();
+        this.bOG = new c(this.mTbPageContext.getPageActivity());
+        this.bOG.a(this.bOI);
     }
 
     public b(TbPageContext tbPageContext, String str, String str2, String str3) {
         this.mTbPageContext = tbPageContext;
         this.mLiveId = str;
         this.mRoomId = str2;
-        this.bMT = str3;
-        this.bNl = new com.baidu.live.tieba.yuyinala.d.a(this.mTbPageContext, this.bNn);
-        this.bNl.aN(this.mLiveId, this.mRoomId);
-        this.bNm = new com.baidu.live.tieba.yuyinala.e.b(this.mTbPageContext, this.mOnClickListener);
-        this.bNm.E(this.mLiveId, this.mRoomId, this.bMT);
-        this.bNl.Vf();
-        this.bNh = new com.baidu.live.tieba.yuyinala.d.b(this.mTbPageContext.getPageActivity());
-        this.bNh.a(this.bNi);
+        this.bOt = str3;
+        this.bOL = new com.baidu.live.tieba.yuyinala.d.a(this.mTbPageContext, this.bON);
+        this.bOL.aN(this.mLiveId, this.mRoomId);
+        this.bOM = new com.baidu.live.tieba.yuyinala.e.b(this.mTbPageContext, this.mOnClickListener);
+        this.bOM.E(this.mLiveId, this.mRoomId, this.bOt);
+        this.bOL.Vi();
+        this.bOH = new com.baidu.live.tieba.yuyinala.d.b(this.mTbPageContext.getPageActivity());
+        this.bOH.a(this.bOI);
     }
 
     public View getView() {
-        return this.bNm.getView();
+        return this.bOM.getView();
     }
 
     public void onConfigurationChanged(Configuration configuration) {
     }
 
     public void onDestroy() {
-        this.bNl.onDestroy();
-        if (this.bNg != null) {
-            this.bNg.onDestroy();
+        this.bOL.onDestroy();
+        if (this.bOG != null) {
+            this.bOG.onDestroy();
         }
-        if (this.bNh != null) {
-            this.bNh.onDestroy();
+        if (this.bOH != null) {
+            this.bOH.onDestroy();
         }
-        this.bNm.onDestroy();
+        this.bOM.onDestroy();
     }
 }

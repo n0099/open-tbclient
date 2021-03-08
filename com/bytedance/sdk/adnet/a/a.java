@@ -11,17 +11,17 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.bytedance.sdk.adnet.c.f;
-import com.bytedance.sdk.adnet.core.p;
-import com.bytedance.sdk.adnet.d.d;
-import com.bytedance.sdk.adnet.d.g;
-import com.bytedance.sdk.adnet.d.i;
-import com.bytedance.sdk.adnet.d.j;
+import com.bytedance.sdk.adnet.core.g;
+import com.bytedance.sdk.adnet.core.o;
+import com.bytedance.sdk.adnet.d.c;
+import com.bytedance.sdk.adnet.d.f;
+import com.bytedance.sdk.adnet.d.h;
+import com.bytedance.sdk.openadsdk.j.e;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class a implements com.bytedance.sdk.adnet.c.a, j.a {
-    private static a puR;
+public class a implements com.bytedance.sdk.adnet.c.a, h.a {
+    private static a pwW;
     private final boolean c;
     private final Context j;
     private volatile boolean d = false;
@@ -31,16 +31,16 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
     private long h = 0;
     private AtomicBoolean i = new AtomicBoolean(false);
     private volatile boolean k = false;
-    final j puS = new j(Looper.getMainLooper(), this);
+    final h pwX = new h(Looper.getMainLooper(), this);
 
-    public static a hY(Context context) {
+    public static a hX(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (puR == null) {
-                puR = new a(context.getApplicationContext(), g.b(context));
-                com.bytedance.sdk.adnet.a.a(puR);
+            if (pwW == null) {
+                pwW = new a(context.getApplicationContext(), f.b(context));
+                com.bytedance.sdk.adnet.a.a(pwW);
             }
-            aVar = puR;
+            aVar = pwW;
         }
         return aVar;
     }
@@ -54,27 +54,26 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
         a(false);
     }
 
-    /* JADX WARN: Type inference failed for: r0v5, types: [com.bytedance.sdk.adnet.a.a$1] */
     public synchronized void a(boolean z) {
         if (this.c) {
             d(z);
         } else if (this.g <= 0) {
             try {
-                new Thread("LoadDomainConfig4Other-Thread") { // from class: com.bytedance.sdk.adnet.a.a.1
-                    @Override // java.lang.Thread, java.lang.Runnable
+                e.a().execute(new Runnable() { // from class: com.bytedance.sdk.adnet.a.a.1
+                    @Override // java.lang.Runnable
                     public void run() {
                         a.this.b();
                     }
-                }.start();
+                });
             } catch (Throwable th) {
             }
         }
     }
 
     public static void b(Context context) {
-        a aVar = puR;
+        a aVar = pwW;
         if (aVar != null) {
-            if (g.b(context)) {
+            if (f.b(context)) {
                 aVar.a(true);
             } else {
                 aVar.a();
@@ -86,8 +85,8 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
         if (System.currentTimeMillis() - this.g > BdKVCache.MILLS_1Hour) {
             this.g = System.currentTimeMillis();
             try {
-                if (f.eqR().eqS() != null) {
-                    f.eqR().eqS().b();
+                if (com.bytedance.sdk.adnet.c.f.eqZ().era() != null) {
+                    com.bytedance.sdk.adnet.c.f.eqZ().era().b();
                 }
             } catch (Exception e) {
             }
@@ -104,7 +103,7 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
             long j = z ? Constants.SYNC_MSG_DELAY_TIME : 43200000L;
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - this.g > j && currentTimeMillis - this.h > 120000) {
-                boolean a2 = com.bytedance.sdk.adnet.d.f.a(this.j);
+                boolean a2 = com.bytedance.sdk.adnet.d.e.a(this.j);
                 if (!this.k || a2) {
                     b(a2);
                 }
@@ -112,32 +111,31 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
         }
     }
 
-    /* JADX WARN: Type inference failed for: r0v1, types: [com.bytedance.sdk.adnet.a.a$2] */
     public boolean b(final boolean z) {
-        d.b("TNCManager", "doRefresh: updating state " + this.i.get());
+        c.b("TNCManager", "doRefresh: updating state " + this.i.get());
         if (!this.i.compareAndSet(false, true)) {
-            d.b("TNCManager", "doRefresh, already running");
+            c.b("TNCManager", "doRefresh, already running");
             return false;
         }
         if (z) {
             this.h = System.currentTimeMillis();
         }
-        new Thread("AppConfigThread") { // from class: com.bytedance.sdk.adnet.a.a.2
-            @Override // java.lang.Thread, java.lang.Runnable
+        e.a().execute(new Runnable() { // from class: com.bytedance.sdk.adnet.a.a.2
+            @Override // java.lang.Runnable
             public void run() {
                 a.this.c(z);
             }
-        }.start();
+        });
         return true;
     }
 
-    @Override // com.bytedance.sdk.adnet.d.j.a
+    @Override // com.bytedance.sdk.adnet.d.h.a
     public void a(Message message) {
         switch (message.what) {
             case 101:
                 this.f = false;
                 this.g = System.currentTimeMillis();
-                d.b("TNCManager", "doRefresh, succ");
+                c.b("TNCManager", "doRefresh, succ");
                 if (this.e) {
                     a();
                 }
@@ -148,7 +146,7 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
                 if (this.e) {
                     a();
                 }
-                d.b("TNCManager", "doRefresh, error");
+                c.b("TNCManager", "doRefresh, error");
                 this.i.set(false);
                 return;
             default:
@@ -165,8 +163,8 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
                 currentTimeMillis = j;
             }
             this.g = currentTimeMillis;
-            if (f.eqR().eqS() != null) {
-                f.eqR().eqS().a();
+            if (com.bytedance.sdk.adnet.c.f.eqZ().era() != null) {
+                com.bytedance.sdk.adnet.c.f.eqZ().era().a();
             }
         }
     }
@@ -176,7 +174,7 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
         if (!TextUtils.isEmpty(str)) {
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 try {
-                    return f.eqR().a(str);
+                    return com.bytedance.sdk.adnet.c.f.eqZ().a(str);
                 } catch (Throwable th) {
                     return str;
                 }
@@ -187,7 +185,7 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
                 } else {
                     b();
                 }
-                str = f.eqR().a(str);
+                str = com.bytedance.sdk.adnet.c.f.eqZ().a(str);
                 return str;
             } catch (Throwable th2) {
                 return str;
@@ -197,11 +195,11 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
     }
 
     void c(boolean z) {
-        d.b("TNCManager", "doRefresh, actual request");
+        c.b("TNCManager", "doRefresh, actual request");
         c();
         this.f = true;
         if (!z) {
-            this.puS.sendEmptyMessage(102);
+            this.pwX.sendEmptyMessage(102);
             return;
         }
         try {
@@ -211,8 +209,8 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
         }
     }
 
-    public String[] eqM() {
-        String[] f = com.bytedance.sdk.adnet.a.eqK().f();
+    public String[] eqT() {
+        String[] f = com.bytedance.sdk.adnet.a.eqR().f();
         if (f == null || f.length <= 0) {
             return new String[0];
         }
@@ -244,8 +242,8 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
                 edit.putLong("last_refresh_time", System.currentTimeMillis());
                 edit.apply();
             }
-            if (f.eqR().eqS() != null) {
-                f.eqR().eqS().a(jSONObject3);
+            if (com.bytedance.sdk.adnet.c.f.eqZ().era() != null) {
+                com.bytedance.sdk.adnet.c.f.eqZ().era().a(jSONObject3);
             }
             return true;
         }
@@ -253,8 +251,8 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
     }
 
     private boolean e() {
-        String[] eqM = eqM();
-        if (eqM != null && eqM.length != 0) {
+        String[] eqT = eqT();
+        if (eqT != null && eqT.length != 0) {
             a(0);
         }
         return false;
@@ -262,25 +260,25 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final int i) {
-        String[] eqM = eqM();
-        if (eqM == null || eqM.length <= i) {
+        String[] eqT = eqT();
+        if (eqT == null || eqT.length <= i) {
             b(102);
             return;
         }
-        String str = eqM[i];
+        String str = eqT[i];
         if (TextUtils.isEmpty(str)) {
             b(102);
             return;
         }
         try {
-            String b2 = b(str);
-            if (TextUtils.isEmpty(b2)) {
+            String b = b(str);
+            if (TextUtils.isEmpty(b)) {
                 b(102);
             } else {
-                new com.bytedance.sdk.adnet.b.f(0, b2, new JSONObject(), new p.a<JSONObject>() { // from class: com.bytedance.sdk.adnet.a.a.3
-                    @Override // com.bytedance.sdk.adnet.core.p.a
-                    public void a(p<JSONObject> pVar) {
-                        JSONObject jSONObject = pVar.f6047a;
+                new com.bytedance.sdk.adnet.b.f(0, b, new JSONObject(), new o.a<JSONObject>() { // from class: com.bytedance.sdk.adnet.a.a.3
+                    @Override // com.bytedance.sdk.adnet.core.o.a
+                    public void a(o<JSONObject> oVar) {
+                        JSONObject jSONObject = oVar.f4049a;
                         if (jSONObject == null) {
                             a.this.a(i + 1);
                             return;
@@ -304,21 +302,21 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
                         }
                     }
 
-                    @Override // com.bytedance.sdk.adnet.core.p.a
-                    public void b(p<JSONObject> pVar) {
+                    @Override // com.bytedance.sdk.adnet.core.o.a
+                    public void b(o<JSONObject> oVar) {
                         a.this.a(i + 1);
                     }
-                }).setRetryPolicy(new com.bytedance.sdk.adnet.core.g().OI(10000).OJ(0)).build(com.bytedance.sdk.adnet.a.hX(this.j));
+                }).setRetryPolicy(new g().OM(10000).ON(0)).build(com.bytedance.sdk.adnet.a.hW(this.j));
             }
         } catch (Throwable th) {
-            d.b("AppConfig", "try app config exception: " + th);
+            c.b("AppConfig", "try app config exception: " + th);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i) {
-        if (this.puS != null) {
-            this.puS.sendEmptyMessage(i);
+        if (this.pwX != null) {
+            this.pwX.sendEmptyMessage(i);
         }
     }
 
@@ -329,18 +327,18 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
         }
         StringBuilder sb = new StringBuilder();
         sb.append(SapiUtils.COOKIE_HTTPS_URL_PREFIX).append(str).append("/get_domains/v4/");
-        Address a2 = com.bytedance.sdk.adnet.a.eqK().a(this.j);
-        i iVar = new i(sb.toString());
+        Address a2 = com.bytedance.sdk.adnet.a.eqR().a(this.j);
+        com.bytedance.sdk.adnet.d.g gVar = new com.bytedance.sdk.adnet.d.g(sb.toString());
         if (a2 != null && a2.hasLatitude() && a2.hasLongitude()) {
-            iVar.d("latitude", a2.getLatitude());
-            iVar.d("longitude", a2.getLongitude());
+            gVar.d("latitude", a2.getLatitude());
+            gVar.d("longitude", a2.getLongitude());
             String locality = a2.getLocality();
             if (!TextUtils.isEmpty(locality)) {
-                iVar.a("city", Uri.encode(locality));
+                gVar.a("city", Uri.encode(locality));
             }
         }
         if (this.d) {
-            iVar.a("force", 1);
+            gVar.a("force", 1);
         }
         try {
             if (Build.VERSION.SDK_INT < 21) {
@@ -348,15 +346,15 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
             } else {
                 str2 = Build.SUPPORTED_ABIS[0];
             }
-            iVar.a("abi", str2);
+            gVar.a("abi", str2);
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        iVar.a("aid", com.bytedance.sdk.adnet.a.eqK().a());
-        iVar.a("device_platform", com.bytedance.sdk.adnet.a.eqK().c());
-        iVar.a("channel", com.bytedance.sdk.adnet.a.eqK().b());
-        iVar.a("version_code", com.bytedance.sdk.adnet.a.eqK().d());
-        iVar.a("device_id", com.bytedance.sdk.adnet.a.eqK().e());
-        return iVar.toString();
+        gVar.a("aid", com.bytedance.sdk.adnet.a.eqR().a());
+        gVar.a("device_platform", com.bytedance.sdk.adnet.a.eqR().c());
+        gVar.a("channel", com.bytedance.sdk.adnet.a.eqR().b());
+        gVar.a("version_code", com.bytedance.sdk.adnet.a.eqR().d());
+        gVar.a("custom_info_1", com.bytedance.sdk.adnet.a.eqR().e());
+        return gVar.toString();
     }
 }

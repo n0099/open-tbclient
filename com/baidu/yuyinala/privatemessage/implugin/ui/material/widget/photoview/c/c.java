@@ -2,7 +2,7 @@ package com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.
 
 import android.content.Context;
 import android.widget.Scroller;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c extends d {
     private final Scroller mScroller;
 
@@ -21,7 +21,7 @@ public class c extends d {
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.c.d
-    public void AU(boolean z) {
+    public void AT(boolean z) {
         this.mScroller.forceFinished(z);
     }
 

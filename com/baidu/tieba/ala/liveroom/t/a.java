@@ -8,14 +8,14 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.x.c;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.tieba.ala.liveroom.a {
-    private int aKa;
-    private String bdj;
-    private long gpP;
-    private c hNQ;
-    private long hNR;
-    private String hNS;
+    private int aLA;
+    private String beL;
+    private long gry;
+    private long hPA;
+    private String hPB;
+    private c hPz;
     private boolean isShowing;
     private boolean mIsHost;
     private String mPortrait;
@@ -27,38 +27,38 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     }
 
     public void a(int i, long j, String str, boolean z, String str2, String str3, String str4, long j2) {
-        this.aKa = i;
-        this.hNR = j;
-        this.hNS = str;
+        this.aLA = i;
+        this.hPA = j;
+        this.hPB = str;
         this.mIsHost = z;
         this.mPortrait = str2;
-        this.bdj = str4;
-        this.gpP = j2;
+        this.beL = str4;
+        this.gry = j2;
         this.otherParams = str3;
     }
 
     public void setVisible(int i) {
-        if (this.hNQ != null && this.hNQ.Px() != null) {
-            this.hNQ.Px().setVisibility(i);
+        if (this.hPz != null && this.hPz.PA() != null) {
+            this.hPz.PA().setVisibility(i);
         }
     }
 
     public void setCanVisible(boolean z) {
         this.isShowing = z;
-        if (this.hNQ != null) {
-            this.hNQ.setCanVisible(z);
+        if (this.hPz != null) {
+            this.hPz.setCanVisible(z);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void aF(ViewGroup viewGroup) {
         super.aF(viewGroup);
-        if (this.hNQ == null) {
-            com.baidu.live.x.a aVar = new com.baidu.live.x.a(getPageContext().getPageActivity(), this.aKa, this.hNR, this.mIsHost, this.mPortrait, this.otherParams, this.bdj, this.gpP);
-            aVar.userName = this.hNS;
+        if (this.hPz == null) {
+            com.baidu.live.x.a aVar = new com.baidu.live.x.a(getPageContext().getPageActivity(), this.aLA, this.hPA, this.mIsHost, this.mPortrait, this.otherParams, this.beL, this.gry);
+            aVar.userName = this.hPB;
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913036, c.class, aVar);
             if (runTask != null && runTask.getData() != null) {
-                this.hNQ = (c) runTask.getData();
+                this.hPz = (c) runTask.getData();
             }
         }
         aN(viewGroup);
@@ -68,33 +68,33 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     }
 
     private void aN(ViewGroup viewGroup) {
-        if (this.hNQ != null && viewGroup != null && this.hNQ.Px() != null && viewGroup.indexOfChild(this.hNQ.Px()) < 0) {
-            this.hNQ.Px().setId(a.f.ala_liveroom_ranklist);
+        if (this.hPz != null && viewGroup != null && this.hPz.PA() != null && viewGroup.indexOfChild(this.hPz.PA()) < 0) {
+            this.hPz.PA().setId(a.f.ala_liveroom_ranklist);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(1, a.f.ala_rank_level_entry);
             layoutParams.leftMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds20);
-            viewGroup.addView(this.hNQ.Px(), layoutParams);
+            viewGroup.addView(this.hPz.PA(), layoutParams);
             setCanVisible(false);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
-    public void Ar() {
-        super.Ar();
-        if (this.hNQ != null && this.hNQ.Px() != null && this.hNQ.Px().getParent() != null) {
-            ((ViewGroup) this.hNQ.Px().getParent()).removeView(this.hNQ.Px());
+    public void Au() {
+        super.Au();
+        if (this.hPz != null && this.hPz.PA() != null && this.hPz.PA().getParent() != null) {
+            ((ViewGroup) this.hPz.PA().getParent()).removeView(this.hPz.PA());
         }
-        if (this.hNQ != null) {
-            this.hNQ.destory();
-            this.hNQ = null;
+        if (this.hPz != null) {
+            this.hPz.destory();
+            this.hPz = null;
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
-        if (this.hNQ != null) {
-            this.hNQ.destory();
-            this.hNQ = null;
+        if (this.hPz != null) {
+            this.hPz.destory();
+            this.hPz = null;
         }
     }
 

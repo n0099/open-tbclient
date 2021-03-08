@@ -1,7 +1,7 @@
 package com.baidu.live.ar;
 
 import com.baidu.live.adp.BdUniqueId;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface k {
     void a(BdUniqueId bdUniqueId);
 
@@ -11,5 +11,5 @@ public interface k {
 
     void destory();
 
-    AlaFilterAndBeautyData zB();
+    AlaFilterAndBeautyData zE();
 }

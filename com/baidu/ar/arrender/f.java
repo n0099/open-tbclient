@@ -22,7 +22,7 @@ import java.io.File;
 import java.lang.ref.SoftReference;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
     DuMixInput V;
     DuMixOutput W;
@@ -293,17 +293,17 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
     }
 
     void a(DuMixOutput duMixOutput, Object obj) {
-        Surface b2;
+        Surface b;
         String addOutputSurface;
         if (duMixOutput.getOutputTexture() == null || duMixOutput.getOutputTexture().getId() == -1) {
-            b2 = b(duMixOutput, obj);
-            addOutputSurface = this.hx.getARPRenderer().addOutputSurface(b2, duMixOutput.getOutputWidth(), duMixOutput.getOutputHeight(), b.a(duMixOutput.getRotationType(), duMixOutput.getMirriorType()), b.a(duMixOutput.getScaleType()));
+            b = b(duMixOutput, obj);
+            addOutputSurface = this.hx.getARPRenderer().addOutputSurface(b, duMixOutput.getOutputWidth(), duMixOutput.getOutputHeight(), b.a(duMixOutput.getRotationType(), duMixOutput.getMirriorType()), b.a(duMixOutput.getScaleType()));
         } else {
             addOutputSurface = this.hx.getARPRenderer().addOutputTarget(duMixOutput.getOutputTexture().getType(), duMixOutput.getOutputTexture().getId(), duMixOutput.getOutputWidth(), duMixOutput.getOutputHeight(), b.a(this.W.getRotationType(), this.W.getMirriorType()));
-            b2 = null;
+            b = null;
         }
         this.ht = new p(duMixOutput);
-        this.ht.setSurface(b2);
+        this.ht.setSurface(b);
         this.ht.Q(addOutputSurface);
         if (duMixOutput.isFitScreenAuto()) {
             bO();

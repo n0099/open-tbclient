@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.atomData.LowFlowsActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class x {
-    public String fre;
+    public String fsE;
     public boolean isShowRedDot;
     public String tabCode;
     public String tabName;
@@ -16,7 +16,7 @@ public class x {
             this.tabType = jSONObject.optInt("tab_type");
             this.tabName = jSONObject.optString("tab_name");
             this.tabCode = jSONObject.optString(LowFlowsActivityConfig.TAB_CODE);
-            this.fre = jSONObject.optString("tab_version");
+            this.fsE = jSONObject.optString("tab_version");
         }
     }
 

@@ -19,7 +19,7 @@ public class AdResponseInfo implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: kN */
+        /* renamed from: kO */
         public AdResponseInfo[] newArray(int i) {
             return new AdResponseInfo[i];
         }
@@ -101,7 +101,7 @@ public class AdResponseInfo implements Parcelable {
         return 0;
     }
 
-    public AdElementInfo aSa() {
+    public AdElementInfo aSd() {
         if (this.mAdInstanceList.size() > 0) {
             return this.mAdInstanceList.get(0);
         }

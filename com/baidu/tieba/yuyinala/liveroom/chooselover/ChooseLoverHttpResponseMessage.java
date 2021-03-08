@@ -2,7 +2,7 @@ package com.baidu.tieba.yuyinala.liveroom.chooselover;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ChooseLoverHttpResponseMessage extends JsonHttpResponsedMessage {
     public ChooseLoverHttpResponseMessage() {
         super(1031080);

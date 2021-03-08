@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.util.LocalViewSize;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryHistoryMsg.DataReq;
 import protobuf.QueryHistoryMsg.QueryHistoryMsgReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class RequestHistoryMessage extends TbSocketMessage {
     private int forum_id;
     private int height;
@@ -27,12 +27,12 @@ public class RequestHistoryMessage extends TbSocketMessage {
         this.forum_id = i;
         this.user_id = j;
         this.id = i2;
-        LocalViewSize.ImageSize bsq = LocalViewSize.bso().bsq();
-        this.width = bsq.width;
-        this.height = bsq.height;
-        LocalViewSize.ImageSize bsp = LocalViewSize.bso().bsp();
-        this.sWidth = bsp.width;
-        this.sHeight = bsp.height;
+        LocalViewSize.ImageSize bst = LocalViewSize.bsr().bst();
+        this.width = bst.width;
+        this.height = bst.height;
+        LocalViewSize.ImageSize bss = LocalViewSize.bsr().bss();
+        this.sWidth = bss.width;
+        this.sHeight = bss.height;
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage

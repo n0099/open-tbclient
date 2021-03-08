@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderVideoPlayEngineImp implements IThunderVideoPlay, IYMFBehaviorEventListener {
     private static final String TAG = "ThunderVideoPlayEngineImp";
     private static final int VIDEO_STATE_DECODER_TYPE = 3;
@@ -1129,7 +1129,7 @@ public class ThunderVideoPlayEngineImp implements IThunderVideoPlay, IYMFBehavio
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class StrUidVideoDecodeObserver {
         private boolean bObserverEnable = false;
         private IVideoDecodeObserver observer;
@@ -1168,7 +1168,7 @@ public class ThunderVideoPlayEngineImp implements IThunderVideoPlay, IYMFBehavio
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class VideoStreamInfo {
         private int mMirrorMode;
         private long mStreamId = -1;

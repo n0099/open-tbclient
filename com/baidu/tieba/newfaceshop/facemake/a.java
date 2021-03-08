@@ -1,19 +1,19 @@
 package com.baidu.tieba.newfaceshop.facemake;
 
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
-    public AtomicBoolean lAN;
+    public AtomicBoolean lCP;
 
     public a(Boolean bool) {
-        this.lAN = new AtomicBoolean(bool.booleanValue());
+        this.lCP = new AtomicBoolean(bool.booleanValue());
     }
 
     public void ut(boolean z) {
-        this.lAN.set(z);
+        this.lCP.set(z);
     }
 
     public boolean getResult() {
-        return this.lAN.get();
+        return this.lCP.get();
     }
 }

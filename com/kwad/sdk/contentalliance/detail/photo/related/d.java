@@ -8,10 +8,8 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 public class d extends RecyclerView.ItemDecoration {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f8585a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final int f8586b;
+    private final int f5728a;
+    private final int b;
     private final int c;
     private final int d;
 
@@ -21,8 +19,8 @@ public class d extends RecyclerView.ItemDecoration {
 
     public d(int i, int i2, int i3, int i4) {
         this.d = i;
-        this.f8585a = i2;
-        this.f8586b = i3;
+        this.f5728a = i2;
+        this.b = i3;
         this.c = i4;
     }
 
@@ -36,16 +34,16 @@ public class d extends RecyclerView.ItemDecoration {
         rect.top = this.c;
         rect.bottom = 0;
         if (spanIndex == 0) {
-            rect.left = this.f8586b;
+            rect.left = this.b;
         } else if (spanIndex == this.d - 1) {
-            rect.right = this.f8586b;
+            rect.right = this.b;
         }
         boolean z = childAdapterPosition < this.d;
         boolean z2 = (itemCount + (-1)) / this.d == childAdapterPosition / this.d;
         if (z) {
-            rect.top = this.f8585a;
+            rect.top = this.f5728a;
         } else if (z2) {
-            rect.bottom = this.f8585a;
+            rect.bottom = this.f5728a;
         }
     }
 }

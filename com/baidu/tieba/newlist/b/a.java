@@ -1,7 +1,7 @@
 package com.baidu.tieba.newlist.b;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface a {
-    public static final BdUniqueId lFS = BdUniqueId.gen();
+    public static final BdUniqueId lHU = BdUniqueId.gen();
 }

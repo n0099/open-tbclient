@@ -8,12 +8,12 @@ import com.baidu.tieba.frs.gamesubpb.model.d;
 import com.baidu.tieba.frs.gamesubpb.view.GameSubCommentView;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.adp.widget.ListView.a<d, GameSubCommentView.GameSubCommentViewHolder> {
-    private TbPageContext jBb;
-    private InterfaceC0731a jBc;
+    private TbPageContext jCK;
+    private InterfaceC0737a jCL;
 
     /* renamed from: com.baidu.tieba.frs.gamesubpb.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0731a {
+    public interface InterfaceC0737a {
         void a(d dVar);
 
         void b(d dVar);
@@ -24,7 +24,7 @@ public class a extends com.baidu.adp.widget.ListView.a<d, GameSubCommentView.Gam
     /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.jBb = tbPageContext;
+        this.jCK = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,8 +32,8 @@ public class a extends com.baidu.adp.widget.ListView.a<d, GameSubCommentView.Gam
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bK */
     public GameSubCommentView.GameSubCommentViewHolder e(ViewGroup viewGroup) {
-        GameSubCommentView gameSubCommentView = new GameSubCommentView(this.jBb);
-        gameSubCommentView.setClickListener(this.jBc);
+        GameSubCommentView gameSubCommentView = new GameSubCommentView(this.jCK);
+        gameSubCommentView.setClickListener(this.jCL);
         return new GameSubCommentView.GameSubCommentViewHolder(gameSubCommentView);
     }
 
@@ -47,7 +47,7 @@ public class a extends com.baidu.adp.widget.ListView.a<d, GameSubCommentView.Gam
         return gameSubCommentViewHolder.getView();
     }
 
-    public void setClickListener(InterfaceC0731a interfaceC0731a) {
-        this.jBc = interfaceC0731a;
+    public void setClickListener(InterfaceC0737a interfaceC0737a) {
+        this.jCL = interfaceC0737a;
     }
 }

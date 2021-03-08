@@ -7,10 +7,8 @@ public class f {
     private float[] l;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1766a = 0;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f1767b = 0;
+    private int f1425a = 0;
+    private int b = 0;
     private int c = 1;
     private int d = 1;
     private int e = 0;
@@ -31,8 +29,8 @@ public class f {
     }
 
     public void a() {
-        this.f1766a = 0;
-        this.f1767b = 0;
+        this.f1425a = 0;
+        this.b = 0;
         this.c = 1;
         this.d = 1;
         this.e = 0;
@@ -55,11 +53,11 @@ public class f {
     }
 
     public boolean a(int i, int i2) {
-        if (this.f1766a == i && this.f1767b == i2) {
+        if (this.f1425a == i && this.b == i2) {
             return false;
         }
-        this.f1766a = i;
-        this.f1767b = i2;
+        this.f1425a = i;
+        this.b = i2;
         return true;
     }
 
@@ -85,11 +83,11 @@ public class f {
         float f3;
         float f4;
         float f5;
-        if (this.f1766a == 0 || this.f1767b == 0 || this.h == 0 || this.i == 0) {
+        if (this.f1425a == 0 || this.b == 0 || this.h == 0 || this.i == 0) {
             return;
         }
         boolean z = this.j == 0 || this.j == 2;
-        float f6 = (this.f1767b * 1.0f) / this.f1766a;
+        float f6 = (this.b * 1.0f) / this.f1425a;
         float f7 = (this.i * 1.0f) / this.h;
         if ((this.g == 90 || this.g == 270) && this.i != 0) {
             f7 = (this.h * 1.0f) / this.i;
@@ -103,7 +101,7 @@ public class f {
             }
             f = f7;
         }
-        CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.h + " mVideoHeight:" + this.i + " mVideoSarNum:" + this.c + " mVideoSarDen:" + this.d + " mSurfaceWidth:" + this.f1766a + " mSurfaceHeight:" + this.f1767b + " mDisplayMode:" + this.j);
+        CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.h + " mVideoHeight:" + this.i + " mVideoSarNum:" + this.c + " mVideoSarDen:" + this.d + " mSurfaceWidth:" + this.f1425a + " mSurfaceHeight:" + this.b + " mDisplayMode:" + this.j);
         switch (this.j) {
             case 0:
                 if (f <= f6) {
@@ -182,8 +180,8 @@ public class f {
                     break;
                 }
             case 6:
-                f2 = (this.h * 1.0f) / this.f1766a;
-                f5 = (this.i * 1.0f) / this.f1767b;
+                f2 = (this.h * 1.0f) / this.f1425a;
+                f5 = (this.i * 1.0f) / this.b;
                 f3 = 0.0f;
                 f4 = 0.0f;
                 break;
@@ -311,10 +309,10 @@ public class f {
     }
 
     public int j() {
-        return this.f1766a;
+        return this.f1425a;
     }
 
     public int k() {
-        return this.f1767b;
+        return this.b;
     }
 }

@@ -1,38 +1,29 @@
 package com.bytedance.sdk.adnet.d;
 
 import android.content.Context;
-import java.util.LinkedHashMap;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.util.Log;
 /* loaded from: classes6.dex */
 public class e {
-    public static void a(Context context, int i, String str) {
+    public static boolean a(Context context) {
+        ConnectivityManager connectivityManager;
         try {
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            switch (i) {
-                case 1:
-                    linkedHashMap.put("tnc_config", str);
-                    break;
-            }
-            d.b("MultiProcessFileUtils", "saveData = " + str);
-            com.bytedance.sdk.adnet.a.eqK().a(context, linkedHashMap);
-        } catch (Exception e) {
+            connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+        } catch (Throwable th) {
+            Log.e("ignored", th.toString());
         }
-    }
-
-    public static String a(Context context, int i) {
-        String str = "";
-        switch (i) {
-            case 1:
-                try {
-                    str = com.bytedance.sdk.adnet.a.eqK().a(context, "tnc_config", "");
-                    break;
-                } catch (Exception e) {
-                    str = "";
-                    break;
+        if (connectivityManager == null) {
+            return false;
+        }
+        NetworkInfo[] allNetworkInfo = connectivityManager.getAllNetworkInfo();
+        if (allNetworkInfo != null) {
+            for (NetworkInfo networkInfo : allNetworkInfo) {
+                if (networkInfo.getState() == NetworkInfo.State.CONNECTED || networkInfo.getState() == NetworkInfo.State.CONNECTING) {
+                    return true;
                 }
+            }
         }
-        if (str instanceof String) {
-            return String.valueOf(str);
-        }
-        return "";
+        return false;
     }
 }

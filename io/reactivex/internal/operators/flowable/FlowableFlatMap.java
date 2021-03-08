@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class FlowableFlatMap<T, U> extends a<T, U> {
     final int bufferSize;
     final boolean delayErrors;
@@ -23,8 +23,8 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super U> cVar) {
-        if (!c.a(this.qow, cVar, this.mapper)) {
-            this.qow.a((j) a(cVar, this.mapper, this.delayErrors, this.maxConcurrency, this.bufferSize));
+        if (!c.a(this.qoY, cVar, this.mapper)) {
+            this.qoY.a((j) a(cVar, this.mapper, this.delayErrors, this.maxConcurrency, this.bufferSize));
         }
     }
 
@@ -33,7 +33,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class MergeSubscriber<T, U> extends AtomicInteger implements j<T>, d {
         private static final long serialVersionUID = -2117620485640801370L;
         final org.a.c<? super U> actual;
@@ -87,7 +87,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
         public void onNext(T t) {
             if (!this.done) {
                 try {
-                    org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.m(this.mapper.apply(t), "The mapper returned a null Publisher");
+                    org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.n(this.mapper.apply(t), "The mapper returned a null Publisher");
                     if (bVar instanceof Callable) {
                         try {
                             Object call = ((Callable) bVar).call();
@@ -574,7 +574,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class InnerSubscriber<T, U> extends AtomicReference<d> implements io.reactivex.disposables.b, j<U> {
         private static final long serialVersionUID = -4606175640614850599L;
         final int bufferSize;

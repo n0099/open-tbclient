@@ -11,15 +11,13 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f9128a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final LinkedBlockingQueue<IBinder> f9129b = new LinkedBlockingQueue<>(1);
+    private Context f6073a;
+    private final LinkedBlockingQueue<IBinder> b = new LinkedBlockingQueue<>(1);
     private ServiceConnection c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.a.a.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
-                a.this.f9129b.put(iBinder);
+                a.this.b.put(iBinder);
             } catch (Exception e) {
                 com.kwad.sdk.core.d.a.a(e);
             }
@@ -31,7 +29,7 @@ public class a {
     };
 
     public a(Context context) {
-        this.f9128a = context;
+        this.f6073a = context;
     }
 
     public String a() {
@@ -43,24 +41,24 @@ public class a {
             intent.setAction("com.asus.msa.action.ACCESS_DID");
             intent.setComponent(new ComponentName("com.asus.msa.SupplementaryDID", "com.asus.msa.SupplementaryDID.SupplementaryDIDService"));
             try {
-                if (this.f9128a.bindService(intent, this.c, 1)) {
+                if (this.f6073a.bindService(intent, this.c, 1)) {
                     try {
-                        str = new a.C1097a(this.f9129b.take()).a();
+                        str = new a.C1114a(this.b.take()).a();
                         try {
                             try {
                                 com.kwad.sdk.core.d.a.b("ASUSDeviceIDHelper", "getOAID oaid:" + str);
-                                this.f9128a.unbindService(this.c);
+                                this.f6073a.unbindService(this.c);
                             } catch (Exception e) {
                                 e = e;
                                 com.kwad.sdk.core.d.a.a(e);
-                                this.f9128a.unbindService(this.c);
+                                this.f6073a.unbindService(this.c);
                                 return str;
                             }
                         } catch (Throwable th2) {
                             th = th2;
                             str2 = str;
                             try {
-                                this.f9128a.unbindService(this.c);
+                                this.f6073a.unbindService(this.c);
                                 throw th;
                             } catch (Exception e2) {
                                 e = e2;
@@ -76,7 +74,7 @@ public class a {
                     } catch (Throwable th3) {
                         th = th3;
                         str2 = "";
-                        this.f9128a.unbindService(this.c);
+                        this.f6073a.unbindService(this.c);
                         throw th;
                     }
                     return str;

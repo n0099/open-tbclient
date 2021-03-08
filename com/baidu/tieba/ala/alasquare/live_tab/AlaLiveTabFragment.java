@@ -18,46 +18,46 @@ import com.baidu.tbadk.l.h;
 import com.baidu.tbadk.util.aa;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.am;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaLiveTabFragment extends BaseFragment implements am {
-    public static int gAE = 1;
-    public static int gAF = 1;
-    public static int gAG = 1;
-    private com.baidu.tieba.ala.alasquare.live_tab.view.a gAH;
-    private AlaLiveUserNotifyController gAI;
-    private AlaLiveUserNotifyManager.AlaLiveNotifyListener gAJ;
-    private boolean gAM;
-    private boolean gAK = true;
-    private int gAL = -1;
-    private CustomMessageListener gAN = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_LIVE_TAB_RESPONSE) { // from class: com.baidu.tieba.ala.alasquare.live_tab.AlaLiveTabFragment.1
+    public static int gCn = 1;
+    public static int gCo = 1;
+    public static int gCp = 1;
+    private com.baidu.tieba.ala.alasquare.live_tab.view.a gCq;
+    private AlaLiveUserNotifyController gCr;
+    private AlaLiveUserNotifyManager.AlaLiveNotifyListener gCs;
+    private boolean gCv;
+    private boolean gCt = true;
+    private int gCu = -1;
+    private CustomMessageListener gCw = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_LIVE_TAB_RESPONSE) { // from class: com.baidu.tieba.ala.alasquare.live_tab.AlaLiveTabFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.ala.alasquare.live_tab.b.b)) {
-                AlaLiveTabFragment.this.gAH.mE(true);
+                AlaLiveTabFragment.this.gCq.mE(true);
                 com.baidu.tieba.ala.alasquare.live_tab.b.b bVar = (com.baidu.tieba.ala.alasquare.live_tab.b.b) customResponsedMessage.getData();
                 if (bVar.isSuccess) {
-                    if (AlaLiveTabFragment.this.gAK || !bVar.isLoadMore) {
-                        AlaLiveTabFragment.this.WZ();
-                        AlaLiveTabFragment.this.hideLoadingView(AlaLiveTabFragment.this.gAH.bRV());
-                        AlaLiveTabFragment.this.gAH.a(bVar.superEntranceInfo);
-                        AlaLiveTabFragment.this.gAK = false;
+                    if (AlaLiveTabFragment.this.gCt || !bVar.isLoadMore) {
+                        AlaLiveTabFragment.this.Xc();
+                        AlaLiveTabFragment.this.hideLoadingView(AlaLiveTabFragment.this.gCq.bSb());
+                        AlaLiveTabFragment.this.gCq.a(bVar.superEntranceInfo);
+                        AlaLiveTabFragment.this.gCt = false;
                     }
-                } else if (AlaLiveTabFragment.this.gAK || !bVar.isLoadMore) {
-                    AlaLiveTabFragment.this.hideLoadingView(AlaLiveTabFragment.this.gAH.bRV());
-                    AlaLiveTabFragment.this.bRB();
+                } else if (AlaLiveTabFragment.this.gCt || !bVar.isLoadMore) {
+                    AlaLiveTabFragment.this.hideLoadingView(AlaLiveTabFragment.this.gCq.bSb());
+                    AlaLiveTabFragment.this.bRH();
                 }
             }
         }
     };
-    private CustomMessageListener gAO = new CustomMessageListener(2921446) { // from class: com.baidu.tieba.ala.alasquare.live_tab.AlaLiveTabFragment.2
+    private CustomMessageListener gCx = new CustomMessageListener(2921446) { // from class: com.baidu.tieba.ala.alasquare.live_tab.AlaLiveTabFragment.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
                 int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-                if (AlaLiveTabFragment.this.gAH != null) {
-                    AlaLiveTabFragment.this.gAH.setCurrentTab(intValue);
+                if (AlaLiveTabFragment.this.gCq != null) {
+                    AlaLiveTabFragment.this.gCq.setCurrentTab(intValue);
                 }
             }
         }
@@ -66,49 +66,49 @@ public class AlaLiveTabFragment extends BaseFragment implements am {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(null);
-        this.gAH = new com.baidu.tieba.ala.alasquare.live_tab.view.a(getPageContext(), getChildFragmentManager(), this.gAM);
-        if (this.gAI == null) {
-            this.gAI = new AlaLiveUserNotifyController(getPageContext());
+        this.gCq = new com.baidu.tieba.ala.alasquare.live_tab.view.a(getPageContext(), getChildFragmentManager(), this.gCv);
+        if (this.gCr == null) {
+            this.gCr = new AlaLiveUserNotifyController(getPageContext());
         }
-        this.gAJ = new AlaLiveUserNotifyManager.AlaLiveNotifyListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.AlaLiveTabFragment.3
+        this.gCs = new AlaLiveUserNotifyManager.AlaLiveNotifyListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.AlaLiveTabFragment.3
             @Override // com.baidu.ala.notify.AlaLiveUserNotifyManager.AlaLiveNotifyListener
             public void onCallBack() {
                 if (AlaLiveTabFragment.this.isPrimary()) {
-                    AlaLiveTabFragment.this.gAI.showNextNotifyDialog(0, AlaLiveUserNotifyManager.getInstance().getNotifyDataList());
+                    AlaLiveTabFragment.this.gCr.showNextNotifyDialog(0, AlaLiveUserNotifyManager.getInstance().getNotifyDataList());
                 }
             }
         };
-        AlaLiveUserNotifyManager.getInstance().addNotifyListener(this.gAJ);
-        MessageManager.getInstance().registerListener(this.gAN);
-        MessageManager.getInstance().registerListener(this.gAO);
-        this.gAH.init();
-        if (this.gAL > 0) {
-            bRC();
+        AlaLiveUserNotifyManager.getInstance().addNotifyListener(this.gCs);
+        MessageManager.getInstance().registerListener(this.gCw);
+        MessageManager.getInstance().registerListener(this.gCx);
+        this.gCq.init();
+        if (this.gCu > 0) {
+            bRI();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        ViewGroup bRV = this.gAH.bRV();
-        if (bRV.getParent() instanceof ViewGroup) {
-            ((ViewGroup) bRV.getParent()).removeView(bRV);
+        ViewGroup bSb = this.gCq.bSb();
+        if (bSb.getParent() instanceof ViewGroup) {
+            ((ViewGroup) bSb.getParent()).removeView(bSb);
         }
-        return bRV;
+        return bSb;
     }
 
-    public boolean bRA() {
-        return this.gAK;
+    public boolean bRG() {
+        return this.gCt;
     }
 
-    public void bRB() {
+    public void bRH() {
         if (this.mRefreshView == null) {
             this.mRefreshView = new h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.AlaLiveTabFragment.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (j.isNetworkAvailableForImmediately() && AlaLiveTabFragment.this.gAH != null) {
-                        AlaLiveTabFragment.this.gAH.mE(false);
-                        AlaLiveTabFragment.this.bRC();
-                        AlaLiveTabFragment.this.gAH.loadData();
+                    if (j.isNetworkAvailableForImmediately() && AlaLiveTabFragment.this.gCq != null) {
+                        AlaLiveTabFragment.this.gCq.mE(false);
+                        AlaLiveTabFragment.this.bRI();
+                        AlaLiveTabFragment.this.gCq.loadData();
                         AlaLiveUserNotifyManager.getInstance().sendGetUserNotifyRequest();
                     }
                 }
@@ -117,39 +117,39 @@ public class AlaLiveTabFragment extends BaseFragment implements am {
         this.mRefreshView.showRefreshButton();
         this.mRefreshView.setSubText(null);
         this.mRefreshView.setTitle(getResources().getString(R.string.refresh_view_title_text));
-        this.mRefreshView.rn(R.drawable.new_pic_emotion_08);
-        this.gAH.mE(false);
-        this.mRefreshView.rp(0);
-        this.mRefreshView.attachView(this.gAH.bRV(), false);
+        this.mRefreshView.ro(R.drawable.new_pic_emotion_08);
+        this.gCq.mE(false);
+        this.mRefreshView.rq(0);
+        this.mRefreshView.attachView(this.gCq.bSb(), false);
     }
 
-    public void WZ() {
-        this.gAH.mE(true);
+    public void Xc() {
+        this.gCq.mE(true);
         if (this.mRefreshView != null) {
-            this.mRefreshView.dettachView(this.gAH.bRV());
+            this.mRefreshView.dettachView(this.gCq.bSb());
             this.mRefreshView = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bRC() {
-        if (this.gAL < 0) {
-            this.gAL = this.gAH.bRV().getHeight();
+    public void bRI() {
+        if (this.gCu < 0) {
+            this.gCu = this.gCq.bSb().getHeight();
         }
-        showLoadingView(this.gAH.bRV(), false, (((this.gAL - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - l.getDimens(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2));
+        showLoadingView(this.gCq.bSb(), false, (((this.gCu - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - l.getDimens(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2));
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void Ut() {
-        this.gAH.bRW();
+    public void Uw() {
+        this.gCq.bSc();
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void bRD() {
+    public void bRJ() {
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void bRE() {
+    public void bRK() {
     }
 
     @Override // com.baidu.tieba.frs.am
@@ -163,9 +163,9 @@ public class AlaLiveTabFragment extends BaseFragment implements am {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        this.gAM = true;
-        this.gAH.loadData();
-        bRC();
+        this.gCv = true;
+        this.gCq.loadData();
+        bRI();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -174,34 +174,34 @@ public class AlaLiveTabFragment extends BaseFragment implements am {
         if (isPrimary()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, false));
             AlaLiveUserNotifyManager.getInstance().sendGetUserNotifyRequest();
-            if (this.gAH != null) {
-                this.gAH.mF(true);
+            if (this.gCq != null) {
+                this.gCq.mF(true);
             }
-        } else if (this.gAH != null) {
-            this.gAH.mF(false);
+        } else if (this.gCq != null) {
+            this.gCq.mF(false);
         }
-        if (this.gAH != null) {
-            this.gAH.cb(isPrimary());
+        if (this.gCq != null) {
+            this.gCq.cb(isPrimary());
         }
     }
 
     public void reload() {
         if (isAdded()) {
-            bRC();
-            this.gAH.loadData();
+            bRI();
+            this.gCq.loadData();
         }
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void bup() {
+    public void bus() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.gAH != null) {
-            this.gAH.onChangeSkinType();
+        if (this.gCq != null) {
+            this.gCq.onChangeSkinType();
         }
         if (this.mRefreshView != null) {
             this.mRefreshView.onChangeSkinType();
@@ -211,16 +211,16 @@ public class AlaLiveTabFragment extends BaseFragment implements am {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.gAK = true;
-        if (this.gAH != null) {
-            this.gAH.destroy();
+        this.gCt = true;
+        if (this.gCq != null) {
+            this.gCq.destroy();
         }
-        if (this.gAI != null) {
-            this.gAI.onDestroy();
+        if (this.gCr != null) {
+            this.gCr.onDestroy();
         }
-        AlaLiveUserNotifyManager.getInstance().removeNotifyListener(this.gAJ);
-        MessageManager.getInstance().unRegisterListener(this.gAN);
-        MessageManager.getInstance().unRegisterListener(this.gAO);
+        AlaLiveUserNotifyManager.getInstance().removeNotifyListener(this.gCs);
+        MessageManager.getInstance().unRegisterListener(this.gCw);
+        MessageManager.getInstance().unRegisterListener(this.gCx);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a

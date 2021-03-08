@@ -4,13 +4,13 @@ import android.os.Bundle;
 import com.baidu.helios.bridge.a;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c extends com.baidu.helios.bridge.a {
-    private volatile h arF;
-    private volatile com.baidu.helios.bridge.a.a arG;
-    private volatile Future<Boolean> arH;
+    private volatile h atf;
+    private volatile com.baidu.helios.bridge.a.a atg;
+    private volatile Future<Boolean> ath;
+    private volatile Future<Boolean> ati;
     private volatile boolean g;
-    private volatile Future<Boolean> h;
     private volatile boolean j;
     private String k;
     private Object l = new Object();
@@ -30,24 +30,24 @@ public class c extends com.baidu.helios.bridge.a {
             c();
         }
         try {
-            this.arH.get();
+            this.ati.get();
         } catch (Exception e) {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        if (this.f || this.arH != null) {
+        if (this.f || this.ati != null) {
             return;
         }
-        this.arH = this.arg.ark.submit(new Callable<Boolean>() { // from class: com.baidu.helios.bridge.multiprocess.c.1
+        this.ati = this.asG.asK.submit(new Callable<Boolean>() { // from class: com.baidu.helios.bridge.multiprocess.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
             /* renamed from: a */
             public Boolean call() {
-                c.this.arG = new com.baidu.helios.bridge.a.a();
-                c.this.arG.a(c.this.arg);
-                c.this.arG.a(c.this.arh);
+                c.this.atg = new com.baidu.helios.bridge.a.a();
+                c.this.atg.a(c.this.asG);
+                c.this.atg.a(c.this.asH);
                 c.this.f = true;
                 return true;
             }
@@ -62,26 +62,26 @@ public class c extends com.baidu.helios.bridge.a {
                 }
             }
             try {
-                this.h.get();
+                this.ath.get();
             } catch (Exception e) {
             }
         }
     }
 
     private void e() {
-        if (this.g || this.h != null) {
+        if (this.g || this.ath != null) {
             return;
         }
-        this.h = this.arg.ark.submit(new Callable<Boolean>() { // from class: com.baidu.helios.bridge.multiprocess.c.2
+        this.ath = this.asG.asK.submit(new Callable<Boolean>() { // from class: com.baidu.helios.bridge.multiprocess.c.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
             /* renamed from: a */
             public Boolean call() {
-                c.this.arF = new h(c.this, c.this.k);
-                c.this.arF.a(c.this.arg);
-                c.this.arF.a(c.this.arh);
+                c.this.atf = new h(c.this, c.this.k);
+                c.this.atf.a(c.this.asG);
+                c.this.atf.a(c.this.asH);
                 c.this.g = true;
-                if (c.this.arF.a()) {
+                if (c.this.atf.a()) {
                     c.this.j = true;
                     return true;
                 }
@@ -104,12 +104,12 @@ public class c extends com.baidu.helios.bridge.a {
         if (this.e) {
             d();
             if (this.j) {
-                this.arF.a(str, bundle, cVar);
+                this.atf.a(str, bundle, cVar);
                 return;
             }
         }
         b();
-        this.arG.a(str, bundle, cVar);
+        this.atg.a(str, bundle, cVar);
     }
 
     @Override // com.baidu.helios.bridge.a
@@ -130,7 +130,7 @@ public class c extends com.baidu.helios.bridge.a {
         if (this.e) {
             d();
             if (this.j) {
-                a.d d = this.arF.d(str, bundle);
+                a.d d = this.atf.d(str, bundle);
                 if (d.isSuccess()) {
                     return d;
                 }
@@ -138,18 +138,18 @@ public class c extends com.baidu.helios.bridge.a {
             }
         }
         b();
-        return this.arG.d(str, bundle);
+        return this.atg.d(str, bundle);
     }
 
     @Override // com.baidu.helios.bridge.a
-    public boolean dU(String str) {
+    public boolean ea(String str) {
         if (this.e) {
             d();
             if (this.j) {
-                return this.arF.dU(str);
+                return this.atf.ea(str);
             }
         }
         b();
-        return this.arG.dU(str);
+        return this.atg.ea(str);
     }
 }

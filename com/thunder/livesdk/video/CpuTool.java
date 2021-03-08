@@ -2,6 +2,7 @@ package com.thunder.livesdk.video;
 
 import android.os.Build;
 import android.os.Process;
+import androidx.exifinterface.media.ExifInterface;
 import com.thunder.livesdk.log.ThunderLog;
 import java.io.BufferedReader;
 import java.io.File;
@@ -13,7 +14,7 @@ import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class CpuTool {
     public static final int HZ = 100;
     private static final String TAG = "CPUTool";
@@ -37,7 +38,7 @@ public class CpuTool {
     private static JiffiesCount mJiffiesTopCount = new JiffiesCount();
     public static int mCpuCores = getCpuCores();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class CpuUpTimeInfo {
         public double lastActiveTime = 0.0d;
         public double curActiveTime = 0.0d;
@@ -69,7 +70,7 @@ public class CpuTool {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class JiffiesCount {
         public long lastJiffies = 0;
         public long curJiffies = 0;
@@ -837,7 +838,7 @@ public class CpuTool {
         String[] split2 = str.split(" ");
         if (strArr != null && strArr.length == 2 && split2 != null) {
             for (int i = 0; i < split2.length; i++) {
-                if (split2[i].toUpperCase().equals("R") || split2[i].toUpperCase().equals("S")) {
+                if (split2[i].toUpperCase().equals("R") || split2[i].toUpperCase().equals(ExifInterface.LATITUDE_SOUTH)) {
                     String str2 = split2[i + 1];
                     if (str2 == " ") {
                         str2 = split2[i + 2];

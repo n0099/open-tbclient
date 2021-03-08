@@ -4,20 +4,18 @@ import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.sapi2.result.SapiResult;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class b extends SapiResult {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f4959a = -603;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final int f4960b = -604;
+    public static final int f3364a = -603;
+    public static final int b = -604;
     public static final String c = "系统错误，请稍后再试";
     public static final String d = "验证失败，检测到当前百度安全中心App存在风险，请于官方渠道下载后重试";
 
     public b() {
-        this.msgMap.put(f4959a, c);
-        this.msgMap.put(f4960b, d);
+        this.msgMap.put(f3364a, c);
+        this.msgMap.put(b, d);
     }
 
     public String a() {

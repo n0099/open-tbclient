@@ -6,10 +6,8 @@ import java.util.HashMap;
 public class b implements Comparable<b> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11005a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f11006b;
+    public String f7251a;
+    public String b;
     public String c;
     public long d;
     public boolean e;
@@ -21,6 +19,6 @@ public class b implements Comparable<b> {
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(@NonNull b bVar) {
-        return -this.f11006b.compareTo(bVar.f11006b);
+        return -this.b.compareTo(bVar.b);
     }
 }

@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Process;
 import android.util.Log;
+import androidx.exifinterface.media.ExifInterface;
 import com.xiaomi.mipush.sdk.Constants;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -19,10 +20,8 @@ public class b implements g {
     private boolean i = false;
 
     /* renamed from: a  reason: collision with root package name */
-    private SimpleDateFormat f11230a = new SimpleDateFormat("MM-dd HH:mm:ss");
-
-    /* renamed from: b  reason: collision with root package name */
-    private List<a> f11231b = Collections.synchronizedList(new ArrayList());
+    private SimpleDateFormat f7382a = new SimpleDateFormat("MM-dd HH:mm:ss");
+    private List<a> b = Collections.synchronizedList(new ArrayList());
     private Handler c = new Handler(Looper.getMainLooper());
     private String g = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdk/defaultLog";
     private e f = new e();
@@ -33,14 +32,12 @@ public class b implements g {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        String f11234a;
-
-        /* renamed from: b  reason: collision with root package name */
-        String f11235b;
+        String f7385a;
+        String b;
         String c;
 
         public a(String str, String str2, String str3) {
-            StringBuffer stringBuffer = new StringBuffer(b.this.f11230a.format(new Date()));
+            StringBuffer stringBuffer = new StringBuffer(b.this.f7382a.format(new Date()));
             stringBuffer.append(" ");
             stringBuffer.append(b.this.h);
             stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
@@ -48,22 +45,22 @@ public class b implements g {
             stringBuffer.append(" ");
             stringBuffer.append(str);
             stringBuffer.append("/");
-            this.f11234a = stringBuffer.toString();
-            this.f11235b = str2;
+            this.f7385a = stringBuffer.toString();
+            this.b = str2;
             this.c = str3;
         }
     }
 
     private void a(a aVar) {
         try {
-            this.f11231b.add(aVar);
+            this.b.add(aVar);
         } catch (Exception e) {
             Log.e("Logger", "add logInfo error " + e.getMessage());
         }
     }
 
     private void b() {
-        if (this.f11231b.size() == 0) {
+        if (this.b.size() == 0) {
             this.c.postDelayed(new Runnable() { // from class: com.meizu.cloud.pushsdk.base.b.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -74,7 +71,7 @@ public class b implements g {
     }
 
     private void c() {
-        if (this.f11231b.size() == this.e) {
+        if (this.b.size() == this.e) {
             a(true);
         }
     }
@@ -89,7 +86,7 @@ public class b implements g {
         if (this.i) {
             Log.d(str, str2);
         }
-        synchronized (this.f11231b) {
+        synchronized (this.b) {
             b();
             a(new a("D", str, str2));
             c();
@@ -101,9 +98,9 @@ public class b implements g {
         if (this.i) {
             Log.e(str, str2, th);
         }
-        synchronized (this.f11231b) {
+        synchronized (this.b) {
             b();
-            a(new a("E", str, str2 + "\n" + Log.getStackTraceString(th)));
+            a(new a(ExifInterface.LONGITUDE_EAST, str, str2 + "\n" + Log.getStackTraceString(th)));
             c();
         }
     }
@@ -114,15 +111,15 @@ public class b implements g {
             @Override // java.lang.Runnable
             public void run() {
                 ArrayList<a> arrayList = new ArrayList();
-                synchronized (b.this.f11231b) {
+                synchronized (b.this.b) {
                     b.this.c.removeCallbacksAndMessages(null);
-                    arrayList.addAll(b.this.f11231b);
-                    b.this.f11231b.clear();
+                    arrayList.addAll(b.this.b);
+                    b.this.b.clear();
                 }
                 try {
                     b.this.f.a(b.this.g);
                     for (a aVar : arrayList) {
-                        b.this.f.a(aVar.f11234a, aVar.f11235b, aVar.c);
+                        b.this.f.a(aVar.f7385a, aVar.b, aVar.c);
                     }
                     try {
                         b.this.f.a();
@@ -159,7 +156,7 @@ public class b implements g {
         if (this.i) {
             Log.i(str, str2);
         }
-        synchronized (this.f11231b) {
+        synchronized (this.b) {
             b();
             a(new a("I", str, str2));
             c();
@@ -176,9 +173,9 @@ public class b implements g {
         if (this.i) {
             Log.w(str, str2);
         }
-        synchronized (this.f11231b) {
+        synchronized (this.b) {
             b();
-            a(new a("W", str, str2));
+            a(new a(ExifInterface.LONGITUDE_WEST, str, str2));
             c();
         }
     }
@@ -188,9 +185,9 @@ public class b implements g {
         if (this.i) {
             Log.e(str, str2);
         }
-        synchronized (this.f11231b) {
+        synchronized (this.b) {
             b();
-            a(new a("E", str, str2));
+            a(new a(ExifInterface.LONGITUDE_EAST, str, str2));
             c();
         }
     }

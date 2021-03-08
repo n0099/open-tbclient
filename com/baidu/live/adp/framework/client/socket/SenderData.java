@@ -9,7 +9,7 @@ import com.baidu.live.adp.lib.stats.BdStatisticsManager;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.adp.lib.websocket.IWebSocketDataGenerator;
 import java.security.InvalidParameterException;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class SenderData extends IWebSocketDataGenerator {
     private static final String MODULE_NAME = "SenderData";
     private static Handler sHandler = new Handler();

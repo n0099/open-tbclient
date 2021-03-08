@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends BaseImageDownloader {
     public a(Context context) {
         super(context);

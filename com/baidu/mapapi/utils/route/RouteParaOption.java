@@ -5,10 +5,8 @@ import com.baidu.mapapi.model.LatLng;
 public class RouteParaOption {
 
     /* renamed from: a  reason: collision with root package name */
-    LatLng f2972a;
-
-    /* renamed from: b  reason: collision with root package name */
-    LatLng f2973b;
+    LatLng f2172a;
+    LatLng b;
     String c;
     String d;
     String e;
@@ -39,7 +37,7 @@ public class RouteParaOption {
     }
 
     public RouteParaOption endPoint(LatLng latLng) {
-        this.f2973b = latLng;
+        this.b = latLng;
         return this;
     }
 
@@ -56,7 +54,7 @@ public class RouteParaOption {
     }
 
     public LatLng getEndPoint() {
-        return this.f2973b;
+        return this.b;
     }
 
     public String getStartName() {
@@ -64,7 +62,7 @@ public class RouteParaOption {
     }
 
     public LatLng getStartPoint() {
-        return this.f2972a;
+        return this.f2172a;
     }
 
     public RouteParaOption startName(String str) {
@@ -73,7 +71,7 @@ public class RouteParaOption {
     }
 
     public RouteParaOption startPoint(LatLng latLng) {
-        this.f2972a = latLng;
+        this.f2172a = latLng;
         return this;
     }
 }

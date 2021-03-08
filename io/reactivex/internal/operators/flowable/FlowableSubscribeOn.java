@@ -6,20 +6,20 @@ import io.reactivex.v;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class FlowableSubscribeOn<T> extends a<T, T> {
     final boolean nonScheduledRequests;
     final v scheduler;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
-        v.c eKq = this.scheduler.eKq();
-        SubscribeOnSubscriber subscribeOnSubscriber = new SubscribeOnSubscriber(cVar, eKq, this.qow, this.nonScheduledRequests);
+        v.c eJY = this.scheduler.eJY();
+        SubscribeOnSubscriber subscribeOnSubscriber = new SubscribeOnSubscriber(cVar, eJY, this.qoY, this.nonScheduledRequests);
         cVar.onSubscribe(subscribeOnSubscriber);
-        eKq.E(subscribeOnSubscriber);
+        eJY.C(subscribeOnSubscriber);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class SubscribeOnSubscriber<T> extends AtomicReference<Thread> implements j<T>, Runnable, d {
         private static final long serialVersionUID = 8094547886072529208L;
         final org.a.c<? super T> actual;
@@ -94,7 +94,7 @@ public final class FlowableSubscribeOn<T> extends a<T, T> {
             if (this.nonScheduledRequests || Thread.currentThread() == get()) {
                 dVar.request(j);
             } else {
-                this.worker.E(new a(dVar, j));
+                this.worker.C(new a(dVar, j));
             }
         }
 
@@ -105,7 +105,7 @@ public final class FlowableSubscribeOn<T> extends a<T, T> {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public static final class a implements Runnable {
             private final long n;
             private final d s;

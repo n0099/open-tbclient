@@ -16,10 +16,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class InstallGuideActivity extends TTDelegateActivity {
-    private static m qdl;
+    private static m qdY;
 
     public static void a(int i, @NonNull m mVar) {
-        qdl = mVar;
+        qdY = mVar;
         Intent intent = new Intent(j.a(), InstallGuideActivity.class);
         intent.addFlags(268435456);
         intent.putExtra("type", 6);
@@ -31,14 +31,14 @@ public class InstallGuideActivity extends TTDelegateActivity {
     protected void a() {
         Drawable drawable = null;
         PackageInfo packageInfo = null;
-        if (this.f12966a == null) {
-            this.f12966a = getIntent();
+        if (this.f7715a == null) {
+            this.f7715a = getIntent();
         }
-        if (this.f12966a.getIntExtra("type", 0) == 6) {
-            int intExtra = this.f12966a.getIntExtra("download_info_id", 0);
-            String b2 = b(intExtra);
-            long QZ = com.ss.android.downloadlib.f.d.QZ(intExtra);
-            com.ss.android.socialbase.downloader.g.c h = f.iB(j.a()).h(intExtra);
+        if (this.f7715a.getIntExtra("type", 0) == 6) {
+            int intExtra = this.f7715a.getIntExtra("download_info_id", 0);
+            String b = b(intExtra);
+            long Rd = com.ss.android.downloadlib.f.d.Rd(intExtra);
+            com.ss.android.socialbase.downloader.g.c h = f.iC(j.a()).h(intExtra);
             if (h == null) {
                 a(intExtra);
                 return;
@@ -62,19 +62,19 @@ public class InstallGuideActivity extends TTDelegateActivity {
                 }
             }
             c.b();
-            j.eEZ().a(this, intExtra, h2, drawable, b2, QZ, qdl);
+            j.eFd().a(this, intExtra, h2, drawable, b, Rd, qdY);
         }
     }
 
     @Override // android.app.Activity
     protected void onDestroy() {
         super.onDestroy();
-        j.eEZ().a();
+        j.eFd().a();
     }
 
     private void a(int i) {
-        if (qdl != null) {
-            qdl.a();
+        if (qdY != null) {
+            qdY.a();
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -83,22 +83,22 @@ public class InstallGuideActivity extends TTDelegateActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        j.eEQ().a(null, new com.ss.android.socialbase.downloader.e.a(0, jSONObject.toString()), 6);
+        j.eEU().a(null, new com.ss.android.socialbase.downloader.e.a(0, jSONObject.toString()), 6);
     }
 
     private String b(int i) {
         if (g.b()) {
-            return com.ss.android.downloadlib.f.d.QX(i);
+            return com.ss.android.downloadlib.f.d.Rb(i);
         }
         if (g.d()) {
-            return com.ss.android.downloadlib.f.d.OK(i);
+            return com.ss.android.downloadlib.f.d.OO(i);
         }
         if (g.c()) {
-            return com.ss.android.downloadlib.f.d.OL(i);
+            return com.ss.android.downloadlib.f.d.OP(i);
         }
         if (!g.a()) {
             return "";
         }
-        return com.ss.android.downloadlib.f.d.OM(i);
+        return com.ss.android.downloadlib.f.d.OQ(i);
     }
 }

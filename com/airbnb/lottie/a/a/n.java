@@ -7,31 +7,31 @@ import androidx.annotation.Nullable;
 import com.airbnb.lottie.a.b.a;
 import com.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
-/* loaded from: classes4.dex */
-public class n implements j, l, a.InterfaceC0007a {
-    private final com.airbnb.lottie.f BH;
+/* loaded from: classes5.dex */
+public class n implements j, l, a.InterfaceC0013a {
+    private final com.airbnb.lottie.f Df;
     @Nullable
-    private r DC;
-    private final com.airbnb.lottie.a.b.a<?, PointF> DG;
-    private final com.airbnb.lottie.a.b.a<?, PointF> DH;
-    private boolean DJ;
-    private final com.airbnb.lottie.a.b.a<?, Float> Eh;
+    private r EY;
+    private final com.airbnb.lottie.a.b.a<?, Float> FA;
+    private final com.airbnb.lottie.a.b.a<?, PointF> Fb;
+    private final com.airbnb.lottie.a.b.a<?, PointF> Fc;
+    private boolean Fe;
     private final String name;
     private final Path path = new Path();
     private final RectF rect = new RectF();
 
     public n(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar, com.airbnb.lottie.model.content.f fVar2) {
         this.name = fVar2.getName();
-        this.BH = fVar;
-        this.DH = fVar2.je().jb();
-        this.DG = fVar2.jl().jb();
-        this.Eh = fVar2.jH().jb();
-        aVar.a(this.DH);
-        aVar.a(this.DG);
-        aVar.a(this.Eh);
-        this.DH.b(this);
-        this.DG.b(this);
-        this.Eh.b(this);
+        this.Df = fVar;
+        this.Fc = fVar2.je().jb();
+        this.Fb = fVar2.jl().jb();
+        this.FA = fVar2.jH().jb();
+        aVar.a(this.Fc);
+        aVar.a(this.Fb);
+        aVar.a(this.FA);
+        this.Fc.b(this);
+        this.Fb.b(this);
+        this.FA.b(this);
     }
 
     @Override // com.airbnb.lottie.a.a.b
@@ -39,26 +39,26 @@ public class n implements j, l, a.InterfaceC0007a {
         return this.name;
     }
 
-    @Override // com.airbnb.lottie.a.b.a.InterfaceC0007a
+    @Override // com.airbnb.lottie.a.b.a.InterfaceC0013a
     public void ir() {
         invalidate();
     }
 
     private void invalidate() {
-        this.DJ = false;
-        this.BH.invalidateSelf();
+        this.Fe = false;
+        this.Df.invalidateSelf();
     }
 
     @Override // com.airbnb.lottie.a.a.b
-    public void c(List<b> list, List<b> list2) {
+    public void b(List<b> list, List<b> list2) {
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
                 if ((bVar instanceof r) && ((r) bVar).iB() == ShapeTrimPath.Type.Simultaneously) {
-                    this.DC = (r) bVar;
-                    this.DC.a(this);
+                    this.EY = (r) bVar;
+                    this.EY.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -69,19 +69,19 @@ public class n implements j, l, a.InterfaceC0007a {
 
     @Override // com.airbnb.lottie.a.a.l
     public Path iu() {
-        if (this.DJ) {
+        if (this.Fe) {
             return this.path;
         }
         this.path.reset();
-        PointF value = this.DG.getValue();
+        PointF value = this.Fb.getValue();
         float f = value.x / 2.0f;
         float f2 = value.y / 2.0f;
-        float floatValue = this.Eh == null ? 0.0f : this.Eh.getValue().floatValue();
+        float floatValue = this.FA == null ? 0.0f : this.FA.getValue().floatValue();
         float min = Math.min(f, f2);
         if (floatValue <= min) {
             min = floatValue;
         }
-        PointF value2 = this.DH.getValue();
+        PointF value2 = this.Fc.getValue();
         this.path.moveTo(value2.x + f, (value2.y - f2) + min);
         this.path.lineTo(value2.x + f, (value2.y + f2) - min);
         if (min > 0.0f) {
@@ -104,8 +104,8 @@ public class n implements j, l, a.InterfaceC0007a {
             this.path.arcTo(this.rect, 270.0f, 90.0f, false);
         }
         this.path.close();
-        com.airbnb.lottie.d.f.a(this.path, this.DC);
-        this.DJ = true;
+        com.airbnb.lottie.d.f.a(this.path, this.EY);
+        this.Fe = true;
         return this.path;
     }
 

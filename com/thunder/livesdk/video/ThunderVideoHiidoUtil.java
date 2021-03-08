@@ -14,7 +14,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderVideoHiidoUtil {
     private static final String TAG = "ThunderVideoHiidoUtil";
     private static ContentResolver contentResolver;
@@ -27,14 +27,14 @@ public class ThunderVideoHiidoUtil {
     private boolean mBatteryReceiverRegistered = false;
     private Object syncLock = new Object();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private interface AnchorHiidoStatInfoKey {
         public static final String APP_CPU_RATE = "s7";
         public static final String BatteryState = "dr39";
         public static final String ScreenBrightness = "dr40";
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private interface AudienceHiidoStatInfoKey {
         public static final String APP_CPU_RATE = "s7";
         public static final String BatteryState = "dr39";
@@ -142,7 +142,7 @@ public class ThunderVideoHiidoUtil {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private class BatteryMonitor extends BroadcastReceiver {
         private BatteryMonitor() {
         }

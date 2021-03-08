@@ -12,10 +12,8 @@ import java.util.Locale;
 public class Layer {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<com.ksad.lottie.model.content.b> f8093a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final com.ksad.lottie.d f8094b;
+    private final List<com.ksad.lottie.model.content.b> f5399a;
+    private final com.ksad.lottie.d b;
     private final String c;
     private final long d;
     private final LayerType e;
@@ -60,8 +58,8 @@ public class Layer {
     }
 
     public Layer(List<com.ksad.lottie.model.content.b> list, com.ksad.lottie.d dVar, String str, long j, LayerType layerType, long j2, @Nullable String str2, List<Mask> list2, l lVar, int i, int i2, int i3, float f, float f2, int i4, int i5, @Nullable j jVar, @Nullable k kVar, List<com.ksad.lottie.e.a<Float>> list3, MatteType matteType, @Nullable com.ksad.lottie.model.a.b bVar) {
-        this.f8093a = list;
-        this.f8094b = dVar;
+        this.f5399a = list;
+        this.b = dVar;
         this.c = str;
         this.d = j;
         this.e = layerType;
@@ -85,19 +83,19 @@ public class Layer {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public com.ksad.lottie.d a() {
-        return this.f8094b;
+        return this.b;
     }
 
     public String a(String str) {
         StringBuilder sb = new StringBuilder();
         sb.append(str).append(f()).append("\n");
-        Layer a2 = this.f8094b.a(m());
+        Layer a2 = this.b.a(m());
         if (a2 != null) {
             sb.append("\t\tParents: ").append(a2.f());
-            Layer a3 = this.f8094b.a(a2.m());
+            Layer a3 = this.b.a(a2.m());
             while (a3 != null) {
                 sb.append(PerfFrameTrackUIUtil.SEPERATOR_ARROR).append(a3.f());
-                a3 = this.f8094b.a(a3.m());
+                a3 = this.b.a(a3.m());
             }
             sb.append(str).append("\n");
         }
@@ -107,9 +105,9 @@ public class Layer {
         if (r() != 0 && q() != 0) {
             sb.append(str).append("\tBackground: ").append(String.format(Locale.US, "%dx%d %X\n", Integer.valueOf(r()), Integer.valueOf(q()), Integer.valueOf(p())));
         }
-        if (!this.f8093a.isEmpty()) {
+        if (!this.f5399a.isEmpty()) {
             sb.append(str).append("\tShapes:\n");
-            for (com.ksad.lottie.model.content.b bVar : this.f8093a) {
+            for (com.ksad.lottie.model.content.b bVar : this.f5399a) {
                 sb.append(str).append("\t\t").append(bVar).append("\n");
             }
         }
@@ -123,7 +121,7 @@ public class Layer {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public float c() {
-        return this.n / this.f8094b.k();
+        return this.n / this.b.k();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -177,7 +175,7 @@ public class Layer {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public List<com.ksad.lottie.model.content.b> n() {
-        return this.f8093a;
+        return this.f5399a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

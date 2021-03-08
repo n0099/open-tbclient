@@ -5,19 +5,17 @@ import android.os.Bundle;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Object f2532a = new Object();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static b f2533b = null;
+    private static Object f1905a = new Object();
+    private static b b = null;
     private int c = -1;
 
     public static b a() {
         b bVar;
-        synchronized (f2532a) {
-            if (f2533b == null) {
-                f2533b = new b();
+        synchronized (f1905a) {
+            if (b == null) {
+                b = new b();
             }
-            bVar = f2533b;
+            bVar = b;
         }
         return bVar;
     }

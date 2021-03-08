@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.extcore.c;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
-    public static boolean hn(int i) {
+    public static boolean ho(int i) {
         return i == 1;
     }
 

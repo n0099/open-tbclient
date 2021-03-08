@@ -12,10 +12,8 @@ import com.bytedance.sdk.openadsdk.utils.ak;
 public class TopLayout1 extends FrameLayout implements a<TopLayout1> {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f6350a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private ImageView f6351b;
+    private TextView f4296a;
+    private ImageView b;
     private TextView c;
     private View d;
     private boolean e;
@@ -39,28 +37,28 @@ public class TopLayout1 extends FrameLayout implements a<TopLayout1> {
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setShowSound(boolean z) {
-        if (this.f6351b != null) {
-            this.f6351b.setVisibility(z ? 0 : 8);
+        if (this.b != null) {
+            this.b.setVisibility(z ? 0 : 8);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setSoundMute(boolean z) {
         this.f = z;
-        this.f6351b.setImageResource(this.f ? ac.d(getContext(), "tt_mute") : ac.d(getContext(), "tt_unmute"));
+        this.b.setImageResource(this.f ? ac.d(getContext(), "tt_mute") : ac.d(getContext(), "tt_unmute"));
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setShowCountDown(boolean z) {
-        if (this.f6350a != null) {
-            this.f6350a.setVisibility(z ? 0 : 8);
+        if (this.f4296a != null) {
+            this.f4296a.setVisibility(z ? 0 : 8);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void a(CharSequence charSequence, CharSequence charSequence2) {
-        if (this.f6350a != null && !TextUtils.isEmpty(charSequence)) {
-            this.f6350a.setText(charSequence);
+        if (this.f4296a != null && !TextUtils.isEmpty(charSequence)) {
+            this.f4296a.setText(charSequence);
         }
         if (this.c != null && !TextUtils.isEmpty(charSequence2)) {
             this.c.setText(charSequence2);
@@ -93,8 +91,8 @@ public class TopLayout1 extends FrameLayout implements a<TopLayout1> {
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void b() {
-        if (this.f6351b != null) {
-            this.f6351b.performClick();
+        if (this.b != null) {
+            this.b.performClick();
         }
     }
 

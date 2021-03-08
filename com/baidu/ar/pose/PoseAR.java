@@ -13,7 +13,7 @@ import com.baidu.ar.d.e;
 import com.yy.videoplayer.decoder.VideoConstant;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class PoseAR extends c {
     public static final String MDL_MAGIC_FILTER_CUTOFFSLOPE = "cutoffSlope";
     public static final String MDL_MAGIC_FILTER_MIN_CUTOFFFREQ = "min_cutofffreq";

@@ -1,5 +1,8 @@
 package com.bumptech.glide.disklrucache;
 
+import android.annotation.TargetApi;
+import android.os.Build;
+import android.os.StrictMode;
 import java.io.BufferedWriter;
 import java.io.Closeable;
 import java.io.EOFException;
@@ -21,7 +24,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class DiskLruCache implements Closeable {
     static final long ANY_SEQUENCE_NUMBER = -1;
     private static final String CLEAN = "CLEAN";
@@ -199,7 +202,7 @@ public final class DiskLruCache implements Closeable {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void rebuildJournal() throws IOException {
         if (this.journalWriter != null) {
-            this.journalWriter.close();
+            closeWriter(this.journalWriter);
         }
         BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.journalFileTmp), Util.US_ASCII));
         bufferedWriter.write(MAGIC);
@@ -218,7 +221,7 @@ public final class DiskLruCache implements Closeable {
                 bufferedWriter.write("CLEAN " + entry.key + entry.getLengths() + '\n');
             }
         }
-        bufferedWriter.close();
+        closeWriter(bufferedWriter);
         if (this.journalFile.exists()) {
             renameTo(this.journalFile, this.journalFileBackup, true);
         }
@@ -310,7 +313,7 @@ public final class DiskLruCache implements Closeable {
             this.journalWriter.append(' ');
             this.journalWriter.append((CharSequence) str);
             this.journalWriter.append('\n');
-            this.journalWriter.flush();
+            flushWriter(this.journalWriter);
         } else {
             editor = null;
         }
@@ -388,7 +391,7 @@ public final class DiskLruCache implements Closeable {
                 this.journalWriter.append((CharSequence) entry.key);
                 this.journalWriter.append('\n');
             }
-            this.journalWriter.flush();
+            flushWriter(this.journalWriter);
             if (this.size > this.maxSize || journalRebuildRequired()) {
                 this.executorService.submit(this.cleanupCallable);
             }
@@ -444,7 +447,7 @@ public final class DiskLruCache implements Closeable {
     public synchronized void flush() throws IOException {
         checkNotClosed();
         trimToSize();
-        this.journalWriter.flush();
+        flushWriter(this.journalWriter);
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
@@ -458,7 +461,7 @@ public final class DiskLruCache implements Closeable {
                 }
             }
             trimToSize();
-            this.journalWriter.close();
+            closeWriter(this.journalWriter);
             this.journalWriter = null;
         }
     }
@@ -480,7 +483,37 @@ public final class DiskLruCache implements Closeable {
         return Util.readFully(new InputStreamReader(inputStream, Util.UTF_8));
     }
 
-    /* loaded from: classes5.dex */
+    @TargetApi(26)
+    private static void closeWriter(Writer writer) throws IOException {
+        if (Build.VERSION.SDK_INT < 26) {
+            writer.close();
+            return;
+        }
+        StrictMode.ThreadPolicy threadPolicy = StrictMode.getThreadPolicy();
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder(threadPolicy).permitUnbufferedIo().build());
+        try {
+            writer.close();
+        } finally {
+            StrictMode.setThreadPolicy(threadPolicy);
+        }
+    }
+
+    @TargetApi(26)
+    private static void flushWriter(Writer writer) throws IOException {
+        if (Build.VERSION.SDK_INT < 26) {
+            writer.flush();
+            return;
+        }
+        StrictMode.ThreadPolicy threadPolicy = StrictMode.getThreadPolicy();
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder(threadPolicy).permitUnbufferedIo().build());
+        try {
+            writer.flush();
+        } finally {
+            StrictMode.setThreadPolicy(threadPolicy);
+        }
+    }
+
+    /* loaded from: classes4.dex */
     public final class Value {
         private final File[] files;
         private final String key;
@@ -511,7 +544,7 @@ public final class DiskLruCache implements Closeable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public final class Editor {
         private boolean committed;
         private final Entry entry;
@@ -601,7 +634,7 @@ public final class DiskLruCache implements Closeable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public final class Entry {
         File[] cleanFiles;
         private Editor currentEditor;
@@ -662,7 +695,7 @@ public final class DiskLruCache implements Closeable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private static final class DiskLruCacheThreadFactory implements ThreadFactory {
         private DiskLruCacheThreadFactory() {
         }

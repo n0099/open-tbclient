@@ -15,71 +15,71 @@ import androidx.annotation.NonNull;
 import androidx.annotation.UiThread;
 import com.baidu.swan.apps.a;
 @UiThread
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a implements b {
-    protected com.baidu.swan.games.view.recommend.model.a emY;
-    protected InterfaceC0530a emZ;
-    private int ena;
-    private boolean enb;
-    private ObjectAnimator enc;
-    private d ene;
+    protected com.baidu.swan.games.view.recommend.model.a eoC;
+    protected InterfaceC0536a eoD;
+    private int eoE;
+    private boolean eoF;
+    private ObjectAnimator eoG;
+    private d eoH;
     protected Context mContext;
     protected Handler mHandler;
     private ViewGroup mRootView;
 
     /* renamed from: com.baidu.swan.games.view.recommend.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public interface InterfaceC0530a {
-        void aZV();
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0536a {
+        void aZY();
 
-        void aZW();
+        void aZZ();
 
-        void lq(int i);
+        void lr(int i);
     }
 
     public a(@NonNull Context context, @NonNull d dVar) {
         this.mContext = context;
-        this.ene = dVar;
-        aW(aZP());
+        this.eoH = dVar;
+        aW(aZS());
         initAnimation();
-        aZT();
+        aZW();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public View aZP() {
+    public View aZS() {
         return LayoutInflater.from(this.mContext).inflate(a.g.swangame_recommend_button, (ViewGroup) null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aZQ() {
-        this.enc.start();
+    public void aZT() {
+        this.eoG.start();
     }
 
-    protected int aZR() {
+    protected int aZU() {
         return 5000;
     }
 
     private void aW(View view) {
-        this.ena = (int) this.mContext.getResources().getDimension(a.d.swangame_recommend_button_root_padding);
+        this.eoE = (int) this.mContext.getResources().getDimension(a.d.swangame_recommend_button_root_padding);
         this.mRootView = new FrameLayout(this.mContext);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(com.baidu.swan.games.utils.e.P(this.ene.width), com.baidu.swan.games.utils.e.P(this.ene.height));
-        layoutParams.setMargins(this.ena, this.ena, this.ena, this.ena);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(com.baidu.swan.games.utils.e.T(this.eoH.width), com.baidu.swan.games.utils.e.T(this.eoH.height));
+        layoutParams.setMargins(this.eoE, this.eoE, this.eoE, this.eoE);
         this.mRootView.setBackgroundColor(0);
         this.mRootView.addView(view, layoutParams);
     }
 
     private void initAnimation() {
-        this.enc = aZS();
+        this.eoG = aZV();
         this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.swan.games.view.recommend.a.a.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        int aZR = a.this.aZR();
-                        if (aZR > 0 && a.this.enb) {
-                            a.this.mHandler.sendEmptyMessageDelayed(1, aZR);
+                        int aZU = a.this.aZU();
+                        if (aZU > 0 && a.this.eoF) {
+                            a.this.mHandler.sendEmptyMessageDelayed(1, aZU);
                         }
-                        a.this.aZQ();
+                        a.this.aZT();
                         return;
                     default:
                         return;
@@ -88,21 +88,21 @@ public class a implements b {
         };
     }
 
-    private ObjectAnimator aZS() {
+    private ObjectAnimator aZV() {
         ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.mRootView, PropertyValuesHolder.ofKeyframe(View.ROTATION, Keyframe.ofFloat(0.2f * 0.0f, 0.0f), Keyframe.ofFloat(1.0f * 0.2f, 6.0f), Keyframe.ofFloat(2.0f * 0.2f, -6.0f), Keyframe.ofFloat(3.0f * 0.2f, 6.0f), Keyframe.ofFloat(4.0f * 0.2f, -6.0f), Keyframe.ofFloat(0.2f * 5.0f, 0.0f)));
         ofPropertyValuesHolder.setDuration(600L);
         return ofPropertyValuesHolder;
     }
 
-    private void aZT() {
+    private void aZW() {
         this.mRootView.setVisibility(8);
-        com.baidu.swan.games.view.c.c(this.mRootView, aZU());
+        com.baidu.swan.games.view.c.c(this.mRootView, aZX());
     }
 
-    private com.baidu.swan.apps.model.a.a.a aZU() {
+    private com.baidu.swan.apps.model.a.a.a aZX() {
         com.baidu.swan.apps.model.a.a.a aVar = new com.baidu.swan.apps.model.a.a.a();
-        aVar.im(com.baidu.swan.games.utils.e.P(this.ene.left) - this.ena);
-        aVar.in(com.baidu.swan.games.utils.e.P(this.ene.top) - this.ena);
+        aVar.in(com.baidu.swan.games.utils.e.T(this.eoH.left) - this.eoE);
+        aVar.io(com.baidu.swan.games.utils.e.T(this.eoH.top) - this.eoE);
         aVar.setWidth(-2);
         aVar.setHeight(-2);
         return aVar;
@@ -110,17 +110,17 @@ public class a implements b {
 
     @Override // com.baidu.swan.games.view.recommend.a.b
     public void a(com.baidu.swan.games.view.recommend.model.a aVar) {
-        this.emY = aVar;
+        this.eoC = aVar;
     }
 
     @Override // com.baidu.swan.games.view.recommend.a.b
-    public void a(InterfaceC0530a interfaceC0530a) {
-        this.emZ = interfaceC0530a;
+    public void a(InterfaceC0536a interfaceC0536a) {
+        this.eoD = interfaceC0536a;
     }
 
     @Override // com.baidu.swan.games.view.recommend.a.b
     public void fZ(boolean z) {
-        if (this.enb) {
+        if (this.eoF) {
             this.mHandler.removeMessages(1);
             if (z) {
                 this.mHandler.sendEmptyMessage(1);
@@ -130,7 +130,7 @@ public class a implements b {
 
     @Override // com.baidu.swan.games.view.recommend.a
     public void show() {
-        this.enb = true;
+        this.eoF = true;
         this.mRootView.setVisibility(0);
         this.mHandler.removeMessages(1);
         this.mHandler.sendEmptyMessage(1);
@@ -138,21 +138,21 @@ public class a implements b {
 
     @Override // com.baidu.swan.games.view.recommend.a
     public void hide() {
-        this.enb = false;
+        this.eoF = false;
         this.mHandler.removeMessages(1);
         this.mRootView.setVisibility(8);
     }
 
     @Override // com.baidu.swan.games.view.recommend.a
     public void destroy() {
-        this.enb = false;
+        this.eoF = false;
         this.mHandler.removeCallbacksAndMessages(null);
         com.baidu.swan.games.view.c.removeView(this.mRootView);
     }
 
     @Override // com.baidu.swan.games.view.recommend.a.b
     public void update() {
-        com.baidu.swan.games.view.c.b(this.mRootView, aZU());
+        com.baidu.swan.games.view.c.b(this.mRootView, aZX());
     }
 
     @NonNull

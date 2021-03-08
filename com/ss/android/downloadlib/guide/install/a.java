@@ -32,10 +32,8 @@ import java.util.Locale;
 public class a extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private WeakReference<Activity> f12995a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final int f12996b;
+    private WeakReference<Activity> f7737a;
+    private final int b;
     private String c;
     private TextView e;
     private TextView f;
@@ -47,9 +45,9 @@ public class a extends Dialog {
     private View m;
     private Handler n;
     private int o;
-    private ClipImageView qdm;
-    private Drawable qdn;
-    private m qdo;
+    private ClipImageView qdZ;
+    private Drawable qea;
+    private m qeb;
 
     static /* synthetic */ int g(a aVar) {
         int i = aVar.o;
@@ -60,12 +58,12 @@ public class a extends Dialog {
     public a(@NonNull Activity activity, int i, String str, Drawable drawable, String str2, long j, @NonNull m mVar) {
         super(activity);
         this.n = new Handler(Looper.getMainLooper());
-        this.f12995a = new WeakReference<>(activity);
-        this.f12996b = i;
+        this.f7737a = new WeakReference<>(activity);
+        this.b = i;
         this.c = str;
-        this.qdn = drawable;
+        this.qea = drawable;
         this.j = str2;
-        this.qdo = mVar;
+        this.qeb = mVar;
         this.o = (int) (j / 1000);
     }
 
@@ -76,7 +74,7 @@ public class a extends Dialog {
         setContentView(a.c.ttdownloader_dialog_apk_install_guide);
         Window window = getWindow();
         if (window != null) {
-            window.setBackgroundDrawableResource(a.C1221a.ttdownloader_bg_transparent);
+            window.setBackgroundDrawableResource(a.C1211a.ttdownloader_bg_transparent);
             window.setLayout(-1, -1);
             window.setGravity(80);
         }
@@ -120,7 +118,7 @@ public class a extends Dialog {
     }
 
     private void b() {
-        this.qdm = (ClipImageView) findViewById(a.b.app_icon_iv);
+        this.qdZ = (ClipImageView) findViewById(a.b.app_icon_iv);
         this.f = (TextView) findViewById(a.b.install_app_tv);
         this.g = (TextView) findViewById(a.b.app_name_tv);
         this.h = (ViewStub) findViewById(a.b.install_hijack_view);
@@ -131,13 +129,13 @@ public class a extends Dialog {
             }
         });
         this.g.setText(this.c);
-        this.qdm.setClip(true);
-        this.qdm.setRoundRadius(i.a(j.a(), 4.0f));
-        Bitmap a2 = com.ss.android.socialbase.appdownloader.e.c.eFD().a(this.f12996b);
+        this.qdZ.setClip(true);
+        this.qdZ.setRoundRadius(i.a(j.a(), 4.0f));
+        Bitmap a2 = com.ss.android.socialbase.appdownloader.e.c.eFH().a(this.b);
         if (a2 != null) {
-            this.qdm.setImageBitmap(a2);
-        } else if (this.qdn != null) {
-            this.qdm.setImageDrawable(this.qdn);
+            this.qdZ.setImageBitmap(a2);
+        } else if (this.qea != null) {
+            this.qdZ.setImageDrawable(this.qea);
         }
         this.f.setText(String.format(Locale.getDefault(), "立即安装 %d 秒", Integer.valueOf(this.o)));
         this.k = findViewById(a.b.local_install_hijack_layout);
@@ -151,7 +149,7 @@ public class a extends Dialog {
         });
         TextView textView = (TextView) findViewById(a.b.kllk_install_tv);
         if (textView != null) {
-            textView.setText(e.f13075b + "应用商店安装");
+            textView.setText(e.b + "应用商店安装");
         }
         this.e = (TextView) findViewById(a.b.install_dialog_description);
         String str = "安装页面点击“继续安装”即可快速安装";
@@ -170,18 +168,18 @@ public class a extends Dialog {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        Activity activity = this.f12995a.get();
+        Activity activity = this.f7737a.get();
         if (activity != null && !activity.isFinishing()) {
             dismiss();
-        } else if (this.qdo != null) {
-            this.qdo.a();
-            this.qdo = null;
+        } else if (this.qeb != null) {
+            this.qeb.a();
+            this.qeb = null;
         }
     }
 
     @Override // android.app.Dialog
     public void onBackPressed() {
-        if (com.ss.android.socialbase.downloader.k.a.RW(this.f12996b).a("install_guide_back", 1) == 1) {
+        if (com.ss.android.socialbase.downloader.k.a.Sa(this.b).a("install_guide_back", 1) == 1) {
             super.onBackPressed();
             c();
         }
@@ -221,13 +219,13 @@ public class a extends Dialog {
     }
 
     private void f() {
-        Activity activity = this.f12995a.get();
+        Activity activity = this.f7737a.get();
         if (activity != null && !activity.isFinishing()) {
             activity.finish();
         }
-        if (this.qdo != null) {
-            this.qdo.a();
-            this.qdo = null;
+        if (this.qeb != null) {
+            this.qeb.a();
+            this.qeb = null;
         }
     }
 
@@ -236,8 +234,8 @@ public class a extends Dialog {
         this.n.postDelayed(new Runnable() { // from class: com.ss.android.downloadlib.guide.install.a.6
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.qdo != null) {
-                    Activity activity = (Activity) a.this.f12995a.get();
+                if (a.this.qeb != null) {
+                    Activity activity = (Activity) a.this.f7737a.get();
                     if (activity == null || !activity.isFinishing()) {
                         a.g(a.this);
                         if (a.this.o > 0) {

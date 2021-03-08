@@ -9,17 +9,15 @@ import com.yxcorp.kuaishou.addfp.android.b.e;
 public final class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private /* synthetic */ a f14339a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private /* synthetic */ Context f14340b;
-    private /* synthetic */ b qlZ;
+    private /* synthetic */ a f8595a;
+    private /* synthetic */ Context b;
+    private /* synthetic */ b qmA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, a aVar, Context context) {
-        this.qlZ = bVar;
-        this.f14339a = aVar;
-        this.f14340b = context;
+        this.qmA = bVar;
+        this.f8595a = aVar;
+        this.b = context;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -33,8 +31,8 @@ public final class c implements Runnable {
         com.yxcorp.kuaishou.addfp.a.b.a aVar6;
         char c = 0;
         try {
-            this.qlZ.f14338a = this.f14339a;
-            String a2 = b.a(this.qlZ);
+            this.qmA.f8594a = this.f8595a;
+            String a2 = b.a(this.qmA);
             switch (a2.hashCode()) {
                 case -1619859642:
                     if (a2.equals("blackshark")) {
@@ -147,60 +145,60 @@ public final class c implements Runnable {
             switch (c) {
                 case 0:
                 case 1:
-                    this.qlZ.qlY = new com.yxcorp.kuaishou.addfp.a.b.i.b(this.f14340b);
+                    this.qmA.qmz = new com.yxcorp.kuaishou.addfp.a.b.i.b(this.b);
                     break;
                 case 2:
-                    this.qlZ.qlY = new e(this.f14340b);
+                    this.qmA.qmz = new e(this.b);
                     break;
                 case 3:
-                    this.qlZ.qlY = new com.yxcorp.kuaishou.addfp.a.b.h.a(this.f14340b);
-                    aVar = this.qlZ.qlY;
+                    this.qmA.qmz = new com.yxcorp.kuaishou.addfp.a.b.h.a(this.b);
+                    aVar = this.qmA.qmz;
                     ((com.yxcorp.kuaishou.addfp.a.b.h.a) aVar).a("100215079");
                     break;
                 case 4:
-                    this.qlZ.qlY = new com.yxcorp.kuaishou.addfp.a.b.b.c(this.f14340b, b.eJD());
+                    this.qmA.qmz = new com.yxcorp.kuaishou.addfp.a.b.b.c(this.b, b.eJl());
                     break;
                 case 5:
                 case 6:
-                    this.qlZ.qlY = new g(this.f14340b, b.eJD());
+                    this.qmA.qmz = new g(this.b, b.eJl());
                     break;
                 case 7:
                 case '\b':
-                    this.qlZ.qlY = new com.yxcorp.kuaishou.addfp.a.b.c.d(this.f14340b, b.eJD());
+                    this.qmA.qmz = new com.yxcorp.kuaishou.addfp.a.b.c.d(this.b, b.eJl());
                     break;
                 case '\t':
-                    this.qlZ.qlY = new com.yxcorp.kuaishou.addfp.a.b.a.a(this.f14340b, b.eJD());
+                    this.qmA.qmz = new com.yxcorp.kuaishou.addfp.a.b.a.a(this.b, b.eJl());
                     break;
                 case '\n':
-                    this.qlZ.qlY = new com.yxcorp.kuaishou.addfp.a.b.g.g(this.f14340b, b.eJD());
+                    this.qmA.qmz = new com.yxcorp.kuaishou.addfp.a.b.g.g(this.b, b.eJl());
                     break;
                 case 11:
-                    this.qlZ.qlY = new com.yxcorp.kuaishou.addfp.a.b.e.b(this.f14340b);
+                    this.qmA.qmz = new com.yxcorp.kuaishou.addfp.a.b.e.b(this.b);
                     break;
                 case '\f':
                 case '\r':
                 case 14:
-                    this.qlZ.qlY = new com.yxcorp.kuaishou.addfp.a.b.j.g(this.f14340b, b.eJD());
+                    this.qmA.qmz = new com.yxcorp.kuaishou.addfp.a.b.j.g(this.b, b.eJl());
                     break;
             }
-            aVar2 = this.qlZ.qlY;
+            aVar2 = this.qmA.qmz;
             if (aVar2 == null) {
-                this.qlZ.a(false, (com.yxcorp.kuaishou.addfp.a.b.a) null);
+                this.qmA.a(false, (com.yxcorp.kuaishou.addfp.a.b.a) null);
                 return;
             }
-            aVar3 = this.qlZ.qlY;
+            aVar3 = this.qmA.qmz;
             if (!aVar3.a()) {
-                aVar6 = this.qlZ.qlY;
-                aVar6.a(b.eJD());
+                aVar6 = this.qmA.qmz;
+                aVar6.a(b.eJl());
                 return;
             }
-            aVar4 = this.qlZ.qlY;
+            aVar4 = this.qmA.qmz;
             if (!aVar4.c()) {
-                this.qlZ.a(false, (com.yxcorp.kuaishou.addfp.a.b.a) null);
+                this.qmA.a(false, (com.yxcorp.kuaishou.addfp.a.b.a) null);
                 return;
             }
-            b bVar = this.qlZ;
-            aVar5 = this.qlZ.qlY;
+            b bVar = this.qmA;
+            aVar5 = this.qmA.qmz;
             bVar.a(true, aVar5);
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);

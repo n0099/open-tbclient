@@ -10,29 +10,29 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class hi {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f14090a = false;
+    private static boolean f8415a = false;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     static class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f14091a;
+        private Context f8416a;
 
         /* renamed from: a  reason: collision with other field name */
-        private hl f514a;
+        private hl f435a;
 
         public a(Context context, hl hlVar) {
-            this.f514a = hlVar;
-            this.f14091a = context;
+            this.f435a = hlVar;
+            this.f8416a = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            hi.c(this.f14091a, this.f514a);
+            hi.c(this.f8416a, this.f435a);
         }
     }
 
@@ -120,7 +120,7 @@ public class hi {
             }
             hj.a(context, hlVar, arrayList);
             if (file != null && file.exists() && !file.delete()) {
-                com.xiaomi.channel.commonutils.logger.b.m79a("TinyData delete reading temp file failed");
+                com.xiaomi.channel.commonutils.logger.b.m58a("TinyData delete reading temp file failed");
             }
             y.a(bufferedInputStream);
         } catch (Exception e2) {
@@ -148,21 +148,21 @@ public class hi {
         FileLock fileLock;
         RandomAccessFile randomAccessFile;
         File file;
-        if (f14090a) {
-            com.xiaomi.channel.commonutils.logger.b.m79a("TinyData extractTinyData is running");
+        if (f8415a) {
+            com.xiaomi.channel.commonutils.logger.b.m58a("TinyData extractTinyData is running");
             return;
         }
-        f14090a = true;
+        f8415a = true;
         File file2 = new File(context.getFilesDir(), "tiny_data.data");
         if (!file2.exists()) {
-            com.xiaomi.channel.commonutils.logger.b.m79a("TinyData no ready file to get data.");
+            com.xiaomi.channel.commonutils.logger.b.m58a("TinyData no ready file to get data.");
             return;
         }
         a(context);
         byte[] a2 = com.xiaomi.push.service.bj.a(context);
         try {
             File file3 = new File(context.getFilesDir(), "tiny_data.lock");
-            y.m615a(file3);
+            y.m594a(file3);
             randomAccessFile = new RandomAccessFile(file3, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
         } catch (Exception e) {
             e = e;
@@ -227,12 +227,12 @@ public class hi {
         }
         file = new File(context.getFilesDir() + "/tdReadTemp/tiny_data.data");
         if (file.exists()) {
-            com.xiaomi.channel.commonutils.logger.b.m79a("TinyData no ready file to get data.");
+            com.xiaomi.channel.commonutils.logger.b.m58a("TinyData no ready file to get data.");
             return;
         }
         a(context, hlVar, file, a2);
         hh.a(false);
         b(context);
-        f14090a = false;
+        f8415a = false;
     }
 }

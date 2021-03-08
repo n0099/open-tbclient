@@ -1,20 +1,20 @@
 package com.facebook.imagepipeline.nativecode;
 /* loaded from: classes5.dex */
 public class d {
-    private static c pLF;
-    public static boolean pLG;
+    private static c pNK;
+    public static boolean pNL;
 
     static {
-        pLG = false;
+        pNL = false;
         try {
-            pLF = (c) Class.forName("com.facebook.imagepipeline.nativecode.WebpTranscoderImpl").newInstance();
-            pLG = true;
+            pNK = (c) Class.forName("com.facebook.imagepipeline.nativecode.WebpTranscoderImpl").newInstance();
+            pNL = true;
         } catch (Throwable th) {
-            pLG = false;
+            pNL = false;
         }
     }
 
-    public static c ezm() {
-        return pLF;
+    public static c ezv() {
+        return pNK;
     }
 }

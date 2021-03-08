@@ -1,6 +1,5 @@
 package com.bytedance.sdk.openadsdk.core;
 
-import android.graphics.Bitmap;
 import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.FilterWord;
 import com.bytedance.sdk.openadsdk.core.r;
@@ -32,9 +31,7 @@ public interface q<T> {
 
     com.bytedance.sdk.openadsdk.c.h a(JSONObject jSONObject);
 
-    com.bytedance.sdk.openadsdk.core.d.p a();
-
-    void a(int i, String str, String str2, Bitmap bitmap);
+    com.bytedance.sdk.openadsdk.core.d.q a();
 
     void a(AdSlot adSlot, com.bytedance.sdk.openadsdk.core.d.m mVar, int i, b bVar);
 

@@ -7,10 +7,8 @@ import com.baidu.cyberplayer.sdk.dlna.DlnaProvider;
 public class Dlna {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f1754a = "com.baidu.media.dlna.DlnaProviderImpl";
-
-    /* renamed from: b  reason: collision with root package name */
-    private static DlnaProvider f1755b = null;
+    private static String f1416a = "com.baidu.media.dlna.DlnaProviderImpl";
+    private static DlnaProvider b = null;
     public static int DLNA_ERROR_PLAY_ACTION_NOT_FOUND = -1001;
     public static int DLNA_ERROR_DEVICE_CONNECT_TIMEOUT = -1002;
     public static int DLNA_ERROR_SET_AV_TRANSPORT_URI_ACTION_NOT_FOUND = -1003;
@@ -34,42 +32,42 @@ public class Dlna {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final Dlna f1756a = new Dlna();
+        private static final Dlna f1417a = new Dlna();
     }
 
     private Dlna() {
     }
 
     public static Dlna getInstance() {
-        return a.f1756a;
+        return a.f1417a;
     }
 
     public static void init(ClassLoader classLoader) {
         try {
-            f1755b = (DlnaProvider) Class.forName(f1754a, true, classLoader).newInstance();
+            b = (DlnaProvider) Class.forName(f1416a, true, classLoader).newInstance();
         } catch (Exception e) {
             e.printStackTrace();
-            f1755b = null;
+            b = null;
         }
     }
 
     public PnPController getCtrlPoint(String str) {
-        if (f1755b == null || str == null) {
+        if (b == null || str == null) {
             return null;
         }
-        return new PnPController(str, f1755b);
+        return new PnPController(str, b);
     }
 
     public void refresh(DlnaProvider.DlnaSearchListener dlnaSearchListener) {
-        if (f1755b != null) {
-            f1755b.stop();
-            f1755b.search(dlnaSearchListener);
+        if (b != null) {
+            b.stop();
+            b.search(dlnaSearchListener);
         }
     }
 
     public void stop() {
-        if (f1755b != null) {
-            f1755b.stop();
+        if (b != null) {
+            b.stop();
         }
     }
 }

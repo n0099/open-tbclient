@@ -3,7 +3,7 @@ package com.baidu.poly.a.g;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import java.io.FileDescriptor;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class a {
     public static int a(BitmapFactory.Options options, int i, int i2) {
         int i3 = options.outHeight;

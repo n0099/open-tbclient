@@ -33,11 +33,9 @@ public class k implements Handler.Callback {
     @VisibleForTesting
 
     /* renamed from: a  reason: collision with root package name */
-    final Map<FragmentManager, Object> f9953a = new HashMap();
+    final Map<FragmentManager, Object> f6589a = new HashMap();
     @VisibleForTesting
-
-    /* renamed from: b  reason: collision with root package name */
-    final Map<KsFragmentManager, n> f9954b = new HashMap();
+    final Map<KsFragmentManager, n> b = new HashMap();
     private final ArrayMap<View, KsFragment> f = new ArrayMap<>();
     private final ArrayMap<View, Fragment> g = new ArrayMap<>();
     private final Bundle h = new Bundle();
@@ -56,13 +54,13 @@ public class k implements Handler.Callback {
     @NonNull
     private n a(@NonNull KsFragmentManager ksFragmentManager, @Nullable KsFragment ksFragment, boolean z) {
         n nVar = (n) ksFragmentManager.findFragmentByTag("com.kwad.sdk.glide.manager");
-        if (nVar == null && (nVar = this.f9954b.get(ksFragmentManager)) == null) {
+        if (nVar == null && (nVar = this.b.get(ksFragmentManager)) == null) {
             nVar = new n();
             nVar.a(ksFragment);
             if (z) {
                 nVar.a().a();
             }
-            this.f9954b.put(ksFragmentManager, nVar);
+            this.b.put(ksFragmentManager, nVar);
             ksFragmentManager.beginTransaction().add(nVar, "com.kwad.sdk.glide.manager").commitAllowingStateLoss();
             this.d.obtainMessage(2, ksFragmentManager).sendToTarget();
         }
@@ -72,13 +70,13 @@ public class k implements Handler.Callback {
     @NonNull
     private com.kwad.sdk.glide.g a(@NonNull Context context, @NonNull KsFragmentManager ksFragmentManager, @Nullable KsFragment ksFragment, boolean z) {
         n a2 = a(ksFragmentManager, ksFragment, z);
-        com.kwad.sdk.glide.g b2 = a2.b();
-        if (b2 == null) {
+        com.kwad.sdk.glide.g b = a2.b();
+        if (b == null) {
             com.kwad.sdk.glide.g a3 = this.e.a(com.kwad.sdk.glide.c.a(context), a2.a(), a2.c(), context);
             a2.a(a3);
             return a3;
         }
-        return b2;
+        return b;
     }
 
     private static boolean a(Activity activity) {
@@ -128,11 +126,11 @@ public class k implements Handler.Callback {
         switch (message.what) {
             case 1:
                 obj = (FragmentManager) message.obj;
-                remove = this.f9953a.remove(obj);
+                remove = this.f6589a.remove(obj);
                 break;
             case 2:
                 obj = (KsFragmentManager) message.obj;
-                remove = this.f9954b.remove(obj);
+                remove = this.b.remove(obj);
                 break;
             default:
                 z = false;

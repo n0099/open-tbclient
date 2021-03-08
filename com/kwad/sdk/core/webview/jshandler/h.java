@@ -9,10 +9,8 @@ import androidx.annotation.Nullable;
 public class h implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Handler f9579a = new Handler(Looper.getMainLooper());
-
-    /* renamed from: b  reason: collision with root package name */
-    private a f9580b;
+    private Handler f6344a = new Handler(Looper.getMainLooper());
+    private a b;
     @Nullable
     private com.kwad.sdk.core.webview.a.c c;
 
@@ -23,13 +21,13 @@ public class h implements com.kwad.sdk.core.webview.a.a {
     }
 
     public h(a aVar) {
-        this.f9580b = aVar;
+        this.b = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        if (this.f9580b != null) {
-            this.f9580b.a();
+        if (this.b != null) {
+            this.b.a();
         }
     }
 
@@ -42,7 +40,7 @@ public class h implements com.kwad.sdk.core.webview.a.a {
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
         this.c = cVar;
-        this.f9579a.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.h.1
+        this.f6344a.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.h.1
             @Override // java.lang.Runnable
             public void run() {
                 h.this.c();
@@ -55,8 +53,8 @@ public class h implements com.kwad.sdk.core.webview.a.a {
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void b() {
-        this.f9580b = null;
+        this.b = null;
         this.c = null;
-        this.f9579a.removeCallbacksAndMessages(null);
+        this.f6344a.removeCallbacksAndMessages(null);
     }
 }

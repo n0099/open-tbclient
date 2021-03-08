@@ -6,14 +6,12 @@ import com.baidu.android.util.devices.RomUtils;
 import java.lang.reflect.Method;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f13692a = z.b("ro.vivo.product.overseas", "no").equals("yes");
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f13693b;
+    public static final boolean f8078a = z.b("ro.vivo.product.overseas", "no").equals("yes");
+    public static final String b;
     public static final boolean c;
     public static final boolean d;
     public static final boolean e;
@@ -86,9 +84,9 @@ public final class k {
         } else {
             b2 = z.b("ro.product.customize.bbk", "N");
         }
-        f13693b = b2;
-        c = "RU".equals(f13693b);
-        d = "IN".equals(f13693b);
+        b = b2;
+        c = "RU".equals(b);
+        d = "IN".equals(b);
         e = b("rom_1.0");
         f = b("rom_2.0");
         g = b("rom_2.5");

@@ -4,7 +4,7 @@ import android.os.Handler;
 import com.baidu.ar.arplay.core.pixel.FramePixels;
 import com.baidu.ar.arplay.core.pixel.PixelReadListener;
 import com.baidu.ar.arplay.core.pixel.PixelReadParams;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public abstract class j extends a implements PixelReadListener {
     private static volatile boolean nl = true;
     private boolean P = false;

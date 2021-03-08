@@ -1,7 +1,7 @@
 package com.yy.mediaframework.opengles;
 
 import com.yy.mediaframework.utils.YMFLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFProgramFactory {
     private static final String TAG = "YMFProgramFactory";
 

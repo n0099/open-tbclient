@@ -7,7 +7,7 @@ import com.yy.mediaframework.stat.VideoDataStat;
 import com.yy.mediaframework.utils.YMFLog;
 import java.nio.ByteBuffer;
 import java.util.HashSet;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class X264SoftEncoder {
     private static HashSet<X264SoftEncoder> mEncoders = new HashSet<>();
     private long mNativeEncoderHandle = 0;

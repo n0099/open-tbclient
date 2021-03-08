@@ -5,15 +5,13 @@ import com.tencent.open.a.d;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SimpleDateFormat f13373a = d.C1270d.a("yy.MM.dd.HH");
+    private static SimpleDateFormat f7951a = d.C1260d.a("yy.MM.dd.HH");
     private File g;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f13374b = "Tracer.File";
+    private String b = "Tracer.File";
     private int c = Integer.MAX_VALUE;
     private int d = Integer.MAX_VALUE;
     private int e = 4096;
@@ -39,12 +37,12 @@ public class b {
     }
 
     private File c(long j) {
-        File b2 = b();
+        File b = b();
         try {
-            return new File(b2, c(d(j)));
+            return new File(b, c(d(j)));
         } catch (Throwable th) {
             th.printStackTrace();
-            return b2;
+            return b;
         }
     }
 
@@ -65,11 +63,11 @@ public class b {
     }
 
     public String c() {
-        return this.f13374b;
+        return this.b;
     }
 
     public void a(String str) {
-        this.f13374b = str;
+        this.b = str;
     }
 
     public void a(int i) {

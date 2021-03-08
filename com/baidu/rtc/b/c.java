@@ -1,13 +1,13 @@
 package com.baidu.rtc.b;
 
 import android.util.Log;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 class c {
-    double czG = 0.0d;
-    long czI = 0;
-    long czH = 0;
+    double cBg = 0.0d;
+    long cBi = 0;
+    long cBh = 0;
 
-    public static int jG(String str) {
+    public static int jN(String str) {
         int i = -1;
         if (str == null) {
             throw new IllegalArgumentException();
@@ -32,20 +32,20 @@ class c {
         return d > 1000000.0d ? String.format("%.2fMbps", Double.valueOf(1.0E-6d * d)) : d > 1000.0d ? String.format("%.0fKbps", Double.valueOf(0.001d * d)) : String.format("%.0fbps", Double.valueOf(d));
     }
 
-    public String afr() {
-        return m(this.czG);
+    public String afu() {
+        return m(this.cBg);
     }
 
     public void bW(long j) {
         long currentTimeMillis = System.currentTimeMillis();
-        long j2 = currentTimeMillis - this.czI;
+        long j2 = currentTimeMillis - this.cBi;
         if (j2 <= 0) {
             return;
         }
-        if (this.czI != 0 && j > this.czH) {
-            this.czG = (((j - this.czH) * 8) * 1000) / j2;
+        if (this.cBi != 0 && j > this.cBh) {
+            this.cBg = (((j - this.cBh) * 8) * 1000) / j2;
         }
-        this.czH = j;
-        this.czI = currentTimeMillis;
+        this.cBh = j;
+        this.cBi = currentTimeMillis;
     }
 }

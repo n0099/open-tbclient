@@ -17,13 +17,13 @@ public class c {
         }
     };
     private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
-    private static final int Jv = CPU_COUNT + 1;
+    private static final int KO = CPU_COUNT + 1;
 
     public static ThreadPoolExecutor ae(int i) {
         if (i == 0) {
             return null;
         }
-        int min = Math.min(i, Jv);
+        int min = Math.min(i, KO);
         executor = new ThreadPoolExecutor(min, min, 30L, TimeUnit.SECONDS, new ArrayBlockingQueue(64), sThreadFactory);
         executor.allowCoreThreadTimeOut(true);
         return executor;

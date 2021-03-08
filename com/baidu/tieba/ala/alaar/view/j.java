@@ -4,14 +4,14 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.view.View;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class j {
-    private boolean bbQ;
-    protected a gxm;
-    private ValueAnimator gxn;
+    private boolean bdq;
+    protected a gyV;
+    private ValueAnimator gyW;
     View view;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(k kVar, View view);
     }
@@ -21,11 +21,11 @@ public class j {
     }
 
     public void show(boolean z) {
-        if (!this.bbQ) {
-            this.bbQ = true;
+        if (!this.bdq) {
+            this.bdq = true;
             onShow();
             if (z) {
-                Ba();
+                Bd();
             } else {
                 mo(isShowing());
             }
@@ -33,33 +33,33 @@ public class j {
     }
 
     public boolean isShowing() {
-        return this.bbQ;
+        return this.bdq;
     }
 
     public void dismiss(boolean z) {
-        if (this.bbQ) {
-            this.bbQ = false;
+        if (this.bdq) {
+            this.bdq = false;
             onDismiss();
             if (z) {
-                bQP();
+                bQV();
             } else {
                 mo(isShowing());
             }
         }
     }
 
-    private void bQP() {
-        this.gxn = A(0.0f, 1.0f);
+    private void bQV() {
+        this.gyW = A(0.0f, 1.0f);
     }
 
-    private void Ba() {
+    private void Bd() {
         mo(isShowing());
-        this.gxn = A(1.0f, 0.0f);
+        this.gyW = A(1.0f, 0.0f);
     }
 
     private ValueAnimator A(float f, float f2) {
-        if (this.gxn != null && this.gxn.isRunning()) {
-            this.gxn.cancel();
+        if (this.gyW != null && this.gyW.isRunning()) {
+            this.gyW.cancel();
         }
         ValueAnimator ofFloat = ValueAnimator.ofFloat(f, f2);
         ofFloat.setDuration(250L);
@@ -70,18 +70,18 @@ public class j {
             }
         });
         ofFloat.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.alaar.view.j.2
-            boolean gxp;
+            boolean gyY;
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
                 super.onAnimationCancel(animator);
-                this.gxp = true;
+                this.gyY = true;
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                if (!this.gxp) {
+                if (!this.gyY) {
                     j.this.mo(j.this.isShowing());
                 }
             }
@@ -104,6 +104,6 @@ public class j {
     }
 
     public void a(a aVar) {
-        this.gxm = aVar;
+        this.gyV = aVar;
     }
 }

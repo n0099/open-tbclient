@@ -22,7 +22,7 @@ import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PeripheralsDecoderFilter extends AbstractYYMediaFilter implements SurfaceTexture.OnFrameAvailableListener, BaseHardwareDecoder.OnDecoderSizeChangeListener {
     private static final String FILE_PATH_AFTER = "/sdcard/stream_after.264";
     private static final String FILE_PATH_BEFORE = "/sdcard/stream_before.264";

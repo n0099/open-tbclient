@@ -18,18 +18,16 @@ import com.baidu.mobstat.av;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class StatService {
     public static final int EXCEPTION_LOG = 1;
     public static final int JAVA_EXCEPTION_LOG = 16;
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f3638a = false;
+    private static boolean f2567a = false;
+    private static boolean b;
 
-    /* renamed from: b  reason: collision with root package name */
-    private static boolean f3639b;
-
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface WearListener {
         boolean onSendLogData(String str);
     }
@@ -124,8 +122,8 @@ public class StatService {
     }
 
     public static void setOn(Context context, int i) {
-        if (a(context, "setOn(...)") && !f3638a) {
-            f3638a = true;
+        if (a(context, "setOn(...)") && !f2567a) {
+            f2567a = true;
             if ((i & 1) != 0) {
                 a(context, false);
             } else if ((i & 16) != 0) {
@@ -357,7 +355,7 @@ public class StatService {
             }
             af.a(appKey);
             af.a(z2);
-            if (!f3639b) {
+            if (!b) {
                 setFeedTrack(MtjConfig.FeedTrackStrategy.TRACK_ALL);
             }
             BDStatCore.instance().init(context);
@@ -425,7 +423,7 @@ public class StatService {
 
     public static void setFeedTrack(MtjConfig.FeedTrackStrategy feedTrackStrategy) {
         av.a(feedTrackStrategy);
-        f3639b = true;
+        b = true;
     }
 
     public static void enableListTrack(View view) {

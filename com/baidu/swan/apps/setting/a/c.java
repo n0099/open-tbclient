@@ -9,7 +9,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c extends aa {
     public c(j jVar) {
         super(jVar, "/swanAPI/getPhoneNumber");
@@ -31,21 +31,21 @@ public class c extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
             return false;
         }
-        Activity aIE = context instanceof Activity ? (Activity) context : eVar.aIE();
-        if (aIE == null) {
+        Activity aIH = context instanceof Activity ? (Activity) context : eVar.aIH();
+        if (aIH == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
             return false;
         }
-        com.baidu.swan.apps.setting.b.a.a(aIE, "mobile", null, false, new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.b.a>() { // from class: com.baidu.swan.apps.setting.a.c.1
+        com.baidu.swan.apps.setting.b.a.a(aIH, "mobile", null, false, new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.b.a>() { // from class: com.baidu.swan.apps.setting.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
-            public void L(com.baidu.swan.apps.setting.b.a aVar) {
+            public void N(com.baidu.swan.apps.setting.b.a aVar) {
                 com.baidu.swan.apps.console.c.d("OpenData", "onOpenDataCallback:: ", aVar);
-                if (!aVar.aLd()) {
+                if (!aVar.aLg()) {
                     com.baidu.swan.apps.setting.oauth.c.a(aVar, callbackHandler, optString);
                 } else {
-                    callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(aVar.dJv, 0).toString());
+                    callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(aVar.dKW, 0).toString());
                 }
             }
         });

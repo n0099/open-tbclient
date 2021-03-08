@@ -5,13 +5,13 @@ import android.util.JsonToken;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 class r {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static <T> List<com.airbnb.lottie.e.a<T>> a(JsonReader jsonReader, com.airbnb.lottie.d dVar, float f, aj<T> ajVar) throws IOException {
         ArrayList arrayList = new ArrayList();
         if (jsonReader.peek() == JsonToken.STRING) {
-            dVar.bc("Lottie doesn't support expressions.");
+            dVar.bg("Lottie doesn't support expressions.");
         } else {
             jsonReader.beginObject();
             while (jsonReader.hasNext()) {
@@ -61,11 +61,11 @@ class r {
             if (i2 >= size - 1) {
                 break;
             }
-            list.get(i2).HO = Float.valueOf(list.get(i2 + 1).BT);
+            list.get(i2).Jn = Float.valueOf(list.get(i2 + 1).Dr);
             i = i2 + 1;
         }
         com.airbnb.lottie.e.a<?> aVar = list.get(size - 1);
-        if (aVar.HL == 0) {
+        if (aVar.Jk == 0) {
             list.remove(aVar);
         }
     }

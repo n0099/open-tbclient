@@ -6,26 +6,26 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d extends c {
-    public List<c> gsi;
-    public int gsj;
-    public boolean gsk;
+    public List<c> gtR;
+    public int gtS;
+    public boolean gtT;
     private int mPosition = 0;
 
-    public List<c> bPp() {
-        return this.gsi;
+    public List<c> bPv() {
+        return this.gtR;
     }
 
     public void ca(List<c> list) {
-        this.gsi = list;
+        this.gtR = list;
     }
 
-    public c bPq() {
-        if (this.gsi == null || this.mPosition < 0 || this.mPosition >= this.gsi.size()) {
+    public c bPw() {
+        if (this.gtR == null || this.mPosition < 0 || this.mPosition >= this.gtR.size()) {
             return null;
         }
-        return this.gsi.get(this.mPosition);
+        return this.gtR.get(this.mPosition);
     }
 
     @Override // com.baidu.tieba.ala.alaar.makeup.c
@@ -39,15 +39,15 @@ public class d extends c {
             json.put("category_id", getId());
             json.put("position", this.mPosition);
             JSONArray jSONArray = new JSONArray();
-            if (this.gsi != null) {
-                for (c cVar : this.gsi) {
+            if (this.gtR != null) {
+                for (c cVar : this.gtR) {
                     if (cVar != null) {
                         jSONArray.put(cVar.toJson());
                     }
                 }
             }
             json.put("data", jSONArray);
-            json.put("independent", this.gsk ? 1 : 0);
+            json.put("independent", this.gtT ? 1 : 0);
         } catch (JSONException e) {
             e.printStackTrace();
             if (h.isDebug()) {
@@ -58,19 +58,19 @@ public class d extends c {
     }
 
     @Override // com.baidu.tieba.ala.alaar.makeup.c, com.baidu.tieba.ala.alaar.makeup.b.b
-    public boolean dE(JSONObject jSONObject) {
+    public boolean dG(JSONObject jSONObject) {
         if (jSONObject == null) {
             return false;
         }
-        super.dE(jSONObject);
+        super.dG(jSONObject);
         setId(jSONObject.optString("category_id"));
         this.mPosition = jSONObject.optInt("position", 0);
-        this.gsi = new ArrayList();
+        this.gtR = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("data");
         if (optJSONArray == null) {
             optJSONArray = jSONObject.optJSONArray("value");
         }
-        this.gsk = jSONObject.optInt("independent", 0) == 1;
+        this.gtT = jSONObject.optInt("independent", 0) == 1;
         if (optJSONArray != null) {
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
@@ -78,14 +78,14 @@ public class d extends c {
                 if (optJSONObject != null) {
                     c cVar = new c();
                     cVar.setTypeName(getTypeName());
-                    cVar.V(bPm());
-                    if (cVar.dE(optJSONObject)) {
-                        this.gsi.add(cVar);
+                    cVar.V(bPs());
+                    if (cVar.dG(optJSONObject)) {
+                        this.gtR.add(cVar);
                     }
                 }
             }
-            if (this.gsk) {
-                super.dE(optJSONArray.optJSONObject(0));
+            if (this.gtT) {
+                super.dG(optJSONArray.optJSONObject(0));
             }
         }
         return true;
@@ -111,7 +111,7 @@ public class d extends c {
         this.mPosition = i;
     }
 
-    public boolean azu() {
-        return this.gsk;
+    public boolean azx() {
+        return this.gtT;
     }
 }

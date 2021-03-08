@@ -3,7 +3,7 @@ package com.baidu.tieba.lego.card.c;
 import android.graphics.Color;
 /* loaded from: classes.dex */
 public class b {
-    public static int rM(String str) {
+    public static int rT(String str) {
         if (str == null || str.length() == 0) {
             return Integer.MAX_VALUE;
         }
@@ -17,7 +17,7 @@ public class b {
         }
     }
 
-    public static boolean DT(int i) {
+    public static boolean DW(int i) {
         if (i == Integer.MAX_VALUE) {
             return true;
         }

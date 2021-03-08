@@ -6,11 +6,10 @@ import java.util.List;
 public class d {
     private String abTag;
     private String currentPageKey;
-    public String fIM;
-    private String fIN;
-    public String fIO;
+    public String fKl;
+    private String fKm;
+    public String fKn;
     private long fid;
-    public boolean isRouteStat = false;
     public String isVertical;
     private com.baidu.tbadk.pageExtra.c mTbPageExtra;
     private String nid;
@@ -22,6 +21,8 @@ public class d {
     private long stayDurationTime;
     public String task_id;
     private long tid;
+    public boolean isRouteStat = false;
+    private int fKo = 0;
 
     public com.baidu.tbadk.pageExtra.c getTbPageExtra() {
         return this.mTbPageExtra;
@@ -63,7 +64,7 @@ public class d {
         this.tid = j;
     }
 
-    public String bmo() {
+    public String bmq() {
         return this.nid;
     }
 
@@ -95,20 +96,28 @@ public class d {
         return this.task_id;
     }
 
-    public String bDQ() {
+    public String bDT() {
         return this.abTag;
     }
 
-    public void Du(String str) {
+    public void DB(String str) {
         this.abTag = str;
     }
 
-    public String bDR() {
-        return this.fIN;
+    public String bDU() {
+        return this.fKm;
     }
 
-    public void Dv(String str) {
-        this.fIN = str;
+    public void DC(String str) {
+        this.fKm = str;
+    }
+
+    public int bDV() {
+        return this.fKo;
+    }
+
+    public void rv(int i) {
+        this.fKo = i;
     }
 
     public boolean isDirtyData() {

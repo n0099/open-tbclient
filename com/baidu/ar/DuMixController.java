@@ -49,7 +49,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, IRecord {
     private static volatile DuMixController aM = null;
     private static volatile int aW = 0;
@@ -74,7 +74,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
     private Context mContext;
     private com.baidu.ar.a.b w;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     class a extends Handler {
         public a(Looper looper) {
             super(looper);

@@ -5,7 +5,7 @@ import com.bumptech.glide.load.Encoder;
 import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.engine.cache.DiskCache;
 import java.io.File;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 class DataCacheWriter<DataType> implements DiskCache.Writer {
     private final DataType data;
     private final Encoder<DataType> encoder;

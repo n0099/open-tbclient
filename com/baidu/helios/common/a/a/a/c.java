@@ -1,23 +1,23 @@
 package com.baidu.helios.common.a.a.a;
 
 import java.math.BigInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public class c implements com.baidu.helios.common.a.b.a {
-    private BigInteger ano;
-    private BigInteger anp;
+    private BigInteger aoN;
+    private BigInteger aoO;
 
     public c(byte[] bArr, byte[] bArr2) {
-        this.ano = new BigInteger(bArr);
-        this.anp = new BigInteger(bArr2);
+        this.aoN = new BigInteger(bArr);
+        this.aoO = new BigInteger(bArr2);
     }
 
     @Override // com.baidu.helios.common.a.b.a
-    public BigInteger vc() {
-        return this.anp;
+    public BigInteger vf() {
+        return this.aoO;
     }
 
     @Override // com.baidu.helios.common.a.b.a
-    public BigInteger vd() {
-        return this.ano;
+    public BigInteger vg() {
+        return this.aoN;
     }
 }

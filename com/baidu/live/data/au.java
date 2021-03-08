@@ -5,26 +5,26 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class au {
-    public int aNP;
-    public ArrayList<at> aNQ;
-    public int aNW;
-    public int aNY;
-    public boolean aNR = false;
-    public String aNS = "";
-    public boolean aNT = false;
-    public String aNU = "";
-    public int aNV = 0;
-    public int aNX = 0;
+    public int aPp;
+    public ArrayList<at> aPq;
+    public int aPw;
+    public int aPy;
+    public boolean aPr = false;
+    public String aPs = "";
+    public boolean aPt = false;
+    public String aPu = "";
+    public int aPv = 0;
+    public int aPx = 0;
 
     public void parserJson(JSONObject jSONObject) {
-        this.aNP = jSONObject.optInt("received");
-        this.aNQ = new ArrayList<>();
-        this.aNR = jSONObject.optInt("petal_task_switch", 0) == 1;
-        this.aNT = jSONObject.optInt("redpacket_task_switch", 0) == 1;
-        this.aNS = jSONObject.optString("task_url");
-        this.aNU = jSONObject.optString("task_pendant_url");
+        this.aPp = jSONObject.optInt("received");
+        this.aPq = new ArrayList<>();
+        this.aPr = jSONObject.optInt("petal_task_switch", 0) == 1;
+        this.aPt = jSONObject.optInt("redpacket_task_switch", 0) == 1;
+        this.aPs = jSONObject.optString("task_url");
+        this.aPu = jSONObject.optString("task_pendant_url");
         JSONArray optJSONArray = jSONObject.optJSONArray("task_list");
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
@@ -33,32 +33,32 @@ public class au {
                     at atVar = new at();
                     atVar.parseJson(optJSONObject);
                     a(atVar);
-                    this.aNQ.add(atVar);
+                    this.aPq.add(atVar);
                 }
             }
         }
     }
 
     private void a(at atVar) {
-        if (atVar.aNI == 8) {
-            if (atVar.aNM != null) {
-                this.aNV = atVar.aNM.aNZ;
+        if (atVar.aPi == 8) {
+            if (atVar.aPm != null) {
+                this.aPv = atVar.aPm.aPz;
             }
-            this.aNW = atVar.status;
+            this.aPw = atVar.status;
         }
-        if (atVar.aNI == 1 && atVar.aNM != null) {
-            if (atVar.aNM != null) {
-                this.aNX = atVar.aNM.aNZ;
+        if (atVar.aPi == 1 && atVar.aPm != null) {
+            if (atVar.aPm != null) {
+                this.aPx = atVar.aPm.aPz;
             }
-            this.aNY = atVar.status;
+            this.aPy = atVar.status;
         }
     }
 
-    public boolean Cr() {
-        if (!ListUtils.isEmpty(this.aNQ)) {
-            Iterator<at> it = this.aNQ.iterator();
+    public boolean Cu() {
+        if (!ListUtils.isEmpty(this.aPq)) {
+            Iterator<at> it = this.aPq.iterator();
             while (it.hasNext()) {
-                if (it.next().Cq()) {
+                if (it.next().Ct()) {
                     return true;
                 }
             }
@@ -66,12 +66,12 @@ public class au {
         return false;
     }
 
-    public at Cs() {
-        if (!ListUtils.isEmpty(this.aNQ)) {
-            Iterator<at> it = this.aNQ.iterator();
+    public at Cv() {
+        if (!ListUtils.isEmpty(this.aPq)) {
+            Iterator<at> it = this.aPq.iterator();
             while (it.hasNext()) {
                 at next = it.next();
-                if (next.Co()) {
+                if (next.Cr()) {
                     return next;
                 }
             }

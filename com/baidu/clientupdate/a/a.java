@@ -2,14 +2,12 @@ package com.baidu.clientupdate.a;
 
 import java.io.Serializable;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1654a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f1655b;
+    public String f1354a;
+    public String b;
     public String c;
     public String d;
     public JSONArray e;
@@ -22,9 +20,9 @@ public class a implements Serializable {
     }
 
     public a(String str, String str2, String str3, String str4, JSONArray jSONArray, JSONArray jSONArray2, JSONArray jSONArray3, JSONArray jSONArray4, JSONArray jSONArray5) {
-        this.f1655b = str;
+        this.b = str;
         this.d = str2;
-        this.f1654a = str3;
+        this.f1354a = str3;
         this.c = str4;
         this.e = jSONArray;
         this.f = jSONArray2;
@@ -34,11 +32,11 @@ public class a implements Serializable {
     }
 
     public String a() {
-        return this.f1654a;
+        return this.f1354a;
     }
 
     public void a(String str) {
-        this.f1654a = str;
+        this.f1354a = str;
     }
 
     public String b() {
@@ -66,6 +64,6 @@ public class a implements Serializable {
     }
 
     public String toString() {
-        return "LogModel{sessioninfo='" + this.f1654a + "', ug='" + this.f1655b + "', nm='" + this.c + "', flag='" + this.d + "', stm=" + this.e + ", sc=" + this.f + ", etm=" + this.g + ", mg=" + this.h + ", ex=" + this.i + '}';
+        return "LogModel{sessioninfo='" + this.f1354a + "', ug='" + this.b + "', nm='" + this.c + "', flag='" + this.d + "', stm=" + this.e + ", sc=" + this.f + ", etm=" + this.g + ", mg=" + this.h + ", ex=" + this.i + '}';
     }
 }

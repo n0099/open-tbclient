@@ -13,10 +13,10 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.NetWork;
 import com.baidu.live.tbadk.core.util.httpnet.HttpRequest;
 import com.baidu.live.tbadk.data.Config;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d {
-    private a bxo;
-    private b bxp;
+    private a byO;
+    private b byP;
     private Context context;
     private boolean hasMore;
     private TbPageContext mTbPageContext;
@@ -24,7 +24,7 @@ public class d {
     private int type;
     private String url;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(ca caVar);
 
@@ -42,8 +42,8 @@ public class d {
 
     public void e(int i, String str, String str2) {
         if (!BdNetTypeUtil.isNetWorkAvailable() || TextUtils.isEmpty(str)) {
-            if (this.bxo != null) {
-                this.bxo.onFail(this.context.getResources().getString(a.h.sdk_no_network));
+            if (this.byO != null) {
+                this.byO.onFail(this.context.getResources().getString(a.h.sdk_no_network));
                 return;
             }
             return;
@@ -55,16 +55,16 @@ public class d {
             this.url = TbConfig.SERVER_ADDRESS + "ala/user/followList";
         }
         this.pn++;
-        this.bxp = new b();
-        this.bxp.execute(str, str2);
+        this.byP = new b();
+        this.byP.execute(str, str2);
     }
 
     public void a(a aVar) {
-        this.bxo = aVar;
+        this.byO = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public class b extends BdAsyncTask<String, Void, Object> {
         private b() {
         }
@@ -113,8 +113,8 @@ public class d {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
         public void onPostExecute(Object obj) {
-            if (d.this.bxo != null) {
-                d.this.bxo.a((ca) obj);
+            if (d.this.byO != null) {
+                d.this.byO.a((ca) obj);
             }
         }
     }
@@ -125,7 +125,7 @@ public class d {
             for (bl blVar : caVar.user_list) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (currentAccount != null && currentAccount.equals(str)) {
-                    blVar.aOZ = 1;
+                    blVar.aQz = 1;
                 }
             }
         }

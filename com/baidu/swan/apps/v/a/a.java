@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.v.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface a {
     void onPause();
 

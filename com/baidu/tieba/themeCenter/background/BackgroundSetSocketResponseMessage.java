@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.SetBackground.SetBackgroundResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BackgroundSetSocketResponseMessage extends SocketResponsedMessage {
     public BackgroundSetSocketResponseMessage() {
         super(CmdConfigSocket.CMD_PERSONAL_BACKGROUND_SET);

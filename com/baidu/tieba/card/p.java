@@ -18,10 +18,10 @@ import com.baidu.tieba.R;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class p implements View.OnClickListener {
-    private ImageView ixL;
-    private View ixM;
-    private EMTextView ixN;
-    private ImageView ixO;
+    private ImageView izu;
+    private View izv;
+    private EMTextView izw;
+    private ImageView izx;
     private Context mContext;
     private String mFrom;
     private View mRootView;
@@ -37,11 +37,11 @@ public class p implements View.OnClickListener {
         this.mView = LayoutInflater.from(context).inflate(R.layout.card_low_flows_view, (ViewGroup) null);
         this.mRootView = this.mView.findViewById(R.id.root_view);
         this.mRootView.setOnClickListener(this);
-        this.ixL = (ImageView) this.mView.findViewById(R.id.img_tb_storehouse);
-        this.ixM = this.mView.findViewById(R.id.view_point);
-        this.ixN = (EMTextView) this.mView.findViewById(R.id.title_content);
-        this.ixO = (ImageView) this.mView.findViewById(R.id.close);
-        this.ixO.setClickable(true);
+        this.izu = (ImageView) this.mView.findViewById(R.id.img_tb_storehouse);
+        this.izv = this.mView.findViewById(R.id.view_point);
+        this.izw = (EMTextView) this.mView.findViewById(R.id.title_content);
+        this.izx = (ImageView) this.mView.findViewById(R.id.close);
+        this.izx.setClickable(true);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -49,13 +49,13 @@ public class p implements View.OnClickListener {
         return this.mView;
     }
 
-    public ImageView csv() {
-        return this.ixO;
+    public ImageView csB() {
+        return this.izx;
     }
 
     public void ks() {
         if (!StringUtils.isNull(TbSingleton.getInstance().getBannerText())) {
-            this.ixN.setText(TbSingleton.getInstance().getBannerText());
+            this.izw.setText(TbSingleton.getInstance().getBannerText());
         }
     }
 
@@ -65,22 +65,22 @@ public class p implements View.OnClickListener {
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            com.baidu.tbadk.core.elementsMaven.c.br(this.mRootView).og(R.string.J_X06).setBackGroundColor(R.color.CAM_X0201);
-            com.baidu.tbadk.core.elementsMaven.c.br(this.ixM).og(R.string.J_X03).setBackGroundColor(R.color.CAM_X0110);
-            com.baidu.tbadk.core.elementsMaven.c.br(this.ixN).nY(R.color.CAM_X0108);
-            this.ixO.setImageDrawable(WebPManager.a(R.drawable.icon_pure_card_close22, ap.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
+            com.baidu.tbadk.core.elementsMaven.c.br(this.mRootView).oh(R.string.J_X06).setBackGroundColor(R.color.CAM_X0201);
+            com.baidu.tbadk.core.elementsMaven.c.br(this.izv).oh(R.string.J_X03).setBackGroundColor(R.color.CAM_X0110);
+            com.baidu.tbadk.core.elementsMaven.c.br(this.izw).nZ(R.color.CAM_X0108);
+            this.izx.setImageDrawable(WebPManager.a(R.drawable.icon_pure_card_close22, ap.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
             if (i == 4) {
-                WebPManager.a(this.ixL, R.drawable.pic_tiebatreasure_28_2, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.a(this.izu, R.drawable.pic_tiebatreasure_28_2, WebPManager.ResourceStateType.NORMAL);
             } else if (i == 1) {
-                WebPManager.a(this.ixL, R.drawable.pic_tiebatreasure_28_1, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.a(this.izu, R.drawable.pic_tiebatreasure_28_1, WebPManager.ResourceStateType.NORMAL);
             } else {
-                WebPManager.a(this.ixL, R.drawable.pic_tiebatreasure_28, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.a(this.izu, R.drawable.pic_tiebatreasure_28, WebPManager.ResourceStateType.NORMAL);
             }
         }
         this.mSkinType = i;
     }
 
-    public void IP(String str) {
+    public void IY(String str) {
         if ("2".equals(str)) {
             com.baidu.tieba.homepage.lowFlows.d.a.aK("c14079", "0", str);
         }

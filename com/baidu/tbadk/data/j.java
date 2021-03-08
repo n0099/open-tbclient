@@ -5,11 +5,11 @@ import com.baidu.tieba.frs.FrsTabItemData;
 import java.util.List;
 /* loaded from: classes.dex */
 public class j {
-    public String aVj;
-    public boolean fAg;
-    public boolean fAh;
-    public String fAi;
-    public PostPrefixData fAj;
+    public String aWJ;
+    public boolean fBF;
+    public boolean fBG;
+    public String fBH;
+    public PostPrefixData fBI;
     public String forumId;
     public String forumName;
     public boolean isForumBusinessAccount;

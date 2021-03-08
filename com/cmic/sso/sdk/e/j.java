@@ -5,30 +5,30 @@ import android.content.Context;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.cmic.sso.sdk.a.b;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class j {
     @SuppressLint({"StaticFieldLeak"})
-    private static j pxE;
+    private static j pzJ;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f7731a;
+    private Context f5222a;
 
     public static void a(Context context) {
-        pxE = new j(context);
+        pzJ = new j(context);
     }
 
     private j(Context context) {
-        this.f7731a = context;
+        this.f5222a = context;
     }
 
-    public static j erC() {
-        return pxE;
+    public static j erL() {
+        return pzJ;
     }
 
     public String b() {
         try {
-            b.C1038b eru = com.cmic.sso.sdk.a.b.ert().eru();
-            return eru.OK(eru.f());
+            b.C1053b erD = com.cmic.sso.sdk.a.b.erC().erD();
+            return erD.OO(erD.f());
         } catch (Exception e) {
             e.printStackTrace();
             return "";
@@ -40,11 +40,11 @@ public class j {
         String str;
         TelephonyManager telephonyManager;
         String str2;
-        b.C1038b eru = com.cmic.sso.sdk.a.b.ert().eru();
-        String OM = eru.OM(eru.f());
-        if (TextUtils.isEmpty(OM) && n.a(this.f7731a) && (telephonyManager = (TelephonyManager) this.f7731a.getSystemService("phone")) != null) {
+        b.C1053b erD = com.cmic.sso.sdk.a.b.erC().erD();
+        String OQ = erD.OQ(erD.f());
+        if (TextUtils.isEmpty(OQ) && n.a(this.f5222a) && (telephonyManager = (TelephonyManager) this.f5222a.getSystemService("phone")) != null) {
             String simOperator = telephonyManager.getSimOperator();
-            if (TextUtils.isEmpty(simOperator) && g.a(this.f7731a, "android.permission.READ_PHONE_STATE") && n.d()) {
+            if (TextUtils.isEmpty(simOperator) && g.a(this.f5222a, "android.permission.READ_PHONE_STATE") && n.d()) {
                 try {
                     str2 = telephonyManager.getSubscriberId();
                 } catch (Exception e) {
@@ -57,7 +57,7 @@ public class j {
             }
             str = simOperator;
         } else {
-            str = OM;
+            str = OQ;
         }
         c.b("SIMUtils", "operator: " + str);
         if (TextUtils.isEmpty(str)) {
@@ -156,19 +156,19 @@ public class j {
     }
 
     @SuppressLint({"MissingPermission"})
-    public String Bf(boolean z) {
+    public String Bd(boolean z) {
         try {
             if (n.d()) {
-                b.C1038b eru = com.cmic.sso.sdk.a.b.ert().eru();
-                String OL = eru.OL(eru.f());
-                if (TextUtils.isEmpty(OL) && z) {
-                    OL = ((TelephonyManager) this.f7731a.getSystemService("phone")).getDeviceId();
+                b.C1053b erD = com.cmic.sso.sdk.a.b.erC().erD();
+                String OP = erD.OP(erD.f());
+                if (TextUtils.isEmpty(OP) && z) {
+                    OP = ((TelephonyManager) this.f5222a.getSystemService("phone")).getDeviceId();
                 }
-                c.b("SIMUtils", "imei is " + OL);
-                if (TextUtils.isEmpty(OL)) {
+                c.b("SIMUtils", "imei is " + OP);
+                if (TextUtils.isEmpty(OP)) {
                     return "none";
                 }
-                return OL;
+                return OP;
             }
         } catch (Exception e) {
             c.a("SIMUtils", e.getMessage());
@@ -178,12 +178,12 @@ public class j {
 
     public String c() {
         try {
-            b.C1038b eru = com.cmic.sso.sdk.a.b.ert().eru();
-            String OK = eru.OK((eru.f() + 1) % 2);
-            if (OK == null) {
+            b.C1053b erD = com.cmic.sso.sdk.a.b.erC().erD();
+            String OO = erD.OO((erD.f() + 1) % 2);
+            if (OO == null) {
                 return "";
             }
-            return OK;
+            return OO;
         } catch (Exception e) {
             return "";
         }
@@ -191,12 +191,12 @@ public class j {
 
     public String d() {
         try {
-            b.C1038b eru = com.cmic.sso.sdk.a.b.ert().eru();
-            String OL = eru.OL((eru.f() + 1) % 2);
-            if (OL == null) {
+            b.C1053b erD = com.cmic.sso.sdk.a.b.erC().erD();
+            String OP = erD.OP((erD.f() + 1) % 2);
+            if (OP == null) {
                 return "";
             }
-            return OL;
+            return OP;
         } catch (Exception e) {
             return "";
         }
@@ -204,12 +204,12 @@ public class j {
 
     @SuppressLint({"MissingPermission"})
     public static String e() {
-        b.C1038b eru = com.cmic.sso.sdk.a.b.ert().eru();
-        return eru.a(eru.f());
+        b.C1053b erD = com.cmic.sso.sdk.a.b.erC().erD();
+        return erD.a(erD.f());
     }
 
     public String f() {
-        TelephonyManager telephonyManager = (TelephonyManager) this.f7731a.getSystemService("phone");
+        TelephonyManager telephonyManager = (TelephonyManager) this.f5222a.getSystemService("phone");
         if (telephonyManager != null) {
             String simOperator = telephonyManager.getSimOperator();
             c.b("SIMUtils", "SysOperType = " + simOperator);

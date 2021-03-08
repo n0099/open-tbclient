@@ -9,7 +9,7 @@ import com.yy.mediaframework.stat.YMFLiveStatisticManager;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoPublisheParam {
     public int captureFrameRate;
     public int captureResolutionHeight;

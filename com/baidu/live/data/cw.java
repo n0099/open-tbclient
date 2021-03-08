@@ -7,35 +7,35 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class cw {
-    public static cw aSO = new cw();
-    public int aSK;
-    public int aSL;
-    public int aSM;
-    public int aSN;
+    public static cw aUo = new cw();
+    public int aUk;
+    public int aUl;
+    public int aUm;
+    public int aUn;
     public List<a> dataList;
     public int fps;
     public int maxBitrate;
 
     static {
-        aSO.fps = 15;
-        aSO.aSK = 720;
-        aSO.aSL = 1280;
-        aSO.maxBitrate = FeatureCodes.ADVANCE_BEAUTY;
-        aSO.aSM = 1100;
-        aSO.aSN = 3;
-        aSO.dataList = a.aSP;
+        aUo.fps = 15;
+        aUo.aUk = 720;
+        aUo.aUl = 1280;
+        aUo.maxBitrate = FeatureCodes.ADVANCE_BEAUTY;
+        aUo.aUm = 1100;
+        aUo.aUn = 3;
+        aUo.dataList = a.aUp;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.fps = jSONObject.optInt(AlaRecorderLog.KEY_CANERA_START_FPS);
-            this.aSK = jSONObject.optInt("video_w");
-            this.aSL = jSONObject.optInt("video_h");
+            this.aUk = jSONObject.optInt("video_w");
+            this.aUl = jSONObject.optInt("video_h");
             this.maxBitrate = jSONObject.optInt("max_bitrate");
-            this.aSM = jSONObject.optInt("min_bitrate");
-            this.aSN = jSONObject.optInt("yy_publish_codec_mode_android", aSO.aSN);
+            this.aUm = jSONObject.optInt("min_bitrate");
+            this.aUn = jSONObject.optInt("yy_publish_codec_mode_android", aUo.aUn);
             JSONArray optJSONArray = jSONObject.optJSONArray("list");
             if (optJSONArray != null && optJSONArray.length() == 2) {
                 this.dataList = new ArrayList();
@@ -49,13 +49,13 @@ public class cw {
                 }
                 return;
             }
-            this.dataList = a.aSP;
+            this.dataList = a.aUp;
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        public static List<a> aSP = new ArrayList();
+        public static List<a> aUp = new ArrayList();
         public int height;
         public int width;
         public int x;
@@ -67,12 +67,12 @@ public class cw {
             aVar.y = 0;
             aVar.width = 720;
             aVar.height = 1280;
-            aSP.add(aVar);
+            aUp.add(aVar);
             aVar.x = 10;
             aVar.y = 152;
             aVar.width = 110;
             aVar.height = 196;
-            aSP.add(aVar);
+            aUp.add(aVar);
         }
 
         public void parserJson(JSONObject jSONObject) {

@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.faceshop.emotioncenter.a.b;
 import com.baidu.tieba.faceshop.emotioncenter.message.EmotionCenterResponseMessage;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class EmotionChangeModel extends BdBaseModel {
-    private final HttpMessageListener iYK;
+    private final HttpMessageListener jat;
 
     public EmotionChangeModel(TbPageContext<BaseFragmentActivity> tbPageContext) {
         super(tbPageContext);
-        this.iYK = new HttpMessageListener(1003355) { // from class: com.baidu.tieba.faceshop.emotioncenter.model.EmotionChangeModel.1
+        this.jat = new HttpMessageListener(1003355) { // from class: com.baidu.tieba.faceshop.emotioncenter.model.EmotionChangeModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -38,9 +38,9 @@ public class EmotionChangeModel extends BdBaseModel {
             }
         };
         registerTask();
-        this.iYK.setTag(getUniqueId());
-        this.iYK.setSelfListener(true);
-        registerListener(this.iYK);
+        this.jat.setTag(getUniqueId());
+        this.jat.setSelfListener(true);
+        registerListener(this.jat);
     }
 
     private void registerTask() {

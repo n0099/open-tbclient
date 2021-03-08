@@ -17,14 +17,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    static f f3818a = new f();
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f3819b = "";
+    static f f2670a = new f();
+    private String b = "";
 
     f() {
     }
@@ -37,9 +35,9 @@ public class f {
         ArrayList<a> a2 = a(context, i);
         if (a2 != null && a2.size() != 0) {
             if (z) {
-                String b2 = a2.get(0).b();
-                if (a(b2, this.f3819b)) {
-                    this.f3819b = b2;
+                String b = a2.get(0).b();
+                if (a(b, this.b)) {
+                    this.b = b;
                 }
             }
             a(context, a2, z);
@@ -104,7 +102,7 @@ public class f {
     }
 
     private boolean a(String str, String str2) {
-        return (TextUtils.isEmpty(str) || str.equals(this.f3819b)) ? false : true;
+        return (TextUtils.isEmpty(str) || str.equals(this.b)) ? false : true;
     }
 
     private String a(Context context, String str) {
@@ -166,27 +164,25 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f3820a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private String f3821b;
+        private String f2671a;
+        private String b;
         private String c;
 
         public a(String str, String str2, String str3) {
-            this.f3820a = str == null ? "" : str;
-            this.f3821b = str2 == null ? "" : str2;
+            this.f2671a = str == null ? "" : str;
+            this.b = str2 == null ? "" : str2;
             this.c = str3 == null ? "" : str3;
         }
 
         public JSONObject a() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("n", this.f3820a);
-                jSONObject.put("v", this.f3821b);
+                jSONObject.put("n", this.f2671a);
+                jSONObject.put("v", this.b);
                 jSONObject.put("w", this.c);
                 return jSONObject;
             } catch (JSONException e) {
@@ -196,7 +192,7 @@ public class f {
         }
 
         public String b() {
-            return this.f3820a;
+            return this.f2671a;
         }
     }
 }

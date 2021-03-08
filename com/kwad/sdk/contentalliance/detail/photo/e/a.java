@@ -32,13 +32,11 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
     private com.kwad.sdk.contentalliance.a.a i = new com.kwad.sdk.contentalliance.a.b() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.a.2
         @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
         public void k() {
-            a.this.f8395a.h = false;
+            a.this.f5594a.h = false;
             a.this.e();
         }
     };
-
-    /* renamed from: b  reason: collision with root package name */
-    View.OnKeyListener f8475b = new View.OnKeyListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.a.3
+    View.OnKeyListener b = new View.OnKeyListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.a.3
         @Override // android.view.View.OnKeyListener
         public boolean onKey(View view, int i, KeyEvent keyEvent) {
             if (i == 4 && keyEvent.getAction() == 1) {
@@ -52,7 +50,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
         @Override // com.kwad.sdk.contentalliance.detail.ad.presenter.comment.CommentBottomAdPanel.a
         public void a() {
             com.kwad.sdk.core.d.a.a("PhotoCommentListPresenter", " mCommentBottomAdPanel PanelCloseListener close");
-            a.this.f8395a.h = true;
+            a.this.f5594a.h = true;
             a.this.a(false);
         }
     };
@@ -60,11 +58,11 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
         @Override // com.kwad.sdk.contentalliance.detail.photo.comment.f
         public void a(final int i) {
             com.kwad.sdk.core.download.b.b.a(a.this.f, true);
-            com.kwad.sdk.core.download.b.a.a(a.this.e.getContext(), a.this.f8395a.j, new a.InterfaceC1094a() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.a.5.1
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
+            com.kwad.sdk.core.download.b.a.a(a.this.e.getContext(), a.this.f5594a.j, new a.InterfaceC1111a() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.a.5.1
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1111a
                 public void a() {
                     com.kwad.sdk.core.d.a.a("PhotoCommentListPresenter", "CommentPanelAdClickListener onAdClick itemClickType:" + i);
-                    com.kwad.sdk.core.report.b.a(a.this.f8395a.j, i, a.this.c.getTouchCoords());
+                    com.kwad.sdk.core.report.b.a(a.this.f5594a.j, i, a.this.c.getTouchCoords());
                 }
             }, a.this.f);
         }
@@ -78,7 +76,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
     private CommentListPanel.c n = new CommentListPanel.c() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.a.7
         @Override // com.kwad.sdk.contentalliance.detail.photo.comment.CommentListPanel.c
         public void a(boolean z) {
-            if (!z || a.this.f8395a.h) {
+            if (!z || a.this.f5594a.h) {
                 if (a.this.g == 1) {
                     return;
                 }
@@ -86,13 +84,13 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
             } else if (a.this.g == 2) {
                 return;
             } else {
-                a.this.e.a(a.this.f8395a.j, a.this.f);
-                com.kwad.sdk.core.report.b.d(a.this.f8395a.j, 89);
+                a.this.e.a(a.this.f5594a.j, a.this.f);
+                com.kwad.sdk.core.report.b.d(a.this.f5594a.j, 89);
                 a.this.e.a(a.this.j);
                 a.this.g = 2;
                 a.this.e.a(true, false);
             }
-            com.kwad.sdk.core.d.a.a("PhotoCommentListPresenter", " onShowBottomAdBanner + show:" + z + "  mHasCloseBottomAdBanner: " + a.this.f8395a.h);
+            com.kwad.sdk.core.d.a.a("PhotoCommentListPresenter", " onShowBottomAdBanner + show:" + z + "  mHasCloseBottomAdBanner: " + a.this.f5594a.h);
         }
     };
     private f.a o = new f.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.a.8
@@ -114,8 +112,8 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        this.f8395a.g = false;
-        this.f8395a.n = false;
+        this.f5594a.g = false;
+        this.f5594a.n = false;
         if (this.d.getVisibility() == 0) {
             this.d.setVisibility(8);
             this.d.setFocusableInTouchMode(false);
@@ -132,9 +130,9 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
         this.d.setVisibility(0);
         this.d.setFocusableInTouchMode(true);
         this.d.requestFocus();
-        this.d.setOnKeyListener(this.f8475b);
-        this.f8395a.g = true;
-        this.f8395a.n = true;
+        this.d.setOnKeyListener(this.b);
+        this.f5594a.g = true;
+        this.f5594a.n = true;
         g();
     }
 
@@ -158,15 +156,15 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.l = this.f8395a.f8404a.f;
-        this.f8395a.f8405b.add(this.i);
-        this.f = this.f8395a.o;
-        if (this.f8395a.m != null) {
-            this.f8395a.m.a(this.h);
+        this.l = this.f5594a.f5600a.f;
+        this.f5594a.b.add(this.i);
+        this.f = this.f5594a.o;
+        if (this.f5594a.m != null) {
+            this.f5594a.m.a(this.h);
         }
-        this.f8395a.f.add(this.o);
+        this.f5594a.f.add(this.o);
         this.d.a(this.m);
-        if (com.kwad.sdk.core.config.c.C() && com.kwad.sdk.core.response.b.c.c(this.f8395a.j)) {
+        if (com.kwad.sdk.core.config.c.C() && com.kwad.sdk.core.response.b.c.c(this.f5594a.j)) {
             this.d.a(this.n);
             this.d.a(this.k);
         }
@@ -177,10 +175,10 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
     public void b_() {
         super.b_();
         this.l = null;
-        this.f8395a.f8405b.remove(this.i);
-        this.f8395a.f.remove(this.o);
-        if (this.f8395a.m != null) {
-            this.f8395a.m.b(this.h);
+        this.f5594a.b.remove(this.i);
+        this.f5594a.f.remove(this.o);
+        if (this.f5594a.m != null) {
+            this.f5594a.m.b(this.h);
         }
         e();
         this.d.b(this.m);

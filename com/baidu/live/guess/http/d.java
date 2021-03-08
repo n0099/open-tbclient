@@ -1,7 +1,7 @@
 package com.baidu.live.guess.http;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d extends HttpMessage {
     public d() {
         super(1021215);
@@ -11,7 +11,7 @@ public class d extends HttpMessage {
         addParam("user_id", str);
     }
 
-    public void dy(int i) {
+    public void dz(int i) {
         addParam("ques_id", i);
     }
 }

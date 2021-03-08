@@ -5,10 +5,8 @@ import com.ksad.lottie.a.a.r;
 public class ShapeTrimPath implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f8065a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final Type f8066b;
+    private final String f5385a;
+    private final Type b;
     private final com.ksad.lottie.model.a.b c;
     private final com.ksad.lottie.model.a.b d;
     private final com.ksad.lottie.model.a.b e;
@@ -31,8 +29,8 @@ public class ShapeTrimPath implements b {
     }
 
     public ShapeTrimPath(String str, Type type, com.ksad.lottie.model.a.b bVar, com.ksad.lottie.model.a.b bVar2, com.ksad.lottie.model.a.b bVar3) {
-        this.f8065a = str;
-        this.f8066b = type;
+        this.f5385a = str;
+        this.b = type;
         this.c = bVar;
         this.d = bVar2;
         this.e = bVar3;
@@ -44,11 +42,11 @@ public class ShapeTrimPath implements b {
     }
 
     public String a() {
-        return this.f8065a;
+        return this.f5385a;
     }
 
     public Type b() {
-        return this.f8066b;
+        return this.b;
     }
 
     public com.ksad.lottie.model.a.b c() {

@@ -11,18 +11,18 @@ import android.util.Log;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class LeftLadderTextView extends TextView {
     private int height;
-    private Path otc;
-    private float otd;
-    private BgColor ote;
-    private LinearGradient otf;
-    private LinearGradient otg;
+    private Path ovi;
+    private float ovj;
+    private BgColor ovk;
+    private LinearGradient ovl;
+    private LinearGradient ovm;
     private Paint paint;
     private int width;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public enum BgColor {
         RED,
         GRAY
@@ -30,29 +30,29 @@ public class LeftLadderTextView extends TextView {
 
     public LeftLadderTextView(Context context) {
         super(context);
-        this.otd = 0.5f;
-        this.ote = BgColor.RED;
+        this.ovj = 0.5f;
+        this.ovk = BgColor.RED;
         init();
     }
 
     public LeftLadderTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.otd = 0.5f;
-        this.ote = BgColor.RED;
+        this.ovj = 0.5f;
+        this.ovk = BgColor.RED;
         init();
     }
 
     public LeftLadderTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.otd = 0.5f;
-        this.ote = BgColor.RED;
+        this.ovj = 0.5f;
+        this.ovk = BgColor.RED;
         init();
     }
 
     private void init() {
         Log.v("LadderView", OneKeyLoginSdkCall.l);
         this.paint = new Paint();
-        this.otc = new Path();
+        this.ovi = new Path();
         this.paint.setAntiAlias(true);
         this.paint.setStyle(Paint.Style.FILL_AND_STROKE);
         this.paint.setStrokeJoin(Paint.Join.ROUND);
@@ -63,8 +63,8 @@ public class LeftLadderTextView extends TextView {
         super.onSizeChanged(i, i2, i3, i4);
         this.width = getWidth();
         this.height = getHeight();
-        this.otf = new LinearGradient(0.0f, 0.0f, this.width, 0.0f, getResources().getColor(a.c.sdk_color_d70471), getResources().getColor(a.c.sdk_color_ff528f), Shader.TileMode.CLAMP);
-        this.otg = new LinearGradient(0.0f, 0.0f, this.width, 0.0f, getResources().getColor(a.c.sdk_color_A2A2A2), getResources().getColor(a.c.sdk_color_717171), Shader.TileMode.CLAMP);
+        this.ovl = new LinearGradient(0.0f, 0.0f, this.width, 0.0f, getResources().getColor(a.c.sdk_color_d70471), getResources().getColor(a.c.sdk_color_ff528f), Shader.TileMode.CLAMP);
+        this.ovm = new LinearGradient(0.0f, 0.0f, this.width, 0.0f, getResources().getColor(a.c.sdk_color_A2A2A2), getResources().getColor(a.c.sdk_color_717171), Shader.TileMode.CLAMP);
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -72,23 +72,23 @@ public class LeftLadderTextView extends TextView {
         super.onDraw(canvas);
         Log.v("LadderView", "onDraw");
         this.paint.reset();
-        switch (this.ote) {
+        switch (this.ovk) {
             case RED:
-                this.paint.setShader(this.otf);
+                this.paint.setShader(this.ovl);
                 break;
             case GRAY:
-                this.paint.setShader(this.otg);
+                this.paint.setShader(this.ovm);
                 break;
         }
-        this.otc.moveTo(0.0f, 0.0f);
-        this.otc.lineTo(this.width, 0.0f);
-        this.otc.lineTo((int) (this.width - (this.otd * this.height)), this.height);
-        this.otc.lineTo(0.0f, this.height);
-        this.otc.close();
-        canvas.drawPath(this.otc, this.paint);
+        this.ovi.moveTo(0.0f, 0.0f);
+        this.ovi.lineTo(this.width, 0.0f);
+        this.ovi.lineTo((int) (this.width - (this.ovj * this.height)), this.height);
+        this.ovi.lineTo(0.0f, this.height);
+        this.ovi.close();
+        canvas.drawPath(this.ovi, this.paint);
     }
 
     public void setBgColor(BgColor bgColor) {
-        this.ote = bgColor;
+        this.ovk = bgColor;
     }
 }

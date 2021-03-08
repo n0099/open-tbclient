@@ -3,19 +3,17 @@ package com.baidu.platform.comjni.map.cloud;
 class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f4482a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ b f4483b;
+    final /* synthetic */ String f3098a;
+    final /* synthetic */ b b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, String str) {
-        this.f4483b = bVar;
-        this.f4482a = str;
+        this.b = bVar;
+        this.f3098a = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f4483b.f4481a.f(this.f4482a);
+        this.b.f3097a.f(this.f3098a);
     }
 }

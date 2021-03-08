@@ -12,11 +12,11 @@ import com.baidu.live.view.SafeFrameLayout;
 import com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseWheatLayout;
 import com.facebook.drawee.a.a.c;
 import com.facebook.imagepipeline.request.ImageRequest;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class BaseWheatItemView extends SafeFrameLayout {
-    public ab bxN;
-    public AlaWheatInfoData oKH;
-    public BaseWheatLayout.a oKI;
+    public ab bzn;
+    public AlaWheatInfoData oMM;
+    public BaseWheatLayout.a oMN;
 
     protected abstract int getLayoutViewId();
 
@@ -40,10 +40,10 @@ public abstract class BaseWheatItemView extends SafeFrameLayout {
     }
 
     public void setOnItemClickListener(BaseWheatLayout.a aVar) {
-        this.oKI = aVar;
+        this.oMN = aVar;
     }
 
     public void a(SimpleDraweeView simpleDraweeView, String str) {
-        simpleDraweeView.setController(c.etw().bo(ImageRequest.ZL(str)).Bm(true).c(simpleDraweeView.getController()).eun());
+        simpleDraweeView.setController(c.etF().bq(ImageRequest.ZR(str)).Bk(true).c(simpleDraweeView.getController()).euw());
     }
 }

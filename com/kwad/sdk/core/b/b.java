@@ -14,7 +14,7 @@ import javax.crypto.spec.SecretKeySpec;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f9037a = Charset.forName("UTF-8");
+    public static final Charset f6008a = Charset.forName("UTF-8");
 
     public static void a(InputStream inputStream, OutputStream outputStream) {
         GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
@@ -32,7 +32,7 @@ public final class b {
     }
 
     public static byte[] a(String str, byte[] bArr) {
-        return a(str.getBytes(f9037a), bArr, 2);
+        return a(str.getBytes(f6008a), bArr, 2);
     }
 
     public static byte[] a(byte[] bArr) {

@@ -8,69 +8,69 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PointPageIndicator extends View {
-    protected Drawable eto;
-    protected Drawable etp;
-    protected Rect etq;
-    protected Rect etr;
-    private int ets;
-    private int ett;
+    protected Drawable euP;
+    protected Drawable euQ;
+    protected Rect euR;
+    protected Rect euS;
+    private int euT;
+    private int euU;
     private int mPosition;
 
     public PointPageIndicator(Context context) {
         super(context);
-        this.eto = null;
-        this.etp = null;
-        this.etq = new Rect();
-        this.etr = new Rect();
-        this.ets = 0;
+        this.euP = null;
+        this.euQ = null;
+        this.euR = new Rect();
+        this.euS = new Rect();
+        this.euT = 0;
         this.mPosition = 0;
-        this.ett = 0;
+        this.euU = 0;
         init(context);
     }
 
     public PointPageIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eto = null;
-        this.etp = null;
-        this.etq = new Rect();
-        this.etr = new Rect();
-        this.ets = 0;
+        this.euP = null;
+        this.euQ = null;
+        this.euR = new Rect();
+        this.euS = new Rect();
+        this.euT = 0;
         this.mPosition = 0;
-        this.ett = 0;
+        this.euU = 0;
         init(context);
     }
 
     public PointPageIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.eto = null;
-        this.etp = null;
-        this.etq = new Rect();
-        this.etr = new Rect();
-        this.ets = 0;
+        this.euP = null;
+        this.euQ = null;
+        this.euR = new Rect();
+        this.euS = new Rect();
+        this.euT = 0;
         this.mPosition = 0;
-        this.ett = 0;
+        this.euU = 0;
         init(context);
     }
 
     private void init(Context context) {
     }
 
-    public PointPageIndicator lL(int i) {
-        if (this.ett != i) {
-            this.ett = i;
+    public PointPageIndicator lM(int i) {
+        if (this.euU != i) {
+            this.euU = i;
             invalidate();
         }
         return this;
     }
 
-    public PointPageIndicator lM(int i) {
-        this.ets = i;
+    public PointPageIndicator lN(int i) {
+        this.euT = i;
         return this;
     }
 
-    public PointPageIndicator lN(int i) {
+    public PointPageIndicator lO(int i) {
         this.mPosition = i;
         invalidate();
         return this;
@@ -82,13 +82,13 @@ public class PointPageIndicator extends View {
     }
 
     public PointPageIndicator b(Drawable drawable, Drawable drawable2) {
-        this.eto = drawable;
-        this.etp = drawable2;
+        this.euP = drawable;
+        this.euQ = drawable2;
         if (drawable instanceof BitmapDrawable) {
-            this.etq.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            this.euR.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         }
         if (drawable2 instanceof BitmapDrawable) {
-            this.etr.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
+            this.euS.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
         }
         return this;
     }
@@ -97,16 +97,16 @@ public class PointPageIndicator extends View {
     protected void onDraw(Canvas canvas) {
         int width;
         super.onDraw(canvas);
-        if (this.ett > 0) {
-            int i = this.ett;
-            int i2 = this.ets;
+        if (this.euU > 0) {
+            int i = this.euU;
+            int i2 = this.euT;
             int height = getHeight();
             int width2 = getWidth();
             int i3 = this.mPosition;
-            Rect rect = this.etq;
-            Rect rect2 = this.etr;
-            Drawable drawable = this.eto;
-            Drawable drawable2 = this.etp;
+            Rect rect = this.euR;
+            Rect rect2 = this.euS;
+            Drawable drawable = this.euP;
+            Drawable drawable2 = this.euQ;
             int width3 = (width2 - ((((i - 1) * i2) + (rect.width() * (i - 1))) + rect2.width())) / 2;
             int i4 = 0;
             while (i4 < i) {

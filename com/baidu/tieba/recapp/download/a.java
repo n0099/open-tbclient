@@ -19,24 +19,24 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private static a mSt = new a();
-    private static DownloadData fAV = null;
+    private static a mUA = new a();
+    private static DownloadData fCu = null;
     private static List<DownloadData> mTaskList = new LinkedList();
-    private C0858a mSu = null;
+    private C0864a mUB = null;
     private int max = 20;
     @SuppressLint({"HandlerLeak"})
-    private Handler fAX = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.recapp.download.a.1
+    private Handler fCw = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.recapp.download.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             super.handleMessage(message);
-            if (message.what == 900002 && message.arg2 > 0 && a.fAV != null) {
-                a.fAV.setLength(message.arg1);
-                a.fAV.setSize(message.arg2);
-                a.fAV.setStatus(1);
-                if (a.fAV.getCallback() != null) {
-                    a.fAV.getCallback().onFileUpdateProgress(a.fAV);
+            if (message.what == 900002 && message.arg2 > 0 && a.fCu != null) {
+                a.fCu.setLength(message.arg1);
+                a.fCu.setSize(message.arg2);
+                a.fCu.setStatus(1);
+                if (a.fCu.getCallback() != null) {
+                    a.fCu.getCallback().onFileUpdateProgress(a.fCu);
                 }
             }
         }
@@ -45,8 +45,8 @@ public class a {
     private a() {
     }
 
-    public static a dDz() {
-        return mSt;
+    public static a dDH() {
+        return mUA;
     }
 
     public void a(DownloadData downloadData, int i) {
@@ -75,7 +75,7 @@ public class a {
 
     public void f(DownloadData downloadData) {
         if (downloadData != null) {
-            if (!com.baidu.tieba.a.bJg().bJo() && !o.checkSD()) {
+            if (!com.baidu.tieba.a.bJk().bJs() && !o.checkSD()) {
                 downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail_no_sd));
                 downloadData.setStatus(2);
             }
@@ -108,11 +108,11 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startQueue() {
-        if (fAV == null && !com.baidu.tieba.lego.card.c.a.isEmpty(mTaskList)) {
-            fAV = (DownloadData) com.baidu.tieba.lego.card.c.a.l(mTaskList, 0);
-            if (fAV != null) {
-                this.mSu = new C0858a();
-                this.mSu.execute(fAV);
+        if (fCu == null && !com.baidu.tieba.lego.card.c.a.isEmpty(mTaskList)) {
+            fCu = (DownloadData) com.baidu.tieba.lego.card.c.a.l(mTaskList, 0);
+            if (fCu != null) {
+                this.mUB = new C0864a();
+                this.mUB.execute(fCu);
             }
         }
     }
@@ -122,12 +122,12 @@ public class a {
     }
 
     public void cancelDownLoadByUrl(String str, boolean z) {
-        if (fAV != null && fAV.getUrl().equals(str)) {
+        if (fCu != null && fCu.getUrl().equals(str)) {
             if (z) {
-                this.mSu.cancelImmediately();
+                this.mUB.cancelImmediately();
                 return;
             } else {
-                this.mSu.cancel(true);
+                this.mUB.cancel(true);
                 return;
             }
         }
@@ -154,9 +154,9 @@ public class a {
     public void h(DownloadData downloadData) {
         if (downloadData != null) {
             cancelDownLoadByUrl(downloadData.getUrl(), true);
-            File Rk = com.baidu.tieba.recapp.b.Rk(com.baidu.tieba.recapp.b.gh(downloadData.getId(), downloadData.getName()));
-            if (Rk != null) {
-                Rk.delete();
+            File Rq = com.baidu.tieba.recapp.b.Rq(com.baidu.tieba.recapp.b.gh(downloadData.getId(), downloadData.getName()));
+            if (Rq != null) {
+                Rq.delete();
             }
         }
     }
@@ -168,16 +168,16 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     @SuppressLint({"DefaultLocale"})
     /* renamed from: com.baidu.tieba.recapp.download.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public class C0858a extends BdAsyncTask<DownloadData, DownloadData, Integer> {
-        private c mSw = new c();
+    /* loaded from: classes7.dex */
+    public class C0864a extends BdAsyncTask<DownloadData, DownloadData, Integer> {
+        private c mUD = new c();
 
-        C0858a() {
+        C0864a() {
         }
 
         public void cancelImmediately() {
-            if (this.mSw != null) {
-                this.mSw.setCancel();
+            if (this.mUD != null) {
+                this.mUD.setCancel();
             }
             cancel(true);
         }
@@ -186,16 +186,16 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            this.mSw.setCancel();
-            a.fAV.setStatus(4);
-            a.fAV.setStatusMsg(null);
-            if (a.fAV.getCallback() != null) {
-                a.fAV.getCallback().onFileUpdateProgress(a.fAV);
+            this.mUD.setCancel();
+            a.fCu.setStatus(4);
+            a.fCu.setStatusMsg(null);
+            if (a.fCu.getCallback() != null) {
+                a.fCu.getCallback().onFileUpdateProgress(a.fCu);
             }
             if (!com.baidu.tieba.lego.card.c.a.isEmpty(a.mTaskList)) {
                 com.baidu.tieba.lego.card.c.a.m(a.mTaskList, 0);
             }
-            DownloadData unused = a.fAV = null;
+            DownloadData unused = a.fCu = null;
             a.this.startQueue();
         }
 
@@ -220,22 +220,22 @@ public class a {
                     file.delete();
                 }
                 if (!file.exists()) {
-                    this.mSw.setUrl(downloadDataArr[0].getUrl());
-                    if (!Boolean.valueOf(this.mSw.a(com.baidu.tieba.recapp.b.gh(downloadDataArr[0].getId(), downloadDataArr[0].getName()), a.this.fAX, 900002, 1, 3000)).booleanValue()) {
+                    this.mUD.setUrl(downloadDataArr[0].getUrl());
+                    if (!Boolean.valueOf(this.mUD.a(com.baidu.tieba.recapp.b.gh(downloadDataArr[0].getId(), downloadDataArr[0].getName()), a.this.fCw, 900002, 1, 3000)).booleanValue()) {
                         return 3;
                     }
-                    File Rk = com.baidu.tieba.recapp.b.Rk(com.baidu.tieba.recapp.b.gh(downloadDataArr[0].getId(), downloadDataArr[0].getName()));
-                    if (Rk == null) {
+                    File Rq = com.baidu.tieba.recapp.b.Rq(com.baidu.tieba.recapp.b.gh(downloadDataArr[0].getId(), downloadDataArr[0].getName()));
+                    if (Rq == null) {
                         return 1;
                     }
                     try {
-                        String parent = Rk.getParent();
+                        String parent = Rq.getParent();
                         String parent2 = file.getParent();
                         if (parent.equals(parent2)) {
-                            Rk.renameTo(new File(parent2, file.getName()));
+                            Rq.renameTo(new File(parent2, file.getName()));
                         } else {
-                            com.baidu.adp.lib.util.f.copyFile(Rk, file);
-                            com.baidu.adp.lib.util.f.deleteQuietly(Rk);
+                            com.baidu.adp.lib.util.f.copyFile(Rq, file);
+                            com.baidu.adp.lib.util.f.deleteQuietly(Rq);
                         }
                     } catch (IOException e) {
                         try {
@@ -319,15 +319,15 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             String string;
-            super.onPostExecute((C0858a) num);
+            super.onPostExecute((C0864a) num);
             if (num != null) {
                 if (num.intValue() == 0) {
-                    a.fAV.setStatus(0);
-                    if (a.fAV.getCallback() != null) {
-                        a.fAV.getCallback().onFileUpdateProgress(a.fAV);
+                    a.fCu.setStatus(0);
+                    if (a.fCu.getCallback() != null) {
+                        a.fCu.getCallback().onFileUpdateProgress(a.fCu);
                     }
-                    if (a.fAV.getCallback() != null) {
-                        a.fAV.getCallback().onFileDownloadSucceed(a.fAV);
+                    if (a.fCu.getCallback() != null) {
+                        a.fCu.getCallback().onFileDownloadSucceed(a.fCu);
                     }
                 } else {
                     switch (num.intValue()) {
@@ -354,17 +354,17 @@ public class a {
                             string = TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail);
                             break;
                     }
-                    a.fAV.setStatusMsg(string);
-                    a.fAV.setErrorCode(num.intValue());
-                    a.fAV.setStatus(2);
-                    if (a.fAV.getCallback() != null) {
-                        a.fAV.getCallback().onFileUpdateProgress(a.fAV);
+                    a.fCu.setStatusMsg(string);
+                    a.fCu.setErrorCode(num.intValue());
+                    a.fCu.setStatus(2);
+                    if (a.fCu.getCallback() != null) {
+                        a.fCu.getCallback().onFileUpdateProgress(a.fCu);
                     }
-                    if (a.fAV.getCallback() != null) {
-                        a.fAV.getCallback().onFileDownloadFailed(a.fAV, num.intValue(), string);
+                    if (a.fCu.getCallback() != null) {
+                        a.fCu.getCallback().onFileDownloadFailed(a.fCu, num.intValue(), string);
                     }
                 }
-                DownloadData unused = a.fAV = null;
+                DownloadData unused = a.fCu = null;
                 if (!com.baidu.tieba.lego.card.c.a.isEmpty(a.mTaskList)) {
                     com.baidu.tieba.lego.card.c.a.m(a.mTaskList, 0);
                     a.this.startQueue();

@@ -14,42 +14,42 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b extends BaseAdapter {
-    private com.baidu.tieba.ala.tasklist.a.a ihM;
+    private com.baidu.tieba.ala.tasklist.a.a ijv;
     private Context mActivity;
-    private int ihN = -1;
-    private ArrayList<at> eVV = new ArrayList<>();
+    private int ijw = -1;
+    private ArrayList<at> eXu = new ArrayList<>();
 
     public b(Context context, com.baidu.tieba.ala.tasklist.a.a aVar) {
         this.mActivity = context;
-        this.ihM = aVar;
+        this.ijv = aVar;
     }
 
     public void setData(ArrayList<at> arrayList) {
         if (arrayList != null) {
-            this.eVV.clear();
-            this.eVV.addAll(arrayList);
+            this.eXu.clear();
+            this.eXu.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eVV == null) {
+        if (this.eXu == null) {
             return 0;
         }
-        return this.eVV.size();
+        return this.eXu.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: wC */
+    /* renamed from: wD */
     public at getItem(int i) {
-        if (this.eVV == null) {
+        if (this.eXu == null) {
             return null;
         }
-        return this.eVV.get(i);
+        return this.eXu.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -73,15 +73,15 @@ public class b extends BaseAdapter {
 
     private void a(a aVar, final at atVar) {
         if (atVar != null) {
-            aVar.ihQ.setText(atVar.aNJ);
-            aVar.ihR.setText(atVar.aNO);
-            aVar.ihS.setText(this.mActivity.getResources().getString(a.h.ala_task_title_reward_mode, Integer.valueOf(atVar.aNN)));
+            aVar.ijz.setText(atVar.aPj);
+            aVar.ijA.setText(atVar.aPo);
+            aVar.ijB.setText(this.mActivity.getResources().getString(a.h.ala_task_title_reward_mode, Integer.valueOf(atVar.aPn)));
             if (atVar.status == 3) {
-                aVar.ihS.setVisibility(8);
+                aVar.ijB.setVisibility(8);
             } else {
-                aVar.ihS.setVisibility(0);
+                aVar.ijB.setVisibility(0);
             }
-            aVar.ihT.setTag(Integer.valueOf(atVar.aNI));
+            aVar.ijC.setTag(Integer.valueOf(atVar.aPi));
             if (atVar.status == 2) {
                 b(aVar);
             } else if (atVar.status == 3) {
@@ -89,11 +89,11 @@ public class b extends BaseAdapter {
             } else {
                 b(aVar, atVar);
             }
-            aVar.ihT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.a.b.1
+            aVar.ijC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.a.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (atVar.status == 2 && b.this.ihM != null) {
-                        b.this.ihM.wA(atVar.aNI);
+                    if (atVar.status == 2 && b.this.ijv != null) {
+                        b.this.ijv.wB(atVar.aPi);
                     }
                 }
             });
@@ -102,14 +102,14 @@ public class b extends BaseAdapter {
 
     private void b(a aVar, at atVar) {
         String string;
-        if (atVar.Co()) {
-            if (this.ihN < 0) {
-                if (atVar.aNM != null) {
-                    this.ihN = atVar.aNM.aNZ;
+        if (atVar.Cr()) {
+            if (this.ijw < 0) {
+                if (atVar.aPm != null) {
+                    this.ijw = atVar.aPm.aPz;
                 }
                 a(aVar);
                 return;
-            } else if (this.ihN == 0) {
+            } else if (this.ijw == 0) {
                 b(aVar);
                 return;
             } else {
@@ -117,8 +117,8 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        if (atVar.Cp()) {
-            string = this.mActivity.getResources().getString(a.h.ala_task_level_up_to_level_num, Integer.valueOf(atVar.aNM.aOa));
+        if (atVar.Cs()) {
+            string = this.mActivity.getResources().getString(a.h.ala_task_level_up_to_level_num, Integer.valueOf(atVar.aPm.aPA));
         } else {
             string = this.mActivity.getString(a.h.ala_task_status_not_over);
         }
@@ -126,32 +126,32 @@ public class b extends BaseAdapter {
     }
 
     private void a(a aVar) {
-        aVar.ihT.setText(StringHelper.formatSecondsTime(this.ihN * 1000));
-        aVar.ihT.setBackgroundResource(a.e.ala_bg_rectangle_stroke_blue);
-        aVar.ihT.setTextColor(this.mActivity.getResources().getColor(a.c.sdk_common_color_10260));
-        c(aVar.ihT, true);
+        aVar.ijC.setText(StringHelper.formatSecondsTime(this.ijw * 1000));
+        aVar.ijC.setBackgroundResource(a.e.ala_bg_rectangle_stroke_blue);
+        aVar.ijC.setTextColor(this.mActivity.getResources().getColor(a.c.sdk_common_color_10260));
+        c(aVar.ijC, true);
     }
 
     private void a(a aVar, String str) {
-        aVar.ihT.setText(str);
-        aVar.ihT.setBackgroundResource(a.e.sdk_transparent_bg);
-        aVar.ihT.setTextColor(this.mActivity.getResources().getColor(a.c.sdk_cp_cont_d));
-        c(aVar.ihT, false);
+        aVar.ijC.setText(str);
+        aVar.ijC.setBackgroundResource(a.e.sdk_transparent_bg);
+        aVar.ijC.setTextColor(this.mActivity.getResources().getColor(a.c.sdk_cp_cont_d));
+        c(aVar.ijC, false);
     }
 
     private void b(a aVar) {
-        aVar.ihT.setText(this.mActivity.getString(a.h.ala_task_status_can_get));
+        aVar.ijC.setText(this.mActivity.getString(a.h.ala_task_status_can_get));
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            aVar.ihT.setBackgroundResource(a.e.ala_btn_bg_round_rectangle_blue_hk);
+            aVar.ijC.setBackgroundResource(a.e.ala_btn_bg_round_rectangle_blue_hk);
         } else if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
-            aVar.ihT.setBackgroundResource(a.e.ala_btn_bg_round_rectangle_blue_qm);
+            aVar.ijC.setBackgroundResource(a.e.ala_btn_bg_round_rectangle_blue_qm);
         } else if (TbadkCoreApplication.getInst().isTieba()) {
-            aVar.ihT.setBackgroundResource(a.e.ala_btn_bg_round_rectangle_blue_qm);
+            aVar.ijC.setBackgroundResource(a.e.ala_btn_bg_round_rectangle_blue_qm);
         } else {
-            aVar.ihT.setBackgroundResource(a.e.ala_btn_bg_round_rectangle_blue);
+            aVar.ijC.setBackgroundResource(a.e.ala_btn_bg_round_rectangle_blue);
         }
-        aVar.ihT.setTextColor(this.mActivity.getResources().getColor(a.c.sdk_cp_cont_g));
-        c(aVar.ihT, true);
+        aVar.ijC.setTextColor(this.mActivity.getResources().getColor(a.c.sdk_cp_cont_g));
+        c(aVar.ijC, true);
     }
 
     public void c(TextView textView, boolean z) {
@@ -171,26 +171,26 @@ public class b extends BaseAdapter {
     }
 
     public void o(Integer num) {
-        this.ihN = num.intValue();
-        at Cs = Cs();
-        if (Cs != null) {
-            if (this.ihN == 0) {
-                Cs.status = 2;
-            } else if (this.ihN > 0) {
-                Cs.status = 1;
+        this.ijw = num.intValue();
+        at Cv = Cv();
+        if (Cv != null) {
+            if (this.ijw == 0) {
+                Cv.status = 2;
+            } else if (this.ijw > 0) {
+                Cv.status = 1;
             } else {
-                Cs.status = 3;
+                Cv.status = 3;
             }
         }
         notifyDataSetChanged();
     }
 
-    public at Cs() {
-        if (!ListUtils.isEmpty(this.eVV)) {
-            Iterator<at> it = this.eVV.iterator();
+    public at Cv() {
+        if (!ListUtils.isEmpty(this.eXu)) {
+            Iterator<at> it = this.eXu.iterator();
             while (it.hasNext()) {
                 at next = it.next();
-                if (next.Co()) {
+                if (next.Cr()) {
                     return next;
                 }
             }
@@ -198,22 +198,22 @@ public class b extends BaseAdapter {
         return null;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        public View bTo;
-        public TextView ihQ;
-        public TextView ihR;
-        public TextView ihS;
-        public TextView ihT;
+        public View bUO;
+        public TextView ijA;
+        public TextView ijB;
+        public TextView ijC;
+        public TextView ijz;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.ihQ = (TextView) view.findViewById(a.f.tvTaskTitle);
-            this.ihR = (TextView) view.findViewById(a.f.tvTaskSubTitle);
-            this.ihS = (TextView) view.findViewById(a.f.tvTaskRewardNum);
-            this.ihT = (TextView) view.findViewById(a.f.tvTaskStatus);
-            this.bTo = view.findViewById(a.f.divider);
+            this.ijz = (TextView) view.findViewById(a.f.tvTaskTitle);
+            this.ijA = (TextView) view.findViewById(a.f.tvTaskSubTitle);
+            this.ijB = (TextView) view.findViewById(a.f.tvTaskRewardNum);
+            this.ijC = (TextView) view.findViewById(a.f.tvTaskStatus);
+            this.bUO = view.findViewById(a.f.divider);
         }
     }
 }

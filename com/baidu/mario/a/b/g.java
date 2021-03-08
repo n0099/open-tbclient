@@ -6,7 +6,7 @@ import android.media.MediaFormat;
 import android.view.Surface;
 import com.kwai.video.player.KsMediaMeta;
 import java.nio.ByteBuffer;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class g extends b {
     private static final String TAG = g.class.getSimpleName();
     private Surface mInputSurface;
@@ -17,8 +17,8 @@ public class g extends b {
     }
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ long aaO() {
-        return super.aaO();
+    public /* bridge */ /* synthetic */ long aaR() {
+        return super.aaR();
     }
 
     @Override // com.baidu.mario.a.b.b
@@ -54,7 +54,7 @@ public class g extends b {
     public void a(d dVar, e eVar) {
         boolean z = true;
         if (dVar != null && eVar != null) {
-            this.chA = eVar;
+            this.cjb = eVar;
             MediaFormat createVideoFormat = MediaFormat.createVideoFormat(dVar.getVideoCodec(), dVar.getVideoWidth(), dVar.getVideoHeight());
             createVideoFormat.setInteger("color-format", 2130708361);
             createVideoFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, dVar.getVideoBitrate());
@@ -64,18 +64,18 @@ public class g extends b {
                 this.mEncoder = MediaCodec.createEncoderByType(dVar.getVideoCodec());
                 this.mEncoder.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
                 this.mInputSurface = this.mEncoder.createInputSurface();
-                this.chC = true;
+                this.cjd = true;
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (this.chB == null) {
-                this.chB.dT(z);
+            if (this.cjc == null) {
+                this.cjc.dT(z);
                 return;
             }
             return;
         }
         z = false;
-        if (this.chB == null) {
+        if (this.cjc == null) {
         }
     }
 
@@ -84,13 +84,13 @@ public class g extends b {
     }
 
     @Override // com.baidu.mario.a.b.b
-    protected void abm() {
-        if (this.chD == 0) {
-            this.chD = this.mBufferInfo.presentationTimeUs;
-            chE = 0L;
+    protected void abp() {
+        if (this.cje == 0) {
+            this.cje = this.mBufferInfo.presentationTimeUs;
+            cjf = 0L;
         }
-        this.mBufferInfo.presentationTimeUs -= this.chD;
-        chE = this.mBufferInfo.presentationTimeUs;
-        com.baidu.mario.a.d.aaN().bK(chE / 1000);
+        this.mBufferInfo.presentationTimeUs -= this.cje;
+        cjf = this.mBufferInfo.presentationTimeUs;
+        com.baidu.mario.a.d.aaQ().bK(cjf / 1000);
     }
 }

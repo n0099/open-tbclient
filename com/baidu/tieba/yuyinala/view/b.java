@@ -17,50 +17,50 @@ import com.baidu.tieba.yuyinala.AlaRankListActivity;
 import com.baidu.tieba.yuyinala.data.g;
 import com.baidu.tieba.yuyinala.data.i;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private LinearLayout bwE;
-    private CommonEmptyView bwJ;
-    private LinearLayout cdZ;
-    private BdListView ijC;
-    private ArrayList<com.baidu.tieba.yuyinala.data.c> ijJ;
+    private LinearLayout bye;
+    private CommonEmptyView byj;
+    private LinearLayout cfz;
+    private BdListView ill;
+    private ArrayList<com.baidu.tieba.yuyinala.data.c> ils;
     private String mRoomId;
     private View mRootView;
-    private com.baidu.tieba.yuyinala.adapter.a oOq;
-    private com.baidu.tieba.yuyinala.view.a oOr;
-    private AlaRankListHeaderView oOs;
-    private g oOt;
-    private TextView oOu;
-    private AlaRankListActivity opx;
+    private com.baidu.tieba.yuyinala.adapter.a oQv;
+    private com.baidu.tieba.yuyinala.view.a oQw;
+    private AlaRankListHeaderView oQx;
+    private g oQy;
+    private TextView oQz;
+    private AlaRankListActivity orD;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void en(View view);
     }
 
     public b(AlaRankListActivity alaRankListActivity, String str) {
-        this.opx = alaRankListActivity;
+        this.orD = alaRankListActivity;
         this.mRoomId = str;
         initView();
     }
 
     private void initView() {
-        this.mRootView = LayoutInflater.from(this.opx).inflate(a.g.yuyin_ala_rank_fragment_layout, (ViewGroup) null);
-        this.ijC = (BdListView) this.mRootView.findViewById(a.f.ala_rank_list_view);
-        this.oOq = new com.baidu.tieba.yuyinala.adapter.a(this.opx, this.mRoomId);
-        this.ijC.setAdapter((ListAdapter) this.oOq);
-        this.oOs = new AlaRankListHeaderView(this.opx, this.mRoomId);
-        this.ijC.addHeaderView(this.oOs);
-        this.cdZ = (LinearLayout) LayoutInflater.from(this.opx).inflate(a.g.yuyin_hour_rank_list_footer_view, (ViewGroup) null);
-        this.oOu = (TextView) this.cdZ.findViewById(a.f.tv_footer);
-        this.ijC.addFooterView(this.cdZ);
-        this.cdZ.setVisibility(0);
-        this.bwE = (LinearLayout) this.mRootView.findViewById(a.f.ala_rank_list_bottom_container);
-        this.oOr = new com.baidu.tieba.yuyinala.view.a(this.opx, this.mRoomId);
-        this.bwE.addView(this.oOr.getView(), new LinearLayout.LayoutParams(-1, -2));
-        this.bwJ = (CommonEmptyView) this.mRootView.findViewById(a.f.ala_rank_list_empty);
-        this.ijC.setEmptyView(this.bwJ);
-        this.oOr.a(new a() { // from class: com.baidu.tieba.yuyinala.view.b.1
+        this.mRootView = LayoutInflater.from(this.orD).inflate(a.g.yuyin_ala_rank_fragment_layout, (ViewGroup) null);
+        this.ill = (BdListView) this.mRootView.findViewById(a.f.ala_rank_list_view);
+        this.oQv = new com.baidu.tieba.yuyinala.adapter.a(this.orD, this.mRoomId);
+        this.ill.setAdapter((ListAdapter) this.oQv);
+        this.oQx = new AlaRankListHeaderView(this.orD, this.mRoomId);
+        this.ill.addHeaderView(this.oQx);
+        this.cfz = (LinearLayout) LayoutInflater.from(this.orD).inflate(a.g.yuyin_hour_rank_list_footer_view, (ViewGroup) null);
+        this.oQz = (TextView) this.cfz.findViewById(a.f.tv_footer);
+        this.ill.addFooterView(this.cfz);
+        this.cfz.setVisibility(0);
+        this.bye = (LinearLayout) this.mRootView.findViewById(a.f.ala_rank_list_bottom_container);
+        this.oQw = new com.baidu.tieba.yuyinala.view.a(this.orD, this.mRoomId);
+        this.bye.addView(this.oQw.getView(), new LinearLayout.LayoutParams(-1, -2));
+        this.byj = (CommonEmptyView) this.mRootView.findViewById(a.f.ala_rank_list_empty);
+        this.ill.setEmptyView(this.byj);
+        this.oQw.a(new a() { // from class: com.baidu.tieba.yuyinala.view.b.1
             @Override // com.baidu.tieba.yuyinala.view.b.a
             public void en(View view) {
                 MessageManager.getInstance().dispatchResponsedMessage(new YuyinSupportRoomMessage(new SupportRoom()));
@@ -69,52 +69,52 @@ public class b {
     }
 
     public void setDatas(ArrayList<com.baidu.tieba.yuyinala.data.c> arrayList) {
-        if (this.oOq != null) {
-            this.ijJ = arrayList;
-            this.oOq.setData(arrayList);
+        if (this.oQv != null) {
+            this.ils = arrayList;
+            this.oQv.setData(arrayList);
         }
     }
 
     public void c(i iVar) {
-        this.oOs.b(iVar);
-    }
-
-    public void wE(int i) {
-        if (this.oOs != null) {
-            this.oOs.setHourHeaderInfoVisible(i);
-        }
-    }
-
-    public void fv(int i) {
-        if (this.cdZ != null) {
-            this.cdZ.setVisibility(i);
-        }
-    }
-
-    public void WW(String str) {
-        if (this.oOu != null) {
-            this.oOu.setText(str);
-        }
+        this.oQx.b(iVar);
     }
 
     public void wF(int i) {
-        this.ijC.setVisibility(i);
+        if (this.oQx != null) {
+            this.oQx.setHourHeaderInfoVisible(i);
+        }
+    }
+
+    public void fw(int i) {
+        if (this.cfz != null) {
+            this.cfz.setVisibility(i);
+        }
+    }
+
+    public void Xd(String str) {
+        if (this.oQz != null) {
+            this.oQz.setText(str);
+        }
+    }
+
+    public void wG(int i) {
+        this.ill.setVisibility(i);
     }
 
     public void b(g gVar) {
         if (gVar == null) {
-            if (this.oOr != null) {
-                this.oOr.getView().setVisibility(8);
+            if (this.oQw != null) {
+                this.oQw.getView().setVisibility(8);
                 return;
             }
             return;
         }
-        this.oOt = gVar;
+        this.oQy = gVar;
         View view = null;
-        if (this.oOr != null) {
-            this.oOr.a(gVar);
-            this.oOr.getView().setVisibility(0);
-            view = this.oOr.getView();
+        if (this.oQw != null) {
+            this.oQw.a(gVar);
+            this.oQw.getView().setVisibility(0);
+            view = this.oQw.getView();
         }
         if (TbadkCoreApplication.getInst().isNotMobileBaidu()) {
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.view.b.2
@@ -125,35 +125,35 @@ public class b {
         }
     }
 
-    public void cpH() {
-        if (this.oOr != null) {
-            this.oOr.getView().setVisibility(8);
+    public void cpN() {
+        if (this.oQw != null) {
+            this.oQw.getView().setVisibility(8);
         }
     }
 
     public void n(View.OnClickListener onClickListener) {
-        this.bwJ.reset();
-        this.bwJ.setTitle("网络不给力，请稍后重试");
-        this.bwJ.setRefreshButton("重新加载", onClickListener);
-        this.bwJ.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
-        this.bwJ.setTextColor(this.opx.getResources().getColor(a.c.sdk_color_525252));
-        this.bwJ.setVisibility(0);
+        this.byj.reset();
+        this.byj.setTitle("网络不给力，请稍后重试");
+        this.byj.setRefreshButton("重新加载", onClickListener);
+        this.byj.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
+        this.byj.setTextColor(this.orD.getResources().getColor(a.c.sdk_color_525252));
+        this.byj.setVisibility(0);
     }
 
-    public void WZ() {
-        this.bwJ.setVisibility(8);
+    public void Xc() {
+        this.byj.setVisibility(8);
     }
 
     public void dQ(boolean z) {
         if (z) {
-            this.bwJ.reset();
-            this.bwJ.setTitle("还没有房间上榜哦~");
-            this.bwJ.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
-            this.bwJ.setTextColor(this.opx.getResources().getColor(a.c.sdk_color_525252));
-            this.bwJ.setVisibility(0);
+            this.byj.reset();
+            this.byj.setTitle("还没有房间上榜哦~");
+            this.byj.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
+            this.byj.setTextColor(this.orD.getResources().getColor(a.c.sdk_color_525252));
+            this.byj.setVisibility(0);
             return;
         }
-        this.bwJ.setVisibility(8);
+        this.byj.setVisibility(8);
     }
 
     public void release() {

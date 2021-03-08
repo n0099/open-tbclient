@@ -15,14 +15,12 @@ import android.widget.TextView;
 import androidx.core.view.ViewCompat;
 import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class er extends Dialog {
 
     /* renamed from: a */
-    private final int f5576a;
-
-    /* renamed from: b */
-    private final int f5577b;
+    private final int f3770a;
+    private final int b;
     private final int c;
     private final int d;
     private final int e;
@@ -35,8 +33,8 @@ public final class er extends Dialog {
 
     public er(Context context, String str) {
         super(context);
-        this.f5576a = R.dimen.L_X02;
-        this.f5577b = R.dimen.L_X03;
+        this.f3770a = R.dimen.L_X02;
+        this.b = R.dimen.L_X03;
         this.c = R.dimen.L_X04;
         this.d = R.dimen.L_X05;
         this.e = R.dimen.L_X06;

@@ -2,7 +2,7 @@ package com.thunder.livesdk.video;
 
 import android.content.Context;
 import android.util.AttributeSet;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderPlayerSurfaceView extends ThunderPlayerView {
     public ThunderPlayerSurfaceView(Context context) {
         super(context);

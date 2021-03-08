@@ -9,16 +9,14 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class a extends g {
-    public static CopyOnWriteArrayList<Throwable> pxx = new CopyOnWriteArrayList<>();
+    public static CopyOnWriteArrayList<Throwable> pzC = new CopyOnWriteArrayList<>();
     private String A;
     private String B;
     private String C;
-    private JSONArray pxw;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f7722b = null;
+    private JSONArray pzB;
+    private String b = null;
     private String c = null;
     private String d = null;
     private String e = null;
@@ -44,7 +42,7 @@ public class a extends g {
     private String z = null;
 
     public void a(String str) {
-        this.f7722b = str;
+        this.b = str;
     }
 
     public void b(String str) {
@@ -97,7 +95,7 @@ public class a extends g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(JSONArray jSONArray) {
-        this.pxw = jSONArray;
+        this.pzB = jSONArray;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -165,7 +163,7 @@ public class a extends g {
         this.B = str;
     }
 
-    public void XM(String str) {
+    public void XT(String str) {
         this.C = str;
     }
 
@@ -173,7 +171,7 @@ public class a extends g {
     public JSONObject b() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("appid", this.f7722b);
+            jSONObject.put("appid", this.b);
             jSONObject.put("traceId", this.c);
             jSONObject.put("appName", this.d);
             jSONObject.put("appVersion", this.e);
@@ -188,7 +186,7 @@ public class a extends g {
             jSONObject.put("interfaceCode", this.m);
             jSONObject.put("interfaceElasped", this.n);
             jSONObject.put("loginType", this.o);
-            jSONObject.put("exceptionStackTrace", this.pxw);
+            jSONObject.put("exceptionStackTrace", this.pzB);
             jSONObject.put("operatorType", this.q);
             jSONObject.put("networkType", this.r);
             jSONObject.put("networkClass", this.s);

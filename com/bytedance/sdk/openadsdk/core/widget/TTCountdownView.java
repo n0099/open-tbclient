@@ -23,10 +23,8 @@ public class TTCountdownView extends View {
     private AtomicBoolean B;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6774a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f6775b;
+    private int f4587a;
+    private int b;
     private int c;
     private int d;
     private float e;
@@ -71,8 +69,8 @@ public class TTCountdownView extends View {
 
     public TTCountdownView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f6774a = Color.parseColor("#fce8b6");
-        this.f6775b = Color.parseColor("#f0f0f0");
+        this.f4587a = Color.parseColor("#fce8b6");
+        this.b = Color.parseColor("#f0f0f0");
         this.c = Color.parseColor("#ffffff");
         this.d = Color.parseColor("#7c7c7c");
         this.e = 2.0f;
@@ -99,7 +97,7 @@ public class TTCountdownView extends View {
 
     private void e() {
         this.o = new Paint(1);
-        this.o.setColor(this.f6774a);
+        this.o.setColor(this.f4587a);
         this.o.setStrokeWidth(this.e);
         this.o.setAntiAlias(true);
         this.o.setStyle(Paint.Style.STROKE);
@@ -109,7 +107,7 @@ public class TTCountdownView extends View {
         this.p.setStrokeWidth(this.e);
         this.p.setStyle(Paint.Style.FILL);
         this.q = new Paint(1);
-        this.q.setColor(this.f6775b);
+        this.q.setColor(this.b);
         this.q.setAntiAlias(true);
         this.q.setStrokeWidth(this.e / 2.0f);
         this.q.setStyle(Paint.Style.STROKE);
@@ -208,9 +206,6 @@ public class TTCountdownView extends View {
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                if (TTCountdownView.this.v != null) {
-                    TTCountdownView.this.v.a();
-                }
             }
         });
         this.w.start();
@@ -312,19 +307,26 @@ public class TTCountdownView extends View {
 
     public void setCountdownListener(a aVar) {
         this.v = aVar;
+        if (!this.B.get() && aVar != null) {
+            aVar.c();
+        }
     }
 
     @Override // android.view.View
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
         this.B.set(z);
-        if (this.v != null) {
-            this.v.c();
-        }
         if (!this.B.get()) {
             c();
-        } else {
-            d();
+            if (this.v != null) {
+                this.v.c();
+                return;
+            }
+            return;
+        }
+        d();
+        if (this.v != null) {
+            this.v.a();
         }
     }
 

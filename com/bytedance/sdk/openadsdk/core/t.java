@@ -12,28 +12,26 @@ import java.util.List;
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    private static t f6681a;
+    private static t f4515a;
     private String d;
     private volatile boolean c = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    private com.pgl.sys.ces.d.b f6682b = com.pgl.sys.ces.d.c.b(p.a(), "df979cdb-05a7-448c-bece-92d5005a1247", 0, b());
+    private com.pgl.sys.ces.d.b b = com.pgl.sys.ces.d.c.b(p.a(), "df979cdb-05a7-448c-bece-92d5005a1247", 0, c());
 
     private t(String str) {
         this.d = null;
         this.d = str;
         if (!TextUtils.isEmpty(this.d)) {
-            this.f6682b.setParams(str, null);
+            this.b.setParams(str, null);
         }
-        if (i.c().e() != null) {
+        if (i.d().f() != null) {
             HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("app_id", i.c().e());
-            this.f6682b.setCustomInfo(hashMap);
+            hashMap.put("app_id", i.d().f());
+            this.b.setCustomInfo(hashMap);
         }
     }
 
-    private com.pgl.sys.ces.d.a b() {
-        final TTCustomController d = i.c().d();
+    private com.pgl.sys.ces.d.a c() {
+        final TTCustomController e = i.d().e();
         return new com.pgl.sys.ces.d.a() { // from class: com.bytedance.sdk.openadsdk.core.t.1
             @Override // com.pgl.sys.ces.d.a
             public String getDeviceId() {
@@ -42,7 +40,7 @@ public class t {
 
             @Override // com.pgl.sys.ces.d.a
             public String getSubscriberId() {
-                if (d == null || d.isCanUsePhoneState()) {
+                if (e == null || e.isCanUsePhoneState()) {
                     return k.f(p.a());
                 }
                 return null;
@@ -50,7 +48,7 @@ public class t {
 
             @Override // com.pgl.sys.ces.d.a
             public WifiInfo getConnectionInfo() {
-                if (d == null || d.isCanUseWifiState()) {
+                if (e == null || e.isCanUseWifiState()) {
                     WifiManager wifiManager = (WifiManager) p.a().getSystemService("wifi");
                     return wifiManager != null ? wifiManager.getConnectionInfo() : null;
                 }
@@ -59,7 +57,7 @@ public class t {
 
             @Override // com.pgl.sys.ces.d.a
             public List<ScanResult> getScanResults() {
-                if (d == null || d.isCanUseWifiState()) {
+                if (e == null || e.isCanUseWifiState()) {
                     WifiManager wifiManager = (WifiManager) p.a().getSystemService("wifi");
                     return wifiManager != null ? wifiManager.getScanResults() : null;
                 }
@@ -68,7 +66,7 @@ public class t {
 
             @Override // com.pgl.sys.ces.d.a
             public String getHardwareAddress() {
-                if (d == null || d.isCanUseWifiState()) {
+                if (e == null || e.isCanUseWifiState()) {
                     return k.h(p.a());
                 }
                 return null;
@@ -76,13 +74,13 @@ public class t {
 
             @Override // com.pgl.sys.ces.d.a
             public String getLongitude() {
-                if (d != null && !d.isCanUseLocation()) {
-                    if (d.getTTLocation() == null) {
+                if (e != null && !e.isCanUseLocation()) {
+                    if (e.getTTLocation() == null) {
                         return null;
                     }
-                    return String.valueOf(d.getTTLocation().getLongitude());
+                    return String.valueOf(e.getTTLocation().getLongitude());
                 } else if (com.bytedance.sdk.openadsdk.utils.d.a(p.a()) != null) {
-                    return String.valueOf(com.bytedance.sdk.openadsdk.utils.d.a(p.a()).f7567b);
+                    return String.valueOf(com.bytedance.sdk.openadsdk.utils.d.a(p.a()).b);
                 } else {
                     return null;
                 }
@@ -90,13 +88,13 @@ public class t {
 
             @Override // com.pgl.sys.ces.d.a
             public String getLatitude() {
-                if (d != null && !d.isCanUseLocation()) {
-                    if (d.getTTLocation() == null) {
+                if (e != null && !e.isCanUseLocation()) {
+                    if (e.getTTLocation() == null) {
                         return null;
                     }
-                    return String.valueOf(d.getTTLocation().getLatitude());
+                    return String.valueOf(e.getTTLocation().getLatitude());
                 } else if (com.bytedance.sdk.openadsdk.utils.d.a(p.a()) != null) {
-                    return String.valueOf(com.bytedance.sdk.openadsdk.utils.d.a(p.a()).f7566a);
+                    return String.valueOf(com.bytedance.sdk.openadsdk.utils.d.a(p.a()).f5126a);
                 } else {
                     return null;
                 }
@@ -104,42 +102,46 @@ public class t {
         };
     }
 
+    public String a() {
+        return this.b.onEvent();
+    }
+
     public void a(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (TextUtils.isEmpty(this.d)) {
                 this.d = str;
-                this.f6682b.setParams(this.d, null);
+                this.b.setParams(this.d, null);
             }
-            if (i.c().e() != null) {
+            if (i.d().f() != null) {
                 HashMap<String, Object> hashMap = new HashMap<>();
-                hashMap.put("app_id", i.c().e());
-                this.f6682b.setCustomInfo(hashMap);
+                hashMap.put("app_id", i.d().f());
+                this.b.setCustomInfo(hashMap);
             }
         }
     }
 
     public static t b(String str) {
-        if (f6681a == null) {
+        if (f4515a == null) {
             synchronized (t.class) {
-                if (f6681a == null) {
-                    f6681a = new t(str);
+                if (f4515a == null) {
+                    f4515a = new t(str);
                 }
             }
         }
-        return f6681a;
+        return f4515a;
     }
 
     public void c(@NonNull String str) {
         if (!this.c) {
-            this.f6682b.reportNow(str);
+            this.b.reportNow(str);
             this.c = true;
         }
     }
 
-    public String a() {
+    public String b() {
         String str;
         try {
-            String pullSg = this.f6682b.pullSg();
+            String pullSg = this.b.pullSg();
             if (e(pullSg)) {
                 str = pullSg.toUpperCase();
             } else {
@@ -177,6 +179,6 @@ public class t {
         if (TextUtils.isEmpty(a2)) {
             return "";
         }
-        return this.f6682b.pullVer(a2);
+        return this.b.pullVer(a2);
     }
 }

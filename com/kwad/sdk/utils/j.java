@@ -9,10 +9,8 @@ import java.io.InputStream;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f10825a = "";
-
-    /* renamed from: b  reason: collision with root package name */
-    private static String f10826b = "";
+    private static String f7147a = "";
+    private static String b = "";
     private static String c = "";
 
     public static String a(int i) {
@@ -26,11 +24,11 @@ public class j {
         switch (i) {
             case 0:
                 str = "aes_key";
-                str2 = f10825a;
+                str2 = f7147a;
                 break;
             case 1:
                 str = "rsa_public_key";
-                str2 = f10826b;
+                str2 = b;
                 break;
             case 2:
                 str = "rsa_private_key";
@@ -55,10 +53,10 @@ public class j {
                 }
                 switch (i) {
                     case 0:
-                        f10825a = a2;
+                        f7147a = a2;
                         return a2;
                     case 1:
-                        f10826b = a2;
+                        b = a2;
                         return a2;
                     case 2:
                         c = a2;

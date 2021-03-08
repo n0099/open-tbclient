@@ -12,10 +12,8 @@ import com.baidu.cyberplayer.sdk.i;
 public class g extends SurfaceView implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    private i.a f1768a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private a f1769b;
+    private i.a f1426a;
+    private a b;
     private Surface c;
 
     /* loaded from: classes4.dex */
@@ -29,15 +27,15 @@ public class g extends SurfaceView implements i {
 
         @Override // android.view.SurfaceHolder.Callback
         public void surfaceCreated(SurfaceHolder surfaceHolder) {
-            CyberLog.d("SurfaceCallback", "BVideoView surfaceCreated mCyberSurfaceListener:" + g.this.f1768a);
-            if (g.this.f1768a != null) {
-                g.this.f1768a.a(2);
+            CyberLog.d("SurfaceCallback", "BVideoView surfaceCreated mCyberSurfaceListener:" + g.this.f1426a);
+            if (g.this.f1426a != null) {
+                g.this.f1426a.a(2);
             }
         }
 
         @Override // android.view.SurfaceHolder.Callback
         public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-            CyberLog.d("SurfaceCallback", "surfaceDestroyed mCyberSurfaceListener:" + g.this.f1768a);
+            CyberLog.d("SurfaceCallback", "surfaceDestroyed mCyberSurfaceListener:" + g.this.f1426a);
         }
     }
 
@@ -45,8 +43,8 @@ public class g extends SurfaceView implements i {
         super(context);
         CyberLog.d("CyberSurfaceView", "CyberSurfaceView constructor called");
         getHolder().setType(0);
-        this.f1769b = new a();
-        getHolder().addCallback(this.f1769b);
+        this.b = new a();
+        getHolder().addCallback(this.b);
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
@@ -93,7 +91,7 @@ public class g extends SurfaceView implements i {
         if (this.c != null) {
             this.c.release();
             this.c = null;
-            getHolder().removeCallback(this.f1769b);
+            getHolder().removeCallback(this.b);
         }
     }
 
@@ -112,7 +110,7 @@ public class g extends SurfaceView implements i {
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void setCyberSurfaceListener(i.a aVar) {
-        this.f1768a = aVar;
+        this.f1426a = aVar;
     }
 
     @Override // com.baidu.cyberplayer.sdk.i

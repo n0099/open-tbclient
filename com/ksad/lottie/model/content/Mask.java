@@ -3,10 +3,8 @@ package com.ksad.lottie.model.content;
 public class Mask {
 
     /* renamed from: a  reason: collision with root package name */
-    private final MaskMode f8055a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final com.ksad.lottie.model.a.h f8056b;
+    private final MaskMode f5380a;
+    private final com.ksad.lottie.model.a.h b;
     private final com.ksad.lottie.model.a.d c;
 
     /* loaded from: classes3.dex */
@@ -17,17 +15,17 @@ public class Mask {
     }
 
     public Mask(MaskMode maskMode, com.ksad.lottie.model.a.h hVar, com.ksad.lottie.model.a.d dVar) {
-        this.f8055a = maskMode;
-        this.f8056b = hVar;
+        this.f5380a = maskMode;
+        this.b = hVar;
         this.c = dVar;
     }
 
     public MaskMode a() {
-        return this.f8055a;
+        return this.f5380a;
     }
 
     public com.ksad.lottie.model.a.h b() {
-        return this.f8056b;
+        return this.b;
     }
 
     public com.ksad.lottie.model.a.d c() {

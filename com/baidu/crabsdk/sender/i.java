@@ -59,7 +59,7 @@ public final class i {
         DeflaterOutputStream deflaterOutputStream2;
         Deflater deflater;
         synchronized (i.class) {
-            com.baidu.crabsdk.c.a.ds("writeFile: " + str);
+            com.baidu.crabsdk.c.a.dw("writeFile: " + str);
             h.m(str);
             Deflater deflater2 = "writeFile: ";
             if (com.baidu.crabsdk.a.G) {
@@ -71,7 +71,7 @@ public final class i {
                 }
                 try {
                     String str3 = "key_" + str;
-                    h.b(str3, com.baidu.crabsdk.c.e.dz(c));
+                    h.b(str3, com.baidu.crabsdk.c.e.dD(c));
                     deflater2 = c;
                     deflaterOutputStream = str3;
                     fileOutputStream = "key_";
@@ -284,7 +284,36 @@ public final class i {
         return arrayList;
     }
 
-    public static byte[] dS(String str) {
+    public static String dJ(String str) {
+        if (str == null) {
+            return "";
+        }
+        StringBuilder sb = new StringBuilder();
+        try {
+            com.baidu.crabsdk.c.a.dw("So libs path is: " + str);
+            File[] listFiles = new File(str).listFiles();
+            if (listFiles != null && listFiles.length > 0) {
+                for (File file : listFiles) {
+                    if (file.getName().endsWith(PluginInstallerService.APK_LIB_SUFFIX)) {
+                        com.baidu.crabsdk.c.a.v(file.getName());
+                        if (!com.baidu.crabsdk.a.M.contains(file.getName())) {
+                            com.baidu.crabsdk.a.M.add(file.getName());
+                        }
+                    }
+                }
+            }
+            Iterator<String> it = com.baidu.crabsdk.a.M.iterator();
+            while (it.hasNext()) {
+                sb.append(it.next()).append("$");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        com.baidu.crabsdk.c.a.dw("All so libs: " + sb.toString());
+        return sb.toString();
+    }
+
+    public static byte[] dY(String str) {
         ByteArrayOutputStream byteArrayOutputStream;
         FileInputStream fileInputStream;
         ByteArrayOutputStream byteArrayOutputStream2;
@@ -400,7 +429,7 @@ public final class i {
                 } else if (obj instanceof Float) {
                     jSONObject.put(str, (Float) obj);
                 } else {
-                    com.baidu.crabsdk.c.a.dt("mapRecord2JSON: unexpected key[" + str + "]'s value " + obj);
+                    com.baidu.crabsdk.c.a.dx("mapRecord2JSON: unexpected key[" + str + "]'s value " + obj);
                 }
             } catch (JSONException e) {
                 com.baidu.crabsdk.c.a.a("Could not create JSON object for key " + str, e);
@@ -432,34 +461,5 @@ public final class i {
             }
         }
         return arrayList;
-    }
-
-    public static String s(String str) {
-        if (str == null) {
-            return "";
-        }
-        StringBuilder sb = new StringBuilder();
-        try {
-            com.baidu.crabsdk.c.a.ds("So libs path is: " + str);
-            File[] listFiles = new File(str).listFiles();
-            if (listFiles != null && listFiles.length > 0) {
-                for (File file : listFiles) {
-                    if (file.getName().endsWith(PluginInstallerService.APK_LIB_SUFFIX)) {
-                        com.baidu.crabsdk.c.a.v(file.getName());
-                        if (!com.baidu.crabsdk.a.M.contains(file.getName())) {
-                            com.baidu.crabsdk.a.M.add(file.getName());
-                        }
-                    }
-                }
-            }
-            Iterator<String> it = com.baidu.crabsdk.a.M.iterator();
-            while (it.hasNext()) {
-                sb.append(it.next()).append("$");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        com.baidu.crabsdk.c.a.ds("All so libs: " + sb.toString());
-        return sb.toString();
     }
 }

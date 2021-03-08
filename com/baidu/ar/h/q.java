@@ -18,13 +18,13 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.nio.charset.Charset;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class q {
     public static String yh = "";
     public static String name = "";
     public static String value = "";
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     class a implements FileFilter {
         a() {
         }

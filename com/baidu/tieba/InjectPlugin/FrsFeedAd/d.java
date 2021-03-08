@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface d extends com.baidu.tieba.InjectPlugin.a.a<com.baidu.tieba.InjectPlugin.a.c> {
     TypeAdapter.ViewHolder a(ViewGroup viewGroup, Object obj);
 
@@ -14,7 +14,7 @@ public interface d extends com.baidu.tieba.InjectPlugin.a.a<com.baidu.tieba.Inje
 
     void a(List<c> list, List<c> list2, boolean z, int i);
 
-    List<Integer> bJy();
+    List<Integer> bJC();
 
     void bP(List<Object> list);
 

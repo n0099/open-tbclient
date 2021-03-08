@@ -1,22 +1,22 @@
 package com.baidu.swan.games.u.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d {
-    public String ekQ;
-    public long ekR;
-    public long ekS;
-    public String ekT;
-    public String ekU;
-    public String ekV;
-    public String ekW;
-    public String ekX;
-    public String ekY;
-    public int ekZ;
+    public int emA;
+    public String emr;
+    public long ems;
+    public long emt;
+    public String emu;
+    public String emv;
+    public String emw;
+    public String emx;
+    public String emy;
+    public String emz;
     public String publishType;
     public String sourceFrom;
     public int sourceType;
     public String target;
 
     public String toString() {
-        return "{ clipMaxDuration=" + this.ekR + " , clipMinDuration=" + this.ekS + " , topicSource=" + this.ekT + " , publishURL=" + this.ekV + " , publishType=" + this.publishType + " , publishTitle=" + this.ekU + " , atURL=" + this.ekX + " , topicURL=" + this.ekY + " , musicURL=" + this.ekW + " , sourceFrom=" + this.sourceFrom + " , sourceType=" + this.sourceType + ",target=" + this.target + ",showToast=" + this.ekZ + " }";
+        return "{ clipMaxDuration=" + this.ems + " , clipMinDuration=" + this.emt + " , topicSource=" + this.emu + " , publishURL=" + this.emw + " , publishType=" + this.publishType + " , publishTitle=" + this.emv + " , atURL=" + this.emy + " , topicURL=" + this.emz + " , musicURL=" + this.emx + " , sourceFrom=" + this.sourceFrom + " , sourceType=" + this.sourceType + ",target=" + this.target + ",showToast=" + this.emA + " }";
     }
 }

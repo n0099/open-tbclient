@@ -6,7 +6,7 @@ import io.reactivex.j;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class BlockingSubscriber<T> extends AtomicReference<d> implements j<T>, d {
     public static final Object TERMINATED = new Object();
     private static final long serialVersionUID = -4875965440900746268L;

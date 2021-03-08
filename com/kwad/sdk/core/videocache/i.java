@@ -11,15 +11,13 @@ import java.util.List;
 class i extends ProxySelector {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final List<Proxy> f9503a = Arrays.asList(Proxy.NO_PROXY);
-
-    /* renamed from: b  reason: collision with root package name */
-    private final ProxySelector f9504b;
+    private static final List<Proxy> f6299a = Arrays.asList(Proxy.NO_PROXY);
+    private final ProxySelector b;
     private final String c;
     private final int d;
 
     i(ProxySelector proxySelector, String str, int i) {
-        this.f9504b = (ProxySelector) j.a(proxySelector);
+        this.b = (ProxySelector) j.a(proxySelector);
         this.c = (String) j.a(str);
         this.d = i;
     }
@@ -31,11 +29,11 @@ class i extends ProxySelector {
 
     @Override // java.net.ProxySelector
     public void connectFailed(URI uri, SocketAddress socketAddress, IOException iOException) {
-        this.f9504b.connectFailed(uri, socketAddress, iOException);
+        this.b.connectFailed(uri, socketAddress, iOException);
     }
 
     @Override // java.net.ProxySelector
     public List<Proxy> select(URI uri) {
-        return this.c.equals(uri.getHost()) && this.d == uri.getPort() ? f9503a : this.f9504b.select(uri);
+        return this.c.equals(uri.getHost()) && this.d == uri.getPort() ? f6299a : this.b.select(uri);
     }
 }

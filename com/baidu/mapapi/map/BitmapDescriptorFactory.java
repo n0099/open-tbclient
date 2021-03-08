@@ -14,10 +14,10 @@ import java.io.IOException;
 public class BitmapDescriptorFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f2698a;
+    static final /* synthetic */ boolean f2011a;
 
     static {
-        f2698a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
+        f2011a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
     }
 
     public static BitmapDescriptor fromAsset(String str) {
@@ -28,7 +28,7 @@ public class BitmapDescriptorFactory {
         try {
             Bitmap a2 = com.baidu.mapsdkplatform.comapi.commonutils.a.a(str, context);
             BitmapDescriptor fromBitmap = fromBitmap(a2);
-            if (f2698a || a2 != null) {
+            if (f2011a || a2 != null) {
                 a2.recycle();
                 return fromBitmap;
             }

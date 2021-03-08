@@ -1,7 +1,7 @@
 package com.baidu.live.data;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ci {
-    public String aJM;
-    public String aQQ;
+    public String aLm;
+    public String aSq;
     public String liveId;
 }

@@ -1,6 +1,6 @@
 package com.baidu.live.data;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class cm {
-    public String aRn;
-    public String aRo;
+    public String aSN;
+    public String aSO;
 }

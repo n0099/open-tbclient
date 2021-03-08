@@ -14,32 +14,32 @@ import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class VideoPbEnterForumViewHolder extends TypeAdapter.ViewHolder implements View.OnClickListener {
-    private cb akU;
-    CardForumHeadLayout mbS;
+    private cb amn;
+    CardForumHeadLayout mdU;
 
     public VideoPbEnterForumViewHolder(View view) {
         super(view);
-        this.mbS = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
-        if (this.mbS != null) {
-            this.mbS.setOnClickListener(this.mbS);
-            this.mbS.setAfterClickListener(this);
+        this.mdU = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
+        if (this.mdU != null) {
+            this.mdU.setOnClickListener(this.mdU);
+            this.mdU.setAfterClickListener(this);
         }
     }
 
     public void setData(cb cbVar) {
-        this.akU = cbVar;
-        this.mbS.setData(cbVar);
+        this.amn = cbVar;
+        this.mdU.setData(cbVar);
     }
 
-    public void bup() {
-        this.mbS.onChangeSkinType();
-        ap.d(this.mbS, l.getDimens(this.itemView.getContext(), R.dimen.tbds10), R.color.CAM_X0206, R.color.CAM_X0206);
+    public void bus() {
+        this.mdU.onChangeSkinType();
+        ap.d(this.mdU, l.getDimens(this.itemView.getContext(), R.dimen.tbds10), R.color.CAM_X0206, R.color.CAM_X0206);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.akU != null) {
-            TiebaStatic.log(new ar("c13399").dR("tid", this.akU.getTid()).v("fid", this.akU.getFid()).dR("uid", TbadkCoreApplication.getCurrentAccount()).dR(IntentConfig.NID, this.akU.bmo()));
+        if (this.amn != null) {
+            TiebaStatic.log(new ar("c13399").dR("tid", this.amn.getTid()).v("fid", this.amn.getFid()).dR("uid", TbadkCoreApplication.getCurrentAccount()).dR(IntentConfig.NID, this.amn.bmq()));
         }
     }
 }

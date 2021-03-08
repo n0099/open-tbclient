@@ -1,13 +1,13 @@
 package com.baidu.live.gift;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface ae {
-    void EY();
+    void Fb();
 
-    void EZ();
+    void Fc();
 
     void a(String str, String str2, String str3, String str4, String str5, boolean z, boolean z2, boolean z3, boolean z4, int i);
 
     boolean at(String str, String str2);
 
-    void fU(String str);
+    void ga(String str);
 }

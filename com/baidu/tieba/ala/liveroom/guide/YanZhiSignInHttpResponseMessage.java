@@ -3,10 +3,10 @@ package com.baidu.tieba.ala.liveroom.guide;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class YanZhiSignInHttpResponseMessage extends JsonHttpResponsedMessage {
-    private String hEB;
-    private String hEC;
+    private String hGk;
+    private String hGl;
 
     public YanZhiSignInHttpResponseMessage() {
         super(1021153);
@@ -17,16 +17,16 @@ public class YanZhiSignInHttpResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && jSONObject.optJSONObject("data") != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.hEB = optJSONObject.optString("sign_status");
-            this.hEC = optJSONObject.optString("visit_yanzhi_tab");
+            this.hGk = optJSONObject.optString("sign_status");
+            this.hGl = optJSONObject.optString("visit_yanzhi_tab");
         }
     }
 
-    public boolean cfP() {
-        return !StringUtils.isNull(this.hEB) && this.hEB.equals("1");
+    public boolean cfV() {
+        return !StringUtils.isNull(this.hGk) && this.hGk.equals("1");
     }
 
-    public boolean cfQ() {
-        return !StringUtils.isNull(this.hEC) && this.hEC.equals("1");
+    public boolean cfW() {
+        return !StringUtils.isNull(this.hGl) && this.hGl.equals("1");
     }
 }

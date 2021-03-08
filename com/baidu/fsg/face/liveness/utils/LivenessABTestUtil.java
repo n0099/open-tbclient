@@ -8,43 +8,41 @@ import org.json.JSONObject;
 public class LivenessABTestUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    private static LivenessABTestUtil f2301a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private ABTestUtils f2302b;
+    private static LivenessABTestUtil f1767a;
+    private ABTestUtils b;
 
     private LivenessABTestUtil() {
     }
 
     private LivenessABTestUtil(Context context) {
-        this.f2302b = new ABTestUtils(context);
+        this.b = new ABTestUtils(context);
     }
 
     public static synchronized LivenessABTestUtil getInstance(Context context) {
         LivenessABTestUtil livenessABTestUtil;
         synchronized (LivenessABTestUtil.class) {
-            if (f2301a == null) {
-                f2301a = new LivenessABTestUtil(context);
+            if (f1767a == null) {
+                f1767a = new LivenessABTestUtil(context);
             }
-            livenessABTestUtil = f2301a;
+            livenessABTestUtil = f1767a;
         }
         return livenessABTestUtil;
     }
 
     public static synchronized void cleanInstance() {
         synchronized (LivenessABTestUtil.class) {
-            f2301a = null;
+            f1767a = null;
         }
     }
 
     public boolean isWhiteBgEnable() {
-        if (this.f2302b != null) {
-            return "1".equals(this.f2302b.getABTestValueString("1", ABTestConstant.LIVENESS_BG_STYLE_EXP_KEY_LIVENESS_BG_STYLE, "0"));
+        if (this.b != null) {
+            return "1".equals(this.b.getABTestValueString("1", ABTestConstant.LIVENESS_BG_STYLE_EXP_KEY_LIVENESS_BG_STYLE, "0"));
         }
         return false;
     }
 
     public JSONObject getLivenessBgStyleABTestContent() {
-        return this.f2302b != null ? this.f2302b.getABTestStatistics("1", ABTestConstant.LIVENESS_BG_STYLE_EXP_KEY_LIVENESS_BG_STYLE, "0") : new JSONObject();
+        return this.b != null ? this.b.getABTestStatistics("1", ABTestConstant.LIVENESS_BG_STYLE_EXP_KEY_LIVENESS_BG_STYLE, "0") : new JSONObject();
     }
 }

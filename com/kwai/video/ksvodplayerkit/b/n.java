@@ -7,10 +7,8 @@ import org.json.JSONObject;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f11057a = 0;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f11058b = 0;
+    public int f7281a = 0;
+    public int b = 0;
     public int c = 0;
     public int d = 0;
     public int e = 0;
@@ -34,8 +32,8 @@ public class n {
     public String a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("rate_adapt_type", this.f11057a);
-            jSONObject.put("bandwidth_estimation_type", this.f11058b);
+            jSONObject.put("rate_adapt_type", this.f7281a);
+            jSONObject.put("bandwidth_estimation_type", this.b);
             jSONObject.put("absolute_low_res_low_device", this.c);
             jSONObject.put("adapt_under_4G", this.d);
             jSONObject.put("adapt_under_wifi", this.e);

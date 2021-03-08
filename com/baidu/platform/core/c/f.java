@@ -9,36 +9,34 @@ import com.baidu.mapapi.search.poi.PoiNearbySearchOption;
 import com.baidu.platform.base.SearchType;
 /* loaded from: classes4.dex */
 public class f extends com.baidu.platform.base.a implements a {
-
-    /* renamed from: b  reason: collision with root package name */
-    private OnGetPoiSearchResultListener f4490b = null;
+    private OnGetPoiSearchResultListener b = null;
 
     @Override // com.baidu.platform.core.c.a
     public void a() {
-        this.f4136a.lock();
-        this.f4490b = null;
-        this.f4136a.unlock();
+        this.f2863a.lock();
+        this.b = null;
+        this.f2863a.unlock();
     }
 
     @Override // com.baidu.platform.core.c.a
     public void a(OnGetPoiSearchResultListener onGetPoiSearchResultListener) {
-        this.f4136a.lock();
-        this.f4490b = onGetPoiSearchResultListener;
-        this.f4136a.unlock();
+        this.f2863a.lock();
+        this.b = onGetPoiSearchResultListener;
+        this.f2863a.unlock();
     }
 
     @Override // com.baidu.platform.core.c.a
     public boolean a(PoiBoundSearchOption poiBoundSearchOption) {
         g gVar = new g(poiBoundSearchOption.mPageNum, poiBoundSearchOption.mPageCapacity);
         gVar.a(SearchType.POI_IN_BOUND_SEARCH);
-        return a(new i(poiBoundSearchOption), this.f4490b, gVar);
+        return a(new i(poiBoundSearchOption), this.b, gVar);
     }
 
     @Override // com.baidu.platform.core.c.a
     public boolean a(PoiCitySearchOption poiCitySearchOption) {
         g gVar = new g(poiCitySearchOption.mPageNum, poiCitySearchOption.mPageCapacity);
         gVar.a(SearchType.POI_IN_CITY_SEARCH);
-        return a(new i(poiCitySearchOption), this.f4490b, gVar);
+        return a(new i(poiCitySearchOption), this.b, gVar);
     }
 
     @Override // com.baidu.platform.core.c.a
@@ -48,20 +46,20 @@ public class f extends com.baidu.platform.base.a implements a {
             dVar.a(poiDetailSearchOption.isSearchByUids());
         }
         dVar.a(SearchType.POI_DETAIL_SEARCH);
-        return a(new e(poiDetailSearchOption), this.f4490b, dVar);
+        return a(new e(poiDetailSearchOption), this.b, dVar);
     }
 
     @Override // com.baidu.platform.core.c.a
     public boolean a(PoiIndoorOption poiIndoorOption) {
         b bVar = new b();
         bVar.a(SearchType.INDOOR_POI_SEARCH);
-        return a(new c(poiIndoorOption), this.f4490b, bVar);
+        return a(new c(poiIndoorOption), this.b, bVar);
     }
 
     @Override // com.baidu.platform.core.c.a
     public boolean a(PoiNearbySearchOption poiNearbySearchOption) {
         g gVar = new g(poiNearbySearchOption.mPageNum, poiNearbySearchOption.mPageCapacity);
         gVar.a(SearchType.POI_NEAR_BY_SEARCH);
-        return a(new i(poiNearbySearchOption), this.f4490b, gVar);
+        return a(new i(poiNearbySearchOption), this.b, gVar);
     }
 }

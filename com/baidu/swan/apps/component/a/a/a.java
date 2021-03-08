@@ -14,7 +14,7 @@ import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.swan.apps.component.a.a.b;
 import com.baidu.swan.apps.component.components.textarea.SwanEditText;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class a<V extends SwanEditText, M extends b> extends com.baidu.swan.apps.component.a.c.a<V, M> {
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.swan.apps.component.a.a.a<V extends com.baidu.swan.apps.component.components.textarea.SwanEditText, M extends com.baidu.swan.apps.component.a.a.b> */
     /* JADX WARN: Multi-variable type inference failed */
@@ -57,19 +57,19 @@ public abstract class a<V extends SwanEditText, M extends b> extends com.baidu.s
     public com.baidu.swan.apps.component.d.b a(@NonNull M m, @NonNull M m2) {
         com.baidu.swan.apps.component.d.b a2 = super.a(m, m2);
         if (getView() != 0 && !TextUtils.equals(((SwanEditText) getView()).getText().toString(), m2.text)) {
-            a2.gv(6);
+            a2.gw(6);
         }
         if (m.maxLength != m2.maxLength) {
-            a2.gv(10);
+            a2.gw(10);
         }
-        if (m.cKO != m2.cKO) {
-            a2.gv(11);
+        if (m.cMo != m2.cMo) {
+            a2.gw(11);
         }
         if (m.selectionStart != m2.selectionStart || m.selectionEnd != m2.selectionEnd) {
-            a2.gv(12);
+            a2.gw(12);
         }
-        if (!TextUtils.equals(m.cKP, m2.cKP)) {
-            a2.gv(13);
+        if (!TextUtils.equals(m.cMp, m2.cMp)) {
+            a2.gw(13);
         }
         return a2;
     }
@@ -77,16 +77,16 @@ public abstract class a<V extends SwanEditText, M extends b> extends com.baidu.s
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(@NonNull V v, @NonNull M m, @NonNull com.baidu.swan.apps.component.d.b bVar) {
         super.a((a<V, M>) v, (V) m, bVar);
-        if (bVar.gw(11)) {
+        if (bVar.gx(11)) {
             b((a<V, M>) v, (V) m);
         }
-        if (bVar.gw(12)) {
+        if (bVar.gx(12)) {
             c((a<V, M>) v, (V) m);
         }
-        if (bVar.gw(10)) {
+        if (bVar.gx(10)) {
             d((a<V, M>) v, (V) m);
         }
-        if (bVar.gw(13)) {
+        if (bVar.gx(13)) {
             e((a<V, M>) v, (V) m);
         }
     }
@@ -107,8 +107,8 @@ public abstract class a<V extends SwanEditText, M extends b> extends com.baidu.s
         if (text != null) {
             i = text.length();
         }
-        if (m.cKO <= i && m.cKO >= 0) {
-            v.setSelection(m.cKO);
+        if (m.cMo <= i && m.cMo >= 0) {
+            v.setSelection(m.cMo);
         }
     }
 
@@ -138,9 +138,9 @@ public abstract class a<V extends SwanEditText, M extends b> extends com.baidu.s
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean e(@NonNull V v, @NonNull M m) {
         if (DEBUG) {
-            Log.d("Component-EditText", "renderConfirmType:" + m.cKP);
+            Log.d("Component-EditText", "renderConfirmType:" + m.cMp);
         }
-        String str = m.cKP;
+        String str = m.cMp;
         char c = 65535;
         switch (str.hashCode()) {
             case -906336856:

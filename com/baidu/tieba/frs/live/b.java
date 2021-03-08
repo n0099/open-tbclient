@@ -14,16 +14,16 @@ import com.baidu.tieba.card.t;
 import com.baidu.tieba.card.z;
 /* loaded from: classes2.dex */
 public class b implements CustomMessageTask.CustomRunnable<cb>, z {
-    private com.baidu.tieba.frs.b.b jEy;
-    private int jEz;
-    private int jqD = 3;
+    private com.baidu.tieba.frs.b.b jGh;
+    private int jGi;
+    private int jsm = 3;
     private BdUniqueId mPageId;
     private TbPageTag mTbPageTag;
 
     public b(com.baidu.tieba.frs.b.b bVar, TbPageTag tbPageTag, BdUniqueId bdUniqueId) {
-        this.jEy = null;
+        this.jGh = null;
         this.mTbPageTag = null;
-        this.jEy = bVar;
+        this.jGh = bVar;
         this.mTbPageTag = tbPageTag;
         this.mPageId = bdUniqueId;
     }
@@ -35,72 +35,72 @@ public class b implements CustomMessageTask.CustomRunnable<cb>, z {
             cb data = customMessage.getData();
             if (customMessage.getCmd() == 2921018) {
                 aw(data);
-                com.baidu.tieba.frs.b.c.cKl().a(this.jEy, data, 1);
-                com.baidu.tieba.frs.b.a.a(data, 1, this.mPageId, this.jEy, this.mTbPageTag);
+                com.baidu.tieba.frs.b.c.cKr().a(this.jGh, data, 1);
+                com.baidu.tieba.frs.b.a.a(data, 1, this.mPageId, this.jGh, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921016) {
                 aw(data);
-                com.baidu.tieba.frs.b.c.cKl().a(this.jEy, data, 2);
-                com.baidu.tieba.frs.b.a.a(data, 2, this.mPageId, this.jEy, this.mTbPageTag);
+                com.baidu.tieba.frs.b.c.cKr().a(this.jGh, data, 2);
+                com.baidu.tieba.frs.b.a.a(data, 2, this.mPageId, this.jGh, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921019) {
                 aw(data);
-                com.baidu.tieba.frs.b.c.cKl().a(this.jEy, data, 4);
-                com.baidu.tieba.frs.b.a.a(data, 1, this.mPageId, this.jEy, this.mTbPageTag);
+                com.baidu.tieba.frs.b.c.cKr().a(this.jGh, data, 4);
+                com.baidu.tieba.frs.b.a.a(data, 1, this.mPageId, this.jGh, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921017) {
                 ax(data);
-                com.baidu.tieba.frs.b.c.cKl().a(this.jEy, data);
-                com.baidu.tieba.frs.b.a.a(data, this.mPageId, this.jEy, this.mTbPageTag);
+                com.baidu.tieba.frs.b.c.cKr().a(this.jGh, data);
+                com.baidu.tieba.frs.b.a.a(data, this.mPageId, this.jGh, this.mTbPageTag);
             }
         }
         return null;
     }
 
     private void aw(cb cbVar) {
-        if (cbVar != null && cbVar.bnQ() != null && cbVar.boj() != null) {
+        if (cbVar != null && cbVar.bnS() != null && cbVar.bol() != null) {
             long j = 0;
-            if (cbVar.boj().user_info != null) {
-                j = cbVar.boj().user_info.ala_id;
+            if (cbVar.bol().user_info != null) {
+                j = cbVar.bol().user_info.ala_id;
             }
             ar arVar = new ar("c13615");
-            arVar.dR("uid", cbVar.bnQ().getUserId());
+            arVar.dR("uid", cbVar.bnS().getUserId());
             arVar.v("fid", cbVar.getFid());
             arVar.dR("ab_tag", cbVar.mRecomAbTag);
-            arVar.ap("obj_type", cbVar.boj().isChushou ? 2 : 1);
+            arVar.aq("obj_type", cbVar.bol().isChushou ? 2 : 1);
             arVar.dR("tid", cbVar.getTid());
-            arVar.v(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, cbVar.boj().live_id);
+            arVar.v(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, cbVar.bol().live_id);
             arVar.v("star_id", j);
             arVar.dR("extra", cbVar.mRecomExtra);
             arVar.dR(VideoPlayActivityConfig.SOURCE_FROM, cbVar.mRecomSource);
-            if (this.jEz == 14) {
-                arVar.ap("obj_locate", 1);
-            } else if (this.jEz == 13) {
-                arVar.ap("obj_locate", 2);
+            if (this.jGi == 14) {
+                arVar.aq("obj_locate", 1);
+            } else if (this.jGi == 13) {
+                arVar.aq("obj_locate", 2);
             }
             TiebaStatic.log(arVar);
         }
     }
 
     private void ax(cb cbVar) {
-        if (cbVar != null && cbVar.bnQ() != null && cbVar.boj() != null) {
+        if (cbVar != null && cbVar.bnS() != null && cbVar.bol() != null) {
             long j = 0;
-            if (cbVar.boj().user_info != null) {
-                j = cbVar.boj().user_info.ala_id;
+            if (cbVar.bol().user_info != null) {
+                j = cbVar.bol().user_info.ala_id;
             }
             ar arVar = new ar("c13614");
-            arVar.dR("uid", cbVar.bnQ().getUserId());
+            arVar.dR("uid", cbVar.bnS().getUserId());
             arVar.v("fid", cbVar.getFid());
             arVar.dR("ab_tag", cbVar.mRecomAbTag);
-            arVar.ap("obj_type", cbVar.boj().isChushou ? 2 : 1);
+            arVar.aq("obj_type", cbVar.bol().isChushou ? 2 : 1);
             arVar.dR("tid", cbVar.getTid());
-            arVar.v(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, cbVar.boj().live_id);
+            arVar.v(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, cbVar.bol().live_id);
             arVar.v("star_id", j);
             arVar.dR("extra", cbVar.mRecomExtra);
             arVar.dR(VideoPlayActivityConfig.SOURCE_FROM, cbVar.mRecomSource);
-            if (this.jEz == 14) {
-                arVar.ap("obj_locate", 1);
-            } else if (this.jEz == 13) {
-                arVar.ap("obj_locate", 2);
+            if (this.jGi == 14) {
+                arVar.aq("obj_locate", 1);
+            } else if (this.jGi == 13) {
+                arVar.aq("obj_locate", 2);
             }
-            t.csB().e(arVar);
+            t.csH().e(arVar);
         }
     }
 
@@ -109,11 +109,11 @@ public class b implements CustomMessageTask.CustomRunnable<cb>, z {
     }
 
     @Override // com.baidu.tieba.card.z
-    public void uX(int i) {
-        this.jqD = i;
+    public void uZ(int i) {
+        this.jsm = i;
     }
 
-    public void zX(int i) {
-        this.jEz = i;
+    public void zY(int i) {
+        this.jGi = i;
     }
 }

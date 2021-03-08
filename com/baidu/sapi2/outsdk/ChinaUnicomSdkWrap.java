@@ -19,30 +19,28 @@ import com.sdk.mobile.manager.login.cucc.UiOauthManager;
 import com.sdk.mobile.manager.oauth.cucc.OauthManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class ChinaUnicomSdkWrap {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f4997a = 15;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final String f4998b = "baidu_passport_cu_onekey_login";
+    private static final int f3385a = 15;
+    private static final String b = "baidu_passport_cu_onekey_login";
     private static String c = "";
 
     private void b(final SapiConfiguration sapiConfiguration, final OneKeyLoginSdkCall.TokenListener tokenListener) {
-        Log.i(OneKeyLoginSdkCall.f5005a, "in getAsynToken");
+        Log.i(OneKeyLoginSdkCall.f3389a, "in getAsynToken");
         ToolUtils.clearCache(sapiConfiguration.context);
         UiOauthManager.getInstance(sapiConfiguration.context).login(15, new CallBack<Object>() { // from class: com.baidu.sapi2.outsdk.ChinaUnicomSdkWrap.1
             @Override // com.sdk.base.api.CallBack
             public void onFailed(int i, int i2, String str, String str2) {
                 tokenListener.onGetTokenComplete(new JSONObject());
-                Log.e(OneKeyLoginSdkCall.f5005a, "onFailure  code:   " + i + "   status: " + i2 + "  msg：" + str);
+                Log.e(OneKeyLoginSdkCall.f3389a, "onFailure  code:   " + i + "   status: " + i2 + "  msg：" + str);
                 SapiStatUtil.statPreGetPhoneInfo(0, i2 + "", "CU", OneKeyLoginSdkCall.k, ChinaUnicomSdkWrap.c);
             }
 
             @Override // com.sdk.base.api.CallBack
             public void onSuccess(int i, String str, int i2, Object obj, String str2) {
-                Log.i(OneKeyLoginSdkCall.f5005a, "onSuccess: code:" + i + "   status:" + i2 + "   msg:" + str + "    response: " + obj + "    seq: " + str2);
+                Log.i(OneKeyLoginSdkCall.f3389a, "onSuccess: code:" + i + "   status:" + i2 + "   msg:" + str + "    response: " + obj + "    seq: " + str2);
                 String str3 = i2 + "";
                 JSONObject jSONObject = new JSONObject();
                 try {
@@ -72,7 +70,7 @@ public class ChinaUnicomSdkWrap {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(SapiConfiguration sapiConfiguration, String str, String str2, int i, OneKeyLoginCallback oneKeyLoginCallback) {
-        Log.i(OneKeyLoginSdkCall.f5005a, "in china unicom login pre get phone info");
+        Log.i(OneKeyLoginSdkCall.f3389a, "in china unicom login pre get phone info");
         a(sapiConfiguration, str2);
         a(sapiConfiguration.context, str, str2, i, oneKeyLoginCallback);
     }
@@ -80,7 +78,7 @@ public class ChinaUnicomSdkWrap {
     void a(SapiConfiguration sapiConfiguration, String str) {
         SDKManager.init(sapiConfiguration.context, sapiConfiguration.chinaUnicomAppKey, sapiConfiguration.chinaUnicomAppPublicKey);
         SDKManager.closePermission(true);
-        SDKManager.setUserAgent(f4998b);
+        SDKManager.setUserAgent(b);
         if (TextUtils.isEmpty(str)) {
             return;
         }
@@ -89,7 +87,7 @@ public class ChinaUnicomSdkWrap {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(SapiConfiguration sapiConfiguration, OneKeyLoginSdkCall.TokenListener tokenListener) {
-        Log.i(OneKeyLoginSdkCall.f5005a, "in getToken");
+        Log.i(OneKeyLoginSdkCall.f3389a, "in getToken");
         if ((System.currentTimeMillis() / 1000) - SapiContext.getInstance().getLong("china_telecom_expired_time", 0L) < 3300) {
             JSONObject jSONObject = new JSONObject();
             try {
@@ -113,7 +111,7 @@ public class ChinaUnicomSdkWrap {
         UiOauthManager.getInstance(context).login(i == 0 ? 15 : i / 1000, new CallBack<Object>() { // from class: com.baidu.sapi2.outsdk.ChinaUnicomSdkWrap.2
             @Override // com.sdk.base.api.CallBack
             public void onFailed(int i2, int i3, String str3, String str4) {
-                Log.e(OneKeyLoginSdkCall.f5005a, "onFailure  code:   " + i2 + "   status: " + i3 + "  msg：" + str3);
+                Log.e(OneKeyLoginSdkCall.f3389a, "onFailure  code:   " + i2 + "   status: " + i3 + "  msg：" + str3);
                 SapiStatUtil.statPreGetPhoneInfo(0, i3 + "", "CU", str, str2);
                 new OneKeyLoginSdkCall().b(oneKeyLoginCallback, -101, null);
             }
@@ -123,7 +121,7 @@ public class ChinaUnicomSdkWrap {
                 AnonymousClass2 anonymousClass2;
                 AnonymousClass2 anonymousClass22;
                 int i4 = 0;
-                Log.i(OneKeyLoginSdkCall.f5005a, "onSuccess: code:" + i2 + "   status:" + i3 + "   msg:" + str3 + "    response: " + obj + "    seq: " + str4);
+                Log.i(OneKeyLoginSdkCall.f3389a, "onSuccess: code:" + i2 + "   status:" + i3 + "   msg:" + str3 + "    response: " + obj + "    seq: " + str4);
                 String str5 = i3 + "";
                 try {
                     try {
@@ -183,7 +181,7 @@ public class ChinaUnicomSdkWrap {
         OauthManager.getInstance(sapiConfiguration.context).getAuthoriseCode(15, new CallBack<Object>() { // from class: com.baidu.sapi2.outsdk.ChinaUnicomSdkWrap.3
             @Override // com.sdk.base.api.CallBack
             public void onFailed(int i, int i2, String str2, String str3) {
-                Log.e(OneKeyLoginSdkCall.f5005a, "onFailure  code:   " + i + "   status: " + i2 + "  msg：" + str2);
+                Log.e(OneKeyLoginSdkCall.f3389a, "onFailure  code:   " + i + "   status: " + i2 + "  msg：" + str2);
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
@@ -195,7 +193,7 @@ public class ChinaUnicomSdkWrap {
 
             @Override // com.sdk.base.api.CallBack
             public void onSuccess(int i, String str2, int i2, Object obj, String str3) {
-                Log.i(OneKeyLoginSdkCall.f5005a, "onSuccess: code:" + i + "   status:" + i2 + "   msg:" + str2 + "    response: " + obj + "    seq: " + str3);
+                Log.i(OneKeyLoginSdkCall.f3389a, "onSuccess: code:" + i + "   status:" + i2 + "   msg:" + str2 + "    response: " + obj + "    seq: " + str3);
                 try {
                     JSONObject jSONObject = obj == null ? new JSONObject() : new JSONObject(obj.toString());
                     jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
@@ -204,7 +202,7 @@ public class ChinaUnicomSdkWrap {
                     jSONObject.put("token", jSONObject.optString("accessCode"));
                     tokenListener.onGetTokenComplete(jSONObject);
                 } catch (Exception e) {
-                    Log.e(OneKeyLoginSdkCall.f5005a, e);
+                    Log.e(OneKeyLoginSdkCall.f3389a, e);
                     tokenListener.onGetTokenComplete(new JSONObject());
                 }
             }

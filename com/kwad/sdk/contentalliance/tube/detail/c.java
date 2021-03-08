@@ -80,11 +80,11 @@ public class c extends com.kwad.sdk.contentalliance.tube.a.c<com.kwad.sdk.conten
     /* renamed from: f */
     public com.kwad.sdk.contentalliance.tube.detail.a.b c() {
         com.kwad.sdk.contentalliance.tube.detail.a.b bVar = new com.kwad.sdk.contentalliance.tube.detail.a.b();
-        bVar.f8925a = this;
+        bVar.f5946a = this;
         this.h = new com.kwad.sdk.core.i.a(this, this.c, 70);
         this.h.a();
         bVar.c = this.h;
-        bVar.f8926b = this.f;
+        bVar.b = this.f;
         bVar.f = this.e;
         return bVar;
     }

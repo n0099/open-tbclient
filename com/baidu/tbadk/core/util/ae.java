@@ -11,14 +11,14 @@ import com.baidu.tbadk.mutiprocess.event.PrivacyPolicyEvent;
 import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes.dex */
 public class ae {
-    private static com.baidu.tbadk.mutiprocess.b fao = new com.baidu.tbadk.mutiprocess.b<PrivacyPolicyEvent>() { // from class: com.baidu.tbadk.core.util.ae.1
+    private static com.baidu.tbadk.mutiprocess.b fbN = new com.baidu.tbadk.mutiprocess.b<PrivacyPolicyEvent>() { // from class: com.baidu.tbadk.core.util.ae.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.mutiprocess.b
         public boolean a(PrivacyPolicyEvent privacyPolicyEvent) {
             if (privacyPolicyEvent != null) {
                 boolean z = privacyPolicyEvent.isAgreePrivacyPolicy;
                 boolean unused = ae.isAgreePrivacyPolicy = z;
-                com.baidu.tbadk.core.sharedPref.b.brQ().putBoolean("key_secret_is_show", z);
+                com.baidu.tbadk.core.sharedPref.b.brR().putBoolean("key_secret_is_show", z);
                 TbadkCoreApplication.getInst().registerPhoneListener();
                 TbadkCoreApplication.getInst().initCyberPlayer();
                 BdStatisticsManager.getInstance().setCommonDataMac(ae.getLocalMacAddress(TbadkCoreApplication.getInst()));
@@ -28,28 +28,28 @@ public class ae {
     };
     private static boolean isAgreePrivacyPolicy;
 
-    public static void bsx() {
-        com.baidu.tbadk.mutiprocess.g.bDf().a(PrivacyPolicyEvent.class, fao);
+    public static void bsA() {
+        com.baidu.tbadk.mutiprocess.g.bDi().a(PrivacyPolicyEvent.class, fbN);
     }
 
-    public static void bsy() {
-        com.baidu.tbadk.mutiprocess.g.publishEvent(new PrivacyPolicyEvent(Boolean.valueOf(com.baidu.tbadk.core.sharedPref.b.brQ().getBoolean("key_secret_is_show", false))));
+    public static void bsB() {
+        com.baidu.tbadk.mutiprocess.g.publishEvent(new PrivacyPolicyEvent(Boolean.valueOf(com.baidu.tbadk.core.sharedPref.b.brR().getBoolean("key_secret_is_show", false))));
     }
 
     public static void jM(boolean z) {
         isAgreePrivacyPolicy = z;
-        com.baidu.tbadk.core.sharedPref.b.brQ().putBoolean("key_secret_is_show", z);
+        com.baidu.tbadk.core.sharedPref.b.brR().putBoolean("key_secret_is_show", z);
         com.baidu.tbadk.mutiprocess.g.publishEvent(new PrivacyPolicyEvent(Boolean.valueOf(z)));
     }
 
-    public static boolean bsz() {
-        return isAgreePrivacyPolicy || com.baidu.tbadk.core.sharedPref.b.brQ().getBoolean("key_secret_is_show", false);
+    public static boolean bsC() {
+        return isAgreePrivacyPolicy || com.baidu.tbadk.core.sharedPref.b.brR().getBoolean("key_secret_is_show", false);
     }
 
     public static boolean checkLocationForBaiduLocation(Context context) {
         boolean z;
         boolean z2;
-        if (com.baidu.l.a.adh()) {
+        if (com.baidu.l.a.adk()) {
             if (context == null) {
                 return false;
             }
@@ -74,7 +74,7 @@ public class ae {
     }
 
     public static boolean checkLocationForGoogle(Context context) {
-        if (com.baidu.l.a.adh()) {
+        if (com.baidu.l.a.adk()) {
             if (context != null) {
                 try {
                     if (!com.baidu.l.a.a.checkPermissionGranted(context, "android.permission.ACCESS_FINE_LOCATION")) {
@@ -94,7 +94,7 @@ public class ae {
     }
 
     public static boolean checkCamera(Context context) {
-        if (!com.baidu.l.a.adh()) {
+        if (!com.baidu.l.a.adk()) {
             return true;
         }
         if (context != null) {
@@ -109,7 +109,7 @@ public class ae {
     }
 
     public static boolean checkRecodeAudio(Context context) {
-        if (!com.baidu.l.a.adh()) {
+        if (!com.baidu.l.a.adk()) {
             return true;
         }
         if (context != null) {
@@ -123,8 +123,8 @@ public class ae {
         return false;
     }
 
-    public static boolean eY(Context context) {
-        if (!com.baidu.l.a.adh()) {
+    public static boolean eX(Context context) {
+        if (!com.baidu.l.a.adk()) {
             return true;
         }
         if (context != null) {
@@ -139,7 +139,7 @@ public class ae {
     }
 
     public static boolean checkReadPhoneState(Context context) {
-        if (!com.baidu.l.a.adh()) {
+        if (!com.baidu.l.a.adk()) {
             return true;
         }
         if (context != null) {
@@ -154,7 +154,7 @@ public class ae {
     }
 
     public static boolean checkWriteExternalStorage(Context context) {
-        if (!com.baidu.l.a.adh()) {
+        if (!com.baidu.l.a.adk()) {
             return true;
         }
         if (context != null) {
@@ -221,7 +221,7 @@ public class ae {
     }
 
     public static boolean aA(Context context, String str) {
-        if (!com.baidu.l.a.adh()) {
+        if (!com.baidu.l.a.adk()) {
             return true;
         }
         if (context != null) {
@@ -236,6 +236,6 @@ public class ae {
     }
 
     public static String getLocalMacAddress(Context context) {
-        return !bsz() ? "" : com.baidu.tbadk.util.g.bFl().getLocalMacAddress(context);
+        return !bsC() ? "" : com.baidu.tbadk.util.g.bFp().getLocalMacAddress(context);
     }
 }

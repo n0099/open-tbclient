@@ -10,15 +10,15 @@ import com.baidu.swan.apps.ao.w;
 import com.baidu.swan.bdprivate.b;
 import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog;
 import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class LoginAndGetMobileActivity extends FragmentActivity implements SwanAppLoginAndGetMobileDialog.a {
-    private SwanAppLoginAndGetMobileDialog dUi;
-    private QuickLoginInfo dUj;
-    private String dUk;
+    private SwanAppLoginAndGetMobileDialog dVJ;
+    private QuickLoginInfo dVK;
+    private String dVL;
     private String mAppId;
     protected LinearLayout mRootView;
-    private String dUh = "";
-    private boolean dyk = false;
+    private String dVI = "";
+    private boolean dzL = false;
 
     @Override // androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
@@ -33,24 +33,24 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
         setContentView(b.f.aiapps_login_getmobile_act_layout);
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            this.dUh = extras.getString("app_name", "");
-            this.dUj = (QuickLoginInfo) extras.getParcelable("quick_login_info");
-            this.dUk = extras.getString("launch_from");
+            this.dVI = extras.getString("app_name", "");
+            this.dVK = (QuickLoginInfo) extras.getParcelable("quick_login_info");
+            this.dVL = extras.getString("launch_from");
             this.mAppId = extras.getString("appid");
         }
-        this.dyk = com.baidu.swan.apps.t.a.axs().aii();
+        this.dzL = com.baidu.swan.apps.t.a.axv().ail();
         init();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
-        boolean aii = com.baidu.swan.apps.t.a.axs().aii();
-        if (this.dyk != aii) {
-            if (this.dUi != null) {
-                this.dUi.hL(aii);
+        boolean ail = com.baidu.swan.apps.t.a.axv().ail();
+        if (this.dzL != ail) {
+            if (this.dVJ != null) {
+                this.dVJ.hL(ail);
             }
-            this.dyk = aii;
+            this.dzL = ail;
         }
         super.onResume();
     }
@@ -58,7 +58,7 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
-        if (this.dUi instanceof SwanAppPhoneLoginDialog) {
+        if (this.dVJ instanceof SwanAppPhoneLoginDialog) {
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.bdprivate.extensions.loginauthmobile.LoginAndGetMobileActivity.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -70,36 +70,36 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
     }
 
     private void init() {
-        aPF();
-        aPG();
+        aPI();
+        aPJ();
     }
 
-    private void aPF() {
+    private void aPI() {
         this.mRootView = (LinearLayout) findViewById(b.e.root);
-        this.mRootView.setBackgroundColor(getResources().getColor(b.C0486b.white));
+        this.mRootView.setBackgroundColor(getResources().getColor(b.C0492b.white));
         this.mRootView.getBackground().mutate().setAlpha(0);
     }
 
-    private void aPG() {
+    private void aPJ() {
         String str;
         String str2;
-        this.dUi = e.a(this.dUh, this.dyk, this.dUj, this.dUk, this.mAppId);
-        if (this.dUj != null && this.dUj.supportQuickLogin) {
+        this.dVJ = e.a(this.dVI, this.dzL, this.dVK, this.dVL, this.mAppId);
+        if (this.dVK != null && this.dVK.supportQuickLogin) {
             str = "swan_quick_login";
             str2 = "quickLogin";
         } else {
             str = "swan_phone_login";
             str2 = "telLogin";
         }
-        this.dUi.a((FragmentActivity) this);
-        this.dUi.a((SwanAppLoginAndGetMobileDialog.a) this);
-        this.dUi.show(getSupportFragmentManager(), str);
-        d.g("show", str2, null, this.dUk, this.mAppId);
+        this.dVJ.a((FragmentActivity) this);
+        this.dVJ.a((SwanAppLoginAndGetMobileDialog.a) this);
+        this.dVJ.show(getSupportFragmentManager(), str);
+        d.g("show", str2, null, this.dVL, this.mAppId);
     }
 
     @Override // com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog.a
-    public void kB(int i) {
-        c.aPI().onResult(i);
+    public void kC(int i) {
+        c.aPL().onResult(i);
         switch (i) {
             case 0:
                 finish();
@@ -120,7 +120,7 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
     @Override // android.app.Activity
     public void finish() {
         super.finish();
-        if (this.dUi instanceof SwanAppPhoneLoginDialog) {
+        if (this.dVJ instanceof SwanAppPhoneLoginDialog) {
             w.forceHiddenSoftInput(this, getWindow().getDecorView().getWindowToken());
         }
         overridePendingTransition(0, b.a.login_get_mobile_act_exit);

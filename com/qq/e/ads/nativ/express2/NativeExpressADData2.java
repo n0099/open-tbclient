@@ -1,7 +1,7 @@
 package com.qq.e.ads.nativ.express2;
 
 import android.view.View;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public interface NativeExpressADData2 {
     void destroy();
 

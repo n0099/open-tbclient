@@ -4,37 +4,37 @@ import java.io.Closeable;
 import java.io.Flushable;
 import java.io.IOException;
 import java.io.Writer;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b implements Closeable, Flushable {
-    private static final String[] pVG = new String[128];
-    private static final String[] pVH;
+    private static final String[] pWv = new String[128];
+    private static final String[] pWw;
     private boolean htmlSafe;
     private String indent;
     private boolean lenient;
-    private final Writer pVI;
-    private String pVJ;
+    private final Writer pWx;
+    private String pWy;
     private String separator;
     private boolean serializeNulls;
-    private int[] pVF = new int[32];
-    private int pTy = 0;
+    private int[] pWu = new int[32];
+    private int pUn = 0;
 
     static {
         for (int i = 0; i <= 31; i++) {
-            pVG[i] = String.format("\\u%04x", Integer.valueOf(i));
+            pWv[i] = String.format("\\u%04x", Integer.valueOf(i));
         }
-        pVG[34] = "\\\"";
-        pVG[92] = "\\\\";
-        pVG[9] = "\\t";
-        pVG[8] = "\\b";
-        pVG[10] = "\\n";
-        pVG[13] = "\\r";
-        pVG[12] = "\\f";
-        pVH = (String[]) pVG.clone();
-        pVH[60] = "\\u003c";
-        pVH[62] = "\\u003e";
-        pVH[38] = "\\u0026";
-        pVH[61] = "\\u003d";
-        pVH[39] = "\\u0027";
+        pWv[34] = "\\\"";
+        pWv[92] = "\\\\";
+        pWv[9] = "\\t";
+        pWv[8] = "\\b";
+        pWv[10] = "\\n";
+        pWv[13] = "\\r";
+        pWv[12] = "\\f";
+        pWw = (String[]) pWv.clone();
+        pWw[60] = "\\u003c";
+        pWw[62] = "\\u003e";
+        pWw[38] = "\\u0026";
+        pWw[61] = "\\u003d";
+        pWw[39] = "\\u0027";
     }
 
     public b(Writer writer) {
@@ -44,10 +44,10 @@ public class b implements Closeable, Flushable {
         if (writer == null) {
             throw new NullPointerException("out == null");
         }
-        this.pVI = writer;
+        this.pWx = writer;
     }
 
-    public final void aaa(String str) {
+    public final void aaf(String str) {
         if (str.length() == 0) {
             this.indent = null;
             this.separator = ":";
@@ -57,52 +57,52 @@ public class b implements Closeable, Flushable {
         this.separator = ": ";
     }
 
-    public final void BA(boolean z) {
+    public final void By(boolean z) {
         this.lenient = z;
     }
 
-    public boolean eBV() {
+    public boolean eCb() {
         return this.lenient;
     }
 
-    public final void BC(boolean z) {
+    public final void BA(boolean z) {
         this.htmlSafe = z;
     }
 
-    public final boolean eCd() {
+    public final boolean eCj() {
         return this.htmlSafe;
     }
 
-    public final void BD(boolean z) {
+    public final void BB(boolean z) {
         this.serializeNulls = z;
     }
 
-    public final boolean eCe() {
+    public final boolean eCk() {
         return this.serializeNulls;
     }
 
-    public b eBM() throws IOException {
-        eCf();
+    public b eBS() throws IOException {
+        eCl();
         return cj(1, "[");
     }
 
-    public b eBN() throws IOException {
+    public b eBT() throws IOException {
         return t(1, 2, "]");
     }
 
-    public b eBO() throws IOException {
-        eCf();
+    public b eBU() throws IOException {
+        eCl();
         return cj(3, "{");
     }
 
-    public b eBP() throws IOException {
+    public b eBV() throws IOException {
         return t(3, 5, "}");
     }
 
     private b cj(int i, String str) throws IOException {
         beforeValue();
         push(i);
-        this.pVI.write(str);
+        this.pWx.write(str);
         return this;
     }
 
@@ -111,139 +111,139 @@ public class b implements Closeable, Flushable {
         if (peek != i2 && peek != i) {
             throw new IllegalStateException("Nesting problem.");
         }
-        if (this.pVJ != null) {
-            throw new IllegalStateException("Dangling name: " + this.pVJ);
+        if (this.pWy != null) {
+            throw new IllegalStateException("Dangling name: " + this.pWy);
         }
-        this.pTy--;
+        this.pUn--;
         if (peek == i2) {
             newline();
         }
-        this.pVI.write(str);
+        this.pWx.write(str);
         return this;
     }
 
     private void push(int i) {
-        if (this.pTy == this.pVF.length) {
-            int[] iArr = new int[this.pTy * 2];
-            System.arraycopy(this.pVF, 0, iArr, 0, this.pTy);
-            this.pVF = iArr;
+        if (this.pUn == this.pWu.length) {
+            int[] iArr = new int[this.pUn * 2];
+            System.arraycopy(this.pWu, 0, iArr, 0, this.pUn);
+            this.pWu = iArr;
         }
-        int[] iArr2 = this.pVF;
-        int i2 = this.pTy;
-        this.pTy = i2 + 1;
+        int[] iArr2 = this.pWu;
+        int i2 = this.pUn;
+        this.pUn = i2 + 1;
         iArr2[i2] = i;
     }
 
     private int peek() {
-        if (this.pTy == 0) {
+        if (this.pUn == 0) {
             throw new IllegalStateException("JsonWriter is closed.");
         }
-        return this.pVF[this.pTy - 1];
+        return this.pWu[this.pUn - 1];
     }
 
-    private void QA(int i) {
-        this.pVF[this.pTy - 1] = i;
+    private void QE(int i) {
+        this.pWu[this.pUn - 1] = i;
     }
 
-    public b ZW(String str) throws IOException {
+    public b aab(String str) throws IOException {
         if (str == null) {
             throw new NullPointerException("name == null");
         }
-        if (this.pVJ != null) {
+        if (this.pWy != null) {
             throw new IllegalStateException();
         }
-        if (this.pTy == 0) {
+        if (this.pUn == 0) {
             throw new IllegalStateException("JsonWriter is closed.");
         }
-        this.pVJ = str;
+        this.pWy = str;
         return this;
     }
 
-    private void eCf() throws IOException {
-        if (this.pVJ != null) {
-            eCg();
-            string(this.pVJ);
-            this.pVJ = null;
+    private void eCl() throws IOException {
+        if (this.pWy != null) {
+            eCm();
+            string(this.pWy);
+            this.pWy = null;
         }
     }
 
-    public b ZX(String str) throws IOException {
+    public b aac(String str) throws IOException {
         if (str == null) {
-            return eBQ();
+            return eBW();
         }
-        eCf();
+        eCl();
         beforeValue();
         string(str);
         return this;
     }
 
-    public b eBQ() throws IOException {
-        if (this.pVJ != null) {
+    public b eBW() throws IOException {
+        if (this.pWy != null) {
             if (this.serializeNulls) {
-                eCf();
+                eCl();
             } else {
-                this.pVJ = null;
+                this.pWy = null;
                 return this;
             }
         }
         beforeValue();
-        this.pVI.write("null");
+        this.pWx.write("null");
         return this;
     }
 
-    public b Bz(boolean z) throws IOException {
-        eCf();
+    public b Bx(boolean z) throws IOException {
+        eCl();
         beforeValue();
-        this.pVI.write(z ? "true" : "false");
+        this.pWx.write(z ? "true" : "false");
         return this;
     }
 
     public b v(Boolean bool) throws IOException {
         if (bool == null) {
-            return eBQ();
+            return eBW();
         }
-        eCf();
+        eCl();
         beforeValue();
-        this.pVI.write(bool.booleanValue() ? "true" : "false");
+        this.pWx.write(bool.booleanValue() ? "true" : "false");
         return this;
     }
 
     public b iT(long j) throws IOException {
-        eCf();
+        eCl();
         beforeValue();
-        this.pVI.write(Long.toString(j));
+        this.pWx.write(Long.toString(j));
         return this;
     }
 
     public b b(Number number) throws IOException {
         if (number == null) {
-            return eBQ();
+            return eBW();
         }
-        eCf();
+        eCl();
         String obj = number.toString();
         if (!this.lenient && (obj.equals("-Infinity") || obj.equals("Infinity") || obj.equals("NaN"))) {
             throw new IllegalArgumentException("Numeric values must be finite, but was " + number);
         }
         beforeValue();
-        this.pVI.append((CharSequence) obj);
+        this.pWx.append((CharSequence) obj);
         return this;
     }
 
     public void flush() throws IOException {
-        if (this.pTy == 0) {
+        if (this.pUn == 0) {
             throw new IllegalStateException("JsonWriter is closed.");
         }
-        this.pVI.flush();
+        this.pWx.flush();
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.pVI.close();
-        int i = this.pTy;
-        if (i > 1 || (i == 1 && this.pVF[i - 1] != 7)) {
+        this.pWx.close();
+        int i = this.pUn;
+        if (i > 1 || (i == 1 && this.pWu[i - 1] != 7)) {
             throw new IOException("Incomplete document");
         }
-        this.pTy = 0;
+        this.pUn = 0;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:17:0x0033  */
@@ -253,8 +253,8 @@ public class b implements Closeable, Flushable {
     private void string(String str) throws IOException {
         int i;
         String str2;
-        String[] strArr = this.htmlSafe ? pVH : pVG;
-        this.pVI.write("\"");
+        String[] strArr = this.htmlSafe ? pWw : pWv;
+        this.pWx.write("\"");
         int length = str.length();
         int i2 = 0;
         for (i = 0; i < length; i = i + 1) {
@@ -263,9 +263,9 @@ public class b implements Closeable, Flushable {
                 str2 = strArr[charAt];
                 i = str2 == null ? i + 1 : 0;
                 if (i2 < i) {
-                    this.pVI.write(str, i2, i - i2);
+                    this.pWx.write(str, i2, i - i2);
                 }
-                this.pVI.write(str2);
+                this.pWx.write(str2);
                 i2 = i + 1;
             } else {
                 if (charAt == 8232) {
@@ -275,46 +275,46 @@ public class b implements Closeable, Flushable {
                 }
                 if (i2 < i) {
                 }
-                this.pVI.write(str2);
+                this.pWx.write(str2);
                 i2 = i + 1;
             }
         }
         if (i2 < length) {
-            this.pVI.write(str, i2, length - i2);
+            this.pWx.write(str, i2, length - i2);
         }
-        this.pVI.write("\"");
+        this.pWx.write("\"");
     }
 
     private void newline() throws IOException {
         if (this.indent != null) {
-            this.pVI.write("\n");
-            int i = this.pTy;
+            this.pWx.write("\n");
+            int i = this.pUn;
             for (int i2 = 1; i2 < i; i2++) {
-                this.pVI.write(this.indent);
+                this.pWx.write(this.indent);
             }
         }
     }
 
-    private void eCg() throws IOException {
+    private void eCm() throws IOException {
         int peek = peek();
         if (peek == 5) {
-            this.pVI.write(44);
+            this.pWx.write(44);
         } else if (peek != 3) {
             throw new IllegalStateException("Nesting problem.");
         }
         newline();
-        QA(4);
+        QE(4);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     private void beforeValue() throws IOException {
         switch (peek()) {
             case 1:
-                QA(2);
+                QE(2);
                 newline();
                 return;
             case 2:
-                this.pVI.append(',');
+                this.pWx.append(',');
                 newline();
                 return;
             case 3:
@@ -322,8 +322,8 @@ public class b implements Closeable, Flushable {
             default:
                 throw new IllegalStateException("Nesting problem.");
             case 4:
-                this.pVI.append((CharSequence) this.separator);
-                QA(5);
+                this.pWx.append((CharSequence) this.separator);
+                QE(5);
                 return;
             case 6:
                 break;
@@ -333,6 +333,6 @@ public class b implements Closeable, Flushable {
                 }
                 break;
         }
-        QA(7);
+        QE(7);
     }
 }

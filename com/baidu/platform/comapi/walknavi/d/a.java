@@ -5,10 +5,8 @@ import android.graphics.Bitmap;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected String f4203a;
-
-    /* renamed from: b  reason: collision with root package name */
-    protected String f4204b;
+    protected String f2910a;
+    protected String b;
     protected String c;
     protected String d;
     protected String e;
@@ -25,15 +23,15 @@ public class a {
     }
 
     public String c() {
-        return this.f4203a;
+        return this.f2910a;
     }
 
     public void a(String str) {
-        this.f4203a = str;
+        this.f2910a = str;
     }
 
     public void b(String str) {
-        this.f4204b = str;
+        this.b = str;
     }
 
     public void c(String str) {

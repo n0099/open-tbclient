@@ -5,34 +5,32 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f7683a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f7684b;
+    private final int f5198a;
+    private String b;
     private JSONObject c;
 
     public f(int i) {
-        this.f7683a = i;
+        this.f5198a = i;
     }
 
     public f(int i, Throwable th) {
-        this.f7683a = i;
+        this.f5198a = i;
         if (th != null) {
-            this.f7684b = th.getMessage();
+            this.b = th.getMessage();
         }
     }
 
     public f(int i, String str) {
-        this.f7683a = i;
-        this.f7684b = str;
+        this.f5198a = i;
+        this.b = str;
     }
 
     public f(int i, JSONObject jSONObject) {
-        this.f7683a = i;
+        this.f5198a = i;
         this.c = jSONObject;
     }
 
     public boolean a() {
-        return this.f7683a == 0;
+        return this.f5198a == 0;
     }
 }

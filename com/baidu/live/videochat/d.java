@@ -2,7 +2,7 @@ package com.baidu.live.videochat;
 
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.util.TextHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d {
     public static String K(String str, int i) {
         if (TextHelper.getTextLengthWithEmoji(str) > i) {

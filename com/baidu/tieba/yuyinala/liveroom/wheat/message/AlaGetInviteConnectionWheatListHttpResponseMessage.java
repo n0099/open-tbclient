@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaGetInviteConnectionWheatListHttpResponseMessage extends BaseJsonHttpResponsedMessage {
     private int count;
-    private List<r> oJC;
+    private List<r> oLH;
 
     public AlaGetInviteConnectionWheatListHttpResponseMessage() {
         super(1031014);
@@ -18,10 +18,10 @@ public class AlaGetInviteConnectionWheatListHttpResponseMessage extends BaseJson
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031014) {
-            if (this.oJC == null) {
-                this.oJC = new ArrayList();
+            if (this.oLH == null) {
+                this.oLH = new ArrayList();
             }
-            this.oJC.clear();
+            this.oLH.clear();
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
                 JSONArray optJSONArray = optJSONObject.optJSONArray("list");
@@ -34,7 +34,7 @@ public class AlaGetInviteConnectionWheatListHttpResponseMessage extends BaseJson
                         }
                         r rVar = new r();
                         rVar.parseJson((JSONObject) optJSONArray.get(i3));
-                        this.oJC.add(rVar);
+                        this.oLH.add(rVar);
                         i2 = i3 + 1;
                     }
                 }
@@ -43,8 +43,8 @@ public class AlaGetInviteConnectionWheatListHttpResponseMessage extends BaseJson
         }
     }
 
-    public List<r> eeH() {
-        return this.oJC;
+    public List<r> eeP() {
+        return this.oLH;
     }
 
     public int getCount() {

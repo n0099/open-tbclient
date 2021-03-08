@@ -14,8 +14,8 @@ import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class FrsRedpackRunView extends RelativeLayout {
-    private AutoScrollTextView jRx;
-    private TBLottieAnimationView jRy;
+    private AutoScrollTextView jTg;
+    private TBLottieAnimationView jTh;
     private String mContent;
     private Context mContext;
     private View rootView;
@@ -34,39 +34,39 @@ public class FrsRedpackRunView extends RelativeLayout {
 
     private void initUI(Context context) {
         this.rootView = LayoutInflater.from(context).inflate(R.layout.frs_main_redpack_run_view, this);
-        this.jRx = (AutoScrollTextView) findViewById(R.id.tv_redpack_live_title);
-        this.jRy = (TBLottieAnimationView) findViewById(R.id.frs_tblottie_anim);
+        this.jTg = (AutoScrollTextView) findViewById(R.id.tv_redpack_live_title);
+        this.jTh = (TBLottieAnimationView) findViewById(R.id.frs_tblottie_anim);
     }
 
     public void settextTitle(String str) {
-        if (this.jRx != null) {
+        if (this.jTg != null) {
             this.mContent = str;
-            this.jRx.setText(str);
-            this.jRx.b(((Activity) this.mContext).getWindowManager());
+            this.jTg.setText(str);
+            this.jTg.b(((Activity) this.mContext).getWindowManager());
             show();
         }
     }
 
     public void show() {
-        ap.a(this.jRy, R.raw.lottie_redpack_run);
-        this.jRy.setImageAssetsFolder("lottie_redpack_runscoll");
-        this.jRy.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.view.FrsRedpackRunView.1
+        ap.a(this.jTh, R.raw.lottie_redpack_run);
+        this.jTh.setImageAssetsFolder("lottie_redpack_runscoll");
+        this.jTh.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.view.FrsRedpackRunView.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 if (valueAnimator.isRunning() && valueAnimator.getAnimatedFraction() > 0.5d) {
-                    FrsRedpackRunView.this.jRx.aL(valueAnimator.getAnimatedFraction());
+                    FrsRedpackRunView.this.jTg.aP(valueAnimator.getAnimatedFraction());
                 }
             }
         });
-        this.jRy.addAnimatorListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.view.FrsRedpackRunView.2
+        this.jTh.addAnimatorListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.view.FrsRedpackRunView.2
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                FrsRedpackRunView.this.jRx.b(((Activity) FrsRedpackRunView.this.mContext).getWindowManager());
-                FrsRedpackRunView.this.jRx.cFq();
+                FrsRedpackRunView.this.jTg.b(((Activity) FrsRedpackRunView.this.mContext).getWindowManager());
+                FrsRedpackRunView.this.jTg.cFw();
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -77,7 +77,7 @@ public class FrsRedpackRunView extends RelativeLayout {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.jRy.playAnimation();
+        this.jTh.playAnimation();
     }
 
     public void hide() {
@@ -87,8 +87,8 @@ public class FrsRedpackRunView extends RelativeLayout {
         if (this.rootView != null) {
             this.rootView.setOnClickListener(onClickListener);
         }
-        if (this.jRx != null) {
-            this.jRx.setClickliner(onClickListener);
+        if (this.jTg != null) {
+            this.jTg.setClickliner(onClickListener);
         }
     }
 }

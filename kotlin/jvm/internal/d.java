@@ -2,25 +2,25 @@ package kotlin.jvm.internal;
 
 import java.util.NoSuchElementException;
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 final class d extends kotlin.collections.u {
     private int index;
-    private final double[] qtM;
+    private final double[] quo;
 
     public d(double[] dArr) {
-        p.o(dArr, com.baidu.fsg.base.statistics.b.j);
-        this.qtM = dArr;
+        p.p(dArr, com.baidu.fsg.base.statistics.b.j);
+        this.quo = dArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.qtM.length;
+        return this.index < this.quo.length;
     }
 
     @Override // kotlin.collections.u
-    public double eBE() {
+    public double eBK() {
         try {
-            double[] dArr = this.qtM;
+            double[] dArr = this.quo;
             int i = this.index;
             this.index = i + 1;
             return dArr[i];

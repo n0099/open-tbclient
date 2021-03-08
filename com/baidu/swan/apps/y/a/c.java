@@ -1,49 +1,49 @@
 package com.baidu.swan.apps.y.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
-    protected boolean dnP;
-    protected int doD;
-    protected String doE;
-    protected long doF;
+    protected boolean dpt;
+    protected int dqf;
+    protected String dqg;
+    protected long dqh;
 
     public c(int i) {
         this(i, null);
     }
 
     public c(int i, String str) {
-        this.dnP = false;
-        this.doD = i;
-        this.doE = str;
+        this.dpt = false;
+        this.dqf = i;
+        this.dqg = str;
     }
 
     public c(int i, String str, long j) {
-        this.dnP = false;
-        this.doD = i;
-        this.doE = str;
-        this.doF = j;
+        this.dpt = false;
+        this.dqf = i;
+        this.dqg = str;
+        this.dqh = j;
     }
 
     public c(int i, String str, long j, boolean z) {
-        this.dnP = false;
-        this.doD = i;
-        this.doE = str;
-        this.doF = j;
-        this.dnP = z;
+        this.dpt = false;
+        this.dqf = i;
+        this.dqg = str;
+        this.dqh = j;
+        this.dpt = z;
     }
 
     public int getId() {
-        return this.doD;
+        return this.dqf;
     }
 
-    public String aCY() {
-        return this.doE;
+    public String aDb() {
+        return this.dqg;
     }
 
-    public long aCZ() {
-        return this.doF;
+    public long aDc() {
+        return this.dqh;
     }
 
-    public boolean aDa() {
-        return this.dnP;
+    public boolean aDd() {
+        return this.dpt;
     }
 }

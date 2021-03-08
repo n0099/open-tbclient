@@ -8,11 +8,11 @@ import com.baidu.mapsdkplatform.comapi.synchronization.data.g;
 public class h extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ g f3128a;
+    final /* synthetic */ g f2266a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.f3128a = gVar;
+        this.f2266a = gVar;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.synchronization.c.e
@@ -20,17 +20,17 @@ public class h extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
         g.b bVar;
         g.b bVar2;
         g.b bVar3;
-        bVar = this.f3128a.j;
+        bVar = this.f2266a.j;
         Message obtainMessage = bVar.obtainMessage();
         obtainMessage.what = 100001;
         obtainMessage.obj = aVar;
-        bVar2 = this.f3128a.j;
+        bVar2 = this.f2266a.j;
         if (bVar2 != null) {
-            bVar3 = this.f3128a.j;
+            bVar3 = this.f2266a.j;
             bVar3.sendMessage(obtainMessage);
         }
         if (c.a.SERVER_ERROR == aVar || c.a.NETWORK_ERROR == aVar || c.a.INNER_ERROR == aVar) {
-            g.b(this.f3128a);
+            g.b(this.f2266a);
         }
     }
 
@@ -39,15 +39,15 @@ public class h extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
         g.b bVar;
         g.b bVar2;
         g.b bVar3;
-        bVar = this.f3128a.j;
+        bVar = this.f2266a.j;
         Message obtainMessage = bVar.obtainMessage();
         obtainMessage.what = 100000;
         obtainMessage.obj = str;
-        bVar2 = this.f3128a.j;
+        bVar2 = this.f2266a.j;
         if (bVar2 != null) {
-            bVar3 = this.f3128a.j;
+            bVar3 = this.f2266a.j;
             bVar3.sendMessage(obtainMessage);
         }
-        this.f3128a.k = 0;
+        this.f2266a.k = 0;
     }
 }

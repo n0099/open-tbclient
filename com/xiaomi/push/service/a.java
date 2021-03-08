@@ -7,44 +7,42 @@ import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile a f14220a;
+    private static volatile a f8501a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f904a;
+    private Context f825a;
     private volatile String e;
     private volatile String f;
 
     /* renamed from: a  reason: collision with other field name */
-    private final Object f905a = new Object();
-
-    /* renamed from: b  reason: collision with root package name */
-    private final Object f14221b = new Object();
+    private final Object f826a = new Object();
+    private final Object b = new Object();
 
     /* renamed from: a  reason: collision with other field name */
-    private final String f906a = "mipush_region";
+    private final String f827a = "mipush_region";
 
     /* renamed from: b  reason: collision with other field name */
-    private final String f907b = "mipush_country_code";
+    private final String f828b = "mipush_country_code";
     private final String c = "mipush_region.lock";
     private final String d = "mipush_country_code.lock";
 
     public a(Context context) {
-        this.f904a = context;
+        this.f825a = context;
     }
 
     public static a a(Context context) {
-        if (f14220a == null) {
+        if (f8501a == null) {
             synchronized (a.class) {
-                if (f14220a == null) {
-                    f14220a = new a(context);
+                if (f8501a == null) {
+                    f8501a = new a(context);
                 }
             }
         }
-        return f14220a;
+        return f8501a;
     }
 
     private String a(Context context, String str, String str2, Object obj) {
@@ -56,7 +54,7 @@ public class a {
             synchronized (obj) {
                 try {
                     File file2 = new File(context.getFilesDir(), str2);
-                    com.xiaomi.push.y.m615a(file2);
+                    com.xiaomi.push.y.m594a(file2);
                     randomAccessFile = new RandomAccessFile(file2, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
                     try {
                         fileLock = randomAccessFile.getChannel().lock();
@@ -119,7 +117,7 @@ public class a {
                 }
             }
         } else {
-            com.xiaomi.channel.commonutils.logger.b.m79a("No ready file to get data from " + str);
+            com.xiaomi.channel.commonutils.logger.b.m58a("No ready file to get data from " + str);
         }
         return str3;
     }
@@ -130,7 +128,7 @@ public class a {
         synchronized (obj) {
             try {
                 File file = new File(context.getFilesDir(), str3);
-                com.xiaomi.push.y.m615a(file);
+                com.xiaomi.push.y.m594a(file);
                 randomAccessFile = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
@@ -195,7 +193,7 @@ public class a {
 
     public String a() {
         if (TextUtils.isEmpty(this.e)) {
-            this.e = a(this.f904a, "mipush_region", "mipush_region.lock", this.f905a);
+            this.e = a(this.f825a, "mipush_region", "mipush_region.lock", this.f826a);
         }
         return this.e;
     }
@@ -205,12 +203,12 @@ public class a {
             return;
         }
         this.e = str;
-        a(this.f904a, this.e, "mipush_region", "mipush_region.lock", this.f905a);
+        a(this.f825a, this.e, "mipush_region", "mipush_region.lock", this.f826a);
     }
 
     public String b() {
         if (TextUtils.isEmpty(this.f)) {
-            this.f = a(this.f904a, "mipush_country_code", "mipush_country_code.lock", this.f14221b);
+            this.f = a(this.f825a, "mipush_country_code", "mipush_country_code.lock", this.b);
         }
         return this.f;
     }
@@ -220,6 +218,6 @@ public class a {
             return;
         }
         this.f = str;
-        a(this.f904a, this.f, "mipush_country_code", "mipush_country_code.lock", this.f14221b);
+        a(this.f825a, this.f, "mipush_country_code", "mipush_country_code.lock", this.b);
     }
 }

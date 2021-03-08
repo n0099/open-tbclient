@@ -15,23 +15,23 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class b implements c {
     private View rootView = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_rule_copy, (ViewGroup) null);
-    private ImageView fFg = (ImageView) this.rootView.findViewById(R.id.floating_view_icon);
-    private TextView fFi = (TextView) this.rootView.findViewById(R.id.floating_view_title);
-    private ImageView fFh = (ImageView) this.rootView.findViewById(R.id.floating_view_arrow);
-    private LinearLayout fFj = (LinearLayout) this.rootView.findViewById(R.id.floating_view_main);
+    private ImageView fGF = (ImageView) this.rootView.findViewById(R.id.floating_view_icon);
+    private TextView fGH = (TextView) this.rootView.findViewById(R.id.floating_view_title);
+    private ImageView fGG = (ImageView) this.rootView.findViewById(R.id.floating_view_arrow);
+    private LinearLayout fGI = (LinearLayout) this.rootView.findViewById(R.id.floating_view_main);
 
     public b(Context context) {
-        this.fFi.setText(R.string.frs_forum_rule_return_info);
-        buo();
+        this.fGH.setText(R.string.frs_forum_rule_return_info);
+        bur();
     }
 
     @Override // com.baidu.tbadk.k.c
-    public void buo() {
+    public void bur() {
         if (this.rootView != null) {
-            ap.setViewTextColor(this.fFi, R.color.CAM_X0101);
-            this.fFh.setImageDrawable(WebPManager.a(R.drawable.icon_pure_arrow12_right_n, ap.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
-            com.baidu.tbadk.core.util.f.a.btv().oP(R.color.CAM_X0302).oO(0).oY(211).ah(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).aj(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).bv(this.fFj);
-            this.fFg.setImageDrawable(WebPManager.a(R.drawable.icon_mask_manage_postdelete_cancel32, WebPManager.ResourceStateType.NORMAL));
+            ap.setViewTextColor(this.fGH, R.color.CAM_X0101);
+            this.fGG.setImageDrawable(WebPManager.a(R.drawable.icon_pure_arrow12_right_n, ap.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
+            com.baidu.tbadk.core.util.f.a.bty().oQ(R.color.CAM_X0302).oP(0).oZ(211).al(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).an(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).bv(this.fGI);
+            this.fGF.setImageDrawable(WebPManager.a(R.drawable.icon_mask_manage_postdelete_cancel32, WebPManager.ResourceStateType.NORMAL));
         }
     }
 

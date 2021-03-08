@@ -18,31 +18,31 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.games.n.a;
 import com.baidu.swan.games.n.c;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private EditText emA;
-    private RelativeLayout emB;
-    private Button emC;
-    private a.InterfaceC0519a emE;
-    private c emF;
-    private EditText emz;
+    private EditText eoc;
+    private EditText eod;
+    private RelativeLayout eoe;
+    private Button eog;
+    private a.InterfaceC0525a eoi;
+    private c eoj;
     private RelativeLayout mRootView;
-    private boolean emD = false;
-    private View.OnClickListener emG = new View.OnClickListener() { // from class: com.baidu.swan.games.view.b.a.1
+    private boolean eoh = false;
+    private View.OnClickListener eok = new View.OnClickListener() { // from class: com.baidu.swan.games.view.b.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.emA != null && a.this.emD) {
-                if (a.this.emE != null) {
-                    a.this.emE.wS(a.this.emA.getText().toString());
+            if (a.this.eod != null && a.this.eoh) {
+                if (a.this.eoi != null) {
+                    a.this.eoi.wZ(a.this.eod.getText().toString());
                 }
-                if (a.this.emF != null && !a.this.emF.eiw && a.this.emE != null) {
-                    a.this.emE.aXu();
-                    a.this.xH("");
+                if (a.this.eoj != null && !a.this.eoj.ejX && a.this.eoi != null) {
+                    a.this.eoi.aXx();
+                    a.this.xO("");
                 }
             }
         }
     };
-    private TextWatcher emH = new TextWatcher() { // from class: com.baidu.swan.games.view.b.a.2
+    private TextWatcher eol = new TextWatcher() { // from class: com.baidu.swan.games.view.b.a.2
         @Override // android.text.TextWatcher
         public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         }
@@ -53,33 +53,33 @@ public class a {
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(final Editable editable) {
-            if (a.this.emE != null) {
-                a.this.emE.wR(editable.toString());
+            if (a.this.eoi != null) {
+                a.this.eoi.wY(editable.toString());
             }
-            a.this.emC.post(new Runnable() { // from class: com.baidu.swan.games.view.b.a.2.1
+            a.this.eog.post(new Runnable() { // from class: com.baidu.swan.games.view.b.a.2.1
                 @Override // java.lang.Runnable
                 public void run() {
                     if (TextUtils.isEmpty(editable.toString())) {
-                        a.this.emC.setEnabled(false);
-                    } else if (!a.this.emC.isEnabled()) {
-                        a.this.emC.setEnabled(true);
+                        a.this.eog.setEnabled(false);
+                    } else if (!a.this.eog.isEnabled()) {
+                        a.this.eog.setEnabled(true);
                     }
                 }
             });
         }
     };
-    private TextView.OnEditorActionListener emI = new TextView.OnEditorActionListener() { // from class: com.baidu.swan.games.view.b.a.3
+    private TextView.OnEditorActionListener eom = new TextView.OnEditorActionListener() { // from class: com.baidu.swan.games.view.b.a.3
         @Override // android.widget.TextView.OnEditorActionListener
         public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-            if (a.this.emF == null || a.this.emF.eix != i || a.this.emA == null || !a.this.emD) {
+            if (a.this.eoj == null || a.this.eoj.ejY != i || a.this.eod == null || !a.this.eoh) {
                 return false;
             }
-            if (a.this.emE != null) {
-                a.this.emE.wS(a.this.emA.getText().toString());
+            if (a.this.eoi != null) {
+                a.this.eoi.wZ(a.this.eod.getText().toString());
             }
-            if (!a.this.emF.eiw && a.this.emE != null) {
-                a.this.emE.aXu();
-                a.this.xH("");
+            if (!a.this.eoj.ejX && a.this.eoi != null) {
+                a.this.eoi.aXx();
+                a.this.xO("");
             }
             return true;
         }
@@ -87,17 +87,17 @@ public class a {
 
     public a(Context context) {
         this.mRootView = (RelativeLayout) LayoutInflater.from(context).inflate(a.g.aiapps_ai_games_input_view, (ViewGroup) null);
-        this.emz = (EditText) this.mRootView.findViewById(a.f.ai_games_virtual_input_et);
-        this.emB = (RelativeLayout) this.mRootView.findViewById(a.f.ai_games_real_input_container);
-        this.emA = (EditText) this.mRootView.findViewById(a.f.ai_games_real_input_et);
-        this.emC = (Button) this.mRootView.findViewById(a.f.ai_games_input_send_btn);
-        this.emC.setOnClickListener(this.emG);
-        this.emA.addTextChangedListener(this.emH);
-        this.emA.setOnEditorActionListener(this.emI);
-        this.emC.post(new Runnable() { // from class: com.baidu.swan.games.view.b.a.4
+        this.eoc = (EditText) this.mRootView.findViewById(a.f.ai_games_virtual_input_et);
+        this.eoe = (RelativeLayout) this.mRootView.findViewById(a.f.ai_games_real_input_container);
+        this.eod = (EditText) this.mRootView.findViewById(a.f.ai_games_real_input_et);
+        this.eog = (Button) this.mRootView.findViewById(a.f.ai_games_input_send_btn);
+        this.eog.setOnClickListener(this.eok);
+        this.eod.addTextChangedListener(this.eol);
+        this.eod.setOnEditorActionListener(this.eom);
+        this.eog.post(new Runnable() { // from class: com.baidu.swan.games.view.b.a.4
             @Override // java.lang.Runnable
             public void run() {
-                a.this.emC.setEnabled(false);
+                a.this.eog.setEnabled(false);
             }
         });
     }
@@ -106,68 +106,68 @@ public class a {
         return this.mRootView;
     }
 
-    public boolean aZL() {
-        if (this.emD) {
+    public boolean aZO() {
+        if (this.eoh) {
             return false;
         }
-        this.emz.setVisibility(0);
-        this.emB.setVisibility(8);
-        this.emz.setFocusableInTouchMode(true);
-        this.emz.requestFocus();
-        ((InputMethodManager) AppRuntime.getAppContext().getSystemService("input_method")).showSoftInput(this.emz, 0);
+        this.eoc.setVisibility(0);
+        this.eoe.setVisibility(8);
+        this.eoc.setFocusableInTouchMode(true);
+        this.eoc.requestFocus();
+        ((InputMethodManager) AppRuntime.getAppContext().getSystemService("input_method")).showSoftInput(this.eoc, 0);
         return true;
     }
 
-    public void lo(int i) {
-        this.emB.setVisibility(0);
-        this.emA.setFocusableInTouchMode(true);
-        this.emA.requestFocus();
-        this.emz.setVisibility(8);
-        this.emD = true;
-        if (this.emE != null) {
-            this.emE.lg(i);
+    public void lp(int i) {
+        this.eoe.setVisibility(0);
+        this.eod.setFocusableInTouchMode(true);
+        this.eod.requestFocus();
+        this.eoc.setVisibility(8);
+        this.eoh = true;
+        if (this.eoi != null) {
+            this.eoi.lh(i);
         }
     }
 
     public void hideKeyboard() {
         InputMethodManager inputMethodManager = (InputMethodManager) AppRuntime.getAppContext().getSystemService("input_method");
-        if (inputMethodManager.isActive() && this.emA != null) {
-            inputMethodManager.hideSoftInputFromWindow(this.emA.getApplicationWindowToken(), 0);
-            this.emD = false;
-            this.emz.setVisibility(8);
-            this.emB.setVisibility(8);
-            if (this.emE != null && this.emA != null) {
-                this.emE.wT(this.emA.getText().toString());
+        if (inputMethodManager.isActive() && this.eod != null) {
+            inputMethodManager.hideSoftInputFromWindow(this.eod.getApplicationWindowToken(), 0);
+            this.eoh = false;
+            this.eoc.setVisibility(8);
+            this.eoe.setVisibility(8);
+            if (this.eoi != null && this.eod != null) {
+                this.eoi.xa(this.eod.getText().toString());
             }
         }
     }
 
-    public void a(a.InterfaceC0519a interfaceC0519a) {
-        this.emE = interfaceC0519a;
+    public void a(a.InterfaceC0525a interfaceC0525a) {
+        this.eoi = interfaceC0525a;
     }
 
     public void a(final c cVar) {
-        this.emF = cVar;
-        if (this.emA != null && cVar != null) {
-            if (!TextUtils.isEmpty(cVar.eiu)) {
-                this.emA.setText(cVar.eiu);
+        this.eoj = cVar;
+        if (this.eod != null && cVar != null) {
+            if (!TextUtils.isEmpty(cVar.ejV)) {
+                this.eod.setText(cVar.ejV);
                 if (cVar.maxLength > 0) {
-                    if (!TextUtils.isEmpty(cVar.eiu) && cVar.eiu.length() > cVar.maxLength) {
-                        cVar.maxLength = cVar.eiu.length();
+                    if (!TextUtils.isEmpty(cVar.ejV) && cVar.ejV.length() > cVar.maxLength) {
+                        cVar.maxLength = cVar.ejV.length();
                     }
-                    this.emA.setFilters(new InputFilter[]{new InputFilter.LengthFilter(cVar.maxLength)});
+                    this.eod.setFilters(new InputFilter[]{new InputFilter.LengthFilter(cVar.maxLength)});
                 }
-                this.emA.postDelayed(new Runnable() { // from class: com.baidu.swan.games.view.b.a.5
+                this.eod.postDelayed(new Runnable() { // from class: com.baidu.swan.games.view.b.a.5
                     @Override // java.lang.Runnable
                     public void run() {
                         int length;
                         try {
-                            if (a.this.emA.getText().length() <= cVar.eiu.length()) {
-                                length = a.this.emA.getText().length();
+                            if (a.this.eod.getText().length() <= cVar.ejV.length()) {
+                                length = a.this.eod.getText().length();
                             } else {
-                                length = cVar.eiu.length();
+                                length = cVar.ejV.length();
                             }
-                            a.this.emA.setSelection(length);
+                            a.this.eod.setSelection(length);
                         } catch (Exception e) {
                             if (com.baidu.swan.apps.b.DEBUG) {
                                 e.printStackTrace();
@@ -176,35 +176,35 @@ public class a {
                     }
                 }, 300L);
             } else {
-                this.emA.setText("");
+                this.eod.setText("");
             }
-            this.emC.setEnabled(TextUtils.isEmpty(cVar.eiu) ? false : true);
-            if (cVar.eiv) {
-                this.emA.setMinLines(1);
-                this.emA.setInputType(131073);
-                this.emC.setText(cVar.eiy);
+            this.eog.setEnabled(TextUtils.isEmpty(cVar.ejV) ? false : true);
+            if (cVar.ejW) {
+                this.eod.setMinLines(1);
+                this.eod.setInputType(131073);
+                this.eog.setText(cVar.ejZ);
                 return;
             }
-            this.emA.setMaxLines(1);
-            this.emA.setInputType(1);
+            this.eod.setMaxLines(1);
+            this.eod.setInputType(1);
         }
     }
 
-    public boolean xH(final String str) {
-        if (!this.emD || this.emA == null) {
+    public boolean xO(final String str) {
+        if (!this.eoh || this.eod == null) {
             return false;
         }
-        this.emA.setText(str);
-        this.emA.postDelayed(new Runnable() { // from class: com.baidu.swan.games.view.b.a.6
+        this.eod.setText(str);
+        this.eod.postDelayed(new Runnable() { // from class: com.baidu.swan.games.view.b.a.6
             @Override // java.lang.Runnable
             public void run() {
-                a.this.emA.setSelection(str.length());
+                a.this.eod.setSelection(str.length());
             }
         }, 300L);
         return true;
     }
 
-    public boolean aZM() {
-        return this.emD;
+    public boolean aZP() {
+        return this.eoh;
     }
 }

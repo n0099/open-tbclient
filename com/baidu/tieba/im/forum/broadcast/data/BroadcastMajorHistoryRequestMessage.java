@@ -7,7 +7,7 @@ import java.util.List;
 import tbclient.CommonReq;
 import tbclient.GetForumBroadcastList.DataReq;
 import tbclient.GetForumBroadcastList.GetForumBroadcastListReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class BroadcastMajorHistoryRequestMessage extends NetMessage {
     public static final int LOAD_RN = 15;
     public static final int LOAD_TYPE_LOADMORE = 2;
@@ -17,7 +17,7 @@ public class BroadcastMajorHistoryRequestMessage extends NetMessage {
     public List<Long> bcastIds;
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f5342common;
+    private CommonReq f3595common;
     public long forumId;
     public long lastId;
     public int needCount;
@@ -28,13 +28,13 @@ public class BroadcastMajorHistoryRequestMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f5342common = commonReq;
+        this.f3595common = commonReq;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f14510common = this.f5342common;
+        builder.f8740common = this.f3595common;
         builder.query_type = Integer.valueOf(this.queryType);
         builder.forum_id = Long.valueOf(this.forumId);
         builder.need_cnt = Integer.valueOf(this.needCount);

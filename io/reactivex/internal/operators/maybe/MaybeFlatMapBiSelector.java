@@ -6,7 +6,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.m;
 import io.reactivex.o;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class MaybeFlatMapBiSelector<T, U, R> extends a<T, R> {
     final h<? super T, ? extends o<? extends U>> mapper;
     final c<? super T, ? super U, ? extends R> resultSelector;
@@ -16,58 +16,58 @@ public final class MaybeFlatMapBiSelector<T, U, R> extends a<T, R> {
         this.source.a(new FlatMapBiMainObserver(mVar, this.mapper, this.resultSelector));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class FlatMapBiMainObserver<T, U, R> implements io.reactivex.disposables.b, m<T> {
         final h<? super T, ? extends o<? extends U>> mapper;
-        final InnerObserver<T, U, R> qpG;
+        final InnerObserver<T, U, R> qqi;
 
         FlatMapBiMainObserver(m<? super R> mVar, h<? super T, ? extends o<? extends U>> hVar, c<? super T, ? super U, ? extends R> cVar) {
-            this.qpG = new InnerObserver<>(mVar, cVar);
+            this.qqi = new InnerObserver<>(mVar, cVar);
             this.mapper = hVar;
         }
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
-            DisposableHelper.dispose(this.qpG);
+            DisposableHelper.dispose(this.qqi);
         }
 
         @Override // io.reactivex.disposables.b
         public boolean isDisposed() {
-            return DisposableHelper.isDisposed(this.qpG.get());
+            return DisposableHelper.isDisposed(this.qqi.get());
         }
 
         @Override // io.reactivex.m
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            if (DisposableHelper.setOnce(this.qpG, bVar)) {
-                this.qpG.actual.onSubscribe(this);
+            if (DisposableHelper.setOnce(this.qqi, bVar)) {
+                this.qqi.actual.onSubscribe(this);
             }
         }
 
         @Override // io.reactivex.m
         public void onSuccess(T t) {
             try {
-                o oVar = (o) io.reactivex.internal.functions.a.m(this.mapper.apply(t), "The mapper returned a null MaybeSource");
-                if (DisposableHelper.replace(this.qpG, null)) {
-                    this.qpG.value = t;
-                    oVar.a(this.qpG);
+                o oVar = (o) io.reactivex.internal.functions.a.n(this.mapper.apply(t), "The mapper returned a null MaybeSource");
+                if (DisposableHelper.replace(this.qqi, null)) {
+                    this.qqi.value = t;
+                    oVar.a(this.qqi);
                 }
             } catch (Throwable th) {
                 io.reactivex.exceptions.a.N(th);
-                this.qpG.actual.onError(th);
+                this.qqi.actual.onError(th);
             }
         }
 
         @Override // io.reactivex.m
         public void onError(Throwable th) {
-            this.qpG.actual.onError(th);
+            this.qqi.actual.onError(th);
         }
 
         @Override // io.reactivex.m
         public void onComplete() {
-            this.qpG.actual.onComplete();
+            this.qqi.actual.onComplete();
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         static final class InnerObserver<T, U, R> extends AtomicReference<io.reactivex.disposables.b> implements m<U> {
             private static final long serialVersionUID = -2897979525538174559L;
             final m<? super R> actual;
@@ -89,7 +89,7 @@ public final class MaybeFlatMapBiSelector<T, U, R> extends a<T, R> {
                 T t = this.value;
                 this.value = null;
                 try {
-                    this.actual.onSuccess(io.reactivex.internal.functions.a.m(this.resultSelector.apply(t, u), "The resultSelector returned a null value"));
+                    this.actual.onSuccess(io.reactivex.internal.functions.a.n(this.resultSelector.apply(t, u), "The resultSelector returned a null value"));
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.N(th);
                     this.actual.onError(th);

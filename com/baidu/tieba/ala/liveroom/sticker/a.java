@@ -9,10 +9,10 @@ import com.baidu.live.adp.widget.imageview.BdImage;
 import com.baidu.live.data.AlaLiveStickerInfo;
 import com.baidu.live.tbadk.TbPageContext;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private AudienceStickerContainerView hOr;
-    private List<AlaLiveStickerInfo> hOs;
+    private AudienceStickerContainerView hQa;
+    private List<AlaLiveStickerInfo> hQb;
     private TbPageContext mTbPageContext;
 
     public a(TbPageContext tbPageContext) {
@@ -21,32 +21,32 @@ public class a {
 
     public void aP(ViewGroup viewGroup) {
         if (viewGroup != null && this.mTbPageContext != null) {
-            if (this.hOr == null) {
-                this.hOr = new AudienceStickerContainerView(this.mTbPageContext.getPageActivity());
+            if (this.hQa == null) {
+                this.hQa = new AudienceStickerContainerView(this.mTbPageContext.getPageActivity());
             }
-            if (this.hOr.getParent() != null) {
-                ((ViewGroup) this.hOr.getParent()).removeView(this.hOr);
+            if (this.hQa.getParent() != null) {
+                ((ViewGroup) this.hQa.getParent()).removeView(this.hQa);
             }
-            viewGroup.addView(this.hOr, 0, new RelativeLayout.LayoutParams(-1, -1));
+            viewGroup.addView(this.hQa, 0, new RelativeLayout.LayoutParams(-1, -1));
         }
     }
 
     public void cI(List<AlaLiveStickerInfo> list) {
         boolean z;
         boolean z2 = true;
-        if (this.hOr.getWidth() > 0 && this.hOr.getHeight() > 0) {
-            if (this.hOs != null && list != null) {
-                if (this.hOs.size() != list.size()) {
-                    this.hOs = list;
+        if (this.hQa.getWidth() > 0 && this.hQa.getHeight() > 0) {
+            if (this.hQb != null && list != null) {
+                if (this.hQb.size() != list.size()) {
+                    this.hQb = list;
                 } else {
                     int size = list.size();
                     int i = 0;
                     while (true) {
                         if (i < size) {
-                            if (this.hOs.get(i).equals(list.get(i))) {
+                            if (this.hQb.get(i).equals(list.get(i))) {
                                 i++;
                             } else {
-                                this.hOs = list;
+                                this.hQb = list;
                                 z = true;
                                 break;
                             }
@@ -57,17 +57,17 @@ public class a {
                     }
                     z2 = z;
                 }
-            } else if (this.hOs != null && list == null) {
-                this.hOs = list;
-            } else if (this.hOs != null || list == null) {
+            } else if (this.hQb != null && list == null) {
+                this.hQb = list;
+            } else if (this.hQb != null || list == null) {
                 z2 = false;
             } else {
-                this.hOs = list;
+                this.hQb = list;
             }
             if (z2) {
-                this.hOr.removeAllViews();
-                if (this.hOs != null && this.hOs.size() > 0) {
-                    for (AlaLiveStickerInfo alaLiveStickerInfo : this.hOs) {
+                this.hQa.removeAllViews();
+                if (this.hQb != null && this.hQb.size() > 0) {
+                    for (AlaLiveStickerInfo alaLiveStickerInfo : this.hQb) {
                         b(alaLiveStickerInfo);
                     }
                 }
@@ -86,18 +86,18 @@ public class a {
                     super.onLoaded((AnonymousClass1) bdImage, str2, i);
                     if (bdImage != null && bdImage.getRawBitmap() != null && str2 != null && str2.equals(str)) {
                         alaLiveStickerInfo.bitmap = bdImage.getRawBitmap();
-                        a.this.hOr.b(alaLiveStickerInfo);
+                        a.this.hQa.b(alaLiveStickerInfo);
                     }
                 }
             }, null);
         }
     }
 
-    public void ckC() {
-        this.hOr.setVisibility(8);
+    public void ckI() {
+        this.hQa.setVisibility(8);
     }
 
-    public void ckD() {
-        this.hOr.setVisibility(0);
+    public void ckJ() {
+        this.hQa.setVisibility(0);
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.mobstat.Config;
 import java.util.concurrent.CountDownLatch;
 import org.webrtc.EglBase;
 import org.webrtc.RendererCommon;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class SurfaceEglRenderer extends EglRenderer implements SurfaceHolder.Callback {
     private static final String TAG = "SurfaceEglRenderer";
     private int frameRotation;

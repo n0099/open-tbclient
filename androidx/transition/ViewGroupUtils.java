@@ -3,7 +3,7 @@ package androidx.transition;
 import android.os.Build;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 class ViewGroupUtils {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static ViewGroupOverlayImpl getOverlay(@NonNull ViewGroup viewGroup) {

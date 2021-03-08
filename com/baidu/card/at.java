@@ -9,55 +9,55 @@ import com.baidu.tbadk.core.view.VoteView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class at extends h {
-    private int agU;
-    private VoteView aji;
+    private int ain;
+    private VoteView akA;
     private TbPageContext mPageContext;
 
     public at(Context context) {
         super(context);
-        this.aji = new VoteView(context);
+        this.akA = new VoteView(context);
         setTopMargin(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.aji.setPageContext(this.mPageContext);
+        this.akA.setPageContext(this.mPageContext);
     }
 
     public void setFromForPb(int i) {
-        this.agU = i;
+        this.ain = i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.a
     public View getView() {
-        return this.aji;
+        return this.akA;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
-    public void C(final com.baidu.tbadk.core.data.a aVar) {
+    public void E(final com.baidu.tbadk.core.data.a aVar) {
         if (c(aVar)) {
-            this.aji.setVisibility(0);
-            this.aji.setData(aVar.bln().bpY(), aVar.bln().getTid(), aVar.bln().getFid());
-            this.aji.setOnItemClickListener(new View.OnClickListener() { // from class: com.baidu.card.at.1
+            this.akA.setVisibility(0);
+            this.akA.setData(aVar.blp().bqa(), aVar.blp().getTid(), aVar.blp().getFid());
+            this.akA.setOnItemClickListener(new View.OnClickListener() { // from class: com.baidu.card.at.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    az.a(aVar, (Context) at.this.mPageContext.getPageActivity(), at.this.agU, false);
+                    az.a(aVar, (Context) at.this.mPageContext.getPageActivity(), at.this.ain, false);
                 }
             });
             return;
         }
-        this.aji.setVisibility(8);
+        this.akA.setVisibility(8);
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.aji.onChangeSkinType(i);
+        this.akA.onChangeSkinType(i);
     }
 
     private boolean c(com.baidu.tbadk.core.data.a aVar) {
-        return (aVar == null || aVar.bln() == null || aVar.bln().bpY() == null || aVar.bln().bpY().getOptions() == null || aVar.bln().bpY().getOptions().size() <= 0 || aVar.bln().bmv()) ? false : true;
+        return (aVar == null || aVar.blp() == null || aVar.blp().bqa() == null || aVar.blp().bqa().getOptions() == null || aVar.blp().bqa().getOptions().size() <= 0 || aVar.blp().bmx()) ? false : true;
     }
 }

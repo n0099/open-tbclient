@@ -1,11 +1,11 @@
 package cn.com.chinatelecom.account.api.a;
 
 import androidx.core.view.InputDeviceCompat;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final char[] f1102a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    private static final char[] f1034a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     public static String a(byte[] bArr) {
         if (bArr == null || bArr.length == 0) {
@@ -13,7 +13,7 @@ public class c {
         }
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < bArr.length; i++) {
-            sb.append(f1102a[(bArr[i] >> 4) & 15]).append(f1102a[bArr[i] & 15]);
+            sb.append(f1034a[(bArr[i] >> 4) & 15]).append(f1034a[bArr[i] & 15]);
         }
         return sb.toString();
     }

@@ -19,26 +19,26 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.core.layer.LayerChildView;
 import com.baidu.live.data.bt;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class LiveBCAudiencePreviewLayer extends LayerChildView {
-    private ImageView bDA;
-    private TextView bDB;
-    private RelativeLayout bDC;
-    private ProgressBar bDD;
-    private TextView bDE;
-    private a bDu;
-    private RelativeLayout bDw;
-    private FrameLayout bDx;
-    private ImageView bDy;
-    private LinearLayout bDz;
+    private a bEU;
+    private RelativeLayout bEW;
+    private FrameLayout bEX;
+    private ImageView bEY;
+    private LinearLayout bEZ;
+    private ImageView bFa;
+    private TextView bFb;
+    private RelativeLayout bFc;
+    private ProgressBar bFd;
+    private TextView bFe;
     private Context mContext;
     private RelativeLayout mRootView;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void Se();
+        void Sh();
 
-        void Sf();
+        void Si();
     }
 
     public LiveBCAudiencePreviewLayer(@NonNull Context context) {
@@ -60,29 +60,29 @@ public class LiveBCAudiencePreviewLayer extends LayerChildView {
         this.mContext = context;
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(a.g.live_audience_video_chat_preview, this);
         this.mRootView = (RelativeLayout) findViewById(a.f.root_view);
-        this.bDw = (RelativeLayout) findViewById(a.f.chat_live_parent);
-        this.bDx = (FrameLayout) findViewById(a.f.chat_live_render_view);
-        this.bDy = (ImageView) findViewById(a.f.btn_close);
-        this.bDz = (LinearLayout) findViewById(a.f.beauty_layout);
-        this.bDA = (ImageView) findViewById(a.f.ala_prepare_beauty);
-        this.bDB = (TextView) findViewById(a.f.beauty_textView);
-        this.bDC = (RelativeLayout) findViewById(a.f.live_video_chat_preview_bottom_bar);
-        this.bDD = (ProgressBar) findViewById(a.f.live_video_chat_preview_opt_progress_bar);
-        this.bDE = (TextView) findViewById(a.f.live_video_chat_preview_opt_btn);
-        this.bDC.setClickable(false);
+        this.bEW = (RelativeLayout) findViewById(a.f.chat_live_parent);
+        this.bEX = (FrameLayout) findViewById(a.f.chat_live_render_view);
+        this.bEY = (ImageView) findViewById(a.f.btn_close);
+        this.bEZ = (LinearLayout) findViewById(a.f.beauty_layout);
+        this.bFa = (ImageView) findViewById(a.f.ala_prepare_beauty);
+        this.bFb = (TextView) findViewById(a.f.beauty_textView);
+        this.bFc = (RelativeLayout) findViewById(a.f.live_video_chat_preview_bottom_bar);
+        this.bFd = (ProgressBar) findViewById(a.f.live_video_chat_preview_opt_progress_bar);
+        this.bFe = (TextView) findViewById(a.f.live_video_chat_preview_opt_btn);
+        this.bFc.setClickable(false);
         int equipmentWidth = BdUtilHelper.getEquipmentWidth(this.mContext) - BdUtilHelper.getDimens(this.mContext, a.d.sdk_ds160);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.bDw.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.bEW.getLayoutParams();
         layoutParams.width = equipmentWidth;
         layoutParams.height = (equipmentWidth * 4) / 3;
-        this.bDw.setLayoutParams(layoutParams);
-        this.bDw.setBackgroundResource(a.e.video_chat_preview_bg);
+        this.bEW.setLayoutParams(layoutParams);
+        this.bEW.setBackgroundResource(a.e.video_chat_preview_bg);
         setChatOptBtnBgInIdle();
     }
 
     public void setOutOnClickListener(View.OnClickListener onClickListener) {
-        this.bDC.setOnClickListener(onClickListener);
-        this.bDy.setOnClickListener(onClickListener);
-        this.bDz.setOnClickListener(onClickListener);
+        this.bFc.setOnClickListener(onClickListener);
+        this.bEY.setOnClickListener(onClickListener);
+        this.bEZ.setOnClickListener(onClickListener);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -92,63 +92,63 @@ public class LiveBCAudiencePreviewLayer extends LayerChildView {
     }
 
     public ViewGroup getRenderViewParent() {
-        return this.bDx;
+        return this.bEX;
     }
 
     public View getBtnClose() {
-        return this.bDy;
+        return this.bEY;
     }
 
     public View getChatOptBtn() {
-        return this.bDC;
+        return this.bFc;
     }
 
     public View getBeautyBtn() {
-        return this.bDz;
+        return this.bEZ;
     }
 
     public void setChatOptBtnBgInIdle() {
-        this.bDC.setBackgroundResource(a.e.video_chat_preview_btn_bg_selector);
-        this.bDE.setTextColor(getResources().getColor(a.c.sdk_white_alpha100));
-        this.bDE.setText(a.h.live_chat_join_queue);
+        this.bFc.setBackgroundResource(a.e.video_chat_preview_btn_bg_selector);
+        this.bFe.setTextColor(getResources().getColor(a.c.sdk_white_alpha100));
+        this.bFe.setText(a.h.live_chat_join_queue);
     }
 
     public void setChatOptBtnBgInWait() {
-        this.bDC.setBackgroundResource(a.e.video_chat_preview_cancel_btn_bg_selector);
-        this.bDE.setTextColor(getResources().getColor(a.c.sdk_white_alpha100));
-        this.bDE.setText(a.h.live_chat_cancel_queue);
+        this.bFc.setBackgroundResource(a.e.video_chat_preview_cancel_btn_bg_selector);
+        this.bFe.setTextColor(getResources().getColor(a.c.sdk_white_alpha100));
+        this.bFe.setText(a.h.live_chat_cancel_queue);
     }
 
     @Override // com.baidu.live.core.layer.LayerChildView
-    public void AW() {
+    public void AZ() {
     }
 
     @Override // com.baidu.live.core.layer.LayerChildView
-    public void AX() {
+    public void Ba() {
         this.mRootView.setBackgroundColor(this.mContext.getResources().getColor(a.c.sdk_transparent));
     }
 
     @Override // com.baidu.live.core.layer.LayerChildView
-    public void AY() {
-        if (this.bDu != null) {
-            this.bDu.Se();
+    public void Bb() {
+        if (this.bEU != null) {
+            this.bEU.Sh();
         }
         this.mRootView.setBackgroundColor(this.mContext.getResources().getColor(a.c.sdk_black_alpha50));
     }
 
     @Override // com.baidu.live.core.layer.LayerChildView
-    public void AZ() {
-        if (this.bDu != null) {
-            this.bDu.Sf();
+    public void Bc() {
+        if (this.bEU != null) {
+            this.bEU.Si();
         }
     }
 
-    public void Sg() {
-        if (bt.c(com.baidu.live.ae.a.Qj().bAS)) {
-            this.bDz.setVisibility(0);
-            if (bt.c(com.baidu.live.ae.a.Qj().bAS) && Build.VERSION.SDK_INT >= 11) {
-                this.bDA.setAlpha(0.2f);
-                this.bDB.setAlpha(0.2f);
+    public void Sj() {
+        if (bt.c(com.baidu.live.ae.a.Qm().bCs)) {
+            this.bEZ.setVisibility(0);
+            if (bt.c(com.baidu.live.ae.a.Qm().bCs) && Build.VERSION.SDK_INT >= 11) {
+                this.bFa.setAlpha(0.2f);
+                this.bFb.setAlpha(0.2f);
             }
         }
     }
@@ -158,19 +158,19 @@ public class LiveBCAudiencePreviewLayer extends LayerChildView {
         return true;
     }
 
-    public void Sa() {
-        this.bDE.setVisibility(8);
-        this.bDD.setVisibility(0);
-        this.bDC.setClickable(false);
+    public void Sd() {
+        this.bFe.setVisibility(8);
+        this.bFd.setVisibility(0);
+        this.bFc.setClickable(false);
     }
 
-    public void Sb() {
-        this.bDE.setVisibility(0);
-        this.bDD.setVisibility(8);
-        this.bDC.setClickable(true);
+    public void Se() {
+        this.bFe.setVisibility(0);
+        this.bFd.setVisibility(8);
+        this.bFc.setClickable(true);
     }
 
     public void setLayerVisibleListener(a aVar) {
-        this.bDu = aVar;
+        this.bEU = aVar;
     }
 }

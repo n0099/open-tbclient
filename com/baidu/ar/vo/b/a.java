@@ -1,5 +1,5 @@
 package com.baidu.ar.vo.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public interface a {
     float[] a(float f, float[] fArr);
 

@@ -7,9 +7,9 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.person.holder.PersonInfoAddUserPicViewHolder;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.data.c, PersonInfoAddUserPicViewHolder> {
-    private View.OnClickListener bGM;
+    private View.OnClickListener bIm;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -20,7 +20,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.da
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cO */
+    /* renamed from: cN */
     public PersonInfoAddUserPicViewHolder e(ViewGroup viewGroup) {
         return new PersonInfoAddUserPicViewHolder(LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.user_pic_add_item, (ViewGroup) null));
     }
@@ -32,12 +32,12 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.da
         if (personInfoAddUserPicViewHolder == null || cVar == null) {
             return null;
         }
-        personInfoAddUserPicViewHolder.H(this.bGM);
+        personInfoAddUserPicViewHolder.I(this.bIm);
         personInfoAddUserPicViewHolder.h(cVar);
         return personInfoAddUserPicViewHolder.getView();
     }
 
-    public void H(View.OnClickListener onClickListener) {
-        this.bGM = onClickListener;
+    public void I(View.OnClickListener onClickListener) {
+        this.bIm = onClickListener;
     }
 }

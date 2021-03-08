@@ -1,33 +1,33 @@
 package com.xiaomi.push;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class jt extends jc {
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f14187a;
+    protected int f8474a;
 
     public jt() {
-        this.f14187a = 0;
+        this.f8474a = 0;
     }
 
     public jt(int i) {
-        this.f14187a = 0;
-        this.f14187a = i;
+        this.f8474a = 0;
+        this.f8474a = i;
     }
 
     public jt(int i, String str) {
         super(str);
-        this.f14187a = 0;
-        this.f14187a = i;
+        this.f8474a = 0;
+        this.f8474a = i;
     }
 
     public jt(int i, Throwable th) {
         super(th);
-        this.f14187a = 0;
-        this.f14187a = i;
+        this.f8474a = 0;
+        this.f8474a = i;
     }
 
     public jt(String str) {
         super(str);
-        this.f14187a = 0;
+        this.f8474a = 0;
     }
 }

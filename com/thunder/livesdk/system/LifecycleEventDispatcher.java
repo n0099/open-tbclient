@@ -4,7 +4,7 @@ import java.lang.ref.WeakReference;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class LifecycleEventDispatcher {
     private static final HashSet<WeakReference<ILifecycleCallbacks>> observers = new HashSet<>();
     private static AtomicInteger foregroundCounter = new AtomicInteger(0);

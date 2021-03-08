@@ -14,10 +14,8 @@ import java.io.ObjectOutputStream;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f1262a = "NotificationBuilderManager";
-
-    /* renamed from: b  reason: collision with root package name */
-    private static String f1263b = "notification_builder_storage";
+    private static String f1123a = "NotificationBuilderManager";
+    private static String b = "notification_builder_storage";
     private static Object c = new Object();
     private static int d = 0;
 
@@ -78,7 +76,7 @@ public class d {
 
     private static PushNotificationBuilder a(Context context, int i) {
         PushNotificationBuilder pushNotificationBuilder;
-        String string = context.getSharedPreferences(f1263b, 0).getString("" + i, null);
+        String string = context.getSharedPreferences(b, 0).getString("" + i, null);
         if (string == null) {
             return b(context);
         }
@@ -108,7 +106,7 @@ public class d {
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                 objectOutputStream.writeObject(pushNotificationBuilder);
                 String encodeToString = Base64.encodeToString(byteArrayOutputStream.toByteArray(), 2);
-                SharedPreferences.Editor edit = context.getSharedPreferences(f1263b, 0).edit();
+                SharedPreferences.Editor edit = context.getSharedPreferences(b, 0).edit();
                 edit.putString("" + i, encodeToString);
                 edit.commit();
                 byteArrayOutputStream.close();
@@ -126,7 +124,7 @@ public class d {
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                 objectOutputStream.writeObject(pushNotificationBuilder);
                 String encodeToString = Base64.encodeToString(byteArrayOutputStream.toByteArray(), 2);
-                SharedPreferences.Editor edit = context.getSharedPreferences(f1263b, 0).edit();
+                SharedPreferences.Editor edit = context.getSharedPreferences(b, 0).edit();
                 edit.putString("" + d, encodeToString);
                 edit.commit();
                 byteArrayOutputStream.close();
@@ -139,7 +137,7 @@ public class d {
 
     private static PushNotificationBuilder b(Context context) {
         PushNotificationBuilder pushNotificationBuilder;
-        String string = context.getSharedPreferences(f1263b, 0).getString("" + d, null);
+        String string = context.getSharedPreferences(b, 0).getString("" + d, null);
         if (string == null) {
             return a(context);
         }

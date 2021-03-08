@@ -10,14 +10,14 @@ import java.util.Collections;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public final class b {
-    private static char[] mRd = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private static char[] mTh = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public static String toMD5(String str, String str2) {
         if (str != null) {
             try {
-                return ae(str.getBytes(str2));
+                return ag(str.getBytes(str2));
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
@@ -53,7 +53,7 @@ public final class b {
         }
     }
 
-    private static synchronized String ae(byte[] bArr) {
+    private static synchronized String ag(byte[] bArr) {
         String str;
         synchronized (b.class) {
             try {
@@ -61,8 +61,8 @@ public final class b {
                 messageDigest.update(bArr);
                 byte[] digest = messageDigest.digest();
                 StringBuilder sb = new StringBuilder();
-                for (byte b2 : digest) {
-                    sb.append(Integer.toHexString((b2 & 255) | InputDeviceCompat.SOURCE_ANY).substring(6));
+                for (byte b : digest) {
+                    sb.append(Integer.toHexString((b & 255) | InputDeviceCompat.SOURCE_ANY).substring(6));
                 }
                 str = sb.toString();
             } catch (NoSuchAlgorithmException e) {

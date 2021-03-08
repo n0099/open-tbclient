@@ -9,99 +9,113 @@ import java.util.List;
 public class c implements TTAppDownloadListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<TTAppDownloadListener> f7101a = Collections.synchronizedList(new LinkedList());
+    private final List<TTAppDownloadListener> f4728a = Collections.synchronizedList(new LinkedList());
 
     public void a(TTAppDownloadListener tTAppDownloadListener) {
         if (tTAppDownloadListener != null) {
-            for (TTAppDownloadListener tTAppDownloadListener2 : this.f7101a) {
+            for (TTAppDownloadListener tTAppDownloadListener2 : this.f4728a) {
                 if (tTAppDownloadListener2 != null && tTAppDownloadListener2 == tTAppDownloadListener) {
                     return;
                 }
             }
-            this.f7101a.add(tTAppDownloadListener);
+            synchronized (this.f4728a) {
+                this.f4728a.add(tTAppDownloadListener);
+            }
         }
     }
 
     public void a() {
-        if (!this.f7101a.isEmpty()) {
-            this.f7101a.clear();
+        if (!this.f4728a.isEmpty()) {
+            this.f4728a.clear();
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
     public void onIdle() {
-        Iterator<TTAppDownloadListener> it = this.f7101a.iterator();
-        while (it.hasNext()) {
-            TTAppDownloadListener next = it.next();
-            if (next == null) {
-                it.remove();
-            } else {
-                next.onIdle();
+        synchronized (this.f4728a) {
+            Iterator<TTAppDownloadListener> it = this.f4728a.iterator();
+            while (it.hasNext()) {
+                TTAppDownloadListener next = it.next();
+                if (next == null) {
+                    it.remove();
+                } else {
+                    next.onIdle();
+                }
             }
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
     public void onDownloadActive(long j, long j2, String str, String str2) {
-        Iterator<TTAppDownloadListener> it = this.f7101a.iterator();
-        while (it.hasNext()) {
-            TTAppDownloadListener next = it.next();
-            if (next == null) {
-                it.remove();
-            } else {
-                next.onDownloadActive(j, j2, str, str2);
+        synchronized (this.f4728a) {
+            Iterator<TTAppDownloadListener> it = this.f4728a.iterator();
+            while (it.hasNext()) {
+                TTAppDownloadListener next = it.next();
+                if (next == null) {
+                    it.remove();
+                } else {
+                    next.onDownloadActive(j, j2, str, str2);
+                }
             }
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
     public void onDownloadPaused(long j, long j2, String str, String str2) {
-        Iterator<TTAppDownloadListener> it = this.f7101a.iterator();
-        while (it.hasNext()) {
-            TTAppDownloadListener next = it.next();
-            if (next == null) {
-                it.remove();
-            } else {
-                next.onDownloadPaused(j, j2, str, str2);
+        synchronized (this.f4728a) {
+            Iterator<TTAppDownloadListener> it = this.f4728a.iterator();
+            while (it.hasNext()) {
+                TTAppDownloadListener next = it.next();
+                if (next == null) {
+                    it.remove();
+                } else {
+                    next.onDownloadPaused(j, j2, str, str2);
+                }
             }
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
     public void onDownloadFailed(long j, long j2, String str, String str2) {
-        Iterator<TTAppDownloadListener> it = this.f7101a.iterator();
-        while (it.hasNext()) {
-            TTAppDownloadListener next = it.next();
-            if (next == null) {
-                it.remove();
-            } else {
-                next.onDownloadFailed(j, j2, str, str2);
+        synchronized (this.f4728a) {
+            Iterator<TTAppDownloadListener> it = this.f4728a.iterator();
+            while (it.hasNext()) {
+                TTAppDownloadListener next = it.next();
+                if (next == null) {
+                    it.remove();
+                } else {
+                    next.onDownloadFailed(j, j2, str, str2);
+                }
             }
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
     public void onInstalled(String str, String str2) {
-        Iterator<TTAppDownloadListener> it = this.f7101a.iterator();
-        while (it.hasNext()) {
-            TTAppDownloadListener next = it.next();
-            if (next == null) {
-                it.remove();
-            } else {
-                next.onInstalled(str, str2);
+        synchronized (this.f4728a) {
+            Iterator<TTAppDownloadListener> it = this.f4728a.iterator();
+            while (it.hasNext()) {
+                TTAppDownloadListener next = it.next();
+                if (next == null) {
+                    it.remove();
+                } else {
+                    next.onInstalled(str, str2);
+                }
             }
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
     public void onDownloadFinished(long j, String str, String str2) {
-        Iterator<TTAppDownloadListener> it = this.f7101a.iterator();
-        while (it.hasNext()) {
-            TTAppDownloadListener next = it.next();
-            if (next == null) {
-                it.remove();
-            } else {
-                next.onDownloadFinished(j, str, str2);
+        synchronized (this.f4728a) {
+            Iterator<TTAppDownloadListener> it = this.f4728a.iterator();
+            while (it.hasNext()) {
+                TTAppDownloadListener next = it.next();
+                if (next == null) {
+                    it.remove();
+                } else {
+                    next.onDownloadFinished(j, str, str2);
+                }
             }
         }
     }

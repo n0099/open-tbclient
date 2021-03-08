@@ -11,9 +11,7 @@ import com.kwad.sdk.internal.api.SceneImpl;
 import java.util.Set;
 /* loaded from: classes3.dex */
 public class a extends com.kwad.sdk.contentalliance.profile.home.b.a {
-
-    /* renamed from: b  reason: collision with root package name */
-    private View f8783b;
+    private View b;
     private KSProfilePageLoadingView c;
     private com.kwad.sdk.contentalliance.profile.home.b d;
     private Set<com.kwad.sdk.contentalliance.profile.home.a.a> e;
@@ -34,7 +32,7 @@ public class a extends com.kwad.sdk.contentalliance.profile.home.b.a {
         @Override // com.kwad.sdk.contentalliance.profile.home.b.a
         public void a(int i, String str) {
             a.this.c.a();
-            if (com.kwad.sdk.core.network.f.f9323a.k == i) {
+            if (com.kwad.sdk.core.network.f.f6187a.k == i) {
                 a.this.c.c();
             } else {
                 a.this.c.d();
@@ -44,7 +42,7 @@ public class a extends com.kwad.sdk.contentalliance.profile.home.b.a {
         @Override // com.kwad.sdk.contentalliance.profile.home.b.a
         public void a(UserProfile userProfile) {
             a.this.c.a();
-            a.this.f8783b.setVisibility(0);
+            a.this.b.setVisibility(0);
             for (com.kwad.sdk.contentalliance.profile.home.a.a aVar : a.this.e) {
                 aVar.a(userProfile);
             }
@@ -63,11 +61,11 @@ public class a extends com.kwad.sdk.contentalliance.profile.home.b.a {
     @Override // com.kwad.sdk.contentalliance.profile.home.b.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.e = this.f8780a.f;
-        ProfileHomeParam profileHomeParam = this.f8780a.d;
-        SceneImpl sceneImpl = this.f8780a.f8782b;
+        this.e = this.f5850a.f;
+        ProfileHomeParam profileHomeParam = this.f5850a.d;
+        SceneImpl sceneImpl = this.f5850a.b;
         com.kwad.sdk.core.g.a.f fVar = new com.kwad.sdk.core.g.a.f(sceneImpl);
-        fVar.f9168b = sceneImpl.getPageScene();
+        fVar.b = sceneImpl.getPageScene();
         this.d = new com.kwad.sdk.contentalliance.profile.home.b(fVar, profileHomeParam.mAuthorId, this.g);
         e();
         this.c.setRetryClickListener(this.f);
@@ -85,7 +83,7 @@ public class a extends com.kwad.sdk.contentalliance.profile.home.b.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f8783b = b(R.id.ksad_profile_view_pager);
+        this.b = b(R.id.ksad_profile_view_pager);
         this.c = (KSProfilePageLoadingView) b(R.id.ksad_page_loading);
     }
 }

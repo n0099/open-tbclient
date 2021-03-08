@@ -1,7 +1,7 @@
 package com.baidubce.services.bos.model;
 
 import com.baidubce.auth.BceCredentials;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ListPartsRequest extends GenericUploadRequest {
     private int maxParts;
     private int partNumberMarker;

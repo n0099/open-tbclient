@@ -3,32 +3,32 @@ package com.baidu.tieba.forumMember.tbtitle.model.cache;
 import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private l<byte[]> jbT;
+    private l<byte[]> jdC;
 
     public a() {
-        bes();
+        beu();
     }
 
-    private void bes() {
-        if (this.jbT == null) {
-            this.jbT = com.baidu.tbadk.core.c.a.bqr().Ar("tb.tbtiel_level_info");
+    private void beu() {
+        if (this.jdC == null) {
+            this.jdC = com.baidu.tbadk.core.c.a.bqt().Ay("tb.tbtiel_level_info");
         }
     }
 
-    public byte[] JV(String str) {
-        l.b<byte[]> by = (this.jbT == null || str == null) ? null : this.jbT.by(str);
-        if (by == null || by.value == null) {
+    public byte[] Ke(String str) {
+        l.b<byte[]> bC = (this.jdC == null || str == null) ? null : this.jdC.bC(str);
+        if (bC == null || bC.value == null) {
             return null;
         }
-        return by.value;
+        return bC.value;
     }
 
-    public void m(String str, byte[] bArr) {
+    public void l(String str, byte[] bArr) {
         if (!StringUtils.isNull(str)) {
-            bes();
-            this.jbT.set(str, bArr, TbConfig.MILLS_7DAYS);
+            beu();
+            this.jdC.set(str, bArr, TbConfig.MILLS_7DAYS);
         }
     }
 }

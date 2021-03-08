@@ -4,51 +4,51 @@ import android.graphics.Bitmap;
 import com.facebook.fresco.animation.b.b;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b implements com.facebook.fresco.animation.b.b {
-    private int pFt = -1;
-    @Nullable
-    private b.a pFu;
     @GuardedBy("this")
     @Nullable
-    private com.facebook.common.references.a<Bitmap> pFv;
+    private com.facebook.common.references.a<Bitmap> pHA;
+    private int pHy = -1;
+    @Nullable
+    private b.a pHz;
 
     @Override // com.facebook.fresco.animation.b.b
     @Nullable
-    public synchronized com.facebook.common.references.a<Bitmap> Pu(int i) {
-        return this.pFt == i ? com.facebook.common.references.a.b(this.pFv) : null;
+    public synchronized com.facebook.common.references.a<Bitmap> Py(int i) {
+        return this.pHy == i ? com.facebook.common.references.a.b(this.pHA) : null;
     }
 
     @Override // com.facebook.fresco.animation.b.b
     @Nullable
-    public synchronized com.facebook.common.references.a<Bitmap> Pv(int i) {
-        return com.facebook.common.references.a.b(this.pFv);
+    public synchronized com.facebook.common.references.a<Bitmap> Pz(int i) {
+        return com.facebook.common.references.a.b(this.pHA);
     }
 
     @Override // com.facebook.fresco.animation.b.b
     public synchronized com.facebook.common.references.a<Bitmap> ai(int i, int i2, int i3) {
-        com.facebook.common.references.a<Bitmap> b2;
-        b2 = com.facebook.common.references.a.b(this.pFv);
-        evq();
-        return b2;
+        com.facebook.common.references.a<Bitmap> b;
+        b = com.facebook.common.references.a.b(this.pHA);
+        evz();
+        return b;
     }
 
     @Override // com.facebook.fresco.animation.b.b
-    public synchronized boolean Pw(int i) {
+    public synchronized boolean PA(int i) {
         boolean z;
-        if (i == this.pFt) {
-            z = com.facebook.common.references.a.a(this.pFv);
+        if (i == this.pHy) {
+            z = com.facebook.common.references.a.a(this.pHA);
         }
         return z;
     }
 
     @Override // com.facebook.fresco.animation.b.b
     public synchronized void clear() {
-        evq();
+        evz();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:7:0x0017, code lost:
-        if (r4.get().equals(r2.pFv.get()) != false) goto L12;
+        if (r4.get().equals(r2.pHA.get()) != false) goto L12;
      */
     @Override // com.facebook.fresco.animation.b.b
     /*
@@ -56,30 +56,30 @@ public class b implements com.facebook.fresco.animation.b.b {
     */
     public synchronized void a(int i, com.facebook.common.references.a<Bitmap> aVar, int i2) {
         if (aVar != null) {
-            if (this.pFv != null) {
+            if (this.pHA != null) {
             }
         }
-        com.facebook.common.references.a.c(this.pFv);
-        if (this.pFu != null && this.pFt != -1) {
-            this.pFu.b(this, this.pFt);
+        com.facebook.common.references.a.c(this.pHA);
+        if (this.pHz != null && this.pHy != -1) {
+            this.pHz.b(this, this.pHy);
         }
-        this.pFv = com.facebook.common.references.a.b(aVar);
-        if (this.pFu != null) {
-            this.pFu.a(this, i);
+        this.pHA = com.facebook.common.references.a.b(aVar);
+        if (this.pHz != null) {
+            this.pHz.a(this, i);
         }
-        this.pFt = i;
+        this.pHy = i;
     }
 
     @Override // com.facebook.fresco.animation.b.b
     public void b(int i, com.facebook.common.references.a<Bitmap> aVar, int i2) {
     }
 
-    private synchronized void evq() {
-        if (this.pFu != null && this.pFt != -1) {
-            this.pFu.b(this, this.pFt);
+    private synchronized void evz() {
+        if (this.pHz != null && this.pHy != -1) {
+            this.pHz.b(this, this.pHy);
         }
-        com.facebook.common.references.a.c(this.pFv);
-        this.pFv = null;
-        this.pFt = -1;
+        com.facebook.common.references.a.c(this.pHA);
+        this.pHA = null;
+        this.pHy = -1;
     }
 }

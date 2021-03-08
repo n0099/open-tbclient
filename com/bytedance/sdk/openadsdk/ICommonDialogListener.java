@@ -65,15 +65,15 @@ public interface ICommonDialogListener extends IInterface {
         private static class a implements ICommonDialogListener {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f6074a;
+            private IBinder f4065a;
 
             a(IBinder iBinder) {
-                this.f6074a = iBinder;
+                this.f4065a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f6074a;
+                return this.f4065a;
             }
 
             @Override // com.bytedance.sdk.openadsdk.ICommonDialogListener
@@ -82,7 +82,7 @@ public interface ICommonDialogListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonDialogListener");
-                    this.f6074a.transact(1, obtain, obtain2, 0);
+                    this.f4065a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -96,7 +96,7 @@ public interface ICommonDialogListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonDialogListener");
-                    this.f6074a.transact(2, obtain, obtain2, 0);
+                    this.f4065a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -110,7 +110,7 @@ public interface ICommonDialogListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonDialogListener");
-                    this.f6074a.transact(3, obtain, obtain2, 0);
+                    this.f4065a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();

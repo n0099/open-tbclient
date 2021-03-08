@@ -21,45 +21,45 @@ import com.baidu.tieba.newinterest.data.b;
 import com.baidu.tieba.newinterest.fragment.InterestSelectionFragment;
 import com.baidu.tieba.newinterest.fragment.InterestedForumFragment;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a implements View.OnClickListener, InterestSelectionFragment.a {
-    private BaseFragmentActivity iKH;
-    private View jiW;
-    private TextView lFC;
-    private InterestedForumFragment lFD;
-    private InterestSelectionFragment lFE;
+    private BaseFragmentActivity iMq;
+    private View jkF;
+    private TextView lHE;
+    private InterestedForumFragment lHF;
+    private InterestSelectionFragment lHG;
     private NavigationBar mNavigationBar;
     private View mRoot;
 
     public a(BaseFragmentActivity baseFragmentActivity) {
-        this.iKH = baseFragmentActivity;
+        this.iMq = baseFragmentActivity;
         initUI();
-        cGS();
+        cGY();
     }
 
     private void initUI() {
-        this.mRoot = LayoutInflater.from(this.iKH).inflate(R.layout.activity_interest_guide_layout, (ViewGroup) null);
+        this.mRoot = LayoutInflater.from(this.iMq).inflate(R.layout.activity_interest_guide_layout, (ViewGroup) null);
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(R.id.navigation_bar);
-        this.lFC = new TextView(this.iKH);
-        this.lFC.setClickable(true);
-        this.lFC.setText(this.iKH.getString(R.string.skip));
-        this.lFC.setTextSize(0, l.getDimens(this.iKH, R.dimen.tbds37));
-        ap.setViewTextColor(this.lFC, R.color.CAM_X0107);
+        this.lHE = new TextView(this.iMq);
+        this.lHE.setClickable(true);
+        this.lHE.setText(this.iMq.getString(R.string.skip));
+        this.lHE.setTextSize(0, l.getDimens(this.iMq, R.dimen.tbds37));
+        ap.setViewTextColor(this.lHE, R.color.CAM_X0107);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        layoutParams.rightMargin = l.getDimens(this.iKH, R.dimen.tbds44);
-        this.lFC.setLayoutParams(layoutParams);
-        this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.lFC, this);
-        this.jiW = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.lFE = new InterestSelectionFragment();
-        getFragmentManager().beginTransaction().add(R.id.content_container, this.lFE).commitAllowingStateLoss();
+        layoutParams.rightMargin = l.getDimens(this.iMq, R.dimen.tbds44);
+        this.lHE.setLayoutParams(layoutParams);
+        this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.lHE, this);
+        this.jkF = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.lHG = new InterestSelectionFragment();
+        getFragmentManager().beginTransaction().add(R.id.content_container, this.lHG).commitAllowingStateLoss();
         TiebaStatic.log(new ar("c13681"));
     }
 
-    private void cGS() {
-        this.lFC.setOnClickListener(this);
-        this.jiW.setOnClickListener(this);
-        this.lFE.a(this);
+    private void cGY() {
+        this.lHE.setOnClickListener(this);
+        this.jkF.setOnClickListener(this);
+        this.lHG.a(this);
     }
 
     public View getView() {
@@ -68,33 +68,33 @@ public class a implements View.OnClickListener, InterestSelectionFragment.a {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.jiW && this.iKH != null) {
-            if (this.lFD != null && this.lFD.isVisible()) {
+        if (view == this.jkF && this.iMq != null) {
+            if (this.lHF != null && this.lHF.isVisible()) {
                 getFragmentManager().popBackStack();
             } else {
-                djF();
+                djO();
             }
-        } else if (view == this.lFC) {
-            djF();
+        } else if (view == this.lHE) {
+            djO();
         }
     }
 
-    private void djF() {
+    private void djO() {
         ar arVar = new ar("c13682");
-        arVar.ap("obj_type", 1);
+        arVar.aq("obj_type", 1);
         TiebaStatic.log(arVar);
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(this.iKH).createNormalCfg(0)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(this.iMq).createNormalCfg(0)));
     }
 
     @Override // com.baidu.tieba.newinterest.fragment.InterestSelectionFragment.a
     public void fe(List<b> list) {
-        this.lFD = new InterestedForumFragment();
-        this.lFD.ff(list);
-        getFragmentManager().beginTransaction().add(R.id.content_container, this.lFD).addToBackStack(null).commitAllowingStateLoss();
+        this.lHF = new InterestedForumFragment();
+        this.lHF.ff(list);
+        getFragmentManager().beginTransaction().add(R.id.content_container, this.lHF).addToBackStack(null).commitAllowingStateLoss();
     }
 
     private FragmentManager getFragmentManager() {
-        return this.iKH.getSupportFragmentManager();
+        return this.iMq.getSupportFragmentManager();
     }
 
     public void onBackPressed() {

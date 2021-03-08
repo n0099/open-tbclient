@@ -7,13 +7,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class f {
     private static final Map<Class<?>, List<e>> kM = new ConcurrentHashMap();
     private static final a[] kN = new a[4];
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         final List<e> kO = new ArrayList();
         final Map<Class, Object> kP = new HashMap();
@@ -160,12 +160,12 @@ public class f {
         if (list != null) {
             return list;
         }
-        List<e> b2 = b(cls);
-        if (b2.isEmpty()) {
+        List<e> b = b(cls);
+        if (b.isEmpty()) {
             com.baidu.ar.h.b.aS("Subscriber " + cls + " and its super classes have no public methods with the @CallBack annotation");
             return null;
         }
-        kM.put(cls, b2);
-        return b2;
+        kM.put(cls, b);
+        return b;
     }
 }

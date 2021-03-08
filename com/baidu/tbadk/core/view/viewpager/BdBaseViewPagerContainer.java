@@ -15,8 +15,8 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdBaseViewPagerContainer extends RelativeLayout {
-    private BdBaseViewPagerContainerHolder foK;
-    private a foL;
+    private BdBaseViewPagerContainerHolder fqk;
+    private a fql;
 
     public BdBaseViewPagerContainer(Context context) {
         super(context);
@@ -29,62 +29,62 @@ public class BdBaseViewPagerContainer extends RelativeLayout {
     }
 
     private void a(Context context, ViewGroup viewGroup, boolean z) {
-        this.foK = new BdBaseViewPagerContainerHolder(LayoutInflater.from(context).inflate(R.layout.bd_base_viewpager_container, viewGroup, z), context);
-        a(this.foK);
-        this.foL = new a(context, this.foK.foQ, this.foK.foO, this.foK.foN, 4, false, true);
+        this.fqk = new BdBaseViewPagerContainerHolder(LayoutInflater.from(context).inflate(R.layout.bd_base_viewpager_container, viewGroup, z), context);
+        a(this.fqk);
+        this.fql = new a(context, this.fqk.fqq, this.fqk.fqo, this.fqk.fqn, 4, false, true);
     }
 
     private void a(BdBaseViewPagerContainerHolder bdBaseViewPagerContainerHolder) {
         if (bdBaseViewPagerContainerHolder != null) {
             ap.setBackgroundColor(bdBaseViewPagerContainerHolder.getView(), R.color.CAM_X0201);
             ap.setViewTextColor(bdBaseViewPagerContainerHolder.title, R.color.CAM_X0108, 1);
-            ap.setBackgroundColor(bdBaseViewPagerContainerHolder.foP, R.color.CAM_X0204);
-            ap.setViewTextColor(bdBaseViewPagerContainerHolder.foN, R.color.CAM_X0109, 1);
-            ap.setBackgroundColor(bdBaseViewPagerContainerHolder.foN, R.color.CAM_X0201);
-            bdBaseViewPagerContainerHolder.foN.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_hot_thread_more));
-            bdBaseViewPagerContainerHolder.foO.setSelector(ap.getDrawable(R.drawable.icon_choose_dot_s));
-            bdBaseViewPagerContainerHolder.foO.setDrawable(ap.getDrawable(R.drawable.icon_choose_dot_n));
+            ap.setBackgroundColor(bdBaseViewPagerContainerHolder.fqp, R.color.CAM_X0204);
+            ap.setViewTextColor(bdBaseViewPagerContainerHolder.fqn, R.color.CAM_X0109, 1);
+            ap.setBackgroundColor(bdBaseViewPagerContainerHolder.fqn, R.color.CAM_X0201);
+            bdBaseViewPagerContainerHolder.fqn.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_hot_thread_more));
+            bdBaseViewPagerContainerHolder.fqo.setSelector(ap.getDrawable(R.drawable.icon_choose_dot_s));
+            bdBaseViewPagerContainerHolder.fqo.setDrawable(ap.getDrawable(R.drawable.icon_choose_dot_n));
         }
     }
 
     @Override // android.view.View
     public View getRootView() {
-        return this.foK.getView();
+        return this.fqk.getView();
     }
 
     public BdBaseViewPager getViewPager() {
-        return this.foK.foQ;
+        return this.fqk.fqq;
     }
 
     public IndicatorView getIndicatorView() {
-        return this.foK.foO;
+        return this.fqk.fqo;
     }
 
     public TextView getMoreView() {
-        return this.foK.foN;
+        return this.fqk.fqn;
     }
 
     public BdBaseViewPagerContainerHolder getViewHolder() {
-        return this.foK;
+        return this.fqk;
     }
 
     public void setMaxScrollCountLimit(int i) {
-        this.foL.setMaxScrollCountLimit(i);
+        this.fql.setMaxScrollCountLimit(i);
     }
 
     public void setIsMaxScrollEnabled(boolean z) {
-        this.foL.setIsMaxScrollEnabled(z);
+        this.fql.setIsMaxScrollEnabled(z);
     }
 
     public void setIsAutoScrollEnabled(boolean z) {
-        this.foL.ki(z);
+        this.fql.ki(z);
     }
 
     public void setDatas(List<n> list) {
-        this.foL.setDatas(list);
+        this.fql.setDatas(list);
     }
 
     public void setAutoScrollIntervalTime(long j) {
-        this.foL.setAutoScrollIntervalTime(j);
+        this.fql.setAutoScrollIntervalTime(j);
     }
 }

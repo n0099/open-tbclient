@@ -15,7 +15,7 @@ import com.baidu.live.data.AlaWheatInfoData;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d extends BaseAdapter {
     private Context mContext;
     private List<AlaWheatInfoData> mList;
@@ -55,34 +55,34 @@ public class d extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.g.yuyin_ala_item_choose_love_person, (ViewGroup) null);
             a aVar2 = new a(view);
-            aVar2.hgF.setDefaultResource(a.e.sdk_icon_default_avatar100);
-            aVar2.hgF.setIsRound(true);
-            aVar2.hgF.setDrawBorder(true);
-            aVar2.hgF.setBorderColor(this.mContext.getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
-            aVar2.hgF.setAutoChangeStyle(false);
-            aVar2.hgF.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            aVar2.hip.setDefaultResource(a.e.sdk_icon_default_avatar100);
+            aVar2.hip.setIsRound(true);
+            aVar2.hip.setDrawBorder(true);
+            aVar2.hip.setBorderColor(this.mContext.getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
+            aVar2.hip.setAutoChangeStyle(false);
+            aVar2.hip.setScaleType(ImageView.ScaleType.CENTER_CROP);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
         AlaWheatInfoData alaWheatInfoData = (AlaWheatInfoData) getItem(i);
-        g(aVar.ouA);
-        aVar.hgF.setDrawBorder(true);
-        aVar.bEn.setText(alaWheatInfoData.userName);
+        g(aVar.owF);
+        aVar.hip.setDrawBorder(true);
+        aVar.bFN.setText(alaWheatInfoData.userName);
         if (!TextUtils.isEmpty(alaWheatInfoData.portrait)) {
-            aVar.hgF.startLoad(alaWheatInfoData.portrait, 12, false, false);
+            aVar.hip.startLoad(alaWheatInfoData.portrait, 12, false, false);
         }
         if (alaWheatInfoData.sex == 2) {
-            aVar.ouz.setBackgroundResource(a.e.shape_yuin_choose_love_person_woman);
+            aVar.owE.setBackgroundResource(a.e.shape_yuin_choose_love_person_woman);
         } else {
-            aVar.ouz.setBackgroundResource(a.e.shape_yuin_choose_love_person_man);
+            aVar.owE.setBackgroundResource(a.e.shape_yuin_choose_love_person_man);
         }
-        aVar.ouz.setText(alaWheatInfoData.realWheatPosition + "");
+        aVar.owE.setText(alaWheatInfoData.realWheatPosition + "");
         if (alaWheatInfoData.isSelect) {
-            aVar.hgF.setBackgroundResource(a.e.shape_yuin_choose_love_person_select);
+            aVar.hip.setBackgroundResource(a.e.shape_yuin_choose_love_person_select);
         } else {
-            aVar.hgF.setBackgroundResource(a.e.shape_yuin_choose_love_person_unselect);
+            aVar.hip.setBackgroundResource(a.e.shape_yuin_choose_love_person_unselect);
         }
         return view;
     }
@@ -106,20 +106,20 @@ public class d extends BaseAdapter {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        public TextView bEn;
-        public HeadImageView hgF;
-        public LinearLayout ouA;
-        public TextView ouz;
+        public TextView bFN;
+        public HeadImageView hip;
+        public TextView owE;
+        public LinearLayout owF;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.hgF = (HeadImageView) view.findViewById(a.f.iv_head);
-            this.bEn = (TextView) view.findViewById(a.f.tv_name);
-            this.ouz = (TextView) view.findViewById(a.f.tv_sex);
-            this.ouA = (LinearLayout) view.findViewById(a.f.ll_bg);
+            this.hip = (HeadImageView) view.findViewById(a.f.iv_head);
+            this.bFN = (TextView) view.findViewById(a.f.tv_name);
+            this.owE = (TextView) view.findViewById(a.f.tv_sex);
+            this.owF = (LinearLayout) view.findViewById(a.f.ll_bg);
         }
     }
 }

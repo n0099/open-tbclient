@@ -1,7 +1,7 @@
 package com.facebook.common.b;
 
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class h<T> implements Runnable {
     protected final AtomicInteger mState = new AtomicInteger(0);
 
@@ -16,7 +16,7 @@ public abstract class h<T> implements Runnable {
                 try {
                     onSuccess(result);
                 } finally {
-                    ba(result);
+                    bc(result);
                 }
             } catch (Exception e) {
                 this.mState.set(4);
@@ -27,7 +27,7 @@ public abstract class h<T> implements Runnable {
 
     public void cancel() {
         if (this.mState.compareAndSet(0, 2)) {
-            esD();
+            esM();
         }
     }
 
@@ -37,9 +37,9 @@ public abstract class h<T> implements Runnable {
     protected void onFailure(Exception exc) {
     }
 
-    protected void esD() {
+    protected void esM() {
     }
 
-    protected void ba(T t) {
+    protected void bc(T t) {
     }
 }

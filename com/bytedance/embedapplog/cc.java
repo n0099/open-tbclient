@@ -7,17 +7,17 @@ import com.kwad.sdk.collector.AppStatusRules;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 class cc extends bv {
-    private m pnO;
-    private ce pnP;
-    static final long[] pnM = {AppStatusRules.DEFAULT_GRANULARITY, AppStatusRules.DEFAULT_GRANULARITY, AppStatusRules.DEFAULT_GRANULARITY, 120000, 120000, 120000, 180000, 180000};
+    private m ppY;
+    private ce ppZ;
+    static final long[] ppW = {AppStatusRules.DEFAULT_GRANULARITY, AppStatusRules.DEFAULT_GRANULARITY, AppStatusRules.DEFAULT_GRANULARITY, 120000, 120000, 120000, 180000, 180000};
     static final long[] c = {180000, 180000, 360000, 360000, 540000, 540000};
     private static final long[] d = {10000, 10000, 20000, 20000, AppStatusRules.DEFAULT_GRANULARITY, 6000, 180000, 180000, 540000, 540000};
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cc(Context context, m mVar, ce ceVar) {
         super(context);
-        this.pnO = mVar;
-        this.pnP = ceVar;
+        this.ppY = mVar;
+        this.ppZ = ceVar;
     }
 
     @Override // com.bytedance.embedapplog.bv
@@ -27,18 +27,18 @@ class cc extends bv {
 
     @Override // com.bytedance.embedapplog.bv
     long b() {
-        return (this.pnP.c() ? Constants.IM_TRACK_DURATION_MS : 43200000) + this.pnO.p();
+        return (this.ppZ.c() ? Constants.IM_TRACK_DURATION_MS : 43200000) + this.ppY.p();
     }
 
     @Override // com.bytedance.embedapplog.bv
-    long[] eoc() {
-        switch (this.pnO.o()) {
+    long[] eon() {
+        switch (this.ppY.o()) {
             case 0:
                 return d;
             case 1:
                 return c;
             case 2:
-                return pnM;
+                return ppW;
             default:
                 au.a(null);
                 return c;
@@ -48,14 +48,14 @@ class cc extends bv {
     @Override // com.bytedance.embedapplog.bv
     boolean d() {
         JSONObject jSONObject = new JSONObject();
-        JSONObject a2 = this.pnO.a();
+        JSONObject a2 = this.ppY.a();
         if (a2 != null) {
             jSONObject.put("magic_tag", "ss_app_log");
             jSONObject.put(WebSocketRequest.PARAM_KEY_HEADER, a2);
             jSONObject.put("_gen_time", System.currentTimeMillis());
-            JSONObject w = aa.w(ab.a(this.f5816a, this.pnO.a(), aa.enY().eoi(), true, b.enu()), jSONObject);
-            if (w != null) {
-                return this.pnO.a(w, w.optString("device_id", ""), w.optString("install_id", ""), w.optString("ssid", ""));
+            JSONObject a3 = aa.a(ab.a(this.f3924a, this.ppY.a(), aa.eoj().eos(), true, b.enE()), jSONObject);
+            if (a3 != null) {
+                return this.ppY.a(a3, a3.optString("device_id", ""), a3.optString("install_id", ""), a3.optString("ssid", ""));
             }
         } else {
             au.a(null);

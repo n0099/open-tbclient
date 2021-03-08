@@ -20,17 +20,17 @@ import com.baidu.tieba.lego.card.view.BaseLegoCardView;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.t;
 import com.baidu.tieba.recapp.view.AdCloseView;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
     protected View mRootView;
-    protected ViewStub mTD;
-    protected View mTE;
-    protected TextView mTV;
-    private AdCloseView mTY;
-    private LinearLayout mTZ;
-    private AdCard mUg;
-    private FrameLayout mUn;
-    protected TextView mVi;
+    protected ViewStub mVO;
+    protected View mVP;
+    protected TextView mWg;
+    private AdCloseView mWj;
+    private LinearLayout mWk;
+    private AdCard mWq;
+    private FrameLayout mWw;
+    protected TextView mXt;
 
     protected abstract void a(AdCard adCard);
 
@@ -45,17 +45,17 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View dbV() {
+    protected View dce() {
         this.mRootView = LayoutInflater.from(getContext()).inflate(getLayout(), (ViewGroup) null);
-        this.mTD = (ViewStub) this.mRootView.findViewById(R.id.ad_custom_view_stub);
-        this.mTD.setLayoutResource(getCustomLayout());
-        this.mTE = this.mTD.inflate();
-        ea(this.mTE);
-        this.mTV = (TextView) this.mRootView.findViewById(R.id.ad_title);
-        this.mVi = (TextView) this.mRootView.findViewById(R.id.advert_app_name);
-        this.mUn = (FrameLayout) this.mRootView.findViewById(R.id.btn_pb_card_bottom_op_more_container);
-        this.mTZ = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.ad_post_tag_close, (ViewGroup) null);
-        this.mTY = (AdCloseView) this.mTZ.findViewById(R.id.ad_close_view);
+        this.mVO = (ViewStub) this.mRootView.findViewById(R.id.ad_custom_view_stub);
+        this.mVO.setLayoutResource(getCustomLayout());
+        this.mVP = this.mVO.inflate();
+        ea(this.mVP);
+        this.mWg = (TextView) this.mRootView.findViewById(R.id.ad_title);
+        this.mXt = (TextView) this.mRootView.findViewById(R.id.advert_app_name);
+        this.mWw = (FrameLayout) this.mRootView.findViewById(R.id.btn_pb_card_bottom_op_more_container);
+        this.mWk = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.ad_post_tag_close, (ViewGroup) null);
+        this.mWj = (AdCloseView) this.mWk.findViewById(R.id.ad_close_view);
         return this.mRootView;
     }
 
@@ -64,21 +64,21 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
     /* renamed from: b */
     public void d(AdCard adCard) {
         if (adCard != null) {
-            this.mUg = adCard;
+            this.mWq = adCard;
             this.mRootView.setOnClickListener(new a(adCard));
             String str = adCard.threadTitle;
             if (!TextUtils.isEmpty(str)) {
-                this.mTV.setText(str);
-                this.mTV.setVisibility(0);
+                this.mWg.setText(str);
+                this.mWg.setVisibility(0);
             } else {
-                this.mTV.setVisibility(8);
+                this.mWg.setVisibility(8);
             }
             String str2 = adCard.userName;
             if (!TextUtils.isEmpty(str2)) {
                 str2 = str2 + "  ";
             }
-            this.mVi.setText(str2 + "广告");
-            ed(this.mTZ);
+            this.mXt.setText(str2 + "广告");
+            ed(this.mWk);
             a(adCard, TbadkCoreApplication.getInst().getSkinType());
             a(adCard);
             p(adCard.getAdvertAppInfo());
@@ -89,26 +89,26 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
     public void a(AdCard adCard, int i) {
-        this.mTY.onChangeSkinType();
-        ap.setViewTextColor(this.mTV, R.color.CAM_X0105, 1, i);
-        ap.setViewTextColor(this.mVi, R.color.CAM_X0109, 1, i);
+        this.mWj.onChangeSkinType();
+        ap.setViewTextColor(this.mWg, R.color.CAM_X0105, 1, i);
+        ap.setViewTextColor(this.mXt, R.color.CAM_X0109, 1, i);
     }
 
     private void p(AdvertAppInfo advertAppInfo) {
-        if (advertAppInfo != null && advertAppInfo.eLC != null && advertAppInfo.eLC.adCloseInfo != null && advertAppInfo.eLC.adCloseInfo.support_close.intValue() > 0) {
-            this.mTY.setVisibility(0);
-            this.mTY.setPage(getBusinessType());
-            this.mTY.setData(advertAppInfo);
-            l.addToParentArea(this.eUY.getPageActivity(), this.mTZ, 40, 40, 40, 120);
-            this.mTZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView.1
+        if (advertAppInfo != null && advertAppInfo.eNd != null && advertAppInfo.eNd.adCloseInfo != null && advertAppInfo.eNd.adCloseInfo.support_close.intValue() > 0) {
+            this.mWj.setVisibility(0);
+            this.mWj.setPage(getBusinessType());
+            this.mWj.setData(advertAppInfo);
+            l.addToParentArea(this.eWx.getPageActivity(), this.mWk, 40, 40, 40, 120);
+            this.mWk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    AdSimpleCardBaseView.this.mTY.performClick();
+                    AdSimpleCardBaseView.this.mWj.performClick();
                 }
             });
             return;
         }
-        this.mTY.setVisibility(8);
+        this.mWj.setVisibility(8);
     }
 
     private void ed(View view) {
@@ -116,39 +116,39 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
             if (view.getParent() != null) {
                 ((FrameLayout) view.getParent()).removeView(view);
             }
-            this.mUn.setVisibility(0);
-            this.mUn.removeAllViews();
+            this.mWw.setVisibility(0);
+            this.mWw.removeAllViews();
             view.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-            this.mUn.addView(view);
+            this.mWw.addView(view);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
-        private AdCard mUC;
+        private AdCard mWL;
 
         public a(AdCard adCard) {
-            this.mUC = adCard;
+            this.mWL = adCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (!j.isNetworkAvailableForImmediately()) {
-                AdSimpleCardBaseView.this.eUY.showToast(R.string.neterror);
-            } else if (this.mUC != null) {
-                n(this.mUC.getAdvertAppInfo());
+                AdSimpleCardBaseView.this.eWx.showToast(R.string.neterror);
+            } else if (this.mWL != null) {
+                n(this.mWL.getAdvertAppInfo());
             }
         }
 
         private void n(AdvertAppInfo advertAppInfo) {
-            String scheme = this.mUC.getScheme();
+            String scheme = this.mWL.getScheme();
             if (k.isEmpty(scheme) && advertAppInfo != null) {
-                scheme = advertAppInfo.eLv;
+                scheme = advertAppInfo.eMW;
             }
-            int i = t.i(AdSimpleCardBaseView.this.eUY.getPageActivity(), scheme, AdSimpleCardBaseView.this.d(advertAppInfo), advertAppInfo.extensionInfo);
-            if (AdSimpleCardBaseView.this.lcA != null) {
-                AdSimpleCardBaseView.this.lcA.d(i, null);
+            int i = t.i(AdSimpleCardBaseView.this.eWx.getPageActivity(), scheme, AdSimpleCardBaseView.this.d(advertAppInfo), advertAppInfo.extensionInfo);
+            if (AdSimpleCardBaseView.this.leD != null) {
+                AdSimpleCardBaseView.this.leD.d(i, null);
             }
         }
     }

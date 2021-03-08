@@ -1,5 +1,5 @@
 package com.baidu.helios.ids.gaid;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class a {
     public static byte[] a() {
         return new byte[]{-57, 117, 76, 90, 52, -92, 15, 42, 26, 37, 0, -124, 69, 39, 119, -83, -69, -18, 61, 26, -35, -20, -72, 122, -96, 104, -5, 85, 36, -36, 87, -50, 15, 50};

@@ -2,7 +2,7 @@ package com.baidu.ar.bus;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 final class c {
     private static final List<c> kC = new ArrayList();
     Object kD;

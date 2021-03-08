@@ -13,33 +13,29 @@ import com.baidu.ar.constants.HttpConstants;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 class n implements j {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes14.dex */
     private static class a {
-        private static a asB;
-
-        /* renamed from: b  reason: collision with root package name */
-        private static HashMap<String, Integer> f2393b = new HashMap<>();
+        private static a aub;
+        private static HashMap<String, Integer> b = new HashMap<>();
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.helios.a.a.n$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public static class C0119a {
+        /* loaded from: classes14.dex */
+        public static class C0125a {
 
             /* renamed from: a  reason: collision with root package name */
-            private String f2394a;
-
-            /* renamed from: b  reason: collision with root package name */
-            private String f2395b;
+            private String f1825a;
+            private String b;
             private String c;
             private boolean d;
             private String e;
             private int f;
             private String g;
 
-            public C0119a(Context context) {
+            public C0125a(Context context) {
                 c(context);
             }
 
@@ -48,19 +44,19 @@ class n implements j {
                 if (networkInfo.getExtraInfo() != null && (lowerCase = networkInfo.getExtraInfo().toLowerCase()) != null) {
                     if (lowerCase.startsWith("cmwap") || lowerCase.startsWith("uniwap") || lowerCase.startsWith("3gwap")) {
                         this.d = true;
-                        this.f2394a = lowerCase;
-                        this.f2395b = "10.0.0.172";
+                        this.f1825a = lowerCase;
+                        this.b = "10.0.0.172";
                         this.c = "80";
                         return;
                     } else if (lowerCase.startsWith("ctwap")) {
                         this.d = true;
-                        this.f2394a = lowerCase;
-                        this.f2395b = "10.0.0.200";
+                        this.f1825a = lowerCase;
+                        this.b = "10.0.0.200";
                         this.c = "80";
                         return;
                     } else if (lowerCase.startsWith("cmnet") || lowerCase.startsWith("uninet") || lowerCase.startsWith("ctnet") || lowerCase.startsWith("3gnet")) {
                         this.d = false;
-                        this.f2394a = lowerCase;
+                        this.f1825a = lowerCase;
                         return;
                     }
                 }
@@ -70,11 +66,11 @@ class n implements j {
                     this.d = false;
                     return;
                 }
-                this.f2395b = defaultHost;
-                if ("10.0.0.172".equals(this.f2395b.trim())) {
+                this.b = defaultHost;
+                if ("10.0.0.172".equals(this.b.trim())) {
                     this.d = true;
                     this.c = "80";
-                } else if ("10.0.0.200".equals(this.f2395b.trim())) {
+                } else if ("10.0.0.200".equals(this.b.trim())) {
                     this.d = true;
                     this.c = "80";
                 } else {
@@ -97,7 +93,7 @@ class n implements j {
                         this.d = false;
                     } else {
                         a(context, networkInfo);
-                        this.e = this.f2394a;
+                        this.e = this.f1825a;
                     }
                     this.f = networkInfo.getSubtype();
                     this.g = networkInfo.getSubtypeName();
@@ -114,33 +110,33 @@ class n implements j {
         }
 
         static {
-            f2393b.put("WIFI", 1);
-            f2393b.put("3GNET", 21);
-            f2393b.put("3GWAP", 22);
-            f2393b.put("CMNET", 31);
-            f2393b.put("UNINET", 32);
-            f2393b.put("CTNET", 33);
-            f2393b.put("CMWAP", 41);
-            f2393b.put("UNIWAP", 42);
-            f2393b.put("CTWAP", 43);
-            asB = new a();
+            b.put("WIFI", 1);
+            b.put("3GNET", 21);
+            b.put("3GWAP", 22);
+            b.put("CMNET", 31);
+            b.put("UNINET", 32);
+            b.put("CTNET", 33);
+            b.put("CMWAP", 41);
+            b.put("UNIWAP", 42);
+            b.put("CTWAP", 43);
+            aub = new a();
         }
 
         private a() {
         }
 
-        public static a uY() {
-            return asB;
+        public static a vb() {
+            return aub;
         }
 
         public String a(Context context) {
-            C0119a c0119a = new C0119a(context);
-            String g = c0119a.g();
-            int e = c0119a.e();
+            C0125a c0125a = new C0125a(context);
+            String g = c0125a.g();
+            int e = c0125a.e();
             if (TextUtils.isEmpty(g)) {
                 return ((Object) 5) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + e;
             }
-            Integer num = f2393b.get(g.toUpperCase());
+            Integer num = b.get(g.toUpperCase());
             if (num == null) {
                 num = 5;
             }
@@ -148,12 +144,10 @@ class n implements j {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes14.dex */
     private static class b {
-        private static b asC = new b();
-
-        /* renamed from: b  reason: collision with root package name */
-        private String f2396b;
+        private static b auc = new b();
+        private String b;
         private DisplayMetrics c;
 
         private b() {
@@ -216,29 +210,27 @@ class n implements j {
             }
         }
 
-        public static b uZ() {
-            return asC;
+        public static b vc() {
+            return auc;
         }
 
         public String a(Context context) {
             synchronized (b.class) {
-                if (TextUtils.isEmpty(this.f2396b)) {
-                    this.f2396b = b(context);
+                if (TextUtils.isEmpty(this.b)) {
+                    this.b = b(context);
                 }
             }
-            return this.f2396b;
+            return this.b;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes14.dex */
     private static class c {
-        private static c asD = new c();
+        private static c aud = new c();
 
         /* renamed from: a  reason: collision with root package name */
-        private String f2397a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private String f2398b;
+        private String f1826a;
+        private String b;
         private String c;
         private String d;
 
@@ -247,17 +239,17 @@ class n implements j {
         }
 
         private void c() {
-            this.f2397a = Build.MODEL;
-            if (TextUtils.isEmpty(this.f2397a)) {
-                this.f2397a = "NUL";
+            this.f1826a = Build.MODEL;
+            if (TextUtils.isEmpty(this.f1826a)) {
+                this.f1826a = "NUL";
             } else {
-                this.f2397a = this.f2397a.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                this.f1826a = this.f1826a.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
             }
-            this.f2398b = Build.MANUFACTURER;
-            if (TextUtils.isEmpty(this.f2398b)) {
-                this.f2398b = "NUL";
+            this.b = Build.MANUFACTURER;
+            if (TextUtils.isEmpty(this.b)) {
+                this.b = "NUL";
             } else {
-                this.f2398b = this.f2398b.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                this.b = this.b.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
             }
             this.c = Build.VERSION.RELEASE;
             if (TextUtils.isEmpty(this.c)) {
@@ -269,14 +261,14 @@ class n implements j {
         }
 
         private String d() {
-            String str = this.f2397a;
+            String str = this.f1826a;
             String str2 = this.c;
             int i = Build.VERSION.SDK_INT;
-            return str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.f2398b;
+            return str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.b;
         }
 
-        public static c va() {
-            return asD;
+        public static c vd() {
+            return aud;
         }
 
         public String b() {
@@ -286,12 +278,12 @@ class n implements j {
 
     @Override // com.baidu.helios.a.a.j
     public String a() {
-        return c.va().b();
+        return c.vd().b();
     }
 
     @Override // com.baidu.helios.a.a.j
     public String a(Context context) {
-        return b.uZ().a(context);
+        return b.vc().a(context);
     }
 
     @Override // com.baidu.helios.a.a.j
@@ -306,11 +298,11 @@ class n implements j {
 
     @Override // com.baidu.helios.a.a.j
     public String c(Context context) {
-        return com.baidu.helios.b.aj(context).uA();
+        return com.baidu.helios.b.ai(context).uD();
     }
 
     @Override // com.baidu.helios.a.a.j
     public String d(Context context) {
-        return a.uY().a(context);
+        return a.vb().a(context);
     }
 }

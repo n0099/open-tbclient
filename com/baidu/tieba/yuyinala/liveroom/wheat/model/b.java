@@ -8,27 +8,27 @@ import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.yuyinala.liveroom.wheat.message.AddTimeHttpResponseMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b extends BdBaseModel {
     private TbPageContext mPageContext;
-    private a oJX;
+    private a oMc;
     private HttpMessageListener messageListener = new HttpMessageListener(1031086) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AddTimeHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == b.this.aCW && b.this.oJX != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AddTimeHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == b.this.aEw && b.this.oMc != null) {
                 AddTimeHttpResponseMessage addTimeHttpResponseMessage = (AddTimeHttpResponseMessage) httpResponsedMessage;
                 if (addTimeHttpResponseMessage.getError() != 0 || !addTimeHttpResponseMessage.isSuccess()) {
-                    b.this.oJX.onFail(addTimeHttpResponseMessage.getError(), addTimeHttpResponseMessage.getErrorString());
+                    b.this.oMc.onFail(addTimeHttpResponseMessage.getError(), addTimeHttpResponseMessage.getErrorString());
                 } else {
-                    b.this.oJX.a(addTimeHttpResponseMessage);
+                    b.this.oMc.a(addTimeHttpResponseMessage);
                 }
             }
         }
     };
-    private BdUniqueId aCW = BdUniqueId.gen();
+    private BdUniqueId aEw = BdUniqueId.gen();
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(AddTimeHttpResponseMessage addTimeHttpResponseMessage);
 
@@ -36,15 +36,15 @@ public class b extends BdBaseModel {
     }
 
     public b(TbPageContext tbPageContext, a aVar) {
-        setUniqueId(this.aCW);
+        setUniqueId(this.aEw);
         this.mPageContext = tbPageContext;
-        this.oJX = aVar;
-        zH();
+        this.oMc = aVar;
+        zK();
         registerListener(this.messageListener);
     }
 
-    private void zH() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031086, com.baidu.live.a.avJ + "ala/audio/mode/addTime");
+    private void zK() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031086, com.baidu.live.a.axj + "ala/audio/mode/addTime");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(AddTimeHttpResponseMessage.class);

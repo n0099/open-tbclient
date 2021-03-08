@@ -1,5 +1,5 @@
 package com.baidu.sapi2.result;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class OneKeyLoginResult extends SapiResult {
     public static final int ONE_KEY_LOGIN_CODE_ANDROID_VERSION_BELOW_KITKAT = -109;
     public static final int ONE_KEY_LOGIN_CODE_CHECK_JS_FAIL = -106;
@@ -16,10 +16,8 @@ public class OneKeyLoginResult extends SapiResult {
     public static final int ONE_KEY_LOGIN_CODE_UNSUPPORT = -101;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f5018a = "未知错误";
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final String f5019b = "不支持一键登录";
+    private static final String f3396a = "未知错误";
+    private static final String b = "不支持一键登录";
     private static final String c = "获取token失败";
     private static final String d = "一键登录失败";
     private static final String e = "进行引导流程中";
@@ -39,8 +37,8 @@ public class OneKeyLoginResult extends SapiResult {
     public String sign;
 
     public OneKeyLoginResult() {
-        this.msgMap.put(-100, f5018a);
-        this.msgMap.put(-101, f5019b);
+        this.msgMap.put(-100, f3396a);
+        this.msgMap.put(-101, b);
         this.msgMap.put(ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL, c);
         this.msgMap.put(-103, d);
         this.msgMap.put(ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS, e);

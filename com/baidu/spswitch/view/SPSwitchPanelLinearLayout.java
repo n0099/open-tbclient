@@ -10,7 +10,7 @@ import com.baidu.spswitch.a;
 import com.baidu.spswitch.a.b;
 /* loaded from: classes3.dex */
 public class SPSwitchPanelLinearLayout extends LinearLayout implements a {
-    private b cBP;
+    private b cDp;
     public static final String TAG = SPSwitchPanelLinearLayout.class.getSimpleName();
     public static final boolean DEBUG = com.baidu.spswitch.b.b.isDebug();
 
@@ -28,7 +28,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a {
     }
 
     private void init() {
-        this.cBP = new b(this);
+        this.cDp = new b(this);
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -36,7 +36,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a {
         if (DEBUG) {
             Log.d(TAG, "panelLayout onMeasure, height: " + View.MeasureSpec.getSize(i2));
         }
-        int[] V = this.cBP.V(i, i2);
+        int[] V = this.cDp.V(i, i2);
         if (DEBUG) {
             Log.d(TAG, "panelLayout onMeasure after process, height: " + View.MeasureSpec.getSize(V[1]));
         }
@@ -45,18 +45,18 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a {
 
     @Override // android.view.View
     public void setVisibility(int i) {
-        if (!this.cBP.fY(i)) {
+        if (!this.cDp.fZ(i)) {
             super.setVisibility(i);
         }
     }
 
     @Override // com.baidu.spswitch.a
-    public void afF() {
+    public void afI() {
         super.setVisibility(0);
     }
 
     @Override // com.baidu.spswitch.a
-    public void afG() {
-        this.cBP.afG();
+    public void afJ() {
+        this.cDp.afJ();
     }
 }

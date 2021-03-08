@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class i implements View.OnTouchListener {
-    private final Spannable obn;
-    private com.baidu.tbadk.widget.richText.f obo = null;
-    private int obp = 0;
+    private final Spannable odt;
+    private com.baidu.tbadk.widget.richText.f odu = null;
+    private int odv = 0;
 
     public i(Spannable spannable) {
-        this.obn = spannable;
+        this.odt = spannable;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -24,10 +24,10 @@ public class i implements View.OnTouchListener {
         int action = motionEvent.getAction();
         if (view instanceof TextView) {
             TextView textView = (TextView) view;
-            if (action == 3 && this.obo != null) {
-                this.obo.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+            if (action == 3 && this.odu != null) {
+                this.odu.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                 view.invalidate();
-                this.obo = null;
+                this.odu = null;
                 return false;
             }
             if (action == 1 || action == 0) {
@@ -39,43 +39,43 @@ public class i implements View.OnTouchListener {
                 }
                 int totalPaddingLeft = x - textView.getTotalPaddingLeft();
                 int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical((y - textView.getTotalPaddingTop()) + textView.getScrollY()), totalPaddingLeft + textView.getScrollX());
-                if (this.obn == null) {
+                if (this.odt == null) {
                     return false;
                 }
-                com.baidu.tbadk.widget.richText.f[] fVarArr = (com.baidu.tbadk.widget.richText.f[]) this.obn.getSpans(offsetForHorizontal, offsetForHorizontal, com.baidu.tbadk.widget.richText.f.class);
+                com.baidu.tbadk.widget.richText.f[] fVarArr = (com.baidu.tbadk.widget.richText.f[]) this.odt.getSpans(offsetForHorizontal, offsetForHorizontal, com.baidu.tbadk.widget.richText.f.class);
                 if (fVarArr != null && fVarArr.length != 0 && fVarArr[0] != null) {
                     if (action == 1) {
                         fVarArr[0].setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                         fVarArr[0].onClick(textView);
                         view.invalidate();
                     } else {
-                        this.obo = fVarArr[0];
-                        if (this.obo.bHZ()) {
-                            if (this.obp != 0) {
-                                fVarArr[0].setColor(ap.getColor(this.obp));
+                        this.odu = fVarArr[0];
+                        if (this.odu.bId()) {
+                            if (this.odv != 0) {
+                                fVarArr[0].setColor(ap.getColor(this.odv));
                             } else if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                                 fVarArr[0].setColor(ap.getColor(R.color.CAM_X0204));
                             } else {
                                 fVarArr[0].setColor(ap.getColor(R.color.cp_bg_line_z));
                             }
                         }
-                        Selection.setSelection(this.obn, this.obn.getSpanStart(fVarArr[0]), this.obn.getSpanEnd(fVarArr[0]));
+                        Selection.setSelection(this.odt, this.odt.getSpanStart(fVarArr[0]), this.odt.getSpanEnd(fVarArr[0]));
                         view.invalidate();
                     }
                     return true;
                 }
-                if (this.obo != null) {
-                    this.obo.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                if (this.odu != null) {
+                    this.odu.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                     view.invalidate();
                 }
-                Selection.removeSelection(this.obn);
+                Selection.removeSelection(this.odt);
             }
             return false;
         }
         return false;
     }
 
-    public void Lb(int i) {
-        this.obp = i;
+    public void Lf(int i) {
+        this.odv = i;
     }
 }

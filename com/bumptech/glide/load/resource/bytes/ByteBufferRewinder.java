@@ -3,7 +3,7 @@ package com.bumptech.glide.load.resource.bytes;
 import androidx.annotation.NonNull;
 import com.bumptech.glide.load.data.DataRewinder;
 import java.nio.ByteBuffer;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ByteBufferRewinder implements DataRewinder<ByteBuffer> {
     private final ByteBuffer buffer;
 
@@ -23,7 +23,7 @@ public class ByteBufferRewinder implements DataRewinder<ByteBuffer> {
     public void cleanup() {
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class Factory implements DataRewinder.Factory<ByteBuffer> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.bumptech.glide.load.data.DataRewinder.Factory

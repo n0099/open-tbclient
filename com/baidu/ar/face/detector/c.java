@@ -3,7 +3,7 @@ package com.baidu.ar.face.detector;
 import android.os.SystemClock;
 import com.baidu.ar.face.algo.FaceJniClient;
 import com.baidu.ar.statistic.StatisticApi;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 class c extends a {
     private static final String TAG = c.class.getSimpleName();
     private long om;

@@ -1,10 +1,10 @@
 package com.thunder.livesdk;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderNotificationInside {
     public static final int kThunderAPINotification_PublishVideoCfg = 1000;
     public static final int kThunderAPINotification_Start_Tag = 1000;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class PublishVideoCfg {
         private boolean mBHardwareEncoder;
         private boolean mBMirrorFrontCamera;

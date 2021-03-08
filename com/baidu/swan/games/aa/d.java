@@ -6,28 +6,28 @@ import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.ao.ak;
 import com.baidu.swan.apps.v.f;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d {
-    private b elB;
+    private b enc;
 
     public d(JsObject jsObject) {
-        this.elB = b.l(com.baidu.swan.games.binding.model.c.e(jsObject));
-        a.aYA().a(this);
+        this.enc = b.l(com.baidu.swan.games.binding.model.c.e(jsObject));
+        a.aYD().a(this);
     }
 
     @JavascriptInterface
     public boolean applyUpdate() {
-        final SwanAppActivity azV = f.aAl().azV();
-        if (azV == null) {
+        final SwanAppActivity azY = f.aAo().azY();
+        if (azY == null) {
             com.baidu.swan.apps.console.c.e("UpdateManagerApi", "applyUpdate activity is null");
             return false;
-        } else if (azV.isDestroyed() || azV.getIntent() == null) {
+        } else if (azY.isDestroyed() || azY.getIntent() == null) {
             return false;
         } else {
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.aa.d.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.swan.games.utils.a.n(azV);
+                    com.baidu.swan.games.utils.a.n(azY);
                 }
             });
             return true;
@@ -43,7 +43,7 @@ public class d {
     */
     public void c(c cVar) {
         boolean z = false;
-        if (this.elB != null && JSEvent.isValid(cVar)) {
+        if (this.enc != null && JSEvent.isValid(cVar)) {
             com.baidu.swan.apps.console.c.i("UpdateManagerApi", String.format("dispatchEvent : eventType = %s; hasUpdate = %s", cVar.type, Boolean.valueOf(cVar.hasUpdate)));
             String str = cVar.type;
             switch (str.hashCode()) {
@@ -69,13 +69,13 @@ public class d {
             }
             switch (z) {
                 case false:
-                    this.elB.b(cVar);
+                    this.enc.b(cVar);
                     return;
                 case true:
-                    this.elB.aYC();
+                    this.enc.aYF();
                     return;
                 case true:
-                    this.elB.aYD();
+                    this.enc.aYG();
                     return;
                 default:
                     return;

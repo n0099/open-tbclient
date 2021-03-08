@@ -771,7 +771,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     }
 
     public boolean isOfficial() {
-        return this.businessAccountData != null && this.businessAccountData.fzR;
+        return this.businessAccountData != null && this.businessAccountData.fBq;
     }
 
     public boolean isForumBusinessAccount() {

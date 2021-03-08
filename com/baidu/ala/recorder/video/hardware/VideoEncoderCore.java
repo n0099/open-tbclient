@@ -15,7 +15,7 @@ import com.kwai.video.player.KsMediaMeta;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @TargetApi(16)
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class VideoEncoderCore {
     private static final String AVC_MIME_TYPE = "video/avc";
     private static final int DEFAULT_FRAME_RATE = 15;
@@ -42,7 +42,7 @@ public class VideoEncoderCore {
     private int mH264MetaSize = 0;
     private byte[] mH264MetaBuff = null;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OutputCallback {
         public static final int KEY_FRAME = 2;
         public static final int MC_ENCODER_CONFIGURE_ERR = 1;

@@ -10,7 +10,7 @@ import javax.net.ssl.SSLSocket;
 import okhttp3.Protocol;
 /* JADX INFO: Access modifiers changed from: package-private */
 @SuppressLint({"NewApi"})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class Android10Platform extends AndroidPlatform {
     Android10Platform(Class<?> cls) {
         super(cls, null, null, null, null);

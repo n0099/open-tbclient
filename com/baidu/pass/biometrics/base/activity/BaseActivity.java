@@ -13,10 +13,8 @@ public class BaseActivity extends Activity implements NoProguard {
     private String c;
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f3940a = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    private boolean f3941b = true;
+    private boolean f2741a = false;
+    private boolean b = true;
     private boolean d = false;
 
     @TargetApi(24)
@@ -24,10 +22,10 @@ public class BaseActivity extends Activity implements NoProguard {
         if (Build.VERSION.SDK_INT < 24 || !isInMultiWindowMode()) {
             return;
         }
-        if (this.f3940a) {
+        if (this.f2741a) {
             PassBioGlobalUtils.toastWithText(getActivity(), this.c, 1);
         }
-        if (this.f3941b) {
+        if (this.b) {
             return;
         }
         finish();
@@ -72,10 +70,10 @@ public class BaseActivity extends Activity implements NoProguard {
         if (Build.VERSION.SDK_INT >= 24) {
             super.onMultiWindowModeChanged(z);
             if (z && isActivityInForeground()) {
-                if (this.f3940a) {
+                if (this.f2741a) {
                     PassBioGlobalUtils.toastWithText(getActivity(), this.c, 1);
                 }
-                if (this.f3941b) {
+                if (this.b) {
                     return;
                 }
                 finish();
@@ -97,14 +95,14 @@ public class BaseActivity extends Activity implements NoProguard {
     }
 
     protected void setIsMultiWindowAvailable(boolean z) {
-        if (z != this.f3941b) {
-            this.f3941b = z;
+        if (z != this.b) {
+            this.b = z;
         }
     }
 
     protected void setIsShowMultiWindowTips(boolean z) {
-        if (z != this.f3940a) {
-            this.f3940a = z;
+        if (z != this.f2741a) {
+            this.f2741a = z;
         }
     }
 

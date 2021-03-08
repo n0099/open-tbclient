@@ -11,29 +11,29 @@ import java.util.UUID;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static UUID f4245a;
+    protected static UUID f2936a;
 
     public e(Context context) {
         try {
-            if (f4245a == null && context != null) {
+            if (f2936a == null && context != null) {
                 synchronized (e.class) {
-                    if (f4245a == null && context != null) {
+                    if (f2936a == null && context != null) {
                         SharedPreferences sharedPreferences = context.getSharedPreferences("bd_plugin_ar_device_id.xml", 0);
                         String string = sharedPreferences.getString("device_id", null);
                         if (string != null) {
-                            f4245a = UUID.fromString(string);
+                            f2936a = UUID.fromString(string);
                         } else {
                             String string2 = Settings.Secure.getString(context.getContentResolver(), "android_id");
                             try {
                                 if (!"9774d56d682e549c".equals(string2) && !TextUtils.isEmpty(string2)) {
-                                    f4245a = UUID.nameUUIDFromBytes(string2.getBytes("utf8"));
+                                    f2936a = UUID.nameUUIDFromBytes(string2.getBytes("utf8"));
                                 } else {
                                     String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
-                                    f4245a = deviceId != null ? UUID.nameUUIDFromBytes(deviceId.getBytes("utf8")) : UUID.randomUUID();
+                                    f2936a = deviceId != null ? UUID.nameUUIDFromBytes(deviceId.getBytes("utf8")) : UUID.randomUUID();
                                 }
                             } catch (UnsupportedEncodingException e) {
                             }
-                            sharedPreferences.edit().putString("device_id", f4245a.toString()).commit();
+                            sharedPreferences.edit().putString("device_id", f2936a.toString()).commit();
                         }
                     }
                 }
@@ -44,6 +44,6 @@ public final class e {
     }
 
     public UUID a() {
-        return f4245a;
+        return f2936a;
     }
 }

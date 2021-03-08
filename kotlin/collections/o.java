@@ -5,37 +5,37 @@ import java.util.Collections;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public class o {
-    public static final <T> List<T> eLe() {
+    public static final <T> List<T> eKM() {
         return EmptyList.INSTANCE;
     }
 
-    public static final <T> List<T> bS(T t) {
+    public static final <T> List<T> bT(T t) {
         List<T> singletonList = Collections.singletonList(t);
-        kotlin.jvm.internal.p.n(singletonList, "java.util.Collections.singletonList(element)");
+        kotlin.jvm.internal.p.o(singletonList, "java.util.Collections.singletonList(element)");
         return singletonList;
     }
 
     public static final kotlin.b.h o(Collection<?> collection) {
-        kotlin.jvm.internal.p.o(collection, "$receiver");
+        kotlin.jvm.internal.p.p(collection, "$receiver");
         return new kotlin.b.h(0, collection.size() - 1);
     }
 
-    public static final <T> int hg(List<? extends T> list) {
-        kotlin.jvm.internal.p.o(list, "$receiver");
+    public static final <T> int hf(List<? extends T> list) {
+        kotlin.jvm.internal.p.p(list, "$receiver");
         return list.size() - 1;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.util.List<? extends T> */
     /* JADX WARN: Multi-variable type inference failed */
-    public static final <T> List<T> hh(List<? extends T> list) {
-        kotlin.jvm.internal.p.o(list, "$receiver");
+    public static final <T> List<T> hg(List<? extends T> list) {
+        kotlin.jvm.internal.p.p(list, "$receiver");
         switch (list.size()) {
             case 0:
-                return n.eLe();
+                return n.eKM();
             case 1:
-                return n.bS(list.get(0));
+                return n.bT(list.get(0));
             default:
                 return list;
         }

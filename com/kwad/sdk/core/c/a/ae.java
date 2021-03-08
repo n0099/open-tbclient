@@ -10,8 +10,8 @@ public class ae implements com.kwad.sdk.core.c<g.a> {
     @Override // com.kwad.sdk.core.c
     public JSONObject a(g.a aVar) {
         JSONObject jSONObject = new JSONObject();
-        com.kwad.sdk.utils.o.a(jSONObject, "type", aVar.f9577a);
-        com.kwad.sdk.utils.o.a(jSONObject, "appName", aVar.f9578b);
+        com.kwad.sdk.utils.o.a(jSONObject, "type", aVar.f6343a);
+        com.kwad.sdk.utils.o.a(jSONObject, "appName", aVar.b);
         com.kwad.sdk.utils.o.a(jSONObject, PushClientConstants.TAG_PKG_NAME, aVar.c);
         com.kwad.sdk.utils.o.a(jSONObject, "version", aVar.d);
         com.kwad.sdk.utils.o.a(jSONObject, "versionCode", aVar.e);
@@ -35,8 +35,8 @@ public class ae implements com.kwad.sdk.core.c<g.a> {
         if (jSONObject == null) {
             return;
         }
-        aVar.f9577a = jSONObject.optInt("type");
-        aVar.f9578b = jSONObject.optString("appName");
+        aVar.f6343a = jSONObject.optInt("type");
+        aVar.b = jSONObject.optString("appName");
         aVar.c = jSONObject.optString(PushClientConstants.TAG_PKG_NAME);
         aVar.d = jSONObject.optString("version");
         aVar.e = jSONObject.optInt("versionCode");

@@ -7,7 +7,7 @@ import android.util.JsonToken;
 public class y implements aj<PointF> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final y f7982a = new y();
+    public static final y f5338a = new y();
 
     private y() {
     }

@@ -6,42 +6,42 @@ import android.os.Looper;
 import android.text.TextUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile p f14193a;
+    private static volatile p f8478a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f866a;
+    private Context f787a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Handler f867a = new Handler(Looper.getMainLooper());
+    private Handler f788a = new Handler(Looper.getMainLooper());
 
     /* renamed from: a  reason: collision with other field name */
-    private Map<String, Map<String, String>> f868a = new HashMap();
+    private Map<String, Map<String, String>> f789a = new HashMap();
 
     private p(Context context) {
-        this.f866a = context;
+        this.f787a = context;
     }
 
     public static p a(Context context) {
-        if (f14193a == null) {
+        if (f8478a == null) {
             synchronized (p.class) {
-                if (f14193a == null) {
-                    f14193a = new p(context);
+                if (f8478a == null) {
+                    f8478a = new p(context);
                 }
             }
         }
-        return f14193a;
+        return f8478a;
     }
 
     private synchronized String a(String str, String str2) {
         String str3;
-        if (this.f868a != null && !TextUtils.isEmpty(str)) {
+        if (this.f789a != null && !TextUtils.isEmpty(str)) {
             if (!TextUtils.isEmpty(str2)) {
                 try {
-                    Map<String, String> map = this.f868a.get(str);
+                    Map<String, String> map = this.f789a.get(str);
                     str3 = map != null ? map.get(str2) : "";
                 } catch (Throwable th) {
                     str3 = "";
@@ -53,29 +53,29 @@ public class p {
     }
 
     private synchronized void b(String str, String str2, String str3) {
-        if (this.f868a == null) {
-            this.f868a = new HashMap();
+        if (this.f789a == null) {
+            this.f789a = new HashMap();
         }
-        Map<String, String> map = this.f868a.get(str);
+        Map<String, String> map = this.f789a.get(str);
         if (map == null) {
             map = new HashMap<>();
         }
         map.put(str2, str3);
-        this.f868a.put(str, map);
+        this.f789a.put(str, map);
     }
 
     public synchronized String a(String str, String str2, String str3) {
         String a2;
         a2 = a(str, str2);
         if (TextUtils.isEmpty(a2)) {
-            a2 = this.f866a.getSharedPreferences(str, 4).getString(str2, str3);
+            a2 = this.f787a.getSharedPreferences(str, 4).getString(str2, str3);
         }
         return a2;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m528a(String str, String str2, String str3) {
+    public synchronized void m507a(String str, String str2, String str3) {
         b(str, str2, str3);
-        this.f867a.post(new q(this, str, str2, str3));
+        this.f788a.post(new q(this, str, str2, str3));
     }
 }

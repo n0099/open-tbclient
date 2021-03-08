@@ -2,7 +2,7 @@ package com.yy.mediaframework.inteligence.framerate;
 
 import com.baidu.searchbox.v8engine.util.TimeUtils;
 import com.yy.mediaframework.utils.YMFLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class NewFixedFrameRateModify implements IFrameRateModify {
     protected static final int FRAMERATE_FLOOR = 10;
     protected static final long ONE_SECOND = 1000000000;

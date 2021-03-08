@@ -8,7 +8,7 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.logsystem.util.Common;
 import com.baidu.util.Base64Encoder;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class UaParam {
     private String mEnUa;
     private String mUa;

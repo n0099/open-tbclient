@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.yy.mediaframework.model.DecodeVideoConfig;
 import com.yy.mediaframework.model.DecodeVideoSample;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseDecoder {
     protected String IllegalStateExceptionTAG = getClass().getSimpleName();
     protected String mCodecName;

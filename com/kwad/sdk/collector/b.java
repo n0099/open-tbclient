@@ -24,10 +24,8 @@ import java.util.Set;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f8263a = "/*";
-
-    /* renamed from: b  reason: collision with root package name */
-    private static String f8264b = "*";
+    private static String f5500a = "/*";
+    private static String b = "*";
     private static long c = 86400000;
     private static long d = AppStatusRules.DEFAULT_GRANULARITY;
     private static Map<String, Set<String>> e = new HashMap();
@@ -118,7 +116,7 @@ public class b {
             return;
         }
         try {
-            a(new File(Environment.getExternalStorageDirectory(), d.f9672b));
+            a(new File(Environment.getExternalStorageDirectory(), d.b));
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
         }
@@ -152,8 +150,8 @@ public class b {
             AppStatusHelper.AppRunningInfo appRunningInfo = createByPackages.get(key);
             if (appRunningInfo != null) {
                 for (String str : value) {
-                    if (str.endsWith(f8263a)) {
-                        File file2 = new File(file, str.replace(f8263a, ""));
+                    if (str.endsWith(f5500a)) {
+                        File file2 = new File(file, str.replace(f5500a, ""));
                         if (file2.exists() && file2.isDirectory() && (list = file2.list()) != null) {
                             int length = list.length;
                             int i = 0;
@@ -168,9 +166,9 @@ public class b {
                                 }
                             }
                         }
-                    } else if (str.endsWith(f8264b)) {
+                    } else if (str.endsWith(b)) {
                         File file4 = new File(file, str.substring(0, str.lastIndexOf("/")));
-                        String replace = str.replace(f8264b, "");
+                        String replace = str.replace(b, "");
                         if (file4.exists() && file4.isDirectory() && (list2 = file4.list()) != null) {
                             String absolutePath = file4.getAbsolutePath();
                             int length2 = list2.length;

@@ -9,7 +9,7 @@ import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import com.thunder.livesdk.helper.ThunderNative;
 import com.thunder.livesdk.log.ThunderLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderNetStateService {
     private static final String INTERNET_PERMISSION = "android.permission.INTERNET";
     private static final String NETWORK_PERMISSION = "android.permission.ACCESS_NETWORK_STATE";
@@ -31,7 +31,7 @@ public class ThunderNetStateService {
         }
     };
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class NetState {
         public static final int SYSNET_2G = 3;
         public static final int SYSNET_3G = 4;

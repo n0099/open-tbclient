@@ -14,84 +14,84 @@ import com.baidu.live.yuyingift.yuyinhousegift.view.YuyinAlaRoomComboGiftView;
 import com.baidu.live.yuyingift.yuyinhousegift.view.YuyinAlaRoomNormalGiftView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    protected com.baidu.live.yuyingift.a cbC;
-    private a cbD;
-    private c cbE;
-    private List<com.baidu.live.yuyingift.a.c> cbF;
-    private com.baidu.live.yuyingift.a.c cbG;
-    private com.baidu.live.yuyingift.a.c cbH;
-    private boolean cbI;
+    protected com.baidu.live.yuyingift.a cdd;
+    private a cde;
+    private c cdf;
+    private List<com.baidu.live.yuyingift.a.c> cdg;
+    private com.baidu.live.yuyingift.a.c cdh;
+    private com.baidu.live.yuyingift.a.c cdi;
+    private boolean cdj;
 
     public b(Context context, com.baidu.live.yuyingift.a aVar) {
-        this.cbC = aVar;
-        this.cbD = new a(context);
-        this.cbE = new c(context);
-        this.cbD.a(new a.InterfaceC0239a() { // from class: com.baidu.live.yuyingift.yuyinhousegift.b.1
-            @Override // com.baidu.live.yuyingift.yuyinhousegift.a.InterfaceC0239a
+        this.cdd = aVar;
+        this.cde = new a(context);
+        this.cdf = new c(context);
+        this.cde.a(new a.InterfaceC0245a() { // from class: com.baidu.live.yuyingift.yuyinhousegift.b.1
+            @Override // com.baidu.live.yuyingift.yuyinhousegift.a.InterfaceC0245a
             public void a(YuyinAlaRoomComboGiftView yuyinAlaRoomComboGiftView) {
                 b.this.a(yuyinAlaRoomComboGiftView);
             }
 
-            @Override // com.baidu.live.yuyingift.yuyinhousegift.a.InterfaceC0239a
-            public void Zs() {
-                b.this.Zt();
+            @Override // com.baidu.live.yuyingift.yuyinhousegift.a.InterfaceC0245a
+            public void Zv() {
+                b.this.Zw();
             }
 
-            @Override // com.baidu.live.yuyingift.yuyinhousegift.a.InterfaceC0239a
+            @Override // com.baidu.live.yuyingift.yuyinhousegift.a.InterfaceC0245a
             public void b(YuyinAlaRoomComboGiftView yuyinAlaRoomComboGiftView) {
                 b.this.b(yuyinAlaRoomComboGiftView);
             }
         });
-        this.cbE.a(new c.a() { // from class: com.baidu.live.yuyingift.yuyinhousegift.b.2
+        this.cdf.a(new c.a() { // from class: com.baidu.live.yuyingift.yuyinhousegift.b.2
             @Override // com.baidu.live.yuyingift.yuyinhousegift.c.a
             public void a(YuyinAlaRoomNormalGiftView yuyinAlaRoomNormalGiftView) {
                 b.this.a(yuyinAlaRoomNormalGiftView);
             }
 
             @Override // com.baidu.live.yuyingift.yuyinhousegift.c.a
-            public void Zs() {
-                b.this.Zt();
+            public void Zv() {
+                b.this.Zw();
             }
 
             @Override // com.baidu.live.yuyingift.yuyinhousegift.c.a
             public void b(YuyinAlaRoomNormalGiftView yuyinAlaRoomNormalGiftView) {
                 b.this.b(yuyinAlaRoomNormalGiftView);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501009));
-                com.baidu.live.yuyingift.b.g(b.this.cbG);
+                com.baidu.live.yuyingift.b.g(b.this.cdh);
             }
         });
         initData();
     }
 
     public void dP(boolean z) {
-        this.cbI = z;
-        if (!z && this.cbH != null) {
-            com.baidu.live.yuyingift.b.g(this.cbH);
-            this.cbH = null;
+        this.cdj = z;
+        if (!z && this.cdi != null) {
+            com.baidu.live.yuyingift.b.g(this.cdi);
+            this.cdi = null;
         }
     }
 
     private void initData() {
-        this.cbF = new ArrayList();
+        this.cdg = new ArrayList();
     }
 
     private boolean a(com.baidu.live.yuyingift.a.c cVar, com.baidu.live.yuyingift.a.c cVar2, boolean z) {
         boolean z2 = false;
         if (cVar != null && cVar2 != null) {
-            if (TextUtils.equals(cVar.giftId, cVar2.giftId) && TextUtils.equals(cVar.userId, cVar2.userId) && TextUtils.equals(cVar.bno, cVar2.bno)) {
+            if (TextUtils.equals(cVar.giftId, cVar2.giftId) && TextUtils.equals(cVar.userId, cVar2.userId) && TextUtils.equals(cVar.boO, cVar2.boO)) {
                 z2 = true;
             }
             if (z2 && z) {
-                com.baidu.live.yuyingift.b.a(this.cbG, cVar2);
+                com.baidu.live.yuyingift.b.a(this.cdh, cVar2);
             }
         }
         return z2;
     }
 
     private boolean b(com.baidu.live.yuyingift.a.c cVar, com.baidu.live.yuyingift.a.c cVar2, boolean z) {
-        return cVar != null && cVar2 != null && a(cVar, cVar2, z) && cVar.bZd && cVar2.bZd && cVar.aYl == cVar2.aYl && cVar2.bZe > 0;
+        return cVar != null && cVar2 != null && a(cVar, cVar2, z) && cVar.caD && cVar2.caD && cVar.aZL == cVar2.aZL && cVar2.caE > 0;
     }
 
     private boolean v(com.baidu.live.yuyingift.a.c cVar) {
@@ -101,60 +101,60 @@ public class b {
     public void h(com.baidu.live.yuyingift.a.c cVar) {
         if (cVar != null) {
             if (v(cVar)) {
-                if (w(cVar) && this.cbI) {
-                    if (this.cbH == null) {
-                        this.cbH = cVar;
-                    } else if (b(this.cbH, cVar, false)) {
-                        com.baidu.live.yuyingift.b.a(this.cbH, cVar);
+                if (w(cVar) && this.cdj) {
+                    if (this.cdi == null) {
+                        this.cdi = cVar;
+                    } else if (b(this.cdi, cVar, false)) {
+                        com.baidu.live.yuyingift.b.a(this.cdi, cVar);
                     }
                 }
-            } else if (cVar.bZf) {
+            } else if (cVar.caF) {
                 com.baidu.live.yuyingift.b.g(cVar);
                 return;
             }
-            this.cbF.add(cVar);
-            Zt();
+            this.cdg.add(cVar);
+            Zw();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Zt() {
-        if (!ListUtils.isEmpty(this.cbF)) {
-            if (w(Zv())) {
-                if (this.cbD.isRunning()) {
-                    while (b(this.cbD.getLastShowGift(), Zv(), false)) {
-                        this.cbD.q(Zu());
+    public void Zw() {
+        if (!ListUtils.isEmpty(this.cdg)) {
+            if (w(Zy())) {
+                if (this.cde.isRunning()) {
+                    while (b(this.cde.getLastShowGift(), Zy(), false)) {
+                        this.cde.q(Zx());
                     }
-                } else if (!this.cbE.isRunning()) {
-                    if (Zv().bZe > 0) {
-                        this.cbD.p(Zu());
+                } else if (!this.cdf.isRunning()) {
+                    if (Zy().caE > 0) {
+                        this.cde.p(Zx());
                     } else {
-                        this.cbD.r(Zu());
+                        this.cde.r(Zx());
                     }
                 }
-            } else if (this.cbE.isRunning()) {
-                while (a(this.cbE.getLastShowGift(), Zv(), true)) {
-                    this.cbE.q(Zu());
+            } else if (this.cdf.isRunning()) {
+                while (a(this.cdf.getLastShowGift(), Zy(), true)) {
+                    this.cdf.q(Zx());
                 }
-            } else if (!this.cbD.isRunning()) {
-                this.cbG = Zu();
-                this.cbE.r(this.cbG);
+            } else if (!this.cde.isRunning()) {
+                this.cdh = Zx();
+                this.cdf.r(this.cdh);
             }
         }
     }
 
     private boolean w(com.baidu.live.yuyingift.a.c cVar) {
         if (cVar != null) {
-            return cVar.bZd;
+            return cVar.caD;
         }
         return false;
     }
 
     protected void a(YuyinAlaRoomBaseGiftView yuyinAlaRoomBaseGiftView) {
         if (yuyinAlaRoomBaseGiftView != null) {
-            yuyinAlaRoomBaseGiftView.setZ(com.baidu.live.yuyingift.a.bXR);
+            yuyinAlaRoomBaseGiftView.setZ(com.baidu.live.yuyingift.a.bZr);
             try {
-                this.cbC.a(yuyinAlaRoomBaseGiftView, new RelativeLayout.LayoutParams(-1, -1));
+                this.cdd.a(yuyinAlaRoomBaseGiftView, new RelativeLayout.LayoutParams(-1, -1));
             } catch (Exception e) {
             }
         }
@@ -162,36 +162,36 @@ public class b {
 
     protected void b(YuyinAlaRoomBaseGiftView yuyinAlaRoomBaseGiftView) {
         try {
-            if (this.cbC != null) {
-                this.cbC.ak(yuyinAlaRoomBaseGiftView);
+            if (this.cdd != null) {
+                this.cdd.ak(yuyinAlaRoomBaseGiftView);
             }
         } catch (Exception e) {
         }
     }
 
-    private com.baidu.live.yuyingift.a.c Zu() {
-        if (this.cbF == null || this.cbF.isEmpty()) {
+    private com.baidu.live.yuyingift.a.c Zx() {
+        if (this.cdg == null || this.cdg.isEmpty()) {
             return null;
         }
-        return this.cbF.remove(0);
+        return this.cdg.remove(0);
     }
 
-    private com.baidu.live.yuyingift.a.c Zv() {
-        if (this.cbF == null || this.cbF.isEmpty()) {
+    private com.baidu.live.yuyingift.a.c Zy() {
+        if (this.cdg == null || this.cdg.isEmpty()) {
             return null;
         }
-        return this.cbF.get(0);
+        return this.cdg.get(0);
     }
 
     public void onDestory() {
-        if (this.cbF != null) {
-            this.cbF.clear();
+        if (this.cdg != null) {
+            this.cdg.clear();
         }
-        if (this.cbD != null) {
-            this.cbD.onDestory();
+        if (this.cde != null) {
+            this.cde.onDestory();
         }
-        if (this.cbE != null) {
-            this.cbE.onDestory();
+        if (this.cdf != null) {
+            this.cdf.onDestory();
         }
     }
 }

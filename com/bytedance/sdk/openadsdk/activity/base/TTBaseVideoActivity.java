@@ -16,6 +16,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.RemoteCallbackList;
 import android.text.TextUtils;
+import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.webkit.DownloadListener;
@@ -29,6 +30,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.ViewCompat;
@@ -36,14 +38,19 @@ import com.baidu.live.tbadk.img.effect.ResizeImageAction;
 import com.bytedance.sdk.openadsdk.FilterWord;
 import com.bytedance.sdk.openadsdk.IListenerManager;
 import com.bytedance.sdk.openadsdk.ITTAppDownloadListener;
+import com.bytedance.sdk.openadsdk.TTAppDownloadListener;
 import com.bytedance.sdk.openadsdk.c.j;
 import com.bytedance.sdk.openadsdk.c.p;
 import com.bytedance.sdk.openadsdk.component.reward.top.TopProxyLayout;
 import com.bytedance.sdk.openadsdk.component.reward.view.RewardDislikeDialogNew;
 import com.bytedance.sdk.openadsdk.component.reward.view.RewardDislikeToast;
+import com.bytedance.sdk.openadsdk.core.a.c;
 import com.bytedance.sdk.openadsdk.core.aa;
+import com.bytedance.sdk.openadsdk.core.d.f;
 import com.bytedance.sdk.openadsdk.core.d.l;
-import com.bytedance.sdk.openadsdk.core.video.b.b;
+import com.bytedance.sdk.openadsdk.core.i;
+import com.bytedance.sdk.openadsdk.core.nativeexpress.NativeExpressView;
+import com.bytedance.sdk.openadsdk.core.video.c.b;
 import com.bytedance.sdk.openadsdk.core.widget.PlayableLoadingView;
 import com.bytedance.sdk.openadsdk.core.widget.TTRatingBar;
 import com.bytedance.sdk.openadsdk.core.widget.TTRoundRectImageView;
@@ -53,16 +60,17 @@ import com.bytedance.sdk.openadsdk.core.widget.webview.a.e;
 import com.bytedance.sdk.openadsdk.core.x;
 import com.bytedance.sdk.openadsdk.dislike.c;
 import com.bytedance.sdk.openadsdk.downloadnew.core.a;
-import com.bytedance.sdk.openadsdk.g.d;
-import com.bytedance.sdk.openadsdk.g.e;
-import com.bytedance.sdk.openadsdk.g.f;
-import com.bytedance.sdk.openadsdk.g.g;
-import com.bytedance.sdk.openadsdk.g.h;
+import com.bytedance.sdk.openadsdk.f.d;
+import com.bytedance.sdk.openadsdk.f.e;
+import com.bytedance.sdk.openadsdk.f.f;
+import com.bytedance.sdk.openadsdk.f.g;
+import com.bytedance.sdk.openadsdk.f.h;
+import com.bytedance.sdk.openadsdk.playable.d;
 import com.bytedance.sdk.openadsdk.utils.HomeWatcherReceiver;
 import com.bytedance.sdk.openadsdk.utils.ac;
 import com.bytedance.sdk.openadsdk.utils.aj;
 import com.bytedance.sdk.openadsdk.utils.ak;
-import com.bytedance.sdk.openadsdk.utils.am;
+import com.bytedance.sdk.openadsdk.utils.al;
 import com.bytedance.sdk.openadsdk.utils.r;
 import com.bytedance.sdk.openadsdk.utils.u;
 import java.lang.ref.WeakReference;
@@ -71,17 +79,18 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class TTBaseVideoActivity extends Activity implements b, f, HomeWatcherReceiver.a, am.a {
+public abstract class TTBaseVideoActivity extends Activity implements b, f, HomeWatcherReceiver.a, al.a {
     protected static RemoteCallbackList<ITTAppDownloadListener> ad = null;
     RewardDislikeDialogNew A;
     RewardDislikeToast B;
     c C;
     com.bytedance.sdk.openadsdk.core.video.nativevideo.c D;
-    a E;
+    com.bytedance.sdk.openadsdk.downloadnew.core.a E;
     x F;
     x G;
     HomeWatcherReceiver H;
@@ -94,7 +103,7 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
     int T;
 
     /* renamed from: a  reason: collision with root package name */
-    View f6096a;
+    View f4081a;
     String aE;
     boolean aF;
     protected boolean aG;
@@ -103,7 +112,7 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
     protected p aJ;
     protected int aK;
     View aL;
-    protected com.bytedance.sdk.openadsdk.g.a aM;
+    protected com.bytedance.sdk.openadsdk.f.a aM;
     protected e aN;
     protected d aO;
     protected int aP;
@@ -112,10 +121,11 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
     private boolean aS;
     private boolean aT;
     private boolean aU;
-    private boolean aV;
-    private AtomicBoolean aW;
-    private View.OnClickListener aX;
-    private boolean aY;
+    private final AtomicBoolean aV;
+    private long aW;
+    private long aX;
+    private long aY;
+    private long aZ;
     protected com.bytedance.sdk.openadsdk.core.widget.c ab;
     protected IListenerManager ae;
     protected String af;
@@ -128,9 +138,14 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
     protected g au;
     boolean av;
     TextView aw;
-
-    /* renamed from: b  reason: collision with root package name */
-    PlayableLoadingView f6097b;
+    PlayableLoadingView b;
+    private long ba;
+    private long bb;
+    private com.bytedance.sdk.openadsdk.playable.e bc;
+    private boolean bd;
+    private AtomicBoolean be;
+    private View.OnClickListener bf;
+    private boolean bg;
     TopProxyLayout c;
     RelativeLayout d;
     Context e;
@@ -155,8 +170,8 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
     int y;
     boolean v = true;
     boolean z = false;
-    final am I = new am(Looper.getMainLooper(), this);
-    final Map<String, a> J = Collections.synchronizedMap(new HashMap());
+    final al I = new al(Looper.getMainLooper(), this);
+    final Map<String, com.bytedance.sdk.openadsdk.downloadnew.core.a> J = Collections.synchronizedMap(new HashMap());
     boolean P = false;
     int R = 5;
     int S = 3;
@@ -195,18 +210,26 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
         this.aI = "";
         this.aK = 0;
         this.aU = false;
-        this.aV = true;
-        this.aW = new AtomicBoolean(false);
+        this.aV = new AtomicBoolean(false);
+        this.aW = 0L;
+        this.aX = 0L;
+        this.aY = 0L;
+        this.aZ = 0L;
+        this.ba = 0L;
+        this.bb = 0L;
+        this.bd = true;
+        this.be = new AtomicBoolean(false);
         this.aL = null;
-        this.aX = new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.5
+        this.bf = new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.10
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TTBaseVideoActivity.this.a(view);
+                TTBaseVideoActivity.this.b(view, 0, 0, 0, 0);
             }
         };
-        this.aY = false;
-        this.aM = new com.bytedance.sdk.openadsdk.g.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.10
-            @Override // com.bytedance.sdk.openadsdk.g.a
+        this.bg = false;
+        this.aM = new com.bytedance.sdk.openadsdk.f.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.16
+            @Override // com.bytedance.sdk.openadsdk.f.a
             public int a() {
                 int i = -1;
                 if (TTBaseVideoActivity.this.f != null) {
@@ -219,7 +242,7 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
                 return i;
             }
 
-            @Override // com.bytedance.sdk.openadsdk.g.a
+            @Override // com.bytedance.sdk.openadsdk.f.a
             public int b() {
                 int i = -1;
                 if (TTBaseVideoActivity.this.f != null) {
@@ -232,17 +255,17 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
                 return i;
             }
         };
-        this.aN = new e() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.11
-            @Override // com.bytedance.sdk.openadsdk.g.e
+        this.aN = new e() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.17
+            @Override // com.bytedance.sdk.openadsdk.f.e
             public void a() {
-                TTBaseVideoActivity.this.V();
+                TTBaseVideoActivity.this.Z();
             }
         };
-        this.aO = new d() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.13
-            @Override // com.bytedance.sdk.openadsdk.g.d
+        this.aO = new d() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.18
+            @Override // com.bytedance.sdk.openadsdk.f.d
             public void a() {
                 if (!TTBaseVideoActivity.this.isFinishing()) {
-                    if ((TTBaseVideoActivity.this.s == null || TTBaseVideoActivity.this.s.q()) && TTBaseVideoActivity.this.s != null && TTBaseVideoActivity.this.s.r()) {
+                    if ((TTBaseVideoActivity.this.s == null || TTBaseVideoActivity.this.s.A()) && TTBaseVideoActivity.this.s != null && TTBaseVideoActivity.this.s.B()) {
                         TTBaseVideoActivity.this.I.removeMessages(800);
                         TTBaseVideoActivity.this.I.sendMessage(TTBaseVideoActivity.this.d(1));
                     }
@@ -285,7 +308,7 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a() {
-        if ((l.b(this.s) || l.c(this.s)) && this.aP == 0) {
+        if ((l.d(this.s) || l.e(this.s)) && this.aP == 0) {
             this.P = true;
             a(true);
         }
@@ -297,7 +320,7 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
     }
 
     void c() {
-        if (l.c(this.s) && this.P) {
+        if (l.e(this.s) && this.P) {
             a(true);
             this.au.a(true);
         }
@@ -313,7 +336,7 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
             if (this.l != null) {
                 this.l.setMaxWidth((int) ak.a(this, 404.0f));
             }
-            e(false);
+            f(false);
         }
         if (this instanceof TTFullScreenVideoActivity) {
             ak.a((View) this.d, 0);
@@ -322,7 +345,7 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void e() {
-        this.S = this.s.m();
+        this.S = this.s.w();
         if (this.S == -200) {
             this.S = com.bytedance.sdk.openadsdk.core.p.h().k(this.T + "");
         }
@@ -333,13 +356,13 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void f() {
-        this.f6097b = (PlayableLoadingView) findViewById(ac.e(this, "tt_reward_playable_loading"));
+        this.b = (PlayableLoadingView) findViewById(ac.e(this, "tt_reward_playable_loading"));
         this.c = (TopProxyLayout) findViewById(ac.e(this, "tt_top_layout_proxy"));
         if (this.c != null) {
             this.c.a(this instanceof TTRewardVideoActivity, this.s);
-            P();
+            V();
         }
-        this.f6096a = findViewById(ac.e(this, "tt_reward_root"));
+        this.f4081a = findViewById(ac.e(this, "tt_reward_root"));
         this.h = (SSWebView) findViewById(ac.e(this, "tt_browser_webview_loading"));
         this.f = (SSWebView) findViewById(ac.e(this, "tt_reward_browser_webview"));
         this.g = new WeakReference<>(this.f);
@@ -364,10 +387,10 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
             this.r.setStarImagePadding(ak.c(this, 4.0f));
             this.r.a();
         }
-        if (this.s != null && this.s.s()) {
+        if (this.s != null && this.s.C()) {
             this.f.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
             this.h.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
-            if (this.s.c() == 1) {
+            if (this.s.i() == 1) {
                 ak.a((View) this.o, 8);
                 ak.a((View) this.p, 8);
                 ak.a((View) this.q, 8);
@@ -405,12 +428,12 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
                 }
             });
         }
-        N();
+        Q();
         if (!this.v) {
             ak.a((View) this.d, 4);
         }
         try {
-            if (this.ag && this.s != null && this.s.X() == 5) {
+            if (this.ag && this.s != null && this.s.ak() == 5) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.n.getLayoutParams();
                 layoutParams.height = (int) ak.a(this, 55.0f);
                 layoutParams.topMargin = (int) ak.a(this, 20.0f);
@@ -438,37 +461,37 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
         com.bytedance.sdk.openadsdk.c.d.c(this, this.s, str, str2, (JSONObject) null);
     }
 
-    private String L() {
+    private String N() {
         String str;
         StringBuffer stringBuffer;
-        String p = com.bytedance.sdk.openadsdk.core.p.h().p();
-        u.c("Playable", "getPlayableLoadH5Url->loadH5Url=" + p);
-        if (TextUtils.isEmpty(p) || this.s == null || this.s.U() == null) {
-            return p;
+        String o = com.bytedance.sdk.openadsdk.core.p.h().o();
+        u.c("Playable", "getPlayableLoadH5Url->loadH5Url=" + o);
+        if (TextUtils.isEmpty(o) || this.s == null || this.s.ah() == null) {
+            return o;
         }
         if (this.R == 15) {
             str = "portrait";
         } else {
             str = "landscape";
         }
-        String c = this.s.U().c();
-        int e = this.s.U().e();
-        int f = this.s.U().f();
-        String a2 = this.s.I().a();
-        String T = this.s.T();
-        String d = this.s.U().d();
-        String b2 = this.s.U().b();
-        String c2 = this.s.U().c();
-        String Q = this.s.Q();
-        new StringBuffer().append("appname=").append(URLEncoder.encode(c)).append("&stars=").append(e).append("&comments=").append(f).append("&icon=").append(URLEncoder.encode(a2)).append("&downloading=").append(true).append("&id=").append(URLEncoder.encode(T)).append("&pkg_name=").append(URLEncoder.encode(d)).append("&download_url=").append(URLEncoder.encode(b2)).append("&name=").append(URLEncoder.encode(c2)).append("&orientation=").append(str).append("&apptitle=").append(URLEncoder.encode(Q));
-        String str2 = p + "?" + stringBuffer.toString();
+        String c = this.s.ah().c();
+        int e = this.s.ah().e();
+        int f = this.s.ah().f();
+        String a2 = this.s.U().a();
+        String ag = this.s.ag();
+        String d = this.s.ah().d();
+        String b = this.s.ah().b();
+        String c2 = this.s.ah().c();
+        String ad2 = this.s.ad();
+        new StringBuffer().append("appname=").append(URLEncoder.encode(c)).append("&stars=").append(e).append("&comments=").append(f).append("&icon=").append(URLEncoder.encode(a2)).append("&downloading=").append(true).append("&id=").append(URLEncoder.encode(ag)).append("&pkg_name=").append(URLEncoder.encode(d)).append("&download_url=").append(URLEncoder.encode(b)).append("&name=").append(URLEncoder.encode(c2)).append("&orientation=").append(str).append("&apptitle=").append(URLEncoder.encode(ad2));
+        String str2 = o + "?" + stringBuffer.toString();
         u.c("Playable", "Playable-loadH5Url=" + str2);
         return str2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void M() {
-        if (!this.aW.getAndSet(true) && this.f != null && this.h != null) {
+    public void O() {
+        if (!this.be.getAndSet(true) && this.f != null && this.h != null) {
             ak.a((View) this.f, 0);
             ak.a((View) this.h, 8);
         }
@@ -488,15 +511,15 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
         if (this.h == null) {
             return false;
         }
-        String L = L();
-        if (TextUtils.isEmpty(L)) {
+        String N = N();
+        if (TextUtils.isEmpty(N)) {
             return false;
         }
-        this.h.setWebViewClient(new com.bytedance.sdk.openadsdk.core.widget.webview.c(this.e, this.G, this.s.T(), null) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.12
+        this.h.setWebViewClient(new com.bytedance.sdk.openadsdk.core.widget.webview.c(this.e, this.G, this.s.ag(), null) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.12
             @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
             public void onPageFinished(WebView webView, String str) {
                 TTBaseVideoActivity.this.aI = str;
-                if (TTBaseVideoActivity.this.aV) {
+                if (TTBaseVideoActivity.this.bd) {
                     TTBaseVideoActivity.this.a(TTBaseVideoActivity.this.aE, "loading_h5_success");
                 }
                 super.onPageFinished(webView, str);
@@ -505,41 +528,41 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
             @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
             public void onReceivedHttpError(WebView webView, WebResourceRequest webResourceRequest, WebResourceResponse webResourceResponse) {
                 super.onReceivedHttpError(webView, webResourceRequest, webResourceResponse);
-                TTBaseVideoActivity.this.aV = false;
+                TTBaseVideoActivity.this.bd = false;
             }
 
             @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
             public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
                 super.onReceivedError(webView, webResourceRequest, webResourceError);
-                TTBaseVideoActivity.this.aV = false;
+                TTBaseVideoActivity.this.bd = false;
             }
 
             @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
             public void onReceivedError(WebView webView, int i, String str, String str2) {
                 super.onReceivedError(webView, i, str, str2);
-                TTBaseVideoActivity.this.aV = false;
+                TTBaseVideoActivity.this.bd = false;
             }
         });
-        this.h.loadUrl(L);
+        this.h.loadUrl(N);
         this.h.getSettings().setDisplayZoomControls(false);
         this.h.setWebChromeClient(new com.bytedance.sdk.openadsdk.core.widget.webview.b(this.G, this.t));
-        this.h.setDownloadListener(new DownloadListener() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.14
+        this.h.setDownloadListener(new DownloadListener() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.19
             @Override // android.webkit.DownloadListener
             public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
                 if (TTBaseVideoActivity.this.J.containsKey(str)) {
-                    a aVar = TTBaseVideoActivity.this.J.get(str);
+                    com.bytedance.sdk.openadsdk.downloadnew.core.a aVar = TTBaseVideoActivity.this.J.get(str);
                     if (aVar != null) {
                         aVar.e();
                     }
                 } else {
-                    if (TTBaseVideoActivity.this.s != null && TTBaseVideoActivity.this.s.I() != null) {
-                        TTBaseVideoActivity.this.s.I().a();
+                    if (TTBaseVideoActivity.this.s != null && TTBaseVideoActivity.this.s.U() != null) {
+                        TTBaseVideoActivity.this.s.U().a();
                     }
-                    a a2 = com.bytedance.sdk.openadsdk.downloadnew.a.a(TTBaseVideoActivity.this, str, TTBaseVideoActivity.this.s, TTBaseVideoActivity.this.aE);
+                    com.bytedance.sdk.openadsdk.downloadnew.core.a a2 = com.bytedance.sdk.openadsdk.downloadnew.a.a(TTBaseVideoActivity.this, str, TTBaseVideoActivity.this.s, TTBaseVideoActivity.this.aE);
                     TTBaseVideoActivity.this.J.put(str, a2);
                     a2.e();
                 }
-                TTBaseVideoActivity.this.S();
+                TTBaseVideoActivity.this.U();
             }
         });
         return true;
@@ -550,12 +573,12 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
         if (this.f != null) {
             this.t = new j(this, this.s, this.f).a(true);
             this.t.a(str);
-            this.f.setWebViewClient(new com.bytedance.sdk.openadsdk.core.widget.webview.c(this.e, this.F, this.K, this.t) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.15
+            this.f.setWebViewClient(new com.bytedance.sdk.openadsdk.core.widget.webview.c(this.e, this.F, this.K, this.t) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.20
                 @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
                 public WebResourceResponse shouldInterceptRequest(WebView webView, String str2) {
-                    if (TTBaseVideoActivity.this.s.s()) {
+                    if (TTBaseVideoActivity.this.s.C()) {
                         long currentTimeMillis = System.currentTimeMillis();
-                        WebResourceResponse a2 = com.bytedance.sdk.openadsdk.core.g.a.a().a(TTBaseVideoActivity.this.s.F().j(), TTBaseVideoActivity.this.s.F().i(), str2);
+                        WebResourceResponse a2 = com.bytedance.sdk.openadsdk.core.g.a.a().a(TTBaseVideoActivity.this.s.R().k(), TTBaseVideoActivity.this.s.R().j(), str2);
                         long currentTimeMillis2 = System.currentTimeMillis();
                         if (TTBaseVideoActivity.this.aJ != null) {
                             e.a a3 = com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str2);
@@ -655,17 +678,17 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
                     }
                     super.onPageFinished(webView, str2);
                     try {
-                        if (TTBaseVideoActivity.this.s.t() && !TTBaseVideoActivity.this.isFinishing() && TTBaseVideoActivity.this.s.q() && !TTBaseVideoActivity.this.s.r()) {
+                        if (TTBaseVideoActivity.this.s.D() && !TTBaseVideoActivity.this.isFinishing() && TTBaseVideoActivity.this.s.A() && !TTBaseVideoActivity.this.s.B()) {
                             TTBaseVideoActivity.this.I.sendMessageDelayed(TTBaseVideoActivity.this.d(0), 1000L);
                         }
                     } catch (Throwable th) {
                     }
                     try {
-                        if (TTBaseVideoActivity.this.ap.get() && TTBaseVideoActivity.this.s.c() == 1 && TTBaseVideoActivity.this.s.s()) {
-                            TTBaseVideoActivity.this.M();
+                        if (TTBaseVideoActivity.this.ap.get() && TTBaseVideoActivity.this.s.i() == 1 && TTBaseVideoActivity.this.s.C()) {
+                            TTBaseVideoActivity.this.O();
                             TTBaseVideoActivity.this.b(true);
-                            if (this.f6843b != null) {
-                                this.f6843b.b(true);
+                            if (this.b != null) {
+                                this.b.b(true);
                             }
                             TTBaseVideoActivity.this.a(TTBaseVideoActivity.this.aE, "py_loading_success");
                         }
@@ -675,12 +698,13 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
 
                 @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
                 public void onPageStarted(WebView webView, String str2, Bitmap bitmap) {
+                    HashMap hashMap;
                     TTBaseVideoActivity.this.aI = str2;
                     if (TTBaseVideoActivity.this.aJ != null) {
                         TTBaseVideoActivity.this.aJ.e();
                     }
                     super.onPageStarted(webView, str2, bitmap);
-                    if (!TTBaseVideoActivity.this.aU && l.b(TTBaseVideoActivity.this.s)) {
+                    if (!TTBaseVideoActivity.this.aU && l.d(TTBaseVideoActivity.this.s)) {
                         TTBaseVideoActivity.this.aU = true;
                         boolean z = TTBaseVideoActivity.this instanceof TTRewardVideoActivity;
                         TTBaseVideoActivity.this.aB = com.bytedance.sdk.openadsdk.core.p.h().o(String.valueOf(TTBaseVideoActivity.this.T));
@@ -692,17 +716,13 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
                         tTBaseVideoActivity.aA = j;
                         TTBaseVideoActivity.this.I.sendEmptyMessageDelayed(600, TTBaseVideoActivity.this.aB * 1000);
                         Message obtain = Message.obtain();
-                        if (TTBaseVideoActivity.this.aB == TTBaseVideoActivity.this.aC) {
-                            obtain.what = 900;
-                        } else {
-                            obtain.what = 950;
-                        }
+                        obtain.what = TTBaseVideoActivity.this.P();
                         obtain.arg1 = TTBaseVideoActivity.this.aB;
-                        obtain.arg2 = TTBaseVideoActivity.this.aC;
                         TTBaseVideoActivity.this.I.sendMessage(obtain);
                         TTBaseVideoActivity.this.ax = System.currentTimeMillis();
-                        HashMap hashMap = null;
-                        if (!TextUtils.isEmpty(TTBaseVideoActivity.this.af)) {
+                        if (TextUtils.isEmpty(TTBaseVideoActivity.this.af)) {
+                            hashMap = null;
+                        } else {
                             hashMap = new HashMap();
                             hashMap.put("rit_scene", TTBaseVideoActivity.this.af);
                         }
@@ -711,13 +731,14 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
                         } else {
                             com.bytedance.sdk.openadsdk.c.d.a(this.c, TTBaseVideoActivity.this.s, "fullscreen_interstitial_ad", hashMap);
                         }
-                        TTBaseVideoActivity.this.Q();
+                        u.e("AdEvent", "pangolin ad show " + aj.a(TTBaseVideoActivity.this.s, (View) null));
+                        TTBaseVideoActivity.this.S();
                         TTBaseVideoActivity.this.aD.set(true);
                     }
                 }
             });
             a(this.f);
-            if (this.s.c() == 1 && this.s.s()) {
+            if (this.s.i() == 1 && this.s.C()) {
                 a(this.h);
                 g();
             }
@@ -734,38 +755,43 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
                 this.f.setBackgroundColor(-1);
             }
             this.f.getSettings().setDisplayZoomControls(false);
-            this.f.setWebChromeClient(new com.bytedance.sdk.openadsdk.core.widget.webview.b(this.F, this.t) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.16
+            this.f.setWebChromeClient(new com.bytedance.sdk.openadsdk.core.widget.webview.b(this.F, this.t) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.21
                 @Override // com.bytedance.sdk.openadsdk.core.widget.webview.b, android.webkit.WebChromeClient
                 public void onProgressChanged(WebView webView, int i) {
                     super.onProgressChanged(webView, i);
                     try {
-                        if (TTBaseVideoActivity.this.s.t() && TTBaseVideoActivity.this.s.q() && !TTBaseVideoActivity.this.isFinishing() && TTBaseVideoActivity.this.f6097b != null) {
-                            TTBaseVideoActivity.this.f6097b.setProgress(i);
+                        if (TTBaseVideoActivity.this.s.D() && TTBaseVideoActivity.this.s.A() && !TTBaseVideoActivity.this.isFinishing() && TTBaseVideoActivity.this.b != null) {
+                            TTBaseVideoActivity.this.b.setProgress(i);
                         }
                     } catch (Throwable th) {
                     }
                 }
             });
-            this.f.setDownloadListener(new DownloadListener() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.17
+            this.f.setDownloadListener(new DownloadListener() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.22
                 @Override // android.webkit.DownloadListener
                 public void onDownloadStart(String str2, String str3, String str4, String str5, long j) {
                     if (TTBaseVideoActivity.this.J.containsKey(str2)) {
-                        a aVar = TTBaseVideoActivity.this.J.get(str2);
+                        com.bytedance.sdk.openadsdk.downloadnew.core.a aVar = TTBaseVideoActivity.this.J.get(str2);
                         if (aVar != null) {
                             aVar.e();
                         }
                     } else {
-                        if (TTBaseVideoActivity.this.s != null && TTBaseVideoActivity.this.s.I() != null) {
-                            TTBaseVideoActivity.this.s.I().a();
+                        if (TTBaseVideoActivity.this.s != null && TTBaseVideoActivity.this.s.U() != null) {
+                            TTBaseVideoActivity.this.s.U().a();
                         }
-                        a a2 = com.bytedance.sdk.openadsdk.downloadnew.a.a(TTBaseVideoActivity.this, str2, TTBaseVideoActivity.this.s, TTBaseVideoActivity.this.aE);
+                        com.bytedance.sdk.openadsdk.downloadnew.core.a a2 = com.bytedance.sdk.openadsdk.downloadnew.a.a(TTBaseVideoActivity.this, str2, TTBaseVideoActivity.this.s, TTBaseVideoActivity.this.aE);
                         TTBaseVideoActivity.this.J.put(str2, a2);
                         a2.e();
                     }
-                    TTBaseVideoActivity.this.S();
+                    TTBaseVideoActivity.this.U();
                 }
             });
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public int P() {
+        return this.aB == this.aC ? 900 : 950;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -777,7 +803,7 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b(String str) {
-        if (this.s.c() != 1 || !this.s.s()) {
+        if (this.s.i() != 1 || !this.s.C()) {
             boolean a2 = a(this.w, false);
             this.V.set(true);
             if (!a2) {
@@ -792,7 +818,7 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
     /* JADX INFO: Access modifiers changed from: protected */
     public void i() {
         if (this.n != null) {
-            this.n.setText(this.ah ? A() : z());
+            this.n.setText(this.ah ? B() : A());
         }
     }
 
@@ -800,8 +826,8 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
     public void j() {
         if (this.m != null) {
             int i = 6870;
-            if (this.s.U() != null) {
-                i = this.s.U().f();
+            if (this.s.ah() != null) {
+                i = this.s.ah().f();
             }
             this.m.setText(String.format(ac.a(this, "tt_comment_num"), i > 10000 ? (i / 10000) + "万" : i + ""));
         }
@@ -810,24 +836,24 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
     /* JADX INFO: Access modifiers changed from: protected */
     public void k() {
         if (this.k != null) {
-            if (this.s.I() != null && !TextUtils.isEmpty(this.s.I().a())) {
-                com.bytedance.sdk.openadsdk.i.e.a(this.e).a(this.s.I().a(), this.k);
+            if (this.s.U() != null && !TextUtils.isEmpty(this.s.U().a())) {
+                com.bytedance.sdk.openadsdk.h.d.a(this.e).a(this.s.U().a(), this.k);
             } else {
                 this.k.setImageResource(ac.d(this, "tt_ad_logo_small"));
             }
         }
         if (this.l != null) {
-            if (this.R == 15 && this.s.U() != null && !TextUtils.isEmpty(this.s.U().c())) {
-                this.l.setText(this.s.U().c());
+            if (this.R == 15 && this.s.ah() != null && !TextUtils.isEmpty(this.s.ah().c())) {
+                this.l.setText(this.s.ah().c());
             } else {
-                this.l.setText(this.s.Q());
+                this.l.setText(this.s.ad());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void l() {
-        this.O = this.s.F() != null ? this.s.F().i() : null;
+        this.O = this.s.R() != null ? this.s.R().j() : null;
         if (!TextUtils.isEmpty(this.O) && this.R == 15) {
             if (this.O.contains("?")) {
                 this.O += "&orientation=portrait";
@@ -839,13 +865,13 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void m() {
-        if (this.f6097b != null) {
-            if (this.s == null || !this.s.q() || !this.s.t()) {
-                this.f6097b.a();
+        if (this.b != null) {
+            if (this.s == null || !this.s.A() || !this.s.D()) {
+                this.b.a();
                 return;
             }
-            this.f6097b.b();
-            if (this.s != null && this.s.t() && this.s.r()) {
+            this.b.b();
+            if (this.s != null && this.s.D() && this.s.B()) {
                 this.I.sendMessageDelayed(d(2), 10000L);
             }
         }
@@ -868,7 +894,7 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void n() {
-        if (this.s.s() && this.s.c() == 1) {
+        if (this.s.C() && this.s.i() == 1) {
             if (this.aw != null) {
                 ak.a((View) this.aw, 8);
             }
@@ -883,7 +909,7 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
         }
     }
 
-    private void N() {
+    private void Q() {
         this.aj = (LinearLayout) findViewById(ac.e(this, "tt_reward_full_endcard_backup"));
         this.ak = (TTRoundRectImageView) findViewById(ac.e(this, "tt_reward_ad_icon_backup"));
         this.al = (TextView) findViewById(ac.e(this, "tt_reward_ad_appname_backup"));
@@ -900,7 +926,7 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
         }
     }
 
-    private void e(boolean z) {
+    private void f(boolean z) {
         if (!z) {
             if (this.ak != null) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ak.getLayoutParams();
@@ -919,38 +945,38 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
     /* JADX INFO: Access modifiers changed from: protected */
     public void p() {
         if (this.ak != null) {
-            if (this.s.I() != null && !TextUtils.isEmpty(this.s.I().a())) {
-                com.bytedance.sdk.openadsdk.i.e.a(this.e).a(this.s.I().a(), this.ak);
+            if (this.s.U() != null && !TextUtils.isEmpty(this.s.U().a())) {
+                com.bytedance.sdk.openadsdk.h.d.a(this.e).a(this.s.U().a(), this.ak);
             } else {
                 this.ak.setImageResource(ac.d(this, "tt_ad_logo_small"));
             }
         }
         if (this.al != null) {
-            if (this.s.U() != null && !TextUtils.isEmpty(this.s.U().c())) {
-                this.al.setText(this.s.U().c());
+            if (this.s.ah() != null && !TextUtils.isEmpty(this.s.ah().c())) {
+                this.al.setText(this.s.ah().c());
             } else {
-                this.al.setText(this.s.Q());
+                this.al.setText(this.s.ad());
             }
         }
         if (this.an != null) {
             int i = 6870;
-            if (this.s.U() != null) {
-                i = this.s.U().f();
+            if (this.s.ah() != null) {
+                i = this.s.ah().f();
             }
             this.an.setText(String.format(ac.a(this, "tt_comment_num_backup"), i > 10000 ? (i / 10000) + "万" : i + ""));
         }
         if (this.ao != null) {
-            this.ao.setText(z());
+            this.ao.setText(A());
         }
     }
 
-    private void O() {
+    private void R() {
         if (this.s != null) {
-            int d = aj.d(this.s.W());
-            com.bytedance.sdk.openadsdk.h.a.d f = com.bytedance.sdk.openadsdk.h.a.d.b().a(this.at).c(String.valueOf(d)).f(aj.h(this.s.W()));
+            int d = aj.d(this.s.aj());
+            com.bytedance.sdk.openadsdk.g.a.c f = com.bytedance.sdk.openadsdk.g.a.c.b().a(this.at).c(String.valueOf(d)).f(aj.h(this.s.aj()));
             f.b(this.ar).g(this.as);
-            f.h(this.s.W()).d(this.s.T());
-            com.bytedance.sdk.openadsdk.h.a.a().l(f);
+            f.h(this.s.aj()).d(this.s.ag());
+            com.bytedance.sdk.openadsdk.g.a.a().l(f);
         }
     }
 
@@ -969,6 +995,128 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
         }
     }
 
+    private void T() {
+        if (this.bc == null) {
+            if (i.d().v()) {
+                com.bytedance.sdk.openadsdk.playable.d.a(new d.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.23
+                    @Override // com.bytedance.sdk.openadsdk.playable.d.a
+                    public void a(String str, String str2) {
+                        u.b(str, str2);
+                    }
+
+                    @Override // com.bytedance.sdk.openadsdk.playable.d.a
+                    public void a(String str, String str2, Throwable th) {
+                        u.c(str, str2, th);
+                    }
+                });
+            }
+            this.bc = com.bytedance.sdk.openadsdk.playable.e.a(this.f, new com.bytedance.sdk.openadsdk.playable.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.24
+                @Override // com.bytedance.sdk.openadsdk.playable.a
+                public com.bytedance.sdk.openadsdk.playable.b a() {
+                    String f = com.bytedance.sdk.openadsdk.a.a.f();
+                    char c = 65535;
+                    switch (f.hashCode()) {
+                        case 1653:
+                            if (f.equals("2g")) {
+                                c = 0;
+                                break;
+                            }
+                            break;
+                        case 1684:
+                            if (f.equals("3g")) {
+                                c = 1;
+                                break;
+                            }
+                            break;
+                        case 1715:
+                            if (f.equals("4g")) {
+                                c = 2;
+                                break;
+                            }
+                            break;
+                        case 1746:
+                            if (f.equals("5g")) {
+                                c = 3;
+                                break;
+                            }
+                            break;
+                        case 3649301:
+                            if (f.equals("wifi")) {
+                                c = 4;
+                                break;
+                            }
+                            break;
+                    }
+                    switch (c) {
+                        case 0:
+                            return com.bytedance.sdk.openadsdk.playable.b.TYPE_2G;
+                        case 1:
+                            return com.bytedance.sdk.openadsdk.playable.b.TYPE_3G;
+                        case 2:
+                            return com.bytedance.sdk.openadsdk.playable.b.TYPE_4G;
+                        case 3:
+                            return com.bytedance.sdk.openadsdk.playable.b.TYPE_5G;
+                        case 4:
+                            return com.bytedance.sdk.openadsdk.playable.b.TYPE_WIFI;
+                        default:
+                            return com.bytedance.sdk.openadsdk.playable.b.TYPE_UNKNOWN;
+                    }
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.playable.a
+                public void a(String str, JSONObject jSONObject) {
+                    TTBaseVideoActivity.this.F.a(str, jSONObject);
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.playable.a
+                public void a(JSONObject jSONObject) {
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.playable.a
+                public void b(JSONObject jSONObject) {
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.playable.a
+                public void b() {
+                    TTBaseVideoActivity.this.Z();
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.playable.a
+                public void c(JSONObject jSONObject) {
+                }
+            }).e(com.bytedance.sdk.openadsdk.a.a.a(com.bytedance.sdk.openadsdk.core.p.a())).a(com.bytedance.sdk.openadsdk.a.a.a()).a("sdkEdition", com.bytedance.sdk.openadsdk.a.a.c()).b(com.bytedance.sdk.openadsdk.a.a.e()).d(com.bytedance.sdk.openadsdk.a.a.d()).c(false).a(false);
+            if (l.d(this.s)) {
+                this.bc.b(true);
+            } else {
+                this.bc.b(false);
+            }
+            if (this.s != null && !TextUtils.isEmpty(this.s.j())) {
+                this.bc.c(this.s.j());
+            }
+            Set<String> j = this.bc.j();
+            final WeakReference weakReference = new WeakReference(this.bc);
+            for (String str : j) {
+                if (!"subscribe_app_ad".equals(str) && !"adInfo".equals(str) && !"webview_time_track".equals(str) && !"download_app_ad".equals(str)) {
+                    this.F.a().a(str, (com.bytedance.sdk.openadsdk.e.a.e<?, ?>) new com.bytedance.sdk.openadsdk.e.a.e<JSONObject, JSONObject>() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.25
+                        /* JADX DEBUG: Method merged with bridge method */
+                        @Override // com.bytedance.sdk.openadsdk.e.a.e
+                        public JSONObject a(@NonNull JSONObject jSONObject, @NonNull com.bytedance.sdk.openadsdk.e.a.f fVar) throws Exception {
+                            try {
+                                com.bytedance.sdk.openadsdk.playable.e eVar = (com.bytedance.sdk.openadsdk.playable.e) weakReference.get();
+                                if (eVar == null) {
+                                    return null;
+                                }
+                                return eVar.b(a(), jSONObject);
+                            } catch (Throwable th) {
+                                return null;
+                            }
+                        }
+                    });
+                }
+            }
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: package-private */
     public void s() {
         HashMap hashMap = new HashMap();
@@ -977,17 +1125,20 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
         }
         this.aJ = r();
         this.F = new x(this.e);
-        this.F.b(this.f).a(this.s).a(this.K).a(this.j).b(this.L).a(this.M).a(this.av).a(this.aM).a(this.aN).a(this.aO).c(aj.h(this.s)).a(this.f).a(this.aJ).a(hashMap);
+        this.F.b(this.f).a(this.s).b(this.K).a(this.j).c(this.L).a(this.M).a(this.av).a(this.aM).a(this.aN).a(this.aO).d(aj.i(this.s)).a(this.f).a(this.aJ).a(hashMap);
+        if (l.b(this.s)) {
+            T();
+        }
         this.G = new x(this);
-        this.G.b(this.h).a(this.s).a(this.K).b(this.L).a(this.M).a(this.h).a(this.aJ).c(aj.h(this.s));
-        this.F.a(new com.bytedance.sdk.openadsdk.g.b() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.18
-            @Override // com.bytedance.sdk.openadsdk.g.b
+        this.G.b(this.h).a(this.s).b(this.K).c(this.L).a(this.M).a(this.h).a(this.aJ).d(aj.i(this.s));
+        this.F.a(new com.bytedance.sdk.openadsdk.f.b() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.2
+            @Override // com.bytedance.sdk.openadsdk.f.b
             public void a(boolean z, int i, String str) {
                 u.b("end card load finish: ", "code=" + i + " msg=" + str + " isRenderSuc=" + z);
                 if (z) {
                     TTBaseVideoActivity.this.aq = true;
                 }
-                if (TTBaseVideoActivity.this.aJ != null && l.e(TTBaseVideoActivity.this.s) && !l.a(TTBaseVideoActivity.this.s)) {
+                if (TTBaseVideoActivity.this.aJ != null && l.g(TTBaseVideoActivity.this.s) && !l.b(TTBaseVideoActivity.this.s)) {
                     u.b("TTBaseVideoActivity", "TimeTrackLog report from js " + z);
                     if (z) {
                         TTBaseVideoActivity.this.aJ.b();
@@ -997,8 +1148,8 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
                 }
             }
         });
-        this.F.a(new h() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.19
-            @Override // com.bytedance.sdk.openadsdk.g.h
+        this.F.a(new h() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.3
+            @Override // com.bytedance.sdk.openadsdk.f.h
             public void a() {
                 SSWebView sSWebView = TTBaseVideoActivity.this.g.get();
                 if (sSWebView == null) {
@@ -1009,7 +1160,7 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
                 u.b("TTBaseVideoActivity", "js make webView onPause OK");
             }
 
-            @Override // com.bytedance.sdk.openadsdk.g.h
+            @Override // com.bytedance.sdk.openadsdk.f.h
             public void b() {
                 SSWebView sSWebView = TTBaseVideoActivity.this.g.get();
                 if (sSWebView == null) {
@@ -1042,21 +1193,21 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
                 this.B.a();
             }
             if (this.c != null) {
-                if (l.b(this.s)) {
+                if (l.d(this.s)) {
                     this.c.setShowSkip(true);
                 } else {
                     this.c.setShowSkip(false);
                 }
-                P();
-                if (((this instanceof TTFullScreenExpressVideoActivity) || (this instanceof TTRewardExpressVideoActivity)) && l.a(this.s)) {
+                V();
+                if (((this instanceof TTFullScreenExpressVideoActivity) || (this instanceof TTRewardExpressVideoActivity)) && l.b(this.s)) {
                     this.c.setShowSound(true);
                 }
             }
             if (!this.U.getAndSet(true)) {
-                if (!l.a(this.s, this.ap.get(), this.aq) && !l.a(this.s)) {
+                if (!l.a(this.s, this.ap.get(), this.aq) && !l.b(this.s)) {
                     u.b("TTBaseVideoActivity", "isEndCardLoadSuc=" + this.aq + " so load back up end card");
                     if (this.aJ != null) {
-                        if (!l.e(this.s)) {
+                        if (!l.g(this.s)) {
                             u.b("TTBaseVideoActivity", "TimeTrackLog report 408 from backup page");
                             this.aJ.a(408, "end_card_timeout");
                         }
@@ -1065,12 +1216,12 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
                     }
                     ak.a((View) this.f, 8);
                     ak.a((View) this.aj, 0);
+                    W();
+                    Y();
                     R();
-                    U();
-                    O();
                     return;
                 }
-                if (this.aJ != null && !l.e(this.s) && !l.a(this.s)) {
+                if (this.aJ != null && !l.g(this.s) && !l.b(this.s)) {
                     u.b("TTBaseVideoActivity", "TimeTrackLog report Success from Android");
                     this.aJ.b();
                 }
@@ -1078,21 +1229,21 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
                 ak.a((View) this.i, 0.0f);
                 ak.a((View) this.j, 0.0f);
                 ak.a((View) this.f, 0);
-                if (this.s != null && this.s.s()) {
+                if (this.s != null && this.s.C()) {
                     boolean z = this instanceof TTRewardVideoActivity;
                     int p = com.bytedance.sdk.openadsdk.core.p.h().p(String.valueOf(this.T));
-                    if (this.s.c() == 1) {
+                    if (this.s.i() == 1) {
                         p = (com.bytedance.sdk.openadsdk.core.p.h().o(String.valueOf(this.T)) + 1) * 1000;
                     }
                     if (p == -1) {
-                        R();
+                        W();
                     } else if (p >= 0) {
                         this.I.sendEmptyMessageDelayed(600, p);
                     }
-                } else if (this.s != null && !this.s.s()) {
+                } else if (this.s != null && !this.s.C()) {
                     int l = com.bytedance.sdk.openadsdk.core.p.h().l(String.valueOf(this.T));
                     if (l == -1) {
-                        R();
+                        W();
                     } else if (l >= 0) {
                         this.I.sendEmptyMessageDelayed(600, l);
                     }
@@ -1104,19 +1255,22 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
                 if (this.F != null) {
                     this.F.b(true);
                 }
+                if (this.bc != null) {
+                    this.bc.b(true);
+                }
             }
         }
     }
 
-    private void P() {
-        if (this.s.ak()) {
+    private void V() {
+        if (this.s.aC()) {
             this.c.setShowDislike(true);
         } else {
             this.c.setShowDislike(false);
         }
     }
 
-    private void R() {
+    private void W() {
         this.c.c();
         ak.a((View) this.i, 0);
         ak.a((View) this.j, 0);
@@ -1124,17 +1278,17 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean u() {
-        return (this.D == null || this.D.t() == null || !this.D.t().g()) ? false : true;
+        return (this.D == null || this.D.u() == null || !this.D.u().g()) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean v() {
-        return (this.D == null || this.D.t() == null || !this.D.t().i()) ? false : true;
+        return (this.D == null || this.D.u() == null || !this.D.u().i()) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean w() {
-        return this.D != null && this.D.w();
+        return this.D != null && this.D.x();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1147,22 +1301,79 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
         }
     }
 
+    boolean x() {
+        return this.s != null && this.s.I() == 1;
+    }
+
+    private void a(int i, int i2, int i3, int i4) {
+        if (x()) {
+            a aVar = new a(i, i2, i3, i4);
+            aVar.a(System.currentTimeMillis());
+            a(aVar, (View) this.d, (View) null, true);
+        }
+    }
+
+    private void a(a aVar, View view, View view2, boolean z) {
+        HashMap hashMap;
+        if (TextUtils.isEmpty(this.af)) {
+            hashMap = null;
+        } else {
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("rit_scene", this.af);
+            hashMap = hashMap2;
+        }
+        String str = "";
+        if (this instanceof TTFullScreenVideoActivity) {
+            str = "fullscreen_interstitial_ad";
+        }
+        String str2 = this instanceof TTRewardVideoActivity ? "rewarded_video" : str;
+        if (aVar != null && this.s != null) {
+            com.bytedance.sdk.openadsdk.c.d.a(this.e, "click_other", this.s, a(aVar.b, aVar.c, aVar.d, aVar.e, aVar.f, aVar.g, view, view2), str2, z, hashMap);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes6.dex */
+    public class a {
+        private int b;
+        private int c;
+        private int d;
+        private int e;
+        private long f;
+        private long g;
+
+        a(int i, int i2, int i3, int i4) {
+            this.b = i;
+            this.c = i2;
+            this.d = i3;
+            this.e = i4;
+        }
+
+        public void a(long j) {
+            this.f = j;
+        }
+    }
+
+    protected com.bytedance.sdk.openadsdk.core.d.f a(int i, int i2, int i3, int i4, long j, long j2, View view, View view2) {
+        return new f.a().e(i).d(i2).c(i3).b(i4).b(j).a(j2).b(ak.a(view)).a(ak.a(view2)).c(ak.c(view)).d(ak.c(view2)).f(1).g(-1).h(0).a((SparseArray<c.a>) null).a(i.d().b() ? 1 : 2).a();
+    }
+
     /* JADX INFO: Access modifiers changed from: package-private */
     @SuppressLint({"ClickableViewAccessibility"})
-    public void x() {
+    public void y() {
         if (this.s != null) {
             String str = this instanceof TTRewardVideoActivity ? "rewarded_video" : "fullscreen_interstitial_ad";
             final String str2 = str;
-            this.aR = new com.bytedance.sdk.openadsdk.core.a.e(this, this.s, str, this.M) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.20
+            this.aR = new com.bytedance.sdk.openadsdk.core.a.e(this, this.s, str, this.M) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.4
                 @Override // com.bytedance.sdk.openadsdk.core.a.e
                 public void a_(View view, int i, int i2, int i3, int i4) {
                     TTBaseVideoActivity.this.a(view, i, i2, i3, i4);
                     TTBaseVideoActivity.this.aS = view.getId() == ac.e(TTBaseVideoActivity.this, "tt_video_reward_bar");
                     TTBaseVideoActivity.this.aL = view;
-                    if (view.getId() == ac.e(TTBaseVideoActivity.this, "tt_playable_play") && TTBaseVideoActivity.this.s.t()) {
+                    if (view.getId() == ac.e(TTBaseVideoActivity.this, "tt_playable_play") && TTBaseVideoActivity.this.s.D()) {
                         HashMap hashMap = new HashMap();
-                        if (TTBaseVideoActivity.this.s.F() != null) {
-                            hashMap.put("playable_url", TTBaseVideoActivity.this.s.F().i());
+                        if (TTBaseVideoActivity.this.s.R() != null) {
+                            hashMap.put("playable_url", TTBaseVideoActivity.this.s.R().j());
                         }
                         com.bytedance.sdk.openadsdk.c.d.k(TTBaseVideoActivity.this, TTBaseVideoActivity.this.s, str2, "click_playable_download_button_loading", hashMap);
                     }
@@ -1187,8 +1398,8 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
             }
             if (this.E != null) {
                 this.aR.a(this.E);
-                this.E.a(1, new a.InterfaceC1019a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.2
-                    @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a.InterfaceC1019a
+                this.E.a(1, new a.InterfaceC1029a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.5
+                    @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a.InterfaceC1029a
                     public boolean a(int i, l lVar, String str3, String str4, Object obj) {
                         if (i == 1 && lVar != null && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4)) {
                             if (str3.equals("rewarded_video") && str4.equals("click_start")) {
@@ -1230,7 +1441,7 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
                                         com.bytedance.sdk.openadsdk.c.d.i(TTBaseVideoActivity.this.e, TTBaseVideoActivity.this.s, str3, "click_play_open", null);
                                         break;
                                 }
-                            } else if (str3.equals("rewarded_video_landingpage") && "click_open".equals(str4) && TTBaseVideoActivity.this.s.s() && TTBaseVideoActivity.this.s.c() == 1) {
+                            } else if (str3.equals("rewarded_video_landingpage") && "click_open".equals(str4) && TTBaseVideoActivity.this.s.C() && TTBaseVideoActivity.this.s.i() == 1) {
                                 com.bytedance.sdk.openadsdk.c.d.i(TTBaseVideoActivity.this.e, TTBaseVideoActivity.this.s, str3, "click_play_open", null);
                             }
                         }
@@ -1238,19 +1449,19 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
                     }
                 });
             }
-            if (this.f6097b != null && this.f6097b.getPlayView() != null && this.s != null && this.s.t()) {
-                this.f6097b.getPlayView().setOnClickListener(this.aR);
-                this.f6097b.getPlayView().setOnTouchListener(this.aR);
+            if (this.b != null && this.b.getPlayView() != null && this.s != null && this.s.D()) {
+                this.b.getPlayView().setOnClickListener(this.aR);
+                this.b.getPlayView().setOnTouchListener(this.aR);
             }
-            if (this.s != null && this.s.i() != null) {
-                if (this.s.i().e) {
+            if (this.s != null && this.s.o() != null) {
+                if (this.s.o().e) {
                     this.n.setOnClickListener(this.aR);
                     this.n.setOnTouchListener(this.aR);
                 } else {
-                    this.n.setOnClickListener(this.aX);
+                    this.n.setOnClickListener(this.bf);
                 }
                 if (this.ag) {
-                    if (this.s.i().f6493a) {
+                    if (this.s.o().f4389a) {
                         ak.a((View) this.d, (View.OnClickListener) this.aR, "TTBaseVideoActivity#mRlDownloadBar");
                         ak.a((View) this.d, (View.OnTouchListener) this.aR, "TTBaseVideoActivity#mRlDownloadBar");
                         this.l.setOnClickListener(this.aR);
@@ -1262,65 +1473,160 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
                         this.k.setOnClickListener(this.aR);
                         this.k.setOnTouchListener(this.aR);
                     } else {
-                        ak.a(this.d, this.aX, "TTBaseVideoActivity#mRlDownloadBar");
-                        this.l.setOnClickListener(this.aX);
-                        this.m.setOnClickListener(this.aX);
-                        this.r.setOnClickListener(this.aX);
-                        this.k.setOnClickListener(this.aX);
+                        ak.a(this.d, this.bf, "TTBaseVideoActivity#mRlDownloadBar");
+                        this.l.setOnClickListener(this.bf);
+                        this.m.setOnClickListener(this.bf);
+                        this.r.setOnClickListener(this.bf);
+                        this.k.setOnClickListener(this.bf);
                     }
-                } else if (this.s.i().c) {
+                } else if (this.s.o().c) {
                     ak.a((View) this.d, (View.OnClickListener) this.aR, "TTBaseVideoActivity#mRlDownloadBar");
                     ak.a((View) this.d, (View.OnTouchListener) this.aR, "TTBaseVideoActivity#mRlDownloadBar");
                 } else {
-                    ak.a(this.d, this.aX, "TTBaseVideoActivity#mRlDownloadBar");
+                    ak.a(this.d, this.bf, "TTBaseVideoActivity#mRlDownloadBar");
                 }
             }
-            if (this.o != null && this.s != null && this.s.i() != null) {
-                if (this.s.i().f) {
+            if (this.o != null && this.s != null && this.s.o() != null) {
+                if (this.s.o().f) {
                     this.o.setOnClickListener(this.aR);
                 } else {
-                    this.o.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.3
+                    this.o.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.6
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             TTBaseVideoActivity.this.a(view);
+                            TTBaseVideoActivity.this.b(view, 0, 0, 0, 0);
                         }
                     });
                 }
             }
             if (this.ag) {
-                if (this.s.i() != null && this.p != null) {
+                if (this.s.o() != null && this.p != null) {
                     ak.a((View) this.p, 0);
                     RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.p.getLayoutParams();
                     layoutParams.height = this.ai;
                     this.p.setLayoutParams(layoutParams);
-                    if (this.s.i().f6494b) {
+                    if (this.s.o().b) {
                         this.p.setOnClickListener(this.aR);
                         this.p.setOnTouchListener(this.aR);
                     } else {
-                        this.p.setOnClickListener(this.aX);
+                        this.p.setOnClickListener(this.bf);
                     }
                 }
-                if (this.s.i() != null && this.q != null) {
+                if (this.s.o() != null && this.q != null) {
                     ak.a((View) this.q, 0);
                     RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.q.getLayoutParams();
                     layoutParams2.height = this.ai;
                     this.q.setLayoutParams(layoutParams2);
-                    if (this.s.i().d) {
+                    if (this.s.o().d) {
                         this.q.setOnClickListener(this.aR);
                         this.q.setOnTouchListener(this.aR);
                     } else {
-                        this.q.setOnClickListener(this.aX);
+                        this.q.setOnClickListener(this.bf);
                     }
                 }
             }
-            ak.a(this.aj, new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.4
+            ak.a(this.aj, new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.7
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                 }
             }, "TTBaseVideoActivity#mLLEndCardBackup");
             this.ao.setOnClickListener(this.aR);
             this.ao.setOnTouchListener(this.aR);
+            a(this.E, this.F);
         }
+    }
+
+    private void a(com.bytedance.sdk.openadsdk.downloadnew.core.a aVar, final x xVar) {
+        if (aVar != null && xVar != null) {
+            aVar.a(new TTAppDownloadListener() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.8
+                @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+                public void onIdle() {
+                    if (System.currentTimeMillis() - TTBaseVideoActivity.this.aW > NativeExpressView.u) {
+                        TTBaseVideoActivity.this.a(xVar, 1, 0);
+                        TTBaseVideoActivity.this.aW = System.currentTimeMillis();
+                    }
+                    TTBaseVideoActivity.this.c("点击开始下载");
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+                public void onDownloadActive(long j, long j2, String str, String str2) {
+                    if (System.currentTimeMillis() - TTBaseVideoActivity.this.aY > NativeExpressView.u) {
+                        TTBaseVideoActivity.this.a(xVar, j2, j, 3);
+                        TTBaseVideoActivity.this.aY = System.currentTimeMillis();
+                    }
+                    if (j > 0) {
+                        TTBaseVideoActivity.this.c("已下载" + ((int) ((100 * j2) / j)) + "%");
+                    }
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+                public void onDownloadPaused(long j, long j2, String str, String str2) {
+                    if (System.currentTimeMillis() - TTBaseVideoActivity.this.aX > NativeExpressView.u) {
+                        TTBaseVideoActivity.this.a(xVar, j2, j, 2);
+                        TTBaseVideoActivity.this.aX = System.currentTimeMillis();
+                    }
+                    TTBaseVideoActivity.this.c("下载暂停");
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+                public void onDownloadFailed(long j, long j2, String str, String str2) {
+                    if (System.currentTimeMillis() - TTBaseVideoActivity.this.aZ > NativeExpressView.u) {
+                        TTBaseVideoActivity.this.a(xVar, j2, j, 4);
+                        TTBaseVideoActivity.this.aZ = System.currentTimeMillis();
+                    }
+                    TTBaseVideoActivity.this.c("下载失败");
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+                public void onDownloadFinished(long j, String str, String str2) {
+                    if (System.currentTimeMillis() - TTBaseVideoActivity.this.ba > NativeExpressView.u) {
+                        TTBaseVideoActivity.this.a(xVar, 5, 100);
+                        TTBaseVideoActivity.this.ba = System.currentTimeMillis();
+                    }
+                    TTBaseVideoActivity.this.c("点击安装");
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+                public void onInstalled(String str, String str2) {
+                    if (System.currentTimeMillis() - TTBaseVideoActivity.this.bb > NativeExpressView.u) {
+                        TTBaseVideoActivity.this.a(xVar, 6, 100);
+                        TTBaseVideoActivity.this.bb = System.currentTimeMillis();
+                    }
+                    TTBaseVideoActivity.this.c("点击打开");
+                }
+            });
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(x xVar, long j, long j2, int i) {
+        if (j2 > 0) {
+            a(xVar, i, (int) ((100 * j) / j2));
+        }
+    }
+
+    public void a(x xVar, int i, int i2) {
+        if (xVar != null && !this.aV.get()) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("downloadStatus", i);
+                jSONObject.put("downloadProcessRate", i2);
+                xVar.b("showDownloadStatus", jSONObject);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void c(final String str) {
+        runOnUiThread(new Runnable() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.9
+            @Override // java.lang.Runnable
+            public void run() {
+                if (!TextUtils.isEmpty(str) && TTBaseVideoActivity.this.ao != null) {
+                    TTBaseVideoActivity.this.ao.setText(str);
+                }
+            }
+        });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1335,26 +1641,49 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
             } else if (view.getId() == ac.e(this, "tt_reward_ad_icon")) {
                 a("click_play_logo", (JSONObject) null);
             } else if (view.getId() == ac.e(this, "tt_video_reward_bar") || view.getId() == ac.e(this, "tt_click_lower_non_content_layout") || view.getId() == ac.e(this, "tt_click_upper_non_content_layout")) {
-                a("click_start_play_bar", y());
+                a("click_start_play_bar", z());
             } else if (view.getId() == ac.e(this, "tt_reward_ad_download")) {
-                a("click_start_play", y());
+                a("click_start_play", z());
             } else if (view.getId() == ac.e(this, "tt_video_reward_container")) {
-                a("click_video", y());
+                a("click_video", z());
             } else if (view.getId() == ac.e(this, "tt_reward_ad_download_backup")) {
-                a("fallback_endcard_click", y());
+                a("fallback_endcard_click", z());
             }
         }
     }
 
-    protected JSONObject y() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(View view, int i, int i2, int i3, int i4) {
+        if (x() && view != null) {
+            if (view.getId() == ac.e(this, "tt_rb_score")) {
+                a(i, i2, i3, i4);
+            } else if (view.getId() == ac.e(this, "tt_comment_vertical")) {
+                a(i, i2, i3, i4);
+            } else if (view.getId() == ac.e(this, "tt_reward_ad_appname")) {
+                a(i, i2, i3, i4);
+            } else if (view.getId() == ac.e(this, "tt_reward_ad_icon")) {
+                a(i, i2, i3, i4);
+            } else if (view.getId() == ac.e(this, "tt_video_reward_bar") || view.getId() == ac.e(this, "tt_click_lower_non_content_layout") || view.getId() == ac.e(this, "tt_click_upper_non_content_layout")) {
+                a(i, i2, i3, i4);
+            } else if (view.getId() == ac.e(this, "tt_reward_ad_download")) {
+                a(i, i2, i3, i4);
+            } else if (view.getId() == ac.e(this, "tt_video_reward_container")) {
+                a(i, i2, i3, i4);
+            } else if (view.getId() == ac.e(this, "tt_reward_ad_download_backup")) {
+                a(i, i2, i3, i4);
+            }
+        }
+    }
+
+    protected JSONObject z() {
         int i;
         long j = 0;
         try {
             if (this.D == null) {
                 i = 0;
             } else {
-                j = this.D.p();
-                i = this.D.q();
+                j = this.D.q();
+                i = this.D.r();
             }
             JSONObject jSONObject = new JSONObject();
             try {
@@ -1369,17 +1698,17 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
         }
     }
 
-    protected String z() {
+    protected String A() {
         if (this.s == null) {
             return "立即下载";
         }
-        if (TextUtils.isEmpty(this.s.S())) {
-            if (this.s.H() == 4) {
+        if (TextUtils.isEmpty(this.s.af())) {
+            if (this.s.T() == 4) {
                 return "立即下载";
             }
             return "查看详情";
         }
-        return this.s.S();
+        return this.s.af();
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(11:1|(1:3)(1:63)|4|5|(2:9|(6:11|12|13|(1:15)(1:(1:55))|16|(1:18)(5:20|(3:22|(1:(1:25)(1:(1:33)))|34)(2:35|(2:(1:(1:51)(1:(1:53)))|34)(1:(1:42)(2:(1:44)|34)))|(1:29)|30|31)))|60|12|13|(0)(0)|16|(0)(0)) */
@@ -1393,12 +1722,12 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    protected String A() {
+    protected String B() {
         boolean z;
-        String f;
+        String g;
         String str = "下载";
-        String b2 = aj.b(this);
-        String str2 = b2 == null ? "" : b2;
+        String b = aj.b(this);
+        String str2 = b == null ? "" : b;
         try {
         } catch (Throwable th) {
             z = true;
@@ -1413,43 +1742,43 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
                     str = "Install";
                 }
                 if (this.s != null) {
-                    if (TextUtils.isEmpty(this.s.S())) {
-                        if (this.s.H() != 4) {
+                    if (TextUtils.isEmpty(this.s.af())) {
+                        if (this.s.T() != 4) {
                             if (z) {
-                                f = "查看";
+                                g = "查看";
                             } else if (z2) {
-                                f = "View";
+                                g = "View";
                             }
                         }
-                        f = str;
+                        g = str;
                     } else {
-                        str = this.s.S();
+                        str = this.s.af();
                         if (str != null && aj.j(str) && str.length() > 2) {
                             if (z) {
-                                f = f(true);
+                                g = g(true);
                             } else {
                                 if (z2) {
-                                    f = f(false);
+                                    g = g(false);
                                 }
-                                f = str;
+                                g = str;
                             }
                         } else {
                             if (str != null && !aj.j(str) && str.length() > 7) {
                                 if (z) {
-                                    f = f(true);
+                                    g = g(true);
                                 } else if (z2) {
-                                    f = f(false);
+                                    g = g(false);
                                 }
                             }
-                            f = str;
+                            g = str;
                         }
                     }
-                    if (z2 && !aj.j(f)) {
+                    if (z2 && !aj.j(g)) {
                         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.n.getLayoutParams();
                         layoutParams.bottomMargin = ak.c(this, 4.0f);
                         this.n.setLayoutParams(layoutParams);
                     }
-                    return f;
+                    return g;
                 }
                 return str;
             }
@@ -1462,16 +1791,16 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
         }
     }
 
-    private String f(boolean z) {
+    private String g(boolean z) {
         if (this.s == null) {
             return null;
         }
         if (z) {
-            if (this.s.H() != 4) {
+            if (this.s.T() != 4) {
                 return "查看";
             }
             return "下载";
-        } else if (this.s.H() != 4) {
+        } else if (this.s.T() != 4) {
             return "View";
         } else {
             return "Install";
@@ -1479,17 +1808,17 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void B() {
+    public void C() {
         if (this.ah) {
             int[] iArr = {Color.parseColor("#0070FF")};
             com.bytedance.sdk.openadsdk.core.widget.f.a((LinearLayout) findViewById(ac.e(this, "tt_reward_ad_download_layout")), new f.a().a(iArr[0]).b(Color.parseColor("#80000000")).a(iArr).c(ak.c(this, 17.0f)).d(0).e(ak.c(this, 3.0f)));
         }
     }
 
-    void C() {
+    void D() {
         if (this.C == null) {
-            this.C = new c(this, this.s);
-            this.C.a(new c.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.6
+            this.C = new com.bytedance.sdk.openadsdk.dislike.c(this, this.s);
+            this.C.a(new c.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.11
                 @Override // com.bytedance.sdk.openadsdk.dislike.c.a
                 public void a() {
                     TTBaseVideoActivity.this.Y.set(true);
@@ -1507,7 +1836,7 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
                         } else {
                             TTBaseVideoActivity.this.A.a(true);
                             if (TTBaseVideoActivity.this.v()) {
-                                TTBaseVideoActivity.this.D.j();
+                                TTBaseVideoActivity.this.D.k();
                             }
                         }
                     } catch (Throwable th) {
@@ -1520,10 +1849,10 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
                     try {
                         if (!TTBaseVideoActivity.this.Z.get()) {
                             TTBaseVideoActivity.this.Z.set(true);
-                            TTBaseVideoActivity.this.Y();
+                            TTBaseVideoActivity.this.ac();
                         }
                         if (TTBaseVideoActivity.this.v()) {
-                            TTBaseVideoActivity.this.D.j();
+                            TTBaseVideoActivity.this.D.k();
                         }
                     } catch (Throwable th) {
                         u.c("TTBaseVideoActivity", "comment callback selected error: ", th);
@@ -1533,7 +1862,7 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
         }
         if (this.A == null) {
             this.A = new RewardDislikeDialogNew(this, this.s);
-            this.A.setCallback(new RewardDislikeDialogNew.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.7
+            this.A.setCallback(new RewardDislikeDialogNew.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.13
                 @Override // com.bytedance.sdk.openadsdk.component.reward.view.RewardDislikeDialogNew.a
                 public void a(View view) {
                     TTBaseVideoActivity.this.Y.set(true);
@@ -1546,7 +1875,7 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
                 public void b(View view) {
                     TTBaseVideoActivity.this.Y.set(false);
                     if (TTBaseVideoActivity.this.v()) {
-                        TTBaseVideoActivity.this.D.j();
+                        TTBaseVideoActivity.this.D.k();
                     }
                 }
 
@@ -1554,7 +1883,7 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
                 public void a(int i, FilterWord filterWord) {
                     if (!TTBaseVideoActivity.this.Z.get() && filterWord != null && !filterWord.hasSecondOptions()) {
                         TTBaseVideoActivity.this.Z.set(true);
-                        TTBaseVideoActivity.this.Y();
+                        TTBaseVideoActivity.this.ac();
                         TTBaseVideoActivity.this.C.hide();
                     }
                 }
@@ -1579,9 +1908,9 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
         this.aT = true;
         u.b("TTBaseVideoActivity", "onResume mIsActivityShow=" + this.aT + " mIsMute=" + this.P);
         if (this.c != null && this.U.get()) {
-            P();
+            V();
         }
-        if (l.b(this.s) || l.c(this.s)) {
+        if (l.d(this.s) || l.e(this.s)) {
             if (this.aP == 0) {
                 this.P = true;
             }
@@ -1606,14 +1935,14 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
         if (!this.U.get()) {
             if (Build.VERSION.SDK_INT >= 26 || "C8817D".equals(this.ac) || "M5".equals(this.ac) || "R7t".equals(this.ac)) {
                 if (!this.Y.get()) {
-                    D();
+                    E();
                 }
             } else if (v() && !this.Y.get()) {
-                this.D.j();
+                this.D.k();
             }
         }
         if (this.F != null) {
-            this.F.g();
+            this.F.m();
             if (this.f != null) {
                 if (this.f.getVisibility() == 0) {
                     this.F.b(true);
@@ -1633,19 +1962,17 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
         if (this.t != null) {
             this.t.b();
         }
-        if (this.aD.get() && this.s != null && this.s.c() == 1 && this.s.s()) {
-            c("return_foreground");
+        if (this.aD.get() && this.s != null && this.s.i() == 1 && this.s.C()) {
+            d("return_foreground");
             if ((this.ab == null || (this.ab != null && !this.ab.isShowing())) && this.ay > 0) {
                 Message obtain = Message.obtain();
-                if (this.aB == this.aC) {
-                    obtain.what = 900;
-                } else {
-                    obtain.what = 950;
-                }
+                obtain.what = P();
                 obtain.arg1 = this.ay;
-                obtain.arg2 = this.aC;
                 this.I.sendMessage(obtain);
             }
+        }
+        if (this.bc != null) {
+            this.bc.q();
         }
     }
 
@@ -1667,15 +1994,14 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
         if (this.t != null) {
             this.t.c();
         }
-        if (this.s != null && this.s.c() == 1 && this.s.s()) {
-            this.I.removeMessages(700);
+        if (this.s != null && this.s.i() == 1 && this.s.C()) {
             this.I.removeMessages(950);
             this.I.removeMessages(900);
             this.I.removeMessages(600);
-            c("go_background");
+            d("go_background");
         }
         if (this.P) {
-            runOnUiThread(new Runnable() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.8
+            runOnUiThread(new Runnable() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.14
                 @Override // java.lang.Runnable
                 public void run() {
                     if (TTBaseVideoActivity.this.au.b() > 0) {
@@ -1686,18 +2012,18 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
         }
     }
 
-    protected void D() {
+    protected void E() {
         if (!this.V.getAndSet(false) && this.D != null) {
-            if (this.D.t() != null) {
-                com.bytedance.sdk.openadsdk.core.video.c.d t = this.D.t();
-                if (t.i() || t.j()) {
-                    ((com.bytedance.sdk.openadsdk.core.video.b.a) this.D).x();
+            if (this.D.u() != null) {
+                com.bytedance.sdk.openadsdk.core.video.d.d u = this.D.u();
+                if (u.i() || u.j()) {
+                    ((com.bytedance.sdk.openadsdk.core.video.c.a) this.D).y();
                     a(this.w, true);
                 }
-            } else if (this.aY) {
-                ((com.bytedance.sdk.openadsdk.core.video.b.a) this.D).x();
+            } else if (this.bg) {
+                ((com.bytedance.sdk.openadsdk.core.video.c.a) this.D).y();
                 a(this.w, true);
-                this.aY = false;
+                this.bg = false;
             }
         }
     }
@@ -1713,7 +2039,7 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
         }
         if (Build.VERSION.SDK_INT >= 26 || "C8817D".equals(this.ac) || "M5".equals(this.ac) || "R7t".equals(this.ac)) {
             if (!this.Y.get()) {
-                T();
+                X();
             }
         } else {
             try {
@@ -1725,7 +2051,7 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
             }
         }
         if (this.F != null) {
-            this.F.h();
+            this.F.n();
             this.F.b(false);
             b(false);
             a(true, false);
@@ -1733,22 +2059,24 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
         if (this.E != null) {
             this.E.c();
         }
-        if (this.s != null && this.s.c() == 1 && this.s.s()) {
-            this.I.removeMessages(700);
+        if (this.s != null && this.s.i() == 1 && this.s.C()) {
             this.I.removeMessages(950);
             this.I.removeMessages(900);
             this.I.removeMessages(600);
-            c("go_background");
+            d("go_background");
+        }
+        if (this.bc != null) {
+            this.bc.p();
         }
     }
 
-    private void T() {
-        if (this.D != null && this.D.t() != null) {
-            this.w = this.D.m();
-            if (this.D.t().h() || !this.D.t().l()) {
+    private void X() {
+        if (this.D != null && this.D.u() != null) {
+            this.w = this.D.n();
+            if (this.D.u().h() || !this.D.u().l()) {
                 this.D.h();
-                this.D.k();
-                this.aY = true;
+                this.D.l();
+                this.bg = true;
             }
         }
     }
@@ -1770,13 +2098,14 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
         aa.a(this.e, this.f);
         aa.a(this.f);
         if (this.D != null) {
-            this.D.k();
+            this.D.l();
             this.D = null;
         }
         this.f = null;
         if (this.F != null) {
-            this.F.i();
+            this.F.o();
         }
+        this.aV.set(true);
         if (this.E != null) {
             this.E.d();
         }
@@ -1785,7 +2114,7 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
         }
         if (this.au != null) {
             this.au.f();
-            this.au.a((com.bytedance.sdk.openadsdk.g.f) null);
+            this.au.a((com.bytedance.sdk.openadsdk.f.f) null);
         }
         b(getApplicationContext());
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
@@ -1794,6 +2123,9 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
             } catch (Throwable th) {
                 u.c("TTBaseVideoActivity", "remove from ITTAppDownloadListener throw Exception : ", th);
             }
+        }
+        if (this.bc != null) {
+            this.bc.r();
         }
     }
 
@@ -1804,9 +2136,9 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
             bundle = new Bundle();
         }
         try {
-            bundle.putString("material_meta", this.s != null ? this.s.am().toString() : null);
+            bundle.putString("material_meta", this.s != null ? this.s.aE().toString() : null);
             bundle.putString("multi_process_meta_md5", this.u);
-            bundle.putLong("video_current", this.D == null ? this.w : this.D.m());
+            bundle.putLong("video_current", this.D == null ? this.w : this.D.n());
             bundle.putString("video_cache_url", this.x);
             bundle.putInt("orientation", this.y);
             bundle.putBoolean("is_mute", this.P);
@@ -1818,22 +2150,22 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        if (l.d(this.s) && this.f != null && this.f.canGoBack()) {
+        if (l.f(this.s) && this.f != null && this.f.canGoBack()) {
             this.f.goBack();
         }
     }
 
-    private void U() {
+    private void Y() {
         if (this.c != null) {
             this.c.setShowSound(false);
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.utils.am.a
+    @Override // com.bytedance.sdk.openadsdk.utils.al.a
     public void a(Message message) {
         if (message.what == 500) {
-            if (!l.a(this.s)) {
-                U();
+            if (!l.b(this.s)) {
+                Y();
             }
             SSWebView sSWebView = this.g.get();
             if (sSWebView != null) {
@@ -1849,21 +2181,32 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
                 ak.a((View) this.j, 1.0f);
             }
             if ((this instanceof TTFullScreenVideoActivity) && this.D != null && u() && this.X.get()) {
-                this.D.i();
-                this.D.l();
+                this.D.j();
+                this.D.m();
             }
         } else if (message.what == 600) {
-            R();
-        } else if (message.what == 700) {
-            if (this.s.c() == 1) {
+            W();
+        } else if (message.what == 800) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("remove_loading_page_type", Integer.valueOf(message.arg1));
+            if (this.s.R() != null) {
+                hashMap.put("playable_url", this.s.R().j());
+            }
+            com.bytedance.sdk.openadsdk.c.d.k(this, this.s, this.aE, "remove_loading_page", hashMap);
+            this.I.removeMessages(800);
+            if (this.b != null) {
+                this.b.a();
+            }
+        } else if (message.what == 900) {
+            if (this.s.i() == 1) {
                 int i = message.arg1;
                 if (i > 0) {
                     if (this.c != null) {
-                        this.c.setShowCountDown(true);
+                        this.c.setShowSkip(true);
                         this.c.a(String.valueOf(i), (CharSequence) null);
                     }
                     Message obtain = Message.obtain();
-                    obtain.what = 700;
+                    obtain.what = 900;
                     obtain.arg1 = i - 1;
                     this.az--;
                     this.I.sendMessageDelayed(obtain, 1000L);
@@ -1873,7 +2216,7 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
                     }
                 } else {
                     if (this.c != null) {
-                        this.c.setShowCountDown(false);
+                        this.c.setShowSkip(false);
                     }
                     if (this instanceof TTRewardVideoActivity) {
                         f(10001);
@@ -1882,40 +2225,37 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
                     }
                 }
                 if (this instanceof TTRewardVideoActivity) {
-                    V();
+                    Z();
                 }
             }
-        } else if (message.what == 800) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("remove_loading_page_type", Integer.valueOf(message.arg1));
-            if (this.s.F() != null) {
-                hashMap.put("playable_url", this.s.F().i());
-            }
-            com.bytedance.sdk.openadsdk.c.d.k(this, this.s, this.aE, "remove_loading_page", hashMap);
-            this.I.removeMessages(800);
-            if (this.f6097b != null) {
-                this.f6097b.a();
-            }
-        } else if (message.what == 900) {
-            if (this.s.c() == 1) {
+        } else if (message.what == 950) {
+            if (this.s.i() == 1) {
                 int i2 = message.arg1;
                 if (i2 > 0) {
-                    if (this.c != null) {
+                    if (i2 == 1) {
+                        this.I.sendEmptyMessageDelayed(600, 1000L);
+                    }
+                    int i3 = this.aC - (this.aB - i2);
+                    if (i3 > 0) {
+                        if (this.c != null) {
+                            this.c.setShowSkip(true);
+                            this.c.a(String.valueOf(i2), "可在(" + i3 + "s)后跳过");
+                        }
+                    } else if (this.c != null) {
                         this.c.setShowSkip(true);
-                        this.c.a(String.valueOf(i2), (CharSequence) null);
+                        this.c.a(String.valueOf(i2), "跳过");
+                        this.c.setSkipEnable(true);
                     }
                     Message obtain2 = Message.obtain();
-                    obtain2.what = 900;
+                    obtain2.what = 950;
                     obtain2.arg1 = i2 - 1;
                     this.az--;
                     this.I.sendMessageDelayed(obtain2, 1000L);
                     this.ay = i2 - 1;
-                    if (i2 == 1) {
-                        this.I.sendEmptyMessageDelayed(600, 1000L);
-                    }
                 } else {
                     if (this.c != null) {
                         this.c.setShowSkip(false);
+                        this.c.a(String.valueOf(i2), (CharSequence) null);
                     }
                     if (this instanceof TTRewardVideoActivity) {
                         f(10001);
@@ -1924,76 +2264,31 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
                     }
                 }
                 if (this instanceof TTRewardVideoActivity) {
-                    V();
-                }
-            }
-        } else if (message.what == 950) {
-            if (this.s.c() == 1) {
-                int i3 = message.arg1;
-                int i4 = message.arg2;
-                if (i3 > 0) {
-                    if (i3 == 1) {
-                        this.I.sendEmptyMessageDelayed(600, 1000L);
-                    }
-                    if (this.aB - i3 < i4) {
-                        int i5 = i4 - (this.aB - i3);
-                        if (this.c != null) {
-                            this.c.setShowSkip(true);
-                            this.c.a(String.valueOf(i3), "可在(" + i5 + "s)后跳过");
-                        }
-                        Message obtain3 = Message.obtain();
-                        obtain3.what = 950;
-                        obtain3.arg1 = i3 - 1;
-                        obtain3.arg2 = i4;
-                        this.az--;
-                        this.I.sendMessageDelayed(obtain3, 1000L);
-                        this.ay = i3 - 1;
-                    } else {
-                        if (this.c != null) {
-                            this.c.setShowSkip(true);
-                            this.c.a(String.valueOf(i3), "跳过");
-                            this.c.setSkipEnable(true);
-                        }
-                        Message obtain4 = Message.obtain();
-                        obtain4.what = 950;
-                        obtain4.arg1 = i3 - 1;
-                        this.az--;
-                        this.I.sendMessageDelayed(obtain4, 1000L);
-                        this.ay = i3 - 1;
-                    }
-                } else {
-                    if (this.c != null) {
-                        this.c.setShowSkip(false);
-                        this.c.a(String.valueOf(i3), (CharSequence) null);
-                    }
-                    if (this instanceof TTRewardVideoActivity) {
-                        f(10001);
-                    } else {
-                        f(10002);
-                    }
-                }
-                if (this instanceof TTRewardVideoActivity) {
-                    V();
+                    Z();
                 }
             }
         } else if (message.what == 300) {
-            if (this.D != null && this.D.t() != null) {
-                this.D.t().d();
+            if (this.D != null && this.D.u() != null) {
+                this.D.u().d();
             }
             if (this.D != null) {
-                this.D.l();
+                this.D.m();
             }
             t();
             if (message.arg1 == 1) {
                 f(10000);
             }
+        } else if (message.what == 400) {
+            if (this.D != null) {
+                this.D.m();
+            }
+            t();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void E() {
+    public void F() {
         if (this.I != null) {
-            this.I.removeMessages(700);
             this.I.removeMessages(900);
             this.I.removeMessages(950);
             this.I.removeMessages(600);
@@ -2001,32 +2296,28 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void F() {
+    public void G() {
         if (this.I != null) {
             Message obtain = Message.obtain();
-            if (this.aB == this.aC) {
-                obtain.what = 900;
-            } else {
-                obtain.what = 950;
-            }
+            obtain.what = P();
             obtain.arg1 = this.ay;
             this.I.sendMessageDelayed(obtain, 1000L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void V() {
+    public void Z() {
         boolean z = true;
         int i = com.bytedance.sdk.openadsdk.core.p.h().r(String.valueOf(this.T)).g;
-        if (l.c(this.s)) {
-            if ((1.0d - (this.Q / J())) * 100.0d < i) {
+        if (l.e(this.s)) {
+            if ((1.0d - (this.Q / K())) * 100.0d < i) {
                 z = false;
             }
         } else {
             boolean z2 = (1.0f - (((float) this.ay) / ((float) com.bytedance.sdk.openadsdk.core.p.h().o(String.valueOf(this.T))))) * 100.0f >= ((float) i);
             int m = com.bytedance.sdk.openadsdk.core.p.h().m(String.valueOf(this.T));
             if (m == 0) {
-                if (!z2 || !this.F.c()) {
+                if (!z2 || !this.F.e()) {
                     z = false;
                 }
             } else {
@@ -2039,7 +2330,7 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
     }
 
     private void a(final String str, final long j, final long j2, final String str2, final String str3) {
-        com.bytedance.sdk.openadsdk.k.a.a().a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.9
+        com.bytedance.sdk.openadsdk.j.e.b(new Runnable() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.15
             @Override // java.lang.Runnable
             public void run() {
                 try {
@@ -2064,7 +2355,7 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void G() {
+    public void H() {
         this.Y.set(false);
         this.Z.set(false);
         if (this.C != null) {
@@ -2073,9 +2364,9 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
         if (this.c != null) {
             this.c.setShowSkip(false);
             this.c.setShowCountDown(false);
-            P();
-            this.c.setShowSound(l.a(this.s));
-            if (((this instanceof TTFullScreenExpressVideoActivity) || (this instanceof TTRewardExpressVideoActivity)) && l.a(this.s)) {
+            V();
+            this.c.setShowSound(l.b(this.s));
+            if (((this instanceof TTFullScreenExpressVideoActivity) || (this instanceof TTRewardExpressVideoActivity)) && l.b(this.s)) {
                 this.c.setShowSound(true);
                 this.c.setShowSkip(true);
             }
@@ -2086,10 +2377,10 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
         }
         if (!this.U.getAndSet(true)) {
             this.X.set(true);
-            if (!l.a(this.s, this.ap.get(), this.aq) && !l.a(this.s)) {
+            if (!l.a(this.s, this.ap.get(), this.aq) && !l.b(this.s)) {
                 u.b("TTBaseVideoActivity", "showEndcardForSkip isEndCardLoadSuc=" + this.aq + " so load back up end card");
                 if (this.aJ != null) {
-                    if (!l.e(this.s)) {
+                    if (!l.g(this.s)) {
                         u.b("TTBaseVideoActivity", "TimeTrackLog report 408 from backup page after skip");
                         this.aJ.a(408, "end_card_timeout");
                     }
@@ -2098,17 +2389,17 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
                 }
                 ak.a((View) this.f, 8);
                 ak.a((View) this.aj, 0);
+                W();
+                Y();
                 R();
-                U();
-                O();
                 if ((this instanceof TTFullScreenVideoActivity) && this.D != null && u() && this.X.get()) {
-                    this.D.i();
-                    this.D.l();
+                    this.D.j();
+                    this.D.m();
                     return;
                 }
                 return;
             }
-            if (this.aJ != null && !l.e(this.s) && !l.a(this.s)) {
+            if (this.aJ != null && !l.g(this.s) && !l.b(this.s)) {
                 u.b("TTBaseVideoActivity", "TimeTrackLog report Success from Android after skip");
                 this.aJ.b();
             }
@@ -2118,17 +2409,17 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
                 ak.a((View) this.j, 0.0f);
             }
             ak.a((View) this.f, 0);
-            if (this.s != null && this.s.s()) {
+            if (this.s != null && this.s.C()) {
                 int p = com.bytedance.sdk.openadsdk.core.p.h().p(String.valueOf(this.T));
                 if (p == -1) {
-                    R();
+                    W();
                 } else if (p >= 0) {
                     this.I.sendEmptyMessageDelayed(600, p);
                 }
-            } else if (this.s != null && !this.s.s()) {
+            } else if (this.s != null && !this.s.C()) {
                 int l = com.bytedance.sdk.openadsdk.core.p.h().l(String.valueOf(this.T));
                 if (l == -1) {
-                    R();
+                    W();
                 } else if (l >= 0) {
                     this.I.sendEmptyMessageDelayed(600, l);
                 }
@@ -2140,6 +2431,9 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
                 b(true);
             }
             o();
+            if (this.bc != null) {
+                this.bc.b(true);
+            }
         }
     }
 
@@ -2189,32 +2483,32 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(String str, String str2, Map<String, Object> map) {
         if (this.D != null) {
-            Map<String, Object> a2 = aj.a(this.s, this.D.n(), this.D.t());
+            Map<String, Object> a2 = aj.a(this.s, this.D.o(), this.D.u());
             if (map != null) {
                 for (Map.Entry<String, Object> entry : map.entrySet()) {
                     a2.put(entry.getKey(), entry.getValue());
                 }
             }
-            com.bytedance.sdk.openadsdk.c.d.a(this.e, this.s, str, str2, this.D.o(), this.D.q(), a2);
-            u.b("TTBaseVideoActivity", "event tag:" + str + ", TotalPlayDuration=" + this.D.o() + ",mBasevideoController.getPct()=" + this.D.q());
+            com.bytedance.sdk.openadsdk.c.d.a(this.e, this.s, str, str2, this.D.p(), this.D.r(), a2);
+            u.b("TTBaseVideoActivity", "event tag:" + str + ", TotalPlayDuration=" + this.D.p() + ",mBasevideoController.getPct()=" + this.D.r());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(String str, Map<String, Object> map) {
         if (this.D != null) {
-            Map<String, Object> a2 = aj.a(this.s, this.D.n(), this.D.t());
+            Map<String, Object> a2 = aj.a(this.s, this.D.o(), this.D.u());
             if (map != null) {
                 for (Map.Entry<String, Object> entry : map.entrySet()) {
                     a2.put(entry.getKey(), entry.getValue());
                 }
             }
             a2.put("play_type", Integer.valueOf(aj.a(this.D, this.z)));
-            com.bytedance.sdk.openadsdk.c.d.a(this.e, this.s, str, "endcard_skip", this.D.o(), this.D.q(), a2);
+            com.bytedance.sdk.openadsdk.c.d.a(this.e, this.s, str, "endcard_skip", this.D.p(), this.D.r(), a2);
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.g.f
+    @Override // com.bytedance.sdk.openadsdk.f.f
     public void c(int i) {
         if (i > 0) {
             if (this.aP > 0) {
@@ -2231,46 +2525,48 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
         } else {
             this.aP = i;
         }
-        if (l.b(this.s) || l.c(this.s)) {
-            if (this.au.c()) {
-                u.b("TTBaseVideoActivity", "onVolumeChanged by SDK mIsMute=" + this.P + " mVolume=" + this.aP + " mLastVolume=" + this.au.b());
-                if (this.aP == 0) {
-                    a(true);
+        if (!l.e(this.s) || this.U.get()) {
+            if (l.d(this.s) || l.e(this.s)) {
+                if (this.au.c()) {
+                    u.b("TTBaseVideoActivity", "onVolumeChanged by SDK mIsMute=" + this.P + " mVolume=" + this.aP + " mLastVolume=" + this.au.b());
+                    if (this.aP == 0) {
+                        a(true);
+                        if (this.D != null) {
+                            this.D.c(true);
+                            return;
+                        }
+                        return;
+                    }
+                    a(false);
                     if (this.D != null) {
-                        this.D.c(true);
+                        this.D.c(false);
                         return;
                     }
                     return;
                 }
-                a(false);
-                if (this.D != null) {
-                    this.D.c(false);
-                    return;
-                }
-                return;
-            }
-            this.au.b(-1);
-            u.b("TTBaseVideoActivity", "onVolumeChanged by User mIsMute=" + this.P + " mVolume=" + this.aP + " mLastVolume=" + this.au.b());
-            if (this.aT) {
-                if (this.aP == 0) {
-                    this.P = true;
-                    a(true);
-                    if (this.D != null) {
-                        this.D.c(true);
+                this.au.b(-1);
+                u.b("TTBaseVideoActivity", "onVolumeChanged by User mIsMute=" + this.P + " mVolume=" + this.aP + " mLastVolume=" + this.au.b());
+                if (this.aT) {
+                    if (this.aP == 0) {
+                        this.P = true;
+                        a(true);
+                        if (this.D != null) {
+                            this.D.c(true);
+                            return;
+                        }
                         return;
                     }
-                    return;
-                }
-                this.P = false;
-                a(false);
-                if (this.D != null) {
-                    this.D.c(false);
+                    this.P = false;
+                    a(false);
+                    if (this.D != null) {
+                        this.D.c(false);
+                    }
                 }
             }
         }
     }
 
-    void c(String str) {
+    void d(String str) {
         if (this.aF) {
             String str2 = this instanceof TTRewardVideoActivity ? "rewarded_video" : "fullscreen_interstitial_ad";
             HashMap hashMap = new HashMap();
@@ -2283,12 +2579,12 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
     }
 
     @Override // com.bytedance.sdk.openadsdk.utils.HomeWatcherReceiver.a
-    public void H() {
+    public void I() {
         this.aF = true;
     }
 
     @Override // com.bytedance.sdk.openadsdk.utils.HomeWatcherReceiver.a
-    public void I() {
+    public void J() {
         this.aF = true;
     }
 
@@ -2310,11 +2606,11 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
         }
     }
 
-    public double J() {
-        if (this.s == null || this.s.F() == null) {
+    public double K() {
+        if (this.s == null || this.s.R() == null) {
             return 0.0d;
         }
-        return this.s.F().e();
+        return this.s.R().e();
     }
 
     protected static float a(Activity activity) {
@@ -2326,30 +2622,30 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void K() {
+    public void L() {
         if (!isFinishing()) {
             if (this.Z.get()) {
-                X();
+                ab();
                 return;
             }
             if (this.A == null) {
-                C();
+                D();
             }
-            W();
+            aa();
             this.A.a(this.aH);
             this.A.a();
         }
     }
 
-    private void W() {
+    private void aa() {
         if (!"".equals(this.aI) && !this.aI.isEmpty() && !u()) {
             if (!this.aI.contains("playable")) {
                 l lVar = this.s;
-                if (!l.b(this.s)) {
+                if (!l.d(this.s)) {
                     if (this.aI.contains("endcard")) {
                         this.aH = "endcard";
                         return;
-                    } else if (this.s.s() && this.aH.equals("endcard")) {
+                    } else if (this.s.C() && this.aH.equals("endcard")) {
                         this.aH = "playable";
                         return;
                     } else {
@@ -2361,12 +2657,12 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
         }
     }
 
-    private void X() {
+    private void ab() {
         this.B.a("您已成功提交反馈，请勿重复提交哦！");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Y() {
+    public void ac() {
         this.B.a("感谢您的反馈！\n我们将为您带来更优质的广告体验");
     }
 
@@ -2389,20 +2685,39 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
 
     public static float[] a(l lVar, Activity activity, int i) {
         float f;
-        boolean z = lVar.X() == 15;
+        boolean z = lVar.ak() == 15;
         float a2 = a(activity);
-        float b2 = b(activity);
-        if (z != (a2 > b2)) {
-            float f2 = a2 + b2;
-            b2 = f2 - b2;
-            a2 = f2 - b2;
+        float b = b(activity);
+        if (z != (a2 > b)) {
+            float f2 = a2 + b;
+            b = f2 - b;
+            a2 = f2 - b;
         }
         if (z) {
             a2 -= i;
-            f = b2;
+            f = b;
         } else {
-            f = b2 - i;
+            f = b - i;
         }
         return new float[]{f, a2};
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void e(boolean z) {
+        Message message = new Message();
+        message.what = 400;
+        if (z) {
+            f(10000);
+        }
+        if (this.I != null) {
+            this.I.sendMessageDelayed(message, 2000L);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void M() {
+        if (this.I != null) {
+            this.I.removeMessages(400);
+        }
     }
 }

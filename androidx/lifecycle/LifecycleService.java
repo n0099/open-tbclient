@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import androidx.annotation.CallSuper;
 import androidx.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LifecycleService extends Service implements LifecycleOwner {
     private final ServiceLifecycleDispatcher mDispatcher = new ServiceLifecycleDispatcher(this);
 

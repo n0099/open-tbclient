@@ -11,7 +11,7 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.core.view.ViewCompat;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 class GhostViewApi14 extends View implements GhostViewImpl {
     Matrix mCurrentMatrix;
     private int mDeltaX;

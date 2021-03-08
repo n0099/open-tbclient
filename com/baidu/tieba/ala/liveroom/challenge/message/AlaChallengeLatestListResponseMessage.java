@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaChallengeLatestListResponseMessage extends JsonHttpResponsedMessage {
-    private List<d> ber;
+    private List<d> bfU;
 
     public AlaChallengeLatestListResponseMessage() {
         super(1021203);
@@ -19,19 +19,19 @@ public class AlaChallengeLatestListResponseMessage extends JsonHttpResponsedMess
         JSONArray optJSONArray;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("data")) != null && optJSONArray.length() != 0) {
-            this.ber = new ArrayList();
+            this.bfU = new ArrayList();
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                 if (optJSONObject != null) {
                     d dVar = new d();
                     dVar.parseJson(optJSONObject);
-                    this.ber.add(dVar);
+                    this.bfU.add(dVar);
                 }
             }
         }
     }
 
-    public List<d> ccX() {
-        return this.ber;
+    public List<d> cdd() {
+        return this.bfU;
     }
 }

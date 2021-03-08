@@ -8,11 +8,11 @@ import com.qq.e.comm.a;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.pi.POFactory;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public abstract class LiteAbstractAD<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private T f11420a;
+    private T f7492a;
 
     protected abstract T a(Context context, POFactory pOFactory, String str, String str2);
 
@@ -38,8 +38,8 @@ public abstract class LiteAbstractAD<T> {
                             public void run() {
                                 try {
                                     if (pOFactory != null) {
-                                        LiteAbstractAD.this.f11420a = LiteAbstractAD.this.a(context, pOFactory, str, str2);
-                                        LiteAbstractAD.this.a((LiteAbstractAD) LiteAbstractAD.this.f11420a);
+                                        LiteAbstractAD.this.f7492a = LiteAbstractAD.this.a(context, pOFactory, str, str2);
+                                        LiteAbstractAD.this.a((LiteAbstractAD) LiteAbstractAD.this.f7492a);
                                     } else {
                                         LiteAbstractAD.this.a(UIMsg.f_FUN.FUN_ID_VOICE_SCH_OPTION);
                                     }

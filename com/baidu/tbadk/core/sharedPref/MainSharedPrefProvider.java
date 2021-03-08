@@ -41,7 +41,7 @@ public class MainSharedPrefProvider extends ContentProvider {
                 SharedPreferences.Editor edit = sharedPreferences.edit();
                 edit.putString(lastPathSegment, asString);
                 edit.commit();
-                if (AI(lastPathSegment)) {
+                if (AP(lastPathSegment)) {
                     bd(lastPathSegment, asString);
                     return null;
                 }
@@ -60,7 +60,7 @@ public class MainSharedPrefProvider extends ContentProvider {
             SharedPreferences.Editor edit = sharedPreferences.edit();
             edit.remove(lastPathSegment);
             edit.commit();
-            if (AI(lastPathSegment)) {
+            if (AP(lastPathSegment)) {
                 bd(lastPathSegment, null);
                 return 0;
             }
@@ -82,7 +82,7 @@ public class MainSharedPrefProvider extends ContentProvider {
         TbadkCoreApplication.getInst().getApp().sendBroadcast(intent);
     }
 
-    private boolean AI(String str) {
+    private boolean AP(String str) {
         if (str == null || str.length() == 0) {
             return false;
         }

@@ -17,23 +17,23 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a implements c {
     private View rootView = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_bcast_copy_link, (ViewGroup) null);
-    private ImageView fFg = (ImageView) this.rootView.findViewById(R.id.floating_view_icon);
-    private TextView fFi = (TextView) this.rootView.findViewById(R.id.floating_view_title);
-    private ImageView fFh = (ImageView) this.rootView.findViewById(R.id.floating_view_arrow);
-    private LinearLayout fFj = (LinearLayout) this.rootView.findViewById(R.id.floating_view_main);
+    private ImageView fGF = (ImageView) this.rootView.findViewById(R.id.floating_view_icon);
+    private TextView fGH = (TextView) this.rootView.findViewById(R.id.floating_view_title);
+    private ImageView fGG = (ImageView) this.rootView.findViewById(R.id.floating_view_arrow);
+    private LinearLayout fGI = (LinearLayout) this.rootView.findViewById(R.id.floating_view_main);
 
     public a(Context context) {
-        this.fFi.setText(R.string.frs_forum_bcast_return_info);
-        buo();
+        this.fGH.setText(R.string.frs_forum_bcast_return_info);
+        bur();
     }
 
     @Override // com.baidu.tbadk.k.c
-    public void buo() {
+    public void bur() {
         if (this.rootView != null) {
-            ap.setViewTextColor(this.fFi, R.color.CAM_X0101);
-            ap.setImageResource(this.fFg, R.drawable.pic_float_return_broadcast32);
-            SvgManager.bsR().a(this.fFh, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-            com.baidu.tbadk.core.util.f.a.btv().oP(R.color.CAM_X0305).oO(0).oY(211).ah(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).aj(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).bv(this.fFj);
+            ap.setViewTextColor(this.fGH, R.color.CAM_X0101);
+            ap.setImageResource(this.fGF, R.drawable.pic_float_return_broadcast32);
+            SvgManager.bsU().a(this.fGG, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            com.baidu.tbadk.core.util.f.a.bty().oQ(R.color.CAM_X0305).oP(0).oZ(211).al(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).an(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).bv(this.fGI);
         }
     }
 

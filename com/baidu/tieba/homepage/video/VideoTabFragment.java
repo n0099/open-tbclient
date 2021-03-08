@@ -19,35 +19,35 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class VideoTabFragment extends BaseFragment implements am {
-    private a krD;
-    private boolean krE = false;
+    private a ktF;
+    private boolean ktG = false;
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.krD == null) {
-            this.krD = new a(getPageContext(), getUniqueId());
+        if (this.ktF == null) {
+            this.ktF = new a(getPageContext(), getUniqueId());
         }
-        this.krD.init();
+        this.ktF.init();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.krD == null || this.krD.getView() == null) {
+        if (this.ktF == null || this.ktF.getView() == null) {
             return super.onCreateView(layoutInflater, viewGroup, bundle);
         }
-        if (this.krD.getView().getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.krD.getView().getParent()).removeView(this.krD.getView());
+        if (this.ktF.getView().getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.ktF.getView().getParent()).removeView(this.ktF.getView());
         }
-        return this.krD.getView();
+        return this.ktF.getView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        if (this.krD != null) {
-            this.krD.loadData();
+        if (this.ktF != null) {
+            this.ktF.loadData();
         }
     }
 
@@ -55,30 +55,30 @@ public class VideoTabFragment extends BaseFragment implements am {
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            if (!this.krE) {
-                this.krE = true;
+            if (!this.ktG) {
+                this.ktG = true;
                 TiebaStatic.log(new ar("c13579"));
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, false));
         }
-        if (this.krD != null) {
-            this.krD.setPrimary(isPrimary());
+        if (this.ktF != null) {
+            this.ktF.setPrimary(isPrimary());
         }
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void Ut() {
-        if (this.krD != null) {
-            this.krD.Ut();
+    public void Uw() {
+        if (this.ktF != null) {
+            this.ktF.Uw();
         }
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void bRD() {
+    public void bRJ() {
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void bRE() {
+    public void bRK() {
     }
 
     @Override // com.baidu.tieba.frs.am
@@ -90,15 +90,15 @@ public class VideoTabFragment extends BaseFragment implements am {
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void bup() {
+    public void bus() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.krD != null) {
-            this.krD.bup();
+        if (this.ktF != null) {
+            this.ktF.bus();
         }
     }
 
@@ -119,16 +119,16 @@ public class VideoTabFragment extends BaseFragment implements am {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.krD != null) {
-            this.krD.onPause();
+        if (this.ktF != null) {
+            this.ktF.onPause();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.krD != null) {
-            this.krD.onDestroy();
+        if (this.ktF != null) {
+            this.ktF.onDestroy();
         }
     }
 

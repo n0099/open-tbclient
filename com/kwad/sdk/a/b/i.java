@@ -7,57 +7,55 @@ import com.kwad.sdk.core.download.b.a;
 import com.kwad.sdk.core.response.model.AdTemplate;
 /* loaded from: classes3.dex */
 public class i extends com.kwad.sdk.a.a.a implements View.OnClickListener {
-
-    /* renamed from: b  reason: collision with root package name */
-    private DetailVideoView f8163b;
+    private DetailVideoView b;
     private AdTemplate c;
     private com.kwad.sdk.contentalliance.detail.video.e d = new com.kwad.sdk.contentalliance.detail.video.f() { // from class: com.kwad.sdk.a.b.i.1
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void b() {
             super.b();
-            i.this.f8163b.setOnClickListener(i.this);
+            i.this.b.setOnClickListener(i.this);
         }
     };
 
     private void e() {
-        com.kwad.sdk.core.download.b.a.a(this.f8163b.getContext(), this.c, new a.InterfaceC1094a() { // from class: com.kwad.sdk.a.b.i.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
+        com.kwad.sdk.core.download.b.a.a(this.b.getContext(), this.c, new a.InterfaceC1111a() { // from class: com.kwad.sdk.a.b.i.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1111a
             public void a() {
-                com.kwad.sdk.core.report.b.a(i.this.c, 2, i.this.f8138a.c.getTouchCoords());
+                com.kwad.sdk.core.report.b.a(i.this.c, 2, i.this.f5425a.c.getTouchCoords());
             }
-        }, this.f8138a.e);
+        }, this.f5425a.e);
     }
 
     private void f() {
-        this.f8138a.f8139a.onAdClicked(this.f8163b, null);
+        this.f5425a.f5426a.onAdClicked(this.b, null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.c = this.f8138a.d;
-        this.f8138a.f.a(this.d);
+        this.c = this.f5425a.d;
+        this.f5425a.f.a(this.d);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f8163b.setOnClickListener(null);
-        this.f8138a.f.b(this.d);
+        this.b.setOnClickListener(null);
+        this.f5425a.f.b(this.d);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f8163b = (DetailVideoView) b(R.id.ksad_video_player);
+        this.b = (DetailVideoView) b(R.id.ksad_video_player);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f8163b) {
+        if (view == this.b) {
             e();
             f();
         }

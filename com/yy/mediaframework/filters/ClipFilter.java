@@ -2,7 +2,7 @@ package com.yy.mediaframework.filters;
 
 import com.yy.mediaframework.model.YYMediaSample;
 import com.yy.mediaframework.utils.YMFLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ClipFilter extends AbstractYYMediaFilter {
     public PreviewFilter mPreviewFilter;
     private int mLastSampleWidth = 0;

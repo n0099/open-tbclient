@@ -3,7 +3,7 @@ package com.baidu.f.a;
 import com.baidu.pyramid.runtime.service.c;
 import com.baidu.searchbox.PerfSampleManager;
 import com.baidu.ubc.ab;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class b implements PerfSampleManager.IPerfSampleCallback {
     private static String ACTIVE_UPLOAD_TYPE = "1";
     private static String PASSIVE_UPLOAD_TYPE = "0";

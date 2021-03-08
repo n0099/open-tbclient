@@ -17,7 +17,7 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.ViewCompat;
 import com.google.android.material.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class TextAppearance {
     private static final String TAG = "TextAppearance";
     private static final int TYPEFACE_MONOSPACE = 3;

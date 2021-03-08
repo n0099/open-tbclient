@@ -1,6 +1,8 @@
 package com.bumptech.glide;
 
+import android.content.ComponentCallbacks2;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -9,6 +11,7 @@ import android.os.Looper;
 import android.view.View;
 import androidx.annotation.CheckResult;
 import androidx.annotation.DrawableRes;
+import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RawRes;
@@ -21,28 +24,38 @@ import com.bumptech.glide.manager.LifecycleListener;
 import com.bumptech.glide.manager.RequestManagerTreeNode;
 import com.bumptech.glide.manager.RequestTracker;
 import com.bumptech.glide.manager.TargetTracker;
+import com.bumptech.glide.request.BaseRequestOptions;
 import com.bumptech.glide.request.Request;
+import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.CustomViewTarget;
 import com.bumptech.glide.request.target.Target;
-import com.bumptech.glide.request.target.ViewTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.bumptech.glide.util.Util;
 import java.io.File;
 import java.net.URL;
-/* loaded from: classes15.dex */
-public class RequestManager implements ModelTypes<RequestBuilder<Drawable>>, LifecycleListener {
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+/* loaded from: classes14.dex */
+public class RequestManager implements ComponentCallbacks2, ModelTypes<RequestBuilder<Drawable>>, LifecycleListener {
     private static final RequestOptions DECODE_TYPE_BITMAP = RequestOptions.decodeTypeOf(Bitmap.class).lock();
     private static final RequestOptions DECODE_TYPE_GIF = RequestOptions.decodeTypeOf(GifDrawable.class).lock();
     private static final RequestOptions DOWNLOAD_ONLY_OPTIONS = RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.DATA).priority(Priority.LOW).skipMemoryCache(true);
     private final Runnable addSelfToLifecycle;
     private final ConnectivityMonitor connectivityMonitor;
     protected final Context context;
+    private final CopyOnWriteArrayList<RequestListener<Object>> defaultRequestListeners;
     protected final Glide glide;
     final Lifecycle lifecycle;
     private final Handler mainHandler;
+    private boolean pauseAllRequestsOnTrimMemoryModerate;
+    @GuardedBy("this")
     private RequestOptions requestOptions;
+    @GuardedBy("this")
     private final RequestTracker requestTracker;
+    @GuardedBy("this")
     private final TargetTracker targetTracker;
+    @GuardedBy("this")
     private final RequestManagerTreeNode treeNode;
 
     public RequestManager(@NonNull Glide glide, @NonNull Lifecycle lifecycle, @NonNull RequestManagerTreeNode requestManagerTreeNode, @NonNull Context context) {
@@ -70,59 +83,71 @@ public class RequestManager implements ModelTypes<RequestBuilder<Drawable>>, Lif
             lifecycle.addListener(this);
         }
         lifecycle.addListener(this.connectivityMonitor);
+        this.defaultRequestListeners = new CopyOnWriteArrayList<>(glide.getGlideContext().getDefaultRequestListeners());
         setRequestOptions(glide.getGlideContext().getDefaultRequestOptions());
         glide.registerRequestManager(this);
     }
 
-    protected void setRequestOptions(@NonNull RequestOptions requestOptions) {
+    protected synchronized void setRequestOptions(@NonNull RequestOptions requestOptions) {
         this.requestOptions = requestOptions.m53clone().autoClone();
     }
 
-    private void updateRequestOptions(@NonNull RequestOptions requestOptions) {
+    private synchronized void updateRequestOptions(@NonNull RequestOptions requestOptions) {
         this.requestOptions = this.requestOptions.apply(requestOptions);
     }
 
     @NonNull
-    public RequestManager applyDefaultRequestOptions(@NonNull RequestOptions requestOptions) {
+    public synchronized RequestManager applyDefaultRequestOptions(@NonNull RequestOptions requestOptions) {
         updateRequestOptions(requestOptions);
         return this;
     }
 
     @NonNull
-    public RequestManager setDefaultRequestOptions(@NonNull RequestOptions requestOptions) {
+    public synchronized RequestManager setDefaultRequestOptions(@NonNull RequestOptions requestOptions) {
         setRequestOptions(requestOptions);
         return this;
     }
 
-    public boolean isPaused() {
-        Util.assertMainThread();
+    public RequestManager addDefaultRequestListener(RequestListener<Object> requestListener) {
+        this.defaultRequestListeners.add(requestListener);
+        return this;
+    }
+
+    public void setPauseAllRequestsOnTrimMemoryModerate(boolean z) {
+        this.pauseAllRequestsOnTrimMemoryModerate = z;
+    }
+
+    public synchronized boolean isPaused() {
         return this.requestTracker.isPaused();
     }
 
-    public void pauseRequests() {
-        Util.assertMainThread();
+    public synchronized void pauseRequests() {
         this.requestTracker.pauseRequests();
     }
 
-    public void pauseAllRequests() {
-        Util.assertMainThread();
+    public synchronized void pauseAllRequests() {
         this.requestTracker.pauseAllRequests();
     }
 
-    public void pauseRequestsRecursive() {
-        Util.assertMainThread();
+    public synchronized void pauseAllRequestsRecursive() {
+        pauseAllRequests();
+        for (RequestManager requestManager : this.treeNode.getDescendants()) {
+            requestManager.pauseAllRequests();
+        }
+    }
+
+    public synchronized void pauseRequestsRecursive() {
         pauseRequests();
         for (RequestManager requestManager : this.treeNode.getDescendants()) {
             requestManager.pauseRequests();
         }
     }
 
-    public void resumeRequests() {
-        Util.assertMainThread();
+    public synchronized void resumeRequests() {
         this.requestTracker.resumeRequests();
     }
 
-    public void resumeRequestsRecursive() {
+    public synchronized void resumeRequestsRecursive() {
         Util.assertMainThread();
         resumeRequests();
         for (RequestManager requestManager : this.treeNode.getDescendants()) {
@@ -131,19 +156,19 @@ public class RequestManager implements ModelTypes<RequestBuilder<Drawable>>, Lif
     }
 
     @Override // com.bumptech.glide.manager.LifecycleListener
-    public void onStart() {
+    public synchronized void onStart() {
         resumeRequests();
         this.targetTracker.onStart();
     }
 
     @Override // com.bumptech.glide.manager.LifecycleListener
-    public void onStop() {
+    public synchronized void onStop() {
         pauseRequests();
         this.targetTracker.onStop();
     }
 
     @Override // com.bumptech.glide.manager.LifecycleListener
-    public void onDestroy() {
+    public synchronized void onDestroy() {
         this.targetTracker.onDestroy();
         for (Target<?> target : this.targetTracker.getAll()) {
             clear(target);
@@ -159,13 +184,13 @@ public class RequestManager implements ModelTypes<RequestBuilder<Drawable>>, Lif
     @NonNull
     @CheckResult
     public RequestBuilder<Bitmap> asBitmap() {
-        return as(Bitmap.class).apply(DECODE_TYPE_BITMAP);
+        return as(Bitmap.class).apply((BaseRequestOptions<?>) DECODE_TYPE_BITMAP);
     }
 
     @NonNull
     @CheckResult
     public RequestBuilder<GifDrawable> asGif() {
-        return as(GifDrawable.class).apply(DECODE_TYPE_GIF);
+        return as(GifDrawable.class).apply((BaseRequestOptions<?>) DECODE_TYPE_GIF);
     }
 
     @NonNull
@@ -258,7 +283,7 @@ public class RequestManager implements ModelTypes<RequestBuilder<Drawable>>, Lif
     @NonNull
     @CheckResult
     public RequestBuilder<File> downloadOnly() {
-        return as(File.class).apply(DOWNLOAD_ONLY_OPTIONS);
+        return as(File.class).apply((BaseRequestOptions<?>) DOWNLOAD_ONLY_OPTIONS);
     }
 
     @NonNull
@@ -270,7 +295,7 @@ public class RequestManager implements ModelTypes<RequestBuilder<Drawable>>, Lif
     @NonNull
     @CheckResult
     public RequestBuilder<File> asFile() {
-        return as(File.class).apply(RequestOptions.skipMemoryCacheOf(true));
+        return as(File.class).apply((BaseRequestOptions<?>) RequestOptions.skipMemoryCacheOf(true));
     }
 
     @NonNull
@@ -283,51 +308,51 @@ public class RequestManager implements ModelTypes<RequestBuilder<Drawable>>, Lif
         clear(new ClearTarget(view));
     }
 
-    public void clear(@Nullable final Target<?> target) {
+    public void clear(@Nullable Target<?> target) {
         if (target != null) {
-            if (Util.isOnMainThread()) {
-                untrackOrDelegate(target);
-            } else {
-                this.mainHandler.post(new Runnable() { // from class: com.bumptech.glide.RequestManager.2
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        RequestManager.this.clear(target);
-                    }
-                });
-            }
+            untrackOrDelegate(target);
         }
     }
 
     private void untrackOrDelegate(@NonNull Target<?> target) {
-        if (!untrack(target) && !this.glide.removeFromManagers(target) && target.getRequest() != null) {
-            Request request = target.getRequest();
+        boolean untrack = untrack(target);
+        Request request = target.getRequest();
+        if (!untrack && !this.glide.removeFromManagers(target) && request != null) {
             target.setRequest(null);
             request.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean untrack(@NonNull Target<?> target) {
-        Request request = target.getRequest();
-        if (request == null) {
-            return true;
+    public synchronized boolean untrack(@NonNull Target<?> target) {
+        boolean z = true;
+        synchronized (this) {
+            Request request = target.getRequest();
+            if (request != null) {
+                if (this.requestTracker.clearAndRemove(request)) {
+                    this.targetTracker.untrack(target);
+                    target.setRequest(null);
+                } else {
+                    z = false;
+                }
+            }
         }
-        if (this.requestTracker.clearRemoveAndRecycle(request)) {
-            this.targetTracker.untrack(target);
-            target.setRequest(null);
-            return true;
-        }
-        return false;
+        return z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void track(@NonNull Target<?> target, @NonNull Request request) {
+    public synchronized void track(@NonNull Target<?> target, @NonNull Request request) {
         this.targetTracker.track(target);
         this.requestTracker.runRequest(request);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public RequestOptions getDefaultRequestOptions() {
+    public List<RequestListener<Object>> getDefaultRequestListeners() {
+        return this.defaultRequestListeners;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public synchronized RequestOptions getDefaultRequestOptions() {
         return this.requestOptions;
     }
 
@@ -337,12 +362,28 @@ public class RequestManager implements ModelTypes<RequestBuilder<Drawable>>, Lif
         return this.glide.getGlideContext().getDefaultTransitionOptions(cls);
     }
 
-    public String toString() {
+    public synchronized String toString() {
         return super.toString() + "{tracker=" + this.requestTracker + ", treeNode=" + this.treeNode + "}";
     }
 
-    /* loaded from: classes15.dex */
-    private static class RequestManagerConnectivityListener implements ConnectivityMonitor.ConnectivityListener {
+    @Override // android.content.ComponentCallbacks2
+    public void onTrimMemory(int i) {
+        if (i == 60 && this.pauseAllRequestsOnTrimMemoryModerate) {
+            pauseAllRequestsRecursive();
+        }
+    }
+
+    @Override // android.content.ComponentCallbacks
+    public void onLowMemory() {
+    }
+
+    @Override // android.content.ComponentCallbacks
+    public void onConfigurationChanged(Configuration configuration) {
+    }
+
+    /* loaded from: classes14.dex */
+    private class RequestManagerConnectivityListener implements ConnectivityMonitor.ConnectivityListener {
+        @GuardedBy("RequestManager.this")
         private final RequestTracker requestTracker;
 
         RequestManagerConnectivityListener(@NonNull RequestTracker requestTracker) {
@@ -352,15 +393,25 @@ public class RequestManager implements ModelTypes<RequestBuilder<Drawable>>, Lif
         @Override // com.bumptech.glide.manager.ConnectivityMonitor.ConnectivityListener
         public void onConnectivityChanged(boolean z) {
             if (z) {
-                this.requestTracker.restartRequests();
+                synchronized (RequestManager.this) {
+                    this.requestTracker.restartRequests();
+                }
             }
         }
     }
 
-    /* loaded from: classes15.dex */
-    private static class ClearTarget extends ViewTarget<View, Object> {
+    /* loaded from: classes14.dex */
+    private static class ClearTarget extends CustomViewTarget<View, Object> {
         ClearTarget(@NonNull View view) {
             super(view);
+        }
+
+        @Override // com.bumptech.glide.request.target.CustomViewTarget
+        protected void onResourceCleared(@Nullable Drawable drawable) {
+        }
+
+        @Override // com.bumptech.glide.request.target.Target
+        public void onLoadFailed(@Nullable Drawable drawable) {
         }
 
         @Override // com.bumptech.glide.request.target.Target

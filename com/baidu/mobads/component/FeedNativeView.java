@@ -8,7 +8,7 @@ import com.baidu.mobad.feeds.XAdNativeResponse;
 import com.baidu.mobads.g.b;
 import com.baidu.mobads.r;
 import dalvik.system.DexClassLoader;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FeedNativeView extends RelativeLayout {
     private View mAdView;
     private Context mContext;

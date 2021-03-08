@@ -1,7 +1,7 @@
 package com.yy.mediaframework.model;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ByteVector {
     private static final float s_growRation = 1.3f;
     private int mSize = 0;

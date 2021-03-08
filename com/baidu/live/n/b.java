@@ -1,9 +1,9 @@
 package com.baidu.live.n;
 
 import android.view.View;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
-    View KY();
+    View Lb();
 
-    void hg(String str);
+    void hm(String str);
 }

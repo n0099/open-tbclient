@@ -9,27 +9,25 @@ import java.util.Locale;
 public class w {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f3897a = "Volley";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f3898b = Log.isLoggable(f3897a, 2);
+    public static String f2715a = "Volley";
+    public static boolean b = Log.isLoggable(f2715a, 2);
 
     public static void a(String str, Object... objArr) {
-        if (f3898b) {
-            Log.v(f3897a, d(str, objArr));
+        if (b) {
+            Log.v(f2715a, d(str, objArr));
         }
     }
 
     public static void b(String str, Object... objArr) {
-        Log.d(f3897a, d(str, objArr));
+        Log.d(f2715a, d(str, objArr));
     }
 
     public static void c(String str, Object... objArr) {
-        Log.e(f3897a, d(str, objArr));
+        Log.e(f2715a, d(str, objArr));
     }
 
     public static void a(Throwable th, String str, Object... objArr) {
-        Log.e(f3897a, d(str, objArr), th);
+        Log.e(f2715a, d(str, objArr), th);
     }
 
     private static String d(String str, Object... objArr) {
@@ -60,27 +58,23 @@ public class w {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final boolean f3899a = w.f3898b;
-
-        /* renamed from: b  reason: collision with root package name */
-        private final List<C0271a> f3900b = new ArrayList();
+        public static final boolean f2716a = w.b;
+        private final List<C0277a> b = new ArrayList();
         private boolean c = false;
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.pano.platform.a.w$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class C0271a {
+        public static class C0277a {
 
             /* renamed from: a  reason: collision with root package name */
-            public final String f3901a;
-
-            /* renamed from: b  reason: collision with root package name */
-            public final long f3902b;
+            public final String f2717a;
+            public final long b;
             public final long c;
 
-            public C0271a(String str, long j, long j2) {
-                this.f3901a = str;
-                this.f3902b = j;
+            public C0277a(String str, long j, long j2) {
+                this.f2717a = str;
+                this.b = j;
                 this.c = j2;
             }
         }
@@ -89,19 +83,19 @@ public class w {
             if (this.c) {
                 throw new IllegalStateException("Marker added to finished log");
             }
-            this.f3900b.add(new C0271a(str, j, SystemClock.elapsedRealtime()));
+            this.b.add(new C0277a(str, j, SystemClock.elapsedRealtime()));
         }
 
         public synchronized void a(String str) {
             this.c = true;
             long a2 = a();
             if (a2 > 0) {
-                long j = this.f3900b.get(0).c;
+                long j = this.b.get(0).c;
                 w.b("(%-4d ms) %s", Long.valueOf(a2), str);
                 long j2 = j;
-                for (C0271a c0271a : this.f3900b) {
-                    long j3 = c0271a.c;
-                    w.b("(+%-4d) [%2d] %s", Long.valueOf(j3 - j2), Long.valueOf(c0271a.f3902b), c0271a.f3901a);
+                for (C0277a c0277a : this.b) {
+                    long j3 = c0277a.c;
+                    w.b("(+%-4d) [%2d] %s", Long.valueOf(j3 - j2), Long.valueOf(c0277a.b), c0277a.f2717a);
                     j2 = j3;
                 }
             }
@@ -115,10 +109,10 @@ public class w {
         }
 
         private long a() {
-            if (this.f3900b.size() == 0) {
+            if (this.b.size() == 0) {
                 return 0L;
             }
-            return this.f3900b.get(this.f3900b.size() - 1).c - this.f3900b.get(0).c;
+            return this.b.get(this.b.size() - 1).c - this.b.get(0).c;
         }
     }
 }

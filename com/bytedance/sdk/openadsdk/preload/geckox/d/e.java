@@ -8,12 +8,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
-public class e extends com.bytedance.sdk.openadsdk.preload.a.d<String, Map<String, List<Pair<String, Long>>>> {
+public class e extends com.bytedance.sdk.openadsdk.preload.b.d<String, Map<String, List<Pair<String, Long>>>> {
     private File d;
     private List<String> e;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.bytedance.sdk.openadsdk.preload.a.d
+    @Override // com.bytedance.sdk.openadsdk.preload.b.d
     public void a(Object... objArr) {
         super.a(objArr);
         this.d = (File) objArr[0];
@@ -21,9 +21,9 @@ public class e extends com.bytedance.sdk.openadsdk.preload.a.d<String, Map<Strin
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.bytedance.sdk.openadsdk.preload.a.d
+    @Override // com.bytedance.sdk.openadsdk.preload.b.d
     /* renamed from: a */
-    public Object a_(com.bytedance.sdk.openadsdk.preload.a.b<Map<String, List<Pair<String, Long>>>> bVar, String str) throws Exception {
+    public Object a_(com.bytedance.sdk.openadsdk.preload.b.b<Map<String, List<Pair<String, Long>>>> bVar, String str) throws Exception {
         Long a2;
         com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "get local channel version:", str);
         HashMap hashMap = new HashMap();
@@ -41,6 +41,6 @@ public class e extends com.bytedance.sdk.openadsdk.preload.a.d<String, Map<Strin
             }
             hashMap.put(str2, arrayList);
         }
-        return bVar.a((com.bytedance.sdk.openadsdk.preload.a.b<Map<String, List<Pair<String, Long>>>>) hashMap);
+        return bVar.a((com.bytedance.sdk.openadsdk.preload.b.b<Map<String, List<Pair<String, Long>>>>) hashMap);
     }
 }

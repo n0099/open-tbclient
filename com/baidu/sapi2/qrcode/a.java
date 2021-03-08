@@ -3,10 +3,8 @@ package com.baidu.sapi2.qrcode;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5013a = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f5014b = "com.baidu.sapi2.qrcode";
+    public static final boolean f3393a = false;
+    public static final String b = "com.baidu.sapi2.qrcode";
     @Deprecated
     public static final String c = "com.baidu.sapi2.qrcode";
     public static final String d = "release";

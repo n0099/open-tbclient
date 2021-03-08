@@ -20,66 +20,66 @@ import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.EmotionPackageDetailActivity;
 import com.baidu.tieba.faceshop.packagedetail.PackageDetailListView;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
-    private Handler isa;
-    private EmotionPackageDetailActivity jaP;
-    private final float jaQ;
-    private EmotionPreview jaV;
-    private PackageDetailListView jaW;
-    private FrameLayout jaZ;
-    private a jba;
+    private Handler itJ;
+    private EmotionPreview jcE;
+    private PackageDetailListView jcF;
+    private FrameLayout jcI;
+    private a jcJ;
+    private EmotionPackageDetailActivity jcy;
+    private final float jcz;
     private final int previewHeight;
     private final int previewWidth;
     private final Rect rect = new Rect();
-    private int jaR = -1;
-    private int jaS = -1;
-    private int jaT = -1;
-    private int jaU = -1;
-    private boolean jaX = false;
-    private boolean jaY = false;
-    private int ajU = 3;
-    private final Runnable jbb = new Runnable() { // from class: com.baidu.tieba.faceshop.packagedetail.b.1
+    private int jcA = -1;
+    private int jcB = -1;
+    private int jcC = -1;
+    private int jcD = -1;
+    private boolean jcG = false;
+    private boolean jcH = false;
+    private int aln = 3;
+    private final Runnable jcK = new Runnable() { // from class: com.baidu.tieba.faceshop.packagedetail.b.1
         @Override // java.lang.Runnable
         public void run() {
-            b.this.cAC();
+            b.this.cAI();
         }
     };
-    private final PackageDetailListView.a jaN = new PackageDetailListView.a() { // from class: com.baidu.tieba.faceshop.packagedetail.b.2
+    private final PackageDetailListView.a jcw = new PackageDetailListView.a() { // from class: com.baidu.tieba.faceshop.packagedetail.b.2
         @Override // com.baidu.tieba.faceshop.packagedetail.PackageDetailListView.a
         public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-            a cAy;
+            a cAE;
             if (motionEvent == null) {
                 return false;
             }
             switch (motionEvent.getAction()) {
                 case 0:
-                    b.this.jaR = (int) motionEvent.getX();
-                    b.this.jaS = (int) motionEvent.getY();
-                    b.this.jaX = false;
-                    b.this.cAB();
+                    b.this.jcA = (int) motionEvent.getX();
+                    b.this.jcB = (int) motionEvent.getY();
+                    b.this.jcG = false;
+                    b.this.cAH();
                     return false;
                 case 1:
                 case 3:
-                    b.this.cAA();
+                    b.this.cAG();
                     return false;
                 case 2:
-                    if (b.this.jaR > -1 && b.this.jaS > -1) {
-                        b.this.jaT = (int) motionEvent.getX();
-                        b.this.jaU = (int) motionEvent.getY();
-                        if (b.this.jaX || b.this.jba != null) {
-                            if (b.this.jba != null && (cAy = b.this.cAy()) != null && (b.this.jba == null || !b.this.jba.equals(cAy))) {
-                                b.this.a(cAy);
+                    if (b.this.jcA > -1 && b.this.jcB > -1) {
+                        b.this.jcC = (int) motionEvent.getX();
+                        b.this.jcD = (int) motionEvent.getY();
+                        if (b.this.jcG || b.this.jcJ != null) {
+                            if (b.this.jcJ != null && (cAE = b.this.cAE()) != null && (b.this.jcJ == null || !b.this.jcJ.equals(cAE))) {
+                                b.this.a(cAE);
                             }
                         } else {
-                            float f = b.this.jaT - b.this.jaR;
-                            float f2 = b.this.jaU - b.this.jaS;
-                            if ((f * f) + (f2 * f2) > b.this.jaQ * b.this.jaQ) {
-                                b.this.jaX = true;
+                            float f = b.this.jcC - b.this.jcA;
+                            float f2 = b.this.jcD - b.this.jcB;
+                            if ((f * f) + (f2 * f2) > b.this.jcz * b.this.jcz) {
+                                b.this.jcG = true;
                             }
                         }
                     }
-                    return b.this.jba != null;
+                    return b.this.jcJ != null;
                 default:
                     return false;
             }
@@ -87,63 +87,63 @@ public class b {
     };
 
     public b(EmotionPackageDetailActivity emotionPackageDetailActivity) {
-        this.jaP = emotionPackageDetailActivity;
-        this.jaW = emotionPackageDetailActivity.cyF();
-        this.jaW.setTouchEventInterceptHandler(this.jaN);
-        this.isa = emotionPackageDetailActivity.getSafeHandler();
-        this.jaW = emotionPackageDetailActivity.cyF();
-        this.jaQ = ViewConfiguration.get(emotionPackageDetailActivity).getScaledTouchSlop() * 2;
+        this.jcy = emotionPackageDetailActivity;
+        this.jcF = emotionPackageDetailActivity.cyL();
+        this.jcF.setTouchEventInterceptHandler(this.jcw);
+        this.itJ = emotionPackageDetailActivity.getSafeHandler();
+        this.jcF = emotionPackageDetailActivity.cyL();
+        this.jcz = ViewConfiguration.get(emotionPackageDetailActivity).getScaledTouchSlop() * 2;
         this.previewWidth = l.getDimens(emotionPackageDetailActivity, R.dimen.ds240);
         this.previewHeight = l.getDimens(emotionPackageDetailActivity, R.dimen.ds260);
-        this.jaW.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.faceshop.packagedetail.b.3
+        this.jcF.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.faceshop.packagedetail.b.3
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
-                b.this.cAA();
+                b.this.cAG();
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
             }
         });
-        SwipeBackLayout cyK = emotionPackageDetailActivity.cyK();
-        if (cyK != null) {
-            cyK.setOnSlidingStateChangeListener(new SwipeBackLayout.b() { // from class: com.baidu.tieba.faceshop.packagedetail.b.4
+        SwipeBackLayout cyQ = emotionPackageDetailActivity.cyQ();
+        if (cyQ != null) {
+            cyQ.setOnSlidingStateChangeListener(new SwipeBackLayout.b() { // from class: com.baidu.tieba.faceshop.packagedetail.b.4
                 @Override // com.baidu.adp.widget.SwipeBackLayout.b
                 public void onSlidingStart() {
-                    b.this.jaY = true;
-                    b.this.cAA();
+                    b.this.jcH = true;
+                    b.this.cAG();
                 }
 
                 @Override // com.baidu.adp.widget.SwipeBackLayout.b
                 public void onSlidingEnd(boolean z) {
-                    b.this.jaY = false;
+                    b.this.jcH = false;
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public a cAy() {
-        int i = this.jaT;
-        int i2 = this.jaU;
+    public a cAE() {
+        int i = this.jcC;
+        int i2 = this.jcD;
         if (i < 0) {
-            i = this.jaR;
+            i = this.jcA;
         }
         if (i2 < 0) {
-            i2 = this.jaS;
+            i2 = this.jcB;
         }
-        int pointToPosition = this.jaW.pointToPosition(i, i2);
+        int pointToPosition = this.jcF.pointToPosition(i, i2);
         if (pointToPosition >= 0) {
             this.rect.set(i, i2, i + 1, i2 + 1);
-            View childAt = this.jaW.getChildAt(pointToPosition);
+            View childAt = this.jcF.getChildAt(pointToPosition);
             if (childAt != null && (childAt instanceof ViewGroup)) {
                 ViewGroup viewGroup = (ViewGroup) childAt;
-                this.jaW.offsetRectIntoDescendantCoords(childAt, this.rect);
+                this.jcF.offsetRectIntoDescendantCoords(childAt, this.rect);
                 int childCount = viewGroup.getChildCount();
                 for (int i3 = 0; i3 < childCount; i3++) {
                     View childAt2 = viewGroup.getChildAt(i3);
                     if (childAt2.getLeft() < this.rect.left && childAt2.getRight() > this.rect.right && childAt2.getTop() < this.rect.left && childAt2.getBottom() > this.rect.bottom) {
-                        int headerViewsCount = pointToPosition - this.jaW.getHeaderViewsCount();
+                        int headerViewsCount = pointToPosition - this.jcF.getHeaderViewsCount();
                         a aVar = new a(childAt2, headerViewsCount, i3);
                         Log.d("PackageDetailPreview", "touch cell: (" + headerViewsCount + ", " + i3 + ")");
                         return aVar;
@@ -156,9 +156,9 @@ public class b {
 
     private EmotionPackageData.SingleEmotionData ck(int i, int i2) {
         List list;
-        e adapter = this.jaW.getAdapter();
+        e adapter = this.jcF.getAdapter();
         int i3 = (i * 4) + i2;
-        int headerViewsCount = this.jaW.getHeaderViewsCount() + i;
+        int headerViewsCount = this.jcF.getHeaderViewsCount() + i;
         if (adapter == null || headerViewsCount <= -1 || headerViewsCount >= adapter.getCount() || (list = (List) adapter.getItem(headerViewsCount)) == null || i3 <= -1 || i3 >= list.size()) {
             return null;
         }
@@ -168,11 +168,11 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(a aVar) {
         if (aVar != null) {
-            cAz();
+            cAF();
             if (a(aVar.view, ck(aVar.row, aVar.column))) {
-                this.jba = aVar;
-                this.jaW.setDisableListViewTouchIntercept(true);
-                this.jaP.setSwipeBackEnabled(false);
+                this.jcJ = aVar;
+                this.jcF.setDisableListViewTouchIntercept(true);
+                this.jcy.setSwipeBackEnabled(false);
             }
         }
     }
@@ -184,82 +184,82 @@ public class b {
         Log.d("PackageDetailPreview", "show preview, url: " + singleEmotionData.url);
         int[] iArr = new int[2];
         view.getLocationOnScreen(iArr);
-        this.jaV = new EmotionPreview(this.jaP);
-        ap.setBackgroundResource(this.jaV, R.drawable.bg_expression_bubble, this.ajU);
-        this.jaV.a(singleEmotionData.url, singleEmotionData.thumbnail, false, 10);
+        this.jcE = new EmotionPreview(this.jcy);
+        ap.setBackgroundResource(this.jcE, R.drawable.bg_expression_bubble, this.aln);
+        this.jcE.a(singleEmotionData.url, singleEmotionData.thumbnail, false, 10);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.previewWidth, this.previewHeight);
         layoutParams.leftMargin = iArr[0] - 60;
         layoutParams.topMargin = iArr[1] - this.previewHeight;
         if (layoutParams.leftMargin < 0) {
             layoutParams.leftMargin = 0;
         }
-        if (layoutParams.leftMargin + this.previewWidth > l.getEquipmentWidth(this.jaP)) {
-            layoutParams.leftMargin = l.getEquipmentWidth(this.jaP) - this.previewWidth;
+        if (layoutParams.leftMargin + this.previewWidth > l.getEquipmentWidth(this.jcy)) {
+            layoutParams.leftMargin = l.getEquipmentWidth(this.jcy) - this.previewWidth;
         }
-        if (this.jaZ == null) {
-            this.jaZ = (FrameLayout) this.jaP.getWindow().getDecorView();
+        if (this.jcI == null) {
+            this.jcI = (FrameLayout) this.jcy.getWindow().getDecorView();
         }
-        if (this.jaV.getParent() != null && this.jaV.getParent() == this.jaZ) {
-            this.jaZ.removeView(this.jaV);
+        if (this.jcE.getParent() != null && this.jcE.getParent() == this.jcI) {
+            this.jcI.removeView(this.jcE);
         }
-        this.jaZ.addView(this.jaV, layoutParams);
+        this.jcI.addView(this.jcE, layoutParams);
         return true;
     }
 
-    private void cAz() {
-        if (this.jaV != null && this.jaZ != null) {
-            if (this.jaV.getParent() != null && this.jaV.getParent() == this.jaZ) {
-                this.jaZ.removeView(this.jaV);
+    private void cAF() {
+        if (this.jcE != null && this.jcI != null) {
+            if (this.jcE.getParent() != null && this.jcE.getParent() == this.jcI) {
+                this.jcI.removeView(this.jcE);
             }
-            this.jaV = null;
+            this.jcE = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cAA() {
-        this.jaU = -1;
-        this.jaT = -1;
-        this.jaS = -1;
-        this.jaR = -1;
-        this.jaX = false;
-        this.jaP.setSwipeBackEnabled(true);
-        if (this.jaV != null && this.jba != null) {
-            if (this.jaV.getParent() != null && this.jaV.getParent() == this.jaZ) {
-                this.jaZ.removeView(this.jaV);
+    public void cAG() {
+        this.jcD = -1;
+        this.jcC = -1;
+        this.jcB = -1;
+        this.jcA = -1;
+        this.jcG = false;
+        this.jcy.setSwipeBackEnabled(true);
+        if (this.jcE != null && this.jcJ != null) {
+            if (this.jcE.getParent() != null && this.jcE.getParent() == this.jcI) {
+                this.jcI.removeView(this.jcE);
             }
-            this.jba = null;
-            this.jaW.setDisableListViewTouchIntercept(false);
+            this.jcJ = null;
+            this.jcF.setDisableListViewTouchIntercept(false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cAB() {
-        this.isa.removeCallbacks(this.jbb);
-        this.isa.postDelayed(this.jbb, 500L);
+    public void cAH() {
+        this.itJ.removeCallbacks(this.jcK);
+        this.itJ.postDelayed(this.jcK, 500L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cAC() {
-        a cAy;
-        if (!this.jaX && !this.jaY && this.jba == null && (cAy = cAy()) != null) {
-            a(cAy);
+    public void cAI() {
+        a cAE;
+        if (!this.jcG && !this.jcH && this.jcJ == null && (cAE = cAE()) != null) {
+            a(cAE);
         }
     }
 
-    public void cAD() {
-        this.isa.removeCallbacks(this.jbb);
-        cAA();
+    public void cAJ() {
+        this.itJ.removeCallbacks(this.jcK);
+        cAG();
     }
 
     public void onChangeSkinType(int i) {
-        this.ajU = i;
-        if (this.jaV != null) {
-            ap.setBackgroundResource(this.jaV, R.drawable.bg_expression_bubble, i);
+        this.aln = i;
+        if (this.jcE != null) {
+            ap.setBackgroundResource(this.jcE, R.drawable.bg_expression_bubble, i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public int column;
         public int row;

@@ -6,10 +6,8 @@ import com.kwad.sdk.core.response.model.PhotoComment;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public PhotoComment f8449a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f8450b;
+    public PhotoComment f5634a;
+    public AdTemplate b;
     public long c;
     public boolean d = false;
     public int e;

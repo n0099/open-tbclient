@@ -4,26 +4,26 @@ import android.content.Context;
 /* loaded from: classes.dex */
 public class m {
     private Context context;
-    public n fBo;
-    public int fCb;
-    public int fCc;
-    public int fCd;
-    public boolean fCe;
-    public boolean fCf;
-    public int fCh;
-    public int fCi;
-    public int[] fCk;
-    public boolean fCl;
+    public n fCN;
+    public int fDA;
+    public int fDB;
+    public int fDC;
+    public boolean fDD;
+    public boolean fDE;
+    public int fDG;
+    public int fDH;
+    public int[] fDJ;
+    public boolean fDK;
     public int id;
     public String name;
-    public boolean fCg = true;
-    public boolean fCj = false;
-    private boolean fCm = true;
+    public boolean fDF = true;
+    public boolean fDI = false;
+    private boolean fDL = true;
 
     public m(String str, int i, int i2) {
         this.name = str;
         this.id = i;
-        this.fCh = i2;
+        this.fDG = i2;
     }
 
     public m(Context context, String str, int i) {
@@ -36,7 +36,7 @@ public class m {
         this.name = str;
         this.id = i;
         this.context = context;
-        this.fCh = i2;
+        this.fDG = i2;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -56,10 +56,10 @@ public class m {
     }
 
     public void kR(boolean z) {
-        this.fCm = z;
+        this.fDL = z;
     }
 
-    public boolean bBx() {
-        return this.fCm;
+    public boolean bBA() {
+        return this.fDL;
     }
 }

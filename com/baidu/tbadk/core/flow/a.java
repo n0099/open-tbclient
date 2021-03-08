@@ -7,9 +7,9 @@ import com.baidu.tbadk.core.flow.a.e;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public interface a {
-    TbImageView V(Context context);
+    TbImageView U(Context context);
 
-    View brh();
+    View bri();
 
     e tt();
 

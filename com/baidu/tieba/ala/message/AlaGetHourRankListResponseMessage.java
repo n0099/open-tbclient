@@ -4,9 +4,9 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.data.p;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaGetHourRankListResponseMessage extends JsonHttpResponsedMessage {
-    private p hTy;
+    private p hVh;
 
     public AlaGetHourRankListResponseMessage() {
         super(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST);
@@ -17,12 +17,12 @@ public class AlaGetHourRankListResponseMessage extends JsonHttpResponsedMessage 
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.hTy = new p();
-            this.hTy.parserJson(optJSONObject);
+            this.hVh = new p();
+            this.hVh.parserJson(optJSONObject);
         }
     }
 
-    public p clU() {
-        return this.hTy;
+    public p cma() {
+        return this.hVh;
     }
 }

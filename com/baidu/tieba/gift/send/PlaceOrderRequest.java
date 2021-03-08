@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.v;
 import tbclient.PlaceOrder.DataReq;
 import tbclient.PlaceOrder.PlaceOrderReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class PlaceOrderRequest extends NetMessage {
     public long accountId;
     public int accountType;

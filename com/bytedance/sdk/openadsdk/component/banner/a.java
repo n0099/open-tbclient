@@ -6,21 +6,19 @@ import com.bytedance.sdk.openadsdk.core.d.l;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Bitmap f6261a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private l f6262b;
+    private Bitmap f4241a;
+    private l b;
 
     public a(Bitmap bitmap, l lVar) {
-        this.f6261a = bitmap;
-        this.f6262b = lVar;
+        this.f4241a = bitmap;
+        this.b = lVar;
     }
 
     public Bitmap a() {
-        return this.f6261a;
+        return this.f4241a;
     }
 
     public l b() {
-        return this.f6262b;
+        return this.b;
     }
 }

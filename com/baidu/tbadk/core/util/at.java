@@ -4,26 +4,26 @@ import com.baidu.tbadk.TbConfig;
 import java.io.File;
 /* loaded from: classes.dex */
 public class at {
-    private static at faW;
+    private static at fcw;
 
-    public static synchronized at bsP() {
+    public static synchronized at bsS() {
         at atVar;
         synchronized (at.class) {
-            if (faW == null) {
-                faW = new at();
+            if (fcw == null) {
+                fcw = new at();
             }
-            atVar = faW;
+            atVar = fcw;
         }
         return atVar;
     }
 
-    public String Be(String str) {
+    public String Bl(String str) {
         if (str == null) {
             return null;
         }
         long j = 0;
-        for (byte b2 : str.getBytes()) {
-            j += b2;
+        for (byte b : str.getBytes()) {
+            j += b;
         }
         return "image/" + (j % 20);
     }
@@ -41,7 +41,7 @@ public class at {
         }
     }
 
-    public void bsQ() {
+    public void bsT() {
         Q(new File(o.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + o.getPrefixByType(3)));
     }
 

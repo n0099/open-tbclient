@@ -4,12 +4,12 @@ import android.os.Bundle;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.extcore.cores.SwanAppCores;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c extends d {
-    public final e dDN = new e(this, "");
+    public final e dFo = new e(this, "");
 
     @Override // com.baidu.swan.apps.runtime.h
-    public SwanAppProcessInfo aFW() {
+    public SwanAppProcessInfo aFZ() {
         return SwanAppProcessInfo.current();
     }
 
@@ -19,17 +19,17 @@ public class c extends d {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public boolean aFY() {
+    public boolean aGb() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public boolean aFX() {
+    public boolean aGa() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public SwanAppCores aFZ() {
+    public SwanAppCores aGc() {
         return null;
     }
 
@@ -39,13 +39,13 @@ public class c extends d {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public com.baidu.swan.apps.process.messaging.client.a aIB() {
+    public com.baidu.swan.apps.process.messaging.client.a aIE() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public e aIC() {
-        return this.dDN;
+    public e aIF() {
+        return this.dFo;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
@@ -58,7 +58,7 @@ public class c extends d {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public void aID() {
+    public void aIG() {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
@@ -70,12 +70,12 @@ public class c extends d {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public SwanAppActivity aIE() {
+    public SwanAppActivity aIH() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.runtime.d
-    protected com.baidu.swan.pms.c.f aIF() {
+    protected com.baidu.swan.pms.c.f aII() {
         return null;
     }
 }

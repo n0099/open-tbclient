@@ -26,7 +26,7 @@ public interface e extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof e)) {
                 return (e) queryLocalInterface;
             }
-            return new C0993a(iBinder);
+            return new C1001a(iBinder);
         }
 
         @Override // android.os.Binder
@@ -40,9 +40,9 @@ public interface e extends IInterface {
                     return true;
                 case 2:
                     parcel.enforceInterface("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    String b2 = b();
+                    String b = b();
                     parcel2.writeNoException();
-                    parcel2.writeString(b2);
+                    parcel2.writeString(b);
                     return true;
                 case 3:
                     parcel.enforceInterface("com.asus.msa.SupplementaryDID.IDidAidlInterface");
@@ -72,18 +72,18 @@ public interface e extends IInterface {
 
         /* renamed from: com.bytedance.embedapplog.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        static class C0993a implements e {
+        static class C1001a implements e {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f5830a;
+            private IBinder f3933a;
 
-            C0993a(IBinder iBinder) {
-                this.f5830a = iBinder;
+            C1001a(IBinder iBinder) {
+                this.f3933a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f5830a;
+                return this.f3933a;
             }
 
             @Override // com.bytedance.embedapplog.e
@@ -92,7 +92,7 @@ public interface e extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f5830a.transact(1, obtain, obtain2, 0);
+                    this.f3933a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -107,7 +107,7 @@ public interface e extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f5830a.transact(2, obtain, obtain2, 0);
+                    this.f3933a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -122,7 +122,7 @@ public interface e extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f5830a.transact(3, obtain, obtain2, 0);
+                    this.f3933a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -137,7 +137,7 @@ public interface e extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f5830a.transact(4, obtain, obtain2, 0);
+                    this.f3933a.transact(4, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -152,7 +152,7 @@ public interface e extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f5830a.transact(5, obtain, obtain2, 0);
+                    this.f3933a.transact(5, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {

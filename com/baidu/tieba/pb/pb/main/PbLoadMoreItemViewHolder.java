@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
-    private String lUZ;
-    private CustomMessageListener lla;
+    private String lXb;
+    private CustomMessageListener lnc;
     private LinearLayout mContainer;
     private ProgressBar mProgressBar;
     private View mRoot;
@@ -22,7 +22,7 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
 
     public PbLoadMoreItemViewHolder(View view, BdUniqueId bdUniqueId) {
         super(view);
-        this.lla = new CustomMessageListener(2921471) { // from class: com.baidu.tieba.pb.pb.main.PbLoadMoreItemViewHolder.1
+        this.lnc = new CustomMessageListener(2921471) { // from class: com.baidu.tieba.pb.pb.main.PbLoadMoreItemViewHolder.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -40,13 +40,13 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
         this.mTextView = (TextView) view.findViewById(R.id.pb_more_text);
         this.mProgressBar = (ProgressBar) view.findViewById(R.id.progress);
         this.mContainer.setVisibility(0);
-        this.lla.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.lla);
+        this.lnc.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.lnc);
         onChangeSkinType();
     }
 
-    public void av(String str, int i) {
-        this.lUZ = str;
+    public void setText(String str, int i) {
+        this.lXb = str;
         this.mTextView.setText(str);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mContainer.getLayoutParams();
         layoutParams.height = i;
@@ -70,8 +70,8 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
 
     public void endLoadData() {
         this.mProgressBar.setVisibility(8);
-        if (this.lUZ != null) {
-            this.mTextView.setText(this.lUZ);
+        if (this.lXb != null) {
+            this.mTextView.setText(this.lXb);
         } else {
             this.mTextView.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.pb_load_more));
         }

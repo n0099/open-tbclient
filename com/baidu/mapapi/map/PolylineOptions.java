@@ -10,7 +10,7 @@ import java.util.List;
 public final class PolylineOptions extends OverlayOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2756a;
+    int f2043a;
     Bundle d;
     private List<LatLng> f;
     private List<Integer> g;
@@ -21,9 +21,7 @@ public final class PolylineOptions extends OverlayOptions {
     private int i = 5;
     private boolean l = true;
     private boolean m = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    boolean f2757b = true;
+    boolean b = true;
     boolean c = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -31,15 +29,15 @@ public final class PolylineOptions extends OverlayOptions {
     public Overlay a() {
         int i = 0;
         Polyline polyline = new Polyline();
-        polyline.x = this.f2757b;
+        polyline.x = this.b;
         polyline.f = this.c;
-        polyline.w = this.f2756a;
+        polyline.w = this.f2043a;
         polyline.y = this.d;
         if (this.f == null || this.f.size() < 2) {
             throw new IllegalStateException("when you add polyline, you must at least supply 2 points");
         }
-        polyline.f2755b = this.f;
-        polyline.f2754a = this.e;
+        polyline.b = this.f;
+        polyline.f2042a = this.e;
         polyline.e = this.i;
         polyline.i = this.j;
         polyline.j = this.k;
@@ -152,7 +150,7 @@ public final class PolylineOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2756a;
+        return this.f2043a;
     }
 
     public boolean isDottedLine() {
@@ -164,7 +162,7 @@ public final class PolylineOptions extends OverlayOptions {
     }
 
     public boolean isVisible() {
-        return this.f2757b;
+        return this.b;
     }
 
     public PolylineOptions keepScale(boolean z) {
@@ -198,7 +196,7 @@ public final class PolylineOptions extends OverlayOptions {
     }
 
     public PolylineOptions visible(boolean z) {
-        this.f2757b = z;
+        this.b = z;
         return this;
     }
 
@@ -210,7 +208,7 @@ public final class PolylineOptions extends OverlayOptions {
     }
 
     public PolylineOptions zIndex(int i) {
-        this.f2756a = i;
+        this.f2043a = i;
         return this;
     }
 }

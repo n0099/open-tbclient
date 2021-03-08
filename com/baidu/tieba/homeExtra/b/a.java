@@ -9,7 +9,7 @@ import com.baidu.mobstat.StatService;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.t.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a implements c.a {
     public a() {
         String version = TbConfig.getVersion();

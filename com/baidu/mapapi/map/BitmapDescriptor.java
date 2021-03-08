@@ -12,15 +12,13 @@ import java.security.NoSuchAlgorithmException;
 public final class BitmapDescriptor {
 
     /* renamed from: a  reason: collision with root package name */
-    Bitmap f2696a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Bundle f2697b;
+    Bitmap f2010a;
+    private Bundle b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public BitmapDescriptor(Bitmap bitmap) {
         if (bitmap != null) {
-            this.f2696a = a(bitmap, bitmap.getWidth(), bitmap.getHeight());
+            this.f2010a = a(bitmap, bitmap.getWidth(), bitmap.getHeight());
         }
     }
 
@@ -35,20 +33,20 @@ public final class BitmapDescriptor {
     }
 
     byte[] a() {
-        ByteBuffer allocate = ByteBuffer.allocate(this.f2696a.getWidth() * this.f2696a.getHeight() * 4);
-        this.f2696a.copyPixelsToBuffer(allocate);
+        ByteBuffer allocate = ByteBuffer.allocate(this.f2010a.getWidth() * this.f2010a.getHeight() * 4);
+        this.f2010a.copyPixelsToBuffer(allocate);
         return allocate.array();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Bundle b() {
-        if (this.f2696a == null) {
+        if (this.f2010a == null) {
             throw new IllegalStateException("the bitmap has been recycled! you can not use it again");
         }
-        if (this.f2697b == null) {
+        if (this.b == null) {
             Bundle bundle = new Bundle();
-            bundle.putInt("image_width", this.f2696a.getWidth());
-            bundle.putInt("image_height", this.f2696a.getHeight());
+            bundle.putInt("image_width", this.f2010a.getWidth());
+            bundle.putInt("image_height", this.f2010a.getHeight());
             byte[] a2 = a();
             bundle.putByteArray("image_data", a2);
             MessageDigest messageDigest = null;
@@ -60,24 +58,24 @@ public final class BitmapDescriptor {
             messageDigest.update(a2, 0, a2.length);
             byte[] digest = messageDigest.digest();
             StringBuilder sb = new StringBuilder("");
-            for (byte b2 : digest) {
-                sb.append(Integer.toString((b2 & 255) + 256, 16).substring(1));
+            for (byte b : digest) {
+                sb.append(Integer.toString((b & 255) + 256, 16).substring(1));
             }
             bundle.putString("image_hashcode", sb.toString());
-            this.f2697b = bundle;
+            this.b = bundle;
         }
-        return this.f2697b;
+        return this.b;
     }
 
     public Bitmap getBitmap() {
-        return this.f2696a;
+        return this.f2010a;
     }
 
     public void recycle() {
-        if (this.f2696a == null || this.f2696a.isRecycled()) {
+        if (this.f2010a == null || this.f2010a.isRecycled()) {
             return;
         }
-        this.f2696a.recycle();
-        this.f2696a = null;
+        this.f2010a.recycle();
+        this.f2010a = null;
     }
 }

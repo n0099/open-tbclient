@@ -37,7 +37,7 @@ public class e extends b<com.baidu.swan.pms.model.d> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
     /* renamed from: h */
-    public ContentValues al(com.baidu.swan.pms.model.d dVar) {
+    public ContentValues an(com.baidu.swan.pms.model.d dVar) {
         return e(dVar);
     }
 }

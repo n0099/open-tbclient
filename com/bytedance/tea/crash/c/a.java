@@ -20,14 +20,14 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected JSONObject f7628a;
+    protected JSONObject f5163a;
 
     public a() {
-        this.f7628a = new JSONObject();
+        this.f5163a = new JSONObject();
     }
 
     public a(JSONObject jSONObject) {
-        this.f7628a = jSONObject;
+        this.f5163a = jSONObject;
     }
 
     public static a a(long j, Context context, @Nullable Thread thread, @NonNull Throwable th) {
@@ -55,7 +55,7 @@ public class a {
     }
 
     public JSONObject a() {
-        return this.f7628a;
+        return this.f5163a;
     }
 
     public a a(b bVar) {
@@ -73,7 +73,7 @@ public class a {
         return this;
     }
 
-    public a Ze(@NonNull String str) {
+    public a Zl(@NonNull String str) {
         if (!TextUtils.isEmpty(str)) {
             a("session_id", str);
         }
@@ -82,7 +82,7 @@ public class a {
 
     public a a(com.bytedance.tea.crash.e.a.b bVar) {
         a("activity_trace", bVar.a());
-        a("running_tasks", bVar.b());
+        a("running_tasks", bVar.erf());
         return this;
     }
 
@@ -90,7 +90,7 @@ public class a {
         JSONArray jSONArray = new JSONArray();
         try {
             if (map == null) {
-                this.f7628a.put("plugin_info", jSONArray);
+                this.f5163a.put("plugin_info", jSONArray);
             } else {
                 for (String str : map.keySet()) {
                     JSONObject jSONObject = new JSONObject();
@@ -98,7 +98,7 @@ public class a {
                     jSONObject.put("version_code", map.get(str));
                     jSONArray.put(jSONObject);
                 }
-                this.f7628a.put("plugin_info", jSONArray);
+                this.f5163a.put("plugin_info", jSONArray);
             }
         } catch (Exception e) {
         }
@@ -116,7 +116,7 @@ public class a {
                 }
             }
             try {
-                this.f7628a.put("sdk_info", jSONObject);
+                this.f5163a.put("sdk_info", jSONObject);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -126,8 +126,8 @@ public class a {
 
     public a ci(int i, String str) {
         try {
-            this.f7628a.put("miniapp_id", i);
-            this.f7628a.put("miniapp_version", str);
+            this.f5163a.put("miniapp_id", i);
+            this.f5163a.put("miniapp_version", str);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -147,7 +147,7 @@ public class a {
         return this;
     }
 
-    public a eT(JSONObject jSONObject) {
+    public a eW(JSONObject jSONObject) {
         a("storage", jSONObject);
         return this;
     }
@@ -178,7 +178,7 @@ public class a {
 
     public void a(@NonNull String str, @Nullable Object obj) {
         try {
-            this.f7628a.put(str, obj);
+            this.f5163a.put(str, obj);
         } catch (Exception e) {
             j.b(e);
         }

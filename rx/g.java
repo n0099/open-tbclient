@@ -2,13 +2,13 @@ package rx;
 
 import java.util.concurrent.TimeUnit;
 import rx.internal.schedulers.SchedulerWhen;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class g {
-    static final long qys = TimeUnit.MINUTES.toNanos(Long.getLong("rx.scheduler.drift-tolerance", 15).longValue());
+    static final long qyU = TimeUnit.MINUTES.toNanos(Long.getLong("rx.scheduler.drift-tolerance", 15).longValue());
 
     public abstract a createWorker();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static abstract class a implements k {
         public abstract k a(rx.functions.a aVar, long j, TimeUnit timeUnit);
 

@@ -1,18 +1,18 @@
 package com.baidu.ubs.analytics.c;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class e {
-    private static final e oUv = new e();
-    private l oUw = new l();
+    private static final e oWA = new e();
+    private l oWB = new l();
 
-    public static e ein() {
-        return oUv;
+    public static e eiw() {
+        return oWA;
     }
 
-    public final void XI(String str) {
-        this.oUw.XI(str);
+    public final void XP(String str) {
+        this.oWB.XP(str);
     }
 
-    public final void XJ(String str) {
-        this.oUw.XJ(str);
+    public final void XQ(String str) {
+        this.oWB.XQ(str);
     }
 }

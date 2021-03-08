@@ -193,10 +193,10 @@ public class FrsActivityConfig extends IntentConfig {
         } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
             i = 6;
         }
-        if (d.bjr() && com.baidu.tbadk.a.b.a.eGq != com.baidu.tbadk.a.b.a.bjK()) {
-            frsRequestData.Jz(j.At(com.baidu.tbadk.a.b.a.bjK()));
+        if (d.bjt() && com.baidu.tbadk.a.b.a.eHR != com.baidu.tbadk.a.b.a.bjM()) {
+            frsRequestData.JD(j.Au(com.baidu.tbadk.a.b.a.bjM()));
         }
-        frsRequestData.setSortType(j.At(i));
+        frsRequestData.setSortType(j.Au(i));
         if (i == 5) {
             frsRequestData.setIsGood(1);
         } else {
@@ -207,7 +207,7 @@ public class FrsActivityConfig extends IntentConfig {
         frsRequestData.setPn(1);
         frsRequestData.setCallFrom(intExtra);
         j.a(i, frsRequestData);
-        frsRequestData.Tg("2");
+        frsRequestData.Tm("2");
         frsRequestData.setObjSource("-2");
         frsRequestData.setKw(stringExtra);
         frsRequestData.setWithGroup(1);
@@ -215,23 +215,23 @@ public class FrsActivityConfig extends IntentConfig {
         frsRequestData.setScrW(l.getEquipmentWidth(TbadkCoreApplication.getInst()));
         frsRequestData.setScrH(l.getEquipmentHeight(TbadkCoreApplication.getInst()));
         frsRequestData.setScrDip(l.getEquipmentDensity(TbadkCoreApplication.getInst()));
-        frsRequestData.setqType(av.bsS().bsT() ? 2 : 1);
+        frsRequestData.setqType(av.bsV().bsW() ? 2 : 1);
         if (uri != null) {
             frsRequestData.setSchemeUrl(uri.toString());
         }
         frsRequestData.setLastId(null);
         frsRequestData.setYuelaouLocate(stringExtra3);
-        frsRequestData.setLastClickTid(b.toLong(ab.bFH(), 0L));
+        frsRequestData.setLastClickTid(b.toLong(ab.bFL(), 0L));
         frsRequestData.setStType(stringExtra2);
-        frsRequestData.Jy(1);
+        frsRequestData.JC(1);
         frsRequestData.setNeedCache(true);
         frsRequestData.setUpdateType(3);
         frsRequestData.hG(longExtra);
         j.a(i, frsRequestData);
         frsRequestData.setLoadType(1);
-        if (cb.eRa.get() && s.dDt().dDn() != null) {
-            int ba = s.dDt().dDn().ba(stringExtra, false);
-            int bb = s.dDt().dDn().bb(stringExtra, false);
+        if (cb.eSB.get() && s.dDB().dDv() != null) {
+            int ba = s.dDB().dDv().ba(stringExtra, false);
+            int bb = s.dDB().dDv().bb(stringExtra, false);
             if (frsRequestData.getLoadType() == 1) {
                 ba++;
             } else if (frsRequestData.getLoadType() == 2) {

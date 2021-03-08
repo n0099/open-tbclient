@@ -5,7 +5,7 @@ import android.view.SurfaceView;
 import com.yy.mediaframework.Constant;
 import com.yy.mediaframework.utils.YMFLog;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class UploadStreamStateParams {
     public static int mOffsetX;
     public static int mOffsetY;

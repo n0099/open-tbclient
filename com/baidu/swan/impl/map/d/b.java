@@ -6,7 +6,7 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends c {
     public b(@NonNull Context context) {
         super("GaodeMap", context.getString(R.string.openlocation_bottommenu_gaodemap), "com.autonavi.minimap");

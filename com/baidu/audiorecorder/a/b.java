@@ -7,18 +7,18 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.editortools.m;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends m {
     public b(Context context) {
         super(context, TbadkCoreApplication.getInst().getResources().getString(R.string.msglist_voice), 6);
-        this.fCb = R.drawable.icon_pure_post_voice24;
-        this.fCc = R.drawable.icon_pure_post_voice24_selection;
-        this.fCe = false;
-        this.fCf = true;
-        this.fCi = 6;
-        this.fCj = true;
-        this.fBo = new NewVoiceRecordButton(context);
-        this.fCk = new int[]{1, 9};
+        this.fDA = R.drawable.icon_pure_post_voice24;
+        this.fDB = R.drawable.icon_pure_post_voice24_selection;
+        this.fDD = false;
+        this.fDE = true;
+        this.fDH = 6;
+        this.fDI = true;
+        this.fCN = new NewVoiceRecordButton(context);
+        this.fDJ = new int[]{1, 9};
     }
 
     @Override // com.baidu.tbadk.editortools.m

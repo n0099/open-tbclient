@@ -1,29 +1,29 @@
 package com.baidu.tieba.yuyinala.liveroom.roomcard;
 
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e {
-    public int oyV;
-    public int oyW;
-    public String oyX;
-    public int oyY;
-    public ArrayList<a> oyZ;
-    public ArrayList<a> oza;
-    public int ozb;
-    public long ozc;
-    public String ozd;
+    public int oBa;
+    public int oBb;
+    public String oBc;
+    public int oBd;
+    public ArrayList<a> oBe;
+    public ArrayList<a> oBf;
+    public int oBg;
+    public long oBh;
+    public String oBi;
     public String room_name;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        public int oze;
-        public String ozf;
-        public boolean ozg;
+        public int oBj;
+        public String oBk;
+        public boolean oBl;
         public String user_name;
         public String user_uk;
 
-        public String ebS() {
-            switch (this.oze) {
+        public String eca() {
+            switch (this.oBj) {
                 case 1:
                     return "房主";
                 case 2:

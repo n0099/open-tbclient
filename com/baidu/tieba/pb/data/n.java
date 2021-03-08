@@ -5,18 +5,18 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes.dex */
 public class n {
     private String content;
-    private PostData kqg;
-    private Bitmap lLC;
-    private String lLD;
-    private com.baidu.tbadk.widget.richText.a lLE;
+    private PostData ksi;
+    private Bitmap lNE;
+    private String lNF;
+    private com.baidu.tbadk.widget.richText.a lNG;
     private int threadType;
 
-    public Bitmap dlX() {
-        return this.lLC;
+    public Bitmap dmg() {
+        return this.lNE;
     }
 
     public void E(Bitmap bitmap) {
-        this.lLC = bitmap;
+        this.lNE = bitmap;
     }
 
     public String getContent() {
@@ -28,27 +28,27 @@ public class n {
     }
 
     public String getThreadImgUrl() {
-        return this.lLD;
+        return this.lNF;
     }
 
-    public void Pn(String str) {
-        this.lLD = str;
+    public void Pt(String str) {
+        this.lNF = str;
     }
 
     public void g(PostData postData) {
-        this.kqg = postData;
+        this.ksi = postData;
     }
 
-    public PostData dlY() {
-        return this.kqg;
+    public PostData dmh() {
+        return this.ksi;
     }
 
-    public com.baidu.tbadk.widget.richText.a dlZ() {
-        return this.lLE;
+    public com.baidu.tbadk.widget.richText.a dmi() {
+        return this.lNG;
     }
 
     public void b(com.baidu.tbadk.widget.richText.a aVar) {
-        this.lLE = aVar;
+        this.lNG = aVar;
     }
 
     public int getThreadType() {

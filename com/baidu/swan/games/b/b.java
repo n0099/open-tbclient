@@ -5,11 +5,11 @@ import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends EventTargetImpl {
     public b(com.baidu.swan.games.f.b bVar) {
         super(bVar);
-        d.aTF().a(this);
+        d.aTI().a(this);
     }
 
     public void ay(int i, String str) throws JSONException {

@@ -4,7 +4,7 @@ import android.content.Context;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.http.request.HttpRequest;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface r {
     String ahA();
 
@@ -22,24 +22,24 @@ public interface r {
 
     String ahH();
 
-    @Nullable
     String ahI();
 
-    long ahJ();
+    String ahJ();
 
     String ahK();
 
+    @Nullable
     String ahL();
 
-    String ahM();
+    long ahM();
 
-    boolean ahq();
+    String ahN();
 
-    String ahr();
+    String ahO();
 
-    String ahs();
+    String ahP();
 
-    String aht();
+    boolean aht();
 
     String ahu();
 
@@ -53,29 +53,29 @@ public interface r {
 
     String ahz();
 
-    void ain();
+    String aiA();
 
-    void aio();
+    void aiq();
 
-    String aip();
+    void air();
 
-    String aiq();
-
-    boolean air();
-
-    int ais();
+    String ais();
 
     String ait();
 
-    String aiu();
+    boolean aiu();
 
-    String aiv();
+    int aiv();
 
     String aiw();
 
     String aix();
 
-    String cd(Context context);
+    String aiy();
+
+    String aiz();
+
+    String cc(Context context);
 
     HttpRequest e(Context context, Map<String, String> map);
 
@@ -91,7 +91,7 @@ public interface r {
 
     HttpRequest j(Context context, Map<String, String> map);
 
-    String jW(String str);
-
     HttpRequest k(Context context, Map<String, String> map);
+
+    String kd(String str);
 }

@@ -3,20 +3,20 @@ package com.baidu.fsg.base.widget;
 class k implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f2044a;
+    final /* synthetic */ j f1597a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.f2044a = jVar;
+        this.f1597a = jVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         SafeScrollView safeScrollView;
-        if (this.f2044a.f2043a.mPopupWindow != null && this.f2044a.f2043a.mPopupWindow.isShowing()) {
-            safeScrollView = this.f2044a.f2043a.e;
+        if (this.f1597a.f1596a.mPopupWindow != null && this.f1597a.f1596a.mPopupWindow.isShowing()) {
+            safeScrollView = this.f1597a.f1596a.e;
             if (safeScrollView.hasWindowFocus()) {
-                this.f2044a.f2043a.a();
+                this.f1597a.f1596a.a();
             }
         }
     }

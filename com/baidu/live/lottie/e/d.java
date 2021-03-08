@@ -1,7 +1,7 @@
 package com.baidu.live.lottie.e;
 
 import com.baidu.mobstat.Config;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class d {
     private final float scaleX;
     private final float scaleY;

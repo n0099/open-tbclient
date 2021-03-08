@@ -17,11 +17,11 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class af {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public final int mDisplayNumber;
         public final boolean mInternal;
@@ -47,7 +47,7 @@ public final class af {
         boolean z = false;
         HashMap hashMap = new HashMap();
         ArrayList arrayList = new ArrayList();
-        String aLP = com.baidu.swan.apps.storage.b.aLP();
+        String aLS = com.baidu.swan.apps.storage.b.aLS();
         boolean z2 = c.hasGingerbread() ? !Environment.isExternalStorageRemovable() : false;
         String externalStorageState = Environment.getExternalStorageState();
         z = (externalStorageState.equals("mounted") || externalStorageState.equals("mounted_ro")) ? true : true;
@@ -76,9 +76,9 @@ public final class af {
                             stringTokenizer.nextToken();
                             boolean contains = Arrays.asList(stringTokenizer.nextToken().split(",")).contains("ro");
                             if (readLine.contains("vfat") || readLine.contains("/mnt")) {
-                                if (nextToken2.equals(aLP)) {
-                                    hashSet.add(aLP);
-                                    hashMap.put(nextToken, new a(aLP, z2, contains, -1));
+                                if (nextToken2.equals(aLS)) {
+                                    hashSet.add(aLS);
+                                    hashMap.put(nextToken, new a(aLS, z2, contains, -1));
                                 } else if (readLine.contains("/dev/block/vold")) {
                                     if (!readLine.contains("/mnt/secure") && !readLine.contains("/mnt/asec") && !readLine.contains("/mnt/obb") && !readLine.contains("/dev/mapper") && !readLine.contains("tmpfs")) {
                                         hashSet.add(nextToken2);
@@ -123,8 +123,8 @@ public final class af {
                             arrayList.add(aVar);
                         }
                     }
-                    if (!hashSet.contains(aLP) && z) {
-                        arrayList.add(0, new a(aLP, z2, equals, -1));
+                    if (!hashSet.contains(aLS) && z) {
+                        arrayList.add(0, new a(aLS, z2, equals, -1));
                     }
                     com.baidu.swan.c.d.closeSafely(bufferedReader2);
                 } catch (FileNotFoundException e) {

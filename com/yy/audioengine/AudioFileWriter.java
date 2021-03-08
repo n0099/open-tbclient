@@ -1,5 +1,5 @@
 package com.yy.audioengine;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AudioFileWriter {
     private static final String TAG = "AudioFileWriter";
     private long mCtx;

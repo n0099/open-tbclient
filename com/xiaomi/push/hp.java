@@ -3,23 +3,23 @@ package com.xiaomi.push;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class hp implements ix<hp, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public List<hq> f524a;
+    public List<hq> f445a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final jn f523a = new jn("ClientUploadData");
+    private static final jn f444a = new jn("ClientUploadData");
 
     /* renamed from: a  reason: collision with root package name */
-    private static final jf f14099a = new jf("", (byte) 15, 1);
+    private static final jf f8421a = new jf("", (byte) 15, 1);
 
     public int a() {
-        if (this.f524a == null) {
+        if (this.f445a == null) {
             return 0;
         }
-        return this.f524a.size();
+        return this.f445a.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,9 +28,9 @@ public class hp implements ix<hp, Object>, Serializable, Cloneable {
     public int compareTo(hp hpVar) {
         int a2;
         if (getClass().equals(hpVar.getClass())) {
-            int compareTo = Boolean.valueOf(m369a()).compareTo(Boolean.valueOf(hpVar.m369a()));
+            int compareTo = Boolean.valueOf(m348a()).compareTo(Boolean.valueOf(hpVar.m348a()));
             if (compareTo == 0) {
-                if (!m369a() || (a2 = iy.a(this.f524a, hpVar.f524a)) == 0) {
+                if (!m348a() || (a2 = iy.a(this.f445a, hpVar.f445a)) == 0) {
                     return 0;
                 }
                 return a2;
@@ -41,47 +41,47 @@ public class hp implements ix<hp, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m368a() {
-        if (this.f524a == null) {
+    public void m347a() {
+        if (this.f445a == null) {
             throw new jj("Required field 'uploadDataItems' was not present! Struct: " + toString());
         }
     }
 
     public void a(hq hqVar) {
-        if (this.f524a == null) {
-            this.f524a = new ArrayList();
+        if (this.f445a == null) {
+            this.f445a = new ArrayList();
         }
-        this.f524a.add(hqVar);
+        this.f445a.add(hqVar);
     }
 
     @Override // com.xiaomi.push.ix
     public void a(ji jiVar) {
-        jiVar.m514a();
+        jiVar.m493a();
         while (true) {
-            jf m510a = jiVar.m510a();
-            if (m510a.f14173a == 0) {
+            jf m489a = jiVar.m489a();
+            if (m489a.f8463a == 0) {
                 jiVar.f();
-                m368a();
+                m347a();
                 return;
             }
-            switch (m510a.f857a) {
+            switch (m489a.f778a) {
                 case 1:
-                    if (m510a.f14173a == 15) {
-                        jg m511a = jiVar.m511a();
-                        this.f524a = new ArrayList(m511a.f858a);
-                        for (int i = 0; i < m511a.f858a; i++) {
+                    if (m489a.f8463a == 15) {
+                        jg m490a = jiVar.m490a();
+                        this.f445a = new ArrayList(m490a.f779a);
+                        for (int i = 0; i < m490a.f779a; i++) {
                             hq hqVar = new hq();
                             hqVar.a(jiVar);
-                            this.f524a.add(hqVar);
+                            this.f445a.add(hqVar);
                         }
                         jiVar.i();
                         break;
                     } else {
-                        jl.a(jiVar, m510a.f14173a);
+                        jl.a(jiVar, m489a.f8463a);
                         break;
                     }
                 default:
-                    jl.a(jiVar, m510a.f14173a);
+                    jl.a(jiVar, m489a.f8463a);
                     break;
             }
             jiVar.g();
@@ -89,40 +89,40 @@ public class hp implements ix<hp, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m369a() {
-        return this.f524a != null;
+    public boolean m348a() {
+        return this.f445a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m370a(hp hpVar) {
+    public boolean m349a(hp hpVar) {
         if (hpVar == null) {
             return false;
         }
-        boolean m369a = m369a();
-        boolean m369a2 = hpVar.m369a();
-        return !(m369a || m369a2) || (m369a && m369a2 && this.f524a.equals(hpVar.f524a));
+        boolean m348a = m348a();
+        boolean m348a2 = hpVar.m348a();
+        return !(m348a || m348a2) || (m348a && m348a2 && this.f445a.equals(hpVar.f445a));
     }
 
     @Override // com.xiaomi.push.ix
     public void b(ji jiVar) {
-        m368a();
-        jiVar.a(f523a);
-        if (this.f524a != null) {
-            jiVar.a(f14099a);
-            jiVar.a(new jg((byte) 12, this.f524a.size()));
-            for (hq hqVar : this.f524a) {
+        m347a();
+        jiVar.a(f444a);
+        if (this.f445a != null) {
+            jiVar.a(f8421a);
+            jiVar.a(new jg((byte) 12, this.f445a.size()));
+            for (hq hqVar : this.f445a) {
                 hqVar.b(jiVar);
             }
             jiVar.e();
             jiVar.b();
         }
         jiVar.c();
-        jiVar.m518a();
+        jiVar.m497a();
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof hp)) {
-            return m370a((hp) obj);
+            return m349a((hp) obj);
         }
         return false;
     }
@@ -134,10 +134,10 @@ public class hp implements ix<hp, Object>, Serializable, Cloneable {
     public String toString() {
         StringBuilder sb = new StringBuilder("ClientUploadData(");
         sb.append("uploadDataItems:");
-        if (this.f524a == null) {
+        if (this.f445a == null) {
             sb.append("null");
         } else {
-            sb.append(this.f524a);
+            sb.append(this.f445a);
         }
         sb.append(")");
         return sb.toString();

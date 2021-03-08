@@ -6,12 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
     private Context context;
-    private boolean gLY = true;
-    public TextView gLZ;
-    public TextView gMa;
+    private boolean gNH = true;
+    public TextView gNI;
+    public TextView gNJ;
     private View mView;
 
     public b(Context context) {
@@ -21,8 +21,8 @@ public class b {
 
     private void init() {
         this.mView = LayoutInflater.from(this.context).inflate(a.g.layout_new_anchor_aid_view, (ViewGroup) null);
-        this.gLZ = (TextView) this.mView.findViewById(a.f.currcompletion_textView);
-        this.gMa = (TextView) this.mView.findViewById(a.f.total_task_textView);
+        this.gNI = (TextView) this.mView.findViewById(a.f.currcompletion_textView);
+        this.gNJ = (TextView) this.mView.findViewById(a.f.total_task_textView);
         this.mView.setVisibility(0);
     }
 
@@ -31,7 +31,7 @@ public class b {
     }
 
     public void setCanVisible(boolean z) {
-        this.gLY = z;
+        this.gNH = z;
         if (z) {
             this.mView.setVisibility(0);
         } else {

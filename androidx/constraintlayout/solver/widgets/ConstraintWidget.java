@@ -4,8 +4,9 @@ import androidx.constraintlayout.solver.Cache;
 import androidx.constraintlayout.solver.LinearSystem;
 import androidx.constraintlayout.solver.SolverVariable;
 import androidx.constraintlayout.solver.widgets.ConstraintAnchor;
+import androidx.exifinterface.media.ExifInterface;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class ConstraintWidget {
     protected static final int ANCHOR_BASELINE = 4;
     protected static final int ANCHOR_BOTTOM = 3;
@@ -114,7 +115,7 @@ public class ConstraintWidget {
     protected int mX;
     protected int mY;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public enum ContentAlignment {
         BEGIN,
         MIDDLE,
@@ -126,7 +127,7 @@ public class ConstraintWidget {
         RIGHT
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public enum DimensionBehaviour {
         FIXED,
         WRAP_CONTENT,
@@ -887,7 +888,7 @@ public class ConstraintWidget {
             i2 = -1;
         } else {
             String substring = str.substring(0, indexOf);
-            if (!substring.equalsIgnoreCase("W")) {
+            if (!substring.equalsIgnoreCase(ExifInterface.LONGITUDE_WEST)) {
                 i3 = substring.equalsIgnoreCase("H") ? 1 : -1;
             }
             i = indexOf + 1;

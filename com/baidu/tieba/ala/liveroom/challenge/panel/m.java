@@ -13,75 +13,75 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.tieba.ala.liveroom.challenge.panel.k;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class m extends g implements k.a {
     private boolean canUseChallenge;
-    CountDownTimer gQI;
-    private n hwT;
-    private ImageView hxW;
-    private ImageView hxX;
-    private TextView hxY;
-    private TextView hxZ;
-    private ImageView hya;
-    private TextView hyb;
-    private TextView hyc;
-    private String hyd;
-    long hye;
+    CountDownTimer gSr;
+    private n hyC;
+    private ImageView hzF;
+    private ImageView hzG;
+    private TextView hzH;
+    private TextView hzI;
+    private ImageView hzJ;
+    private TextView hzK;
+    private TextView hzL;
+    private String hzM;
+    long hzN;
     private int mCount;
 
     public m(Context context, n nVar) {
         super(context, nVar);
         this.mCount = 0;
-        this.hyd = this.mContext.getResources().getString(a.h.sdk_qualifying_count_down_begin_text);
-        this.hye = 0L;
-        this.hwT = nVar;
-        this.hxW = (ImageView) this.mRootView.findViewById(a.f.ala_paiwei_entry);
-        this.hxX = (ImageView) this.mRootView.findViewById(a.f.ala_challenge_entry);
-        this.hxY = (TextView) this.mRootView.findViewById(a.f.ala_paiwei_entry_title);
-        this.hxZ = (TextView) this.mRootView.findViewById(a.f.ala_challenge_entry_title);
-        this.hya = (ImageView) this.mRootView.findViewById(a.f.ala_red_point);
-        this.hyb = (TextView) this.mRootView.findViewById(a.f.ala_red_point_text);
-        this.hya.setVisibility(8);
-        this.hyc = (TextView) this.mRootView.findViewById(a.f.ala_qualifying_count_down);
-        this.hyc.setVisibility(8);
-        this.hxW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.m.1
+        this.hzM = this.mContext.getResources().getString(a.h.sdk_qualifying_count_down_begin_text);
+        this.hzN = 0L;
+        this.hyC = nVar;
+        this.hzF = (ImageView) this.mRootView.findViewById(a.f.ala_paiwei_entry);
+        this.hzG = (ImageView) this.mRootView.findViewById(a.f.ala_challenge_entry);
+        this.hzH = (TextView) this.mRootView.findViewById(a.f.ala_paiwei_entry_title);
+        this.hzI = (TextView) this.mRootView.findViewById(a.f.ala_challenge_entry_title);
+        this.hzJ = (ImageView) this.mRootView.findViewById(a.f.ala_red_point);
+        this.hzK = (TextView) this.mRootView.findViewById(a.f.ala_red_point_text);
+        this.hzJ.setVisibility(8);
+        this.hzL = (TextView) this.mRootView.findViewById(a.f.ala_qualifying_count_down);
+        this.hzL.setVisibility(8);
+        this.hzF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.m.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (m.this.hwT != null) {
+                if (m.this.hyC != null) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913233, "aaa"));
-                    m.this.hwT.removeView();
+                    m.this.hyC.removeView();
                 }
             }
         });
-        this.hxY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.m.2
+        this.hzH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.m.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (m.this.hwT != null) {
+                if (m.this.hyC != null) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913233, "aaa"));
-                    m.this.hwT.removeView();
+                    m.this.hyC.removeView();
                 }
             }
         });
-        this.hxX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.m.3
+        this.hzG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.m.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 m.this.br(m.this.canUseChallenge);
-                if (m.this.hwT != null) {
+                if (m.this.hyC != null) {
                     if (m.this.canUseChallenge) {
-                        m.this.hwT.cdH();
+                        m.this.hyC.cdN();
                     } else {
                         BdUtilHelper.showToast(m.this.mContext, m.this.mContext.getString(a.h.sdk_can_not_use_challenge));
                     }
                 }
             }
         });
-        this.hxZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.m.4
+        this.hzI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.m.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 m.this.br(m.this.canUseChallenge);
-                if (m.this.hwT != null) {
+                if (m.this.hyC != null) {
                     if (m.this.canUseChallenge) {
-                        m.this.hwT.cdH();
+                        m.this.hyC.cdN();
                     } else {
                         BdUtilHelper.showToast(m.this.mContext, m.this.mContext.getString(a.h.sdk_can_not_use_challenge));
                     }
@@ -96,17 +96,17 @@ public class m extends g implements k.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cy(int i) {
+    public void cz(int i) {
         this.mCount = i;
         if (this.mCount == 0) {
-            this.hya.setVisibility(4);
-            this.hyb.setText("");
+            this.hzJ.setVisibility(4);
+            this.hzK.setText("");
         }
         if (this.mCount > 0) {
-            this.hya.setVisibility(0);
-            this.hyb.setText(this.mContext.getString(a.h.ala_challenge_number, Integer.valueOf(i)));
+            this.hzJ.setVisibility(0);
+            this.hzK.setText(this.mContext.getString(a.h.ala_challenge_number, Integer.valueOf(i)));
             if (this.mCount > 99) {
-                this.hyb.setText(this.mContext.getResources().getString(a.h.sdk_red_point_count_too_much));
+                this.hzK.setText(this.mContext.getResources().getString(a.h.sdk_red_point_count_too_much));
             }
         }
     }
@@ -118,7 +118,7 @@ public class m extends g implements k.a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
-    public int cdt() {
+    public int cdz() {
         return this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds438) + this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds236);
     }
 
@@ -130,13 +130,13 @@ public class m extends g implements k.a {
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.k.a
     public void a(k kVar) {
-        this.hwT.cw(this.mCount);
+        this.hyC.cx(this.mCount);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.k.a
     public void c(com.baidu.live.challenge.d dVar) {
         if (dVar != null) {
-            this.hwT.fD(dVar.userId);
+            this.hyC.fD(dVar.userId);
         }
     }
 
@@ -149,45 +149,45 @@ public class m extends g implements k.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
     public boolean onBackKeyDown() {
-        this.hwT.removeView();
+        this.hyC.removeView();
         return true;
     }
 
-    public void cdR() {
-        if (this.gQI != null) {
-            this.gQI.cancel();
+    public void cdX() {
+        if (this.gSr != null) {
+            this.gSr.cancel();
         }
-        this.gQI = new CountDownTimer(this.hye, 1000L) { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.m.5
+        this.gSr = new CountDownTimer(this.hzN, 1000L) { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.m.5
             @Override // android.os.CountDownTimer
             public void onTick(long j) {
                 String formatSecondsTimes = StringHelper.formatSecondsTimes(Math.round(j / 1000.0d));
-                m.this.hyc.setVisibility(0);
-                m.this.hyc.setText(m.this.hyd + formatSecondsTimes);
+                m.this.hzL.setVisibility(0);
+                m.this.hzL.setText(m.this.hzM + formatSecondsTimes);
             }
 
             @Override // android.os.CountDownTimer
             public void onFinish() {
-                m.this.bUZ();
+                m.this.bVf();
             }
         };
-        this.gQI.start();
+        this.gSr.start();
     }
 
     public void fF(long j) {
-        this.hye = j;
+        this.hzN = j;
     }
 
-    public void bUZ() {
+    public void bVf() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913237, false));
-        this.hyc.setVisibility(0);
-        this.hyc.setText(this.hyd + "00:00:00");
-        this.hxW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.m.6
+        this.hzL.setVisibility(0);
+        this.hzL.setText(this.hzM + "00:00:00");
+        this.hzF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.m.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 BdUtilHelper.showToast(m.this.mContext, m.this.mContext.getResources().getString(a.h.sdk_qualifying_count_down_end_text));
             }
         });
-        this.hxY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.m.7
+        this.hzH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.m.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 BdUtilHelper.showToast(m.this.mContext, m.this.mContext.getResources().getString(a.h.sdk_qualifying_count_down_end_text));
@@ -196,6 +196,6 @@ public class m extends g implements k.a {
     }
 
     public void tv() {
-        this.hyc.setVisibility(8);
+        this.hzL.setVisibility(8);
     }
 }

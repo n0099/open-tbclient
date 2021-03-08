@@ -2,18 +2,18 @@ package com.baidu.tieba.ala.liveroom.messages;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class MasterIdentityResponseMessage extends JsonHttpResponsedMessage {
-    private int hJQ;
-    private String hJR;
-    private int hJS;
-    private int hJT;
-    private String hJU;
+    private String hLA;
+    private int hLB;
+    private int hLC;
+    private String hLD;
+    private int hLz;
 
     public MasterIdentityResponseMessage() {
         super(1021131);
-        this.hJS = 0;
-        this.hJT = 0;
+        this.hLB = 0;
+        this.hLC = 0;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -21,24 +21,24 @@ public class MasterIdentityResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (getError() == 0) {
-                this.hJQ = jSONObject.optInt("anchor_identity");
-                this.hJR = jSONObject.optString("anchor_proportion");
-                this.hJS = jSONObject.optInt("anchor_identity_status");
-                this.hJT = jSONObject.optInt("anchor_proportion_status");
-                this.hJU = jSONObject.optString("anchor_text");
+                this.hLz = jSONObject.optInt("anchor_identity");
+                this.hLA = jSONObject.optString("anchor_proportion");
+                this.hLB = jSONObject.optInt("anchor_identity_status");
+                this.hLC = jSONObject.optInt("anchor_proportion_status");
+                this.hLD = jSONObject.optString("anchor_text");
             }
         }
     }
 
-    public int ciX() {
-        return this.hJS;
+    public int cjd() {
+        return this.hLB;
     }
 
-    public int ciY() {
-        return this.hJT;
+    public int cje() {
+        return this.hLC;
     }
 
-    public String ciZ() {
-        return this.hJU;
+    public String cjf() {
+        return this.hLD;
     }
 }

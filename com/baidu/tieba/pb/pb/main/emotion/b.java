@@ -11,9 +11,9 @@ import com.baidu.tieba.face.view.EmotionView;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b extends BaseAdapter {
-    private List<EmotionImageData> iSJ;
-    private a mcY;
-    private EmotionView.a mcZ;
+    private List<EmotionImageData> iUs;
+    private a mfb;
+    private EmotionView.a mfc;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -22,10 +22,10 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (y.isEmpty(this.iSJ)) {
+        if (y.isEmpty(this.iUs)) {
             return 0;
         }
-        return this.iSJ.size();
+        return this.iUs.size();
     }
 
     @Override // android.widget.Adapter
@@ -34,7 +34,7 @@ public class b extends BaseAdapter {
     }
 
     public void setData(List<EmotionImageData> list) {
-        this.iSJ = list;
+        this.iUs = list;
     }
 
     @Override // android.widget.Adapter
@@ -44,46 +44,46 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0838b c0838b;
+        C0844b c0844b;
         if (view == null) {
-            C0838b c0838b2 = new C0838b();
+            C0844b c0844b2 = new C0844b();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_sug_emotion, (ViewGroup) null);
-            c0838b2.lCA = (EmotionView) view.findViewById(R.id.emotion_view);
-            c0838b2.lCA.cyo();
-            c0838b2.lCA.setController(this.mcZ);
-            c0838b2.lCA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.b.1
+            c0844b2.lEC = (EmotionView) view.findViewById(R.id.emotion_view);
+            c0844b2.lEC.cyu();
+            c0844b2.lEC.setController(this.mfc);
+            c0844b2.lEC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (b.this.mcY != null && (view2 instanceof EmotionView)) {
-                        b.this.mcY.d(((EmotionView) view2).getData());
+                    if (b.this.mfb != null && (view2 instanceof EmotionView)) {
+                        b.this.mfb.d(((EmotionView) view2).getData());
                     }
                 }
             });
-            view.setTag(c0838b2);
-            c0838b = c0838b2;
+            view.setTag(c0844b2);
+            c0844b = c0844b2;
         } else {
-            c0838b = (C0838b) view.getTag();
+            c0844b = (C0844b) view.getTag();
         }
-        if (this.iSJ != null && i >= 0 && i < this.iSJ.size()) {
-            c0838b.lCA.a(this.iSJ.get(i));
+        if (this.iUs != null && i >= 0 && i < this.iUs.size()) {
+            c0844b.lEC.a(this.iUs.get(i));
         }
         return view;
     }
 
     public void a(a aVar) {
-        this.mcY = aVar;
+        this.mfb = aVar;
     }
 
     public void a(EmotionView.a aVar) {
-        this.mcZ = aVar;
+        this.mfc = aVar;
     }
 
     /* renamed from: com.baidu.tieba.pb.pb.main.emotion.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    static class C0838b {
-        EmotionView lCA;
+    static class C0844b {
+        EmotionView lEC;
 
-        C0838b() {
+        C0844b() {
         }
     }
 }

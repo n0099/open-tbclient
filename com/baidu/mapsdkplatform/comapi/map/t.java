@@ -5,10 +5,8 @@ import com.baidu.mapapi.model.inner.GeoPoint;
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f3070a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f3071b;
+    public int f2232a;
+    public String b;
     public String c;
     public String d;
     public int e;

@@ -1,26 +1,26 @@
 package com.baidu.adp.lib.network.http.a;
 /* loaded from: classes.dex */
 public class c {
-    private String MP;
-    private String MS;
-    private int MT;
-    private long MU;
-    private int Mj;
+    private int NH;
+    private String Oo;
+    private String Or;
+    private int Os;
+    private long Ot;
     private String exception;
-    private boolean MQ = false;
-    private boolean MR = false;
-    private int LX = 0;
+    private boolean Op = false;
+    private boolean Oq = false;
+    private int Ns = 0;
 
     public void aj(boolean z) {
-        this.MQ = z;
+        this.Op = z;
     }
 
     public boolean mg() {
-        return this.MR;
+        return this.Oq;
     }
 
     public void ak(boolean z) {
-        this.MR = z;
+        this.Oq = z;
     }
 
     public void setException(String str) {
@@ -28,42 +28,42 @@ public class c {
     }
 
     public void au(int i) {
-        this.LX = i;
+        this.Ns = i;
     }
 
     public void mh() {
         this.exception = "";
     }
 
-    public void bJ(String str) {
-        this.MS = str;
+    public void bN(String str) {
+        this.Or = str;
     }
 
     public String mi() {
-        return this.MS;
+        return this.Or;
     }
 
     public void av(int i) {
-        this.MT = i;
+        this.Os = i;
     }
 
     public void E(long j) {
-        this.MU = j;
+        this.Ot = j;
     }
 
     public String toString() {
-        return "isFromNet_" + this.MQ + "-statType_" + this.MT + "-dnsErr_" + this.exception + "-hasRetry_" + this.LX + "-cost_" + this.MU + "-ipIndex_" + this.Mj + "-ipResult_" + this.MP;
+        return "isFromNet_" + this.Op + "-statType_" + this.Os + "-dnsErr_" + this.exception + "-hasRetry_" + this.Ns + "-cost_" + this.Ot + "-ipIndex_" + this.NH + "-ipResult_" + this.Oo;
     }
 
     public String mj() {
-        return this.MP;
+        return this.Oo;
     }
 
-    public void bK(String str) {
-        this.MP = str;
+    public void bO(String str) {
+        this.Oo = str;
     }
 
     public void ar(int i) {
-        this.Mj = i;
+        this.NH = i;
     }
 }

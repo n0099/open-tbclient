@@ -25,10 +25,8 @@ public class g implements i {
     private static final com.kwad.sdk.glide.request.f f = com.kwad.sdk.glide.request.f.b(com.kwad.sdk.glide.load.engine.h.c).a(Priority.LOW).b(true);
 
     /* renamed from: a  reason: collision with root package name */
-    protected final c f10003a;
-
-    /* renamed from: b  reason: collision with root package name */
-    protected final Context f10004b;
+    protected final c f6619a;
+    protected final Context b;
     final com.kwad.sdk.glide.c.h c;
     @GuardedBy("this")
     private final m g;
@@ -46,19 +44,17 @@ public class g implements i {
     /* loaded from: classes3.dex */
     private class a implements c.a {
         @GuardedBy("RequestManager.this")
-
-        /* renamed from: b  reason: collision with root package name */
-        private final m f10007b;
+        private final m b;
 
         a(m mVar) {
-            this.f10007b = mVar;
+            this.b = mVar;
         }
 
         @Override // com.kwad.sdk.glide.c.c.a
         public void a(boolean z) {
             if (z) {
                 synchronized (g.this) {
-                    this.f10007b.d();
+                    this.b.d();
                 }
             }
         }
@@ -77,11 +73,11 @@ public class g implements i {
             }
         };
         this.k = new Handler(Looper.getMainLooper());
-        this.f10003a = cVar;
+        this.f6619a = cVar;
         this.c = hVar;
         this.h = lVar;
         this.g = mVar;
-        this.f10004b = context;
+        this.b = context;
         this.l = dVar.a(context.getApplicationContext(), new a(mVar));
         if (k.c()) {
             this.k.post(this.j);
@@ -95,18 +91,18 @@ public class g implements i {
     }
 
     private void c(@NonNull j<?> jVar) {
-        if (b(jVar) || this.f10003a.a(jVar) || jVar.b() == null) {
+        if (b(jVar) || this.f6619a.a(jVar) || jVar.b() == null) {
             return;
         }
-        com.kwad.sdk.glide.request.c b2 = jVar.b();
+        com.kwad.sdk.glide.request.c b = jVar.b();
         jVar.a((com.kwad.sdk.glide.request.c) null);
-        b2.b();
+        b.b();
     }
 
     @NonNull
     @CheckResult
     public <ResourceType> f<ResourceType> a(@NonNull Class<ResourceType> cls) {
-        return new f<>(this.f10003a, this, cls, this.f10004b);
+        return new f<>(this.f6619a, this, cls, this.b);
     }
 
     @NonNull
@@ -139,7 +135,7 @@ public class g implements i {
     /* JADX INFO: Access modifiers changed from: package-private */
     @NonNull
     public <T> h<?, T> b(Class<T> cls) {
-        return this.f10003a.e().a(cls);
+        return this.f6619a.e().a(cls);
     }
 
     public synchronized void b() {
@@ -150,9 +146,9 @@ public class g implements i {
     public synchronized boolean b(@NonNull j<?> jVar) {
         boolean z = true;
         synchronized (this) {
-            com.kwad.sdk.glide.request.c b2 = jVar.b();
-            if (b2 != null) {
-                if (this.g.b(b2)) {
+            com.kwad.sdk.glide.request.c b = jVar.b();
+            if (b != null) {
+                if (this.g.b(b)) {
                     this.i.b(jVar);
                     jVar.a((com.kwad.sdk.glide.request.c) null);
                 } else {
@@ -186,7 +182,7 @@ public class g implements i {
         this.c.b(this);
         this.c.b(this.l);
         this.k.removeCallbacks(this.j);
-        this.f10003a.b(this);
+        this.f6619a.b(this);
     }
 
     @NonNull

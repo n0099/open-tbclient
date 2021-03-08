@@ -27,13 +27,13 @@ public class d extends com.kwad.sdk.lib.b.b<AdTemplate, AdResultData> {
         final p.a aVar = new p.a();
         aVar.e = this.f;
         f fVar = new f(this.c);
-        fVar.f9168b = this.c.getPageScene();
-        aVar.f9303a = fVar;
+        fVar.b = this.c.getPageScene();
+        aVar.f6176a = fVar;
         aVar.c = this.d.mAuthorId;
         aVar.d = this.d.mTabId;
         com.kwad.sdk.core.g.a.c cVar = new com.kwad.sdk.core.g.a.c();
         cVar.d = this.e;
-        aVar.f9304b = cVar;
+        aVar.b = cVar;
         return new i<g, AdResultData>() { // from class: com.kwad.sdk.contentalliance.profile.tabvideo.d.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -42,7 +42,7 @@ public class d extends com.kwad.sdk.lib.b.b<AdTemplate, AdResultData> {
             /* renamed from: a */
             public AdResultData b(String str) {
                 JSONObject jSONObject = new JSONObject(str);
-                AdResultData adResultData = new AdResultData(aVar.f9303a.f9167a);
+                AdResultData adResultData = new AdResultData(aVar.f6176a.f6100a);
                 adResultData.parseJson(jSONObject);
                 if (!adResultData.adTemplateList.isEmpty()) {
                     for (AdTemplate adTemplate : adResultData.adTemplateList) {

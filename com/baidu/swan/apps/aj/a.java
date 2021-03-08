@@ -6,110 +6,110 @@ import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a dKA;
-    private com.baidu.swan.apps.aj.b.b dKB = new com.baidu.swan.apps.aj.b.b();
-    private c dKC = new c();
-    private C0356a dKD = new C0356a();
-    private com.baidu.swan.apps.aj.a.a dKE = new com.baidu.swan.apps.aj.a.a();
+    private static a dMb;
+    private com.baidu.swan.apps.aj.b.b dMc = new com.baidu.swan.apps.aj.b.b();
+    private c dMd = new c();
+    private C0362a dMe = new C0362a();
+    private com.baidu.swan.apps.aj.a.a dMf = new com.baidu.swan.apps.aj.a.a();
 
     private a() {
     }
 
-    public static a aLi() {
-        if (dKA == null) {
+    public static a aLl() {
+        if (dMb == null) {
             synchronized (a.class) {
-                if (dKA == null) {
-                    dKA = new a();
+                if (dMb == null) {
+                    dMb = new a();
                 }
             }
         }
-        return dKA;
+        return dMb;
     }
 
-    public void ce(JSONObject jSONObject) {
-        this.dKB.cg(jSONObject);
+    public void cg(JSONObject jSONObject) {
+        this.dMc.ci(jSONObject);
     }
 
-    public void sz(String str) {
+    public void sG(String str) {
         cu(str, null);
     }
 
     public void cu(String str, String str2) {
-        this.dKB.add(str, str2);
+        this.dMc.add(str, str2);
     }
 
-    public void cf(JSONObject jSONObject) {
-        this.dKC.cg(jSONObject);
+    public void ch(JSONObject jSONObject) {
+        this.dMd.ci(jSONObject);
     }
 
-    public JSONObject aLj() {
-        JSONObject aLp = this.dKB.aLp();
+    public JSONObject aLm() {
+        JSONObject aLs = this.dMc.aLs();
         if (DEBUG) {
-            Log.d("SwanStabilityTracer", "LaunchTraces: " + aLp);
+            Log.d("SwanStabilityTracer", "LaunchTraces: " + aLs);
         }
-        return aLp;
+        return aLs;
     }
 
-    public JSONObject aLk() {
-        JSONObject aLp = this.dKC.aLp();
+    public JSONObject aLn() {
+        JSONObject aLs = this.dMd.aLs();
         if (DEBUG) {
-            Log.d("SwanStabilityTracer", "WhiteTraces: " + aLp);
+            Log.d("SwanStabilityTracer", "WhiteTraces: " + aLs);
         }
-        return aLp;
+        return aLs;
     }
 
-    public JSONObject aLl() {
-        JSONObject aLp = this.dKD.aLp();
+    public JSONObject aLo() {
+        JSONObject aLs = this.dMe.aLs();
         if (DEBUG) {
-            Log.d("SwanStabilityTracer", "extraTraces: " + aLp);
+            Log.d("SwanStabilityTracer", "extraTraces: " + aLs);
         }
-        return aLp;
+        return aLs;
     }
 
     public void clear() {
-        this.dKB.clear();
-        this.dKC.clear();
-        this.dKD.clear();
+        this.dMc.clear();
+        this.dMd.clear();
+        this.dMe.clear();
     }
 
-    public File aLm() {
+    public File aLp() {
         JSONArray jSONArray = new JSONArray();
-        jSONArray.put(aLj());
-        jSONArray.put(aLk());
-        jSONArray.put(aLl());
-        return this.dKE.G(jSONArray);
+        jSONArray.put(aLm());
+        jSONArray.put(aLn());
+        jSONArray.put(aLo());
+        return this.dMf.G(jSONArray);
     }
 
-    public void aLn() {
-        if (this.dKD.dKF != null && this.dKD.dKF.length() != 0) {
+    public void aLq() {
+        if (this.dMe.dMg != null && this.dMe.dMg.length() != 0) {
             JSONArray jSONArray = new JSONArray();
-            jSONArray.put(aLj());
-            jSONArray.put(aLk());
-            jSONArray.put(aLl());
-            this.dKE.G(jSONArray);
+            jSONArray.put(aLm());
+            jSONArray.put(aLn());
+            jSONArray.put(aLo());
+            this.dMf.G(jSONArray);
         }
     }
 
-    public com.baidu.swan.apps.aj.a.a aLo() {
-        return this.dKE;
+    public com.baidu.swan.apps.aj.a.a aLr() {
+        return this.dMf;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.aj.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public class C0356a implements com.baidu.swan.apps.aj.b.a<JSONObject> {
-        private JSONArray dKF;
+    /* loaded from: classes8.dex */
+    public class C0362a implements com.baidu.swan.apps.aj.b.a<JSONObject> {
+        private JSONArray dMg;
 
-        private C0356a() {
+        private C0362a() {
         }
 
-        public JSONObject aLp() {
+        public JSONObject aLs() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("extra", this.dKF);
+                jSONObject.put("extra", this.dMg);
             } catch (JSONException e) {
                 if (DEBUG) {
                     Log.e("SwanStabilityTracer", Log.getStackTraceString(e));
@@ -119,7 +119,7 @@ public final class a {
         }
 
         public void clear() {
-            this.dKF = null;
+            this.dMg = null;
         }
     }
 }

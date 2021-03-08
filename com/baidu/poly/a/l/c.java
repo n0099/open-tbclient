@@ -10,18 +10,18 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.poly.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class c extends FrameLayout {
-    private ImageView coO;
-    private TextView coP;
-    private Animation coQ;
-    private boolean coR;
+    private ImageView cqq;
+    private TextView cqr;
+    private Animation cqs;
+    private boolean cqt;
 
     public c(Context context) {
         this(context, null);
     }
 
-    private void adC() {
+    private void adF() {
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         if (layoutParams == null) {
             setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
@@ -33,30 +33,30 @@ public class c extends FrameLayout {
 
     private void c(Context context) {
         LayoutInflater.from(context).inflate(b.f.view_toast_loading, (ViewGroup) this, true);
-        this.coO = (ImageView) findViewById(b.e.toast_loading_view);
-        this.coP = (TextView) findViewById(b.e.toast_text_view);
-        this.coQ = AnimationUtils.loadAnimation(context, b.a.loading_rotate);
+        this.cqq = (ImageView) findViewById(b.e.toast_loading_view);
+        this.cqr = (TextView) findViewById(b.e.toast_text_view);
+        this.cqs = AnimationUtils.loadAnimation(context, b.a.loading_rotate);
         setClickable(true);
     }
 
     public boolean getIsLoading() {
-        return this.coR;
+        return this.cqt;
     }
 
     public void setLoading(boolean z) {
-        adC();
-        this.coR = z;
+        adF();
+        this.cqt = z;
         if (z) {
             setVisibility(0);
-            this.coO.startAnimation(this.coQ);
+            this.cqq.startAnimation(this.cqs);
             return;
         }
-        this.coO.clearAnimation();
+        this.cqq.clearAnimation();
         setVisibility(8);
     }
 
     public void setText(String str) {
-        this.coP.setText(str);
+        this.cqr.setText(str);
     }
 
     public c(Context context, AttributeSet attributeSet) {

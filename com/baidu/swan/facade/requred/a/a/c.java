@@ -6,40 +6,40 @@ import com.baidu.swan.apps.adaptation.a.g;
 import com.baidu.swan.apps.adlanding.download.model.SwanAdDownloadState;
 /* loaded from: classes3.dex */
 public class c implements g {
-    private final g cDL = new com.baidu.swan.game.ad.downloader.view.b();
+    private final g cFl = new com.baidu.swan.game.ad.downloader.view.b();
 
     @Override // com.baidu.swan.apps.adaptation.a.g
     public View getRealView() {
-        return this.cDL.getRealView();
+        return this.cFl.getRealView();
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.g
-    public void P(Object obj) {
-        this.cDL.P(obj);
+    public void R(Object obj) {
+        this.cFl.R(obj);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.g
     public void a(SwanAdDownloadState swanAdDownloadState) {
-        this.cDL.a(swanAdDownloadState);
+        this.cFl.a(swanAdDownloadState);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.g
-    public void jV(String str) {
-        this.cDL.jV(str);
+    public void kc(String str) {
+        this.cFl.kc(str);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.g
-    public void aik() {
-        this.cDL.aik();
+    public void ain() {
+        this.cFl.ain();
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.g
     public void updateProgress(int i) {
-        this.cDL.updateProgress(i);
+        this.cFl.updateProgress(i);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.g
     public g a(Context context, com.baidu.swan.apps.adlanding.download.model.a aVar, com.baidu.swan.apps.adlanding.download.a.a aVar2) {
-        return this.cDL.a(context, aVar, aVar2);
+        return this.cFl.a(context, aVar, aVar2);
     }
 }

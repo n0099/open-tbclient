@@ -11,9 +11,9 @@ import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.v.f;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c extends aa {
-    private a cNU;
+    private a cPu;
 
     public c(j jVar) {
         super(jVar, "/swanAPI/perfCat");
@@ -61,24 +61,24 @@ public class c extends aa {
         }
         switch (c) {
             case 0:
-                if (this.cNU == null) {
-                    this.cNU = new a();
+                if (this.cPu == null) {
+                    this.cPu = new a();
                 }
-                this.cNU.startMonitor();
+                this.cPu.startMonitor();
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 com.baidu.swan.apps.console.c.i("SwanAppPropertyLogAction", " Start property log：");
                 return true;
             case 1:
                 JSONObject jSONObject = new JSONObject();
-                if (this.cNU == null) {
+                if (this.cPu == null) {
                     com.baidu.swan.apps.console.c.e("SwanAppPropertyLogAction", "Property log never start");
                 } else {
-                    String amv = this.cNU.amv();
-                    this.cNU = null;
-                    f.aAl().apg();
+                    String amy = this.cPu.amy();
+                    this.cPu = null;
+                    f.aAo().apk();
                     try {
-                        jSONObject.put("wvID", f.aAl().apg());
-                        jSONObject.put("path", amv);
+                        jSONObject.put("wvID", f.aAo().apk());
+                        jSONObject.put("path", amy);
                     } catch (JSONException e) {
                         if (DEBUG) {
                             e.printStackTrace();
@@ -95,8 +95,8 @@ public class c extends aa {
                 if (optParamsAsJo == null) {
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(202));
                 } else {
-                    if (this.cNU != null) {
-                        this.cNU.gA(optParamsAsJo.optInt("duration"));
+                    if (this.cPu != null) {
+                        this.cPu.gB(optParamsAsJo.optInt("duration"));
                     }
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 }

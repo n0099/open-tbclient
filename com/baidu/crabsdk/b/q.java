@@ -20,7 +20,7 @@ public final class q {
             try {
                 process = Runtime.getRuntime().exec("ls -l " + str);
                 String readLine = new BufferedReader(new InputStreamReader(process.getInputStream())).readLine();
-                com.baidu.crabsdk.c.a.ds("isExecutable" + readLine);
+                com.baidu.crabsdk.c.a.dw("isExecutable" + readLine);
                 if (readLine != null && readLine.length() >= 4) {
                     char charAt = readLine.charAt(3);
                     if (charAt == 's' || charAt == 'x') {

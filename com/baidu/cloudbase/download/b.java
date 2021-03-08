@@ -2,14 +2,14 @@ package com.baidu.cloudbase.download;
 
 import android.text.TextUtils;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class b {
     public CharSequence mDescription;
     public File mFolder;
     public CharSequence mName;
     public String mUri;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public CharSequence mDescription;
         public File mFolder;
@@ -21,7 +21,7 @@ public class b {
             return this;
         }
 
-        public a dm(String str) {
+        public a dq(String str) {
             this.mUri = str;
             return this;
         }

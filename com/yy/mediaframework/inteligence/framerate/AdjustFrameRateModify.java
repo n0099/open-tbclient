@@ -6,7 +6,7 @@ import com.yy.mediaframework.inteligence.common.ResolutionModifyNotFoundExceptio
 import com.yy.mediaframework.stat.VideoDataStat;
 import com.yy.mediaframework.utils.YMFLog;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AdjustFrameRateModify implements IFrameRateModify {
     protected static final int FRAMERATE_FLOOR = 4;
     protected static final long ONE_SECOND = 1000000000;

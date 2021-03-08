@@ -1,9 +1,9 @@
 package com.baidu.live.data;
 
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class be {
-    public AlaLiveUserInfoData aOI;
+    public AlaLiveUserInfoData aQi;
     public int rank;
     public int type;
 
@@ -13,13 +13,13 @@ public class be {
             this.rank = jSONObject.optInt("rank");
             JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
             if (optJSONObject != null) {
-                this.aOI = new AlaLiveUserInfoData();
-                this.aOI.parserJson(optJSONObject);
+                this.aQi = new AlaLiveUserInfoData();
+                this.aQi.parserJson(optJSONObject);
             }
         }
     }
 
-    public boolean Cw() {
+    public boolean Cz() {
         return this.type == 1;
     }
 
@@ -28,6 +28,6 @@ public class be {
     }
 
     public boolean a(be beVar) {
-        return beVar != null && beVar.type == this.type && beVar.rank == this.rank && this.aOI != null && beVar.aOI != null && beVar.aOI.userId == this.aOI.userId;
+        return beVar != null && beVar.type == this.type && beVar.rank == this.rank && this.aQi != null && beVar.aQi != null && beVar.aQi.userId == this.aQi.userId;
     }
 }

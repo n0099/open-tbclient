@@ -1,7 +1,7 @@
 package com.yy.mediaframework.api;
 
 import com.yy.mediaframework.base.VideoEncoderType;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class YMFVideoEncodeFrame {
     public byte[] data;
     public long dts;

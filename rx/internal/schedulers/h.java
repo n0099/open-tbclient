@@ -1,5 +1,5 @@
 package rx.internal.schedulers;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface h {
     void shutdown();
 

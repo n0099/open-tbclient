@@ -9,9 +9,7 @@ import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.utils.ao;
 /* loaded from: classes3.dex */
 public class e extends com.kwad.sdk.contentalliance.home.e implements View.OnClickListener {
-
-    /* renamed from: b  reason: collision with root package name */
-    private LottieAnimationView f8690b;
+    private LottieAnimationView b;
     private SceneImpl c;
     private com.kwad.sdk.core.i.a d;
     private boolean e;
@@ -32,23 +30,23 @@ public class e extends com.kwad.sdk.contentalliance.home.e implements View.OnCli
         if (m == null || !com.kwad.sdk.utils.d.a(m)) {
             return;
         }
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f8690b.getLayoutParams();
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.b.getLayoutParams();
         marginLayoutParams.topMargin += marginLayoutParams.topMargin;
-        this.f8690b.setLayoutParams(marginLayoutParams);
+        this.b.setLayoutParams(marginLayoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        if (this.f8690b.c()) {
+        if (this.b.c()) {
             return;
         }
-        this.f8690b.b();
+        this.b.b();
     }
 
     private void g() {
         com.kwad.sdk.plugin.d dVar = (com.kwad.sdk.plugin.d) com.kwad.sdk.plugin.g.a(com.kwad.sdk.plugin.d.class);
         if (dVar != null) {
-            dVar.a(o(), this.f8736a.e);
+            dVar.a(o(), this.f5821a.e);
         }
     }
 
@@ -65,13 +63,13 @@ public class e extends com.kwad.sdk.contentalliance.home.e implements View.OnCli
     @Override // com.kwad.sdk.contentalliance.home.e, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.c = this.f8736a.e;
-        this.d = this.f8736a.f.f8744a;
+        this.c = this.f5821a.e;
+        this.d = this.f5821a.f.f5826a;
         if (this.d != null) {
             this.d.a(this.f);
         }
-        this.f8690b.setVisibility(0);
-        this.f8690b.setOnClickListener(this);
+        this.b.setVisibility(0);
+        this.b.setOnClickListener(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -79,7 +77,7 @@ public class e extends com.kwad.sdk.contentalliance.home.e implements View.OnCli
     public void b_() {
         super.b_();
         this.e = false;
-        this.f8690b.d();
+        this.b.d();
         if (this.d != null) {
             this.d.b(this.f);
         }
@@ -89,8 +87,8 @@ public class e extends com.kwad.sdk.contentalliance.home.e implements View.OnCli
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f8690b = (LottieAnimationView) b(R.id.ksad_live_entry_icon);
-        this.f8690b.setAnimation(R.raw.ksad_live_home_entry_icon);
+        this.b = (LottieAnimationView) b(R.id.ksad_live_entry_icon);
+        this.b.setAnimation(R.raw.ksad_live_home_entry_icon);
         e();
     }
 

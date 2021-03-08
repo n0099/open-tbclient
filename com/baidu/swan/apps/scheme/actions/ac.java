@@ -8,7 +8,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ac extends aa {
     public ac(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/ubcFlowJar");
@@ -92,13 +92,13 @@ public class ac extends aa {
                 com.baidu.swan.apps.api.module.l.f.x(optParamsAsJo.optJSONArray("data"));
                 break;
             case 4:
-                com.baidu.swan.apps.api.module.l.f.aZ(optParamsAsJo);
+                com.baidu.swan.apps.api.module.l.f.bb(optParamsAsJo);
                 break;
             case 5:
                 com.baidu.swan.apps.console.debugger.a.d.z(optParamsAsJo.optJSONArray("data"));
                 break;
             case 6:
-                com.baidu.swan.apps.api.module.l.f.aY(optParamsAsJo);
+                com.baidu.swan.apps.api.module.l.f.ba(optParamsAsJo);
                 break;
             default:
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "unknown flowId");

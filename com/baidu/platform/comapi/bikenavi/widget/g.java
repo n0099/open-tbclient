@@ -11,17 +11,15 @@ import com.baidu.tieba.R;
 public class g extends com.baidu.platform.comapi.walknavi.g.b.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private Activity f4177a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private com.baidu.platform.comapi.bikenavi.c.b f4178b;
+    private Activity f2894a;
+    private com.baidu.platform.comapi.bikenavi.c.b b;
     private ImageView c;
     private TextView d;
     private View e;
 
     public g(Context context, com.baidu.platform.comapi.bikenavi.c.b bVar, View view) {
-        this.f4177a = (Activity) context;
-        this.f4178b = bVar;
+        this.f2894a = (Activity) context;
+        this.b = bVar;
         a(view);
     }
 
@@ -35,7 +33,7 @@ public class g extends com.baidu.platform.comapi.walknavi.g.b.b {
     public void c() {
         if (this.e.getVisibility() == 8) {
             this.e.setVisibility(0);
-            Animation c = com.baidu.platform.comapi.wnplatform.o.a.a.c(this.f4177a, R.attr.absListViewStyle);
+            Animation c = com.baidu.platform.comapi.wnplatform.o.a.a.c(this.f2894a, R.attr.absListViewStyle);
             this.e.setAnimation(c);
             c.setAnimationListener(new h(this));
             c.start();
@@ -44,7 +42,7 @@ public class g extends com.baidu.platform.comapi.walknavi.g.b.b {
 
     public void d() {
         if (this.e.getVisibility() == 0) {
-            Animation c = com.baidu.platform.comapi.wnplatform.o.a.a.c(this.f4177a, R.attr.actionBarDivider);
+            Animation c = com.baidu.platform.comapi.wnplatform.o.a.a.c(this.f2894a, R.attr.actionBarDivider);
             c.setAnimationListener(new i(this));
             this.e.startAnimation(c);
         }
@@ -56,7 +54,7 @@ public class g extends com.baidu.platform.comapi.walknavi.g.b.b {
         } else {
             this.d.setVisibility(0);
         }
-        if (com.baidu.platform.comapi.bikenavi.a.a.f4146a) {
+        if (com.baidu.platform.comapi.bikenavi.a.a.f2869a) {
             this.c.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.b().getDrawable(i));
         } else {
             this.c.setImageResource(i);

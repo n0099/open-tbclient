@@ -22,8 +22,8 @@ final class MaskUtil {
         int i = 0;
         for (int i2 = 0; i2 < height - 1; i2++) {
             for (int i3 = 0; i3 < width - 1; i3++) {
-                byte b2 = array[i2][i3];
-                if (b2 == array[i2][i3 + 1] && b2 == array[i2 + 1][i3] && b2 == array[i2 + 1][i3 + 1]) {
+                byte b = array[i2][i3];
+                if (b == array[i2][i3 + 1] && b == array[i2 + 1][i3] && b == array[i2 + 1][i3 + 1]) {
                     i++;
                 }
             }
@@ -131,18 +131,18 @@ final class MaskUtil {
         byte[][] array = byteMatrix.getArray();
         int i = 0;
         for (int i2 = 0; i2 < height; i2++) {
-            byte b2 = -1;
+            byte b = -1;
             int i3 = 0;
             for (int i4 = 0; i4 < width; i4++) {
-                byte b3 = z ? array[i2][i4] : array[i4][i2];
-                if (b3 == b2) {
+                byte b2 = z ? array[i2][i4] : array[i4][i2];
+                if (b2 == b) {
                     i3++;
                 } else {
                     if (i3 >= 5) {
                         i += (i3 - 5) + 3;
                     }
                     i3 = 1;
-                    b2 = b3;
+                    b = b2;
                 }
             }
             if (i3 >= 5) {

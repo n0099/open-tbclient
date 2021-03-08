@@ -5,7 +5,7 @@ import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.subscriptions.SubscriptionArbiter;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class FlowableRetryPredicate<T> extends a<T, T> {
     final long count;
     final j<? super Throwable> predicate;
@@ -14,10 +14,10 @@ public final class FlowableRetryPredicate<T> extends a<T, T> {
     public void a(org.a.c<? super T> cVar) {
         SubscriptionArbiter subscriptionArbiter = new SubscriptionArbiter();
         cVar.onSubscribe(subscriptionArbiter);
-        new RetrySubscriber(cVar, this.count, this.predicate, subscriptionArbiter, this.qow).subscribeNext();
+        new RetrySubscriber(cVar, this.count, this.predicate, subscriptionArbiter, this.qoY).subscribeNext();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class RetrySubscriber<T> extends AtomicInteger implements io.reactivex.j<T> {
         private static final long serialVersionUID = -7098360935104053232L;
         final org.a.c<? super T> actual;

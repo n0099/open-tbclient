@@ -1,16 +1,16 @@
 package com.baidu.tieba.quickWebView.data;
 /* loaded from: classes.dex */
 public class b {
-    private String mQA;
+    private String mSD;
     private boolean isUpload = false;
     private boolean isClear = false;
 
     public String getModName() {
-        return this.mQA;
+        return this.mSD;
     }
 
-    public void Rj(String str) {
-        this.mQA = str;
+    public void Rp(String str) {
+        this.mSD = str;
     }
 
     public boolean isClear() {
@@ -21,7 +21,7 @@ public class b {
         this.isClear = z;
     }
 
-    public boolean dCV() {
+    public boolean dDd() {
         return this.isUpload;
     }
 

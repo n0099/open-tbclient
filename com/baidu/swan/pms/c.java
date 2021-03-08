@@ -21,11 +21,11 @@ public class c {
                     gVar.b(new com.baidu.swan.pms.model.a(2100, "bundleId为空"));
                 } else {
                     HashMap<String, String> a2 = com.baidu.swan.pms.c.b.a(cVar);
-                    if (gVar.bcs() != null) {
-                        a2.putAll(gVar.bcs());
+                    if (gVar.bcu() != null) {
+                        a2.putAll(gVar.bcu());
                     }
-                    gVar.anI();
-                    d.bcp().ayp().a(com.baidu.swan.pms.c.e.bcL(), a2, gVar.bct(), new com.baidu.swan.pms.c.b.b(gVar, cVar));
+                    gVar.anL();
+                    d.bcr().ays().a(com.baidu.swan.pms.c.e.bcN(), a2, gVar.bcv(), new com.baidu.swan.pms.c.b.b(gVar, cVar));
                 }
             }
         }
@@ -36,28 +36,28 @@ public class c {
             if (gVar != null) {
                 if (bVar == null) {
                     gVar.b(new com.baidu.swan.pms.model.a(2100, "request对象为空"));
-                } else if (bVar.bdk() == null || bVar.bdk().isEmpty()) {
+                } else if (bVar.bdm() == null || bVar.bdm().isEmpty()) {
                     gVar.b(new com.baidu.swan.pms.model.a(2100, "pkg List为空"));
                 } else {
                     HashMap<String, String> a2 = com.baidu.swan.pms.c.b.a(bVar);
-                    if (gVar.bcs() != null) {
-                        a2.putAll(gVar.bcs());
+                    if (gVar.bcu() != null) {
+                        a2.putAll(gVar.bcu());
                     }
-                    JSONObject b2 = com.baidu.swan.pms.c.b.b(bVar);
-                    if (b2 == null) {
+                    JSONObject b = com.baidu.swan.pms.c.b.b(bVar);
+                    if (b == null) {
                         gVar.b(new com.baidu.swan.pms.model.a(2100, "构造请求body失败"));
                     } else {
-                        if (gVar.bcu() != null) {
+                        if (gVar.bcw() != null) {
                             try {
-                                for (Map.Entry<String, String> entry : gVar.bcu().entrySet()) {
-                                    b2.put(entry.getKey(), entry.getValue());
+                                for (Map.Entry<String, String> entry : gVar.bcw().entrySet()) {
+                                    b.put(entry.getKey(), entry.getValue());
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
                         }
-                        gVar.anI();
-                        d.bcp().ayp().a(com.baidu.swan.pms.c.e.bcN(), a2, gVar.bct(), b2, new com.baidu.swan.pms.c.b.a(gVar, bVar));
+                        gVar.anL();
+                        d.bcr().ays().a(com.baidu.swan.pms.c.e.bcP(), a2, gVar.bcv(), b, new com.baidu.swan.pms.c.b.a(gVar, bVar));
                     }
                 }
             }
@@ -71,15 +71,15 @@ public class c {
                     gVar.b(new com.baidu.swan.pms.model.a(2100, "request对象为空"));
                 } else if (TextUtils.isEmpty(fVar.getBundleId())) {
                     gVar.b(new com.baidu.swan.pms.model.a(2100, "bundleId为空"));
-                } else if (TextUtils.isEmpty(fVar.bds())) {
+                } else if (TextUtils.isEmpty(fVar.bdu())) {
                     gVar.b(new com.baidu.swan.pms.model.a(2100, "分包名为空"));
                 } else {
                     HashMap<String, String> a2 = com.baidu.swan.pms.c.b.a(fVar);
-                    if (gVar.bcs() != null) {
-                        a2.putAll(gVar.bcs());
+                    if (gVar.bcu() != null) {
+                        a2.putAll(gVar.bcu());
                     }
-                    gVar.anI();
-                    d.bcp().ayp().a(com.baidu.swan.pms.c.e.bcL(), a2, gVar.bct(), new com.baidu.swan.pms.c.b.d(gVar, fVar));
+                    gVar.anL();
+                    d.bcr().ays().a(com.baidu.swan.pms.c.e.bcN(), a2, gVar.bcv(), new com.baidu.swan.pms.c.b.d(gVar, fVar));
                 }
             }
         }
@@ -103,14 +103,14 @@ public class c {
                 if (hVar == null) {
                     gVar.b(new com.baidu.swan.pms.model.a(2100, "request对象为空"));
                 } else {
-                    com.baidu.swan.pms.node.c<JSONArray> aue = aVar == null ? null : aVar.aue();
-                    g aud = aVar == null ? null : aVar.aud();
+                    com.baidu.swan.pms.node.c<JSONArray> auh = aVar == null ? null : aVar.auh();
+                    g aug = aVar == null ? null : aVar.aug();
                     HashMap hashMap = new HashMap();
-                    if (gVar.bcs() != null) {
-                        hashMap.putAll(gVar.bcs());
+                    if (gVar.bcu() != null) {
+                        hashMap.putAll(gVar.bcu());
                     }
-                    gVar.anI();
-                    d.bcp().ayp().a(com.baidu.swan.pms.c.e.bcM(), hashMap, gVar.bct(), a(aue, (com.baidu.swan.pms.node.c<JSONObject>) null), new com.baidu.swan.pms.c.b.e(gVar, hVar, gVar2, aud));
+                    gVar.anL();
+                    d.bcr().ays().a(com.baidu.swan.pms.c.e.bcO(), hashMap, gVar.bcv(), a(auh, (com.baidu.swan.pms.node.c<JSONObject>) null), new com.baidu.swan.pms.c.b.e(gVar, hVar, gVar2, aug));
                 }
             }
         }
@@ -119,16 +119,16 @@ public class c {
     public static synchronized void a(com.baidu.swan.pms.d.a.a aVar) {
         synchronized (c.class) {
             if (aVar != null) {
-                g aud = aVar.aud();
-                if (aud != null) {
-                    com.baidu.swan.pms.c.d.g auf = aVar.auf();
-                    if (auf == null) {
-                        aud.b(new com.baidu.swan.pms.model.a(2100, "request对象为空"));
+                g aug = aVar.aug();
+                if (aug != null) {
+                    com.baidu.swan.pms.c.d.g aui = aVar.aui();
+                    if (aui == null) {
+                        aug.b(new com.baidu.swan.pms.model.a(2100, "request对象为空"));
                     } else {
-                        Map<String, String> bcs = aud.bcs();
-                        Map<String, String> hashMap = aud.bcs() != null ? new HashMap<>(bcs) : bcs;
-                        aud.anI();
-                        d.bcp().ayp().a(com.baidu.swan.pms.c.e.bcM(), hashMap, aud.bct(), a(aVar.aue(), (com.baidu.swan.pms.node.c<JSONObject>) null), new com.baidu.swan.pms.c.b.e(aud, auf, null, aud));
+                        Map<String, String> bcu = aug.bcu();
+                        Map<String, String> hashMap = aug.bcu() != null ? new HashMap<>(bcu) : bcu;
+                        aug.anL();
+                        d.bcr().ays().a(com.baidu.swan.pms.c.e.bcO(), hashMap, aug.bcv(), a(aVar.auh(), (com.baidu.swan.pms.node.c<JSONObject>) null), new com.baidu.swan.pms.c.b.e(aug, aui, null, aug));
                     }
                 }
             }
@@ -146,29 +146,29 @@ public class c {
                     gVar.b(new com.baidu.swan.pms.model.a(2100, "request对象为空"));
                 } else {
                     HashMap<String, String> a2 = com.baidu.swan.pms.c.b.a(dVar);
-                    if (gVar.bcs() != null) {
-                        a2.putAll(gVar.bcs());
+                    if (gVar.bcu() != null) {
+                        a2.putAll(gVar.bcu());
                     }
-                    gVar.anI();
-                    d.bcp().ayp().a(com.baidu.swan.pms.c.e.bcO(), a2, gVar.bct(), new com.baidu.swan.pms.c.b.c(gVar, dVar));
+                    gVar.anL();
+                    d.bcr().ays().a(com.baidu.swan.pms.c.e.bcQ(), a2, gVar.bcv(), new com.baidu.swan.pms.c.b.c(gVar, dVar));
                 }
             }
         }
     }
 
-    public static synchronized boolean xS(String str) {
-        boolean xS;
+    public static synchronized boolean xZ(String str) {
+        boolean xZ;
         synchronized (c.class) {
-            xS = com.baidu.swan.pms.c.a.d.d.bcW().xS(str);
+            xZ = com.baidu.swan.pms.c.a.d.d.bcY().xZ(str);
         }
-        return xS;
+        return xZ;
     }
 
-    public static synchronized boolean xT(String str) {
-        boolean xT;
+    public static synchronized boolean ya(String str) {
+        boolean ya;
         synchronized (c.class) {
-            xT = com.baidu.swan.pms.c.a.d.d.bcW().xT(str);
+            ya = com.baidu.swan.pms.c.a.d.d.bcY().ya(str);
         }
-        return xT;
+        return ya;
     }
 }

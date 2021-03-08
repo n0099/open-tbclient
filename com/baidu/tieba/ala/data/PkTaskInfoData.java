@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.data;
 import com.baidu.live.tbadk.core.data.BaseData;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class PkTaskInfoData extends BaseData implements Serializable {
     public String awardRate;
     public int countDown;

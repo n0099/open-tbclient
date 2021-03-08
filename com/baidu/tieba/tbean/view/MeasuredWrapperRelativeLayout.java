@@ -5,13 +5,13 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class MeasuredWrapperRelativeLayout extends RelativeLayout {
     private int lastHeight;
-    private a nDc;
-    private boolean nDd;
+    private a nFh;
+    private boolean nFi;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void H(boolean z, int i);
     }
@@ -42,23 +42,23 @@ public class MeasuredWrapperRelativeLayout extends RelativeLayout {
             int i2 = this.lastHeight - size;
             if (Math.abs(i2) >= context.getResources().getDimensionPixelSize(R.dimen.ds200)) {
                 if (i2 > 0) {
-                    this.nDd = true;
+                    this.nFi = true;
                 } else {
-                    this.nDd = false;
+                    this.nFi = false;
                 }
-                G(this.nDd, Math.abs(i2));
+                G(this.nFi, Math.abs(i2));
                 this.lastHeight = size;
             }
         }
     }
 
     private void G(boolean z, int i) {
-        if (this.nDc != null) {
-            this.nDc.H(z, i);
+        if (this.nFh != null) {
+            this.nFh.H(z, i);
         }
     }
 
     public void setKeyBoardListener(a aVar) {
-        this.nDc = aVar;
+        this.nFh = aVar;
     }
 }

@@ -23,10 +23,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class bf {
-    private static bf fbs = new bf() { // from class: com.baidu.tbadk.core.util.bf.1
+    private static bf fcS = new bf() { // from class: com.baidu.tbadk.core.util.bf.1
     };
     private static final Pattern pattern = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private c fbt;
+    private c fcT;
     private final ConcurrentHashMap<String, b> mHandlers;
     private final List<a> mListeners;
 
@@ -52,7 +52,7 @@ public class bf {
     private bf() {
         this.mListeners = new LinkedList();
         this.mHandlers = new ConcurrentHashMap<>();
-        this.fbt = null;
+        this.fcT = null;
     }
 
     public static SpannableString aB(Context context, String str) {
@@ -71,8 +71,8 @@ public class bf {
         return spannableString;
     }
 
-    public static bf bsV() {
-        return fbs;
+    public static bf bsY() {
+        return fcS;
     }
 
     public void a(final a aVar) {
@@ -96,7 +96,7 @@ public class bf {
     }
 
     public void a(c cVar) {
-        this.fbt = cVar;
+        this.fcT = cVar;
     }
 
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, d dVar, boolean z2) {
@@ -149,9 +149,9 @@ public class bf {
                 bVar.a(tbPageContext, getInnerParamPair(getParamStrBehindScheme(str2)));
                 return true;
             }
-            if (com.baidu.adp.framework.a.b.Ju.q("3001000") != null) {
-                for (String str4 : com.baidu.adp.framework.a.b.Ju.q("3001000")) {
-                    for (ArrayList<String> arrayList : com.baidu.adp.framework.a.b.Jt.q(str4)) {
+            if (com.baidu.adp.framework.a.b.KN.s("3001000") != null) {
+                for (String str4 : com.baidu.adp.framework.a.b.KN.s("3001000")) {
+                    for (ArrayList<String> arrayList : com.baidu.adp.framework.a.b.KM.s(str4)) {
                         Iterator<String> it = arrayList.iterator();
                         while (it.hasNext()) {
                             if (str2.contains(it.next())) {
@@ -177,7 +177,7 @@ public class bf {
                     break;
                 }
             }
-            if (!z4 && this.fbt != null) {
+            if (!z4 && this.fcT != null) {
                 if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                     z3 = true;
                 } else if (strArr.length > 1 && !StringUtils.isNull(strArr[1]) && "yun_push_tag".equals(strArr[1])) {
@@ -289,7 +289,7 @@ public class bf {
 
     private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, d dVar, boolean z2) {
         if (pattern.matcher(str2).find()) {
-            this.fbt.a(tbPageContext, str, str2, z, dVar, z2);
+            this.fcT.a(tbPageContext, str, str2, z, dVar, z2);
         }
     }
 
@@ -317,10 +317,10 @@ public class bf {
         if (charSequence == null) {
             return false;
         }
-        return ax.fbo.matcher(charSequence).find();
+        return ax.fcO.matcher(charSequence).find();
     }
 
-    public String Bk(String str) {
+    public String Br(String str) {
         if (!m(str)) {
             return null;
         }

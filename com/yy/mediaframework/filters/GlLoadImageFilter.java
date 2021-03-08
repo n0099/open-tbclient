@@ -6,7 +6,7 @@ import com.yy.mediaframework.model.YYMediaSample;
 import com.yy.mediaframework.utils.GLUtil;
 import com.yy.mediaframework.utils.YMFLog;
 import java.nio.Buffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GlLoadImageFilter extends AbstractYYMediaFilter {
     private boolean mbPBOSupport = false;
     private boolean mInited = false;

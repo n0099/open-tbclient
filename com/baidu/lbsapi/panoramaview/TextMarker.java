@@ -6,10 +6,8 @@ import com.baidu.pano.platform.comapi.a.a;
 public class TextMarker extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2511a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f2512b;
+    private String f1891a;
+    private int b;
     private int c;
     private int d;
     private int e;
@@ -20,8 +18,8 @@ public class TextMarker extends a {
     @Override // com.baidu.pano.platform.comapi.a.a
     public Bundle toBundle(String str, Bundle bundle) {
         bundle.putInt("markerType", 1003);
-        bundle.putString("text", this.f2511a == null ? "" : this.f2511a);
-        bundle.putInt("fontsize", this.f2512b == 0 ? 12 : this.f2512b);
+        bundle.putString("text", this.f1891a == null ? "" : this.f1891a);
+        bundle.putInt("fontsize", this.b == 0 ? 12 : this.b);
         bundle.putInt("fontcolor", this.c);
         bundle.putInt("bgcolor", this.d);
         bundle.putInt("paddingleft", this.e);
@@ -32,14 +30,14 @@ public class TextMarker extends a {
     }
 
     public void setText(String str) {
-        this.f2511a = str;
+        this.f1891a = str;
     }
 
     public void setFontSize(int i) {
         if (i < 0) {
             i = 0;
         }
-        this.f2512b = i;
+        this.b = i;
     }
 
     public void setFontColor(int i) {

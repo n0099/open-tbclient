@@ -3,19 +3,19 @@ package com.baidu.live.ae;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d {
-    private static volatile d bBb;
+    private static volatile d bCB;
 
-    public static d Qy() {
-        if (bBb == null) {
+    public static d QB() {
+        if (bCB == null) {
             synchronized (d.class) {
-                if (bBb == null) {
-                    bBb = new d();
+                if (bCB == null) {
+                    bCB = new d();
                 }
             }
         }
-        return bBb;
+        return bCB;
     }
 
     private d() {

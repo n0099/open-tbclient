@@ -18,7 +18,7 @@ public class e {
         }
     };
 
-    public static e brY() {
+    public static e brZ() {
         return new e();
     }
 

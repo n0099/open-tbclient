@@ -6,31 +6,31 @@ import android.view.ViewGroup;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d {
     private final Context context;
-    private final ViewGroup epo;
+    private final ViewGroup eqP;
     public int page = 0;
 
     public d(Context context, ViewGroup viewGroup) {
         this.context = context;
-        this.epo = viewGroup;
+        this.eqP = viewGroup;
     }
 
-    public e a(AdCard.f fVar, e eVar) {
-        if (fVar != null && fVar.style != null) {
-            if (eVar == null || !gn(fVar.style, eVar.mYj)) {
-                if (this.epo == null) {
+    public e a(AdCard.g gVar, e eVar) {
+        if (gVar != null && gVar.style != null) {
+            if (eVar == null || !gn(gVar.style, eVar.nau)) {
+                if (this.eqP == null) {
                     return null;
                 }
-                this.epo.removeAllViews();
-                if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(fVar.style)) {
+                this.eqP.removeAllViews();
+                if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(gVar.style)) {
                     if (this.page == 1) {
-                        return new c(LayoutInflater.from(this.context).inflate(R.layout.videolist_tail_frame_ad_jump, this.epo, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                        return new c(LayoutInflater.from(this.context).inflate(R.layout.videolist_tail_frame_ad_jump, this.eqP, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
                     }
-                    return new b(LayoutInflater.from(this.context).inflate(R.layout.tail_frame_ad_jump, this.epo, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
-                } else if ("apk_download".equals(fVar.style)) {
-                    return new a(LayoutInflater.from(this.context).inflate(R.layout.tail_frame_ad_download, this.epo, true), "apk_download");
+                    return new b(LayoutInflater.from(this.context).inflate(R.layout.tail_frame_ad_jump, this.eqP, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                } else if ("apk_download".equals(gVar.style)) {
+                    return new a(LayoutInflater.from(this.context).inflate(R.layout.tail_frame_ad_download, this.eqP, true), "apk_download");
                 } else {
                     return null;
                 }

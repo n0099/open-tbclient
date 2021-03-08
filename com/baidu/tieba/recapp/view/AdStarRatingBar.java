@@ -12,10 +12,10 @@ import androidx.appcompat.widget.AppCompatRatingBar;
 import androidx.core.content.ContextCompat;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AdStarRatingBar extends FrameLayout {
     private TextView mRatingText;
-    private AppCompatRatingBar mYW;
+    private AppCompatRatingBar nbh;
 
     public AdStarRatingBar(@NonNull Context context) {
         this(context, null);
@@ -32,19 +32,19 @@ public class AdStarRatingBar extends FrameLayout {
 
     protected void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.ad_star_rating_bar, this);
-        this.mYW = (AppCompatRatingBar) findViewById(R.id.ad_rating_bar);
+        this.nbh = (AppCompatRatingBar) findViewById(R.id.ad_rating_bar);
         this.mRatingText = (TextView) findViewById(R.id.ad_rating_text);
         int intrinsicHeight = ContextCompat.getDrawable(getContext(), R.drawable.icon_rating_bar_star_selected).getIntrinsicHeight();
-        ViewGroup.LayoutParams layoutParams = this.mYW.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.nbh.getLayoutParams();
         layoutParams.width = -2;
         layoutParams.height = intrinsicHeight;
-        this.mYW.setLayoutParams(layoutParams);
+        this.nbh.setLayoutParams(layoutParams);
     }
 
     public void setRating(float f) {
         if (f >= 0.0f) {
             this.mRatingText.setText(String.valueOf(f));
-            this.mYW.setRating(f);
+            this.nbh.setRating(f);
         }
     }
 

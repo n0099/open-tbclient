@@ -1,7 +1,7 @@
 package com.baidu.swan.games.f.b;
 
 import com.baidu.searchbox.v8engine.V8Engine;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
     private V8Engine mV8Engine;
 
@@ -13,7 +13,7 @@ public class b {
         this.mV8Engine.requireJSFileForOpenData(str, str2);
     }
 
-    public void aWj() {
+    public void aWm() {
         this.mV8Engine.destroyOpenDataContext();
     }
 }

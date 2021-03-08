@@ -1,18 +1,18 @@
 package com.baidu.tieba.themeCenter.dressCenter;
 
 import tbclient.ThemeRecommand;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class e {
     private String iconUrl;
     private String linkUrl;
-    private String nJv;
+    private String nyW;
     private String tipString;
 
     public void a(ThemeRecommand themeRecommand) {
         if (themeRecommand != null) {
             this.iconUrl = themeRecommand.icon;
             this.tipString = themeRecommand.tip_text;
-            this.nJv = themeRecommand.button_text;
+            this.nyW = themeRecommand.button_text;
             this.linkUrl = themeRecommand.button_url;
         }
     }
@@ -21,11 +21,11 @@ public class e {
         return this.iconUrl;
     }
 
-    public String dRw() {
+    public String dRF() {
         return this.tipString;
     }
 
-    public String dRx() {
-        return this.nJv;
+    public String dNA() {
+        return this.nyW;
     }
 }

@@ -17,7 +17,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class LogToES {
     private static final String BAK_EXT = ".bak";
     private static final int BAK_FILE_NUM_LIMIT = 2;

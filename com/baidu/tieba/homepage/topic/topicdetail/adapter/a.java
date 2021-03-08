@@ -15,17 +15,17 @@ import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.tieba.homepage.topic.topicdetail.view.d;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.topic.topicdetail.a.c, CardViewHolder<d>> {
-    private com.baidu.adp.lib.d.b<ConstrainImageLayout> jmT;
-    private com.baidu.adp.lib.d.b<TbImageView> jmU;
+    private com.baidu.adp.lib.d.b<ConstrainImageLayout> joC;
+    private com.baidu.adp.lib.d.b<TbImageView> joD;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.topic.topicdetail.a.c.koP);
-        this.jmT = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.homepage.topic.topicdetail.adapter.a.1
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.topic.topicdetail.a.c.kqR);
+        this.joC = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.homepage.topic.topicdetail.adapter.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cFm */
+            /* renamed from: cFs */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(a.this.mPageContext.getPageActivity());
             }
@@ -51,10 +51,10 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
                 return constrainImageLayout;
             }
         }, 6, 0);
-        this.jmU = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.homepage.topic.topicdetail.adapter.a.2
+        this.joD = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.homepage.topic.topicdetail.adapter.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: buL */
+            /* renamed from: buO */
             public TbImageView makeObject() {
                 TbImageView tbImageView = new TbImageView(a.this.mPageContext.getPageActivity());
                 tbImageView.setDrawBorder(true);
@@ -92,8 +92,8 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             @Override // com.baidu.adp.widget.ListView.w
             public void a(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
                 d dVar;
-                if ((view.getTag() instanceof CardViewHolder) && (dVar = (d) ((CardViewHolder) view.getTag()).cti()) != null) {
-                    dVar.bzk();
+                if ((view.getTag() instanceof CardViewHolder) && (dVar = (d) ((CardViewHolder) view.getTag()).cto()) != null) {
+                    dVar.bzn();
                 }
             }
         });
@@ -105,8 +105,8 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* renamed from: aX */
     public CardViewHolder<d> e(ViewGroup viewGroup) {
         d dVar = new d(this.mPageContext);
-        dVar.setConstrainLayoutPool(this.jmT);
-        dVar.setConstrainImagePool(this.jmU);
+        dVar.setConstrainLayoutPool(this.joC);
+        dVar.setConstrainImagePool(this.joD);
         dVar.setTag(this.mPageId);
         return new CardViewHolder<>(dVar);
     }
@@ -115,10 +115,10 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.topic.topicdetail.a.c cVar, CardViewHolder<d> cardViewHolder) {
-        if (cVar == null || cardViewHolder == null || cardViewHolder.cti() == null) {
+        if (cVar == null || cardViewHolder == null || cardViewHolder.cto() == null) {
             return null;
         }
-        cardViewHolder.cti().a(cVar);
+        cardViewHolder.cto().a(cVar);
         return cardViewHolder.getView();
     }
 }

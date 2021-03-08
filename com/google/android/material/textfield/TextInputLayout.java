@@ -61,7 +61,7 @@ import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.internal.ViewUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class TextInputLayout extends LinearLayout {
     public static final int BOX_BACKGROUND_FILLED = 1;
     public static final int BOX_BACKGROUND_NONE = 0;
@@ -132,7 +132,7 @@ public class TextInputLayout extends LinearLayout {
     private Typeface typeface;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public @interface BoxBackgroundMode {
     }
 
@@ -880,7 +880,7 @@ public class TextInputLayout extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.textfield.TextInputLayout.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -1332,7 +1332,7 @@ public class TextInputLayout extends LinearLayout {
         return this.indicatorViewController.getErrorViewCurrentTextColor();
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class AccessibilityDelegate extends AccessibilityDelegateCompat {
         private final TextInputLayout layout;
 

@@ -6,7 +6,7 @@ import android.os.Build;
 import com.yy.mediaframework.stat.VideoDataStatistic;
 import com.yy.mediaframework.utils.YMFLog;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YYVideoCodec {
     public static final int IFRAME_INTERVAL = 3;
     public static final String MIME_H264 = "video/avc";
@@ -20,7 +20,7 @@ public class YYVideoCodec {
     private static AtomicReference<Integer> mSupportH265 = new AtomicReference<>(-1);
     private static AtomicReference<String> mCurrentEncodeName = new AtomicReference<>("noEncoder");
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class EncodeSupport {
         public static final int DEFAULT = -1;
         public static final int SUPPORTED = 1;

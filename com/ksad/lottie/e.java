@@ -22,7 +22,7 @@ import java.util.zip.ZipInputStream;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Map<String, k<d>> f7993a = new HashMap();
+    private static final Map<String, k<d>> f5344a = new HashMap();
 
     @Nullable
     private static g a(d dVar, String str) {
@@ -99,8 +99,8 @@ public class e {
                 }
             });
         }
-        if (f7993a.containsKey(str)) {
-            return f7993a.get(str);
+        if (f5344a.containsKey(str)) {
+            return f5344a.get(str);
         }
         k<d> kVar = new k<>(callable);
         kVar.a(new h<d>() { // from class: com.ksad.lottie.e.6
@@ -110,17 +110,17 @@ public class e {
                 if (str != null) {
                     com.ksad.lottie.model.e.a().a(str, dVar);
                 }
-                e.f7993a.remove(str);
+                e.f5344a.remove(str);
             }
         });
         kVar.c(new h<Throwable>() { // from class: com.ksad.lottie.e.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.ksad.lottie.h
             public void a(Throwable th) {
-                e.f7993a.remove(str);
+                e.f5344a.remove(str);
             }
         });
-        f7993a.put(str, kVar);
+        f5344a.put(str, kVar);
         return kVar;
     }
 

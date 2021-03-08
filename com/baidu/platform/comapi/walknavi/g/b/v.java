@@ -3,11 +3,11 @@ package com.baidu.platform.comapi.walknavi.g.b;
 class v implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f4325a;
+    final /* synthetic */ c f2992a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(c cVar) {
-        this.f4325a = cVar;
+        this.f2992a = cVar;
     }
 
     @Override // java.lang.Runnable

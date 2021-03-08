@@ -14,13 +14,13 @@ public class g {
     private g() {
     }
 
-    public static g bFl() {
-        return a.fMC;
+    public static g bFp() {
+        return a.fOc;
     }
 
     /* loaded from: classes.dex */
     private static class a {
-        private static g fMC = new g();
+        private static g fOc = new g();
     }
 
     public String getLocalMacAddress(Context context) {
@@ -62,11 +62,11 @@ public class g {
         }
     }
 
-    public String bFm() {
+    public String bFq() {
         return Build.MODEL;
     }
 
-    public String bFn() {
+    public String bFr() {
         return Build.DEVICE;
     }
 
@@ -75,12 +75,12 @@ public class g {
     }
 
     @RequiresApi(api = 17)
-    public String fx(Context context) {
+    public String fw(Context context) {
         return String.valueOf(getDisplayMetrics(context).widthPixels);
     }
 
     @RequiresApi(api = 17)
-    public String fy(Context context) {
+    public String fx(Context context) {
         return String.valueOf(getDisplayMetrics(context).heightPixels);
     }
 

@@ -18,53 +18,53 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class z extends com.baidu.tbadk.editortools.emotiontool.c {
-    private ArrayList<String> iTh = new ArrayList<>();
-    private Set<String> iXe = new HashSet();
+    private ArrayList<String> iUQ = new ArrayList<>();
+    private Set<String> iYN = new HashSet();
 
     public z() {
         init();
     }
 
     private void init() {
-        qZ(2);
-        qY(4);
+        ra(2);
+        qZ(4);
         com.baidu.adp.widget.ImageView.a aVar = new com.baidu.adp.widget.ImageView.a(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.icon_bar_collection), false);
         super.d(aVar);
         super.c(aVar);
-        Mk();
+        Mn();
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.ImageView.a bBD() {
-        return super.bBC();
+    public com.baidu.adp.widget.ImageView.a bBG() {
+        return super.bBF();
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public String qX(int i) {
-        if (i >= this.iTh.size()) {
+    public String qY(int i) {
+        if (i >= this.iUQ.size()) {
             return null;
         }
-        return this.iTh.get(i);
+        return this.iUQ.get(i);
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public boolean CN(String str) {
-        return this.iXe.contains(str);
+    public boolean CU(String str) {
+        return this.iYN.contains(str);
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public EmotionGroupType bBB() {
+    public EmotionGroupType bBE() {
         return EmotionGroupType.USER_COLLECT;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.ImageView.a CO(String str) {
+    public com.baidu.adp.widget.ImageView.a CV(String str) {
         if (com.baidu.tbadk.imageManager.d.SETTING_SHARP_TEXT.equals(str)) {
             return new com.baidu.adp.widget.ImageView.a(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.icon_emotion_set_n), false);
         }
-        Bitmap image = com.baidu.tbadk.core.util.o.getImage(JQ(str).getAbsolutePath());
+        Bitmap image = com.baidu.tbadk.core.util.o.getImage(JZ(str).getAbsolutePath());
         if (image == null) {
             return null;
         }
@@ -73,10 +73,10 @@ public class z extends com.baidu.tbadk.editortools.emotiontool.c {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [118=4] */
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.ImageView.a CP(String str) {
+    public com.baidu.adp.widget.ImageView.a CW(String str) {
         ByteArrayOutputStream byteArrayOutputStream;
         FileInputStream fileInputStream;
-        File file = new File(JQ(str).getAbsolutePath().replace("_s.jpg", "_b.gif"));
+        File file = new File(JZ(str).getAbsolutePath().replace("_s.jpg", "_b.gif"));
         if (!file.exists()) {
             return null;
         }
@@ -134,10 +134,10 @@ public class z extends com.baidu.tbadk.editortools.emotiontool.c {
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
     public int getEmotionsCount() {
-        if (this.iTh == null || this.iTh.size() == 0) {
+        if (this.iUQ == null || this.iUQ.size() == 0) {
             return 1;
         }
-        return this.iTh.size();
+        return this.iUQ.size();
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
@@ -161,11 +161,11 @@ public class z extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public boolean bBA() {
+    public boolean bBD() {
         return true;
     }
 
-    public File JQ(String str) {
+    public File JZ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -177,21 +177,21 @@ public class z extends com.baidu.tbadk.editortools.emotiontool.c {
         return new File(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + com.baidu.tbadk.imageManager.d.getSaveDir() + "/" + replace2 + "_s.jpg");
     }
 
-    public void Mk() {
-        List<CollectEmotionData> JG = i.cyL().JG(TbadkCoreApplication.getCurrentAccountForEmotion());
-        this.iTh.clear();
-        this.iXe.clear();
-        for (CollectEmotionData collectEmotionData : JG) {
-            this.iTh.add(collectEmotionData.sharpText);
-            this.iXe.add(collectEmotionData.sharpText);
+    public void Mn() {
+        List<CollectEmotionData> JP = i.cyR().JP(TbadkCoreApplication.getCurrentAccountForEmotion());
+        this.iUQ.clear();
+        this.iYN.clear();
+        for (CollectEmotionData collectEmotionData : JP) {
+            this.iUQ.add(collectEmotionData.sharpText);
+            this.iYN.add(collectEmotionData.sharpText);
         }
     }
 
-    public boolean JR(String str) {
-        if (this.iTh == null || TextUtils.isEmpty(str)) {
+    public boolean Ka(String str) {
+        if (this.iUQ == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        Iterator<String> it = this.iTh.iterator();
+        Iterator<String> it = this.iUQ.iterator();
         while (it.hasNext()) {
             if (it.next().contains(str)) {
                 return true;

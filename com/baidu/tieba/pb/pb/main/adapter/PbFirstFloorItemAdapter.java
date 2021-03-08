@@ -30,7 +30,7 @@ public class PbFirstFloorItemAdapter extends com.baidu.adp.widget.ListView.a<i, 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cF */
+    /* renamed from: cE */
     public PbFirstFloorItemViewHolder e(ViewGroup viewGroup) {
         LinearLayout linearLayout = new LinearLayout(this.mContext);
         linearLayout.setOrientation(1);
@@ -94,21 +94,21 @@ public class PbFirstFloorItemAdapter extends com.baidu.adp.widget.ListView.a<i, 
 
     /* loaded from: classes2.dex */
     public class PbFirstFloorItemViewHolder extends TypeAdapter.ViewHolder implements View.OnClickListener {
-        private View bTo;
-        private ItemCardView mbW;
+        private View bUO;
+        private ItemCardView mdY;
         private TextView textView;
 
         public PbFirstFloorItemViewHolder(View view) {
             super(view);
-            this.bTo = ((ViewGroup) view).getChildAt(0);
+            this.bUO = ((ViewGroup) view).getChildAt(0);
             this.textView = (TextView) ((ViewGroup) view).getChildAt(1);
-            this.mbW = (ItemCardView) ((ViewGroup) view).getChildAt(2);
+            this.mdY = (ItemCardView) ((ViewGroup) view).getChildAt(2);
         }
 
         public void a(i iVar) {
             if (iVar != null) {
                 this.textView.setText(PbFirstFloorItemAdapter.this.mContext.getText(R.string.related_recommendation));
-                this.mbW.setData(iVar.item, 17);
+                this.mdY.setData(iVar.item, 17);
             }
         }
 
@@ -117,9 +117,9 @@ public class PbFirstFloorItemAdapter extends com.baidu.adp.widget.ListView.a<i, 
         }
 
         public void onChangeSkinType() {
-            ap.setBackgroundColor(this.bTo, R.color.CAM_X0203);
+            ap.setBackgroundColor(this.bUO, R.color.CAM_X0203);
             ap.setViewTextColor(this.textView, R.color.CAM_X0109);
-            this.mbW.onChangeSkinType();
+            this.mdY.onChangeSkinType();
         }
     }
 }

@@ -10,7 +10,7 @@ import java.util.List;
 class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final List<String> f8196a = new ArrayList();
+    private static final List<String> f5460a = new ArrayList();
 
     /* loaded from: classes3.dex */
     private static class a extends DexClassLoader {
@@ -40,11 +40,11 @@ class d {
     }
 
     static {
-        f8196a.add("com.kwad.sdk");
-        f8196a.add("com.ksad");
-        f8196a.add("com.kwai");
-        f8196a.add("kwad.support");
-        f8196a.add("android.support.rastermill");
+        f5460a.add("com.kwad.sdk");
+        f5460a.add("com.ksad");
+        f5460a.add("com.kwai");
+        f5460a.add("kwad.support");
+        f5460a.add("android.support.rastermill");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

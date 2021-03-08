@@ -37,23 +37,21 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 @SuppressLint({"NewApi"})
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class n {
     private static SSLSocketFactory h;
 
     /* renamed from: a  reason: collision with root package name */
-    Context f5271a;
+    Context f3543a;
     private String c;
     private String d;
-
-    /* renamed from: b  reason: collision with root package name */
-    byte[] f5272b = new byte[8192];
+    byte[] b = new byte[8192];
     private int e = BdStatisticsManager.UPLOAD_TIMER_INTERVAL;
     private int f = BdStatisticsManager.UPLOAD_TIMER_INTERVAL;
     private boolean g = false;
 
     public n(Context context) {
-        this.f5271a = context;
+        this.f3543a = context;
     }
 
     private void a(String str, String str2) {
@@ -72,7 +70,7 @@ public final class n {
             this.c = "POST";
         }
         URL url = new URL(this.d);
-        if (e.e(this.f5271a)) {
+        if (e.e(this.f3543a)) {
             i = 0;
         } else if (Build.VERSION.SDK_INT >= 13) {
             str = System.getProperties().getProperty("http.proxyHost");
@@ -84,8 +82,8 @@ public final class n {
                 }
             }
         } else {
-            str = Proxy.getHost(this.f5271a);
-            i = Proxy.getPort(this.f5271a);
+            str = Proxy.getHost(this.f3543a);
+            i = Proxy.getPort(this.f3543a);
         }
         if (str != null && i > 0) {
             httpURLConnection = (HttpURLConnection) url.openConnection(new java.net.Proxy(Proxy.Type.HTTP, InetSocketAddress.createUnresolved(str, i)));
@@ -123,13 +121,13 @@ public final class n {
         httpURLConnection.setInstanceFollowRedirects(true);
         httpURLConnection.setConnectTimeout(this.e);
         httpURLConnection.setReadTimeout(this.f);
-        httpURLConnection.setRequestProperty("User-Agent", "eos/" + e.g(this.f5271a)[0] + "/" + y.a(this.f5271a) + "/3.4.4.1");
+        httpURLConnection.setRequestProperty("User-Agent", "eos/" + e.g(this.f3543a)[0] + "/" + y.a(this.f3543a) + "/3.4.4.1");
         httpURLConnection.setRequestProperty("Pragma", "no-cache");
         httpURLConnection.setRequestProperty("Accept", "*/*");
         httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
         httpURLConnection.setRequestProperty(Headers.ACCEPT_ENCODING, "gzip,deflate");
         httpURLConnection.setRequestProperty("Accept-Language", Locale.getDefault().getLanguage() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Locale.getDefault().getCountry());
-        httpURLConnection.setRequestProperty("x-device-id", p.a(h.b(this.f5271a)));
+        httpURLConnection.setRequestProperty("x-device-id", p.a(h.b(this.f3543a)));
         return httpURLConnection;
     }
 
@@ -215,7 +213,7 @@ public final class n {
 
     private InputStream a(HttpURLConnection httpURLConnection) {
         InputStream inputStream = null;
-        if (!e.f(this.f5271a) || httpURLConnection == null || httpURLConnection == null) {
+        if (!e.f(this.f3543a) || httpURLConnection == null || httpURLConnection == null) {
             return null;
         }
         try {
@@ -237,21 +235,21 @@ public final class n {
             throw new IOException("InputStream");
         }
         try {
-            byte[] b2 = b(inputStream);
-            if (b2 == null) {
+            byte[] b = b(inputStream);
+            if (b == null) {
                 throw new IOException("responseBytes");
             }
             if (this.g) {
-                ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(b2);
+                ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(b);
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 k.b(byteArrayInputStream, byteArrayOutputStream);
-                b2 = byteArrayOutputStream.toByteArray();
+                b = byteArrayOutputStream.toByteArray();
                 byteArrayOutputStream.flush();
                 byteArrayOutputStream.close();
                 byteArrayInputStream.close();
             }
-            if (b2 != null) {
-                return new String(b2);
+            if (b != null) {
+                return new String(b);
             }
             throw new IOException();
         } catch (Throwable th) {
@@ -336,7 +334,7 @@ public final class n {
             r0 = 0
             com.baidu.sofire.i.x.a()
             com.baidu.sofire.b.a()     // Catch: java.lang.Throwable -> L51
-            android.content.Context r1 = r4.f5271a     // Catch: java.lang.Throwable -> L51
+            android.content.Context r1 = r4.f3543a     // Catch: java.lang.Throwable -> L51
             boolean r1 = com.baidu.sofire.i.e.f(r1)     // Catch: java.lang.Throwable -> L51
             if (r1 != 0) goto L14
             com.baidu.sofire.i.x.b()
@@ -492,21 +490,19 @@ public final class n {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements X509TrustManager {
-
-        /* renamed from: b  reason: collision with root package name */
-        private X509TrustManager f5274b;
+        private X509TrustManager b;
 
         a(X509TrustManager x509TrustManager) {
-            this.f5274b = null;
-            this.f5274b = x509TrustManager;
+            this.b = null;
+            this.b = x509TrustManager;
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public final void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             com.baidu.sofire.b.a();
-            this.f5274b.checkClientTrusted(x509CertificateArr, str);
+            this.b.checkClientTrusted(x509CertificateArr, str);
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -514,7 +510,7 @@ public final class n {
         public final void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             com.baidu.sofire.b.a();
             try {
-                this.f5274b.checkServerTrusted(x509CertificateArr, str);
+                this.b.checkServerTrusted(x509CertificateArr, str);
                 com.baidu.sofire.b.a();
             } catch (Throwable th) {
                 e.a();
@@ -522,7 +518,7 @@ public final class n {
                     if ((th2 instanceof CertificateExpiredException) || (th2 instanceof CertificateNotYetValidException)) {
                         HashMap hashMap = new HashMap();
                         hashMap.put("0", Long.valueOf(System.currentTimeMillis()));
-                        e.a(n.this.f5271a.getApplicationContext(), "1003121", hashMap);
+                        e.a(n.this.f3543a.getApplicationContext(), "1003121", hashMap);
                         return;
                     }
                 }
@@ -536,7 +532,7 @@ public final class n {
         @Override // javax.net.ssl.X509TrustManager
         public final X509Certificate[] getAcceptedIssuers() {
             com.baidu.sofire.b.a();
-            return this.f5274b.getAcceptedIssuers();
+            return this.b.getAcceptedIssuers();
         }
     }
 }

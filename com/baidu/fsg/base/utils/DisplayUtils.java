@@ -6,10 +6,8 @@ import android.util.DisplayMetrics;
 public final class DisplayUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final float f1972a = 0.5f;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static DisplayMetrics f1973b;
+    private static final float f1551a = 0.5f;
+    private static DisplayMetrics b;
 
     private DisplayUtils() {
     }
@@ -31,18 +29,18 @@ public final class DisplayUtils {
     }
 
     private static void a(Context context) {
-        if (f1973b == null) {
-            f1973b = context.getResources().getDisplayMetrics();
+        if (b == null) {
+            b = context.getResources().getDisplayMetrics();
         }
     }
 
     public static int getDisplayWidth(Context context) {
         a(context);
-        return f1973b.widthPixels;
+        return b.widthPixels;
     }
 
     public static int getDisplayHeight(Context context) {
         a(context);
-        return f1973b.heightPixels;
+        return b.heightPixels;
     }
 }

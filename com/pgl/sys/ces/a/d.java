@@ -10,10 +10,8 @@ import android.view.WindowManager;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f11396a = 0;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static int f11397b = 0;
+    public static int f7478a = 0;
+    public static int b = 0;
     private static int d = 0;
     public static int c = 0;
     private static int e = 0;
@@ -26,7 +24,7 @@ public class d {
             d(context);
         } catch (Throwable th) {
         }
-        return "" + c + "[<!>]" + f11396a + "*" + f11397b + "[<!>]";
+        return "" + c + "[<!>]" + f7478a + "*" + b + "[<!>]";
     }
 
     private static void b(Context context) {
@@ -35,15 +33,15 @@ public class d {
             Point point = new Point();
             if (Build.VERSION.SDK_INT >= 17) {
                 defaultDisplay.getRealSize(point);
-                f11396a = point.x;
-                f11397b = point.y;
+                f7478a = point.x;
+                b = point.y;
             } else if (Build.VERSION.SDK_INT >= 13) {
                 defaultDisplay.getSize(point);
-                f11396a = point.x;
-                f11397b = point.y;
+                f7478a = point.x;
+                b = point.y;
             } else {
-                f11396a = defaultDisplay.getWidth();
-                f11397b = defaultDisplay.getHeight();
+                f7478a = defaultDisplay.getWidth();
+                b = defaultDisplay.getHeight();
             }
         } catch (Throwable th) {
         }

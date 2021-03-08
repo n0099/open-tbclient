@@ -2,32 +2,32 @@ package com.baidu.live.af;
 
 import android.view.ViewGroup;
 import com.baidu.live.data.ab;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
 
     /* renamed from: com.baidu.live.af.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0156a {
-        void F(Object obj);
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0162a {
+        void H(Object obj);
 
-        void QG();
+        void QJ();
 
-        void QH();
+        void QK();
 
-        int QI();
+        int QL();
 
-        int QJ();
+        int QM();
 
-        int QK();
+        int QN();
 
         int getImMsgListViewHeight();
     }
 
-    void QE();
+    void QH();
 
-    void QF();
+    void QI();
 
-    void a(InterfaceC0156a interfaceC0156a);
+    void a(InterfaceC0162a interfaceC0162a);
 
     void a(com.baidu.live.i.a aVar);
 
@@ -35,9 +35,9 @@ public interface a {
 
     void cV(boolean z);
 
-    void dX(int i);
-
     void dY(int i);
+
+    void dZ(int i);
 
     void onDestroy();
 

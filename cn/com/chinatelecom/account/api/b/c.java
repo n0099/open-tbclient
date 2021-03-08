@@ -25,11 +25,11 @@ import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.net.UnknownHostException;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1109a = c.class.getSimpleName();
+    private static final String f1038a = c.class.getSimpleName();
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:107:0x023c */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:113:0x0245 */
@@ -134,7 +134,7 @@ public class c {
                                 str2 = str2 + readLine;
                             } catch (SocketTimeoutException e4) {
                                 e = e4;
-                                CtAuth.warn(f1109a, "doGet SocketTimeoutException : " + e.getMessage(), e);
+                                CtAuth.warn(f1038a, "doGet SocketTimeoutException : " + e.getMessage(), e);
                                 if (bufferedReader != null) {
                                     try {
                                         bufferedReader.close();
@@ -151,7 +151,7 @@ public class c {
                                 return eVar;
                             } catch (UnknownHostException e6) {
                                 e = e6;
-                                CtAuth.warn(f1109a, "doGet UnknownHostException : " + e.getMessage(), e);
+                                CtAuth.warn(f1038a, "doGet UnknownHostException : " + e.getMessage(), e);
                                 if (bufferedReader != null) {
                                     try {
                                         bufferedReader.close();
@@ -168,7 +168,7 @@ public class c {
                                 return eVar;
                             } catch (IOException e8) {
                                 e = e8;
-                                CtAuth.warn(f1109a, "doGet IOException : " + e.getMessage(), e);
+                                CtAuth.warn(f1038a, "doGet IOException : " + e.getMessage(), e);
                                 if (bufferedReader != null) {
                                     try {
                                         bufferedReader.close();
@@ -185,7 +185,7 @@ public class c {
                                 return eVar;
                             } catch (Throwable th2) {
                                 th = th2;
-                                CtAuth.warn(f1109a, "doGet Throwable : " + th.getMessage(), th);
+                                CtAuth.warn(f1038a, "doGet Throwable : " + th.getMessage(), th);
                                 if (bufferedReader != null) {
                                     try {
                                         bufferedReader.close();
@@ -202,13 +202,13 @@ public class c {
                                 return eVar;
                             }
                         }
-                        eVar.f1114a = 0;
-                        eVar.f1115b = str2;
+                        eVar.f1041a = 0;
+                        eVar.b = str2;
                         b a2 = cn.com.chinatelecom.account.api.c.a.a(context, httpURLConnection4, true);
                         inputStreamReader = readTimeout;
                         if (a2 != null) {
-                            eVar.c = a2.f1108b;
-                            eVar.d = a2.f1107a;
+                            eVar.c = a2.b;
+                            eVar.d = a2.f1037a;
                             inputStreamReader = readTimeout;
                         }
                     } catch (SocketTimeoutException e11) {
@@ -225,7 +225,7 @@ public class c {
                         bufferedReader = null;
                     }
                 } else {
-                    CtAuth.info(f1109a, "redirect 30002 Http response code : " + responseCode2);
+                    CtAuth.info(f1038a, "redirect 30002 Http response code : " + responseCode2);
                     bufferedReader = null;
                     inputStreamReader = null;
                     inputStream = null;
@@ -326,8 +326,8 @@ public class c {
                                     sb.append(readLine).append("\n");
                                 } catch (SocketTimeoutException e) {
                                     e = e;
-                                    eVar.f1115b = i.a(-8102, "Socket超时异常-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage());
-                                    CtAuth.warn(f1109a, "doPost SocketTimeoutException-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage(), e);
+                                    eVar.b = i.a(-8102, "Socket超时异常-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage());
+                                    CtAuth.warn(f1038a, "doPost SocketTimeoutException-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage(), e);
                                     if (bufferedReader2 != null) {
                                         try {
                                             bufferedReader2.close();
@@ -343,8 +343,8 @@ public class c {
                                     e = e3;
                                     bufferedReader3 = bufferedReader2;
                                     inputStream3 = inputStream2;
-                                    eVar.f1115b = i.a(-8103, "域名解析异常-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage());
-                                    CtAuth.warn(f1109a, "doPost UnknownHostException-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage(), e);
+                                    eVar.b = i.a(-8103, "域名解析异常-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage());
+                                    CtAuth.warn(f1038a, "doPost UnknownHostException-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage(), e);
                                     if (bufferedReader3 != null) {
                                         try {
                                             bufferedReader3.close();
@@ -360,8 +360,8 @@ public class c {
                                     e = e5;
                                     bufferedReader3 = bufferedReader2;
                                     inputStream3 = inputStream2;
-                                    eVar.f1115b = i.a(-8104, "IO异常-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage());
-                                    CtAuth.warn(f1109a, "doPost IOException-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage(), e);
+                                    eVar.b = i.a(-8104, "IO异常-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage());
+                                    CtAuth.warn(f1038a, "doPost IOException-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage(), e);
                                     if (bufferedReader3 != null) {
                                         try {
                                             bufferedReader3.close();
@@ -377,8 +377,8 @@ public class c {
                                     th = th;
                                     bufferedReader3 = bufferedReader2;
                                     inputStream3 = inputStream2;
-                                    eVar.f1115b = i.a(ThunderRtcConstant.ThunderRet.THUNDER_RET_LOG_ENGINE_ERROR, "请求网络异常-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + th.toString());
-                                    CtAuth.warn(f1109a, "doPost Throwable-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + th.getMessage(), th);
+                                    eVar.b = i.a(ThunderRtcConstant.ThunderRet.THUNDER_RET_LOG_ENGINE_ERROR, "请求网络异常-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + th.toString());
+                                    CtAuth.warn(f1038a, "doPost Throwable-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + th.getMessage(), th);
                                     if (bufferedReader3 != null) {
                                         try {
                                             bufferedReader3.close();
@@ -392,12 +392,12 @@ public class c {
                                     return eVar;
                                 }
                             }
-                            eVar.f1114a = 0;
-                            eVar.f1115b = sb.toString();
+                            eVar.f1041a = 0;
+                            eVar.b = sb.toString();
                             b a2 = cn.com.chinatelecom.account.api.c.a.a(context, httpURLConnection, z);
                             if (a2 != null) {
-                                eVar.c = a2.f1108b;
-                                eVar.d = a2.f1107a;
+                                eVar.c = a2.b;
+                                eVar.d = a2.f1037a;
                             }
                             bufferedReader3 = bufferedReader2;
                             inputStream3 = inputStream2;
@@ -415,8 +415,8 @@ public class c {
                             inputStream3 = inputStream2;
                         }
                     } else if (responseCode != 302) {
-                        eVar.f1115b = i.a(-8101, "响应码错误-" + str3 + "-code : " + responseCode);
-                        CtAuth.info(f1109a, "doPost > Http response code :" + responseCode);
+                        eVar.b = i.a(-8101, "响应码错误-" + str3 + "-code : " + responseCode);
+                        CtAuth.info(f1038a, "doPost > Http response code :" + responseCode);
                     } else if (i < 10) {
                         e a3 = a(context, httpURLConnection.getHeaderField(com.baidubce.http.Headers.LOCATION), null, ctSetting, network, z, i + 1, "redirect");
                         if (0 != 0) {
@@ -433,7 +433,7 @@ public class c {
                         }
                         return a3;
                     } else {
-                        eVar.f1115b = i.a(ThunderRtcConstant.ThunderRet.THUNDER_RET_LOG_ENGINE_ERROR, "请求网络异常-Redirect more than 10 times ");
+                        eVar.b = i.a(ThunderRtcConstant.ThunderRet.THUNDER_RET_LOG_ENGINE_ERROR, "请求网络异常-Redirect more than 10 times ");
                     }
                     if (bufferedReader3 != null) {
                         try {
@@ -477,7 +477,7 @@ public class c {
                 ((Boolean) Class.forName("android.net.ConnectivityManager").getMethod("requestRouteToHost", Integer.TYPE, Integer.TYPE).invoke(connectivityManager, 5, Integer.valueOf(d.a(d.b(str))))).booleanValue();
             }
         } catch (Throwable th) {
-            CtAuth.warn(f1109a, "http doPost > requestUrlToRoute error", th);
+            CtAuth.warn(f1038a, "http doPost > requestUrlToRoute error", th);
         }
     }
 

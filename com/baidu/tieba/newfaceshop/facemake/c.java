@@ -9,10 +9,10 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
-    public static final String lAt = com.baidu.tieba.newfaceshop.c.lAt + "draft/";
-    public static final String lAT = lAt + "upload_draft";
+    public static final String lCv = com.baidu.tieba.newfaceshop.c.lCv + "draft/";
+    public static final String lCV = lCv + "upload_draft";
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [46=4] */
     public static void a(FaceGroupDraft faceGroupDraft) {
@@ -20,12 +20,12 @@ public class c {
         ObjectOutputStream objectOutputStream2 = null;
         try {
             try {
-                File file = new File(lAt);
+                File file = new File(lCv);
                 if (!file.exists()) {
                     file.mkdirs();
                 }
-                diE();
-                objectOutputStream = new ObjectOutputStream(new FileOutputStream(lAT));
+                diN();
+                objectOutputStream = new ObjectOutputStream(new FileOutputStream(lCV));
             } catch (Throwable th) {
                 th = th;
             }
@@ -58,10 +58,10 @@ public class c {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [77=4] */
-    public static FaceGroupDraft diD() {
+    public static FaceGroupDraft diM() {
         ObjectInputStream objectInputStream;
         FaceGroupDraft faceGroupDraft;
-        File file = new File(lAT);
+        File file = new File(lCV);
         try {
             if (!file.exists()) {
                 return null;
@@ -119,8 +119,8 @@ public class c {
         }
     }
 
-    public static void diE() {
-        File file = new File(lAT);
+    public static void diN() {
+        File file = new File(lCV);
         if (file.exists()) {
             file.delete();
         }

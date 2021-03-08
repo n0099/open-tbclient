@@ -5,20 +5,18 @@ import android.graphics.Bitmap;
 public class WalkNaviDisplayOption {
 
     /* renamed from: a  reason: collision with root package name */
-    private Bitmap f2985a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Bitmap f2986b;
+    private Bitmap f2179a;
+    private Bitmap b;
     private boolean c = true;
     private boolean d = false;
 
     public WalkNaviDisplayOption imageToNormal(Bitmap bitmap) {
-        this.f2986b = bitmap;
+        this.b = bitmap;
         return this;
     }
 
     public WalkNaviDisplayOption imageToAr(Bitmap bitmap) {
-        this.f2985a = bitmap;
+        this.f2179a = bitmap;
         return this;
     }
 
@@ -33,11 +31,11 @@ public class WalkNaviDisplayOption {
     }
 
     public Bitmap getImageToAR() {
-        return this.f2985a;
+        return this.f2179a;
     }
 
     public Bitmap getImageToNormal() {
-        return this.f2986b;
+        return this.b;
     }
 
     public boolean isShowDialogWithExitNavi() {

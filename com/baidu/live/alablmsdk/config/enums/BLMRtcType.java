@@ -1,5 +1,5 @@
 package com.baidu.live.alablmsdk.config.enums;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public enum BLMRtcType {
     BDRTC("bdcloud"),
     YYRTC("yy"),

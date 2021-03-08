@@ -33,19 +33,19 @@ import com.baidu.tieba.horizonalList.widget.HListView;
 import com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class EmotionManageHorizontalView extends LinearLayout implements View.OnClickListener {
-    private View him;
-    private NewFaceGroupDownloadModel iUr;
-    private EmotionPackageData iYv;
-    private HListView iZq;
-    private View lDP;
-    private TextView lDQ;
-    private View lDR;
-    private TextView lDS;
-    private ImageView lDT;
-    private View lDU;
-    private a lDV;
+    private View hjV;
+    private NewFaceGroupDownloadModel iWa;
+    private HListView jaZ;
+    private EmotionPackageData jae;
+    private View lFR;
+    private TextView lFS;
+    private View lFT;
+    private TextView lFU;
+    private ImageView lFV;
+    private View lFW;
+    private a lFX;
     private TbPageContext mPageContext;
     private PermissionJudgePolicy mPermissionJudgement;
     private TextView mTitle;
@@ -59,119 +59,119 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
 
     private void initView() {
         this.rootView = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.emotion_manage_grid_item_layout, this);
-        this.iZq = (HListView) this.rootView.findViewById(R.id.emotion_manage_item_grid);
-        this.him = this.rootView.findViewById(R.id.emotion_manage_item_line);
+        this.jaZ = (HListView) this.rootView.findViewById(R.id.emotion_manage_item_grid);
+        this.hjV = this.rootView.findViewById(R.id.emotion_manage_item_line);
         this.mTitle = (TextView) this.rootView.findViewById(R.id.emotion_manage_title);
-        this.lDP = this.rootView.findViewById(R.id.emotion_manage_item_undownload_header);
-        this.lDP.setVisibility(8);
-        this.lDQ = (TextView) this.rootView.findViewById(R.id.emotion_manage_undownload_total_title);
-        this.lDR = this.rootView.findViewById(R.id.emotion_manage_item_grid_cover);
-        this.lDR.setVisibility(8);
-        this.lDS = (TextView) this.rootView.findViewById(R.id.emotion_manage_download);
-        this.lDS.setVisibility(8);
-        this.lDS.setOnClickListener(this);
-        this.lDT = (ImageView) this.rootView.findViewById(R.id.emotion_manage_del);
-        this.lDT.setVisibility(8);
-        this.lDT.setOnClickListener(this);
-        this.lDU = this.rootView.findViewById(R.id.emotion_manage_del_container);
-        this.lDU.setOnClickListener(this);
+        this.lFR = this.rootView.findViewById(R.id.emotion_manage_item_undownload_header);
+        this.lFR.setVisibility(8);
+        this.lFS = (TextView) this.rootView.findViewById(R.id.emotion_manage_undownload_total_title);
+        this.lFT = this.rootView.findViewById(R.id.emotion_manage_item_grid_cover);
+        this.lFT.setVisibility(8);
+        this.lFU = (TextView) this.rootView.findViewById(R.id.emotion_manage_download);
+        this.lFU.setVisibility(8);
+        this.lFU.setOnClickListener(this);
+        this.lFV = (ImageView) this.rootView.findViewById(R.id.emotion_manage_del);
+        this.lFV.setVisibility(8);
+        this.lFV.setOnClickListener(this);
+        this.lFW = this.rootView.findViewById(R.id.emotion_manage_del_container);
+        this.lFW.setOnClickListener(this);
         setOnClickListener(this);
-        this.iZq.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.ds20));
-        this.iZq.setOnItemClickListener(new AdapterView.c() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.view.EmotionManageHorizontalView.1
+        this.jaZ.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.ds20));
+        this.jaZ.setOnItemClickListener(new AdapterView.c() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.view.EmotionManageHorizontalView.1
             @Override // com.baidu.tieba.horizonalList.widget.AdapterView.c
             public void a(AdapterView<?> adapterView, View view, int i, long j) {
-                if (EmotionManageHorizontalView.this.iYv != null) {
-                    EmotionManageHorizontalView.this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EmotionPackageDetailActivityConfig(EmotionManageHorizontalView.this.mPageContext.getPageActivity(), EmotionManageHorizontalView.this.iYv.id, 0)));
+                if (EmotionManageHorizontalView.this.jae != null) {
+                    EmotionManageHorizontalView.this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EmotionPackageDetailActivityConfig(EmotionManageHorizontalView.this.mPageContext.getPageActivity(), EmotionManageHorizontalView.this.jae.id, 0)));
                 }
             }
         });
-        this.iZq.setSelector(this.mPageContext.getResources().getDrawable(R.drawable.transparent_bg));
-        this.lDV = new a(this.mPageContext);
-        this.iZq.setAdapter((ListAdapter) this.lDV);
+        this.jaZ.setSelector(this.mPageContext.getResources().getDrawable(R.drawable.transparent_bg));
+        this.lFX = new a(this.mPageContext);
+        this.jaZ.setAdapter((ListAdapter) this.lFX);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public HListView getListView() {
-        return this.iZq;
+        return this.jaZ;
     }
 
     public void onChangeSkinType(int i) {
         if (this.rootView != null) {
             ap.setBackgroundColor(this.rootView, R.color.CAM_X0201, i);
         }
-        if (this.him != null) {
-            ap.setBackgroundColor(this.him, R.color.CAM_X0204, i);
+        if (this.hjV != null) {
+            ap.setBackgroundColor(this.hjV, R.color.CAM_X0204, i);
         }
-        if (this.lDP != null) {
-            ap.setBackgroundColor(this.lDP, R.color.CAM_X0204, i);
+        if (this.lFR != null) {
+            ap.setBackgroundColor(this.lFR, R.color.CAM_X0204, i);
         }
         if (this.mTitle != null) {
             ap.setViewTextColor(this.mTitle, R.color.CAM_X0105, i);
         }
-        if (this.lDQ != null) {
-            ap.setViewTextColor(this.lDQ, R.color.CAM_X0107, i);
+        if (this.lFS != null) {
+            ap.setViewTextColor(this.lFS, R.color.CAM_X0107, i);
         }
-        if (this.lDS != null) {
-            ap.setViewTextColor(this.lDS, R.color.CAM_X0302, i);
-            ap.setBackgroundResource(this.lDS, R.drawable.bg_emotion_download, i);
+        if (this.lFU != null) {
+            ap.setViewTextColor(this.lFU, R.color.CAM_X0302, i);
+            ap.setBackgroundResource(this.lFU, R.drawable.bg_emotion_download, i);
         }
-        if (this.lDT != null) {
-            ap.setImageResource(this.lDT, R.drawable.emotion_manage_del_selector, i);
+        if (this.lFV != null) {
+            ap.setImageResource(this.lFV, R.drawable.emotion_manage_del_selector, i);
         }
-        if (this.lDR != null) {
-            ap.setViewTextColor(this.lDR, R.color.white_alpha70, i);
+        if (this.lFT != null) {
+            ap.setViewTextColor(this.lFT, R.color.white_alpha70, i);
         }
     }
 
     private void a(EmotionPackageData emotionPackageData, int i) {
         if (emotionPackageData != null) {
             if (emotionPackageData.isUndownloadheader) {
-                this.lDP.setVisibility(0);
-                this.lDQ.setText(String.format(h.getString(R.string.emotion_manage_net_number), Integer.valueOf(i)));
+                this.lFR.setVisibility(0);
+                this.lFS.setText(String.format(h.getString(R.string.emotion_manage_net_number), Integer.valueOf(i)));
             } else {
-                this.lDP.setVisibility(8);
+                this.lFR.setVisibility(8);
             }
-            djn();
+            djw();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void djm() {
-        if (this.lDS != null) {
-            this.lDS.setText(R.string.emotion_single_thread_downloaded);
-            ap.setViewTextColor(this.lDS, R.color.CAM_X0109);
-            this.lDS.setBackgroundDrawable(null);
-            this.lDS.setEnabled(false);
+    public void djv() {
+        if (this.lFU != null) {
+            this.lFU.setText(R.string.emotion_single_thread_downloaded);
+            ap.setViewTextColor(this.lFU, R.color.CAM_X0109);
+            this.lFU.setBackgroundDrawable(null);
+            this.lFU.setEnabled(false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void djn() {
-        if (this.lDS != null) {
-            this.lDS.setText(R.string.emotion_manage_download);
-            ap.setViewTextColor(this.lDS, R.color.CAM_X0302);
-            ap.setBackgroundResource(this.lDS, R.drawable.bg_emotion_download);
-            this.lDS.setEnabled(true);
+    public void djw() {
+        if (this.lFU != null) {
+            this.lFU.setText(R.string.emotion_manage_download);
+            ap.setViewTextColor(this.lFU, R.color.CAM_X0302);
+            ap.setBackgroundResource(this.lFU, R.drawable.bg_emotion_download);
+            this.lFU.setEnabled(true);
         }
     }
 
     public void setData(EmotionPackageData emotionPackageData, int i) {
-        this.iYv = emotionPackageData;
-        if (this.iYv != null) {
-            this.lDV.setData(this.iYv.pics, emotionPackageData.typeofemotion);
-            this.mTitle.setText(this.iYv.name);
+        this.jae = emotionPackageData;
+        if (this.jae != null) {
+            this.lFX.setData(this.jae.pics, emotionPackageData.typeofemotion);
+            this.mTitle.setText(this.jae.name);
             if (emotionPackageData.ishasdownload) {
-                this.lDR.setVisibility(8);
-                this.lDS.setVisibility(8);
-                if (com.baidu.tieba.newfaceshop.nativemotionmanager.a.diY().bLc()) {
-                    this.lDT.setVisibility(0);
+                this.lFT.setVisibility(8);
+                this.lFU.setVisibility(8);
+                if (com.baidu.tieba.newfaceshop.nativemotionmanager.a.djh().bLg()) {
+                    this.lFV.setVisibility(0);
                 } else {
-                    this.lDT.setVisibility(8);
+                    this.lFV.setVisibility(8);
                 }
             } else {
-                this.lDT.setVisibility(8);
-                this.lDS.setVisibility(0);
-                this.lDR.setVisibility(0);
+                this.lFV.setVisibility(8);
+                this.lFU.setVisibility(0);
+                this.lFT.setVisibility(0);
             }
             a(emotionPackageData, i);
         }
@@ -179,15 +179,15 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.iYv != null) {
+        if (this.jae != null) {
             if (view.getId() == R.id.emotion_manage_download && view.isShown()) {
-                cyI();
-            } else if ((view.getId() == R.id.emotion_manage_del_container || view.getId() == R.id.emotion_manage_del) && this.lDT.isShown()) {
-                if (this.iYv != null) {
-                    showDialog(this.iYv.id);
+                cyO();
+            } else if ((view.getId() == R.id.emotion_manage_del_container || view.getId() == R.id.emotion_manage_del) && this.lFV.isShown()) {
+                if (this.jae != null) {
+                    showDialog(this.jae.id);
                 }
             } else {
-                djo();
+                djx();
             }
         }
     }
@@ -198,7 +198,7 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
             String string2 = h.getString(R.string.emotion_manage_dialog_ok);
             String string3 = h.getString(R.string.emotion_manage_dialog_cancel);
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-            aVar.Au(string);
+            aVar.AB(string);
             aVar.a(string2, new a.b() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.view.EmotionManageHorizontalView.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -217,17 +217,17 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
                 public void onCancel(DialogInterface dialogInterface) {
                 }
             });
-            aVar.b(this.mPageContext).bqx();
+            aVar.b(this.mPageContext).bqz();
         }
     }
 
-    private void djo() {
-        this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EmotionPackageDetailActivityConfig(this.mPageContext.getPageActivity(), this.iYv.id, 0)));
+    private void djx() {
+        this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EmotionPackageDetailActivityConfig(this.mPageContext.getPageActivity(), this.jae.id, 0)));
     }
 
-    private void cyI() {
+    private void cyO() {
         if (bh.checkUpIsLogin(this.mPageContext.getPageActivity())) {
-            if (com.baidu.tieba.newfaceshop.d.diw().diz()) {
+            if (com.baidu.tieba.newfaceshop.d.diF().diI()) {
                 l.showToast(this.mPageContext.getPageActivity(), R.string.face_group_is_syncing);
                 return;
             }
@@ -237,16 +237,16 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
             }
             this.mPermissionJudgement.clearRequestPermissionList();
             this.mPermissionJudgement.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
-            if (!this.mPermissionJudgement.startRequestPermission(pageActivity) && this.iYv != null && this.iYv.id >= 0) {
-                if (this.iUr == null) {
-                    this.iUr = new NewFaceGroupDownloadModel();
+            if (!this.mPermissionJudgement.startRequestPermission(pageActivity) && this.jae != null && this.jae.id >= 0) {
+                if (this.iWa == null) {
+                    this.iWa = new NewFaceGroupDownloadModel();
                 }
-                this.lDS.setEnabled(false);
-                this.iUr.a(Integer.toString(this.iYv.id), true, new com.baidu.tieba.newfaceshop.a.b() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.view.EmotionManageHorizontalView.5
+                this.lFU.setEnabled(false);
+                this.iWa.a(Integer.toString(this.jae.id), true, new com.baidu.tieba.newfaceshop.a.b() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.view.EmotionManageHorizontalView.5
                     @Override // com.baidu.tieba.newfaceshop.a.b
                     public void onSuccess(String str) {
                         l.showToast(EmotionManageHorizontalView.this.mPageContext.getPageActivity(), R.string.down_state_success);
-                        EmotionManageHorizontalView.this.djm();
+                        EmotionManageHorizontalView.this.djv();
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_REFRESH_MY_EMOTION_PACKAGE));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_REFRESH_SINGLE_THREAD_EMOTION_PACKAGE));
                     }
@@ -263,7 +263,7 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
                     @Override // com.baidu.tieba.newfaceshop.a.b
                     public void onFail(String str) {
                         l.showToast(EmotionManageHorizontalView.this.mPageContext.getPageActivity(), R.string.download_error);
-                        EmotionManageHorizontalView.this.djn();
+                        EmotionManageHorizontalView.this.djw();
                     }
                 });
             }
@@ -271,20 +271,20 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a extends BaseAdapter {
-        private TbPageContext eUY;
+        private TbPageContext eWx;
         private List<EmotionPackageData.SingleEmotionData> mDatas = new ArrayList();
-        private int lDX = 0;
+        private int lFZ = 0;
         private boolean showCover = false;
 
         public a(TbPageContext tbPageContext) {
-            this.eUY = tbPageContext;
+            this.eWx = tbPageContext;
         }
 
         public void setData(List<EmotionPackageData.SingleEmotionData> list, int i) {
             if (!y.isEmpty(list)) {
-                this.lDX = i;
+                this.lFZ = i;
                 this.mDatas.clear();
                 if (list.size() > 8) {
                     this.mDatas.addAll(list.subList(0, 8));
@@ -320,61 +320,61 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
 
         @Override // android.widget.Adapter
         public View getView(int i, View view, ViewGroup viewGroup) {
-            C0816a c0816a;
+            C0822a c0822a;
             if (view == null) {
-                view = LayoutInflater.from(this.eUY.getPageActivity()).inflate(R.layout.emotion_item_layout, (ViewGroup) null);
-                C0816a c0816a2 = new C0816a(view);
-                view.setTag(c0816a2);
-                c0816a = c0816a2;
+                view = LayoutInflater.from(this.eWx.getPageActivity()).inflate(R.layout.emotion_item_layout, (ViewGroup) null);
+                C0822a c0822a2 = new C0822a(view);
+                view.setTag(c0822a2);
+                c0822a = c0822a2;
             } else {
-                c0816a = (C0816a) view.getTag();
+                c0822a = (C0822a) view.getTag();
             }
-            c0816a.a(this.mDatas.get(i), this.lDX, this.showCover, i);
+            c0822a.a(this.mDatas.get(i), this.lFZ, this.showCover, i);
             return view;
         }
 
         /* renamed from: com.baidu.tieba.newfaceshop.nativemotionmanager.view.EmotionManageHorizontalView$a$a  reason: collision with other inner class name */
-        /* loaded from: classes9.dex */
-        static class C0816a {
-            private TextView ajF;
-            private TbImageView iZv;
-            private View iZw;
+        /* loaded from: classes8.dex */
+        static class C0822a {
+            private TextView akX;
+            private TbImageView jbe;
+            private View jbf;
             private View mView;
 
-            public C0816a(View view) {
+            public C0822a(View view) {
                 this.mView = view;
                 this.mView.setEnabled(false);
-                this.iZv = (TbImageView) this.mView.findViewById(R.id.emotion_img);
-                this.ajF = (TextView) this.mView.findViewById(R.id.emotion_single_bar_icon);
-                this.iZw = this.mView.findViewById(R.id.emotion_cover_view);
-                this.iZw.setVisibility(8);
+                this.jbe = (TbImageView) this.mView.findViewById(R.id.emotion_img);
+                this.akX = (TextView) this.mView.findViewById(R.id.emotion_single_bar_icon);
+                this.jbf = this.mView.findViewById(R.id.emotion_cover_view);
+                this.jbf.setVisibility(8);
             }
 
             public void a(EmotionPackageData.SingleEmotionData singleEmotionData, int i, boolean z, int i2) {
                 if (singleEmotionData != null) {
                     if (!TextUtils.isEmpty(singleEmotionData.thumbnail)) {
-                        this.iZv.setDefaultResource(R.drawable.img_default_100);
-                        this.iZv.startLoad(singleEmotionData.thumbnail, 10, false);
+                        this.jbe.setDefaultResource(R.drawable.img_default_100);
+                        this.jbe.startLoad(singleEmotionData.thumbnail, 10, false);
                     }
                     if (i2 == 0) {
                         if (i == 0) {
-                            this.ajF.setVisibility(8);
+                            this.akX.setVisibility(8);
                         }
                         if (i == 1) {
-                            this.ajF.setVisibility(0);
-                            ap.setBackgroundResource(this.ajF, R.drawable.emotion_pic_mine);
+                            this.akX.setVisibility(0);
+                            ap.setBackgroundResource(this.akX, R.drawable.emotion_pic_mine);
                         }
                         if (i == 2) {
-                            this.ajF.setVisibility(0);
-                            ap.setBackgroundResource(this.ajF, R.drawable.emotion_pic_single_bar);
+                            this.akX.setVisibility(0);
+                            ap.setBackgroundResource(this.akX, R.drawable.emotion_pic_single_bar);
                         }
                     } else {
-                        this.ajF.setVisibility(8);
+                        this.akX.setVisibility(8);
                     }
                     if (i2 == 7 && z) {
-                        this.iZw.setVisibility(0);
+                        this.jbf.setVisibility(0);
                     } else {
-                        this.iZw.setVisibility(8);
+                        this.jbf.setVisibility(8);
                     }
                 }
             }

@@ -11,11 +11,11 @@ import com.baidu.live.data.t;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tieba.view.fresco.SimpleDraweeView;
 import com.facebook.drawee.drawable.p;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ActiveStaticBannerItemView extends FrameLayout implements c {
-    private a hpl;
-    private SimpleDraweeView hpm;
-    private View hpn;
+    private a hqU;
+    private SimpleDraweeView hqV;
+    private View hqW;
 
     public ActiveStaticBannerItemView(@NonNull Context context) {
         super(context);
@@ -24,17 +24,17 @@ public class ActiveStaticBannerItemView extends FrameLayout implements c {
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.c
     public void setCallback(a aVar) {
-        this.hpl = aVar;
+        this.hqU = aVar;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.c
     public void setData(boolean z, ab abVar, t tVar) {
         if (tVar != null) {
-            this.hpm.setImageURI(tVar.pic_url);
-            if (tVar.aHG) {
-                this.hpn.setVisibility(0);
+            this.hqV.setImageURI(tVar.pic_url);
+            if (tVar.aJg) {
+                this.hqW.setVisibility(0);
             } else {
-                this.hpn.setVisibility(4);
+                this.hqW.setVisibility(4);
             }
         }
     }
@@ -49,22 +49,22 @@ public class ActiveStaticBannerItemView extends FrameLayout implements c {
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.c
     public void release() {
-        this.hpl = null;
+        this.hqU = null;
     }
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.g.ala_active_view_item, (ViewGroup) this, true);
-        this.hpm = (SimpleDraweeView) findViewById(a.f.ala_live_active_view_img);
-        this.hpn = findViewById(a.f.new_icon);
-        com.facebook.drawee.generic.a hierarchy = this.hpm.getHierarchy();
-        hierarchy.a(a.e.sdk_transparent_bg, p.b.pDW);
-        hierarchy.b(a.e.sdk_transparent_bg, p.b.pDW);
-        hierarchy.b(p.b.pDS);
+        this.hqV = (SimpleDraweeView) findViewById(a.f.ala_live_active_view_img);
+        this.hqW = findViewById(a.f.new_icon);
+        com.facebook.drawee.generic.a hierarchy = this.hqV.getHierarchy();
+        hierarchy.a(a.e.sdk_transparent_bg, p.b.pGb);
+        hierarchy.b(a.e.sdk_transparent_bg, p.b.pGb);
+        hierarchy.b(p.b.pFX);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.ActiveStaticBannerItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ActiveStaticBannerItemView.this.hpl != null) {
-                    ActiveStaticBannerItemView.this.hpl.bZN();
+                if (ActiveStaticBannerItemView.this.hqU != null) {
+                    ActiveStaticBannerItemView.this.hqU.bZT();
                 }
             }
         });

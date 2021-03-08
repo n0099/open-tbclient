@@ -10,10 +10,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f7480a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f7481b;
+    private String f5075a;
+    private String b;
     private volatile File c;
     private volatile Long d;
     private volatile com.bytedance.sdk.openadsdk.preload.geckox.f.a.a e;
@@ -21,18 +19,18 @@ class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(String str, String str2, String str3) {
-        this.f7480a = str2;
-        this.f7481b = str3;
+        this.f5075a = str2;
+        this.b = str3;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final InputStream a(String str) throws Exception {
-        return c(this.f7481b).a(a(this.f7481b, str));
+        return c(this.b).a(a(this.b, str));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final boolean b(String str) throws Exception {
-        return c(this.f7481b).b(a(this.f7481b, str));
+        return c(this.b).b(a(this.b, str));
     }
 
     private synchronized com.bytedance.sdk.openadsdk.preload.geckox.f.a.a c(String str) throws Exception {
@@ -68,15 +66,15 @@ class a {
             if (this.c != null) {
                 file = this.c;
             } else if (this.d == null || this.d.longValue() != -1) {
-                com.bytedance.sdk.openadsdk.preload.geckox.g.b a2 = com.bytedance.sdk.openadsdk.preload.geckox.g.b.a(this.f7480a + File.separator + str + File.separator + "select.lock");
+                com.bytedance.sdk.openadsdk.preload.geckox.g.b a2 = com.bytedance.sdk.openadsdk.preload.geckox.g.b.a(this.f5075a + File.separator + str + File.separator + "select.lock");
                 if (this.d == null) {
-                    this.d = k.a(new File(this.f7480a, str));
+                    this.d = k.a(new File(this.f5075a, str));
                 }
                 if (this.d == null) {
                     this.d = -1L;
                     a2.a();
                 } else {
-                    File file2 = new File(this.f7480a, File.separator + str + File.separator + this.d + File.separator + "using.lock");
+                    File file2 = new File(this.f5075a, File.separator + str + File.separator + this.d + File.separator + "using.lock");
                     this.c = file2.getParentFile();
                     com.bytedance.sdk.openadsdk.preload.geckox.g.c.a(file2.getAbsolutePath());
                     file = this.c;
@@ -88,13 +86,13 @@ class a {
     }
 
     private void b() throws Exception {
-        com.bytedance.sdk.openadsdk.preload.geckox.g.b a2 = com.bytedance.sdk.openadsdk.preload.geckox.g.b.a(this.f7480a + File.separator + this.f7481b + File.separator + "select.lock");
+        com.bytedance.sdk.openadsdk.preload.geckox.g.b a2 = com.bytedance.sdk.openadsdk.preload.geckox.g.b.a(this.f5075a + File.separator + this.b + File.separator + "select.lock");
         com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-file-lock", "channel version loader clean");
         try {
             if (this.c != null) {
                 com.bytedance.sdk.openadsdk.preload.geckox.g.c.b(this.c.getAbsolutePath() + File.separator + "using.lock");
                 a2.a();
-                com.bytedance.sdk.openadsdk.preload.geckox.a.c.a(this.f7480a + File.separator + this.f7481b);
+                com.bytedance.sdk.openadsdk.preload.geckox.a.c.a(this.f5075a + File.separator + this.b);
             }
         } finally {
             a2.a();

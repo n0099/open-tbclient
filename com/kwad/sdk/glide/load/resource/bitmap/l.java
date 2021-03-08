@@ -12,7 +12,7 @@ import java.util.concurrent.locks.Lock;
 final class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f10287a = new com.kwad.sdk.glide.load.engine.bitmap_recycle.f() { // from class: com.kwad.sdk.glide.load.resource.bitmap.l.1
+    private static final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f6793a = new com.kwad.sdk.glide.load.engine.bitmap_recycle.f() { // from class: com.kwad.sdk.glide.load.resource.bitmap.l.1
         @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.f, com.kwad.sdk.glide.load.engine.bitmap_recycle.e
         public void a(Bitmap bitmap) {
         }
@@ -30,12 +30,12 @@ final class l {
         } else if (current instanceof Animatable) {
             z = false;
         } else {
-            Bitmap b2 = b(eVar, current, i, i2);
+            Bitmap b = b(eVar, current, i, i2);
             z = true;
-            bitmap = b2;
+            bitmap = b;
         }
         if (!z) {
-            eVar = f10287a;
+            eVar = f6793a;
         }
         return d.a(bitmap, eVar);
     }

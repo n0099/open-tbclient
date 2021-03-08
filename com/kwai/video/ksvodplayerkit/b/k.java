@@ -6,11 +6,11 @@ public final class k {
     public static String a(j jVar) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("avgBitrate", jVar.f11054a);
+            jSONObject.put("avgBitrate", jVar.f7279a);
         } catch (Exception e) {
         }
         try {
-            jSONObject.put("host", jVar.f11055b);
+            jSONObject.put("host", jVar.b);
         } catch (Exception e2) {
         }
         try {

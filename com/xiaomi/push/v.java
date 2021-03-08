@@ -3,21 +3,21 @@ package com.xiaomi.push;
 import android.content.Context;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class v implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f14331a;
+    private Context f8589a;
 
     /* renamed from: a  reason: collision with other field name */
-    private File f1021a;
+    private File f942a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Runnable f1022a;
+    private Runnable f943a;
 
     private v(Context context, File file) {
-        this.f14331a = context;
-        this.f1021a = file;
+        this.f8589a = context;
+        this.f942a = file;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -37,14 +37,14 @@ public abstract class v implements Runnable {
         u uVar = null;
         try {
             try {
-                if (this.f1021a == null) {
-                    this.f1021a = new File(this.f14331a.getFilesDir(), "default_locker");
+                if (this.f942a == null) {
+                    this.f942a = new File(this.f8589a.getFilesDir(), "default_locker");
                 }
-                uVar = u.a(this.f14331a, this.f1021a);
-                if (this.f1022a != null) {
-                    this.f1022a.run();
+                uVar = u.a(this.f8589a, this.f942a);
+                if (this.f943a != null) {
+                    this.f943a.run();
                 }
-                a(this.f14331a);
+                a(this.f8589a);
                 if (uVar != null) {
                     uVar.a();
                 }

@@ -9,10 +9,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaSearchTargetListResponseMessage extends JsonHttpResponsedMessage {
-    private b hvF;
-    private List<d> hvG;
+    private b hxo;
+    private List<d> hxp;
 
     public AlaSearchTargetListResponseMessage() {
         super(1021182);
@@ -25,18 +25,18 @@ public class AlaSearchTargetListResponseMessage extends JsonHttpResponsedMessage
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("page");
             if (optJSONObject2 != null) {
-                this.hvF = new b();
-                this.hvF.parseJson(optJSONObject2);
+                this.hxo = new b();
+                this.hxo.parseJson(optJSONObject2);
             }
             String optString = optJSONObject.optString("query_words");
             JSONArray optJSONArray = optJSONObject.optJSONArray("user_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.hvG = new ArrayList();
+                this.hxp = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     d dVar = new d();
                     dVar.parseJson(optJSONArray.optJSONObject(i2));
                     dVar.userName = eu(optString, dVar.userName);
-                    this.hvG.add(dVar);
+                    this.hxp.add(dVar);
                 }
             }
         }
@@ -52,11 +52,11 @@ public class AlaSearchTargetListResponseMessage extends JsonHttpResponsedMessage
         return stringBuffer.toString();
     }
 
-    public b cdj() {
-        return this.hvF;
+    public b cdp() {
+        return this.hxo;
     }
 
-    public List<d> cdk() {
-        return this.hvG;
+    public List<d> cdq() {
+        return this.hxp;
     }
 }

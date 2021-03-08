@@ -3,12 +3,12 @@ package com.yy.mediaframework.filters;
 import com.yy.mediaframework.base.VideoEncoderConfig;
 import com.yy.mediaframework.inteligence.common.ResolutionModifyConfig;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractVideoLiveQualityFilter extends AbstractYYMediaFilter {
     public int mLastEncoderInitBitrate = 0;
     public int mLastEncoderInitFrameRate = 0;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface IWeakerNetworkCallback {
         void notifyInitEncoderParams(int i, int i2);
 

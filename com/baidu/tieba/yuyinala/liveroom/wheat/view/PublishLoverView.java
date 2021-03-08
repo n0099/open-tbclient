@@ -15,14 +15,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class PublishLoverView extends FrameLayout {
-    private AnimatorSet bTp;
-    private a oLD;
-    private TextView ouL;
-    private TextView ouz;
+    private AnimatorSet bUP;
+    private a oNI;
+    private TextView owE;
+    private TextView owQ;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void onClick();
     }
@@ -40,64 +40,64 @@ public class PublishLoverView extends FrameLayout {
     private void init(Context context) {
         LayoutInflater.from(context).inflate(a.g.yuyinala_liveroom_publish_lover, this);
         setLayoutParams(new RelativeLayout.LayoutParams(-2, -2));
-        this.ouz = (TextView) findViewById(a.f.tv_sex);
-        this.ouL = (TextView) findViewById(a.f.tv_publish);
+        this.owE = (TextView) findViewById(a.f.tv_sex);
+        this.owQ = (TextView) findViewById(a.f.tv_publish);
         setOnPublishClickListener();
     }
 
-    public void Ap(boolean z) {
-        this.ouz.setVisibility(0);
-        this.ouL.setVisibility(8);
-        this.ouz.setText("已选");
+    public void Ao(boolean z) {
+        this.owE.setVisibility(0);
+        this.owQ.setVisibility(8);
+        this.owE.setText("已选");
         if (z) {
-            this.ouz.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_choosed_man);
+            this.owE.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_choosed_man);
         } else {
-            this.ouz.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_choosed_woman);
+            this.owE.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_choosed_woman);
         }
     }
 
     public void d(boolean z, String str, boolean z2) {
         try {
-            this.ouz.setVisibility(0);
+            this.owE.setVisibility(0);
             if (z2) {
-                this.ouL.setVisibility(0);
+                this.owQ.setVisibility(0);
             } else {
-                this.ouL.setVisibility(8);
+                this.owQ.setVisibility(8);
             }
             SpannableString spannableString = new SpannableString(str);
             spannableString.setSpan(new AbsoluteSizeSpan(8, true), 0, 1, 17);
             spannableString.setSpan(new AbsoluteSizeSpan(11, true), 1, 2, 17);
-            this.ouz.setText(spannableString);
+            this.owE.setText(spannableString);
             if (z) {
-                this.ouz.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_choose_man);
+                this.owE.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_choose_man);
             } else {
-                this.ouz.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_choose_woman);
+                this.owE.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_choose_woman);
             }
         } catch (Exception e) {
         }
     }
 
-    public void efh() {
-        this.ouz.setVisibility(0);
-        this.ouL.setVisibility(8);
-        this.ouz.setText("放弃");
-        this.ouz.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_giveup);
+    public void efp() {
+        this.owE.setVisibility(0);
+        this.owQ.setVisibility(8);
+        this.owE.setText("放弃");
+        this.owE.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_giveup);
     }
 
-    public void efi() {
-        this.ouz.setVisibility(0);
-        this.ouL.setVisibility(8);
-        this.ouz.setText("未公布");
-        this.ouz.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_giveup);
+    public void efq() {
+        this.owE.setVisibility(0);
+        this.owQ.setVisibility(8);
+        this.owE.setText("未公布");
+        this.owE.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_giveup);
     }
 
     public void setOnPublishClickListener() {
-        if (this.ouL != null) {
+        if (this.owQ != null) {
             setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.PublishLoverView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (PublishLoverView.this.ouL != null && PublishLoverView.this.ouL.getVisibility() == 0 && PublishLoverView.this.oLD != null) {
-                        PublishLoverView.this.oLD.onClick();
+                    if (PublishLoverView.this.owQ != null && PublishLoverView.this.owQ.getVisibility() == 0 && PublishLoverView.this.oNI != null) {
+                        PublishLoverView.this.oNI.onClick();
                     }
                 }
             });
@@ -105,24 +105,24 @@ public class PublishLoverView extends FrameLayout {
     }
 
     public void setOnPublishClickListener(a aVar) {
-        this.oLD = aVar;
+        this.oNI = aVar;
     }
 
-    public void efj() {
-        if (this.ouL != null) {
-            this.ouL.setVisibility(8);
+    public void efr() {
+        if (this.owQ != null) {
+            this.owQ.setVisibility(8);
         }
     }
 
     public void et(View view) {
-        if (this.bTp == null) {
+        if (this.bUP == null) {
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "ScaleX", 0.0f, 1.2f, 0.8f, 1.0f);
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view, "ScaleY", 0.0f, 1.2f, 0.8f, 1.0f);
-            this.bTp = new AnimatorSet();
-            this.bTp.playTogether(ofFloat, ofFloat2);
-            this.bTp.setDuration(300L);
-            this.bTp.setInterpolator(new LinearInterpolator());
+            this.bUP = new AnimatorSet();
+            this.bUP.playTogether(ofFloat, ofFloat2);
+            this.bUP.setDuration(300L);
+            this.bUP.setInterpolator(new LinearInterpolator());
         }
-        this.bTp.start();
+        this.bUP.start();
     }
 }

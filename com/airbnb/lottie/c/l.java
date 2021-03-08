@@ -8,12 +8,12 @@ import com.kwai.video.player.KsMediaMeta;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class l implements aj<com.airbnb.lottie.model.content.c> {
-    private int Hs;
+    private int IQ;
 
     public l(int i) {
-        this.Hs = i;
+        this.IQ = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,14 +31,14 @@ public class l implements aj<com.airbnb.lottie.model.content.c> {
         if (z) {
             jsonReader.endArray();
         }
-        if (this.Hs == -1) {
-            this.Hs = arrayList.size() / 4;
+        if (this.IQ == -1) {
+            this.IQ = arrayList.size() / 4;
         }
-        float[] fArr = new float[this.Hs];
-        int[] iArr = new int[this.Hs];
+        float[] fArr = new float[this.IQ];
+        int[] iArr = new int[this.IQ];
         int i = 0;
         int i2 = 0;
-        for (int i3 = 0; i3 < this.Hs * 4; i3++) {
+        for (int i3 = 0; i3 < this.IQ * 4; i3++) {
             int i4 = i3 / 4;
             double floatValue = arrayList.get(i3).floatValue();
             switch (i3 % 4) {
@@ -63,7 +63,7 @@ public class l implements aj<com.airbnb.lottie.model.content.c> {
 
     private void a(com.airbnb.lottie.model.content.c cVar, List<Float> list) {
         int i;
-        int i2 = this.Hs * 4;
+        int i2 = this.IQ * 4;
         if (list.size() > i2) {
             int size = (list.size() - i2) / 2;
             double[] dArr = new double[size];

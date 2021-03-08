@@ -22,10 +22,8 @@ import org.json.JSONObject;
 class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f8197a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f8198b;
+    private String f5461a;
+    private String b;
     private int c;
 
     /* loaded from: classes3.dex */
@@ -37,13 +35,13 @@ class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(String str) {
-        this.f8198b = str;
-        this.f8197a = str;
+        this.b = str;
+        this.f5461a = str;
     }
 
     private String a() {
         Context context = Loader.get().getContext();
-        int i = com.kwad.sdk.api.a.f8176a;
+        int i = com.kwad.sdk.api.a.f5448a;
         int i2 = -1;
         String valueOf = String.valueOf(Loader.get().a(context));
         IKsAdSDK ksAdSDKImpl = Loader.get().getKsAdSDKImpl();
@@ -159,10 +157,10 @@ class e {
 
     @Nullable
     private HttpURLConnection b() {
-        if (TextUtils.isEmpty(this.f8197a)) {
+        if (TextUtils.isEmpty(this.f5461a)) {
             return null;
         }
-        HttpURLConnection httpURLConnection = (HttpURLConnection) a(this.f8197a, 10000, 30000, false);
+        HttpURLConnection httpURLConnection = (HttpURLConnection) a(this.f5461a, 10000, 30000, false);
         httpURLConnection.setRequestMethod("POST");
         httpURLConnection.setDoOutput(true);
         httpURLConnection.setInstanceFollowRedirects(true);
@@ -176,13 +174,13 @@ class e {
         HttpURLConnection httpURLConnection = null;
         try {
             try {
-                HttpURLConnection b2 = b();
-                if (b2 != null) {
-                    b2.connect();
-                    new DataOutputStream(b2.getOutputStream()).write(a().getBytes());
-                    int responseCode = b2.getResponseCode();
+                HttpURLConnection b = b();
+                if (b != null) {
+                    b.connect();
+                    new DataOutputStream(b.getOutputStream()).write(a().getBytes());
+                    int responseCode = b.getResponseCode();
                     if (responseCode == 200) {
-                        String a2 = a(b2.getInputStream());
+                        String a2 = a(b.getInputStream());
                         a.b bVar = new a.b();
                         bVar.a(new JSONObject(a2));
                         aVar.a(bVar);
@@ -190,15 +188,15 @@ class e {
                         throw new RuntimeException("response code = " + responseCode);
                     } else {
                         if (this.c < 21) {
-                            this.f8197a = b2.getHeaderField(Headers.LOCATION);
+                            this.f5461a = b.getHeaderField(Headers.LOCATION);
                             this.c++;
                             b(aVar);
                         }
                     }
                 }
-                if (b2 != null) {
+                if (b != null) {
                     try {
-                        b2.disconnect();
+                        b.disconnect();
                     } catch (Exception e) {
                     }
                 }

@@ -10,7 +10,7 @@ import io.flutter.app.FlutterActivityDelegate;
 import io.flutter.plugin.common.PluginRegistry;
 import io.flutter.view.FlutterNativeView;
 import io.flutter.view.FlutterView;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class FlutterActivity extends Activity implements FlutterActivityDelegate.ViewFactory, PluginRegistry, FlutterView.Provider {
     private static final String TAG = "FlutterActivity";
     private final FlutterActivityDelegate delegate = new FlutterActivityDelegate(this, this);

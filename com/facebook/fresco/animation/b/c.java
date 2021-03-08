@@ -3,7 +3,7 @@ package com.facebook.fresco.animation.b;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface c {
     boolean c(int i, Bitmap bitmap);
 

@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.bigkoo.svprogresshud.R;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class SVCircleProgressBar extends View {
     public static final int FILL = 1;
     public static final int STROKE = 0;

@@ -22,7 +22,7 @@ public class a {
     }
 
     private static String a() {
-        return e.f7415b + "/t_db/ttopensdk.db/";
+        return e.b + "/t_db/ttopensdk.db/";
     }
 
     public static synchronized void a(Context context, String str, ContentValues contentValues) {
@@ -100,7 +100,7 @@ public class a {
                 try {
                     ContentResolver a2 = a(context);
                     if (a2 != null) {
-                        a2.getType(Uri.parse(a() + "unknown/execSQL?sql=" + str));
+                        a2.getType(Uri.parse(a() + "unknown/execSQL?sql=" + Uri.encode(str)));
                     }
                 } catch (Throwable th) {
                 }

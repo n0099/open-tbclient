@@ -7,20 +7,20 @@ import android.text.TextUtils;
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private SharedPreferences f7656a;
+    private SharedPreferences f5181a;
 
     public j(Context context) {
-        this.f7656a = context.getSharedPreferences("npth", 0);
+        this.f5181a = context.getSharedPreferences("npth", 0);
     }
 
     public void a(String str) {
-        this.f7656a.edit().putString("device_id", str).apply();
+        this.f5181a.edit().putString("device_id", str).apply();
     }
 
     public String a() {
-        String e = com.bytedance.tea.crash.h.erl().e();
+        String e = com.bytedance.tea.crash.h.erv().e();
         if (TextUtils.isEmpty(e) || "0".equals(e)) {
-            return this.f7656a.getString("device_id", "0");
+            return this.f5181a.getString("device_id", "0");
         }
         return e;
     }

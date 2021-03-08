@@ -13,7 +13,7 @@ import com.googlecode.mp4parser.authoring.TrackMetaData;
 import java.nio.ByteBuffer;
 import java.util.AbstractList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ReplaceSampleTrack extends AbstractTrack {
     Track origTrack;
     private Sample sampleContent;
@@ -76,7 +76,7 @@ public class ReplaceSampleTrack extends AbstractTrack {
         return this.origTrack.getSubsampleInformationBox();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     private class a extends AbstractList<Sample> {
         private a() {
         }

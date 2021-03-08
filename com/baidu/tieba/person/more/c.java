@@ -11,13 +11,13 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.ab;
 import com.baidu.tieba.personCenter.c.h;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
-    private BdTypeListView gzp;
-    private ab<h> jzs;
+    private BdTypeListView gAY;
+    private ab<h> jBb;
     private NavigationBar mNavigationBar;
     private TbPageContext mPageContext;
-    private a mto;
+    private a mvq;
 
     public c(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
@@ -25,12 +25,12 @@ public class c {
 
     public void am(View view) {
         this.mNavigationBar = (NavigationBar) view.findViewById(R.id.person_more_navigation_bar);
-        this.gzp = (BdTypeListView) view.findViewById(R.id.person_more_listview);
-        this.mto = new a(this.mPageContext, this.gzp, this.jzs);
-        bEL();
+        this.gAY = (BdTypeListView) view.findViewById(R.id.person_more_listview);
+        this.mvq = new a(this.mPageContext, this.gAY, this.jBb);
+        bEP();
     }
 
-    private void bEL() {
+    private void bEP() {
         this.mNavigationBar.setCenterTextTitle(this.mPageContext.getString(R.string.person_center_more));
         this.mNavigationBar.showBottomLine();
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.person.more.c.1
@@ -43,16 +43,16 @@ public class c {
     }
 
     public void setData(List<n> list) {
-        this.gzp.setData(list);
+        this.gAY.setData(list);
     }
 
     public void onChangeSkinType() {
-        this.mto.notifyDataSetChanged();
-        ap.setBackgroundColor(this.gzp, R.color.CAM_X0201);
+        this.mvq.notifyDataSetChanged();
+        ap.setBackgroundColor(this.gAY, R.color.CAM_X0201);
         this.mNavigationBar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void c(ab<h> abVar) {
-        this.jzs = abVar;
+        this.jBb = abVar;
     }
 }

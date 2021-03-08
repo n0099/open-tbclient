@@ -7,80 +7,78 @@ import com.baidu.mapapi.synchronization.RoleOptions;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3129a = l.class.getSimpleName();
-
-    /* renamed from: b  reason: collision with root package name */
-    private d f3130b = d.a();
+    private static final String f2267a = l.class.getSimpleName();
+    private d b = d.a();
 
     public l(RoleOptions roleOptions, DisplayOptions displayOptions) {
-        if (this.f3130b != null) {
-            this.f3130b.a(roleOptions, displayOptions);
+        if (this.b != null) {
+            this.b.a(roleOptions, displayOptions);
         }
     }
 
     public void a() {
-        if (this.f3130b != null) {
-            this.f3130b.b();
+        if (this.b != null) {
+            this.b.b();
         }
     }
 
     public void a(int i) {
-        if (this.f3130b != null) {
-            this.f3130b.a(i);
+        if (this.b != null) {
+            this.b.a(i);
         }
     }
 
     public void a(View view) {
-        if (this.f3130b != null) {
-            this.f3130b.a(view);
+        if (this.b != null) {
+            this.b.a(view);
         }
     }
 
     public void a(DisplayOptions displayOptions) {
-        if (this.f3130b != null) {
-            this.f3130b.a(displayOptions);
+        if (this.b != null) {
+            this.b.a(displayOptions);
         }
     }
 
     public void a(RoleOptions roleOptions) {
-        if (this.f3130b != null) {
-            this.f3130b.a(roleOptions);
+        if (this.b != null) {
+            this.b.a(roleOptions);
         }
     }
 
     public void a(k kVar) {
-        if (this.f3130b != null) {
-            this.f3130b.a(kVar);
+        if (this.b != null) {
+            this.b.a(kVar);
         }
     }
 
     public void b() {
-        if (this.f3130b != null) {
-            this.f3130b.c();
+        if (this.b != null) {
+            this.b.c();
         }
     }
 
     public void b(int i) {
-        if (this.f3130b != null) {
-            this.f3130b.b(i);
+        if (this.b != null) {
+            this.b.b(i);
         }
     }
 
     public void b(View view) {
-        if (this.f3130b != null) {
-            this.f3130b.b(view);
+        if (this.b != null) {
+            this.b.b(view);
         }
     }
 
     public void c() {
-        if (this.f3130b != null) {
-            this.f3130b.d();
+        if (this.b != null) {
+            this.b.d();
         }
     }
 
     public void c(View view) {
-        if (this.f3130b != null) {
-            this.f3130b.c(view);
+        if (this.b != null) {
+            this.b.c(view);
         }
     }
 }

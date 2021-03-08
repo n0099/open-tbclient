@@ -12,7 +12,7 @@ import com.baidu.mobad.feeds.XAdNativeResponse;
 import com.baidu.mobads.component.FeedPortraitVideoView;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.utils.q;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class XNativeView extends RelativeLayout implements FeedPortraitVideoView.IPortraitVideoViewClickListener {
     private static final String TAG = "XNativeView";
     private q mAdLogger;
@@ -26,7 +26,7 @@ public class XNativeView extends RelativeLayout implements FeedPortraitVideoView
     private FeedPortraitVideoView mVideoView;
     private boolean videoMute;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface INativeViewClickListener {
         void onNativeViewClick(XNativeView xNativeView);
     }

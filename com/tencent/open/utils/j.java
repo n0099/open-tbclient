@@ -36,15 +36,13 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Enumeration;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class j {
     private static String f;
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f13446a = "";
-
-    /* renamed from: b  reason: collision with root package name */
-    private static String f13447b = "";
+    private static String f7996a = "";
+    private static String b = "";
     private static String c = "";
     private static String d = "";
     private static int e = -1;
@@ -114,21 +112,19 @@ public class j {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f13448a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public long f13449b;
+        public String f7997a;
+        public long b;
         public long c;
 
         public a(String str, int i) {
-            this.f13448a = str;
-            this.f13449b = i;
-            if (this.f13448a != null) {
-                this.c = this.f13448a.length();
+            this.f7997a = str;
+            this.b = i;
+            if (this.f7997a != null) {
+                this.c = this.f7997a.length();
             }
         }
     }
@@ -463,9 +459,9 @@ public class j {
         if (context != null) {
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 0);
-                f13447b = packageInfo.versionName;
-                f13446a = f13447b.substring(0, f13447b.lastIndexOf(46));
-                d = f13447b.substring(f13447b.lastIndexOf(46) + 1, f13447b.length());
+                b = packageInfo.versionName;
+                f7996a = b.substring(0, b.lastIndexOf(46));
+                d = b.substring(b.lastIndexOf(46) + 1, b.length());
                 e = packageInfo.versionCode;
             } catch (PackageManager.NameNotFoundException e2) {
                 com.tencent.open.a.f.e("openSDK_LOG.Util", "getPackageInfo has exception: " + e2.getMessage());
@@ -480,7 +476,7 @@ public class j {
             return "";
         }
         b(context, str);
-        return f13447b;
+        return b;
     }
 
     public static String d(Context context, String str) {
@@ -488,7 +484,7 @@ public class j {
             return "";
         }
         b(context, str);
-        return f13446a;
+        return f7996a;
     }
 
     public static String e(Context context, String str) {

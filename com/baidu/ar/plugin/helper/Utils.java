@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.regex.Pattern;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class Utils {
     private static final String ALGORITHM = "MD5";
     private static final String VALID_JAVA_IDENTIFIER = "(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*";
@@ -174,9 +174,9 @@ public class Utils {
 
     private static String toHex(byte[] bArr) {
         StringBuilder sb = new StringBuilder();
-        for (byte b2 : bArr) {
-            sb.append(HEX[(b2 & 240) >> 4]);
-            sb.append(HEX[b2 & 15]);
+        for (byte b : bArr) {
+            sb.append(HEX[(b & 240) >> 4]);
+            sb.append(HEX[b & 15]);
         }
         return sb.toString();
     }

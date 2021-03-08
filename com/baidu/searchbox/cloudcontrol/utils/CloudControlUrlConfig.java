@@ -5,7 +5,7 @@ import com.baidu.android.common.others.url.UrlUtil;
 import com.baidu.d.c.b;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.config.HostConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CloudControlUrlConfig {
     private static final String KEY_RUN_TYPE = "runtype";
     private static final String KEY_TYPE_ID = "type_id";

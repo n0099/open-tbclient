@@ -4,14 +4,14 @@ import android.content.res.Resources;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import com.facebook.drawee.drawable.i;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class a implements com.facebook.imagepipeline.e.a {
     private final Resources mResources;
-    private final com.facebook.imagepipeline.e.a pAJ;
+    private final com.facebook.imagepipeline.e.a pCO;
 
     public a(Resources resources, com.facebook.imagepipeline.e.a aVar) {
         this.mResources = resources;
-        this.pAJ = aVar;
+        this.pCO = aVar;
     }
 
     @Override // com.facebook.imagepipeline.e.a
@@ -23,23 +23,23 @@ public class a implements com.facebook.imagepipeline.e.a {
     public Drawable b(com.facebook.imagepipeline.f.c cVar) {
         if (cVar instanceof com.facebook.imagepipeline.f.d) {
             com.facebook.imagepipeline.f.d dVar = (com.facebook.imagepipeline.f.d) cVar;
-            BitmapDrawable bitmapDrawable = new BitmapDrawable(this.mResources, dVar.eyo());
+            BitmapDrawable bitmapDrawable = new BitmapDrawable(this.mResources, dVar.eyx());
             if (a(dVar) || b(dVar)) {
-                return new i(bitmapDrawable, dVar.eys(), dVar.eyt());
+                return new i(bitmapDrawable, dVar.eyB(), dVar.eyC());
             }
             return bitmapDrawable;
-        } else if (this.pAJ != null && this.pAJ.a(cVar)) {
-            return this.pAJ.b(cVar);
+        } else if (this.pCO != null && this.pCO.a(cVar)) {
+            return this.pCO.b(cVar);
         } else {
             return null;
         }
     }
 
     private static boolean a(com.facebook.imagepipeline.f.d dVar) {
-        return (dVar.eys() == 0 || dVar.eys() == -1) ? false : true;
+        return (dVar.eyB() == 0 || dVar.eyB() == -1) ? false : true;
     }
 
     private static boolean b(com.facebook.imagepipeline.f.d dVar) {
-        return (dVar.eyt() == 1 || dVar.eyt() == 0) ? false : true;
+        return (dVar.eyC() == 1 || dVar.eyC() == 0) ? false : true;
     }
 }

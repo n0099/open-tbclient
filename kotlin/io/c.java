@@ -3,7 +3,7 @@ package kotlin.io;
 import java.io.File;
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public final class c {
     /* JADX INFO: Access modifiers changed from: private */
     public static final String b(File file, File file2, String str) {
@@ -15,7 +15,7 @@ public final class c {
             sb.append(": " + str);
         }
         String sb2 = sb.toString();
-        p.n(sb2, "sb.toString()");
+        p.o(sb2, "sb.toString()");
         return sb2;
     }
 }

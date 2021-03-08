@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public final class RemoteInput {
     private static final String EXTRA_DATA_TYPE_RESULTS_DATA = "android.remoteinput.dataTypeResultsData";
     public static final String EXTRA_RESULTS_DATA = "android.remoteinput.resultsData";
@@ -66,7 +66,7 @@ public final class RemoteInput {
         return this.mExtras;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public static final class Builder {
         private CharSequence[] mChoices;
         private CharSequence mLabel;

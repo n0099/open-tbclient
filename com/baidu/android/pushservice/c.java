@@ -10,10 +10,8 @@ import java.util.Random;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile c f1195a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Context f1196b;
+    private static volatile c f1089a;
+    private Context b;
     private Handler c;
     private Runnable d;
     private volatile boolean e;
@@ -24,23 +22,23 @@ public class c {
     }
 
     private c(Context context) {
-        this.f1196b = context.getApplicationContext();
+        this.b = context.getApplicationContext();
         this.c = new Handler(context.getMainLooper());
     }
 
     public static c a(Context context) {
-        if (f1195a == null) {
+        if (f1089a == null) {
             synchronized (c.class) {
-                if (f1195a == null) {
-                    f1195a = new c(context);
+                if (f1089a == null) {
+                    f1089a = new c(context);
                 }
             }
         }
-        return f1195a;
+        return f1089a;
     }
 
     private com.baidu.android.pushservice.g.c a(final a aVar, String str) {
-        return new com.baidu.android.pushservice.d.g(this.f1196b, str, new g.a() { // from class: com.baidu.android.pushservice.c.2
+        return new com.baidu.android.pushservice.d.g(this.b, str, new g.a() { // from class: com.baidu.android.pushservice.c.2
             @Override // com.baidu.android.pushservice.d.g.a
             public void a(List<String> list) {
                 if (c.this.c != null) {
@@ -58,7 +56,7 @@ public class c {
     }
 
     private com.baidu.android.pushservice.g.c b(final a aVar, String str) {
-        return new com.baidu.android.pushservice.d.j(this.f1196b, str, new j.a() { // from class: com.baidu.android.pushservice.c.3
+        return new com.baidu.android.pushservice.d.j(this.b, str, new j.a() { // from class: com.baidu.android.pushservice.c.3
             @Override // com.baidu.android.pushservice.d.j.a
             public void a(int i, String[] strArr) {
                 String str2 = null;
@@ -74,9 +72,9 @@ public class c {
         com.baidu.android.pushservice.g.c a2;
         if (aVar != null) {
             if (i == 0) {
-                a2 = b(aVar, h.d(this.f1196b));
+                a2 = b(aVar, h.d(this.b));
             } else if (i == 1) {
-                a2 = b(aVar, h.c(this.f1196b));
+                a2 = b(aVar, h.c(this.b));
             } else if (i != 2) {
                 return;
             } else {
@@ -90,7 +88,7 @@ public class c {
                     };
                 }
                 this.c.postDelayed(this.d, 5000L);
-                a2 = a(aVar, h.c(this.f1196b));
+                a2 = a(aVar, h.c(this.b));
             }
             if (a2 != null) {
                 com.baidu.android.pushservice.g.d.a().a(a2);

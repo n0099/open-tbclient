@@ -9,16 +9,14 @@ import com.bytedance.sdk.openadsdk.TTCustomController;
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile String f7608a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static volatile boolean f7609b = false;
+    private static volatile String f5153a;
+    private static volatile boolean b = false;
 
     static {
-        f7608a = "";
+        f5153a = "";
         try {
-            if (TextUtils.isEmpty(f7608a)) {
-                f7608a = com.bytedance.sdk.openadsdk.core.d.a(com.bytedance.sdk.openadsdk.core.p.a()).b("oaid", "");
+            if (TextUtils.isEmpty(f5153a)) {
+                f5153a = com.bytedance.sdk.openadsdk.core.d.a(com.bytedance.sdk.openadsdk.core.p.a()).b("oaid", "");
             }
         } catch (Throwable th) {
         }
@@ -31,8 +29,8 @@ public class y {
                 public void onOaidLoaded(@NonNull i.a aVar) {
                     try {
                         if (!TextUtils.isEmpty(aVar.id)) {
-                            boolean unused = y.f7609b = true;
-                            String unused2 = y.f7608a = aVar.id;
+                            boolean unused = y.b = true;
+                            String unused2 = y.f5153a = aVar.id;
                             y.c();
                         }
                     } catch (Throwable th) {
@@ -44,18 +42,18 @@ public class y {
     }
 
     public static String a() {
-        TTCustomController d;
-        if (TextUtils.isEmpty(f7608a) && !f7609b && (d = com.bytedance.sdk.openadsdk.core.i.c().d()) != null && !TextUtils.isEmpty(d.getDevOaid())) {
-            f7608a = d.getDevOaid();
+        TTCustomController e;
+        if (TextUtils.isEmpty(f5153a) && !b && (e = com.bytedance.sdk.openadsdk.core.i.d().e()) != null && !TextUtils.isEmpty(e.getDevOaid())) {
+            f5153a = e.getDevOaid();
             c();
         }
-        return f7608a == null ? "" : f7608a;
+        return f5153a == null ? "" : f5153a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void c() {
-        if (!TextUtils.isEmpty(f7608a)) {
-            com.bytedance.sdk.openadsdk.k.a.a().c(new a(f7608a), 5);
+        if (!TextUtils.isEmpty(f5153a)) {
+            com.bytedance.sdk.openadsdk.j.e.a(new a(f5153a), 5);
         }
     }
 
@@ -64,17 +62,17 @@ public class y {
     public static class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        String f7610a;
+        String f5154a;
 
         a(String str) {
-            this.f7610a = str;
+            this.f5154a = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (!TextUtils.isEmpty(this.f7610a)) {
-                com.bytedance.sdk.openadsdk.core.d.a(com.bytedance.sdk.openadsdk.core.p.a()).a("oaid", this.f7610a);
-                u.b("OAIDHelper", "oaid=" + this.f7610a);
+            if (!TextUtils.isEmpty(this.f5154a)) {
+                com.bytedance.sdk.openadsdk.core.d.a(com.bytedance.sdk.openadsdk.core.p.a()).a("oaid", this.f5154a);
+                u.b("OAIDHelper", "oaid=" + this.f5154a);
             }
         }
     }

@@ -10,17 +10,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class g {
-
-    /* renamed from: b  reason: collision with root package name */
-    private WebView f9547b;
+    private WebView b;
     private boolean d;
 
     /* renamed from: a  reason: collision with root package name */
-    private final Map<String, a> f9546a = new ConcurrentHashMap();
+    private final Map<String, a> f6324a = new ConcurrentHashMap();
     private a c = new d();
 
     public g(WebView webView) {
-        this.f9547b = webView;
+        this.b = webView;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -31,7 +29,7 @@ public class g {
             com.kwad.sdk.core.d.a.b("KSAdJSBridge", "callJS callback is empty");
         } else {
             com.kwad.sdk.core.d.a.b("KSAdJSBridge", "callJS callback:+ " + str + "--params: " + str2);
-            WebView webView = this.f9547b;
+            WebView webView = this.b;
             if (webView != null) {
                 as.a(webView, str, str2);
             }
@@ -40,7 +38,7 @@ public class g {
 
     public void a() {
         com.kwad.sdk.core.d.a.b("KSAdJSBridge", "destroy jsInterface");
-        for (Map.Entry<String, a> entry : this.f9546a.entrySet()) {
+        for (Map.Entry<String, a> entry : this.f6324a.entrySet()) {
             a value = entry.getValue();
             if (value != null) {
                 value.b();
@@ -54,10 +52,10 @@ public class g {
             com.kwad.sdk.core.d.a.d("KSAdJSBridge", "handler and handler'key cannot be null");
             return;
         }
-        if (this.f9546a.containsKey(aVar.a())) {
+        if (this.f6324a.containsKey(aVar.a())) {
             com.kwad.sdk.core.d.a.d("KSAdJSBridge", "cannot register handler again, handler: " + aVar.a());
         }
-        this.f9546a.put(aVar.a(), aVar);
+        this.f6324a.put(aVar.a(), aVar);
     }
 
     @JavascriptInterface
@@ -66,10 +64,10 @@ public class g {
         try {
             final b bVar = new b();
             bVar.a(new JSONObject(str));
-            a aVar = this.f9546a.get(bVar.f9540a);
+            a aVar = this.f6324a.get(bVar.f6321a);
             a aVar2 = aVar == null ? this.c : aVar;
             if (aVar2 != null) {
-                aVar2.a(bVar.f9541b, !TextUtils.isEmpty(bVar.c) ? new c() { // from class: com.kwad.sdk.core.webview.a.g.1
+                aVar2.a(bVar.b, !TextUtils.isEmpty(bVar.c) ? new c() { // from class: com.kwad.sdk.core.webview.a.g.1
                     @Override // com.kwad.sdk.core.webview.a.c
                     public void a(int i, String str2) {
                         g.this.a(bVar.c, new e(i, str2).toJson().toString());

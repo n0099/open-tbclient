@@ -23,12 +23,12 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.location.data.SearchLocationActivityConfig;
 import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c implements View.OnClickListener, AdapterView.OnItemClickListener, com.baidu.tbadk.suspended.a {
-    private BdListView WO;
-    private ImageView geV;
-    private Intent geY;
-    private b liF;
+    private BdListView Yj;
+    private Intent ggB;
+    private ImageView ggy;
+    private b lkH;
     private LinearLayout mContentView;
     private NavigationBar mNavigationBar;
     private TbPageContext<SelectLocationActivity> mPageContext;
@@ -37,38 +37,38 @@ public class c implements View.OnClickListener, AdapterView.OnItemClickListener,
         this.mPageContext = tbPageContext;
         this.mContentView = linearLayout;
         this.mNavigationBar = navigationBar;
-        bEL();
-        Zl();
+        bEP();
+        Zo();
     }
 
-    private void bEL() {
+    private void bEP() {
         this.mNavigationBar.setCenterTextTitle(this.mPageContext.getResources().getString(R.string.select_position_title));
-        this.geV = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.geV.getLayoutParams();
+        this.ggy = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ggy.getLayoutParams();
         layoutParams.setMargins(0, 0, l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds10), 0);
-        this.geV.setLayoutParams(layoutParams);
-        this.geV.setImageDrawable(WebPManager.a(R.drawable.icon_pure_topbar_search40, ap.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-        this.geV.setOnClickListener(this);
+        this.ggy.setLayoutParams(layoutParams);
+        this.ggy.setImageDrawable(WebPManager.a(R.drawable.icon_pure_topbar_search40, ap.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+        this.ggy.setOnClickListener(this);
     }
 
-    private void Zl() {
+    private void Zo() {
         LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.select_location_activity, (ViewGroup) this.mContentView, true);
-        this.WO = (BdListView) this.mContentView.findViewById(R.id.select_position_list);
-        this.liF = new b(this.mPageContext);
-        this.WO.setAdapter((ListAdapter) this.liF);
-        this.WO.setOnItemClickListener(this);
+        this.Yj = (BdListView) this.mContentView.findViewById(R.id.select_position_list);
+        this.lkH = new b(this.mPageContext);
+        this.Yj.setAdapter((ListAdapter) this.lkH);
+        this.Yj.setOnItemClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.geV) {
+        if (view == this.ggy) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_SEARCH_LOCATION_PAGE, new SearchLocationActivityConfig(this.mPageContext.getPageActivity(), RequestResponseCode.REQUEST_CLOSE_SELECT_LOCATION_ACTIVITY)));
         }
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (this.liF != null) {
+        if (this.lkH != null) {
             MessageManager messageManager = MessageManager.getInstance();
             LocationEvent locationEvent = new LocationEvent();
             locationEvent.setType(1);
@@ -80,7 +80,7 @@ public class c implements View.OnClickListener, AdapterView.OnItemClickListener,
                 this.mPageContext.getOrignalPage().finish();
                 return;
             }
-            Object item = this.liF.getItem(i);
+            Object item = this.lkH.getItem(i);
             if (item instanceof LocationData.NearByAddressData) {
                 LocationData.NearByAddressData nearByAddressData = (LocationData.NearByAddressData) item;
                 messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, nearByAddressData.getName(), nearByAddressData.getAddr(), nearByAddressData.getSn()));
@@ -95,24 +95,24 @@ public class c implements View.OnClickListener, AdapterView.OnItemClickListener,
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public boolean bEH() {
+    public boolean bEL() {
         View childAt;
-        return this.WO != null && this.WO.getFirstVisiblePosition() == 0 && (childAt = this.WO.getChildAt(0)) != null && childAt.getTop() == 0;
+        return this.Yj != null && this.Yj.getFirstVisiblePosition() == 0 && (childAt = this.Yj.getChildAt(0)) != null && childAt.getTop() == 0;
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public boolean bEI() {
+    public boolean bEM() {
         return true;
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public void rx(int i) {
-        this.geV.setImageDrawable(WebPManager.a(R.drawable.icon_pure_topbar_search40, ap.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-        this.liF.notifyDataSetChanged();
+    public void rz(int i) {
+        this.ggy.setImageDrawable(WebPManager.a(R.drawable.icon_pure_topbar_search40, ap.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+        this.lkH.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public Intent bEJ() {
-        return this.geY;
+    public Intent bEN() {
+        return this.ggB;
     }
 }

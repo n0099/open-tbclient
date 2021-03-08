@@ -5,10 +5,10 @@ import com.baidu.tieba.ala.data.h;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaGetRankListResponseMessage extends JsonHttpResponsedMessage {
-    public ArrayList<h> grE;
-    public long hTF;
+    public ArrayList<h> gtn;
+    public long hVo;
 
     public AlaGetRankListResponseMessage() {
         super(1021068);
@@ -20,15 +20,15 @@ public class AlaGetRankListResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null) {
             JSONArray optJSONArray = jSONObject.optJSONArray("data");
             if (optJSONArray != null) {
-                this.grE = new ArrayList<>();
+                this.gtn = new ArrayList<>();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                     h hVar = new h();
                     hVar.parserJson(optJSONObject);
-                    this.grE.add(hVar);
+                    this.gtn.add(hVar);
                 }
             }
-            this.hTF = jSONObject.optLong("flower_reset_time", 0L);
+            this.hVo = jSONObject.optLong("flower_reset_time", 0L);
         }
     }
 }

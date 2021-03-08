@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class PlayPicInfoCard extends BaseCardInfo implements com.baidu.tieba.lego.card.b.a<PlayPicInfoCard> {
     final int descOnPic;
     final long duration;
@@ -22,12 +22,12 @@ public class PlayPicInfoCard extends BaseCardInfo implements com.baidu.tieba.leg
     final double ratio;
     final int showDot;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         public String desc;
-        public int lcn;
-        public int lco;
-        public int lcp;
+        public int ler;
+        public int les;
+        public int let;
         public String pic;
         public String picId;
         public String scheme;
@@ -47,10 +47,10 @@ public class PlayPicInfoCard extends BaseCardInfo implements com.baidu.tieba.leg
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a {
-        public com.baidu.tieba.lego.card.model.b lcl;
-        public com.baidu.tieba.lego.card.model.a lcm;
+        public com.baidu.tieba.lego.card.model.b lep;
+        public com.baidu.tieba.lego.card.model.a leq;
         public String mForumName;
         public String mScheme;
 
@@ -58,22 +58,22 @@ public class PlayPicInfoCard extends BaseCardInfo implements com.baidu.tieba.leg
             if (jSONObject != null) {
                 this.mForumName = jSONObject.optString("lbText");
                 this.mScheme = jSONObject.optString("lbScheme");
-                this.lcl = new com.baidu.tieba.lego.card.model.b();
-                this.lcl.content = jSONObject.optString("rText");
-                this.lcl.type = jSONObject.optInt("rIconType");
-                this.lcl.url = jSONObject.optString("rIcon");
-                this.lcl.lcb = jSONObject.optString("rIconN");
+                this.lep = new com.baidu.tieba.lego.card.model.b();
+                this.lep.content = jSONObject.optString("rText");
+                this.lep.type = jSONObject.optInt("rIconType");
+                this.lep.url = jSONObject.optString("rIcon");
+                this.lep.lee = jSONObject.optString("rIconN");
                 JSONObject optJSONObject = jSONObject.optJSONObject("cb");
                 if (optJSONObject != null) {
-                    this.lcm = new com.baidu.tieba.lego.card.model.a(optJSONObject);
-                    if (!this.lcm.isValid()) {
-                        this.lcm = null;
+                    this.leq = new com.baidu.tieba.lego.card.model.a(optJSONObject);
+                    if (!this.leq.isValid()) {
+                        this.leq = null;
                     }
                 }
             }
         }
 
-        public static a eA(JSONObject jSONObject) {
+        public static a eC(JSONObject jSONObject) {
             return new a(jSONObject);
         }
 
@@ -82,27 +82,27 @@ public class PlayPicInfoCard extends BaseCardInfo implements com.baidu.tieba.leg
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class c {
-        public String lcq;
-        public int lcr;
-        public int lcs;
+        public String leu;
+        public int lev;
+        public int lew;
         public String picUrl;
 
         private c(JSONObject jSONObject) {
             if (jSONObject != null) {
                 this.picUrl = jSONObject.optString("pic");
-                this.lcq = jSONObject.optString("picN");
-                this.lcr = jSONObject.optInt("xPos");
-                this.lcs = jSONObject.optInt("yPos");
+                this.leu = jSONObject.optString("picN");
+                this.lev = jSONObject.optInt("xPos");
+                this.lew = jSONObject.optInt("yPos");
             }
         }
 
         public boolean isValid() {
-            return (TextUtils.isEmpty(this.picUrl) && TextUtils.isEmpty(this.lcq) && this.lcr == 0 && this.lcs == 0) ? false : true;
+            return (TextUtils.isEmpty(this.picUrl) && TextUtils.isEmpty(this.leu) && this.lev == 0 && this.lew == 0) ? false : true;
         }
 
-        public static c eB(JSONObject jSONObject) {
+        public static c eD(JSONObject jSONObject) {
             c cVar = new c(jSONObject);
             if (!cVar.isValid()) {
                 return null;
@@ -131,22 +131,22 @@ public class PlayPicInfoCard extends BaseCardInfo implements com.baidu.tieba.leg
                 bVar.pic = optString;
                 bVar.scheme = optJSONObject.optString("scheme");
                 bVar.desc = optJSONObject.optString("desc");
-                bVar.lcn = com.baidu.tieba.lego.card.c.b.rM(optJSONObject.optString("descColor", ""));
-                bVar.lco = com.baidu.tieba.lego.card.c.b.rM(optJSONObject.optString("descColorNight", ""));
+                bVar.ler = com.baidu.tieba.lego.card.c.b.rT(optJSONObject.optString("descColor", ""));
+                bVar.les = com.baidu.tieba.lego.card.c.b.rT(optJSONObject.optString("descColorNight", ""));
                 int optInt = optJSONObject.optInt("mLines");
-                bVar.lcp = optInt <= 1 ? 1 : optInt;
+                bVar.let = optInt <= 1 ? 1 : optInt;
                 this.imageResList.add(bVar);
             }
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("bInfo");
         if (optJSONObject2 != null) {
-            this.mBottomInfo = a.eA(optJSONObject2);
+            this.mBottomInfo = a.eC(optJSONObject2);
         } else {
             this.mBottomInfo = null;
         }
         JSONObject optJSONObject3 = jSONObject.optJSONObject("wMark");
         if (optJSONObject3 != null) {
-            this.mWaterMark = c.eB(optJSONObject3);
+            this.mWaterMark = c.eD(optJSONObject3);
         } else {
             this.mWaterMark = null;
         }
@@ -159,8 +159,8 @@ public class PlayPicInfoCard extends BaseCardInfo implements com.baidu.tieba.leg
             int i2 = i;
             if (it.hasNext()) {
                 b next = it.next();
-                if (next != null && next.lcp > i2) {
-                    i2 = next.lcp;
+                if (next != null && next.let > i2) {
+                    i2 = next.let;
                 }
                 i = i2;
             } else {

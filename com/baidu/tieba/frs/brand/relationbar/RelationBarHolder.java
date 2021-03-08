@@ -4,14 +4,14 @@ import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
 /* loaded from: classes2.dex */
 public class RelationBarHolder<T extends View> extends RecyclerView.ViewHolder {
-    private T joZ;
+    private T jqI;
 
     public RelationBarHolder(T t) {
         super(t);
-        this.joZ = t;
+        this.jqI = t;
     }
 
-    public T cFG() {
-        return this.joZ;
+    public T cFM() {
+        return this.jqI;
     }
 }

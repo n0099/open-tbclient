@@ -2,7 +2,7 @@ package com.baidu.searchbox.v8engine.util;
 
 import java.io.File;
 import java.io.FileFilter;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class DeviceInfo {
     private static final FileFilter CPU_FILTER = new FileFilter() { // from class: com.baidu.searchbox.v8engine.util.DeviceInfo.1
         @Override // java.io.FileFilter

@@ -5,10 +5,8 @@ import com.baidu.mapapi.model.LatLng;
 public class FavoritePoiInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    String f2679a;
-
-    /* renamed from: b  reason: collision with root package name */
-    String f2680b;
+    String f2001a;
+    String b;
     LatLng c;
     String d;
     String e;
@@ -34,11 +32,11 @@ public class FavoritePoiInfo {
     }
 
     public String getID() {
-        return this.f2679a;
+        return this.f2001a;
     }
 
     public String getPoiName() {
-        return this.f2680b;
+        return this.b;
     }
 
     public LatLng getPt() {
@@ -54,7 +52,7 @@ public class FavoritePoiInfo {
     }
 
     public FavoritePoiInfo poiName(String str) {
-        this.f2680b = str;
+        this.b = str;
         return this;
     }
 

@@ -18,37 +18,37 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements af {
-    private final String bbb;
-    private com.baidu.live.gift.d.a bgu;
+    private final String bcB;
+    private com.baidu.live.gift.d.a bhU;
     private Context mContext;
 
     public a(Context context) {
-        this.bbb = "live_key_privilege_tab_unlock_giftid_array_" + (TbadkCoreApplication.getCurrentAccountInfo() == null ? "" : TbadkCoreApplication.getCurrentAccountInfo().getID());
+        this.bcB = "live_key_privilege_tab_unlock_giftid_array_" + (TbadkCoreApplication.getCurrentAccountInfo() == null ? "" : TbadkCoreApplication.getCurrentAccountInfo().getID());
         this.mContext = context;
         initModel();
     }
 
     @Override // com.baidu.live.gift.af
-    public void gw(String str) {
-        this.bgu.gN(str);
+    public void gC(String str) {
+        this.bhU.gT(str);
     }
 
     @Override // com.baidu.live.gift.af
-    public void Fy() {
+    public void FB() {
     }
 
     @Override // com.baidu.live.gift.af
     public void release() {
-        if (this.bgu != null) {
-            this.bgu.release();
+        if (this.bhU != null) {
+            this.bhU.release();
         }
     }
 
     private void initModel() {
-        this.bgu = new com.baidu.live.gift.d.a();
-        this.bgu.a(new com.baidu.live.gift.d.b() { // from class: com.baidu.live.gift.panel.a.1
+        this.bhU = new com.baidu.live.gift.d.a();
+        this.bhU.a(new com.baidu.live.gift.d.b() { // from class: com.baidu.live.gift.panel.a.1
             @Override // com.baidu.live.gift.d.b, com.baidu.live.gift.d.c.a
             public void a(boolean z, int i, String str, ArrayList<h> arrayList, ArrayList<i> arrayList2, ArrayList<l> arrayList3, List<l> list, int i2) {
                 super.a(z, i, str, arrayList, arrayList2, arrayList3, list, i2);
@@ -66,7 +66,7 @@ public class a implements af {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, List<h> list, List<l> list2, int i) {
         if (z) {
-            z.Fe().a(list, list2, i);
+            z.Fh().a(list, list2, i);
         }
     }
 
@@ -80,17 +80,17 @@ public class a implements af {
             BdUtilHelper.showToast(this.mContext.getApplicationContext(), str);
         }
         if (i == 101) {
-            if (this.bgu == null) {
-                this.bgu = new com.baidu.live.gift.d.a();
+            if (this.bhU == null) {
+                this.bhU = new com.baidu.live.gift.d.a();
             }
-            this.bgu.gN("gift_send_101");
+            this.bhU.gT("gift_send_101");
         }
     }
 
-    private void gO(String str) {
+    private void gU(String str) {
         if (str != null) {
             HashSet<Object> hashSet = new HashSet();
-            String string = SharedPrefHelper.getInstance().getString(this.bbb, "");
+            String string = SharedPrefHelper.getInstance().getString(this.bcB, "");
             if (!TextUtils.isEmpty(string)) {
                 try {
                     JSONArray jSONArray = new JSONArray(string);
@@ -106,38 +106,38 @@ public class a implements af {
             for (Object obj : hashSet) {
                 jSONArray2.put(obj);
             }
-            SharedPrefHelper.getInstance().putString(this.bbb, jSONArray2.toString());
-            AlaGiftTabView.bcc.remove(str);
+            SharedPrefHelper.getInstance().putString(this.bcB, jSONArray2.toString());
+            AlaGiftTabView.bdC.remove(str);
         }
     }
 
     private void F(String str, int i) {
         List<h> datas;
         if (i == 0) {
-            gO(str);
+            gU(str);
         }
-        if (!TextUtils.isEmpty(str) && (datas = z.Fe().getDatas()) != null) {
+        if (!TextUtils.isEmpty(str) && (datas = z.Fh().getDatas()) != null) {
             ArrayList<h> arrayList = new ArrayList(datas);
             for (h hVar : arrayList) {
-                List<g> Ew = hVar.Ew();
-                if (Ew != null) {
+                List<g> Ez = hVar.Ez();
+                if (Ez != null) {
                     if (i == 0) {
-                        Iterator<g> it = Ew.iterator();
+                        Iterator<g> it = Ez.iterator();
                         while (it.hasNext()) {
-                            if (it.next().DR().equals(str)) {
+                            if (it.next().DU().equals(str)) {
                                 it.remove();
                             }
                         }
                     } else {
-                        for (g gVar : Ew) {
-                            if (gVar.DR().equals(str)) {
-                                gVar.aVX.aWm = i;
+                        for (g gVar : Ez) {
+                            if (gVar.DU().equals(str)) {
+                                gVar.aXx.aXM = i;
                             }
                         }
                     }
                 }
             }
-            z.Fe().H(arrayList);
+            z.Fh().H(arrayList);
         }
     }
 }

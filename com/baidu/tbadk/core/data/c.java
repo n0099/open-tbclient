@@ -7,14 +7,14 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
     public String appName;
-    public boolean eKP;
-    public String eKQ;
-    public String eKR;
-    public float eKS = -1.0f;
+    public boolean eMq;
+    public String eMr;
+    public String eMs;
+    public float eMt = -1.0f;
     @Nullable
-    public b eKT;
+    public b eMu;
     @Nullable
-    public a eKU;
+    public a eMv;
     public String version;
 
     /* loaded from: classes.dex */
@@ -23,7 +23,7 @@ public class c {
         public String url;
 
         @Nullable
-        public static b dn(JSONObject jSONObject) {
+        public static b dp(JSONObject jSONObject) {
             if (jSONObject == null) {
                 return null;
             }
@@ -40,7 +40,8 @@ public class c {
         public String url;
 
         @Nullable
-        public static a dm(JSONObject jSONObject) {
+        /* renamed from: do  reason: not valid java name */
+        public static a m33do(JSONObject jSONObject) {
             if (jSONObject == null) {
                 return null;
             }
@@ -52,35 +53,35 @@ public class c {
     }
 
     @Nullable
-    public static c dl(JSONObject jSONObject) {
+    public static c dn(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
         c cVar = new c();
-        cVar.eKP = TextUtils.equals(jSONObject.optString("strict_mode", "1"), "1");
-        cVar.eKQ = jSONObject.optString("app_icon");
+        cVar.eMq = TextUtils.equals(jSONObject.optString("strict_mode", "1"), "1");
+        cVar.eMr = jSONObject.optString("app_icon");
         cVar.appName = jSONObject.optString("app_name");
-        cVar.eKR = jSONObject.optString("developer_name");
+        cVar.eMs = jSONObject.optString("developer_name");
         cVar.version = jSONObject.optString("version");
-        cVar.eKT = b.dn(jSONObject.optJSONObject("privacy"));
-        cVar.eKU = a.dm(jSONObject.optJSONObject("permission"));
+        cVar.eMu = b.dp(jSONObject.optJSONObject("privacy"));
+        cVar.eMv = a.m33do(jSONObject.optJSONObject("permission"));
         try {
             float parseFloat = Float.parseFloat(jSONObject.optString(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE));
             if (parseFloat <= 5.0f && parseFloat >= 0.0f) {
-                cVar.eKS = parseFloat;
+                cVar.eMt = parseFloat;
             } else {
-                cVar.eKS = -1.0f;
+                cVar.eMt = -1.0f;
             }
             return cVar;
         } catch (NumberFormatException e) {
-            cVar.eKS = -1.0f;
+            cVar.eMt = -1.0f;
             return cVar;
         }
     }
 
     public static boolean a(c cVar) {
-        if (cVar != null && cVar.eKP) {
-            return (TextUtils.isEmpty(cVar.version) || TextUtils.isEmpty(cVar.eKR) || cVar.eKT == null || TextUtils.isEmpty(cVar.eKT.url) || cVar.eKU == null || TextUtils.isEmpty(cVar.eKU.url)) ? false : true;
+        if (cVar != null && cVar.eMq) {
+            return (TextUtils.isEmpty(cVar.version) || TextUtils.isEmpty(cVar.eMs) || cVar.eMu == null || TextUtils.isEmpty(cVar.eMu.url) || cVar.eMv == null || TextUtils.isEmpty(cVar.eMv.url)) ? false : true;
         }
         return true;
     }
@@ -89,6 +90,6 @@ public class c {
         if (cVar == null) {
             return false;
         }
-        return (TextUtils.isEmpty(cVar.version) && TextUtils.isEmpty(cVar.eKR) && (cVar.eKT == null || TextUtils.isEmpty(cVar.eKT.desc)) && (cVar.eKU == null || TextUtils.isEmpty(cVar.eKU.desc))) ? false : true;
+        return (TextUtils.isEmpty(cVar.version) && TextUtils.isEmpty(cVar.eMs) && (cVar.eMu == null || TextUtils.isEmpty(cVar.eMu.desc)) && (cVar.eMv == null || TextUtils.isEmpty(cVar.eMv.desc))) ? false : true;
     }
 }

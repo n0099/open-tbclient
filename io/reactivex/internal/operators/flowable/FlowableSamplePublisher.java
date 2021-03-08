@@ -8,23 +8,23 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class FlowableSamplePublisher<T> extends g<T> {
-    final org.a.b<?> qoQ;
-    final boolean qpg;
+    final boolean qpI;
+    final org.a.b<?> qps;
     final org.a.b<T> source;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
-        if (this.qpg) {
-            this.source.subscribe(new SampleMainEmitLast(bVar, this.qoQ));
+        if (this.qpI) {
+            this.source.subscribe(new SampleMainEmitLast(bVar, this.qps));
         } else {
-            this.source.subscribe(new SampleMainNoLast(bVar, this.qoQ));
+            this.source.subscribe(new SampleMainNoLast(bVar, this.qps));
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static abstract class SamplePublisherSubscriber<T> extends AtomicReference<T> implements j<T>, d {
         private static final long serialVersionUID = -3517602651313910099L;
         final org.a.c<? super T> actual;
@@ -114,38 +114,38 @@ public final class FlowableSamplePublisher<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class a<T> implements j<Object> {
-        final SamplePublisherSubscriber<T> qph;
+        final SamplePublisherSubscriber<T> qpJ;
 
         a(SamplePublisherSubscriber<T> samplePublisherSubscriber) {
-            this.qph = samplePublisherSubscriber;
+            this.qpJ = samplePublisherSubscriber;
         }
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(d dVar) {
-            if (this.qph.setOther(dVar)) {
+            if (this.qpJ.setOther(dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
         @Override // org.a.c
         public void onNext(Object obj) {
-            this.qph.run();
+            this.qpJ.run();
         }
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            this.qph.error(th);
+            this.qpJ.error(th);
         }
 
         @Override // org.a.c
         public void onComplete() {
-            this.qph.complete();
+            this.qpJ.complete();
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class SampleMainNoLast<T> extends SamplePublisherSubscriber<T> {
         private static final long serialVersionUID = -3029755663834015785L;
 
@@ -169,7 +169,7 @@ public final class FlowableSamplePublisher<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class SampleMainEmitLast<T> extends SamplePublisherSubscriber<T> {
         private static final long serialVersionUID = -3029755663834015785L;
         volatile boolean done;

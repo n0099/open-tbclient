@@ -3,7 +3,7 @@ package io.reactivex.internal.operators.flowable;
 import io.reactivex.g;
 import io.reactivex.internal.subscriptions.BasicQueueSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class FlowableRangeLong extends g<Long> {
     final long end;
     final long start;
@@ -17,7 +17,7 @@ public final class FlowableRangeLong extends g<Long> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static abstract class BaseRangeSubscription extends BasicQueueSubscription<Long> {
         private static final long serialVersionUID = -2252972430506210021L;
         volatile boolean cancelled;
@@ -76,7 +76,7 @@ public final class FlowableRangeLong extends g<Long> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class RangeSubscription extends BaseRangeSubscription {
         private static final long serialVersionUID = 2587302975077663557L;
         final org.a.c<? super Long> actual;
@@ -140,7 +140,7 @@ public final class FlowableRangeLong extends g<Long> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class RangeConditionalSubscription extends BaseRangeSubscription {
         private static final long serialVersionUID = 2587302975077663557L;
         final io.reactivex.internal.a.a<? super Long> actual;

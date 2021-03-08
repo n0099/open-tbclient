@@ -20,7 +20,7 @@ public class c extends com.baidu.adp.widget.ListView.a<t, VideoPbEnterForumViewH
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cK */
+    /* renamed from: cJ */
     public VideoPbEnterForumViewHolder e(ViewGroup viewGroup) {
         FrameLayout frameLayout = new FrameLayout(this.mContext);
         CardForumHeadLayout cardForumHeadLayout = new CardForumHeadLayout(this.mContext);
@@ -38,9 +38,9 @@ public class c extends com.baidu.adp.widget.ListView.a<t, VideoPbEnterForumViewH
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, t tVar, VideoPbEnterForumViewHolder videoPbEnterForumViewHolder) {
         if (tVar != null) {
-            videoPbEnterForumViewHolder.setData(tVar.eJQ);
+            videoPbEnterForumViewHolder.setData(tVar.eLr);
         }
-        videoPbEnterForumViewHolder.bup();
+        videoPbEnterForumViewHolder.bus();
         return view;
     }
 }

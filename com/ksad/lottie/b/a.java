@@ -16,10 +16,8 @@ public class a {
     private com.ksad.lottie.a e;
 
     /* renamed from: a  reason: collision with root package name */
-    private final f<String> f7965a = new f<>();
-
-    /* renamed from: b  reason: collision with root package name */
-    private final Map<f<String>, Typeface> f7966b = new HashMap();
+    private final f<String> f5325a = new f<>();
+    private final Map<f<String>, Typeface> b = new HashMap();
     private final Map<String, Typeface> c = new HashMap();
     private String f = ".ttf";
 
@@ -48,12 +46,12 @@ public class a {
     }
 
     private Typeface a(String str) {
-        String b2;
+        String b;
         Typeface typeface = this.c.get(str);
         if (typeface == null) {
             typeface = this.e != null ? this.e.a(str) : null;
-            if (this.e != null && typeface == null && (b2 = this.e.b(str)) != null) {
-                typeface = Typeface.createFromAsset(this.d, b2);
+            if (this.e != null && typeface == null && (b = this.e.b(str)) != null) {
+                typeface = Typeface.createFromAsset(this.d, b);
             }
             if (typeface == null) {
                 typeface = Typeface.createFromAsset(this.d, "fonts/" + str + this.f);
@@ -64,13 +62,13 @@ public class a {
     }
 
     public Typeface a(String str, String str2) {
-        this.f7965a.a(str, str2);
-        Typeface typeface = this.f7966b.get(this.f7965a);
+        this.f5325a.a(str, str2);
+        Typeface typeface = this.b.get(this.f5325a);
         if (typeface != null) {
             return typeface;
         }
         Typeface a2 = a(a(str), str2);
-        this.f7966b.put(this.f7965a, a2);
+        this.b.put(this.f5325a, a2);
         return a2;
     }
 

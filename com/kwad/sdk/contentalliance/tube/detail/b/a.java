@@ -24,9 +24,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
 public class a extends com.kwad.sdk.contentalliance.tube.detail.a.a {
-
-    /* renamed from: b  reason: collision with root package name */
-    private TubeInfo f8929b;
+    private TubeInfo b;
     private RecyclerView d;
     private b e;
     private View f;
@@ -34,7 +32,7 @@ public class a extends com.kwad.sdk.contentalliance.tube.detail.a.a {
     private LottieAnimationView h;
     private StaggeredGridLayoutManager i;
     private AtomicBoolean c = new AtomicBoolean(false);
-    private C1087a j = new C1087a();
+    private C1104a j = new C1104a();
     private b.a k = new b.a() { // from class: com.kwad.sdk.contentalliance.tube.detail.b.a.1
         @Override // com.kwad.sdk.contentalliance.tube.b.a
         public void a(boolean z) {
@@ -47,7 +45,7 @@ public class a extends com.kwad.sdk.contentalliance.tube.detail.a.a {
         public void a(boolean z, int i, String str) {
             if (z) {
                 a.this.c.set(false);
-                if (com.kwad.sdk.core.network.f.f9323a.k == i) {
+                if (com.kwad.sdk.core.network.f.f6187a.k == i) {
                     p.a(a.this.o());
                 } else if (com.kwad.sdk.core.network.f.g.k != i) {
                     p.b(a.this.o());
@@ -60,7 +58,7 @@ public class a extends com.kwad.sdk.contentalliance.tube.detail.a.a {
         public void a(boolean z, @NonNull AdResultData adResultData) {
             com.kwad.sdk.core.d.a.a("EpisodeGridPresenter", "onSuccess  tubeFeedData item size=" + adResultData.adTemplateList.size());
             a.this.e.a(adResultData.adTemplateList);
-            if (a.this.e.a() < a.this.f8929b.totalEpisodeCount || !com.kwad.sdk.core.config.c.X()) {
+            if (a.this.e.a() < a.this.b.totalEpisodeCount || !com.kwad.sdk.core.config.c.X()) {
                 a.this.g.setVisibility(4);
                 return;
             }
@@ -79,8 +77,8 @@ public class a extends com.kwad.sdk.contentalliance.tube.detail.a.a {
 
     /* renamed from: com.kwad.sdk.contentalliance.tube.detail.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1087a extends RecyclerView.OnScrollListener {
-        public C1087a() {
+    public class C1104a extends RecyclerView.OnScrollListener {
+        public C1104a() {
         }
 
         private int a(int[] iArr) {
@@ -107,7 +105,7 @@ public class a extends com.kwad.sdk.contentalliance.tube.detail.a.a {
             com.kwad.sdk.core.d.a.a("EpisodeGridPresenter", " manager.getSpanCount()=" + staggeredGridLayoutManager.getSpanCount());
             int a2 = a(staggeredGridLayoutManager.findLastVisibleItemPositions(new int[staggeredGridLayoutManager.getSpanCount()]));
             int itemCount = staggeredGridLayoutManager.getItemCount();
-            if (!z || a2 != itemCount - 1 || a.this.e.a() >= a.this.f8929b.totalEpisodeCount || a.this.c.getAndSet(true)) {
+            if (!z || a2 != itemCount - 1 || a.this.e.a() >= a.this.b.totalEpisodeCount || a.this.c.getAndSet(true)) {
                 return;
             }
             recyclerView.stopScroll();
@@ -119,7 +117,7 @@ public class a extends com.kwad.sdk.contentalliance.tube.detail.a.a {
     private class b extends RecyclerView.Adapter<c> {
 
         /* renamed from: a  reason: collision with root package name */
-        public com.kwad.sdk.lib.widget.b<AdTemplate> f8932a;
+        public com.kwad.sdk.lib.widget.b<AdTemplate> f5950a;
         private LayoutInflater c;
 
         public b(a aVar, Context context) {
@@ -127,27 +125,27 @@ public class a extends com.kwad.sdk.contentalliance.tube.detail.a.a {
         }
 
         public b(Context context, List<AdTemplate> list) {
-            this.f8932a = new com.kwad.sdk.lib.widget.b<>(new CopyOnWriteArrayList());
+            this.f5950a = new com.kwad.sdk.lib.widget.b<>(new CopyOnWriteArrayList());
             this.c = LayoutInflater.from(context);
             a(list);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(int i) {
-            com.kwad.sdk.contentalliance.tube.episode.b.a().a(this.f8932a);
+            com.kwad.sdk.contentalliance.tube.episode.b.a().a(this.f5950a);
             TubeEpisodeDetailParam tubeEpisodeDetailParam = new TubeEpisodeDetailParam();
-            tubeEpisodeDetailParam.mEntryScene = a.this.f8924a.f8926b.mEntryScene;
-            tubeEpisodeDetailParam.mTubeId = a.this.f8924a.f8926b.getTubeId();
-            if (a.this.f8924a.f8926b.mTubeInfo != null) {
-                tubeEpisodeDetailParam.mTotalEpisodeCount = a.this.f8924a.f8926b.mTubeInfo.totalEpisodeCount;
+            tubeEpisodeDetailParam.mEntryScene = a.this.f5945a.b.mEntryScene;
+            tubeEpisodeDetailParam.mTubeId = a.this.f5945a.b.getTubeId();
+            if (a.this.f5945a.b.mTubeInfo != null) {
+                tubeEpisodeDetailParam.mTotalEpisodeCount = a.this.f5945a.b.mTubeInfo.totalEpisodeCount;
             }
             tubeEpisodeDetailParam.mSelectedPosition = i;
             com.kwad.sdk.contentalliance.tube.episode.a.a(a.this.o(), tubeEpisodeDetailParam);
         }
 
         public int a() {
-            if (this.f8932a != null) {
-                return this.f8932a.size();
+            if (this.f5950a != null) {
+                return this.f5950a.size();
             }
             return 0;
         }
@@ -164,40 +162,40 @@ public class a extends com.kwad.sdk.contentalliance.tube.detail.a.a {
         /* renamed from: a */
         public void onBindViewHolder(c cVar, final int i) {
             com.kwad.sdk.core.d.a.a("EpisodeGridPresenter", "position =" + i);
-            final AdTemplate adTemplate = this.f8932a.get(i);
-            cVar.f8936a.setRatio(1.29f);
-            cVar.f8936a.a(i, a.this.f8929b.tubeId);
-            cVar.f8936a.setTemplateData(adTemplate);
-            cVar.f8936a.setLookMoreVisibility(false);
-            cVar.f8936a.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.tube.detail.b.a.b.1
+            final AdTemplate adTemplate = this.f5950a.get(i);
+            cVar.f5952a.setRatio(1.29f);
+            cVar.f5952a.a(i, a.this.b.tubeId);
+            cVar.f5952a.setTemplateData(adTemplate);
+            cVar.f5952a.setLookMoreVisibility(false);
+            cVar.f5952a.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.tube.detail.b.a.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     com.kwad.sdk.core.report.e.b(adTemplate, 1);
                     b.this.a(i);
                 }
             });
-            cVar.f8936a.setId(i);
+            cVar.f5952a.setId(i);
         }
 
         public void a(List<AdTemplate> list) {
             if (list == null || list.isEmpty()) {
                 return;
             }
-            int size = this.f8932a.size();
-            this.f8932a.addAll(list);
+            int size = this.f5950a.size();
+            this.f5950a.addAll(list);
             notifyItemRangeChanged(size + 1, list.size());
         }
 
         public long b() {
-            if (this.f8932a == null || this.f8932a.isEmpty()) {
+            if (this.f5950a == null || this.f5950a.isEmpty()) {
                 return 0L;
             }
-            return com.kwad.sdk.core.response.b.d.k(this.f8932a.get(this.f8932a.size() - 1).photoInfo);
+            return com.kwad.sdk.core.response.b.d.k(this.f5950a.get(this.f5950a.size() - 1).photoInfo);
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public int getItemCount() {
-            return this.f8932a.size();
+            return this.f5950a.size();
         }
     }
 
@@ -205,17 +203,17 @@ public class a extends com.kwad.sdk.contentalliance.tube.detail.a.a {
     public static class c extends RecyclerView.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public EpisodePhotoView f8936a;
+        public EpisodePhotoView f5952a;
 
         public c(View view) {
             super(view);
-            this.f8936a = (EpisodePhotoView) view;
+            this.f5952a = (EpisodePhotoView) view;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long j) {
-        for (com.kwad.sdk.contentalliance.tube.detail.a aVar : this.f8924a.e) {
+        for (com.kwad.sdk.contentalliance.tube.detail.a aVar : this.f5945a.e) {
             aVar.a(j);
         }
     }
@@ -240,16 +238,16 @@ public class a extends com.kwad.sdk.contentalliance.tube.detail.a.a {
     @Override // com.kwad.sdk.contentalliance.tube.detail.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f8929b = this.f8924a.f8926b.mTubeInfo;
+        this.b = this.f5945a.b.mTubeInfo;
         this.d.addOnScrollListener(this.j);
-        this.f8924a.d.add(this.k);
+        this.f5945a.d.add(this.k);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f8924a.d.remove(this.k);
+        this.f5945a.d.remove(this.k);
         this.d.removeOnScrollListener(this.j);
     }
 

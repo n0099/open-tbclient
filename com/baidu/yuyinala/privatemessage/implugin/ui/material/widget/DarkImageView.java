@@ -5,7 +5,7 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import com.baidu.yuyinala.privatemessage.implugin.ui.theme.ThemeManager;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class DarkImageView extends ImageView {
     public DarkImageView(Context context) {
         super(context);
@@ -22,7 +22,7 @@ public class DarkImageView extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (ThemeManager.emw() == ThemeManager.ThemeMode.NIGHT) {
+        if (ThemeManager.emG() == ThemeManager.ThemeMode.NIGHT) {
             canvas.drawColor(1342177280);
         }
     }

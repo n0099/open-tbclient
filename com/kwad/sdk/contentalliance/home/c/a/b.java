@@ -6,13 +6,11 @@ import com.kwad.sdk.contentalliance.home.viewpager.SlidePlayViewPager;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.lib.widget.recycler.b.a;
 /* loaded from: classes3.dex */
-public class b extends a.C1143a<AdTemplate> {
+public class b extends a.C1160a<AdTemplate> {
 
     /* renamed from: a  reason: collision with root package name */
-    public SlidePlayViewPager f8717a;
+    public SlidePlayViewPager f5811a;
     @Nullable
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f8718b;
+    public View b;
     public com.kwad.sdk.contentalliance.home.c.b c;
 }

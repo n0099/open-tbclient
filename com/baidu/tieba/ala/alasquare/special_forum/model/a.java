@@ -12,12 +12,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.alasquare.special_forum.data.SpecialLiveResponseMessage;
 import com.baidu.tieba.ala.alasquare.special_forum.data.h;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private InterfaceC0619a gHq;
+    private InterfaceC0625a gIZ;
     private boolean isLoading;
     private TbPageContext mPageContext;
-    private HttpMessageListener gHo = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA) { // from class: com.baidu.tieba.ala.alasquare.special_forum.model.a.1
+    private HttpMessageListener gIX = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA) { // from class: com.baidu.tieba.ala.alasquare.special_forum.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -25,11 +25,11 @@ public class a {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021093 && (httpResponsedMessage instanceof SpecialLiveResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.mCurTag) {
                 SpecialLiveResponseMessage specialLiveResponseMessage = (SpecialLiveResponseMessage) httpResponsedMessage;
                 if (!specialLiveResponseMessage.isSuccess() || specialLiveResponseMessage.getData() == null) {
-                    if (a.this.gHq != null) {
-                        a.this.gHq.A(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    if (a.this.gIZ != null) {
+                        a.this.gIZ.A(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                     }
-                } else if (a.this.gHq != null) {
-                    a.this.gHq.b(specialLiveResponseMessage.getData());
+                } else if (a.this.gIZ != null) {
+                    a.this.gIZ.b(specialLiveResponseMessage.getData());
                 }
             }
         }
@@ -37,16 +37,16 @@ public class a {
     private BdUniqueId mCurTag = BdUniqueId.gen();
 
     /* renamed from: com.baidu.tieba.ala.alasquare.special_forum.model.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0619a {
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0625a {
         void A(int i, String str);
 
         void b(h hVar);
     }
 
-    public a(TbPageContext tbPageContext, InterfaceC0619a interfaceC0619a) {
+    public a(TbPageContext tbPageContext, InterfaceC0625a interfaceC0625a) {
         this.mPageContext = tbPageContext;
-        this.gHq = interfaceC0619a;
+        this.gIZ = interfaceC0625a;
         registerTask();
         registerListener();
     }
@@ -58,7 +58,7 @@ public class a {
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(this.gHo);
+        MessageManager.getInstance().registerListener(this.gIX);
     }
 
     public void loadData() {
@@ -76,6 +76,6 @@ public class a {
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA);
-        MessageManager.getInstance().unRegisterListener(this.gHo);
+        MessageManager.getInstance().unRegisterListener(this.gIX);
     }
 }

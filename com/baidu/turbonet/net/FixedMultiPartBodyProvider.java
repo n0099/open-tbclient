@@ -1,7 +1,7 @@
 package com.baidu.turbonet.net;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FixedMultiPartBodyProvider extends UploadDataProvider {
     private String mContent;
     private int mOffset;

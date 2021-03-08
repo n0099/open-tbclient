@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import java.io.IOException;
 import java.lang.ref.SoftReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class ARPFilter {
     private static final String TAG = ARPFilter.class.getSimpleName();
     private SoftReference<Context> softContext = null;

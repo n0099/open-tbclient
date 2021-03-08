@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.graphics.PathParser;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public class PatternPathMotion extends PathMotion {
     private Path mOriginalPatternPath;
     private final Path mPatternPath = new Path();

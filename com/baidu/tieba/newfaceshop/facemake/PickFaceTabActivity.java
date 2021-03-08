@@ -24,18 +24,18 @@ import com.baidu.tieba.face.data.FaceData;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class PickFaceTabActivity extends BaseFragmentActivity implements f {
-    private NoNetworkView fLP;
-    private FaceGroupMakeTitleBar lAU;
-    private LinearLayout lAW;
-    private FaceSearchFragment lCC;
-    private FaceCollectFragment lCD;
-    private FaceAlbumFragment lCE;
+    private NoNetworkView fNp;
+    private FaceGroupMakeTitleBar lCW;
+    private LinearLayout lCY;
+    private FaceSearchFragment lEE;
+    private FaceCollectFragment lEF;
+    private FaceAlbumFragment lEG;
     private Activity mActivity;
     private NavigationBar mNavigationBar;
     private FragmentTabHost mTabHost;
-    private int iWX = 0;
+    private int iYG = 0;
     private ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.newfaceshop.facemake.PickFaceTabActivity.2
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
@@ -63,40 +63,40 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         this.mTabHost.setOnPageChangeListener(this.mOnPageChangeListener);
         this.mTabHost.setShouldDrawIndicatorLine(false);
         this.mTabHost.needShowTopDiver(true);
-        IC();
-        Uu();
+        IF();
+        Ux();
     }
 
-    private void IC() {
-        this.lAW = (LinearLayout) findViewById(R.id.layout_root);
+    private void IF() {
+        this.lCY = (LinearLayout) findViewById(R.id.layout_root);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
-        this.lAU = new FaceGroupMakeTitleBar(getPageContext().getPageActivity());
-        this.lAU.setLayoutParams(new RelativeLayout.LayoutParams(l.getEquipmentWidth(getPageContext().getPageActivity()), -1));
-        this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.lAU, (View.OnClickListener) null);
-        this.fLP = (NoNetworkView) findViewById(R.id.view_no_network);
-        this.lAU.setRightListener(new View.OnClickListener() { // from class: com.baidu.tieba.newfaceshop.facemake.PickFaceTabActivity.1
+        this.lCW = new FaceGroupMakeTitleBar(getPageContext().getPageActivity());
+        this.lCW.setLayoutParams(new RelativeLayout.LayoutParams(l.getEquipmentWidth(getPageContext().getPageActivity()), -1));
+        this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.lCW, (View.OnClickListener) null);
+        this.fNp = (NoNetworkView) findViewById(R.id.view_no_network);
+        this.lCW.setRightListener(new View.OnClickListener() { // from class: com.baidu.tieba.newfaceshop.facemake.PickFaceTabActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Intent intent = new Intent();
                 ArrayList arrayList = new ArrayList();
-                if (PickFaceTabActivity.this.lCC != null && PickFaceTabActivity.this.lCC.diC() != null) {
-                    for (Map.Entry<String, EmotionImageData> entry : PickFaceTabActivity.this.lCC.diC().entrySet()) {
+                if (PickFaceTabActivity.this.lEE != null && PickFaceTabActivity.this.lEE.diL() != null) {
+                    for (Map.Entry<String, EmotionImageData> entry : PickFaceTabActivity.this.lEE.diL().entrySet()) {
                         FaceData faceData = new FaceData();
                         faceData.type = 2;
                         faceData.emotionImageData = entry.getValue();
                         arrayList.add(faceData);
                     }
                 }
-                if (PickFaceTabActivity.this.lCE != null && PickFaceTabActivity.this.lCE.diC() != null) {
-                    for (Map.Entry<String, ImageFileInfo> entry2 : PickFaceTabActivity.this.lCE.diC().entrySet()) {
+                if (PickFaceTabActivity.this.lEG != null && PickFaceTabActivity.this.lEG.diL() != null) {
+                    for (Map.Entry<String, ImageFileInfo> entry2 : PickFaceTabActivity.this.lEG.diL().entrySet()) {
                         FaceData faceData2 = new FaceData();
                         faceData2.type = 3;
                         faceData2.imageFileInfo = entry2.getValue();
                         arrayList.add(faceData2);
                     }
                 }
-                if (PickFaceTabActivity.this.lCD != null && PickFaceTabActivity.this.lCD.diC() != null) {
-                    for (Map.Entry<String, EmotionImageData> entry3 : PickFaceTabActivity.this.lCD.diC().entrySet()) {
+                if (PickFaceTabActivity.this.lEF != null && PickFaceTabActivity.this.lEF.diL() != null) {
+                    for (Map.Entry<String, EmotionImageData> entry3 : PickFaceTabActivity.this.lEF.diL().entrySet()) {
                         FaceData faceData3 = new FaceData();
                         faceData3.type = 1;
                         faceData3.emotionImageData = entry3.getValue();
@@ -108,19 +108,19 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
                 PickFaceTabActivity.this.finish();
             }
         });
-        ap.setBackgroundColor(this.lAU, R.color.CAM_X0201);
+        ap.setBackgroundColor(this.lCW, R.color.CAM_X0201);
         setTitleText(0);
-        czM();
+        czS();
     }
 
-    private void Uu() {
+    private void Ux() {
         ArrayList arrayList;
-        this.lCC = new FaceSearchFragment();
-        this.lCC.a(this);
-        this.lCE = new FaceAlbumFragment();
-        this.lCE.a(this);
-        this.lCD = new FaceCollectFragment();
-        this.lCD.a(this);
+        this.lEE = new FaceSearchFragment();
+        this.lEE.a(this);
+        this.lEG = new FaceAlbumFragment();
+        this.lEG.a(this);
+        this.lEF = new FaceCollectFragment();
+        this.lEF.a(this);
         Intent intent = getIntent();
         if (intent != null) {
             Serializable serializableExtra = intent.getSerializableExtra(PickFaceTabActivityConfig.CHOOSED_LIST);
@@ -132,16 +132,16 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
             if (!y.isEmpty(arrayList)) {
                 Bundle bundle = new Bundle();
                 bundle.putSerializable(PickFaceTabActivityConfig.CHOOSED_LIST, arrayList);
-                this.lCC.setArguments(bundle);
-                this.lCD.setArguments(bundle);
-                this.lCE.setArguments(bundle);
-                this.iWX = arrayList.size();
-                czM();
+                this.lEE.setArguments(bundle);
+                this.lEF.setArguments(bundle);
+                this.lEG.setArguments(bundle);
+                this.iYG = arrayList.size();
+                czS();
             }
         }
-        a(this.lCC, 1, this.mActivity.getText(R.string.face_group_make_search).toString());
-        a(this.lCE, 3, this.mActivity.getText(R.string.face_group_make_album).toString());
-        a(this.lCD, 2, this.mActivity.getText(R.string.my_mark).toString());
+        a(this.lEE, 1, this.mActivity.getText(R.string.face_group_make_search).toString());
+        a(this.lEG, 3, this.mActivity.getText(R.string.face_group_make_album).toString());
+        a(this.lEF, 2, this.mActivity.getText(R.string.my_mark).toString());
         this.mTabHost.initViewPager(1);
         this.mTabHost.setCurrentTab(0);
         this.mTabHost.getFragmentTabWidget().getLayoutParams().height = l.getDimens(getPageContext().getPageActivity(), R.dimen.ds110);
@@ -157,7 +157,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
             fragmentTabIndicator.setText(str);
             fragmentTabIndicator.dayTextColorResId = R.color.s_actionbar_text_color;
             fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
-            bVar.eZk = fragmentTabIndicator;
+            bVar.faJ = fragmentTabIndicator;
             this.mTabHost.a(bVar);
         }
     }
@@ -165,13 +165,13 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
         getLayoutMode().setNightMode(i == 1);
-        getLayoutMode().onModeChanged(this.lAW);
-        ap.setBackgroundResource(this.lAW, R.color.CAM_X0201);
+        getLayoutMode().onModeChanged(this.lCY);
+        ap.setBackgroundResource(this.lCY, R.color.CAM_X0201);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.lCC.onChangeSkinType(i);
-        this.lCD.onChangeSkinType(i);
-        this.lCE.onChangeSkinType(i);
-        this.fLP.onChangeSkinType(getPageContext(), i);
+        this.lEE.onChangeSkinType(i);
+        this.lEF.onChangeSkinType(i);
+        this.lEG.onChangeSkinType(i);
+        this.fNp.onChangeSkinType(getPageContext(), i);
         this.mTabHost.onChangeSkinType(i);
     }
 
@@ -180,13 +180,13 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         if (this.mNavigationBar != null) {
             switch (i) {
                 case 0:
-                    this.lAU.setTitle(this.mActivity.getText(R.string.face_group_tab_search).toString());
+                    this.lCW.setTitle(this.mActivity.getText(R.string.face_group_tab_search).toString());
                     return;
                 case 1:
-                    this.lAU.setTitle(this.mActivity.getText(R.string.album_all).toString());
+                    this.lCW.setTitle(this.mActivity.getText(R.string.album_all).toString());
                     return;
                 case 2:
-                    this.lAU.setTitle(this.mActivity.getText(R.string.my_mark).toString());
+                    this.lCW.setTitle(this.mActivity.getText(R.string.my_mark).toString());
                     return;
                 default:
                     return;
@@ -195,30 +195,30 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
     }
 
     @Override // com.baidu.tieba.newfaceshop.facemake.f
-    public void czJ() {
-        this.iWX++;
-        czM();
+    public void czP() {
+        this.iYG++;
+        czS();
     }
 
     @Override // com.baidu.tieba.newfaceshop.facemake.f
-    public void czK() {
-        if (this.iWX > 0) {
-            this.iWX--;
+    public void czQ() {
+        if (this.iYG > 0) {
+            this.iYG--;
         }
-        czM();
+        czS();
     }
 
     @Override // com.baidu.tieba.newfaceshop.facemake.f
-    public boolean czL() {
-        return this.iWX < 24;
+    public boolean czR() {
+        return this.iYG < 24;
     }
 
-    private void czM() {
+    private void czS() {
         String string = this.mActivity.getString(R.string.add);
-        if (this.iWX > 0) {
-            this.lAU.setRightText(string + "(" + this.iWX + ")");
+        if (this.iYG > 0) {
+            this.lCW.setRightText(string + "(" + this.iYG + ")");
         } else {
-            this.lAU.setRightText(string);
+            this.lCW.setRightText(string);
         }
     }
 }

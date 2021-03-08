@@ -1,5 +1,5 @@
 package com.baidu.ar.algo;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public enum FrameType {
     TYPE_YUV(0),
     TYPE_RGB(1),

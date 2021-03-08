@@ -8,7 +8,7 @@ import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.p;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class SVGAParser$decodeFromURL$2 extends Lambda implements kotlin.jvm.a.b<InputStream, h> {
     final /* synthetic */ d.c $callback;
     final /* synthetic */ URL $url;
@@ -28,12 +28,12 @@ public final class SVGAParser$decodeFromURL$2 extends Lambda implements kotlin.j
     @Override // kotlin.jvm.a.b
     public /* bridge */ /* synthetic */ h invoke(InputStream inputStream) {
         invoke2(inputStream);
-        return h.qto;
+        return h.qtQ;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final void invoke2(InputStream inputStream) {
-        p.o(inputStream, "it");
+        p.p(inputStream, "it");
         d.a(this.this$0, inputStream, this.this$0.f(this.$url), this.$callback, false, 8, null);
     }
 }

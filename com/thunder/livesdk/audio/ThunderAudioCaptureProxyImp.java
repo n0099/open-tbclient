@@ -4,7 +4,7 @@ import com.thunder.livesdk.ExternalAudioSource;
 import com.thunder.livesdk.ThunderAudioCapture;
 import com.thunder.livesdk.ThunderDefaultMic;
 import com.thunder.livesdk.ThunderPublisher;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderAudioCaptureProxyImp {
     /* JADX INFO: Access modifiers changed from: private */
     public static native void pushCaptureData(long j, long j2, byte[] bArr, long j3);

@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.v;
 import tbclient.GetMemberTaskList.DataReq;
 import tbclient.GetMemberTaskList.GetMemberTaskListReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class MemberTaskCenterRequestMessage extends NetMessage {
     public MemberTaskCenterRequestMessage() {
         super(1003187, CmdConfigSocket.CMD_MEMBER_TASK);

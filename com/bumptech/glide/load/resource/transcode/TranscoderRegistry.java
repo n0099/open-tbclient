@@ -3,7 +3,7 @@ package com.bumptech.glide.load.resource.transcode;
 import androidx.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class TranscoderRegistry {
     private final List<Entry<?, ?>> transcoders = new ArrayList();
 
@@ -45,7 +45,7 @@ public class TranscoderRegistry {
         return arrayList;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static final class Entry<Z, R> {
         private final Class<Z> fromClass;
         private final Class<R> toClass;

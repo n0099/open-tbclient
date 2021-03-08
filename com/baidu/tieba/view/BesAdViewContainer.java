@@ -6,7 +6,8 @@ import android.view.MotionEvent;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 public class BesAdViewContainer extends RelativeLayout {
-    private a nWV;
+    private a nYZ;
+    private boolean nZa;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -15,25 +16,31 @@ public class BesAdViewContainer extends RelativeLayout {
 
     public BesAdViewContainer(Context context) {
         super(context);
+        this.nZa = true;
     }
 
     public BesAdViewContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        this.nZa = true;
     }
 
     public a getListener() {
-        return this.nWV;
+        return this.nYZ;
     }
 
     public void setListener(a aVar) {
-        this.nWV = aVar;
+        this.nYZ = aVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 1 && this.nWV != null) {
-            this.nWV.a(this);
+        if (motionEvent.getAction() == 1 && this.nZa && this.nYZ != null) {
+            this.nYZ.a(this);
         }
         return super.dispatchTouchEvent(motionEvent);
+    }
+
+    public void setEnableClick(boolean z) {
+        this.nZa = z;
     }
 }

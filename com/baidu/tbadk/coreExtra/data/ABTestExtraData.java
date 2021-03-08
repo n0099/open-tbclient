@@ -28,7 +28,7 @@ public class ABTestExtraData implements Serializable {
 
     public void parserABTestExtraFormSharedPref() {
         try {
-            String string = com.baidu.tbadk.core.sharedPref.b.brQ().getString("abtest_extra_info_json", null);
+            String string = com.baidu.tbadk.core.sharedPref.b.brR().getString("abtest_extra_info_json", null);
             if (!TextUtils.isEmpty(string)) {
                 parseJson(new JSONObject(string));
             }
@@ -38,6 +38,6 @@ public class ABTestExtraData implements Serializable {
     }
 
     private void saveABTestExtraToSharedPref(JSONObject jSONObject) {
-        com.baidu.tbadk.core.sharedPref.b.brQ().putString("abtest_extra_info_json", jSONObject != null ? jSONObject.toString() : "");
+        com.baidu.tbadk.core.sharedPref.b.brR().putString("abtest_extra_info_json", jSONObject != null ? jSONObject.toString() : "");
     }
 }

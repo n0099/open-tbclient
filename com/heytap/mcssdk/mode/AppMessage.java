@@ -1,7 +1,7 @@
 package com.heytap.mcssdk.mode;
 
 import android.text.TextUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AppMessage extends Message {
     private int mBalanceTime;
     private String mContent;

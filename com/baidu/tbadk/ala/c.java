@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c {
-    private static View.OnClickListener eGE = new View.OnClickListener() { // from class: com.baidu.tbadk.ala.c.1
+    private static View.OnClickListener eIf = new View.OnClickListener() { // from class: com.baidu.tbadk.ala.c.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != null && view.getTag() != null && (view.getTag() instanceof a)) {
@@ -29,7 +29,7 @@ public class c {
                     return;
                 }
                 a aVar = (a) view.getTag();
-                AlaUserInfoData alaUserInfoData = aVar.eGA;
+                AlaUserInfoData alaUserInfoData = aVar.eIb;
                 if (alaUserInfoData != null) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
                     if (alaUserInfoData.anchor_live != 0) {
@@ -57,11 +57,11 @@ public class c {
                             break;
                         case 7:
                             if (alaUserInfoData.ala_id != 0) {
-                                TiebaStatic.log(new ar("c11855").dR("uid", currentAccount).v("click_uid", alaUserInfoData.ala_id).ap("live_status", alaUserInfoData.live_status));
+                                TiebaStatic.log(new ar("c11855").dR("uid", currentAccount).v("click_uid", alaUserInfoData.ala_id).aq("live_status", alaUserInfoData.live_status));
                             }
                             TiebaStatic.log(new ar("c12542"));
-                            if (aVar.eGB && !StringUtils.isNull(alaUserInfoData.sex)) {
-                                BdToast.b(view.getContext(), String.format(view.getContext().getString(R.string.person_privacy_toast), alaUserInfoData.sex), R.drawable.icon_pure_toast_mistake40_svg, true).bqD();
+                            if (aVar.eIc && !StringUtils.isNull(alaUserInfoData.sex)) {
+                                BdToast.b(view.getContext(), String.format(view.getContext().getString(R.string.person_privacy_toast), alaUserInfoData.sex), R.drawable.icon_pure_toast_mistake40_svg, true).bqF();
                                 return;
                             }
                             break;
@@ -78,12 +78,12 @@ public class c {
         }
     };
 
-    public static TextView eO(Context context) {
+    public static TextView eN(Context context) {
         if (context == null || MessageManager.getInstance().findTask(CmdConfigCustom.CMD_ALA_LIVE_ROOM_START) == null) {
             return null;
         }
         TextView textView = (TextView) LayoutInflater.from(context).inflate(R.layout.ala_tail_view_layout, (ViewGroup) null);
-        textView.setOnClickListener(eGE);
+        textView.setOnClickListener(eIf);
         return textView;
     }
 }

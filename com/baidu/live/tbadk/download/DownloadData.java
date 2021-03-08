@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.download;
 
 import java.io.Serializable;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class DownloadData implements Serializable, Cloneable {
     public static final int FILE_DOWNLOAD_PRIORITY_ENTEREFFECT = 128;
     public static final int FILE_DOWNLOAD_PRIORITY_FORCE = 255;

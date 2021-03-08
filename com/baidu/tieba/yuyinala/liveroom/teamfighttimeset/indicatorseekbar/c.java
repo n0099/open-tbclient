@@ -12,50 +12,50 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c {
-    private TextView hDB;
+    private TextView hFk;
     private Context mContext;
     private int mIndicatorColor;
-    private int oAL;
-    private float oAM;
-    private ArrowView oAS;
-    private PopupWindow oAT;
-    private LinearLayout oAU;
-    private int oAV;
-    private int oAW;
-    private IndicatorSeekBar oAX;
-    private View oAY;
-    private View oAZ;
-    private View oBa;
-    private int[] joQ = new int[2];
-    private final int mWindowWidth = ebX();
+    private int oCQ;
+    private float oCR;
+    private ArrowView oCX;
+    private PopupWindow oCY;
+    private LinearLayout oCZ;
+    private int oDa;
+    private int oDb;
+    private IndicatorSeekBar oDc;
+    private View oDd;
+    private View oDe;
+    private View oDf;
+    private int[] jqz = new int[2];
+    private final int mWindowWidth = ecf();
 
     public c(Context context, IndicatorSeekBar indicatorSeekBar, int i, int i2, int i3, int i4, View view, View view2) {
         this.mContext = context;
-        this.oAX = indicatorSeekBar;
+        this.oDc = indicatorSeekBar;
         this.mIndicatorColor = i;
-        this.oAW = i2;
-        this.oAZ = view;
-        this.oBa = view2;
-        this.oAM = i3;
-        this.oAL = i4;
-        this.oAV = f.dp2px(this.mContext, 2.0f);
-        ebV();
+        this.oDb = i2;
+        this.oDe = view;
+        this.oDf = view2;
+        this.oCR = i3;
+        this.oCQ = i4;
+        this.oDa = f.dp2px(this.mContext, 2.0f);
+        ecd();
     }
 
-    private void ebV() {
+    private void ecd() {
         View findViewById;
-        if (this.oAW == 4) {
-            if (this.oAZ != null) {
-                this.oAY = this.oAZ;
+        if (this.oDb == 4) {
+            if (this.oDe != null) {
+                this.oDd = this.oDe;
                 int identifier = this.mContext.getResources().getIdentifier("isb_progress", "id", this.mContext.getApplicationContext().getPackageName());
-                if (identifier > 0 && (findViewById = this.oAY.findViewById(identifier)) != null) {
+                if (identifier > 0 && (findViewById = this.oDd.findViewById(identifier)) != null) {
                     if (findViewById instanceof TextView) {
-                        this.hDB = (TextView) findViewById;
-                        this.hDB.setText(this.oAX.getIndicatorTextString());
-                        this.hDB.setTextSize(f.px2sp(this.mContext, this.oAM));
-                        this.hDB.setTextColor(this.oAL);
+                        this.hFk = (TextView) findViewById;
+                        this.hFk.setText(this.oDc.getIndicatorTextString());
+                        this.hFk.setTextSize(f.px2sp(this.mContext, this.oCR));
+                        this.hFk.setTextColor(this.oCQ);
                         return;
                     }
                     throw new ClassCastException("the view identified by isb_progress in indicator custom layout can not be cast to TextView");
@@ -63,26 +63,26 @@ public class c {
                 return;
             }
             throw new IllegalArgumentException("the attr：indicator_custom_layout must be set while you set the indicator type to CUSTOM.");
-        } else if (this.oAW == 1) {
-            this.oAY = new CircleBubbleView(this.mContext, this.oAM, this.oAL, this.mIndicatorColor, "1000");
-            ((CircleBubbleView) this.oAY).setProgress(this.oAX.getIndicatorTextString());
+        } else if (this.oDb == 1) {
+            this.oDd = new CircleBubbleView(this.mContext, this.oCR, this.oCQ, this.mIndicatorColor, "1000");
+            ((CircleBubbleView) this.oDd).setProgress(this.oDc.getIndicatorTextString());
         } else {
-            this.oAY = View.inflate(this.mContext, a.g.isb_indicator, null);
-            this.oAU = (LinearLayout) this.oAY.findViewById(a.f.indicator_container);
-            this.oAS = (ArrowView) this.oAY.findViewById(a.f.indicator_arrow);
-            this.oAS.setColor(this.mIndicatorColor);
-            this.hDB = (TextView) this.oAY.findViewById(a.f.isb_progress);
-            this.hDB.setText(this.oAX.getIndicatorTextString());
-            this.hDB.setTextSize(f.px2sp(this.mContext, this.oAM));
-            this.hDB.setTextColor(this.oAL);
+            this.oDd = View.inflate(this.mContext, a.g.isb_indicator, null);
+            this.oCZ = (LinearLayout) this.oDd.findViewById(a.f.indicator_container);
+            this.oCX = (ArrowView) this.oDd.findViewById(a.f.indicator_arrow);
+            this.oCX.setColor(this.mIndicatorColor);
+            this.hFk = (TextView) this.oDd.findViewById(a.f.isb_progress);
+            this.hFk.setText(this.oDc.getIndicatorTextString());
+            this.hFk.setTextSize(f.px2sp(this.mContext, this.oCR));
+            this.hFk.setTextColor(this.oCQ);
             if (Build.VERSION.SDK_INT >= 16) {
-                this.oAU.setBackground(ebW());
+                this.oCZ.setBackground(ece());
             } else {
-                this.oAU.setBackgroundDrawable(ebW());
+                this.oCZ.setBackgroundDrawable(ece());
             }
-            if (this.oBa != null) {
+            if (this.oDf != null) {
                 int identifier2 = this.mContext.getResources().getIdentifier("isb_progress", "id", this.mContext.getApplicationContext().getPackageName());
-                View view = this.oBa;
+                View view = this.oDf;
                 if (identifier2 > 0) {
                     View findViewById2 = view.findViewById(identifier2);
                     if (findViewById2 != null && (findViewById2 instanceof TextView)) {
@@ -99,9 +99,9 @@ public class c {
     }
 
     @NonNull
-    private GradientDrawable ebW() {
+    private GradientDrawable ece() {
         GradientDrawable gradientDrawable;
-        if (this.oAW == 2) {
+        if (this.oDb == 2) {
             gradientDrawable = (GradientDrawable) this.mContext.getResources().getDrawable(a.e.isb_indicator_rounded_corners);
         } else {
             gradientDrawable = (GradientDrawable) this.mContext.getResources().getDrawable(a.e.isb_indicator_square_corners);
@@ -110,7 +110,7 @@ public class c {
         return gradientDrawable;
     }
 
-    private int ebX() {
+    private int ecf() {
         WindowManager windowManager = (WindowManager) this.mContext.getSystemService("window");
         if (windowManager != null) {
             return windowManager.getDefaultDisplay().getWidth();
@@ -118,20 +118,20 @@ public class c {
         return 0;
     }
 
-    private int ebY() {
-        this.oAX.getLocationOnScreen(this.joQ);
-        return this.joQ[0];
+    private int ecg() {
+        this.oDc.getLocationOnScreen(this.jqz);
+        return this.jqz[0];
     }
 
-    private void bh(float f) {
-        if (this.oAW != 4 && this.oAW != 1) {
-            int ebY = ebY();
-            if (ebY + f < this.oAT.getContentView().getMeasuredWidth() / 2) {
-                i(this.oAS, -((int) (((this.oAT.getContentView().getMeasuredWidth() / 2) - ebY) - f)), -1, -1, -1);
-            } else if ((this.mWindowWidth - ebY) - f < this.oAT.getContentView().getMeasuredWidth() / 2) {
-                i(this.oAS, (int) ((this.oAT.getContentView().getMeasuredWidth() / 2) - ((this.mWindowWidth - ebY) - f)), -1, -1, -1);
+    private void bl(float f) {
+        if (this.oDb != 4 && this.oDb != 1) {
+            int ecg = ecg();
+            if (ecg + f < this.oCY.getContentView().getMeasuredWidth() / 2) {
+                i(this.oCX, -((int) (((this.oCY.getContentView().getMeasuredWidth() / 2) - ecg) - f)), -1, -1, -1);
+            } else if ((this.mWindowWidth - ecg) - f < this.oCY.getContentView().getMeasuredWidth() / 2) {
+                i(this.oCX, (int) ((this.oCY.getContentView().getMeasuredWidth() / 2) - ((this.mWindowWidth - ecg) - f)), -1, -1, -1);
             } else {
-                i(this.oAS, 0, 0, 0, 0);
+                i(this.oCX, 0, 0, 0, 0);
             }
         }
     }
@@ -157,81 +157,81 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void ebZ() {
-        if (this.oAT == null && this.oAW != 0 && this.oAY != null) {
-            this.oAY.measure(0, 0);
-            this.oAT = new PopupWindow(this.oAY, -2, -2, false);
+    public void ech() {
+        if (this.oCY == null && this.oDb != 0 && this.oDd != null) {
+            this.oDd.measure(0, 0);
+            this.oCY = new PopupWindow(this.oDd, -2, -2, false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public View eca() {
-        return this.oAY;
+    public View eci() {
+        return this.oDd;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void Wc(String str) {
-        if (this.oAY instanceof CircleBubbleView) {
-            ((CircleBubbleView) this.oAY).setProgress(str);
-        } else if (this.hDB != null) {
-            this.hDB.setText(str);
+    public void Wj(String str) {
+        if (this.oDd instanceof CircleBubbleView) {
+            ((CircleBubbleView) this.oDd).setProgress(str);
+        } else if (this.hFk != null) {
+            this.hFk.setText(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void Mj(int i) {
-        i(this.oAY, i, -1, -1, -1);
+    public void Mn(int i) {
+        i(this.oDd, i, -1, -1, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void Mk(int i) {
-        i(this.oAS, i, -1, -1, -1);
+    public void Mo(int i) {
+        i(this.oCX, i, -1, -1, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bi(float f) {
-        if (this.oAX.isEnabled() && this.oAX.getVisibility() == 0) {
-            ecb();
-            if (this.oAT != null) {
-                this.oAT.getContentView().measure(0, 0);
-                this.oAT.update(this.oAX, (int) (f - (this.oAT.getContentView().getMeasuredWidth() / 2)), -(((this.oAX.getMeasuredHeight() + this.oAT.getContentView().getMeasuredHeight()) - this.oAX.getPaddingTop()) + this.oAV), -1, -1);
-                bh(f);
+    public void bm(float f) {
+        if (this.oDc.isEnabled() && this.oDc.getVisibility() == 0) {
+            ecj();
+            if (this.oCY != null) {
+                this.oCY.getContentView().measure(0, 0);
+                this.oCY.update(this.oDc, (int) (f - (this.oCY.getContentView().getMeasuredWidth() / 2)), -(((this.oDc.getMeasuredHeight() + this.oCY.getContentView().getMeasuredHeight()) - this.oDc.getPaddingTop()) + this.oDa), -1, -1);
+                bl(f);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bj(float f) {
-        if (this.oAX.isEnabled() && this.oAX.getVisibility() == 0) {
-            ecb();
-            if (this.oAT != null) {
-                this.oAT.getContentView().measure(0, 0);
-                this.oAT.showAsDropDown(this.oAX, (int) (f - (this.oAT.getContentView().getMeasuredWidth() / 2.0f)), -(((this.oAX.getMeasuredHeight() + this.oAT.getContentView().getMeasuredHeight()) - this.oAX.getPaddingTop()) + this.oAV));
-                bh(f);
+    public void bn(float f) {
+        if (this.oDc.isEnabled() && this.oDc.getVisibility() == 0) {
+            ecj();
+            if (this.oCY != null) {
+                this.oCY.getContentView().measure(0, 0);
+                this.oCY.showAsDropDown(this.oDc, (int) (f - (this.oCY.getContentView().getMeasuredWidth() / 2.0f)), -(((this.oDc.getMeasuredHeight() + this.oCY.getContentView().getMeasuredHeight()) - this.oDc.getPaddingTop()) + this.oDa));
+                bl(f);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void ecb() {
-        String indicatorTextString = this.oAX.getIndicatorTextString();
-        if (this.oAY instanceof CircleBubbleView) {
-            ((CircleBubbleView) this.oAY).setProgress(indicatorTextString);
-        } else if (this.hDB != null) {
-            this.hDB.setText(indicatorTextString);
+    public void ecj() {
+        String indicatorTextString = this.oDc.getIndicatorTextString();
+        if (this.oDd instanceof CircleBubbleView) {
+            ((CircleBubbleView) this.oDd).setProgress(indicatorTextString);
+        } else if (this.hFk != null) {
+            this.hFk.setText(indicatorTextString);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void hide() {
-        if (this.oAT != null) {
-            this.oAT.dismiss();
+        if (this.oCY != null) {
+            this.oCY.dismiss();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isShowing() {
-        return this.oAT != null && this.oAT.isShowing();
+        return this.oCY != null && this.oCY.isShowing();
     }
 
     public void es(@NonNull View view) {
@@ -239,13 +239,13 @@ public class c {
     }
 
     public void a(@NonNull View view, @Nullable TextView textView) {
-        this.hDB = textView;
-        this.oAU.removeAllViews();
+        this.hFk = textView;
+        this.oCZ.removeAllViews();
         if (Build.VERSION.SDK_INT >= 16) {
-            view.setBackground(ebW());
+            view.setBackground(ece());
         } else {
-            view.setBackgroundDrawable(ebW());
+            view.setBackgroundDrawable(ece());
         }
-        this.oAU.addView(view);
+        this.oCZ.addView(view);
     }
 }

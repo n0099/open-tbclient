@@ -3,16 +3,16 @@ package com.baidu.live.ao;
 import com.baidu.live.data.AlaWheatInfoData;
 import com.baidu.live.data.ab;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements b {
-    private static volatile a bWB;
-    private b bWC;
+    private static volatile a bYb;
+    private b bYc;
 
-    public static a Yj() {
-        if (bWB == null) {
-            bWB = new a();
+    public static a Ym() {
+        if (bYb == null) {
+            bYb = new a();
         }
-        return bWB;
+        return bYb;
     }
 
     private a() {
@@ -20,153 +20,153 @@ public class a implements b {
 
     @Override // com.baidu.live.ao.b
     public boolean isApplying() {
-        if (this.bWC != null) {
-            return this.bWC.isApplying();
+        if (this.bYc != null) {
+            return this.bYc.isApplying();
         }
         return false;
     }
 
     @Override // com.baidu.live.ao.b
-    public boolean iH(String str) {
-        if (this.bWC != null) {
-            return this.bWC.iH(str);
+    public boolean iN(String str) {
+        if (this.bYc != null) {
+            return this.bYc.iN(str);
         }
         return false;
     }
 
     @Override // com.baidu.live.ao.b
-    public boolean Yk() {
-        if (this.bWC != null) {
-            return this.bWC.Yk();
+    public boolean Yn() {
+        if (this.bYc != null) {
+            return this.bYc.Yn();
         }
         return false;
     }
 
     @Override // com.baidu.live.ao.b
-    public boolean iI(String str) {
-        if (this.bWC != null) {
-            return this.bWC.iI(str);
+    public boolean iO(String str) {
+        if (this.bYc != null) {
+            return this.bYc.iO(str);
         }
         return false;
     }
 
     @Override // com.baidu.live.ao.b
-    public boolean iJ(String str) {
-        if (this.bWC != null) {
-            return this.bWC.iJ(str);
+    public boolean iP(String str) {
+        if (this.bYc != null) {
+            return this.bYc.iP(str);
         }
         return false;
     }
 
     @Override // com.baidu.live.ao.b
-    public AlaWheatInfoData iK(String str) {
-        if (this.bWC != null) {
-            return this.bWC.iK(str);
+    public AlaWheatInfoData iQ(String str) {
+        if (this.bYc != null) {
+            return this.bYc.iQ(str);
         }
         return null;
     }
 
     @Override // com.baidu.live.ao.b
-    public AlaWheatInfoData Yl() {
-        if (this.bWC != null) {
-            return this.bWC.Yl();
+    public AlaWheatInfoData Yo() {
+        if (this.bYc != null) {
+            return this.bYc.Yo();
         }
         return null;
     }
 
     @Override // com.baidu.live.ao.b
     public void G(String str, boolean z) {
-        if (this.bWC != null) {
-            this.bWC.G(str, z);
+        if (this.bYc != null) {
+            this.bYc.G(str, z);
         }
     }
 
     @Override // com.baidu.live.ao.b
-    public boolean iL(String str) {
-        if (this.bWC != null) {
-            return this.bWC.iL(str);
+    public boolean iR(String str) {
+        if (this.bYc != null) {
+            return this.bYc.iR(str);
         }
         return false;
     }
 
     public void a(b bVar) {
-        this.bWC = bVar;
+        this.bYc = bVar;
     }
 
     @Override // com.baidu.live.ao.b
-    public List<AlaWheatInfoData> Ym() {
-        if (this.bWC != null) {
-            return this.bWC.Ym();
+    public List<AlaWheatInfoData> Yp() {
+        if (this.bYc != null) {
+            return this.bYc.Yp();
         }
         return null;
     }
 
     @Override // com.baidu.live.ao.b
-    public List<AlaWheatInfoData> Yn() {
-        if (this.bWC != null) {
-            return this.bWC.Yn();
-        }
-        return null;
-    }
-
-    @Override // com.baidu.live.ao.b
-    public String Yo() {
-        if (this.bWC != null) {
-            return this.bWC.Yo();
-        }
-        return null;
-    }
-
-    @Override // com.baidu.live.ao.b
-    public String Yp() {
-        if (this.bWC != null) {
-            return this.bWC.Yp();
-        }
-        return null;
-    }
-
-    @Override // com.baidu.live.ao.b
-    public String getCustomRoomId() {
-        if (this.bWC != null) {
-            return this.bWC.getCustomRoomId();
-        }
-        return null;
-    }
-
-    @Override // com.baidu.live.ao.b
-    public ab Yq() {
-        if (this.bWC != null) {
-            return this.bWC.Yq();
+    public List<AlaWheatInfoData> Yq() {
+        if (this.bYc != null) {
+            return this.bYc.Yq();
         }
         return null;
     }
 
     @Override // com.baidu.live.ao.b
     public String Yr() {
-        if (this.bWC != null) {
-            return this.bWC.Yr();
+        if (this.bYc != null) {
+            return this.bYc.Yr();
+        }
+        return null;
+    }
+
+    @Override // com.baidu.live.ao.b
+    public String Ys() {
+        if (this.bYc != null) {
+            return this.bYc.Ys();
+        }
+        return null;
+    }
+
+    @Override // com.baidu.live.ao.b
+    public String getCustomRoomId() {
+        if (this.bYc != null) {
+            return this.bYc.getCustomRoomId();
+        }
+        return null;
+    }
+
+    @Override // com.baidu.live.ao.b
+    public ab Yt() {
+        if (this.bYc != null) {
+            return this.bYc.Yt();
+        }
+        return null;
+    }
+
+    @Override // com.baidu.live.ao.b
+    public String Yu() {
+        if (this.bYc != null) {
+            return this.bYc.Yu();
         }
         return null;
     }
 
     @Override // com.baidu.live.ao.b
     public void muteOrUnmuteAudio(boolean z) {
-        if (this.bWC != null) {
-            this.bWC.muteOrUnmuteAudio(z);
+        if (this.bYc != null) {
+            this.bYc.muteOrUnmuteAudio(z);
         }
     }
 
     @Override // com.baidu.live.ao.b
-    public void Ys() {
-        if (this.bWC != null) {
-            this.bWC.Ys();
+    public void Yv() {
+        if (this.bYc != null) {
+            this.bYc.Yv();
         }
     }
 
     @Override // com.baidu.live.ao.b
-    public void Yt() {
-        if (this.bWC != null) {
-            this.bWC.Yt();
+    public void Yw() {
+        if (this.bYc != null) {
+            this.bYc.Yw();
         }
     }
 }

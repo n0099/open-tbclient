@@ -31,9 +31,7 @@ import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-
-    /* renamed from: b  reason: collision with root package name */
-    private static a f11113b;
+    private static a b;
     private static final Object c = new Object();
     private byte[] d;
     private byte[] e;
@@ -47,7 +45,7 @@ public class a {
     private long l = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    String f11114a = "88&*5a9*4&a122ek";
+    String f7316a = "88&*5a9*4&a122ek";
 
     private a(Context context) {
         this.m = context;
@@ -85,10 +83,10 @@ public class a {
     }
 
     public static a a() {
-        if (f11113b == null) {
+        if (b == null) {
             throw new IllegalStateException("KeyMgr is not initialised - invoke at least once with parameterised init/get");
         }
-        return f11113b;
+        return b;
     }
 
     private String a(InputStream inputStream) {
@@ -123,10 +121,10 @@ public class a {
     }
 
     public static void a(Context context) {
-        if (f11113b == null) {
+        if (b == null) {
             synchronized (c) {
-                if (f11113b == null) {
-                    f11113b = new a(context);
+                if (b == null) {
+                    b = new a(context);
                 }
             }
         }

@@ -8,7 +8,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d extends Dialog {
     public d(@NonNull Context context) {
         super(context, a.i.guess_theme_dialog);

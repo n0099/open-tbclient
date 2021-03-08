@@ -14,23 +14,23 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.index.a.d;
 import com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class CategoryView extends LinearLayout {
-    private View.OnClickListener jig;
-    private TextView llS;
-    private TextView llT;
-    private ImageView llU;
-    private d llV;
+    private View.OnClickListener jjP;
+    private TextView lnV;
+    private TextView lnW;
+    private ImageView lnX;
+    private d lnY;
     private Context mContext;
     private View mRootView;
 
     public CategoryView(Context context) {
         super(context);
-        this.jig = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.index.CategoryView.1
+        this.jjP = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.index.CategoryView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != null && CategoryView.this.llV != null && !StringUtils.isNull(CategoryView.this.llV.dfl()) && !StringUtils.isNull(CategoryView.this.llV.dfk())) {
-                    switch (CategoryView.this.llV.dfm()) {
+                if (view != null && CategoryView.this.lnY != null && !StringUtils.isNull(CategoryView.this.lnY.dfu()) && !StringUtils.isNull(CategoryView.this.lnY.dft())) {
+                    switch (CategoryView.this.lnY.dfv()) {
                         case 1:
                             TiebaStatic.log("c10441");
                             break;
@@ -41,7 +41,7 @@ public class CategoryView extends LinearLayout {
                             TiebaStatic.log("c10449");
                             break;
                     }
-                    MemberCenterStatic.c((TbPageContext) j.K(CategoryView.this.mContext), new String[]{CategoryView.this.llV.dfl()});
+                    MemberCenterStatic.c((TbPageContext) j.J(CategoryView.this.mContext), new String[]{CategoryView.this.lnY.dfu()});
                 }
             }
         };
@@ -51,11 +51,11 @@ public class CategoryView extends LinearLayout {
 
     public CategoryView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jig = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.index.CategoryView.1
+        this.jjP = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.index.CategoryView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != null && CategoryView.this.llV != null && !StringUtils.isNull(CategoryView.this.llV.dfl()) && !StringUtils.isNull(CategoryView.this.llV.dfk())) {
-                    switch (CategoryView.this.llV.dfm()) {
+                if (view != null && CategoryView.this.lnY != null && !StringUtils.isNull(CategoryView.this.lnY.dfu()) && !StringUtils.isNull(CategoryView.this.lnY.dft())) {
+                    switch (CategoryView.this.lnY.dfv()) {
                         case 1:
                             TiebaStatic.log("c10441");
                             break;
@@ -66,7 +66,7 @@ public class CategoryView extends LinearLayout {
                             TiebaStatic.log("c10449");
                             break;
                     }
-                    MemberCenterStatic.c((TbPageContext) j.K(CategoryView.this.mContext), new String[]{CategoryView.this.llV.dfl()});
+                    MemberCenterStatic.c((TbPageContext) j.J(CategoryView.this.mContext), new String[]{CategoryView.this.lnY.dfu()});
                 }
             }
         };
@@ -76,11 +76,11 @@ public class CategoryView extends LinearLayout {
 
     public CategoryView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet);
-        this.jig = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.index.CategoryView.1
+        this.jjP = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.index.CategoryView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != null && CategoryView.this.llV != null && !StringUtils.isNull(CategoryView.this.llV.dfl()) && !StringUtils.isNull(CategoryView.this.llV.dfk())) {
-                    switch (CategoryView.this.llV.dfm()) {
+                if (view != null && CategoryView.this.lnY != null && !StringUtils.isNull(CategoryView.this.lnY.dfu()) && !StringUtils.isNull(CategoryView.this.lnY.dft())) {
+                    switch (CategoryView.this.lnY.dfv()) {
                         case 1:
                             TiebaStatic.log("c10441");
                             break;
@@ -91,7 +91,7 @@ public class CategoryView extends LinearLayout {
                             TiebaStatic.log("c10449");
                             break;
                     }
-                    MemberCenterStatic.c((TbPageContext) j.K(CategoryView.this.mContext), new String[]{CategoryView.this.llV.dfl()});
+                    MemberCenterStatic.c((TbPageContext) j.J(CategoryView.this.mContext), new String[]{CategoryView.this.lnY.dfu()});
                 }
             }
         };
@@ -101,10 +101,10 @@ public class CategoryView extends LinearLayout {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.index_category, this);
-        this.llS = (TextView) this.mRootView.findViewById(R.id.class_name);
-        this.llT = (TextView) this.mRootView.findViewById(R.id.sprend_name);
-        this.llU = (ImageView) this.mRootView.findViewById(R.id.spread_icon);
-        this.mRootView.setOnClickListener(this.jig);
-        this.llU.setOnClickListener(this.jig);
+        this.lnV = (TextView) this.mRootView.findViewById(R.id.class_name);
+        this.lnW = (TextView) this.mRootView.findViewById(R.id.sprend_name);
+        this.lnX = (ImageView) this.mRootView.findViewById(R.id.spread_icon);
+        this.mRootView.setOnClickListener(this.jjP);
+        this.lnX.setOnClickListener(this.jjP);
     }
 }

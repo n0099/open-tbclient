@@ -17,33 +17,33 @@ import com.baidu.tieba.R;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class g extends BaseAdapter {
-    private boolean bLU;
-    private int dkj;
-    private f lAO;
-    private BaseFragmentActivity lCk;
-    private int lCl;
-    private int lCm;
-    private String lCn;
+    private boolean bNu;
+    private int dlK;
+    private f lCQ;
+    private BaseFragmentActivity lEm;
+    private int lEn;
+    private int lEo;
+    private String lEp;
     private List<ImageFileInfo> mList;
     private int mScreenWidth;
     private int mWidth;
-    private LinkedHashMap<String, ImageFileInfo> lCj = new LinkedHashMap<>();
-    private com.baidu.tbadk.img.b fyF = new com.baidu.tbadk.img.b();
+    private LinkedHashMap<String, ImageFileInfo> lEl = new LinkedHashMap<>();
+    private com.baidu.tbadk.img.b fAe = new com.baidu.tbadk.img.b();
 
     public g(BaseFragmentActivity baseFragmentActivity, List<ImageFileInfo> list) {
-        this.lCk = baseFragmentActivity;
+        this.lEm = baseFragmentActivity;
         this.mList = list;
         this.mWidth = (int) baseFragmentActivity.getResources().getDimension(R.dimen.ds220);
         this.mScreenWidth = l.getEquipmentWidth(baseFragmentActivity.getPageContext().getPageActivity());
-        this.dkj = (this.mScreenWidth - l.getDimens(baseFragmentActivity.getPageContext().getPageActivity(), R.dimen.ds16)) / 3;
-        this.lCl = l.getDimens(baseFragmentActivity.getPageContext().getPageActivity(), R.dimen.ds8) / 3;
-        this.lCm = (this.lCl * 2) + 1;
+        this.dlK = (this.mScreenWidth - l.getDimens(baseFragmentActivity.getPageContext().getPageActivity(), R.dimen.ds16)) / 3;
+        this.lEn = l.getDimens(baseFragmentActivity.getPageContext().getPageActivity(), R.dimen.ds8) / 3;
+        this.lEo = (this.lEn * 2) + 1;
     }
 
-    public void OU(String str) {
-        this.lCn = str;
+    public void Pa(String str) {
+        this.lEp = str;
     }
 
     @Override // android.widget.Adapter
@@ -56,7 +56,7 @@ public class g extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Fh */
+    /* renamed from: Fk */
     public ImageFileInfo getItem(int i) {
         if (this.mList == null || i > this.mList.size() - 1) {
             return null;
@@ -85,28 +85,28 @@ public class g extends BaseAdapter {
         int paddingTop = aVar.rootView.getPaddingTop();
         int i2 = i % 3;
         if (i2 == 0) {
-            aVar.rootView.setPadding(0, paddingTop, this.lCm, 0);
+            aVar.rootView.setPadding(0, paddingTop, this.lEo, 0);
         } else if (i2 == 1) {
-            aVar.rootView.setPadding(this.lCl, paddingTop, this.lCl, 0);
+            aVar.rootView.setPadding(this.lEn, paddingTop, this.lEn, 0);
         } else {
-            aVar.rootView.setPadding(this.lCm, paddingTop, 0, 0);
+            aVar.rootView.setPadding(this.lEo, paddingTop, 0, 0);
         }
-        aVar.lCp.getLayoutParams().height = this.dkj;
-        aVar.lCp.setTag(null);
-        aVar.lCp.setRadius(1);
-        aVar.lCp.setDefaultResource(R.drawable.img_default_100);
-        aVar.lCp.startLoad(null, 12, false);
-        aVar.lCp.invalidate();
+        aVar.lEr.getLayoutParams().height = this.dlK;
+        aVar.lEr.setTag(null);
+        aVar.lEr.setRadius(1);
+        aVar.lEr.setDefaultResource(R.drawable.img_default_100);
+        aVar.lEr.startLoad(null, 12, false);
+        aVar.lEr.invalidate();
         ImageFileInfo imageFileInfo = this.mList.get(i);
         if (imageFileInfo != null) {
             imageFileInfo.clearPageActions();
             imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.bd(this.mWidth, this.mWidth));
-            com.baidu.adp.widget.ImageView.a a2 = this.fyF.a(imageFileInfo, false);
-            aVar.lCp.setTag(imageFileInfo.toCachedKey(false));
+            com.baidu.adp.widget.ImageView.a a2 = this.fAe.a(imageFileInfo, false);
+            aVar.lEr.setTag(imageFileInfo.toCachedKey(false));
             if (a2 != null) {
-                aVar.lCp.invalidate();
+                aVar.lEr.invalidate();
             } else {
-                this.fyF.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.newfaceshop.facemake.g.1
+                this.fAe.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.newfaceshop.facemake.g.1
                     @Override // com.baidu.tbadk.imageManager.b
                     public void a(com.baidu.adp.widget.ImageView.a aVar3, String str, boolean z) {
                         HeadImageView headImageView = (HeadImageView) viewGroup.findViewWithTag(str);
@@ -114,12 +114,12 @@ public class g extends BaseAdapter {
                             headImageView.invalidate();
                         }
                     }
-                }, false, this.bLU);
+                }, false, this.bNu);
             }
-            if (this.lCj.containsKey(imageFileInfo.getFilePath())) {
-                ap.setBackgroundResource(aVar.lCq, R.drawable.ic_post_image_selected_s);
+            if (this.lEl.containsKey(imageFileInfo.getFilePath())) {
+                ap.setBackgroundResource(aVar.lEs, R.drawable.ic_post_image_selected_s);
             } else {
-                ap.setBackgroundResource(aVar.lCq, R.drawable.ic_post_image_selected_n);
+                ap.setBackgroundResource(aVar.lEs, R.drawable.ic_post_image_selected_n);
             }
             view.setTag(view.getId(), imageFileInfo);
         }
@@ -127,33 +127,33 @@ public class g extends BaseAdapter {
     }
 
     public void b(f fVar) {
-        this.lAO = fVar;
+        this.lCQ = fVar;
     }
 
     public boolean isScroll() {
-        return this.bLU;
+        return this.bNu;
     }
 
     public void dq(boolean z) {
-        this.bLU = z;
+        this.bNu = z;
     }
 
-    public com.baidu.tbadk.img.b diT() {
-        return this.fyF;
+    public com.baidu.tbadk.img.b djc() {
+        return this.fAe;
     }
 
     public void I(Map<String, ImageFileInfo> map) {
-        this.lCj.putAll(map);
+        this.lEl.putAll(map);
     }
 
-    public LinkedHashMap<String, ImageFileInfo> diC() {
-        return this.lCj;
+    public LinkedHashMap<String, ImageFileInfo> diL() {
+        return this.lEl;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     class a {
-        public HeadImageView lCp;
-        public ImageView lCq;
+        public HeadImageView lEr;
+        public ImageView lEs;
         public View rootView;
 
         a() {
@@ -161,31 +161,31 @@ public class g extends BaseAdapter {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void am(View view) {
-            this.lCp = (HeadImageView) view.findViewById(R.id.image);
-            this.lCq = (ImageView) view.findViewById(R.id.select_icon);
+            this.lEr = (HeadImageView) view.findViewById(R.id.image);
+            this.lEs = (ImageView) view.findViewById(R.id.select_icon);
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.newfaceshop.facemake.g.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     if (view2.getTag(view2.getId()) != null && (view2.getTag(view2.getId()) instanceof ImageFileInfo)) {
                         ImageFileInfo imageFileInfo = (ImageFileInfo) view2.getTag(view2.getId());
-                        if (g.this.lCj.containsKey(imageFileInfo.getFilePath())) {
-                            g.this.lCj.remove(imageFileInfo.getFilePath());
-                            ap.setBackgroundResource(a.this.lCq, R.drawable.ic_post_image_selected_n);
-                            if (g.this.lAO != null) {
-                                g.this.lAO.czK();
+                        if (g.this.lEl.containsKey(imageFileInfo.getFilePath())) {
+                            g.this.lEl.remove(imageFileInfo.getFilePath());
+                            ap.setBackgroundResource(a.this.lEs, R.drawable.ic_post_image_selected_n);
+                            if (g.this.lCQ != null) {
+                                g.this.lCQ.czQ();
                             }
-                        } else if (g.this.lAO != null) {
-                            if (g.this.lAO.czL()) {
-                                g.this.lCj.put(imageFileInfo.getFilePath(), imageFileInfo);
-                                ap.setBackgroundResource(a.this.lCq, R.drawable.ic_post_image_selected_s);
-                                g.this.lAO.czJ();
+                        } else if (g.this.lCQ != null) {
+                            if (g.this.lCQ.czR()) {
+                                g.this.lEl.put(imageFileInfo.getFilePath(), imageFileInfo);
+                                ap.setBackgroundResource(a.this.lEs, R.drawable.ic_post_image_selected_s);
+                                g.this.lCQ.czP();
                                 return;
                             }
-                            Activity pageActivity = g.this.lCk.getPageContext().getPageActivity();
-                            if (!TextUtils.isEmpty(g.this.lCn)) {
-                                BdToast.b(pageActivity, g.this.lCn).bqD();
+                            Activity pageActivity = g.this.lEm.getPageContext().getPageActivity();
+                            if (!TextUtils.isEmpty(g.this.lEp)) {
+                                BdToast.b(pageActivity, g.this.lEp).bqF();
                             } else {
-                                BdToast.b(pageActivity, pageActivity.getText(R.string.face_group_add_pic_max)).bqD();
+                                BdToast.b(pageActivity, pageActivity.getText(R.string.face_group_add_pic_max)).bqF();
                             }
                         }
                     }

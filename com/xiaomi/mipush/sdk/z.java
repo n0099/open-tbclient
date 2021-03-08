@@ -1,19 +1,19 @@
 package com.xiaomi.mipush.sdk;
 
 import android.text.TextUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 class z {
 
     /* renamed from: a  reason: collision with root package name */
-    int f13847a = 0;
+    int f8247a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    String f167a = "";
+    String f88a = "";
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof z)) {
             z zVar = (z) obj;
-            if (!TextUtils.isEmpty(zVar.f167a) && zVar.f167a.equals(this.f167a)) {
+            if (!TextUtils.isEmpty(zVar.f88a) && zVar.f88a.equals(this.f88a)) {
                 return true;
             }
         }

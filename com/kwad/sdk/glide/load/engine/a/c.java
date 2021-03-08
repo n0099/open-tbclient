@@ -10,20 +10,16 @@ import java.util.concurrent.locks.ReentrantLock;
 final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Map<String, a> f10157a = new HashMap();
-
-    /* renamed from: b  reason: collision with root package name */
-    private final b f10158b = new b();
+    private final Map<String, a> f6721a = new HashMap();
+    private final b b = new b();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        final Lock f10159a = new ReentrantLock();
-
-        /* renamed from: b  reason: collision with root package name */
-        int f10160b;
+        final Lock f6722a = new ReentrantLock();
+        int b;
 
         a() {
         }
@@ -33,23 +29,23 @@ final class c {
     private static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Queue<a> f10161a = new ArrayDeque();
+        private final Queue<a> f6723a = new ArrayDeque();
 
         b() {
         }
 
         a a() {
             a poll;
-            synchronized (this.f10161a) {
-                poll = this.f10161a.poll();
+            synchronized (this.f6723a) {
+                poll = this.f6723a.poll();
             }
             return poll == null ? new a() : poll;
         }
 
         void a(a aVar) {
-            synchronized (this.f10161a) {
-                if (this.f10161a.size() < 10) {
-                    this.f10161a.offer(aVar);
+            synchronized (this.f6723a) {
+                if (this.f6723a.size() < 10) {
+                    this.f6723a.offer(aVar);
                 }
             }
         }
@@ -59,33 +55,33 @@ final class c {
     public void a(String str) {
         a aVar;
         synchronized (this) {
-            aVar = this.f10157a.get(str);
+            aVar = this.f6721a.get(str);
             if (aVar == null) {
-                aVar = this.f10158b.a();
-                this.f10157a.put(str, aVar);
+                aVar = this.b.a();
+                this.f6721a.put(str, aVar);
             }
-            aVar.f10160b++;
+            aVar.b++;
         }
-        aVar.f10159a.lock();
+        aVar.f6722a.lock();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(String str) {
         a aVar;
         synchronized (this) {
-            aVar = (a) com.kwad.sdk.glide.g.j.a(this.f10157a.get(str));
-            if (aVar.f10160b < 1) {
-                throw new IllegalStateException("Cannot release a lock that is not held, safeKey: " + str + ", interestedThreads: " + aVar.f10160b);
+            aVar = (a) com.kwad.sdk.glide.g.j.a(this.f6721a.get(str));
+            if (aVar.b < 1) {
+                throw new IllegalStateException("Cannot release a lock that is not held, safeKey: " + str + ", interestedThreads: " + aVar.b);
             }
-            aVar.f10160b--;
-            if (aVar.f10160b == 0) {
-                a remove = this.f10157a.remove(str);
+            aVar.b--;
+            if (aVar.b == 0) {
+                a remove = this.f6721a.remove(str);
                 if (!remove.equals(aVar)) {
                     throw new IllegalStateException("Removed the wrong lock, expected to remove: " + aVar + ", but actually removed: " + remove + ", safeKey: " + str);
                 }
-                this.f10158b.a(remove);
+                this.b.a(remove);
             }
         }
-        aVar.f10159a.unlock();
+        aVar.f6722a.unlock();
     }
 }

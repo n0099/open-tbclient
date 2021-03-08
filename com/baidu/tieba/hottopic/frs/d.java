@@ -18,69 +18,69 @@ import com.baidu.tieba.frs.s;
 import com.baidu.tieba.frs.t;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d {
-    private BdTypeRecyclerView XW;
-    private PbListView gAw;
-    private final a kvG;
-    private final b kvH;
+    private BdTypeRecyclerView Zq;
+    private PbListView gCf;
+    private final a kxI;
+    private final b kxJ;
     private final TbPageContext mPageContext;
     private View mRootView;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
     }
 
     public d(a aVar, View view, TbPageContext tbPageContext) {
         this.mRootView = view;
         this.mPageContext = tbPageContext;
-        this.kvG = aVar;
-        this.XW = (BdTypeRecyclerView) view.findViewById(R.id.frs_hottopic_lv_thread);
-        this.XW.setLayoutManager(new LinearLayoutManager(this.XW.getContext()));
-        this.XW.setFadingEdgeLength(0);
-        this.XW.setOverScrollMode(2);
-        this.gAw = new PbListView(tbPageContext.getPageActivity());
-        this.gAw.createView();
-        this.gAw.setContainerBackgroundColorResId(R.color.CAM_X0205);
-        this.gAw.setHeight(l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds182));
-        this.gAw.setLineGone();
-        this.gAw.setTextSize(R.dimen.tbfontsize33);
-        this.gAw.setNoMoreTextColorId(R.color.CAM_X0110);
-        this.XW.setNextPage(this.gAw);
-        this.gAw.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.gAw.endLoadData();
-        this.gAw.setText(tbPageContext.getResources().getString(R.string.list_no_more));
+        this.kxI = aVar;
+        this.Zq = (BdTypeRecyclerView) view.findViewById(R.id.frs_hottopic_lv_thread);
+        this.Zq.setLayoutManager(new LinearLayoutManager(this.Zq.getContext()));
+        this.Zq.setFadingEdgeLength(0);
+        this.Zq.setOverScrollMode(2);
+        this.gCf = new PbListView(tbPageContext.getPageActivity());
+        this.gCf.createView();
+        this.gCf.setContainerBackgroundColorResId(R.color.CAM_X0205);
+        this.gCf.setHeight(l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds182));
+        this.gCf.setLineGone();
+        this.gCf.setTextSize(R.dimen.tbfontsize33);
+        this.gCf.setNoMoreTextColorId(R.color.CAM_X0110);
+        this.Zq.setNextPage(this.gCf);
+        this.gCf.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.gCf.endLoadData();
+        this.gCf.setText(tbPageContext.getResources().getString(R.string.list_no_more));
         onChangeSkinType();
-        this.kvH = new b(tbPageContext, this.XW);
+        this.kxJ = new b(tbPageContext, this.Zq);
     }
 
     public void b(TbPageTag tbPageTag) {
-        this.kvH.b(tbPageTag);
+        this.kxJ.b(tbPageTag);
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (this.gAw != null) {
-            this.gAw.setTextColor(ap.getColor(R.color.CAM_X0107));
-            this.gAw.changeSkin(skinType);
+        if (this.gCf != null) {
+            this.gCf.setTextColor(ap.getColor(R.color.CAM_X0107));
+            this.gCf.changeSkin(skinType);
         }
-        if (this.XW != null && this.XW.getAdapter() != null) {
-            this.XW.getAdapter().notifyDataSetChanged();
+        if (this.Zq != null && this.Zq.getAdapter() != null) {
+            this.Zq.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void qV(boolean z) {
         if (z) {
-            this.XW.setVisibility(0);
+            this.Zq.setVisibility(0);
         } else {
-            this.XW.setVisibility(8);
+            this.Zq.setVisibility(8);
         }
     }
 
     public void setRefreshing(boolean z) {
         t tVar = new t();
         tVar.tabId = 401;
-        tVar.gcC = z;
+        tVar.gec = z;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, tVar));
     }
 
@@ -90,21 +90,21 @@ public class d {
 
     public void setData(List<n> list) {
         if (!y.isEmpty(list)) {
-            this.XW.setData(list);
+            this.Zq.setData(list);
         }
     }
 
     public void showNoDataView() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new s());
-        this.XW.setData(arrayList);
+        this.Zq.setData(arrayList);
     }
 
-    public void cCg() {
-        this.XW.scrollToPosition(0);
+    public void cCm() {
+        this.Zq.scrollToPosition(0);
     }
 
     public boolean hasData() {
-        return (this.XW == null || y.isEmpty(this.XW.getData())) ? false : true;
+        return (this.Zq == null || y.isEmpty(this.Zq.getData())) ? false : true;
     }
 }

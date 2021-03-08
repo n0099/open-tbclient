@@ -7,12 +7,12 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class k {
     private final RemoteViews remoteViews = new RemoteViews(TbadkCoreApplication.getInst().getPackageName(), R.layout.download_notify_view);
 
     public k(DownloadData downloadData, int i) {
-        HN(i);
+        HQ(i);
         this.remoteViews.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.on_downloading));
         this.remoteViews.setImageViewResource(R.id.download_btn, R.drawable.notify_pause_bg);
         this.remoteViews.setImageViewResource(R.id.download_cancel, R.drawable.notify_cancel_bg);
@@ -39,21 +39,21 @@ public class k {
         this.remoteViews.setOnClickPendingIntent(R.id.download_cancel, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent2, 134217728));
     }
 
-    public RemoteViews dDC() {
+    public RemoteViews dDK() {
         return this.remoteViews;
     }
 
-    public void dDD() {
+    public void dDL() {
         this.remoteViews.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.on_downloading));
         this.remoteViews.setImageViewResource(R.id.download_btn, R.drawable.notify_pause_bg);
     }
 
-    public void dDE() {
+    public void dDM() {
         this.remoteViews.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.downloading_app_paused));
         this.remoteViews.setImageViewResource(R.id.download_btn, R.drawable.notify_start_bg);
     }
 
-    public void HN(int i) {
+    public void HQ(int i) {
         String str;
         if (i > 0) {
             str = i + "%";

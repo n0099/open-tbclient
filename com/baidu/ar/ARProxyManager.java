@@ -8,23 +8,23 @@ import com.baidu.ar.recg.IOnDeviceIR;
 import com.baidu.ar.track2d.ITrack2D;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class ARProxyManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private HashMap<String, d> f1485a = new HashMap<>();
+    private HashMap<String, d> f1256a = new HashMap<>();
 
     private d a(String str) {
         if (b(str)) {
-            if (this.f1485a == null) {
-                this.f1485a = new HashMap<>();
+            if (this.f1256a == null) {
+                this.f1256a = new HashMap<>();
             }
-            d dVar = this.f1485a.get(str);
+            d dVar = this.f1256a.get(str);
             if (dVar == null) {
                 dVar = c(str);
             }
             if (dVar != null) {
-                this.f1485a.put(str, dVar);
+                this.f1256a.put(str, dVar);
                 return dVar;
             }
             return dVar;
@@ -72,8 +72,8 @@ public class ARProxyManager {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d() {
-        if (this.f1485a != null) {
-            for (d dVar : this.f1485a.values()) {
+        if (this.f1256a != null) {
+            for (d dVar : this.f1256a.values()) {
                 dVar.a(null);
             }
         }
@@ -82,7 +82,7 @@ public class ARProxyManager {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d(String str) {
         d dVar;
-        if (this.f1485a == null || (dVar = this.f1485a.get(str)) == null) {
+        if (this.f1256a == null || (dVar = this.f1256a.get(str)) == null) {
             return;
         }
         dVar.a(null);
@@ -119,12 +119,12 @@ public class ARProxyManager {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void release() {
         d();
-        if (this.f1485a != null) {
-            for (Map.Entry<String, d> entry : this.f1485a.entrySet()) {
+        if (this.f1256a != null) {
+            for (Map.Entry<String, d> entry : this.f1256a.entrySet()) {
                 entry.getValue().release();
             }
-            this.f1485a.clear();
-            this.f1485a = null;
+            this.f1256a.clear();
+            this.f1256a = null;
         }
     }
 }

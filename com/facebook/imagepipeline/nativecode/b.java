@@ -1,13 +1,13 @@
 package com.facebook.imagepipeline.nativecode;
 
 import android.os.Build;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public class b {
-    private static boolean pxY;
+    private static boolean pAd;
 
-    public static synchronized void erR() {
+    public static synchronized void esa() {
         synchronized (b.class) {
-            if (!pxY) {
+            if (!pAd) {
                 if (Build.VERSION.SDK_INT <= 16) {
                     try {
                         com.facebook.common.e.a.loadLibrary("fb_jpegturbo");
@@ -15,7 +15,7 @@ public class b {
                     }
                 }
                 com.facebook.common.e.a.loadLibrary("static-webp");
-                pxY = true;
+                pAd = true;
             }
         }
     }

@@ -8,7 +8,7 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
 /* loaded from: classes.dex */
 public class h<V extends TypeAdapter.ViewHolder> extends a<g, V> {
-    private a<n, V> Xt;
+    private a<n, V> YM;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
     /* JADX DEBUG: Multi-variable search result rejected for r11v0, resolved type: com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder */
@@ -23,7 +23,7 @@ public class h<V extends TypeAdapter.ViewHolder> extends a<g, V> {
     }
 
     public void a(a aVar) {
-        this.Xt = aVar;
+        this.YM = aVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.a
@@ -35,44 +35,44 @@ public class h<V extends TypeAdapter.ViewHolder> extends a<g, V> {
     @Override // com.baidu.adp.widget.ListView.a
     public V a(ViewGroup viewGroup, g gVar) {
         V e;
-        if (this.Xt == null) {
+        if (this.YM == null) {
             return null;
         }
-        if (this.Wm == this.Xt.ql()) {
-            e = this.Xt.b(viewGroup, gVar.qv());
-        } else if (this.Wm == this.Xt.qm()) {
-            e = this.Xt.c(viewGroup, gVar.qv());
-        } else if (this.Wm == this.Xt.qn()) {
-            e = this.Xt.d(viewGroup, gVar.qv());
-        } else if (this.Wm == this.Xt.qo()) {
-            e = this.Xt.e(viewGroup, gVar.qv());
+        if (this.XG == this.YM.ql()) {
+            e = this.YM.b(viewGroup, gVar.qv());
+        } else if (this.XG == this.YM.qm()) {
+            e = this.YM.c(viewGroup, gVar.qv());
+        } else if (this.XG == this.YM.qn()) {
+            e = this.YM.d(viewGroup, gVar.qv());
+        } else if (this.XG == this.YM.qo()) {
+            e = this.YM.e(viewGroup, gVar.qv());
         } else {
-            e = this.Xt.e(viewGroup);
+            e = this.YM.e(viewGroup);
         }
         if (e == null) {
             throw new NullPointerException("Order error or holder created is NullPointerException");
         }
-        a(this.Xt.qp());
+        a(this.YM.qp());
         return e;
     }
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public View a2(int i, View view, ViewGroup viewGroup, g gVar, V v) {
-        if (this.Xt == null) {
+        if (this.YM == null) {
             return null;
         }
-        if (this.Wm == this.Xt.ql()) {
-            return this.Xt.b(i, view, viewGroup, gVar.qv(), v);
+        if (this.XG == this.YM.ql()) {
+            return this.YM.b(i, view, viewGroup, gVar.qv(), v);
         }
-        if (this.Wm == this.Xt.qm()) {
-            return this.Xt.c(i, view, viewGroup, gVar.qv(), v);
+        if (this.XG == this.YM.qm()) {
+            return this.YM.c(i, view, viewGroup, gVar.qv(), v);
         }
-        if (this.Wm == this.Xt.qn()) {
-            return this.Xt.d(i, view, viewGroup, gVar.qv(), v);
+        if (this.XG == this.YM.qn()) {
+            return this.YM.d(i, view, viewGroup, gVar.qv(), v);
         }
-        if (this.Wm == this.Xt.qo()) {
-            return this.Xt.e(i, view, viewGroup, gVar.qv(), v);
+        if (this.XG == this.YM.qo()) {
+            return this.YM.e(i, view, viewGroup, gVar.qv(), v);
         }
-        return this.Xt.a(i, view, viewGroup, gVar.qv(), v);
+        return this.YM.a(i, view, viewGroup, gVar.qv(), v);
     }
 }

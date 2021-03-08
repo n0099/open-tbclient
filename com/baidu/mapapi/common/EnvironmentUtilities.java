@@ -8,10 +8,8 @@ import java.io.File;
 public class EnvironmentUtilities {
 
     /* renamed from: a  reason: collision with root package name */
-    static String f2675a;
-
-    /* renamed from: b  reason: collision with root package name */
-    static String f2676b;
+    static String f1999a;
+    static String b;
     static String c;
     static int d;
     static int e;
@@ -19,11 +17,11 @@ public class EnvironmentUtilities {
     private static e g = null;
 
     public static String getAppCachePath() {
-        return f2676b;
+        return b;
     }
 
     public static String getAppSDCardPath() {
-        String str = f2675a + "/BaiduMapSDKNew";
+        String str = f1999a + "/BaiduMapSDKNew";
         if (str.length() != 0) {
             File file = new File(str);
             if (!file.exists()) {
@@ -50,7 +48,7 @@ public class EnvironmentUtilities {
     }
 
     public static String getSDCardPath() {
-        return f2675a;
+        return f1999a;
     }
 
     public static void initAppDirectory(Context context) {
@@ -58,11 +56,11 @@ public class EnvironmentUtilities {
             g = e.a();
             g.a(context);
         }
-        if (f2675a == null || f2675a.length() <= 0) {
-            f2675a = g.b().a();
-            f2676b = g.b().c();
+        if (f1999a == null || f1999a.length() <= 0) {
+            f1999a = g.b().a();
+            b = g.b().c();
         } else {
-            f2676b = f2675a + File.separator + "BaiduMapSDKNew" + File.separator + "cache";
+            b = f1999a + File.separator + "BaiduMapSDKNew" + File.separator + "cache";
         }
         c = g.b().d();
         d = 20971520;
@@ -71,6 +69,6 @@ public class EnvironmentUtilities {
     }
 
     public static void setSDCardPath(String str) {
-        f2675a = str;
+        f1999a = str;
     }
 }

@@ -3,7 +3,7 @@ package com.yy.videoplayer.decoder.glesunder43;
 import android.util.Log;
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLSurface;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class EglSurfaceBase {
     protected static final String TAG = "Grafika";
     protected EglCore mEglCore;

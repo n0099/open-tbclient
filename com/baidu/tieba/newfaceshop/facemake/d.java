@@ -15,16 +15,16 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.FaceData;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d extends BaseAdapter {
-    private a lBm;
+    private a lDo;
     private List<FaceData> mList;
     private Context mContext = BdBaseApplication.getInst().getApp();
-    private com.baidu.tbadk.img.b fyF = new com.baidu.tbadk.img.b();
+    private com.baidu.tbadk.img.b fAe = new com.baidu.tbadk.img.b();
     private int mScreenWidth = l.getEquipmentWidth(this.mContext);
     private int mWidth = (this.mScreenWidth - (l.getDimens(this.mContext, R.dimen.ds30) * 3)) / 4;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(FaceData faceData);
 
@@ -53,7 +53,7 @@ public class d extends BaseAdapter {
     }
 
     public void a(a aVar) {
-        this.lBm = aVar;
+        this.lDo = aVar;
     }
 
     public d(List<FaceData> list) {
@@ -75,29 +75,29 @@ public class d extends BaseAdapter {
         FaceData faceData = this.mList.get(i);
         if (faceData != null) {
             if (faceData.type == 4) {
-                ap.setImageResource(bVar.feK, R.drawable.emotion_icon_add_pic);
-                bVar.lBp.setVisibility(8);
+                ap.setImageResource(bVar.fgj, R.drawable.emotion_icon_add_pic);
+                bVar.lDr.setVisibility(8);
             } else if (faceData.type == 1) {
-                bVar.feK.setImageDrawable(null);
+                bVar.fgj.setImageDrawable(null);
                 a(faceData.emotionImageData, viewGroup, bVar);
             } else if (faceData.type == 2) {
-                bVar.feK.setImageDrawable(null);
+                bVar.fgj.setImageDrawable(null);
                 a(faceData.emotionImageData, bVar);
             } else {
-                bVar.feK.setImageDrawable(null);
+                bVar.fgj.setImageDrawable(null);
                 a(faceData.imageFileInfo, viewGroup, bVar);
             }
-            bVar.feK.setTag(bVar.feK.getId(), faceData);
+            bVar.fgj.setTag(bVar.fgj.getId(), faceData);
         }
-        bVar.lBp.setTag(faceData);
+        bVar.lDr.setTag(faceData);
         return view;
     }
 
     private void a(EmotionImageData emotionImageData, b bVar) {
         if (emotionImageData != null) {
-            bVar.feK.setTag(emotionImageData.getThumbUrl());
-            bVar.feK.startLoad(emotionImageData.getThumbUrl(), 10, false);
-            bVar.lBp.setVisibility(0);
+            bVar.fgj.setTag(emotionImageData.getThumbUrl());
+            bVar.fgj.startLoad(emotionImageData.getThumbUrl(), 10, false);
+            bVar.lDr.setVisibility(0);
         }
     }
 
@@ -110,16 +110,16 @@ public class d extends BaseAdapter {
                 public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                     View findViewWithTag;
                     if (aVar != null && (findViewWithTag = viewGroup.findViewWithTag(str)) != null && (findViewWithTag instanceof TbImageView) && str != null) {
-                        aVar.drawImageTo(bVar.feK);
+                        aVar.drawImageTo(bVar.fgj);
                     }
                 }
             }, 0, 0, null, null, emotionImageData.getThumbUrl(), false, null);
             com.baidu.adp.widget.ImageView.a aVar = (a2 == null || !(a2 instanceof com.baidu.adp.widget.ImageView.a)) ? null : (com.baidu.adp.widget.ImageView.a) a2;
             if (aVar != null) {
-                aVar.drawImageTo(bVar.feK);
-                bVar.feK.setTag(null);
+                aVar.drawImageTo(bVar.fgj);
+                bVar.fgj.setTag(null);
             }
-            bVar.lBp.setVisibility(0);
+            bVar.lDr.setVisibility(0);
         }
     }
 
@@ -127,13 +127,13 @@ public class d extends BaseAdapter {
         if (imageFileInfo != null) {
             imageFileInfo.clearPageActions();
             imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.bd(this.mWidth, this.mWidth));
-            com.baidu.adp.widget.ImageView.a a2 = this.fyF.a(imageFileInfo, false);
-            bVar.feK.setTag(imageFileInfo.toCachedKey(false));
+            com.baidu.adp.widget.ImageView.a a2 = this.fAe.a(imageFileInfo, false);
+            bVar.fgj.setTag(imageFileInfo.toCachedKey(false));
             if (a2 != null) {
-                a2.drawImageTo(bVar.feK);
-                bVar.feK.setTag(null);
+                a2.drawImageTo(bVar.fgj);
+                bVar.fgj.setTag(null);
             } else {
-                this.fyF.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.newfaceshop.facemake.d.2
+                this.fAe.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.newfaceshop.facemake.d.2
                     @Override // com.baidu.tbadk.imageManager.b
                     public void a(com.baidu.adp.widget.ImageView.a aVar, String str, boolean z) {
                         TbImageView tbImageView = (TbImageView) viewGroup.findViewWithTag(str);
@@ -143,40 +143,40 @@ public class d extends BaseAdapter {
                     }
                 }, false, false);
             }
-            bVar.lBp.setVisibility(0);
+            bVar.lDr.setVisibility(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class b {
-        public TbImageView feK;
-        public ImageView lBp;
+        public TbImageView fgj;
+        public ImageView lDr;
 
         b() {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void am(View view) {
-            this.feK = (TbImageView) view.findViewById(R.id.image);
-            this.lBp = (ImageView) view.findViewById(R.id.delete_icon);
-            ViewGroup.LayoutParams layoutParams = this.feK.getLayoutParams();
+            this.fgj = (TbImageView) view.findViewById(R.id.image);
+            this.lDr = (ImageView) view.findViewById(R.id.delete_icon);
+            ViewGroup.LayoutParams layoutParams = this.fgj.getLayoutParams();
             layoutParams.width = d.this.mWidth;
             layoutParams.height = d.this.mWidth;
-            ap.setImageResource(this.lBp, R.drawable.icon_live_close_n);
-            this.feK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.newfaceshop.facemake.d.b.1
+            ap.setImageResource(this.lDr, R.drawable.icon_live_close_n);
+            this.fgj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.newfaceshop.facemake.d.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (d.this.lBm != null && view2.getTag(view2.getId()) != null && (view2.getTag(view2.getId()) instanceof FaceData) && ((FaceData) view2.getTag(view2.getId())).type == 4) {
-                        d.this.lBm.onAdd();
+                    if (d.this.lDo != null && view2.getTag(view2.getId()) != null && (view2.getTag(view2.getId()) instanceof FaceData) && ((FaceData) view2.getTag(view2.getId())).type == 4) {
+                        d.this.lDo.onAdd();
                     }
                 }
             });
-            this.lBp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.newfaceshop.facemake.d.b.2
+            this.lDr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.newfaceshop.facemake.d.b.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (d.this.lBm != null && view2.getTag() != null && (view2.getTag() instanceof FaceData)) {
-                        d.this.lBm.a((FaceData) view2.getTag());
+                    if (d.this.lDo != null && view2.getTag() != null && (view2.getTag() instanceof FaceData)) {
+                        d.this.lDo.a((FaceData) view2.getTag());
                     }
                 }
             });

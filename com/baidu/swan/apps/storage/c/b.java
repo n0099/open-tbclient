@@ -12,37 +12,37 @@ import java.util.Deque;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends g {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final a dLZ;
-    private final boolean dMa;
+    private final a dNA;
+    private final boolean dNB;
     private final String mFileName;
 
     public b(String str) {
         super(str);
-        this.dLZ = new a();
+        this.dNA = new a();
         this.mFileName = str;
-        this.dMa = ProcessUtils.isMainProcess() || aMf();
+        this.dNB = ProcessUtils.isMainProcess() || aMi();
     }
 
-    public boolean aMe() {
-        return this.dMa;
+    public boolean aMh() {
+        return this.dNB;
     }
 
     @Override // com.baidu.swan.apps.storage.c.g, com.baidu.swan.c.b, android.content.SharedPreferences
     public Map<String, ?> getAll() {
-        return aMe() ? super.getAll() : new HashMap(super.getAll());
+        return aMh() ? super.getAll() : new HashMap(super.getAll());
     }
 
     @Override // com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences
     public SharedPreferences.Editor edit() {
-        return this.dMa ? super.edit() : this.dLZ;
+        return this.dNB ? super.edit() : this.dNA;
     }
 
     @Override // com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences
     public String getString(String str, String str2) {
-        if (this.dMa) {
+        if (this.dNB) {
             return cD(str, str2);
         }
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), e.class, c.b(getName(), 4, str, str2));
@@ -58,8 +58,8 @@ public class b extends g {
 
     @Override // com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences
     public int getInt(String str, int i) {
-        if (this.dMa) {
-            return ad(str, i);
+        if (this.dNB) {
+            return ae(str, i);
         }
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), e.class, c.b(getName(), 1, str, String.valueOf(i)));
         if (DEBUG) {
@@ -70,7 +70,7 @@ public class b extends g {
 
     @Override // com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences
     public long getLong(String str, long j) {
-        if (this.dMa) {
+        if (this.dNB) {
             return s(str, j);
         }
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), e.class, c.b(getName(), 2, str, String.valueOf(j)));
@@ -82,7 +82,7 @@ public class b extends g {
 
     @Override // com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences
     public float getFloat(String str, float f) {
-        if (this.dMa) {
+        if (this.dNB) {
             return f(str, f);
         }
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), e.class, c.b(getName(), 5, str, String.valueOf(f)));
@@ -95,7 +95,7 @@ public class b extends g {
     @Override // com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences
     public boolean getBoolean(String str, boolean z) {
         try {
-            if (this.dMa) {
+            if (this.dNB) {
                 return ah(str, z);
             }
             DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), e.class, c.b(getName(), 3, str, String.valueOf(z)));
@@ -111,7 +111,7 @@ public class b extends g {
 
     @Override // com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor putString(String str, String str2) {
-        if (this.dMa) {
+        if (this.dNB) {
             super.putString(str, str2);
         } else {
             DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), f.class, c.b(getName(), 4, str, str2));
@@ -121,7 +121,7 @@ public class b extends g {
 
     @Override // com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor putInt(String str, int i) {
-        if (this.dMa) {
+        if (this.dNB) {
             super.putInt(str, i);
         } else {
             DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), f.class, c.b(getName(), 1, str, String.valueOf(i)));
@@ -131,7 +131,7 @@ public class b extends g {
 
     @Override // com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor putLong(String str, long j) {
-        if (this.dMa) {
+        if (this.dNB) {
             super.edit().putLong(str, j).commit();
         } else {
             DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), f.class, c.b(getName(), 2, str, String.valueOf(j)));
@@ -141,7 +141,7 @@ public class b extends g {
 
     @Override // com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor putFloat(String str, float f) {
-        if (this.dMa) {
+        if (this.dNB) {
             super.putFloat(str, f);
         } else {
             DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), f.class, c.b(getName(), 5, str, String.valueOf(f)));
@@ -151,7 +151,7 @@ public class b extends g {
 
     @Override // com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor putBoolean(String str, boolean z) {
-        if (this.dMa) {
+        if (this.dNB) {
             super.putBoolean(str, z);
         } else {
             DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), f.class, c.b(getName(), 3, str, String.valueOf(z)));
@@ -161,7 +161,7 @@ public class b extends g {
 
     @Override // com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor remove(String str) {
-        if (this.dMa) {
+        if (this.dNB) {
             super.remove(str);
         } else {
             DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), f.class, c.b(getName(), 101, str, ""));
@@ -171,7 +171,7 @@ public class b extends g {
 
     @Override // com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor clear() {
-        if (this.dMa) {
+        if (this.dNB) {
             super.clear();
         } else {
             DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), f.class, c.b(getName(), 100, "", ""));
@@ -185,7 +185,7 @@ public class b extends g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int ad(String str, int i) {
+    public int ae(String str, int i) {
         return super.getInt(str, i);
     }
 
@@ -204,24 +204,24 @@ public class b extends g {
         return super.getBoolean(str, z);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     private class a implements SharedPreferences.Editor {
-        final Deque<Runnable> dMb;
+        final Deque<Runnable> dNC;
 
         private a() {
-            this.dMb = new ArrayDeque();
+            this.dNC = new ArrayDeque();
         }
 
-        private a g(Runnable runnable) {
-            synchronized (this.dMb) {
-                this.dMb.offer(runnable);
+        private a f(Runnable runnable) {
+            synchronized (this.dNC) {
+                this.dNC.offer(runnable);
             }
             return this;
         }
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor putString(final String str, @Nullable final String str2) {
-            return g(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.1
+            return f(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     b.this.putString(str, str2);
@@ -231,7 +231,7 @@ public class b extends g {
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor putStringSet(final String str, @Nullable final Set<String> set) {
-            return g(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.2
+            return f(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.2
                 @Override // java.lang.Runnable
                 public void run() {
                     b.this.putStringSet(str, set);
@@ -241,7 +241,7 @@ public class b extends g {
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor putInt(final String str, final int i) {
-            return g(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.3
+            return f(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.3
                 @Override // java.lang.Runnable
                 public void run() {
                     b.this.putInt(str, i);
@@ -251,7 +251,7 @@ public class b extends g {
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor putLong(final String str, final long j) {
-            return g(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.4
+            return f(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.4
                 @Override // java.lang.Runnable
                 public void run() {
                     b.this.putLong(str, j);
@@ -261,7 +261,7 @@ public class b extends g {
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor putFloat(final String str, final float f) {
-            return g(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.5
+            return f(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.5
                 @Override // java.lang.Runnable
                 public void run() {
                     b.this.putFloat(str, f);
@@ -271,7 +271,7 @@ public class b extends g {
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor putBoolean(final String str, final boolean z) {
-            return g(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.6
+            return f(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.6
                 @Override // java.lang.Runnable
                 public void run() {
                     b.this.putBoolean(str, z);
@@ -281,7 +281,7 @@ public class b extends g {
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor remove(final String str) {
-            return g(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.7
+            return f(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.7
                 @Override // java.lang.Runnable
                 public void run() {
                     b.this.remove(str);
@@ -291,7 +291,7 @@ public class b extends g {
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor clear() {
-            return g(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.8
+            return f(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.8
                 @Override // java.lang.Runnable
                 public void run() {
                     b.this.clear();
@@ -306,9 +306,9 @@ public class b extends g {
 
         @Override // android.content.SharedPreferences.Editor
         public boolean commit() {
-            synchronized (this.dMb) {
-                while (!this.dMb.isEmpty()) {
-                    Runnable poll = this.dMb.poll();
+            synchronized (this.dNC) {
+                while (!this.dNC.isEmpty()) {
+                    Runnable poll = this.dNC.poll();
                     if (poll != null) {
                         poll.run();
                     }

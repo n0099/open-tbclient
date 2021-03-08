@@ -2,21 +2,21 @@ package com.baidu.sofire.i;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class y {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f5289a = "";
+    private static String f3554a = "";
 
     public static String a(Context context) {
-        if (!TextUtils.isEmpty(f5289a)) {
-            return f5289a;
+        if (!TextUtils.isEmpty(f3554a)) {
+            return f3554a;
         }
         try {
-            f5289a = context.getPackageManager().getPackageInfo(context.getPackageName(), 16384).versionName;
+            f3554a = context.getPackageManager().getPackageInfo(context.getPackageName(), 16384).versionName;
         } catch (Throwable th) {
             e.a();
         }
-        return f5289a;
+        return f3554a;
     }
 }

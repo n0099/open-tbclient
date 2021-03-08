@@ -9,65 +9,65 @@ import com.baidu.tbadk.core.util.aw;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class t extends a {
-    private boolean Kl;
-    private int fdh;
-    private boolean fdi;
-    private int fdj;
-    private int fdk;
+    private boolean LH;
+    private int feG;
+    private boolean feH;
+    private int feI;
+    private int feJ;
     private boolean mIsFromCDN;
 
     public t(boolean z, boolean z2, boolean z3, int i) {
         this.mIsFromCDN = z;
-        this.Kl = z2;
-        this.fdi = z3;
-        this.fdh = i;
+        this.LH = z2;
+        this.feH = z3;
+        this.feG = i;
         int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
         int equipmentHeight = com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst());
         if (i == 13) {
-            this.fdj = equipmentWidth <= 0 ? 200 : equipmentWidth;
-            if (this.fdj > 480) {
-                this.fdj = 480;
+            this.feI = equipmentWidth <= 0 ? 200 : equipmentWidth;
+            if (this.feI > 480) {
+                this.feI = 480;
             }
-            if (this.fdj > com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f)) {
-                this.fdj = com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f);
+            if (this.feI > com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f)) {
+                this.feI = com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f);
             }
-            this.fdk = this.fdj;
+            this.feJ = this.feI;
         } else if (i == 17) {
-            this.fdj = Math.min(com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst().getApp(), 427.0f), 640);
-            this.fdk = (int) (this.fdj * 1.6f);
+            this.feI = Math.min(com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst().getApp(), 427.0f), 640);
+            this.feJ = (int) (this.feI * 1.6f);
         } else if (i == 15) {
             int dimensionPixelSize = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(R.dimen.ds184);
-            this.fdk = dimensionPixelSize;
-            this.fdj = dimensionPixelSize;
+            this.feJ = dimensionPixelSize;
+            this.feI = dimensionPixelSize;
         } else if (i == 16) {
             int dimensionPixelSize2 = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(R.dimen.ds176);
-            this.fdk = dimensionPixelSize2;
-            this.fdj = dimensionPixelSize2;
+            this.feJ = dimensionPixelSize2;
+            this.feI = dimensionPixelSize2;
         } else if (i == 21) {
-            this.fdk = 0;
-            this.fdj = 0;
+            this.feJ = 0;
+            this.feI = 0;
         } else if (i == 30) {
             if (equipmentWidth <= 0 || equipmentWidth > 644) {
-                this.fdj = 644;
+                this.feI = 644;
             }
-            if (this.fdj > com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst().getApp(), 430.0f)) {
-                this.fdj = com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst().getApp(), 430.0f);
+            if (this.feI > com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst().getApp(), 430.0f)) {
+                this.feI = com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst().getApp(), 430.0f);
             }
-            this.fdk = (int) (this.fdj * 0.43f);
+            this.feJ = (int) (this.feI * 0.43f);
         } else {
-            this.fdj = equipmentWidth;
-            this.fdk = equipmentHeight;
+            this.feI = equipmentWidth;
+            this.feJ = equipmentHeight;
         }
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int btn() {
-        return this.fdj;
+    public int btq() {
+        return this.feI;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int bto() {
-        return this.fdk;
+    public int btr() {
+        return this.feJ;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
@@ -77,20 +77,20 @@ public class t extends a {
 
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.e.e
     public boolean mx() {
-        if (this.fdi) {
+        if (this.feH) {
             return true;
         }
         return super.mx();
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public Bitmap f(Bitmap bitmap, int i, int i2) {
-        return (this.fdh == 13 || this.fdh == 17) ? bitmap : super.f(bitmap, i, i2);
+    public Bitmap e(Bitmap bitmap, int i, int i2) {
+        return (this.feG == 13 || this.feG == 17) ? bitmap : super.e(bitmap, i, i2);
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int btp() {
-        return this.fdh;
+    public int bts() {
+        return this.feG;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
@@ -107,13 +107,13 @@ public class t extends a {
                 cVar.setSdCard(false);
                 cVar.setSavedCache(true);
                 cVar.setGif(booleanValue3);
-                cVar.Z(this.Kl);
+                cVar.Z(this.LH);
                 com.baidu.adp.lib.Disk.d.lg().c(cVar);
                 com.baidu.adp.lib.e.b bVar = (com.baidu.adp.lib.e.b) objArr[3];
                 if (bVar != null) {
                     d dVar = new d();
                     dVar.f(cVar);
-                    bVar.Nl = dVar;
+                    bVar.OL = dVar;
                 }
             }
         }

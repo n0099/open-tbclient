@@ -2,7 +2,7 @@ package org.webrtc;
 
 import android.media.MediaRecorder;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final /* synthetic */ class CameraVideoCapturer_CC {
     @Deprecated
     public static void $default$addMediaRecorderToCamera(CameraVideoCapturer cameraVideoCapturer, MediaRecorder mediaRecorder, CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {

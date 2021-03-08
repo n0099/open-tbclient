@@ -2,7 +2,7 @@ package com.qq.e.comm.pi;
 
 import com.qq.e.ads.nativ.ADSize;
 import com.qq.e.comm.adevent.ADListener;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public interface NEADVI {
     void destroy();
 

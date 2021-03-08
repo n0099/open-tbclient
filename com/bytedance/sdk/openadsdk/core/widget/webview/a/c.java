@@ -5,8 +5,9 @@ import android.database.Cursor;
 import android.text.TextUtils;
 import android.util.LruCache;
 import androidx.annotation.NonNull;
-import com.bytedance.sdk.openadsdk.core.d.q;
+import com.bytedance.sdk.openadsdk.core.d.r;
 import com.bytedance.sdk.openadsdk.core.p;
+import com.bytedance.sdk.openadsdk.utils.u;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -17,109 +18,80 @@ import java.util.Set;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile c f6831a;
-    private LruCache<String, q> c = new LruCache<String, q>(524288) { // from class: com.bytedance.sdk.openadsdk.core.widget.webview.a.c.1
+    private static volatile c f4631a;
+    private Object c = new Object();
+    private LruCache<String, r> d = new LruCache<String, r>(2000) { // from class: com.bytedance.sdk.openadsdk.core.widget.webview.a.c.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.util.LruCache
         /* renamed from: a */
-        public int sizeOf(String str, q qVar) {
-            int i = 0;
-            if (qVar != null) {
-                if (!TextUtils.isEmpty(qVar.b())) {
-                    try {
-                        i = 0 + qVar.b().getBytes().length;
-                    } catch (Throwable th) {
-                    }
-                }
-                if (!TextUtils.isEmpty(qVar.c())) {
-                    try {
-                        i += qVar.c().getBytes().length;
-                    } catch (Throwable th2) {
-                    }
-                }
-                if (!TextUtils.isEmpty(qVar.a())) {
-                    try {
-                        i += qVar.a().getBytes().length;
-                    } catch (Throwable th3) {
-                    }
-                }
-                if (!TextUtils.isEmpty(qVar.d())) {
-                    try {
-                        i += qVar.d().getBytes().length;
-                    } catch (Throwable th4) {
-                    }
-                }
-                if (!TextUtils.isEmpty(qVar.f())) {
-                    try {
-                        i += qVar.f().getBytes().length;
-                    } catch (Throwable th5) {
-                    }
-                }
-                if (!TextUtils.isEmpty(qVar.e())) {
-                    try {
-                        i += qVar.e().getBytes().length;
-                    } catch (Throwable th6) {
-                    }
-                }
-                if (qVar.g() != null) {
-                    try {
-                        i += qVar.g().byteValue();
-                    } catch (Throwable th7) {
-                    }
-                }
-            }
-            return i > 0 ? i : super.sizeOf(str, qVar);
+        public int sizeOf(String str, r rVar) {
+            return 1;
         }
     };
-
-    /* renamed from: b  reason: collision with root package name */
-    private Set<String> f6832b = Collections.synchronizedSet(new HashSet());
+    private Set<String> b = Collections.synchronizedSet(new HashSet());
 
     public static c a() {
-        if (f6831a == null) {
+        if (f4631a == null) {
             synchronized (c.class) {
-                if (f6831a == null) {
-                    f6831a = new c();
+                if (f4631a == null) {
+                    f4631a = new c();
                 }
             }
         }
-        return f6831a;
+        return f4631a;
     }
 
     private c() {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [125=4, 126=4] */
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q a(String str) {
+    public r a(String str) {
+        r rVar;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        q qVar = this.c.get(String.valueOf(str));
-        if (qVar != null) {
-            return qVar;
+        synchronized (this.c) {
+            rVar = this.d.get(String.valueOf(str));
+        }
+        if (rVar != null) {
+            return rVar;
         }
         Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(p.a(), "template_diff_new", null, "id=?", new String[]{str}, null, null, null);
         if (a2 != null) {
             try {
-                if (a2.moveToNext()) {
-                    String string = a2.getString(a2.getColumnIndex("rit"));
-                    String string2 = a2.getString(a2.getColumnIndex("id"));
-                    String string3 = a2.getString(a2.getColumnIndex("md5"));
-                    String string4 = a2.getString(a2.getColumnIndex("url"));
-                    q a3 = new q().a(string).b(string2).c(string3).d(string4).e(a2.getString(a2.getColumnIndex("data"))).f(a2.getString(a2.getColumnIndex("version"))).a(Long.valueOf(a2.getLong(a2.getColumnIndex("update_time"))));
-                    this.c.put(string2, a3);
-                    this.f6832b.add(string2);
-                } else if (a2 != null) {
-                    a2.close();
-                    return null;
-                } else {
+                if (!a2.moveToNext()) {
+                    if (a2 != null) {
+                        a2.close();
+                        return null;
+                    }
                     return null;
                 }
-            } finally {
-                if (a2 != null) {
-                    a2.close();
+                String string = a2.getString(a2.getColumnIndex("rit"));
+                String string2 = a2.getString(a2.getColumnIndex("id"));
+                String string3 = a2.getString(a2.getColumnIndex("md5"));
+                String string4 = a2.getString(a2.getColumnIndex("url"));
+                String string5 = a2.getString(a2.getColumnIndex("data"));
+                r a3 = new r().a(string).b(string2).c(string3).d(string4).e(string5).f(a2.getString(a2.getColumnIndex("version"))).a(Long.valueOf(a2.getLong(a2.getColumnIndex("update_time"))));
+                synchronized (this.c) {
+                    this.d.put(string2, a3);
+                }
+                this.b.add(string2);
+                return a3;
+            } catch (Throwable th) {
+                try {
+                    u.c("TmplDbHelper", "getTemplate error", th);
+                    if (a2 != null) {
+                        a2.close();
+                        return null;
+                    }
+                    return null;
+                } finally {
+                    if (a2 != null) {
+                        a2.close();
+                    }
                 }
             }
         }
@@ -149,11 +121,11 @@ public class c {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v13, resolved type: android.util.LruCache<java.lang.String, com.bytedance.sdk.openadsdk.core.d.q> */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v14, resolved type: android.util.LruCache<java.lang.String, com.bytedance.sdk.openadsdk.core.d.r> */
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Multi-variable type inference failed */
     @NonNull
-    public List<q> b() {
+    public List<r> b() {
         ArrayList arrayList = new ArrayList();
         Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(p.a(), "template_diff_new", null, null, null, null, null, null);
         if (a2 != null) {
@@ -165,23 +137,32 @@ public class c {
                     String string4 = a2.getString(a2.getColumnIndex("url"));
                     String string5 = a2.getString(a2.getColumnIndex("data"));
                     String string6 = a2.getString(a2.getColumnIndex("version"));
-                    arrayList.add(new q().a(string).b(string2).c(string3).d(string4).e(string5).f(string6).a(Long.valueOf(a2.getLong(a2.getColumnIndex("update_time")))));
-                    this.c.put(string2, arrayList.get(arrayList.size() - 1));
-                    this.f6832b.add(string2);
-                } finally {
-                    if (a2 != null) {
-                        a2.close();
+                    arrayList.add(new r().a(string).b(string2).c(string3).d(string4).e(string5).f(string6).a(Long.valueOf(a2.getLong(a2.getColumnIndex("update_time")))));
+                    synchronized (this.c) {
+                        this.d.put(string2, arrayList.get(arrayList.size() - 1));
+                    }
+                    this.b.add(string2);
+                } catch (Throwable th) {
+                    try {
+                        u.c("TmplDbHelper", "getTemplate error", th);
+                    } finally {
+                        if (a2 != null) {
+                            a2.close();
+                        }
                     }
                 }
+            }
+            if (a2 != null) {
+                a2.close();
             }
         }
         return arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(q qVar) {
-        if (qVar != null && !TextUtils.isEmpty(qVar.b())) {
-            Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(p.a(), "template_diff_new", null, "id=?", new String[]{qVar.b()}, null, null, null);
+    public void a(r rVar) {
+        if (rVar != null && !TextUtils.isEmpty(rVar.b())) {
+            Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(p.a(), "template_diff_new", null, "id=?", new String[]{rVar.b()}, null, null, null);
             boolean z = a2 != null && a2.getCount() > 0;
             if (a2 != null) {
                 try {
@@ -190,20 +171,22 @@ public class c {
                 }
             }
             ContentValues contentValues = new ContentValues();
-            contentValues.put("rit", qVar.a());
-            contentValues.put("id", qVar.b());
-            contentValues.put("md5", qVar.c());
-            contentValues.put("url", qVar.d());
-            contentValues.put("data", qVar.e());
-            contentValues.put("version", qVar.f());
-            contentValues.put("update_time", qVar.g());
+            contentValues.put("rit", rVar.a());
+            contentValues.put("id", rVar.b());
+            contentValues.put("md5", rVar.c());
+            contentValues.put("url", rVar.d());
+            contentValues.put("data", rVar.e());
+            contentValues.put("version", rVar.f());
+            contentValues.put("update_time", rVar.g());
             if (z) {
-                com.bytedance.sdk.openadsdk.multipro.a.a.a(p.a(), "template_diff_new", contentValues, "id=?", new String[]{qVar.b()});
+                com.bytedance.sdk.openadsdk.multipro.a.a.a(p.a(), "template_diff_new", contentValues, "id=?", new String[]{rVar.b()});
             } else {
                 com.bytedance.sdk.openadsdk.multipro.a.a.a(p.a(), "template_diff_new", contentValues);
             }
-            this.c.put(qVar.b(), qVar);
-            this.f6832b.add(qVar.b());
+            synchronized (this.c) {
+                this.d.put(rVar.b(), rVar);
+            }
+            this.b.add(rVar.b());
         }
     }
 
@@ -221,8 +204,10 @@ public class c {
     }
 
     private void c(String str) {
-        if (!TextUtils.isEmpty(str) && this.c != null && this.c.size() > 0) {
-            this.c.remove(str);
+        if (!TextUtils.isEmpty(str) && this.d != null && this.d.size() > 0) {
+            synchronized (this.c) {
+                this.d.remove(str);
+            }
         }
     }
 

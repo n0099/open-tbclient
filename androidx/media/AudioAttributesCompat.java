@@ -11,7 +11,7 @@ import androidx.annotation.RestrictTo;
 import androidx.versionedparcelable.VersionedParcelable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public class AudioAttributesCompat implements VersionedParcelable {
     static final String AUDIO_ATTRIBUTES_CONTENT_TYPE = "androidx.media.audio_attrs.CONTENT_TYPE";
     static final String AUDIO_ATTRIBUTES_FLAGS = "androidx.media.audio_attrs.FLAGS";
@@ -63,13 +63,13 @@ public class AudioAttributesCompat implements VersionedParcelable {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     public @interface AttributeContentType {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     public @interface AttributeUsage {
     }
 
@@ -147,7 +147,7 @@ public class AudioAttributesCompat implements VersionedParcelable {
         return new AudioAttributesCompat(fromBundle);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     public static class Builder {
         private int mContentType;
         private int mFlags;
@@ -349,7 +349,7 @@ public class AudioAttributesCompat implements VersionedParcelable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     static abstract class AudioManagerHidden {
         public static final int STREAM_ACCESSIBILITY = 10;
         public static final int STREAM_BLUETOOTH_SCO = 6;

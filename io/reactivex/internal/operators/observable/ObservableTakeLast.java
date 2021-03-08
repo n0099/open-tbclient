@@ -3,7 +3,7 @@ package io.reactivex.internal.operators.observable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.u;
 import java.util.ArrayDeque;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ObservableTakeLast<T> extends a<T, T> {
     final int count;
 
@@ -12,7 +12,7 @@ public final class ObservableTakeLast<T> extends a<T, T> {
         this.source.subscribe(new TakeLastObserver(uVar, this.count));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class TakeLastObserver<T> extends ArrayDeque<T> implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = 7240042530241604978L;
         final u<? super T> actual;

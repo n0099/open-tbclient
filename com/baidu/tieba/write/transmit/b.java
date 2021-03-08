@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends BaseAdapter {
-    private static int lCG = 3;
+    private static int lEI = 3;
     private Context mContext;
     private List<TransmitForumData> mDataList = new ArrayList();
 
@@ -52,41 +52,41 @@ public class b extends BaseAdapter {
             }
         }
         if (aVar != null) {
-            aVar.bup();
+            aVar.bus();
             aVar.b(this.mDataList.get(i));
         }
         return view;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        public TextView fkQ;
-        public BarImageView lCI;
+        public TextView fmq;
+        public BarImageView lEK;
         public int mSkinType = 3;
-        public View ogZ;
+        public View oje;
 
         public a(View view) {
             if (view != null) {
-                this.fkQ = (TextView) view.findViewById(R.id.transmit_forum_name);
-                this.lCI = (BarImageView) view.findViewById(R.id.forum_avatar);
-                this.lCI.setShowOval(true);
-                this.ogZ = view.findViewById(R.id.divider_line);
+                this.fmq = (TextView) view.findViewById(R.id.transmit_forum_name);
+                this.lEK = (BarImageView) view.findViewById(R.id.forum_avatar);
+                this.lEK.setShowOval(true);
+                this.oje = view.findViewById(R.id.divider_line);
             }
         }
 
         public void b(TransmitForumData transmitForumData) {
             if (transmitForumData != null) {
-                this.fkQ.setText(transmitForumData.forumName);
-                this.lCI.startLoad(transmitForumData.avatar, 10, false);
+                this.fmq.setText(transmitForumData.forumName);
+                this.lEK.startLoad(transmitForumData.avatar, 10, false);
             }
         }
 
-        public void bup() {
-            if (b.lCG != this.mSkinType) {
-                ap.setViewTextColor(this.fkQ, R.color.CAM_X0105);
-                ap.setBackgroundColor(this.ogZ, R.color.CAM_X0204);
+        public void bus() {
+            if (b.lEI != this.mSkinType) {
+                ap.setViewTextColor(this.fmq, R.color.CAM_X0105);
+                ap.setBackgroundColor(this.oje, R.color.CAM_X0204);
             }
-            this.mSkinType = b.lCG;
+            this.mSkinType = b.lEI;
         }
     }
 
@@ -97,9 +97,9 @@ public class b extends BaseAdapter {
     }
 
     public void onChangeSkinType(int i) {
-        if (lCG != i) {
+        if (lEI != i) {
             notifyDataSetChanged();
         }
-        lCG = i;
+        lEI = i;
     }
 }

@@ -13,10 +13,8 @@ import java.util.LinkedHashMap;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11351a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f11352b;
+    public String f7451a;
+    private String b;
     private String c;
     private String d;
     private String e;
@@ -33,39 +31,39 @@ public class a {
     private String p;
 
     public a(Context context) {
-        this.f11351a = "https://api-push.meizu.com/garcia/api/client/";
-        this.f11352b = this.f11351a + "message/registerPush";
-        this.c = this.f11351a + "message/unRegisterPush";
-        this.d = this.f11351a + "advance/unRegisterPush";
-        this.e = this.f11351a + "message/getRegisterSwitch";
-        this.f = this.f11351a + "message/changeRegisterSwitch";
-        this.g = this.f11351a + "message/changeAllSwitch";
-        this.h = this.f11351a + "message/subscribeTags";
-        this.i = this.f11351a + "message/unSubscribeTags";
-        this.j = this.f11351a + "message/unSubAllTags";
-        this.k = this.f11351a + "message/getSubTags";
-        this.l = this.f11351a + "message/subscribeAlias";
-        this.m = this.f11351a + "message/unSubscribeAlias";
-        this.n = this.f11351a + "message/getSubAlias";
-        this.o = this.f11351a + "log/upload";
-        this.p = this.f11351a + "advance/changeRegisterSwitch";
+        this.f7451a = "https://api-push.meizu.com/garcia/api/client/";
+        this.b = this.f7451a + "message/registerPush";
+        this.c = this.f7451a + "message/unRegisterPush";
+        this.d = this.f7451a + "advance/unRegisterPush";
+        this.e = this.f7451a + "message/getRegisterSwitch";
+        this.f = this.f7451a + "message/changeRegisterSwitch";
+        this.g = this.f7451a + "message/changeAllSwitch";
+        this.h = this.f7451a + "message/subscribeTags";
+        this.i = this.f7451a + "message/unSubscribeTags";
+        this.j = this.f7451a + "message/unSubAllTags";
+        this.k = this.f7451a + "message/getSubTags";
+        this.l = this.f7451a + "message/subscribeAlias";
+        this.m = this.f7451a + "message/unSubscribeAlias";
+        this.n = this.f7451a + "message/getSubAlias";
+        this.o = this.f7451a + "log/upload";
+        this.p = this.f7451a + "advance/changeRegisterSwitch";
         com.meizu.cloud.pushsdk.b.a.a();
         if (MzSystemUtils.isInternational() || MzSystemUtils.isIndiaLocal()) {
-            this.f11351a = "https://api-push.in.meizu.com/garcia/api/client/";
-            this.f11352b = this.f11351a + "message/registerPush";
-            this.c = this.f11351a + "message/unRegisterPush";
-            this.d = this.f11351a + "advance/unRegisterPush";
-            this.e = this.f11351a + "message/getRegisterSwitch";
-            this.f = this.f11351a + "message/changeRegisterSwitch";
-            this.g = this.f11351a + "message/changeAllSwitch";
-            this.h = this.f11351a + "message/subscribeTags";
-            this.i = this.f11351a + "message/unSubscribeTags";
-            this.j = this.f11351a + "message/unSubAllTags";
-            this.k = this.f11351a + "message/getSubTags";
-            this.l = this.f11351a + "message/subscribeAlias";
-            this.m = this.f11351a + "message/unSubscribeAlias";
-            this.n = this.f11351a + "message/getSubAlias";
-            this.p = this.f11351a + "advance/changeRegisterSwitch";
+            this.f7451a = "https://api-push.in.meizu.com/garcia/api/client/";
+            this.b = this.f7451a + "message/registerPush";
+            this.c = this.f7451a + "message/unRegisterPush";
+            this.d = this.f7451a + "advance/unRegisterPush";
+            this.e = this.f7451a + "message/getRegisterSwitch";
+            this.f = this.f7451a + "message/changeRegisterSwitch";
+            this.g = this.f7451a + "message/changeAllSwitch";
+            this.h = this.f7451a + "message/subscribeTags";
+            this.i = this.f7451a + "message/unSubscribeTags";
+            this.j = this.f7451a + "message/unSubAllTags";
+            this.k = this.f7451a + "message/getSubTags";
+            this.l = this.f7451a + "message/subscribeAlias";
+            this.m = this.f7451a + "message/unSubscribeAlias";
+            this.n = this.f7451a + "message/getSubAlias";
+            this.p = this.f7451a + "advance/changeRegisterSwitch";
         }
     }
 
@@ -77,7 +75,7 @@ public class a {
         linkedHashMap2.putAll(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
         com.meizu.cloud.a.a.i("PushAPI", "register post map " + linkedHashMap2);
-        return com.meizu.cloud.pushsdk.b.a.b(this.f11352b).a(linkedHashMap2).a().a();
+        return com.meizu.cloud.pushsdk.b.a.b(this.b).a(linkedHashMap2).a().a();
     }
 
     public c a(String str, String str2, String str3, int i, boolean z) {

@@ -17,7 +17,7 @@ import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class n {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -98,8 +98,8 @@ public class n {
 
     private static String toHexString(byte[] bArr, String str, boolean z) {
         StringBuilder sb = new StringBuilder();
-        for (byte b2 : bArr) {
-            String hexString = Integer.toHexString(b2 & 255);
+        for (byte b : bArr) {
+            String hexString = Integer.toHexString(b & 255);
             if (z) {
                 hexString = hexString.toUpperCase();
             }

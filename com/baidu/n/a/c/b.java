@@ -1,19 +1,19 @@
 package com.baidu.n.a.c;
 
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class b {
-    private String asO;
-    private boolean asP;
-    private boolean asQ;
+    private String auo;
+    private boolean aup;
+    private boolean auq;
 
     public b(String str, boolean z, boolean z2) {
-        this.asO = str;
-        this.asP = z;
-        this.asQ = z2;
+        this.auo = str;
+        this.aup = z;
+        this.auq = z2;
     }
 
-    private static int bM(int i) {
+    private static int bN(int i) {
         switch (i) {
             case 1:
                 return 6;
@@ -44,7 +44,7 @@ public class b {
                     i2--;
                 }
             }
-            int bM = bM(i2);
+            int bN = bN(i2);
             iArr[0] = (byte) ((sArr[0] >> 3) & 31);
             iArr[1] = (byte) (((sArr[0] & 7) << 2) | ((sArr[1] >> 6) & 3));
             iArr[2] = (byte) ((sArr[1] >> 1) & 31);
@@ -53,15 +53,15 @@ public class b {
             iArr[5] = (byte) ((sArr[3] >> 2) & 31);
             iArr[6] = (byte) (((sArr[3] & 3) << 3) | ((sArr[4] >> 5) & 7));
             iArr[7] = (byte) (sArr[4] & 31);
-            for (int i4 = 0; i4 < iArr.length - bM; i4++) {
-                char charAt = this.asO.charAt(iArr[i4]);
-                if (this.asQ) {
+            for (int i4 = 0; i4 < iArr.length - bN; i4++) {
+                char charAt = this.auo.charAt(iArr[i4]);
+                if (this.auq) {
                     charAt = Character.toLowerCase(charAt);
                 }
                 byteArrayOutputStream.write(charAt);
             }
-            if (this.asP) {
-                for (int length = iArr.length - bM; length < iArr.length; length++) {
+            if (this.aup) {
+                for (int length = iArr.length - bN; length < iArr.length; length++) {
                     byteArrayOutputStream.write(61);
                 }
             }

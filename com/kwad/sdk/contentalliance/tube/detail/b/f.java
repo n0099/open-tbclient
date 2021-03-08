@@ -6,9 +6,7 @@ import com.kwad.sdk.core.response.model.AdResultData;
 import java.util.Set;
 /* loaded from: classes3.dex */
 public class f extends com.kwad.sdk.contentalliance.tube.detail.a.a {
-
-    /* renamed from: b  reason: collision with root package name */
-    private com.kwad.sdk.contentalliance.tube.b f8945b;
+    private com.kwad.sdk.contentalliance.tube.b b;
     private Set<b.a> c;
     private b.a d = new b.a() { // from class: com.kwad.sdk.contentalliance.tube.detail.b.f.1
         @Override // com.kwad.sdk.contentalliance.tube.b.a
@@ -45,7 +43,7 @@ public class f extends com.kwad.sdk.contentalliance.tube.detail.a.a {
         @Override // com.kwad.sdk.contentalliance.tube.detail.a
         public void a(long j) {
             com.kwad.sdk.core.d.a.a("TubeFeedUpdatePresenter", "onLoadMore to load feed");
-            f.this.f8945b.a(true, j);
+            f.this.b.a(true, j);
         }
     };
 
@@ -53,19 +51,19 @@ public class f extends com.kwad.sdk.contentalliance.tube.detail.a.a {
     @Override // com.kwad.sdk.contentalliance.tube.detail.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.c = this.f8924a.d;
-        this.f8945b = new com.kwad.sdk.contentalliance.tube.b(this.f8924a.f, this.f8924a.f8926b.getTubeId(), this.d);
-        this.f8924a.g = this.f8945b;
-        this.f8945b.a(false, 0L);
-        this.f8924a.e.add(this.e);
+        this.c = this.f5945a.d;
+        this.b = new com.kwad.sdk.contentalliance.tube.b(this.f5945a.f, this.f5945a.b.getTubeId(), this.d);
+        this.f5945a.g = this.b;
+        this.b.a(false, 0L);
+        this.f5945a.e.add(this.e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f8924a.e.remove(this.e);
-        this.f8945b.a();
+        this.f5945a.e.remove(this.e);
+        this.b.a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

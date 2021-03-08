@@ -11,26 +11,26 @@ import com.baidu.swan.apps.runtime.i;
 import com.baidu.swan.apps.runtime.m;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class c extends m implements com.baidu.swan.apps.process.b.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final HashMap<String, String> dtp;
-    private final HashMap<String, b> dtq;
+    private final HashMap<String, String> duR;
+    private final HashMap<String, b> duS;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a {
-        static c dtt = new c(d.aIG());
+        static c duU = new c(d.aIJ());
     }
 
-    private static c aFy() {
-        return a.dtt;
+    private static c aFB() {
+        return a.duU;
     }
 
     public c(h hVar) {
         super(hVar);
-        this.dtp = new HashMap<>();
-        this.dtq = new HashMap<>();
+        this.duR = new HashMap<>();
+        this.duS = new HashMap<>();
         if (DEBUG) {
             log("SwanIpc");
         }
@@ -38,7 +38,7 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: b */
-            public void L(i.a aVar) {
+            public void N(i.a aVar) {
                 if (c.DEBUG) {
                     c.this.log("onEventCallback msg" + aVar);
                 }
@@ -48,7 +48,7 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: b */
-            public void L(i.a aVar) {
+            public void N(i.a aVar) {
                 if (c.DEBUG) {
                     c.this.log("onEventCallback msg" + aVar);
                 }
@@ -58,21 +58,21 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
     }
 
     public static void init() {
-        aFy();
+        aFB();
     }
 
-    public static synchronized b qV(@NonNull String str) {
-        b qX;
+    public static synchronized b rc(@NonNull String str) {
+        b re;
         synchronized (c.class) {
-            qX = aFy().qX(str);
+            re = aFB().re(str);
         }
-        return qX;
+        return re;
     }
 
-    public static synchronized b qW(@NonNull String str) {
+    public static synchronized b rd(@NonNull String str) {
         b f;
         synchronized (c.class) {
-            f = aFy().f(str, null);
+            f = aFB().f(str, null);
         }
         return f;
     }
@@ -80,7 +80,7 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
     public static synchronized b L(@NonNull Bundle bundle) {
         b M;
         synchronized (c.class) {
-            M = aFy().M(bundle);
+            M = aFB().M(bundle);
         }
         return M;
     }
@@ -88,7 +88,7 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
     public static synchronized boolean cm(@NonNull String str, @NonNull String str2) {
         boolean a2;
         synchronized (c.class) {
-            a2 = aFy().a(qW(str), str2);
+            a2 = aFB().a(rd(str), str2);
         }
         return a2;
     }
@@ -96,12 +96,12 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
     public static synchronized boolean d(@NonNull Bundle bundle, @NonNull String str) {
         boolean a2;
         synchronized (c.class) {
-            a2 = aFy().a(L(bundle), str);
+            a2 = aFB().a(L(bundle), str);
         }
         return a2;
     }
 
-    private synchronized b qX(String str) {
+    private synchronized b re(String str) {
         b M;
         M = M(null);
         a(M, str);
@@ -117,11 +117,11 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
 
     private synchronized b f(String str, Bundle bundle) {
         b bVar;
-        b bVar2 = TextUtils.isEmpty(str) ? null : this.dtq.get(str);
+        b bVar2 = TextUtils.isEmpty(str) ? null : this.duS.get(str);
         if (bVar2 == null || !bVar2.valid()) {
             a(bVar2, new IllegalStateException("invalid session"));
             b bVar3 = new b(this, str);
-            this.dtq.put(bVar3.id(), bVar3);
+            this.duS.put(bVar3.id(), bVar3);
             bVar = bVar3;
         } else {
             bVar = bVar2;
@@ -130,12 +130,12 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
         if (z) {
             int i = bundle.getInt("ipc_session_repal", SwanAppProcessInfo.UNKNOWN.index);
             if (SwanAppProcessInfo.checkProcessId(i)) {
-                bVar.iu(i);
+                bVar.iv(i);
             } else if (SwanAppProcessInfo.SERVICE.index == i) {
                 bVar.gD(true);
             }
         }
-        bVar.cO(z ? bundle.getLong("ipc_session_timeout") : dtf);
+        bVar.cO(z ? bundle.getLong("ipc_session_timeout") : duH);
         if (DEBUG) {
             B("session", "id=" + str + " session=" + bundle + " session=" + bVar);
         }
@@ -145,9 +145,9 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public c a(b bVar, Exception exc) {
         if (bVar != null) {
-            synchronized (this.dtq) {
+            synchronized (this.duS) {
                 bVar.v(exc);
-                this.dtq.remove(bVar.id());
+                this.duS.remove(bVar.id());
             }
         }
         return this;
@@ -155,11 +155,11 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String c(@NonNull b bVar) {
-        return qY(bVar.id());
+        return rf(bVar.id());
     }
 
-    String qY(@NonNull String str) {
-        return this.dtp.get(str);
+    String rf(@NonNull String str) {
+        return this.duR.get(str);
     }
 
     private synchronized boolean a(@NonNull b bVar, @NonNull Bundle bundle) {
@@ -174,11 +174,11 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
         boolean z;
         if (bVar.valid()) {
             String id = bVar.id();
-            String str2 = this.dtp.get(id);
+            String str2 = this.duR.get(id);
             boolean z2 = !TextUtils.isEmpty(str2);
             z = !z2 || TextUtils.equals(str2, str);
             if (z && !z2 && !TextUtils.isEmpty(str)) {
-                this.dtp.put(id, str);
+                this.duR.put(id, str);
             }
         } else {
             z = false;
@@ -196,7 +196,7 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
             i.a aVar2 = new i.a("event_messenger_call", bundle);
             b L = L(bundle);
             if (!a(L, bundle) || !L.e(aVar2)) {
-                d.aIG().i(aVar2);
+                d.aIJ().i(aVar2);
             }
         }
     }
@@ -207,7 +207,7 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
             B("onCallOut", "msg=" + aVar);
         }
         if (aVar != null) {
-            L(aVar.toBundle()).aFv();
+            L(aVar.toBundle()).aFy();
         }
     }
 

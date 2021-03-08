@@ -24,7 +24,7 @@ import com.baidu.live.tbadk.core.BDLayoutMode;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BdAlertDialog {
     public static final int DIALOG_SIZE_BIG = 1;
     public static final int DIALOG_SIZE_SMALL = 0;
@@ -63,7 +63,7 @@ public class BdAlertDialog {
     private int messageTextColor = -1;
     private boolean isAutoNight = true;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface OnClickListener {
         void onClick(BdAlertDialog bdAlertDialog);
     }
@@ -495,7 +495,7 @@ public class BdAlertDialog {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public class ButtonEvent implements View.OnClickListener {
         private final OnClickListener listener;
         private final BdAlertDialog mDialog;

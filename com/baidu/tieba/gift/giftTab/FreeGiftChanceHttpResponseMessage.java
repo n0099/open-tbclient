@@ -3,7 +3,7 @@ package com.baidu.tieba.gift.giftTab;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GetUserFreeChance.GetUserFreeChanceResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class FreeGiftChanceHttpResponseMessage extends TbHttpResponsedMessage {
     private int freeChance;
     private long sceneId;

@@ -11,7 +11,7 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.core.util.ViewCommonUtil;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class WheatCommonLayout extends BaseWheatLayout {
     public WheatCommonLayout(@NonNull Context context) {
         super(context, null);
@@ -32,13 +32,13 @@ public class WheatCommonLayout extends BaseWheatLayout {
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    WheatCommonLayout.this.oJF = list;
-                    WheatCommonLayout.this.oJG = list2;
-                    if (ListUtils.getCount(WheatCommonLayout.this.oKJ) == 0 || ListUtils.getCount(WheatCommonLayout.this.oKJ) != ListUtils.getCount(list) || ListUtils.getCount(WheatCommonLayout.this.oKK) == 0 || ListUtils.getCount(WheatCommonLayout.this.oKK) != ListUtils.getCount(list2)) {
-                        WheatCommonLayout.this.eeT();
-                        WheatCommonLayout.this.oKO.removeAllViews();
-                        WheatCommonLayout.this.oKJ.clear();
-                        WheatCommonLayout.this.oKK.clear();
+                    WheatCommonLayout.this.oLK = list;
+                    WheatCommonLayout.this.oLL = list2;
+                    if (ListUtils.getCount(WheatCommonLayout.this.oMO) == 0 || ListUtils.getCount(WheatCommonLayout.this.oMO) != ListUtils.getCount(list) || ListUtils.getCount(WheatCommonLayout.this.oMP) == 0 || ListUtils.getCount(WheatCommonLayout.this.oMP) != ListUtils.getCount(list2)) {
+                        WheatCommonLayout.this.efb();
+                        WheatCommonLayout.this.oMT.removeAllViews();
+                        WheatCommonLayout.this.oMO.clear();
+                        WheatCommonLayout.this.oMP.clear();
                         if (!ListUtils.isEmpty(list)) {
                             for (int i = 0; i < list.size(); i++) {
                                 WheatCommonLayout.this.a(WheatCommonLayout.this.an(0, true), true);
@@ -49,17 +49,17 @@ public class WheatCommonLayout extends BaseWheatLayout {
                                 WheatCommonLayout.this.a(WheatCommonLayout.this.an(i2, false), false);
                             }
                         }
-                        WheatCommonLayout.this.oKO.invalidate();
-                        WheatCommonLayout.this.oKO.requestLayout();
+                        WheatCommonLayout.this.oMT.invalidate();
+                        WheatCommonLayout.this.oMT.requestLayout();
                     }
-                    if (!ListUtils.isEmpty(WheatCommonLayout.this.oKJ)) {
-                        for (int i3 = 0; i3 < WheatCommonLayout.this.oKJ.size(); i3++) {
-                            WheatCommonLayout.this.oKJ.get(i3).setData(WheatCommonLayout.this.am(i3, true), i3, true, abVar);
+                    if (!ListUtils.isEmpty(WheatCommonLayout.this.oMO)) {
+                        for (int i3 = 0; i3 < WheatCommonLayout.this.oMO.size(); i3++) {
+                            WheatCommonLayout.this.oMO.get(i3).setData(WheatCommonLayout.this.am(i3, true), i3, true, abVar);
                         }
                     }
-                    if (!ListUtils.isEmpty(WheatCommonLayout.this.oKK)) {
-                        for (int i4 = 0; i4 < WheatCommonLayout.this.oKK.size(); i4++) {
-                            WheatCommonLayout.this.oKK.get(i4).setData(WheatCommonLayout.this.am(i4, false), i4, false, abVar);
+                    if (!ListUtils.isEmpty(WheatCommonLayout.this.oMP)) {
+                        for (int i4 = 0; i4 < WheatCommonLayout.this.oMP.size(); i4++) {
+                            WheatCommonLayout.this.oMP.get(i4).setData(WheatCommonLayout.this.am(i4, false), i4, false, abVar);
                         }
                     }
                 } catch (Exception e) {
@@ -74,32 +74,32 @@ public class WheatCommonLayout extends BaseWheatLayout {
         int[] iArr = new int[2];
         int[] screenFullSize = ViewCommonUtil.getScreenFullSize(this.mTbPageContext.getPageActivity());
         if (z) {
-            iArr[0] = (screenFullSize[0] / 2) - (this.oKM / 2);
-            iArr[1] = this.Yh;
+            iArr[0] = (screenFullSize[0] / 2) - (this.oMR / 2);
+            iArr[1] = this.ZA;
         } else if (i == 0) {
-            iArr[0] = ((screenFullSize[0] / 2) - this.oKM) - this.oKM;
-            iArr[1] = this.Yh + this.oKN;
+            iArr[0] = ((screenFullSize[0] / 2) - this.oMR) - this.oMR;
+            iArr[1] = this.ZA + this.oMS;
         } else if (i == 1) {
-            iArr[0] = (screenFullSize[0] / 2) - this.oKM;
-            iArr[1] = this.Yh + this.oKN;
+            iArr[0] = (screenFullSize[0] / 2) - this.oMR;
+            iArr[1] = this.ZA + this.oMS;
         } else if (i == 2) {
             iArr[0] = screenFullSize[0] / 2;
-            iArr[1] = this.Yh + this.oKN;
+            iArr[1] = this.ZA + this.oMS;
         } else if (i == 3) {
-            iArr[0] = (screenFullSize[0] / 2) + this.oKM;
-            iArr[1] = this.Yh + this.oKN;
+            iArr[0] = (screenFullSize[0] / 2) + this.oMR;
+            iArr[1] = this.ZA + this.oMS;
         } else if (i == 4) {
-            iArr[0] = ((screenFullSize[0] / 2) - this.oKM) - this.oKM;
-            iArr[1] = this.Yh + this.oKN + this.oKN;
+            iArr[0] = ((screenFullSize[0] / 2) - this.oMR) - this.oMR;
+            iArr[1] = this.ZA + this.oMS + this.oMS;
         } else if (i == 5) {
-            iArr[0] = (screenFullSize[0] / 2) - this.oKM;
-            iArr[1] = this.Yh + this.oKN + this.oKN;
+            iArr[0] = (screenFullSize[0] / 2) - this.oMR;
+            iArr[1] = this.ZA + this.oMS + this.oMS;
         } else if (i == 6) {
             iArr[0] = screenFullSize[0] / 2;
-            iArr[1] = this.Yh + this.oKN + this.oKN;
+            iArr[1] = this.ZA + this.oMS + this.oMS;
         } else if (i == 7) {
-            iArr[0] = (screenFullSize[0] / 2) + this.oKM;
-            iArr[1] = this.Yh + this.oKN + this.oKN;
+            iArr[0] = (screenFullSize[0] / 2) + this.oMR;
+            iArr[1] = this.ZA + this.oMS + this.oMS;
         } else {
             iArr[1] = 0;
             iArr[0] = 0;
@@ -110,16 +110,16 @@ public class WheatCommonLayout extends BaseWheatLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int[] iArr, boolean z) {
         BaseWheatItemView wheatItemView = new WheatItemView(getContext());
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.oKM, this.oKN);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.oMR, this.oMS);
         layoutParams.leftMargin = iArr[0];
         layoutParams.topMargin = iArr[1];
         wheatItemView.setLayoutParams(layoutParams);
-        this.oKO.addView(wheatItemView);
-        wheatItemView.setOnItemClickListener(this.oKI);
+        this.oMT.addView(wheatItemView);
+        wheatItemView.setOnItemClickListener(this.oMN);
         if (z) {
-            this.oKJ.add(wheatItemView);
+            this.oMO.add(wheatItemView);
         } else {
-            this.oKK.add(wheatItemView);
+            this.oMP.add(wheatItemView);
         }
     }
 
@@ -136,6 +136,6 @@ public class WheatCommonLayout extends BaseWheatLayout {
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseWheatLayout
     public int getWheatHeight() {
-        return this.Yh + this.oKN + this.oKN + this.oKN;
+        return this.ZA + this.oMS + this.oMS + this.oMS;
     }
 }

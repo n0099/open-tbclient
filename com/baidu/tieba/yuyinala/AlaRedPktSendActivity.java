@@ -13,14 +13,14 @@ import com.baidu.live.tbadk.core.BaseFragmentActivity;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.ViewCommonUtil;
 import com.baidu.tieba.yuyinala.a.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaRedPktSendActivity extends BaseFragmentActivity {
     private int availableHeight;
     private int mLastScreenHeight;
     private int mLastScreenWidth;
-    private a opk;
+    private a orr;
     private boolean mIsKeyboardOpen = false;
-    private boolean bMU = true;
+    private boolean bOu = true;
     ViewTreeObserver.OnGlobalLayoutListener globalListener = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.yuyinala.AlaRedPktSendActivity.1
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
@@ -35,7 +35,7 @@ public class AlaRedPktSendActivity extends BaseFragmentActivity {
             } else if (AlaRedPktSendActivity.this.mLastScreenWidth != screenFullSize[0]) {
                 AlaRedPktSendActivity.this.mLastScreenWidth = screenFullSize[0];
             }
-            if (screenFullSize[1] - rect.bottom > screenFullSize[1] / 4 && ((!AlaRedPktSendActivity.this.mIsKeyboardOpen || z) && AlaRedPktSendActivity.this.bMU)) {
+            if (screenFullSize[1] - rect.bottom > screenFullSize[1] / 4 && ((!AlaRedPktSendActivity.this.mIsKeyboardOpen || z) && AlaRedPktSendActivity.this.bOu)) {
                 AlaRedPktSendActivity.this.mIsKeyboardOpen = true;
                 TbadkCoreApplication.getInst().setKeyboardHeight(screenFullSize[1] - rect.bottom);
                 AlaRedPktSendActivity.this.onKeyboardVisibilityChanged(true);
@@ -57,8 +57,8 @@ public class AlaRedPktSendActivity extends BaseFragmentActivity {
         }
         super.onCreate(bundle);
         if (!isFinishing()) {
-            this.opk = new com.baidu.tieba.yuyinala.a.a(getPageContext().getPageActivity());
-            setContentView(this.opk.getView());
+            this.orr = new com.baidu.tieba.yuyinala.a.a(getPageContext().getPageActivity());
+            setContentView(this.orr.getView());
             Window window = getWindow();
             if (window != null) {
                 window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.globalListener);
@@ -69,15 +69,15 @@ public class AlaRedPktSendActivity extends BaseFragmentActivity {
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.opk != null) {
-            this.opk.FN();
+        if (this.orr != null) {
+            this.orr.FQ();
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.opk != null) {
-            this.opk.onKeyboardVisibilityChanged(z);
+        if (this.orr != null) {
+            this.orr.onKeyboardVisibilityChanged(z);
         }
     }
 
@@ -85,22 +85,22 @@ public class AlaRedPktSendActivity extends BaseFragmentActivity {
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.bMU = true;
+        this.bOu = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.bMU = false;
+        this.bOu = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.opk != null) {
-            this.opk.destroy();
+        if (this.orr != null) {
+            this.orr.destroy();
         }
     }
 

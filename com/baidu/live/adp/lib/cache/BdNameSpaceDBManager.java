@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.live.adp.base.db.DatabaseManager;
 import com.baidu.live.adp.lib.safe.BdCloseHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BdNameSpaceDBManager {
     private final DatabaseManager dbService;
 

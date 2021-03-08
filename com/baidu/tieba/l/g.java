@@ -1,9 +1,9 @@
 package com.baidu.tieba.l;
 /* loaded from: classes.dex */
 public interface g {
-    void OD(String str);
+    void OJ(String str);
 
-    void OE(String str);
+    void OK(String str);
 
     void bK(int i, String str);
 
@@ -13,13 +13,13 @@ public interface g {
 
     void bN(int i, String str);
 
-    void dgO();
+    void dgX();
 
-    void dgP();
+    void dgY();
 
-    void dgQ();
+    void dgZ();
 
-    void dgR();
+    void dha();
 
     void o(int i, int i2, String str);
 }

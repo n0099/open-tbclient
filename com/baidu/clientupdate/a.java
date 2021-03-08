@@ -2,20 +2,20 @@ package com.baidu.clientupdate;
 
 import com.baidu.util.LogUtil;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ClientUpdater f1653a;
+    final /* synthetic */ ClientUpdater f1353a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(ClientUpdater clientUpdater) {
-        this.f1653a = clientUpdater;
+        this.f1353a = clientUpdater;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         LogUtil.logD("ClientUpdater", "background Check ClientUpdate!");
-        this.f1653a.b();
+        this.f1353a.b();
     }
 }

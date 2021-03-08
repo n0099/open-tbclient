@@ -36,21 +36,21 @@ import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d extends b {
-    private String bog;
+    private String bpG;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d(Context context) {
-        super(context, com.baidu.live.im.a.bjW);
+        super(context, com.baidu.live.im.a.blw);
     }
 
     @Override // com.baidu.live.yuyinim.a.b
-    protected void Kz() {
-        if (KA()) {
-            KB();
+    protected void KC() {
+        if (KD()) {
+            KE();
         } else {
-            KC();
+            KF();
         }
     }
 
@@ -84,7 +84,7 @@ public class d extends b {
         String str4;
         String str5;
         final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        this.bog = null;
+        this.bpG = null;
         String str6 = null;
         String str7 = "";
         String str8 = "";
@@ -128,7 +128,7 @@ public class d extends b {
                     str = str7;
                     str2 = str6;
                     if (!TextUtils.isEmpty(str8)) {
-                        bVar.KZ().level_id = JavaTypesHelper.toInt(str8, 0);
+                        bVar.Lc().level_id = JavaTypesHelper.toInt(str8, 0);
                     }
                     String str9 = null;
                     if (str2 == null) {
@@ -160,7 +160,7 @@ public class d extends b {
                 jSONObject = null;
             }
             if (!TextUtils.isEmpty(str8) && JavaTypesHelper.toInt(str8, 0) > 0) {
-                bVar.KZ().level_id = JavaTypesHelper.toInt(str8, 0);
+                bVar.Lc().level_id = JavaTypesHelper.toInt(str8, 0);
             }
             String str922 = null;
             if (str2 == null) {
@@ -209,7 +209,7 @@ public class d extends b {
                 i = -39322;
             } else if (str2.equals("enter_live")) {
                 String string2 = this.mContext.getString(a.h.ala_enter_live);
-                a(spannableStringBuilder, bVar.KZ(), aVar, false, false, false);
+                a(spannableStringBuilder, bVar.Lc(), aVar, false, false, false);
                 str3 = string2;
                 z = false;
                 z2 = false;
@@ -231,13 +231,13 @@ public class d extends b {
                 i = -39322;
             } else if (str2.equals("follow_anchor")) {
                 str3 = this.mContext.getString(a.h.ala_follow_live);
-                a(spannableStringBuilder, bVar.KZ(), aVar, false, false);
+                a(spannableStringBuilder, bVar.Lc(), aVar, false, false);
                 z = false;
                 z2 = false;
                 i = -6574339;
             } else if (str2.equals(com.baidu.tbadk.TbConfig.TMP_SHARE_DIR_NAME)) {
                 str3 = this.mContext.getString(a.h.ala_share_live);
-                a(spannableStringBuilder, bVar.KZ(), aVar, false, false);
+                a(spannableStringBuilder, bVar.Lc(), aVar, false, false);
                 z = false;
                 z2 = false;
                 i = -6574339;
@@ -257,13 +257,13 @@ public class d extends b {
                 z2 = false;
                 i = -39322;
             } else if (str2.equals("live_admin")) {
-                a(spannableStringBuilder, bVar.KZ(), aVar, false, false);
+                a(spannableStringBuilder, bVar.Lc(), aVar, false, false);
                 str3 = str;
                 z = false;
                 z2 = false;
                 i = -6574339;
             } else if (str2.equals("live_talk_ban") || str2.equals("live_talk_remove_ban") || str2.equals("live_talk_admin_ban") || str2.equals("live_talk_admin_remove_ban")) {
-                a(spannableStringBuilder, bVar.KZ(), aVar, false, false);
+                a(spannableStringBuilder, bVar.Lc(), aVar, false, false);
                 str3 = str;
                 z = false;
                 z2 = false;
@@ -328,13 +328,13 @@ public class d extends b {
                 i = -39322;
             } else if (str2.equals("share_rmb")) {
                 str3 = this.mContext.getString(a.h.yuyin_ala_share_rmb);
-                a(spannableStringBuilder, bVar.KZ(), aVar, false, false);
+                a(spannableStringBuilder, bVar.Lc(), aVar, false, false);
                 z = false;
                 z2 = false;
                 i = -6574339;
             } else if (str2.equals("zan_rmb")) {
                 str3 = this.mContext.getString(a.h.ala_zan_rmb);
-                a(spannableStringBuilder, bVar.KZ(), aVar, false, false);
+                a(spannableStringBuilder, bVar.Lc(), aVar, false, false);
                 z = false;
                 z2 = false;
                 i = -1711276033;
@@ -405,10 +405,10 @@ public class d extends b {
                 i = -19840;
             } else if (str2.equals("add_tags_to_anchor")) {
                 String str10 = null;
-                if (bVar != null && (bVar instanceof com.baidu.live.im.a) && bVar.KZ() != null && TextUtils.equals(bVar.KZ().userId, TbadkCoreApplication.getCurrentAccount())) {
+                if (bVar != null && (bVar instanceof com.baidu.live.im.a) && bVar.Lc() != null && TextUtils.equals(bVar.Lc().userId, TbadkCoreApplication.getCurrentAccount())) {
                     str10 = this.mContext.getString(a.h.add_tag_text_yourself);
                 }
-                a(spannableStringBuilder, bVar.KZ(), aVar, false, false, true, str10, null);
+                a(spannableStringBuilder, bVar.Lc(), aVar, false, false, true, str10, null);
                 str3 = str;
                 z = false;
                 z2 = false;
@@ -418,9 +418,9 @@ public class d extends b {
                     String optString2 = jSONObject2.optJSONObject("emoticon_info").optString("result_img");
                     String optString3 = jSONObject2.optJSONObject("emoticon_info").optString("compression_img");
                     if (StringUtils.isNull(optString2, true)) {
-                        a(spannableStringBuilder, bVar.KZ(), aVar, optString3);
+                        a(spannableStringBuilder, bVar.Lc(), aVar, optString3);
                     } else {
-                        a(spannableStringBuilder, bVar.KZ(), aVar, false, false, true);
+                        a(spannableStringBuilder, bVar.Lc(), aVar, false, false, true);
                     }
                     str3 = str;
                     z = false;
@@ -450,7 +450,7 @@ public class d extends b {
                     e = e10;
                 }
                 try {
-                    a(spannableStringBuilder, bVar.KZ(), aVar, false, false);
+                    a(spannableStringBuilder, bVar.Lc(), aVar, false, false);
                     z = false;
                     z2 = false;
                     i = -6574339;
@@ -567,7 +567,7 @@ public class d extends b {
                 SpannableStringBuilder spannableStringBuilder6 = new SpannableStringBuilder("  ");
                 spannableStringBuilder6.setSpan(bVar6, 0, 1, 33);
                 spannableStringBuilder.append((CharSequence) spannableStringBuilder6);
-                a(spannableStringBuilder, bVar.KZ(), aVar, false, false);
+                a(spannableStringBuilder, bVar.Lc(), aVar, false, false);
                 cn(false);
                 if ("send_redpacket".equals(str2)) {
                     String str11 = "";
@@ -588,7 +588,7 @@ public class d extends b {
                     spannableStringBuilder.append((CharSequence) spannableStringBuilder7);
                 }
                 if (jSONObject3 != null) {
-                    spannableStringBuilder.setSpan(new a(this.mContext, bVar.getLink(), str2, jSONObject3.optString("live_id"), jSONObject3.optString("anchor_uk"), jSONObject3.optString("red_packet_id"), jSONObject3.optString(UbcStatConstant.KEY_CUSTOM_ROOM_ID), Ky()), 0, spannableStringBuilder.length(), 33);
+                    spannableStringBuilder.setSpan(new a(this.mContext, bVar.getLink(), str2, jSONObject3.optString("live_id"), jSONObject3.optString("anchor_uk"), jSONObject3.optString("red_packet_id"), jSONObject3.optString(UbcStatConstant.KEY_CUSTOM_ROOM_ID), KB()), 0, spannableStringBuilder.length(), 33);
                 }
             } else if (jSONObject2 != null && "audio_low_version_toast".equals(str2)) {
                 SpannableString valueOf6 = SpannableString.valueOf(jSONObject2.optJSONObject("data").optString("msg"));
@@ -724,7 +724,7 @@ public class d extends b {
                 SpannableString valueOf11 = SpannableString.valueOf(str);
                 valueOf11.setSpan(new ForegroundColorSpan(-6574339), 0, valueOf11.length(), 33);
                 spannableStringBuilder.append((CharSequence) valueOf11);
-                if (!this.bnF) {
+                if (!this.bpf) {
                     com.baidu.live.view.b bVar15 = new com.baidu.live.view.b(this.mContext, a.e.icon_im_zhuli);
                     SpannableStringBuilder spannableStringBuilder15 = new SpannableStringBuilder("  ");
                     spannableStringBuilder15.setSpan(bVar15, 1, 2, 33);
@@ -737,7 +737,7 @@ public class d extends b {
                 spannableStringBuilder16.setSpan(bVar16, 0, 1, 33);
                 spannableStringBuilder.append((CharSequence) spannableStringBuilder16);
                 spannableStringBuilder.append(com.baidu.live.utils.g.J(this.mContext.getString(a.h.ala_lucky_tab_tips2), -6574339));
-                a(spannableStringBuilder, bVar.KZ(), aVar, false, false);
+                a(spannableStringBuilder, bVar.Lc(), aVar, false, false);
                 cn(false);
                 String str12 = "";
                 String str13 = "";
@@ -760,10 +760,10 @@ public class d extends b {
                 spannableStringBuilder18.setSpan(bVar18, 0, 1, 33);
                 spannableStringBuilder.append((CharSequence) spannableStringBuilder18);
                 spannableStringBuilder.append(com.baidu.live.utils.g.J(this.mContext.getString(a.h.ala_guard_club_join_welcome), -6574339));
-                a(spannableStringBuilder, bVar.KZ(), aVar, false, false);
+                a(spannableStringBuilder, bVar.Lc(), aVar, false, false);
                 cn(false);
                 spannableStringBuilder.append(com.baidu.live.utils.g.J(this.mContext.getString(a.h.ala_guard_club_join), -6574339));
-                if (!this.bnF) {
+                if (!this.bpf) {
                     com.baidu.live.view.b bVar19 = new com.baidu.live.view.b(this.mContext, a.e.icon_im_jiaru);
                     SpannableStringBuilder spannableStringBuilder19 = new SpannableStringBuilder("  ");
                     spannableStringBuilder19.setSpan(bVar19, 1, 2, 33);
@@ -772,7 +772,7 @@ public class d extends b {
                 spannableStringBuilder.setSpan(new a(this.mContext, bVar.getLink(), str2), 0, spannableStringBuilder.length(), 33);
             } else if (jSONObject2 != null && TextUtils.equals(str2, "privilege_award_royal_success")) {
                 final String optString13 = jSONObject2.optString("icon_url");
-                this.bog = optString13;
+                this.bpG = optString13;
                 if (!TextUtils.isEmpty(optString13)) {
                     new AlaLiveMarkData().mark_pic = optString13;
                     BdResourceLoader.getInstance().loadResource(optString13, 10, new BdResourceCallback<BdImage>() { // from class: com.baidu.live.yuyinim.a.d.1
@@ -782,25 +782,25 @@ public class d extends b {
                         public void onLoaded(BdImage bdImage, String str15, int i4) {
                             super.onLoaded((AnonymousClass1) bdImage, str15, i4);
                             Bitmap a2 = d.this.a(bdImage);
-                            if (a2 != null && TextUtils.equals(d.this.bog, optString13)) {
+                            if (a2 != null && TextUtils.equals(d.this.bpG, optString13)) {
                                 CenteredImageSpan centeredImageSpan = new CenteredImageSpan(d.this.mContext, a2);
                                 SpannableString spannableString = new SpannableString("[img] ");
                                 spannableString.setSpan(centeredImageSpan, 0, spannableString.length() - 1, 33);
                                 spannableStringBuilder.insert(0, (CharSequence) spannableString);
-                                aVar.bkl.setText(spannableStringBuilder);
-                                aVar.bkl.forceLayout();
+                                aVar.blL.setText(spannableStringBuilder);
+                                aVar.blL.forceLayout();
                             }
                         }
                     }, null);
                 }
-                a(spannableStringBuilder, bVar.KZ(), aVar, false, false);
+                a(spannableStringBuilder, bVar.Lc(), aVar, false, false);
                 cn(false);
                 int optInt2 = jSONObject2.optInt("royal_level");
                 String str15 = "";
                 if (optInt2 >= 0 && optInt2 <= 7) {
                     str15 = AlaLiveMarkData.NOBLE_LEVEL_NAMES[optInt2];
                 }
-                if (TextUtils.equals(bVar.KZ().userId, TbadkCoreApplication.getCurrentAccount())) {
+                if (TextUtils.equals(bVar.Lc().userId, TbadkCoreApplication.getCurrentAccount())) {
                     format = String.format(this.mContext.getString(a.h.txt_im_noble_update_mine), str15);
                 } else {
                     format = String.format(this.mContext.getString(a.h.txt_im_noble_update), str15);
@@ -814,23 +814,23 @@ public class d extends b {
                 spannableStringBuilder.append(com.baidu.live.utils.g.J(str, -1));
             } else if (jSONObject2 != null && TextUtils.equals("follow_anchor_phone", str2)) {
                 String optString14 = jSONObject2.optString("wheat_user_nickname");
-                a(spannableStringBuilder, bVar.KZ(), aVar, false, false);
+                a(spannableStringBuilder, bVar.Lc(), aVar, false, false);
                 spannableStringBuilder.append(com.baidu.live.utils.g.J("关注了 ", -6574339));
                 spannableStringBuilder.append(com.baidu.live.utils.g.J(optString14, -5462));
             } else if (TextUtils.equals("follow_room", str2)) {
-                a(spannableStringBuilder, bVar.KZ(), aVar, false, false);
+                a(spannableStringBuilder, bVar.Lc(), aVar, false, false);
                 spannableStringBuilder.append(com.baidu.live.utils.g.J("收藏了本房间", -6574339));
             } else if (jSONObject2 != null && TextUtils.equals("live_audio_audit_notice", str2)) {
                 spannableStringBuilder.append(com.baidu.live.utils.g.J(jSONObject2.optString("text"), -39322));
             } else if (jSONObject2 != null && TextUtils.equals("audio_hat_level_toast", str2)) {
                 String[] split2 = String.format(jSONObject2.optJSONObject("data").optString("msg"), jSONObject2.optJSONObject("data").optString("content")).split(" ")[1].split("，");
-                a(spannableStringBuilder, bVar.KZ(), aVar, false, false, true);
+                a(spannableStringBuilder, bVar.Lc(), aVar, false, false, true);
                 spannableStringBuilder.append(com.baidu.live.utils.g.J(split[0] + " ", -1));
                 spannableStringBuilder.append(com.baidu.live.utils.g.J(split2[0], -5462));
                 spannableStringBuilder.append(com.baidu.live.utils.g.J("，" + split2[1], -1));
             } else if (jSONObject2 != null && TextUtils.equals("audio_hat_user_toast", str2)) {
                 String[] split3 = String.format(jSONObject2.optJSONObject("data").optString("msg"), jSONObject2.optJSONObject("data").optString("content")).split(" ");
-                a(spannableStringBuilder, bVar.KZ(), aVar, false, false, true);
+                a(spannableStringBuilder, bVar.Lc(), aVar, false, false, true);
                 spannableStringBuilder.append(com.baidu.live.utils.g.J(split3[0] + " ", -1));
                 spannableStringBuilder.append(com.baidu.live.utils.g.J(split3[1], -5462));
                 spannableStringBuilder.append(com.baidu.live.utils.g.J(" " + split3[2], -1));
@@ -848,11 +848,11 @@ public class d extends b {
         return spannableStringBuilder;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     private static class a extends ClickableSpan {
-        private String aQQ;
-        private String aTJ;
-        private boolean boq;
+        private String aSq;
+        private String aVj;
+        private boolean bpQ;
         private String contentType;
         private Context context;
         private String customRoomId;
@@ -871,14 +871,14 @@ public class d extends b {
             this.url = str;
             this.contentType = str2;
             this.liveId = str3;
-            this.aTJ = str4;
-            this.aQQ = str5;
+            this.aVj = str4;
+            this.aSq = str5;
             this.customRoomId = str6;
             this.isHost = z;
         }
 
         public void setClickable(boolean z) {
-            this.boq = z;
+            this.bpQ = z;
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -936,17 +936,17 @@ public class d extends b {
             switch (c) {
                 case 0:
                     di diVar = new di();
-                    diVar.aQQ = this.aQQ;
+                    diVar.aSq = this.aSq;
                     diVar.liveId = this.liveId;
-                    diVar.aTJ = this.aTJ;
+                    diVar.aVj = this.aVj;
                     diVar.roomId = this.customRoomId;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913134, diVar));
                     return;
                 case 1:
-                    com.baidu.live.yuyinim.b.a.bz(this.context);
+                    com.baidu.live.yuyinim.b.a.by(this.context);
                     return;
                 case 2:
-                    if (this.boq) {
+                    if (this.bpQ) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913153));
                         return;
                     }

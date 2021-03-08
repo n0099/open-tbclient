@@ -11,10 +11,10 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class e extends b {
-    private static final String dGX = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
-    private static final String dGY = SchemeConfig.getSchemeHead() + "://swangame/%s";
+    private static final String dIy = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
+    private static final String dIz = SchemeConfig.getSchemeHead() + "://swangame/%s";
 
     public e(j jVar) {
         super(jVar, "/swanAPI/getFavor");
@@ -23,9 +23,9 @@ public class e extends b {
     @Override // com.baidu.swan.apps.scheme.actions.b.b
     protected void b(com.baidu.swan.apps.runtime.e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         JSONArray jSONArray = new JSONArray();
-        List<SwanFavorItemData> auP = SwanFavorDataManager.auO().auP();
-        if (auP.size() > 0) {
-            for (SwanFavorItemData swanFavorItemData : auP) {
+        List<SwanFavorItemData> auS = SwanFavorDataManager.auR().auS();
+        if (auS.size() > 0) {
+            for (SwanFavorItemData swanFavorItemData : auS) {
                 jSONArray.put(b(swanFavorItemData));
             }
         }
@@ -48,9 +48,9 @@ public class e extends b {
             jSONObject.put("title", swanFavorItemData.getAppName());
             jSONObject.put("frameType", swanFavorItemData.getAppFrameType());
             if (swanFavorItemData.getAppFrameType() == 1) {
-                str = String.format(dGY, swanFavorItemData.getAppKey());
+                str = String.format(dIz, swanFavorItemData.getAppKey());
             } else {
-                str = dGX + swanFavorItemData.getAppKey() + "\"}";
+                str = dIy + swanFavorItemData.getAppKey() + "\"}";
             }
             jSONObject.put("scheme", str);
         } catch (JSONException e) {

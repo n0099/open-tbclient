@@ -7,14 +7,14 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class b {
     private int is = 1500;
     private final ReentrantLock it = new ReentrantLock();
     private Map<String, a> iu = new HashMap();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         final Thread iv;
         com.baidu.ar.c.a iw;
@@ -93,7 +93,7 @@ public class b {
     }
 
     public boolean a(com.baidu.ar.c.a aVar) {
-        boolean b2;
+        boolean b;
         if (aVar == null) {
             return false;
         }
@@ -107,11 +107,11 @@ public class b {
                 a aVar3 = new a(str, aVar);
                 this.iu.put(str, aVar3);
                 aVar3.iv.start();
-                b2 = true;
+                b = true;
             } else {
-                b2 = aVar2.b(aVar);
+                b = aVar2.b(aVar);
             }
-            return b2;
+            return b;
         } finally {
             reentrantLock.unlock();
         }

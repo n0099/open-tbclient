@@ -17,17 +17,17 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 /* loaded from: classes.dex */
 public abstract class k<T, V extends TypeAdapter.ViewHolder> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected static final int jfR;
-    protected static final int jfS;
-    protected static final int jfT;
-    protected com.baidu.adp.widget.ListView.s iLY;
-    protected FrsViewData jfU;
-    protected f jfV;
-    protected int jfW;
-    protected i jfX;
-    private boolean jfY;
-    private boolean jfZ;
-    protected com.baidu.tieba.card.ab jga;
+    protected static final int jhA;
+    protected static final int jhB;
+    protected static final int jhC;
+    protected com.baidu.adp.widget.ListView.s iNH;
+    protected FrsViewData jhD;
+    protected f jhE;
+    protected int jhF;
+    protected i jhG;
+    private boolean jhH;
+    private boolean jhI;
+    protected com.baidu.tieba.card.ab jhJ;
     protected boolean mIsFromCDN;
     protected TbPageContext<?> mPageContext;
     protected int mSkinType;
@@ -35,16 +35,16 @@ public abstract class k<T, V extends TypeAdapter.ViewHolder> extends com.baidu.a
 
     static {
         Resources resources = TbadkCoreApplication.getInst().getContext().getResources();
-        jfR = resources.getDimensionPixelSize(R.dimen.ds8);
-        jfS = resources.getDimensionPixelSize(R.dimen.ds16);
-        jfT = resources.getDimensionPixelSize(R.dimen.ds1);
+        jhA = resources.getDimensionPixelSize(R.dimen.ds8);
+        jhB = resources.getDimensionPixelSize(R.dimen.ds16);
+        jhC = resources.getDimensionPixelSize(R.dimen.ds1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public k(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
         this.mIsFromCDN = false;
-        this.jfZ = false;
+        this.jhI = false;
         this.mTbPageTag = null;
         a(tbPageContext, bdUniqueId2);
     }
@@ -53,7 +53,7 @@ public abstract class k<T, V extends TypeAdapter.ViewHolder> extends com.baidu.a
     public k(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId);
         this.mIsFromCDN = false;
-        this.jfZ = false;
+        this.jhI = false;
         this.mTbPageTag = null;
         a(tbPageContext, tbPageContext != null ? tbPageContext.getUniqueId() : null);
     }
@@ -69,26 +69,26 @@ public abstract class k<T, V extends TypeAdapter.ViewHolder> extends com.baidu.a
     public void release() {
         this.mContext = null;
         this.mPageContext = null;
-        this.jfV = null;
-        this.Wk = null;
-        this.Wl = null;
-        if (this.jfX != null) {
-            this.jfX.destory();
-            this.jfX = null;
+        this.jhE = null;
+        this.XE = null;
+        this.XF = null;
+        if (this.jhG != null) {
+            this.jhG.destory();
+            this.jhG = null;
         }
     }
 
     public void b(com.baidu.adp.widget.ListView.s sVar) {
-        this.iLY = sVar;
+        this.iNH = sVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, T t, V v) {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.iLY = (com.baidu.adp.widget.ListView.s) viewGroup;
+        this.iNH = (com.baidu.adp.widget.ListView.s) viewGroup;
         if (t instanceof ca) {
-            ((ca) t).eJQ.nj(2);
+            ((ca) t).eLr.nk(2);
             return null;
         }
         return null;
@@ -99,23 +99,23 @@ public abstract class k<T, V extends TypeAdapter.ViewHolder> extends com.baidu.a
     }
 
     public void b(FrsViewData frsViewData) {
-        this.jfU = frsViewData;
+        this.jhD = frsViewData;
     }
 
     public void a(f fVar) {
-        this.jfV = fVar;
+        this.jhE = fVar;
     }
 
-    public void yu(int i) {
-        this.jfW = i;
+    public void yv(int i) {
+        this.jhF = i;
     }
 
     public void a(i iVar) {
-        this.jfX = iVar;
+        this.jhG = iVar;
     }
 
-    public boolean cCn() {
-        return this.jfY;
+    public boolean cCt() {
+        return this.jhH;
     }
 
     public View C(ViewGroup viewGroup, int i) {
@@ -143,7 +143,7 @@ public abstract class k<T, V extends TypeAdapter.ViewHolder> extends com.baidu.a
         return this.mTbPageTag;
     }
 
-    public boolean cCo() {
+    public boolean cCu() {
         if (this.mTbPageTag == null) {
             return false;
         }

@@ -10,7 +10,7 @@ import java.util.List;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    static Toast f4336a = null;
+    static Toast f3001a = null;
 
     public static void a(Context context, String str) {
         List<ActivityManager.RunningTaskInfo> list;
@@ -22,11 +22,11 @@ public class c {
                 list = null;
             }
             if (list != null && list.get(0) != null && context.getPackageName().equals(list.get(0).baseActivity.getPackageName())) {
-                if (f4336a != null) {
-                    f4336a.cancel();
+                if (f3001a != null) {
+                    f3001a.cancel();
                 }
-                f4336a = Toast.makeText(context, str, str.length() > 15 ? 1 : 0);
-                f4336a.show();
+                f3001a = Toast.makeText(context, str, str.length() > 15 ? 1 : 0);
+                f3001a.show();
             }
         }
     }

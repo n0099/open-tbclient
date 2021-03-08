@@ -2,14 +2,12 @@ package com.vivo.push.util;
 
 import android.content.Context;
 import java.util.HashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class y implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final HashMap<String, Integer> f13707a = new HashMap<>();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final HashMap<String, Long> f13708b = new HashMap<>();
+    private static final HashMap<String, Integer> f8087a = new HashMap<>();
+    private static final HashMap<String, Long> b = new HashMap<>();
     private static final HashMap<String, String> c = new HashMap<>();
     private static y d;
     private Context e;

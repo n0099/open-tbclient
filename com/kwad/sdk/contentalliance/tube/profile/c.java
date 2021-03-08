@@ -12,20 +12,18 @@ import com.kwad.sdk.internal.api.SceneImpl;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c {
-
-    /* renamed from: b  reason: collision with root package name */
-    private a f8991b;
+    private a b;
     private i<com.kwad.sdk.contentalliance.tube.b.b, TubeProfileResultData> c;
     private long e;
     private SceneImpl f;
     private boolean d = false;
 
     /* renamed from: a  reason: collision with root package name */
-    private Handler f8990a = new Handler(Looper.getMainLooper());
+    private Handler f5982a = new Handler(Looper.getMainLooper());
 
     public c(SceneImpl sceneImpl, long j, a aVar) {
         this.e = j;
-        this.f8991b = aVar;
+        this.b = aVar;
         this.f = sceneImpl;
     }
 
@@ -44,26 +42,26 @@ public class c {
     }
 
     private void b(int i, String str) {
-        if (this.f8991b != null) {
-            this.f8991b.a(i, str);
+        if (this.b != null) {
+            this.b.a(i, str);
         }
     }
 
     private void b(TubeProfileResultData tubeProfileResultData) {
-        if (this.f8991b != null) {
-            this.f8991b.a(tubeProfileResultData);
+        if (this.b != null) {
+            this.b.a(tubeProfileResultData);
         }
     }
 
     private void c() {
-        if (this.f8991b != null) {
-            this.f8991b.a();
+        if (this.b != null) {
+            this.b.a();
         }
     }
 
     private void d() {
-        if (this.f8991b != null) {
-            this.f8991b.b();
+        if (this.b != null) {
+            this.b.b();
         }
     }
 
@@ -73,7 +71,7 @@ public class c {
         }
         c();
         f fVar = new f(this.f);
-        fVar.f9168b = this.f.getPageScene();
+        fVar.b = this.f.getPageScene();
         final b.a aVar = new b.a(fVar, this.e, true);
         this.c = new i<com.kwad.sdk.contentalliance.tube.b.b, TubeProfileResultData>() { // from class: com.kwad.sdk.contentalliance.tube.profile.c.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -100,7 +98,7 @@ public class c {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.contentalliance.tube.b.b bVar, final int i, final String str) {
-                c.this.f8990a.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.tube.profile.c.2.2
+                c.this.f5982a.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.tube.profile.c.2.2
                     @Override // java.lang.Runnable
                     public void run() {
                         c.this.a(i, str);
@@ -111,7 +109,7 @@ public class c {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.contentalliance.tube.b.b bVar, @NonNull final TubeProfileResultData tubeProfileResultData) {
-                c.this.f8990a.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.tube.profile.c.2.1
+                c.this.f5982a.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.tube.profile.c.2.1
                     @Override // java.lang.Runnable
                     public void run() {
                         c.this.a(tubeProfileResultData);
@@ -125,7 +123,7 @@ public class c {
         if (this.c != null) {
             this.c.e();
         }
-        this.f8991b = null;
-        this.f8990a.removeCallbacksAndMessages(null);
+        this.b = null;
+        this.f5982a.removeCallbacksAndMessages(null);
     }
 }

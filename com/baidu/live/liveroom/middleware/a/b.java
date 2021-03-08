@@ -2,7 +2,7 @@ package com.baidu.live.liveroom.middleware.a;
 
 import android.view.View;
 import com.baidu.live.data.ab;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
     View a(ab abVar, e eVar, int i, String str, String str2, String str3);
 

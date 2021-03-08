@@ -17,14 +17,14 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.data.n;
 import com.baidu.tieba.ala.view.AlaChallengeHistoryHeaderView;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private BdListView hfA;
-    private LinearLayout hfB;
-    private LinearLayout hfC;
-    private com.baidu.tieba.ala.adapter.a hfD;
-    private AlaChallengeHistoryHeaderView hfE;
-    private TextView hfF;
+    private BdListView hhj;
+    private LinearLayout hhk;
+    private LinearLayout hhl;
+    private com.baidu.tieba.ala.adapter.a hhm;
+    private AlaChallengeHistoryHeaderView hhn;
+    private TextView hho;
     private Activity mContext;
     private TbPageContext<BaseFragmentActivity> mTbPageContext;
     private View view;
@@ -37,41 +37,41 @@ public class a {
 
     private void initView() {
         this.view = LayoutInflater.from(this.mContext).inflate(a.g.ala_challenge_fragment_layout, (ViewGroup) null);
-        this.hfA = (BdListView) this.view.findViewById(a.f.ala_challenge_list_view);
-        this.hfA.setVisibility(4);
-        this.hfB = (LinearLayout) this.view.findViewById(a.f.layout_ala_challenge_list_empty);
-        this.hfC = (LinearLayout) this.view.findViewById(a.f.ala_challenge_list_no_network);
-        this.hfF = (TextView) this.view.findViewById(a.f.ala_challenge_list_no_net_tip);
-        this.hfD = new com.baidu.tieba.ala.adapter.a(this.mContext);
-        this.hfA.setAdapter((ListAdapter) this.hfD);
-        this.hfE = new AlaChallengeHistoryHeaderView(this.mTbPageContext.getPageActivity());
-        this.hfA.setEmptyView(this.hfB);
+        this.hhj = (BdListView) this.view.findViewById(a.f.ala_challenge_list_view);
+        this.hhj.setVisibility(4);
+        this.hhk = (LinearLayout) this.view.findViewById(a.f.layout_ala_challenge_list_empty);
+        this.hhl = (LinearLayout) this.view.findViewById(a.f.ala_challenge_list_no_network);
+        this.hho = (TextView) this.view.findViewById(a.f.ala_challenge_list_no_net_tip);
+        this.hhm = new com.baidu.tieba.ala.adapter.a(this.mContext);
+        this.hhj.setAdapter((ListAdapter) this.hhm);
+        this.hhn = new AlaChallengeHistoryHeaderView(this.mTbPageContext.getPageActivity());
+        this.hhj.setEmptyView(this.hhk);
     }
 
     public void a(ArrayList<com.baidu.tieba.ala.data.a> arrayList, n nVar) {
-        this.hfA.setVisibility(0);
+        this.hhj.setVisibility(0);
         if (!ListUtils.isEmpty(arrayList) && nVar != null) {
-            if (this.hfE.getParent() == null) {
-                if (this.hfE.getParent() != null) {
-                    ((ViewGroup) this.hfE.getParent()).removeView(this.hfE);
+            if (this.hhn.getParent() == null) {
+                if (this.hhn.getParent() != null) {
+                    ((ViewGroup) this.hhn.getParent()).removeView(this.hhn);
                 }
-                this.hfA.addHeaderView(this.hfE);
-                this.hfE.setData(nVar);
+                this.hhj.addHeaderView(this.hhn);
+                this.hhn.setData(nVar);
             }
-        } else if (this.hfE.getParent() != null) {
-            ((ViewGroup) this.hfE.getParent()).removeView(this.hfE);
+        } else if (this.hhn.getParent() != null) {
+            ((ViewGroup) this.hhn.getParent()).removeView(this.hhn);
         }
-        if (this.hfD != null && arrayList != null) {
-            this.hfD.setData(arrayList);
+        if (this.hhm != null && arrayList != null) {
+            this.hhm.setData(arrayList);
         }
     }
 
-    public void GZ(String str) {
+    public void Hi(String str) {
         if (!StringUtils.isNull(str)) {
-            if (this.hfD != null && this.hfD.getCount() <= 0) {
-                this.hfB.setVisibility(8);
-                this.hfC.setVisibility(0);
-                this.hfF.setText(str);
+            if (this.hhm != null && this.hhm.getCount() <= 0) {
+                this.hhk.setVisibility(8);
+                this.hhl.setVisibility(0);
+                this.hho.setText(str);
                 return;
             }
             BdUtilHelper.showToast(this.mContext, str, 1);

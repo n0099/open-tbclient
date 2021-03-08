@@ -6,20 +6,20 @@ import androidx.collection.ArrayMap;
 import com.bumptech.glide.util.MultiClassKey;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ModelToResourceClassCache {
     private final AtomicReference<MultiClassKey> resourceClassKeyRef = new AtomicReference<>();
     private final ArrayMap<MultiClassKey, List<Class<?>>> registeredResourceClassCache = new ArrayMap<>();
 
     @Nullable
-    public List<Class<?>> get(@NonNull Class<?> cls, @NonNull Class<?> cls2) {
+    public List<Class<?>> get(@NonNull Class<?> cls, @NonNull Class<?> cls2, @NonNull Class<?> cls3) {
         MultiClassKey multiClassKey;
         List<Class<?>> list;
         MultiClassKey andSet = this.resourceClassKeyRef.getAndSet(null);
         if (andSet == null) {
-            multiClassKey = new MultiClassKey(cls, cls2);
+            multiClassKey = new MultiClassKey(cls, cls2, cls3);
         } else {
-            andSet.set(cls, cls2);
+            andSet.set(cls, cls2, cls3);
             multiClassKey = andSet;
         }
         synchronized (this.registeredResourceClassCache) {
@@ -29,9 +29,9 @@ public class ModelToResourceClassCache {
         return list;
     }
 
-    public void put(@NonNull Class<?> cls, @NonNull Class<?> cls2, @NonNull List<Class<?>> list) {
+    public void put(@NonNull Class<?> cls, @NonNull Class<?> cls2, @NonNull Class<?> cls3, @NonNull List<Class<?>> list) {
         synchronized (this.registeredResourceClassCache) {
-            this.registeredResourceClassCache.put(new MultiClassKey(cls, cls2), list);
+            this.registeredResourceClassCache.put(new MultiClassKey(cls, cls2, cls3), list);
         }
     }
 

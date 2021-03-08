@@ -3,22 +3,20 @@ package com.baidu.sofire.i;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class m {
     private static final m c = new m();
 
     /* renamed from: a  reason: collision with root package name */
-    private HandlerThread f5269a = new HandlerThread("rp_th", 10);
-
-    /* renamed from: b  reason: collision with root package name */
-    private Handler f5270b;
+    private HandlerThread f3542a = new HandlerThread("rp_th", 10);
+    private Handler b;
 
     private m() {
-        this.f5269a.start();
-        this.f5270b = new Handler(this.f5269a.getLooper());
+        this.f3542a.start();
+        this.b = new Handler(this.f3542a.getLooper());
     }
 
     public static Looper a() {
-        return c.f5270b.getLooper();
+        return c.b.getLooper();
     }
 }

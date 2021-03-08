@@ -1,114 +1,73 @@
 package com.bytedance.sdk.adnet.core;
 
-import android.annotation.TargetApi;
-import android.net.TrafficStats;
-import android.os.Build;
-import android.os.Process;
-import android.os.SystemClock;
-import androidx.annotation.VisibleForTesting;
-import com.bytedance.sdk.adnet.err.VAdError;
-import java.util.concurrent.BlockingQueue;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 /* loaded from: classes6.dex */
-public class k extends Thread {
+public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private final BlockingQueue<Request<?>> f6041a;
-    private volatile boolean e = false;
-    private final com.bytedance.sdk.adnet.e.c pvF;
-    private final com.bytedance.sdk.adnet.e.b pvG;
-    private final com.bytedance.sdk.adnet.e.d pvH;
+    public final int f4046a;
+    public final byte[] b;
+    public final Map<String, String> c;
+    public final List<a> d;
+    public final boolean e;
+    public final long f;
 
-    public k(BlockingQueue<Request<?>> blockingQueue, com.bytedance.sdk.adnet.e.c cVar, com.bytedance.sdk.adnet.e.b bVar, com.bytedance.sdk.adnet.e.d dVar) {
-        this.f6041a = blockingQueue;
-        this.pvF = cVar;
-        this.pvG = bVar;
-        this.pvH = dVar;
+    @Deprecated
+    public k(int i, byte[] bArr, Map<String, String> map, boolean z, long j) {
+        this(i, bArr, map, a(map), z, j);
     }
 
-    public void a() {
-        this.e = true;
-        interrupt();
+    public k(int i, byte[] bArr, boolean z, long j, List<a> list) {
+        this(i, bArr, a(list), list, z, j);
     }
 
-    @TargetApi(14)
-    private void g(Request<?> request) {
-        if (Build.VERSION.SDK_INT >= 14) {
-            TrafficStats.setThreadStatsTag(request.getTrafficStatsTag());
+    @Deprecated
+    public k(byte[] bArr, Map<String, String> map) {
+        this(200, bArr, map, false, 0L);
+    }
+
+    private k(int i, byte[] bArr, Map<String, String> map, List<a> list, boolean z, long j) {
+        this.f4046a = i;
+        this.b = bArr;
+        this.c = map;
+        if (list == null) {
+            this.d = null;
+        } else {
+            this.d = Collections.unmodifiableList(list);
         }
+        this.e = z;
+        this.f = j;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        Process.setThreadPriority(10);
-        while (true) {
-            try {
-                b();
-            } catch (InterruptedException e) {
-                if (this.e) {
-                    Thread.currentThread().interrupt();
-                    return;
-                }
-                r.c("Ignoring spurious interrupt of NetworkDispatcher thread; use quit() to terminate it", new Object[0]);
-            }
+    private static Map<String, String> a(List<a> list) {
+        if (list == null) {
+            return null;
         }
-    }
-
-    private void b() throws InterruptedException {
-        b(this.f6041a.take());
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [193=6] */
-    @VisibleForTesting
-    void b(Request<?> request) {
-        long elapsedRealtime = SystemClock.elapsedRealtime();
-        request.a(3);
-        try {
-            try {
-                try {
-                    request.addMarker("network-queue-take");
-                    if (request.isCanceled()) {
-                        request.a("network-discard-cancelled");
-                        request.e();
-                        return;
-                    }
-                    g(request);
-                    l c = this.pvF.c(request);
-                    request.setNetDuration(c.f);
-                    request.addMarker("network-http-complete");
-                    if (c.e && request.hasHadResponseDelivered()) {
-                        request.a("not-modified");
-                        request.e();
-                        return;
-                    }
-                    p<?> a2 = request.a(c);
-                    request.setNetDuration(c.f);
-                    request.addMarker("network-parse-complete");
-                    if (request.shouldCache() && a2.pvO != null) {
-                        this.pvG.a(request.getCacheKey(), a2.pvO);
-                        request.addMarker("network-cache-written");
-                    }
-                    request.markDelivered();
-                    this.pvH.a(request, a2);
-                    request.b(a2);
-                } catch (VAdError e) {
-                    e.setNetworkTimeMs(SystemClock.elapsedRealtime() - elapsedRealtime);
-                    a(request, e);
-                    request.e();
-                }
-            } catch (Exception e2) {
-                r.a(e2, "Unhandled exception %s", e2.toString());
-                VAdError vAdError = new VAdError(e2);
-                vAdError.setNetworkTimeMs(SystemClock.elapsedRealtime() - elapsedRealtime);
-                this.pvH.a(request, vAdError);
-                request.e();
-            }
-        } finally {
-            request.a(4);
+        if (list.isEmpty()) {
+            return Collections.emptyMap();
         }
+        TreeMap treeMap = new TreeMap(String.CASE_INSENSITIVE_ORDER);
+        for (a aVar : list) {
+            treeMap.put(aVar.getName(), aVar.getValue());
+        }
+        return treeMap;
     }
 
-    private void a(Request<?> request, VAdError vAdError) {
-        this.pvH.a(request, request.a(vAdError));
+    private static List<a> a(Map<String, String> map) {
+        if (map == null) {
+            return null;
+        }
+        if (map.isEmpty()) {
+            return Collections.emptyList();
+        }
+        ArrayList arrayList = new ArrayList(map.size());
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            arrayList.add(new a(entry.getKey(), entry.getValue()));
+        }
+        return arrayList;
     }
 }

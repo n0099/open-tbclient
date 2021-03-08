@@ -5,25 +5,25 @@ import java.io.IOException;
 public class b extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.bytedance.sdk.openadsdk.preload.geckox.buffer.a f7461a;
+    private com.bytedance.sdk.openadsdk.preload.geckox.buffer.a f5065a;
 
     public b(com.bytedance.sdk.openadsdk.preload.geckox.buffer.a aVar) {
-        this.f7461a = aVar;
+        this.f5065a = aVar;
     }
 
     @Override // java.io.OutputStream
     public void write(int i) throws IOException {
-        this.f7461a.a(i);
+        this.f5065a.a(i);
     }
 
     @Override // java.io.OutputStream
     public void write(byte[] bArr) throws IOException {
-        this.f7461a.a(bArr);
+        this.f5065a.a(bArr);
     }
 
     @Override // java.io.OutputStream
     public void write(byte[] bArr, int i, int i2) throws IOException {
-        this.f7461a.a(bArr, i, i2);
+        this.f5065a.a(bArr, i, i2);
     }
 
     @Override // java.io.OutputStream, java.io.Flushable

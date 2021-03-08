@@ -46,9 +46,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
     private LottieAnimationView K;
     private boolean P;
     private i<q, ProfileResultData> Q;
-
-    /* renamed from: b  reason: collision with root package name */
-    private View f8326b;
+    private View b;
     private View c;
     private View d;
     private RecyclerView e;
@@ -127,9 +125,9 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
                     e.a(d.this.I);
                     d.this.e.addOnScrollListener(d.this.O);
                 }
-                com.kwad.sdk.core.d.a.a("DetailProfileSlidePresenter", "becomesAttachedOnPageSelected mPosition" + d.this.f8395a.i + "--mSourceType=PROFILE--headerFooterAdapter=" + dVar);
+                com.kwad.sdk.core.d.a.a("DetailProfileSlidePresenter", "becomesAttachedOnPageSelected mPosition" + d.this.f5594a.i + "--mSourceType=PROFILE--headerFooterAdapter=" + dVar);
             } else {
-                com.kwad.sdk.core.d.a.a("DetailProfileSlidePresenter", "becomesAttachedOnPageSelected mPosition" + d.this.f8395a.i + "--mSourceType=FEED--headerFooterAdapter=" + d.this.e.getAdapter());
+                com.kwad.sdk.core.d.a.a("DetailProfileSlidePresenter", "becomesAttachedOnPageSelected mPosition" + d.this.f5594a.i + "--mSourceType=FEED--headerFooterAdapter=" + d.this.e.getAdapter());
             }
             d.this.D = false;
             d.this.f.a(d.this.E);
@@ -163,7 +161,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
                     e.d();
                 }
             }
-            com.kwad.sdk.core.d.a.a("DetailProfileSlidePresenter", "becomesDetachedOnPageSelected mPosition" + d.this.f8395a.i + "--mSourceType=" + d.this.f.getSourceType() + "--headerFooterAdapter=" + d.this.e.getAdapter());
+            com.kwad.sdk.core.d.a.a("DetailProfileSlidePresenter", "becomesDetachedOnPageSelected mPosition" + d.this.f5594a.i + "--mSourceType=" + d.this.f.getSourceType() + "--headerFooterAdapter=" + d.this.e.getAdapter());
             d.this.f.b(d.this.E);
         }
     };
@@ -230,7 +228,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
             if (d.this.x) {
                 d.this.t = null;
                 d.this.m = f;
-                com.kwad.sdk.core.d.a.a("DetailProfileSlidePresenter", "updateFeed onSwipeFinish mPosition" + d.this.f8395a.i + "--mSourceType=" + d.this.f.getSourceType());
+                com.kwad.sdk.core.d.a.a("DetailProfileSlidePresenter", "updateFeed onSwipeFinish mPosition" + d.this.f5594a.i + "--mSourceType=" + d.this.f.getSourceType());
                 d.this.q();
                 for (com.kwad.sdk.contentalliance.home.swipe.a aVar : d.this.A) {
                     aVar.e(f);
@@ -252,7 +250,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
             d.this.p();
             com.kwad.sdk.contentalliance.home.c.c e = ((com.kwad.sdk.contentalliance.home.c.b) ((com.kwad.sdk.lib.widget.recycler.d) d.this.e.getAdapter()).c()).e();
             if (d.this.D || e.c()) {
-                if (com.kwad.sdk.core.network.f.f9323a.k == i) {
+                if (com.kwad.sdk.core.network.f.f6187a.k == i) {
                     p.a(d.this.o());
                 } else if (com.kwad.sdk.core.network.f.g.k != i) {
                     p.b(d.this.o());
@@ -264,7 +262,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
 
         @Override // com.kwad.sdk.contentalliance.home.a.d
         public void a(boolean z, int i) {
-            com.kwad.sdk.core.d.a.a("DetailProfileSlidePresenter", "updateFeed onFinishLoading mPosition" + d.this.f8395a.i + "--mSourceType=" + d.this.f.getSourceType());
+            com.kwad.sdk.core.d.a.a("DetailProfileSlidePresenter", "updateFeed onFinishLoading mPosition" + d.this.f5594a.i + "--mSourceType=" + d.this.f.getSourceType());
             if (z) {
                 d.this.e();
                 d.this.q();
@@ -350,20 +348,20 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
     }
 
     private void a(KsFragment ksFragment, h hVar) {
-        if (this.f8326b != null) {
+        if (this.b != null) {
             return;
         }
-        this.f8326b = ksFragment.getParentFragment().getView();
-        this.c = this.f8326b.findViewById(R.id.ksad_home_content_layout);
-        this.f = (SlidePlayViewPager) this.f8326b.findViewById(R.id.ksad_slide_play_view_pager);
+        this.b = ksFragment.getParentFragment().getView();
+        this.c = this.b.findViewById(R.id.ksad_home_content_layout);
+        this.f = (SlidePlayViewPager) this.b.findViewById(R.id.ksad_slide_play_view_pager);
         this.h = R.id.ksad_content_home_author_id;
-        this.g = (TextView) this.f8326b.findViewById(R.id.ksad_home_profile_title);
-        this.i = this.f8326b.findViewById(R.id.ksad_home_profile_bottom_layout);
-        this.j = (ImageView) this.f8326b.findViewById(R.id.ksad_home_profile_author_icon);
-        this.k = (TextView) this.f8326b.findViewById(R.id.ksad_home_profile_author_name);
-        this.l = (TextView) this.f8326b.findViewById(R.id.ksad_home_profile_author_photo_count);
-        this.d = this.f8326b.findViewById(R.id.ksad_home_profile_layout);
-        this.e = (RecyclerView) this.f8326b.findViewById(R.id.ksad_home_profile_recycler_view);
+        this.g = (TextView) this.b.findViewById(R.id.ksad_home_profile_title);
+        this.i = this.b.findViewById(R.id.ksad_home_profile_bottom_layout);
+        this.j = (ImageView) this.b.findViewById(R.id.ksad_home_profile_author_icon);
+        this.k = (TextView) this.b.findViewById(R.id.ksad_home_profile_author_name);
+        this.l = (TextView) this.b.findViewById(R.id.ksad_home_profile_author_photo_count);
+        this.d = this.b.findViewById(R.id.ksad_home_profile_layout);
+        this.e = (RecyclerView) this.b.findViewById(R.id.ksad_home_profile_recycler_view);
         this.s = ao.a(o(), R.dimen.ksad_content_slide_profile_width);
         this.p = ao.a(o(), R.dimen.ksad_content_slide_profile_margin);
         this.q = this.s;
@@ -444,10 +442,10 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        com.kwad.sdk.core.d.a.a("DetailProfileSlidePresenter", "updateProfileFeed mPosition" + this.f8395a.i + "--mSourceType=" + this.f.getSourceType());
+        com.kwad.sdk.core.d.a.a("DetailProfileSlidePresenter", "updateProfileFeed mPosition" + this.f5594a.i + "--mSourceType=" + this.f.getSourceType());
         com.kwad.sdk.contentalliance.home.c.c cVar = new com.kwad.sdk.contentalliance.home.c.c(this.z.mAdScene);
         cVar.b(this.z);
-        com.kwad.sdk.contentalliance.home.c.b bVar = new com.kwad.sdk.contentalliance.home.c.b(this.f8395a.k.getParentFragment(), this.e, this.f);
+        com.kwad.sdk.contentalliance.home.c.b bVar = new com.kwad.sdk.contentalliance.home.c.b(this.f5594a.k.getParentFragment(), this.e, this.f);
         bVar.a(this.w);
         bVar.a(this.z, this.C);
         bVar.a(cVar.b());
@@ -530,7 +528,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
         if ((TextUtils.isEmpty(str) || !str.equals(String.valueOf(o))) && !this.P && this.x && (sceneImpl = this.z.mAdScene) != null) {
             this.P = true;
             final com.kwad.sdk.core.g.a.f fVar = new com.kwad.sdk.core.g.a.f(sceneImpl);
-            fVar.f9168b = sceneImpl.getPageScene();
+            fVar.b = sceneImpl.getPageScene();
             this.Q = new i<q, ProfileResultData>() { // from class: com.kwad.sdk.contentalliance.detail.a.d.3
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
@@ -613,12 +611,12 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        a(this.f8395a.k, this.f8395a.f8404a);
+        a(this.f5594a.k, this.f5594a.f5600a);
         this.R.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.detail.a.d.5
             @Override // java.lang.Runnable
             public void run() {
-                d.this.n = d.this.f8326b.getWidth();
-                d.this.o = d.this.f8326b.getHeight();
+                d.this.n = d.this.b.getWidth();
+                d.this.o = d.this.b.getHeight();
                 d.this.r = (int) (((((d.this.n - d.this.p) - d.this.q) * 1.0f) / d.this.n) * d.this.o);
                 com.kwad.sdk.core.d.a.a("DetailProfileSlidePresenter", "mScaledHeight=" + d.this.r + "--mHomeFragmentWidth" + d.this.n + "--mHomeFragmentHeight=" + d.this.o);
                 if (d.this.e.getHeight() != d.this.r) {
@@ -631,11 +629,11 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
                 }
             }
         });
-        this.z = this.f8395a.j;
-        this.A = this.f8395a.e;
-        this.f8395a.f8405b.add(this.G);
+        this.z = this.f5594a.j;
+        this.A = this.f5594a.e;
+        this.f5594a.b.add(this.G);
         this.m = this.f.getSourceType() == 1 ? 0.0f : 1.0f;
-        this.C = this.f8395a.m;
+        this.C = this.f5594a.m;
         if (this.C != null) {
             this.C.a(this.F);
         }
@@ -645,7 +643,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f8395a.f8405b.remove(this.G);
+        this.f5594a.b.remove(this.G);
         if (this.C != null) {
             this.C.b(this.F);
         }

@@ -1,5 +1,5 @@
 package com.baidu.ala.helper;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AlaConstants {
     public static final String STAT_AR_INFO = "arInfo";
     public static final String STAT_AUDIO_CAPTURE_TYPE = "kStatAudioCap";

@@ -8,21 +8,21 @@ import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class FlowableSequenceEqualSingle<T> extends w<Boolean> {
     final d<? super T, ? super T> comparer;
     final int prefetch;
-    final org.a.b<? extends T> qpj;
-    final org.a.b<? extends T> qpk;
+    final org.a.b<? extends T> qpL;
+    final org.a.b<? extends T> qpM;
 
     @Override // io.reactivex.w
     public void b(y<? super Boolean> yVar) {
         EqualCoordinator equalCoordinator = new EqualCoordinator(yVar, this.prefetch, this.comparer);
         yVar.onSubscribe(equalCoordinator);
-        equalCoordinator.subscribe(this.qpj, this.qpk);
+        equalCoordinator.subscribe(this.qpL, this.qpM);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class EqualCoordinator<T> extends AtomicInteger implements io.reactivex.disposables.b, FlowableSequenceEqual.a {
         private static final long serialVersionUID = -6178010334400373240L;
         final y<? super Boolean> actual;

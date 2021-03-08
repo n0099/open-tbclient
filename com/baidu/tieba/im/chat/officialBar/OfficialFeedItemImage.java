@@ -15,21 +15,21 @@ import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.message.chat.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class OfficialFeedItemImage extends RelativeLayout {
-    private boolean kCg;
-    private TextView kDZ;
-    private TbImageView kEb;
-    private ImageView kEc;
-    private TextView kEd;
-    private View kEe;
-    private View kEf;
-    private View kEg;
+    private boolean kEi;
+    private TextView kGb;
+    private TbImageView kGd;
+    private ImageView kGe;
+    private TextView kGf;
+    private View kGg;
+    private View kGh;
+    private View kGi;
     private Context mContext;
 
     public OfficialFeedItemImage(Context context, boolean z) {
         this(context, (AttributeSet) null);
-        this.kCg = z;
+        this.kEi = z;
     }
 
     public OfficialFeedItemImage(Context context, AttributeSet attributeSet) {
@@ -40,62 +40,62 @@ public class OfficialFeedItemImage extends RelativeLayout {
 
     private void initView() {
         LayoutInflater.from(this.mContext).inflate(R.layout.official_feed_item_image, (ViewGroup) this, true);
-        this.kEb = (TbImageView) findViewById(R.id.message_image);
-        this.kEc = (ImageView) findViewById(R.id.message_read_icon);
-        this.kEd = (TextView) findViewById(R.id.message_read_count);
-        this.kDZ = (TextView) findViewById(R.id.message_title);
-        this.kEe = findViewById(R.id.black_mask);
-        this.kEb.setConrers(15);
-        this.kEb.setRadius(l.getDimens(this.mContext, R.dimen.tbds21));
-        this.kEf = findViewById(R.id.image_container);
-        this.kEg = findViewById(R.id.msg_read_container);
-        cVm();
+        this.kGd = (TbImageView) findViewById(R.id.message_image);
+        this.kGe = (ImageView) findViewById(R.id.message_read_icon);
+        this.kGf = (TextView) findViewById(R.id.message_read_count);
+        this.kGb = (TextView) findViewById(R.id.message_title);
+        this.kGg = findViewById(R.id.black_mask);
+        this.kGd.setConrers(15);
+        this.kGd.setRadius(l.getDimens(this.mContext, R.dimen.tbds21));
+        this.kGh = findViewById(R.id.image_container);
+        this.kGi = findViewById(R.id.msg_read_container);
+        cVt();
     }
 
-    public void cVn() {
-        this.kEb.setRadius(l.getDimens(this.mContext, R.dimen.tbds31));
-        this.kEb.setConrers(3);
-        ViewGroup.LayoutParams layoutParams = this.kEf.getLayoutParams();
+    public void cVu() {
+        this.kGd.setRadius(l.getDimens(this.mContext, R.dimen.tbds31));
+        this.kGd.setConrers(3);
+        ViewGroup.LayoutParams layoutParams = this.kGh.getLayoutParams();
         layoutParams.height = l.getDimens(this.mContext, R.dimen.tbds579);
-        this.kEf.setLayoutParams(layoutParams);
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.kEg.getLayoutParams();
+        this.kGh.setLayoutParams(layoutParams);
+        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.kGi.getLayoutParams();
         layoutParams2.leftMargin = l.getDimens(this.mContext, R.dimen.tbds27);
-        this.kEg.setLayoutParams(layoutParams2);
-        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.kDZ.getLayoutParams();
+        this.kGi.setLayoutParams(layoutParams2);
+        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.kGb.getLayoutParams();
         layoutParams3.leftMargin = l.getDimens(this.mContext, R.dimen.tbds30);
         layoutParams3.bottomMargin = l.getDimens(this.mContext, R.dimen.tbds27);
-        this.kDZ.setLayoutParams(layoutParams3);
+        this.kGb.setLayoutParams(layoutParams3);
     }
 
-    public void cVm() {
-        SvgManager.bsR().a(this.kEc, R.drawable.icon_pure_broadcast_read16_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-        com.baidu.tbadk.core.util.f.a.b m = com.baidu.tbadk.core.util.f.a.btv().oO(0).m(R.color.CAM_X0601, R.color.CAM_X0606);
-        if (this.kCg) {
-            m.bv(this.kEe);
+    public void cVt() {
+        SvgManager.bsU().a(this.kGe, R.drawable.icon_pure_broadcast_read16_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+        com.baidu.tbadk.core.util.f.a.b m = com.baidu.tbadk.core.util.f.a.bty().oP(0).m(R.color.CAM_X0601, R.color.CAM_X0606);
+        if (this.kEi) {
+            m.bv(this.kGg);
         } else {
-            m.aj(l.getDimens(getContext(), R.dimen.tbds21)).ai(l.getDimens(getContext(), R.dimen.tbds21)).bv(this.kEe);
+            m.an(l.getDimens(getContext(), R.dimen.tbds21)).am(l.getDimens(getContext(), R.dimen.tbds21)).bv(this.kGg);
         }
-        ap.setViewTextColor(this.kEd, R.color.CAM_X0101);
-        ap.setViewTextColor(this.kDZ, R.color.CAM_X0101);
+        ap.setViewTextColor(this.kGf, R.color.CAM_X0101);
+        ap.setViewTextColor(this.kGb, R.color.CAM_X0101);
     }
 
-    public void setData(a.C0761a c0761a, int i, com.baidu.tieba.im.forum.broadcast.data.b bVar) {
-        this.kEb.startLoad(c0761a.src, 10, false);
-        this.kDZ.setText(c0761a.title);
+    public void setData(a.C0767a c0767a, int i, com.baidu.tieba.im.forum.broadcast.data.b bVar) {
+        this.kGd.startLoad(c0767a.src, 10, false);
+        this.kGb.setText(c0767a.title);
         if (bVar != null) {
-            i = bVar.cWe();
+            i = bVar.cWl();
         }
-        CN(i);
+        CQ(i);
     }
 
-    public void CN(int i) {
+    public void CQ(int i) {
         if (i > 0) {
-            this.kEd.setText(this.mContext.getString(R.string.person_view_num, au.eb(i)));
-            this.kEd.setVisibility(0);
-            this.kEc.setVisibility(0);
+            this.kGf.setText(this.mContext.getString(R.string.person_view_num, au.eb(i)));
+            this.kGf.setVisibility(0);
+            this.kGe.setVisibility(0);
             return;
         }
-        this.kEd.setVisibility(8);
-        this.kEc.setVisibility(8);
+        this.kGf.setVisibility(8);
+        this.kGe.setVisibility(8);
     }
 }

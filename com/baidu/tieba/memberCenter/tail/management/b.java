@@ -9,27 +9,27 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
-    private ImageView lsY;
-    private TextView lsZ;
+    private ImageView lvb;
+    private TextView lvc;
     private Context mContext;
     private View mRootView;
 
-    public void EG(int i) {
-        this.lsZ.setText(String.format(this.mContext.getString(R.string.tail_management_available), Integer.valueOf(i)));
+    public void EJ(int i) {
+        this.lvc.setText(String.format(this.mContext.getString(R.string.tail_management_available), Integer.valueOf(i)));
     }
 
-    public void I(View.OnClickListener onClickListener) {
-        this.lsY.setOnClickListener(onClickListener);
+    public void J(View.OnClickListener onClickListener) {
+        this.lvb.setOnClickListener(onClickListener);
     }
 
-    public View gB(Context context) {
+    public View gA(Context context) {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(context).inflate(R.layout.tail_management_add_item, (ViewGroup) null);
         this.mRootView.setTag(this);
-        this.lsZ = (TextView) this.mRootView.findViewById(R.id.tail_management_new_text);
-        this.lsY = (ImageView) this.mRootView.findViewById(R.id.tail_management_new_button);
+        this.lvc = (TextView) this.mRootView.findViewById(R.id.tail_management_new_text);
+        this.lvb = (ImageView) this.mRootView.findViewById(R.id.tail_management_new_button);
         return this.mRootView;
     }
 

@@ -1,13 +1,13 @@
 package com.baidu.live.im;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class i {
-    public String bcP;
-    public long bmN;
-    public long bmO;
-    public long bmP;
-    public long bmQ;
-    public long bmR;
-    public long bmS;
-    public long bmT;
-    public long bmU;
+    public String beq;
+    public long bon;
+    public long boo;
+    public long bop;
+    public long boq;
+    public long bor;
+    public long bos;
+    public long bot;
+    public long bou;
 }

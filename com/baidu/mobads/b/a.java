@@ -27,16 +27,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final IXAdLogger f3293a = XAdSDKFoundationFacade.getInstance().getAdLogger();
+    protected final IXAdLogger f2358a = XAdSDKFoundationFacade.getInstance().getAdLogger();
     private Context e;
     private static a d = new a();
-
-    /* renamed from: b  reason: collision with root package name */
-    public static volatile String f3292b = "";
+    public static volatile String b = "";
     public static volatile String c = "";
 
     public static a a() {
@@ -59,7 +57,7 @@ public class a {
             hashMap.put("stacktrace", str2);
             a(str, "404", hashMap);
         } catch (Exception e) {
-            this.f3293a.d(e);
+            this.f2358a.d(e);
         }
     }
 
@@ -91,7 +89,7 @@ public class a {
                 }
             }
         } catch (Throwable th) {
-            this.f3293a.d(th);
+            this.f2358a.d(th);
         }
         b bVar = new b("https://mobads-logs.baidu.com/brwhis.log", "");
         bVar.a(builder);
@@ -164,7 +162,7 @@ public class a {
             }
             a(a(context, String.valueOf(i), hashMap));
         } catch (Throwable th) {
-            this.f3293a.d(th);
+            this.f2358a.d(th);
         }
     }
 
@@ -200,12 +198,12 @@ public class a {
             }
             sb2.append("mobads,");
             String md5 = commonUtils.getMD5(sb2.toString());
-            this.f3293a.d("ExtraQuery.allValue:" + ((Object) sb2));
+            this.f2358a.d("ExtraQuery.allValue:" + ((Object) sb2));
             sb.append("vd=" + md5 + ETAG.ITEM_SEPARATOR);
-            this.f3293a.d("ExtraQuery.params:" + ((Object) sb));
+            this.f2358a.d("ExtraQuery.params:" + ((Object) sb));
             return "https://mobads-logs.baidu.com/dz.zb?" + sb.toString();
         } catch (Exception e) {
-            this.f3293a.d(e);
+            this.f2358a.d(e);
             return "";
         }
     }
@@ -220,7 +218,7 @@ public class a {
                 }
                 return str;
             } catch (Throwable th) {
-                this.f3293a.d(th);
+                this.f2358a.d(th);
                 return str;
             }
         }

@@ -10,9 +10,9 @@ public class DetailSearchInfo extends BaseSearchInfo {
 
     public DetailSearchInfo() {
         if (HttpClient.isHttpsEnable) {
-            this.f2669a = "https://api.map.baidu.com/geosearch/v2/detail/";
+            this.f1994a = "https://api.map.baidu.com/geosearch/v2/detail/";
         } else {
-            this.f2669a = "http://api.map.baidu.com/geosearch/v2/detail/";
+            this.f1994a = "http://api.map.baidu.com/geosearch/v2/detail/";
         }
     }
 
@@ -23,7 +23,7 @@ public class DetailSearchInfo extends BaseSearchInfo {
             return null;
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f2669a);
+        sb.append(this.f1994a);
         if (this.poiId == null || this.poiId.equals("")) {
             sb.append(this.uid).append('?');
         } else {

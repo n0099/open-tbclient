@@ -5,10 +5,10 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private InterfaceC0686a iav;
-    private HttpMessageListener iaw = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP) { // from class: com.baidu.tieba.ala.personcenter.privilege.a.1
+    private InterfaceC0692a ice;
+    private HttpMessageListener icf = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP) { // from class: com.baidu.tieba.ala.personcenter.privilege.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -16,8 +16,8 @@ public class a {
                 AlaTDouBuyPrivilegeResponsedMessage alaTDouBuyPrivilegeResponsedMessage = (AlaTDouBuyPrivilegeResponsedMessage) httpResponsedMessage;
                 boolean z = alaTDouBuyPrivilegeResponsedMessage.getError() == 0;
                 String errorString = alaTDouBuyPrivilegeResponsedMessage.getErrorString();
-                if (a.this.iav != null) {
-                    a.this.iav.y(z, errorString);
+                if (a.this.ice != null) {
+                    a.this.ice.y(z, errorString);
                 }
             }
         }
@@ -25,18 +25,18 @@ public class a {
     private TbPageContext mPageContext;
 
     /* renamed from: com.baidu.tieba.ala.personcenter.privilege.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0686a {
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0692a {
         void y(boolean z, String str);
     }
 
-    public a(TbPageContext tbPageContext, InterfaceC0686a interfaceC0686a) {
+    public a(TbPageContext tbPageContext, InterfaceC0692a interfaceC0692a) {
         this.mPageContext = tbPageContext;
-        this.iav = interfaceC0686a;
-        this.mPageContext.registerListener(this.iaw);
+        this.ice = interfaceC0692a;
+        this.mPageContext.registerListener(this.icf);
     }
 
-    public void aS(String str, int i) {
+    public void aT(String str, int i) {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
         httpMessage.addParam("props_id", i);
         httpMessage.addParam("effect_id", str);

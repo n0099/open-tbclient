@@ -14,23 +14,23 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public abstract class a {
-    private static volatile a etM;
+    private static volatile a evn;
 
     public abstract boolean a(f fVar, PMSAppInfo pMSAppInfo);
 
     public abstract boolean a(f fVar, List<g> list, d dVar, com.baidu.swan.pms.model.b bVar, PMSAppInfo pMSAppInfo);
 
-    public abstract boolean aj(String str, int i);
-
-    @NonNull
-    @WorkerThread
-    public abstract List<g> ak(@NonNull String str, int i);
+    public abstract boolean ak(String str, int i);
 
     public abstract boolean ak(String str, String str2, String str3);
 
-    public abstract Map<String, f> bcw();
+    @NonNull
+    @WorkerThread
+    public abstract List<g> al(@NonNull String str, int i);
 
-    public abstract Map<String, PMSAppInfo> bcx();
+    public abstract Map<String, f> bcy();
+
+    public abstract Map<String, PMSAppInfo> bcz();
 
     public abstract <T extends e> boolean c(T t);
 
@@ -39,7 +39,7 @@ public abstract class a {
     public abstract <T extends e> T d(Class<T> cls, String str);
 
     /* renamed from: do  reason: not valid java name */
-    public abstract void mo30do(String str, String str2);
+    public abstract void mo31do(String str, String str2);
 
     public abstract h dp(String str, String str2);
 
@@ -52,25 +52,25 @@ public abstract class a {
     public abstract boolean s(PMSAppInfo pMSAppInfo);
 
     @Nullable
-    public abstract i xU(String str);
+    public abstract i yb(String str);
 
-    public abstract PMSAppInfo xV(String str);
+    public abstract PMSAppInfo yc(String str);
 
-    public abstract boolean xW(String str);
+    public abstract boolean yd(String str);
 
     @WorkerThread
-    public abstract int xX(@NonNull String str);
+    public abstract int ye(@NonNull String str);
 
-    public abstract void xY(String str);
+    public abstract void yf(String str);
 
-    public static a bcv() {
-        if (etM == null) {
+    public static a bcx() {
+        if (evn == null) {
             synchronized (a.class) {
-                if (etM == null) {
-                    etM = new b();
+                if (evn == null) {
+                    evn = new b();
                 }
             }
         }
-        return etM;
+        return evn;
     }
 }

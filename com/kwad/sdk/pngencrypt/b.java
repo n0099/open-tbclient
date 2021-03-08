@@ -8,10 +8,8 @@ public abstract class b implements f, Closeable {
     static final /* synthetic */ boolean d;
 
     /* renamed from: a  reason: collision with root package name */
-    protected boolean f10493a;
-
-    /* renamed from: b  reason: collision with root package name */
-    protected boolean f10494b;
+    protected boolean f6915a;
+    protected boolean b;
     protected boolean c;
     private final byte[] e;
     private final int f;
@@ -35,15 +33,15 @@ public abstract class b implements f, Closeable {
     public b(byte[] bArr) {
         this.g = new byte[8];
         this.h = 0;
-        this.f10493a = false;
-        this.f10494b = false;
+        this.f6915a = false;
+        this.b = false;
         this.c = false;
         this.i = 0;
         this.j = 0L;
         this.n = ErrorBehaviour.STRICT;
         this.e = bArr;
         this.f = this.e == null ? 0 : this.e.length;
-        this.f10493a = this.f <= 0;
+        this.f6915a = this.f <= 0;
     }
 
     @Override // com.kwad.sdk.pngencrypt.f
@@ -57,7 +55,7 @@ public abstract class b implements f, Closeable {
         if (i2 < 0) {
             com.kwad.sdk.core.d.a.a(new PngjException("This should not happen. Bad length: " + i2));
         }
-        if (!this.f10493a) {
+        if (!this.f6915a) {
             int i3 = this.f - this.h;
             if (i3 <= i2) {
                 i2 = i3;
@@ -67,7 +65,7 @@ public abstract class b implements f, Closeable {
             if (this.h == this.f) {
                 a(this.g);
                 this.h = 0;
-                this.f10493a = true;
+                this.f6915a = true;
             }
             int i4 = 0 + i2;
             this.j += i2;
@@ -131,14 +129,14 @@ public abstract class b implements f, Closeable {
         if (str.equals("IDAT")) {
             this.m += i;
         }
-        boolean b2 = b(i, str);
+        boolean b = b(i, str);
         boolean a2 = a(i, str);
-        boolean b3 = b(str);
+        boolean b2 = b(str);
         boolean z = false;
         if (this.k != null && !this.k.e()) {
             z = this.k.a(str);
         }
-        if (!b3 || a2) {
+        if (!b2 || a2) {
             this.l = a(str, i, j, a2);
         } else {
             if (!z) {
@@ -147,7 +145,7 @@ public abstract class b implements f, Closeable {
                 }
                 this.k = a(str);
             }
-            this.l = new d(i, str, b2, j, this.k) { // from class: com.kwad.sdk.pngencrypt.b.1
+            this.l = new d(i, str, b, j, this.k) { // from class: com.kwad.sdk.pngencrypt.b.1
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.kwad.sdk.pngencrypt.d, com.kwad.sdk.pngencrypt.ChunkReader
                 public void c() {
@@ -156,7 +154,7 @@ public abstract class b implements f, Closeable {
                 }
             };
         }
-        if (this.l == null || b2) {
+        if (this.l == null || b) {
             return;
         }
         this.l.a(false);
@@ -176,7 +174,7 @@ public abstract class b implements f, Closeable {
         if (e() == null || !chunkReader.a().c.equals(e())) {
             return;
         }
-        this.f10494b = true;
+        this.b = true;
         close();
     }
 
@@ -194,7 +192,7 @@ public abstract class b implements f, Closeable {
 
     @Override // com.kwad.sdk.pngencrypt.f
     public boolean b() {
-        return this.f10494b;
+        return this.b;
     }
 
     protected boolean b(int i, String str) {

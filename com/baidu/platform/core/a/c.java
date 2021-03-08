@@ -8,14 +8,14 @@ public class c extends com.baidu.platform.base.e {
     }
 
     private void a(String str) {
-        this.f4143a.a("qt", "ext");
-        this.f4143a.a("num", "1000");
-        this.f4143a.a("l", Constants.VIA_REPORT_TYPE_SHARE_TO_QQ);
-        this.f4143a.a("ie", "utf-8");
-        this.f4143a.a("oue", "1");
-        this.f4143a.a("res", "api");
-        this.f4143a.a("fromproduct", "android_map_sdk");
-        this.f4143a.a("uid", str);
+        this.f2867a.a("qt", "ext");
+        this.f2867a.a("num", "1000");
+        this.f2867a.a("l", Constants.VIA_REPORT_TYPE_SHARE_TO_QQ);
+        this.f2867a.a("ie", "utf-8");
+        this.f2867a.a("oue", "1");
+        this.f2867a.a("res", "api");
+        this.f2867a.a("fromproduct", "android_map_sdk");
+        this.f2867a.a("uid", str);
     }
 
     @Override // com.baidu.platform.base.e

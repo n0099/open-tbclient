@@ -24,25 +24,23 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class a {
-    private static a afY = null;
+    private static a ahr = null;
 
     /* renamed from: a  reason: collision with root package name */
-    protected String f1609a;
-
-    /* renamed from: b  reason: collision with root package name */
-    protected String f1610b;
+    protected String f1328a;
+    protected String b;
     protected String c;
     boolean d;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.browser.sailor.webkit.update.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C0086a extends BdNetTask implements INetListener {
-        protected ByteArrayOutputStream afZ;
+    /* loaded from: classes14.dex */
+    public class C0092a extends BdNetTask implements INetListener {
+        protected ByteArrayOutputStream ahs;
 
-        public C0086a(Context context, String str) {
+        public C0092a(Context context, String str) {
             setUrl(a.a(str, context));
             setMethod(BdNet.HttpMethod.METHOD_GET);
         }
@@ -53,16 +51,16 @@ public class a {
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetDownloadError(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetError netError, int i) {
-            this.afZ.reset();
+            this.ahs.reset();
         }
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetReceiveData(BdNet bdNet, BdNetTask bdNetTask, byte[] bArr, int i) {
-            if (this.afZ == null) {
-                this.afZ = new ByteArrayOutputStream();
+            if (this.ahs == null) {
+                this.ahs = new ByteArrayOutputStream();
             }
             if (i > 0) {
-                this.afZ.write(bArr, 0, i);
+                this.ahs.write(bArr, 0, i);
             }
         }
 
@@ -85,19 +83,19 @@ public class a {
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetTaskComplete(BdNet bdNet, BdNetTask bdNetTask) {
-            if (this.afZ != null) {
+            if (this.ahs != null) {
                 try {
-                    String byteArrayOutputStream = this.afZ.toString("utf-8");
+                    String byteArrayOutputStream = this.ahs.toString("utf-8");
                     Log.d(EngineManager.LOG_TAG, "received data = " + byteArrayOutputStream);
                     if (byteArrayOutputStream.length() > 0) {
                         JSONObject jSONObject = new JSONObject(byteArrayOutputStream);
                         if (jSONObject.has("data")) {
                             JSONObject jSONObject2 = jSONObject.getJSONObject("data");
                             if (jSONObject2.has("version")) {
-                                a.this.f1610b = jSONObject2.getString("version");
+                                a.this.b = jSONObject2.getString("version");
                             }
                             if (jSONObject2.has("link")) {
-                                a.this.f1609a = jSONObject2.getString("link");
+                                a.this.f1328a = jSONObject2.getString("link");
                             }
                             if (jSONObject2.has("md5")) {
                                 a.this.c = jSONObject2.getString("md5");
@@ -125,22 +123,22 @@ public class a {
         }
 
         public void release() {
-            if (this.afZ != null) {
+            if (this.ahs != null) {
                 try {
-                    this.afZ.reset();
-                    this.afZ.close();
+                    this.ahs.reset();
+                    this.ahs.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-            this.afZ = null;
+            this.ahs = null;
         }
     }
 
     protected a() {
     }
 
-    private static PackageInfo U(Context context) {
+    private static PackageInfo T(Context context) {
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 16384);
         } catch (Exception e) {
@@ -164,9 +162,9 @@ public class a {
             a(sb, CashierData.SDK, sdkVersionName);
         }
         String cuid = BdSailorPlatform.getInstance().getCuid();
-        String b2 = !TextUtils.isEmpty(cuid) ? com.baidu.browser.sailor.util.b.b(cuid) : "";
-        if (!TextUtils.isEmpty(b2)) {
-            a(sb, "cuid", b2);
+        String b = !TextUtils.isEmpty(cuid) ? com.baidu.browser.sailor.util.b.b(cuid) : "";
+        if (!TextUtils.isEmpty(b)) {
+            a(sb, "cuid", b);
         }
         String str2 = Build.MODEL;
         String str3 = Build.VERSION.RELEASE;
@@ -180,26 +178,26 @@ public class a {
         stringBuffer.append(i);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         stringBuffer.append(str4.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER));
-        String b3 = com.baidu.browser.sailor.util.b.b(stringBuffer.toString().replace(" ", Constants.ACCEPT_TIME_SEPARATOR_SERVER));
-        if (!TextUtils.isEmpty(b3)) {
-            a(sb, "dev", b3);
+        String b2 = com.baidu.browser.sailor.util.b.b(stringBuffer.toString().replace(" ", Constants.ACCEPT_TIME_SEPARATOR_SERVER));
+        if (!TextUtils.isEmpty(b2)) {
+            a(sb, "dev", b2);
         }
         String packageName = context.getPackageName();
         if (!TextUtils.isEmpty(packageName)) {
             a(sb, "app", packageName);
         }
-        PackageInfo U = U(context);
-        if (U != null) {
-            String str5 = U.versionName;
+        PackageInfo T = T(context);
+        if (T != null) {
+            String str5 = T.versionName;
             if (!TextUtils.isEmpty(str5)) {
                 a(sb, "appversion", str5);
             }
         }
-        String b4 = b(context);
-        if (!TextUtils.isEmpty(b4)) {
+        String b3 = b(context);
+        if (!TextUtils.isEmpty(b3)) {
             sb.append("from");
             sb.append("=");
-            sb.append(b4);
+            sb.append(b3);
         }
         if (!BdZeusUtil.isWebkitLoaded()) {
             sb.append(ETAG.ITEM_SEPARATOR);
@@ -324,14 +322,14 @@ public class a {
     }
 
     public static a sL() {
-        if (afY == null) {
+        if (ahr == null) {
             synchronized (a.class) {
-                if (afY == null) {
-                    afY = new a();
+                if (ahr == null) {
+                    ahr = new a();
                 }
             }
         }
-        return afY;
+        return ahr;
     }
 
     public final void a(Context context) {
@@ -344,8 +342,8 @@ public class a {
         if (BdSailor.getInstance().getAppContext() != null) {
             String zeusVersionName = WebKitFactory.getZeusVersionName();
             if (WebKitFactory.getCurEngine() == 1) {
-                if (a(zeusVersionName, this.f1610b)) {
-                    BdZeusDownloadHelper.T(BdSailor.getInstance().getAppContext()).a(this.f1609a, this.c);
+                if (a(zeusVersionName, this.b)) {
+                    BdZeusDownloadHelper.S(BdSailor.getInstance().getAppContext()).a(this.f1328a, this.c);
                     return;
                 }
                 return;
@@ -367,7 +365,7 @@ public class a {
             BdSailorPlatform.getStatic().b("download-webkit-start", String.valueOf(System.currentTimeMillis()));
             BdSailorPlatform.getStatic().a();
             Log.i(EngineManager.LOG_TAG, "start download zeus");
-            BdZeusDownloadHelper.T(BdSailor.getInstance().getAppContext()).a(this.f1609a, this.c);
+            BdZeusDownloadHelper.S(BdSailor.getInstance().getAppContext()).a(this.f1328a, this.c);
         }
     }
 }

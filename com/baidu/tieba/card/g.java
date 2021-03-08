@@ -11,13 +11,13 @@ import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class g extends b<com.baidu.tieba.e.e> {
-    private View ivN;
-    private View ivO;
-    private TextView ivQ;
-    private TextView ivR;
-    private TextView ivS;
-    private TextView ivT;
-    private TextView ivU;
+    private TextView ixA;
+    private TextView ixB;
+    private TextView ixC;
+    private TextView ixD;
+    private View ixw;
+    private View ixx;
+    private TextView ixz;
     private String mForumId;
 
     public g(TbPageContext<?> tbPageContext) {
@@ -26,17 +26,17 @@ public class g extends b<com.baidu.tieba.e.e> {
     }
 
     private void init(View view) {
-        this.ivQ = (TextView) view.findViewById(R.id.card_frs_game_hot_title);
-        this.ivR = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_1);
-        this.ivS = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_2);
-        this.ivT = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_3);
-        this.ivU = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_4);
-        this.ivR.setOnClickListener(this);
-        this.ivS.setOnClickListener(this);
-        this.ivT.setOnClickListener(this);
-        this.ivU.setOnClickListener(this);
-        this.ivN = view.findViewById(R.id.divider_line_1);
-        this.ivO = view.findViewById(R.id.divider_line_2);
+        this.ixz = (TextView) view.findViewById(R.id.card_frs_game_hot_title);
+        this.ixA = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_1);
+        this.ixB = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_2);
+        this.ixC = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_3);
+        this.ixD = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_4);
+        this.ixA.setOnClickListener(this);
+        this.ixB.setOnClickListener(this);
+        this.ixC.setOnClickListener(this);
+        this.ixD.setOnClickListener(this);
+        this.ixw = view.findViewById(R.id.divider_line_1);
+        this.ixx = view.findViewById(R.id.divider_line_2);
     }
 
     public void setForumId(String str) {
@@ -46,13 +46,13 @@ public class g extends b<com.baidu.tieba.e.e> {
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         ap.setBackgroundResource(getView(), R.color.CAM_X0201);
-        ap.setBackgroundResource(this.ivN, R.color.CAM_X0205);
-        ap.setBackgroundResource(this.ivO, R.color.CAM_X0205);
-        ap.setViewTextColor(this.ivQ, R.color.CAM_X0106, 1);
-        ap.setViewTextColor(this.ivR, R.color.CAM_X0105, 1);
-        ap.setViewTextColor(this.ivS, R.color.CAM_X0105, 1);
-        ap.setViewTextColor(this.ivT, R.color.CAM_X0105, 1);
-        ap.setViewTextColor(this.ivU, R.color.CAM_X0105, 1);
+        ap.setBackgroundResource(this.ixw, R.color.CAM_X0205);
+        ap.setBackgroundResource(this.ixx, R.color.CAM_X0205);
+        ap.setViewTextColor(this.ixz, R.color.CAM_X0106, 1);
+        ap.setViewTextColor(this.ixA, R.color.CAM_X0105, 1);
+        ap.setViewTextColor(this.ixB, R.color.CAM_X0105, 1);
+        ap.setViewTextColor(this.ixC, R.color.CAM_X0105, 1);
+        ap.setViewTextColor(this.ixD, R.color.CAM_X0105, 1);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -63,42 +63,42 @@ public class g extends b<com.baidu.tieba.e.e> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.e.e eVar) {
-        if (eVar != null && eVar.ctZ() != null) {
-            if (!TextUtils.isEmpty(eVar.ctZ().title)) {
-                this.ivQ.setText(eVar.ctZ().title);
+        if (eVar != null && eVar.cuf() != null) {
+            if (!TextUtils.isEmpty(eVar.cuf().title)) {
+                this.ixz.setText(eVar.cuf().title);
             }
-            this.ivR.setVisibility(8);
-            this.ivS.setVisibility(8);
-            this.ivT.setVisibility(8);
-            this.ivU.setVisibility(8);
-            if (eVar.ctZ().sub_nodes.size() >= 1) {
-                this.ivR.setVisibility(0);
-                this.ivR.setTag(eVar.ctZ().sub_nodes.get(0).url);
-                this.ivR.setText(eVar.ctZ().sub_nodes.get(0).title);
+            this.ixA.setVisibility(8);
+            this.ixB.setVisibility(8);
+            this.ixC.setVisibility(8);
+            this.ixD.setVisibility(8);
+            if (eVar.cuf().sub_nodes.size() >= 1) {
+                this.ixA.setVisibility(0);
+                this.ixA.setTag(eVar.cuf().sub_nodes.get(0).url);
+                this.ixA.setText(eVar.cuf().sub_nodes.get(0).title);
             }
-            if (eVar.ctZ().sub_nodes.size() >= 2) {
-                this.ivS.setVisibility(0);
-                this.ivS.setTag(eVar.ctZ().sub_nodes.get(1).url);
-                this.ivS.setText(eVar.ctZ().sub_nodes.get(1).title);
+            if (eVar.cuf().sub_nodes.size() >= 2) {
+                this.ixB.setVisibility(0);
+                this.ixB.setTag(eVar.cuf().sub_nodes.get(1).url);
+                this.ixB.setText(eVar.cuf().sub_nodes.get(1).title);
             }
-            if (eVar.ctZ().sub_nodes.size() >= 3) {
-                this.ivT.setVisibility(0);
-                this.ivT.setTag(eVar.ctZ().sub_nodes.get(2).url);
-                this.ivT.setText(eVar.ctZ().sub_nodes.get(2).title);
+            if (eVar.cuf().sub_nodes.size() >= 3) {
+                this.ixC.setVisibility(0);
+                this.ixC.setTag(eVar.cuf().sub_nodes.get(2).url);
+                this.ixC.setText(eVar.cuf().sub_nodes.get(2).title);
             }
-            if (eVar.ctZ().sub_nodes.size() >= 4) {
-                this.ivU.setVisibility(0);
-                this.ivU.setTag(eVar.ctZ().sub_nodes.get(3).url);
-                this.ivU.setText(eVar.ctZ().sub_nodes.get(3).title);
+            if (eVar.cuf().sub_nodes.size() >= 4) {
+                this.ixD.setVisibility(0);
+                this.ixD.setTag(eVar.cuf().sub_nodes.get(3).url);
+                this.ixD.setText(eVar.cuf().sub_nodes.get(3).title);
             }
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.ivR || view == this.ivS || view == this.ivT || view == this.ivU) {
-            TiebaStatic.log(new ar("c13047").ap("obj_locate", 8).dR("fid", this.mForumId));
-            bf.bsV().a((TbPageContext) com.baidu.adp.base.j.K(this.mTbPageContext.getPageActivity()), new String[]{(String) view.getTag()}, true);
+        if (view == this.ixA || view == this.ixB || view == this.ixC || view == this.ixD) {
+            TiebaStatic.log(new ar("c13047").aq("obj_locate", 8).dR("fid", this.mForumId));
+            bf.bsY().a((TbPageContext) com.baidu.adp.base.j.J(this.mTbPageContext.getPageActivity()), new String[]{(String) view.getTag()}, true);
         }
     }
 }

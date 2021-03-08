@@ -5,10 +5,8 @@ import androidx.annotation.NonNull;
 public class b implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.kwad.sdk.core.webview.a f9561a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private a f9562b;
+    private final com.kwad.sdk.core.webview.a f6333a;
+    private a b;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -16,8 +14,8 @@ public class b implements com.kwad.sdk.core.webview.a.a {
     }
 
     public b(com.kwad.sdk.core.webview.a aVar, a aVar2) {
-        this.f9561a = aVar;
-        this.f9562b = aVar2;
+        this.f6333a = aVar;
+        this.b = aVar2;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
@@ -28,7 +26,7 @@ public class b implements com.kwad.sdk.core.webview.a.a {
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
-        this.f9562b.a();
+        this.b.a();
         cVar.a(null);
     }
 

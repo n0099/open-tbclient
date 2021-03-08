@@ -101,9 +101,9 @@ public class AppData extends OrmObject {
         this.app_time = 0;
         this.goods_info = null;
         this.goods = null;
-        ICardInfo ND = com.baidu.tieba.lego.card.b.ND(str);
-        if (ND != null) {
-            ICardInfo viewItem = ND.getViewItem(0, 4);
+        ICardInfo NJ = com.baidu.tieba.lego.card.b.NJ(str);
+        if (NJ != null) {
+            ICardInfo viewItem = NJ.getViewItem(0, 4);
             if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
                 this.legoCard = (AdvertAppInfo.ILegoAdvert) viewItem;
                 if (this.legoCard != null) {
@@ -122,7 +122,7 @@ public class AppData extends OrmObject {
     }
 
     public AppData(App app) {
-        ICardInfo ND;
+        ICardInfo NJ;
         this.legoCard = null;
         this.mDiscardReason = -1;
         if (app == null) {
@@ -176,8 +176,8 @@ public class AppData extends OrmObject {
             for (GoodsInfo goodsInfo : app.goods_info) {
                 if (goodsInfo != null) {
                     this.goods = new AppGoods(goodsInfo);
-                    if (SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (ND = com.baidu.tieba.lego.card.b.ND(this.goods.lego_card)) != null) {
-                        ICardInfo viewItem = ND.getViewItem(0, 1);
+                    if (SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (NJ = com.baidu.tieba.lego.card.b.NJ(this.goods.lego_card)) != null) {
+                        ICardInfo viewItem = NJ.getViewItem(0, 1);
                         if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
                             this.legoCard = (AdvertAppInfo.ILegoAdvert) viewItem;
                             return;
@@ -192,7 +192,7 @@ public class AppData extends OrmObject {
         }
     }
 
-    public int blD() {
+    public int blF() {
         if (this.goods == null) {
             return 25;
         }
@@ -217,22 +217,22 @@ public class AppData extends OrmObject {
                 return 41;
             }
             return 32;
-        } else if ((this.legoCard instanceof AdvertAppInfo.ILegoAdvert) && !com.baidu.tbadk.core.k.bkT().isShowImages() && !this.legoCard.isNoPicAd()) {
+        } else if ((this.legoCard instanceof AdvertAppInfo.ILegoAdvert) && !com.baidu.tbadk.core.k.bkV().isShowImages() && !this.legoCard.isNoPicAd()) {
             return 34;
         } else {
             if (this.legoCard.getCardType() == 12) {
                 return 12;
             }
-            if (!cb.eRb.get() || !TbadkCoreApplication.getInst().isRecAppExist()) {
-                t.dDu();
+            if (!cb.eSC.get() || !TbadkCoreApplication.getInst().isRecAppExist()) {
+                t.dDC();
                 return 31;
             }
             if (this.url_type == 3) {
-                if (!blE()) {
+                if (!blG()) {
                     return 26;
                 }
             } else if (this.url_type == 1) {
-                if (!blF()) {
+                if (!blH()) {
                     return 27;
                 }
             } else {
@@ -245,11 +245,11 @@ public class AppData extends OrmObject {
         }
     }
 
-    public boolean blE() {
+    public boolean blG() {
         return (this.goods == null || this.goods.goods_style != 1001) && this.url_type == 3 && !StringUtils.isNull(this.apk_name) && !StringUtils.isNull(this.apk_url);
     }
 
-    public boolean blF() {
+    public boolean blH() {
         if (this.goods == null || this.goods.goods_style != 1001) {
             if (this.goods == null || this.goods.goods_style != -1001) {
                 if (this.url_type == 1) {

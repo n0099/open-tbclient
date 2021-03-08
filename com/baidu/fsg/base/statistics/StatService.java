@@ -9,10 +9,8 @@ import java.util.concurrent.ConcurrentHashMap;
 public class StatService {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1927a = "logsender";
-
-    /* renamed from: b  reason: collision with root package name */
-    private ConcurrentHashMap<String, Long> f1928b;
+    private static final String f1524a = "logsender";
+    private ConcurrentHashMap<String, Long> b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
@@ -28,18 +26,18 @@ public class StatService {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static StatService f1929a = new StatService();
+        private static StatService f1525a = new StatService();
 
         private a() {
         }
     }
 
     private StatService() {
-        this.f1928b = new ConcurrentHashMap<>();
+        this.b = new ConcurrentHashMap<>();
     }
 
     static StatService a() {
-        return a.f1929a;
+        return a.f1525a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -82,7 +80,7 @@ public class StatService {
     }
 
     public static void a(String str) {
-        a().f1928b.put(str, Long.valueOf(System.currentTimeMillis()));
+        a().b.put(str, Long.valueOf(System.currentTimeMillis()));
     }
 
     public static void b(String str, String str2, Collection<String> collection) {
@@ -107,12 +105,12 @@ public class StatService {
 
     private static ArrayList<String> a(String str, String str2) {
         ArrayList<String> arrayList = new ArrayList<>();
-        Long l = a().f1928b.get(str);
+        Long l = a().b.get(str);
         if (l == null) {
             return null;
         }
         Long valueOf = Long.valueOf(System.currentTimeMillis() - l.longValue());
-        a().f1928b.remove(str);
+        a().b.remove(str);
         arrayList.add(Long.toString(valueOf.longValue()));
         arrayList.add(str2);
         return arrayList;

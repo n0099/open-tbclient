@@ -26,16 +26,14 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class an {
     private static volatile String c;
     private static volatile int d = 0;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final Handler f3676b = new Handler(Looper.getMainLooper());
+    private final Handler b = new Handler(Looper.getMainLooper());
 
     /* renamed from: a  reason: collision with root package name */
-    private final b f3675a = new b();
+    private final b f2590a = new b();
 
     public static void a() {
         d = 0;
@@ -184,9 +182,9 @@ public class an {
 
     public Bitmap b(Activity activity) {
         List list;
-        this.f3675a.a(activity);
-        FutureTask futureTask = new FutureTask(this.f3675a);
-        this.f3676b.post(futureTask);
+        this.f2590a.a(activity);
+        FutureTask futureTask = new FutureTask(this.f2590a);
+        this.b.post(futureTask);
         List emptyList = Collections.emptyList();
         if (futureTask != null) {
             try {
@@ -205,61 +203,59 @@ public class an {
         if (emptyList.size() == 0) {
             return null;
         }
-        return ((c) emptyList.get(0)).c.f3677a;
+        return ((c) emptyList.get(0)).c.f2591a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b implements Callable<List<c>> {
 
         /* renamed from: a  reason: collision with root package name */
-        private Activity f3679a;
+        private Activity f2592a;
         private final int e = 160;
         private final DisplayMetrics c = new DisplayMetrics();
-
-        /* renamed from: b  reason: collision with root package name */
-        private final List<c> f3680b = new ArrayList();
+        private final List<c> b = new ArrayList();
         private final a d = new a();
 
         public void a(Activity activity) {
-            this.f3679a = activity;
+            this.f2592a = activity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public List<c> call() throws Exception {
-            this.f3680b.clear();
+            this.b.clear();
             HashSet<Activity> hashSet = new HashSet(1);
-            hashSet.add(this.f3679a);
+            hashSet.add(this.f2592a);
             for (Activity activity : hashSet) {
                 String canonicalName = activity.getClass().getCanonicalName();
-                View b2 = bj.b(activity);
+                View b = bj.b(activity);
                 activity.getWindowManager().getDefaultDisplay().getMetrics(this.c);
-                this.f3680b.add(new c(canonicalName, b2));
+                this.b.add(new c(canonicalName, b));
             }
-            int size = this.f3680b.size();
+            int size = this.b.size();
             for (int i = 0; i < size; i++) {
                 b();
-                a(this.f3680b.get(i));
+                a(this.b.get(i));
                 c();
             }
-            return this.f3680b;
+            return this.b;
         }
 
         private void b() {
-            ai.a(this.f3679a, false);
+            ai.a(this.f2592a, false);
         }
 
         private void c() {
-            ai.a(this.f3679a, true);
+            ai.a(this.f2592a, true);
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [359=5] */
         private void a(c cVar) {
             Bitmap bitmap;
             Bitmap bitmap2;
-            View view = cVar.f3682b;
+            View view = cVar.b;
             try {
                 Method declaredMethod = View.class.getDeclaredMethod("createSnapshot", Bitmap.Config.class, Integer.TYPE, Boolean.TYPE);
                 declaredMethod.setAccessible(true);
@@ -316,47 +312,43 @@ public class an {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
-
-        /* renamed from: b  reason: collision with root package name */
-        private final Paint f3678b = new Paint(2);
+        private final Paint b = new Paint(2);
 
         /* renamed from: a  reason: collision with root package name */
-        private Bitmap f3677a = null;
+        private Bitmap f2591a = null;
 
         public synchronized void a(int i, int i2, int i3, Bitmap bitmap) {
-            if (this.f3677a == null || this.f3677a.getWidth() != i || this.f3677a.getHeight() != i2) {
+            if (this.f2591a == null || this.f2591a.getWidth() != i || this.f2591a.getHeight() != i2) {
                 try {
-                    this.f3677a = Bitmap.createBitmap(i, i2, Bitmap.Config.RGB_565);
+                    this.f2591a = Bitmap.createBitmap(i, i2, Bitmap.Config.RGB_565);
                 } catch (OutOfMemoryError e) {
-                    this.f3677a = null;
+                    this.f2591a = null;
                 }
-                if (this.f3677a != null) {
-                    this.f3677a.setDensity(i3);
+                if (this.f2591a != null) {
+                    this.f2591a.setDensity(i3);
                 }
             }
-            if (this.f3677a != null) {
-                new Canvas(this.f3677a).drawBitmap(bitmap, 0.0f, 0.0f, this.f3678b);
+            if (this.f2591a != null) {
+                new Canvas(this.f2591a).drawBitmap(bitmap, 0.0f, 0.0f, this.b);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f3681a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final View f3682b;
+        public final String f2593a;
+        public final View b;
         public a c = null;
         public float d = 1.0f;
 
         public c(String str, View view) {
-            this.f3681a = str;
-            this.f3682b = view;
+            this.f2593a = str;
+            this.b = view;
         }
     }
 }

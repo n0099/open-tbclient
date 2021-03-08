@@ -9,7 +9,7 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.PullViewHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class TbListViewPullView extends TbListCommonPullView {
     private CustomMessageListener bgColorChangeListener;
     protected boolean isDone;

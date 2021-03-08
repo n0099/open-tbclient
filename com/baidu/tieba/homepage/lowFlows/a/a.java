@@ -12,13 +12,13 @@ import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.data.cb;
 /* loaded from: classes2.dex */
 public abstract class a<T, V extends TypeAdapter.ViewHolder> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected com.baidu.tbadk.h.f ajq;
-    protected s amk;
+    protected com.baidu.tbadk.h.f akI;
+    protected s anC;
     protected boolean mIsFromCDN;
     protected TbPageContext<?> mPageContext;
 
     public void setOnItemCoverListener(com.baidu.tbadk.h.f fVar) {
-        this.ajq = fVar;
+        this.akI = fVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.a
@@ -27,7 +27,7 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> extends com.baidu.a
     }
 
     public void a(s sVar) {
-        this.amk = sVar;
+        this.anC = sVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -60,14 +60,14 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> extends com.baidu.a
     }
 
     public void a(View view, cb cbVar, int i, long j) {
-        if (this.ajq != null) {
-            this.ajq.b(view, cbVar, i, j);
+        if (this.akI != null) {
+            this.akI.b(view, cbVar, i, j);
         }
     }
 
     public void f(View view, cb cbVar) {
-        if (this.ajq != null) {
-            this.ajq.a(view, cbVar, cbVar.position, cbVar.position);
+        if (this.akI != null) {
+            this.akI.a(view, cbVar, cbVar.position, cbVar.position);
         }
     }
 

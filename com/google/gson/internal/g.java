@@ -4,10 +4,10 @@ import java.lang.reflect.Type;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class g {
-    private static final Map<Class<?>, Class<?>> pTk;
-    private static final Map<Class<?>, Class<?>> pTl;
+    private static final Map<Class<?>, Class<?>> pTZ;
+    private static final Map<Class<?>, Class<?>> pUa;
 
     static {
         HashMap hashMap = new HashMap(16);
@@ -21,8 +21,8 @@ public final class g {
         a(hashMap, hashMap2, Long.TYPE, Long.class);
         a(hashMap, hashMap2, Short.TYPE, Short.class);
         a(hashMap, hashMap2, Void.TYPE, Void.class);
-        pTk = Collections.unmodifiableMap(hashMap);
-        pTl = Collections.unmodifiableMap(hashMap2);
+        pTZ = Collections.unmodifiableMap(hashMap);
+        pUa = Collections.unmodifiableMap(hashMap2);
     }
 
     private static void a(Map<Class<?>, Class<?>> map, Map<Class<?>, Class<?>> map2, Class<?> cls, Class<?> cls2) {
@@ -31,11 +31,11 @@ public final class g {
     }
 
     public static boolean q(Type type) {
-        return pTk.containsKey(type);
+        return pTZ.containsKey(type);
     }
 
     public static <T> Class<T> z(Class<T> cls) {
-        Class<T> cls2 = (Class<T>) pTk.get(a.checkNotNull(cls));
+        Class<T> cls2 = (Class<T>) pTZ.get(a.checkNotNull(cls));
         return cls2 == null ? cls : cls2;
     }
 }

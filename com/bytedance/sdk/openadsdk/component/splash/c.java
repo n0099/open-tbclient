@@ -6,15 +6,15 @@ import android.text.TextUtils;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.bytedance.sdk.adnet.b.b;
+import com.bytedance.sdk.adnet.core.o;
 import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.core.d.k;
 import com.bytedance.sdk.openadsdk.core.d.l;
-import com.bytedance.sdk.openadsdk.core.d.o;
-import com.bytedance.sdk.openadsdk.core.d.s;
+import com.bytedance.sdk.openadsdk.core.d.t;
 import com.bytedance.sdk.openadsdk.core.h;
 import com.bytedance.sdk.openadsdk.core.i;
 import com.bytedance.sdk.openadsdk.core.p;
-import com.bytedance.sdk.openadsdk.i.a.b;
+import com.bytedance.sdk.openadsdk.h.a.b;
 import com.bytedance.sdk.openadsdk.utils.aj;
 import com.bytedance.sdk.openadsdk.utils.j;
 import com.bytedance.sdk.openadsdk.utils.u;
@@ -57,16 +57,16 @@ public class c {
             JSONObject jSONObject = new JSONObject();
             jSONObject.putOpt("available_type", Integer.valueOf(i));
             jSONObject.putOpt("creative_check_duration", Long.valueOf(j2));
-            com.bytedance.sdk.openadsdk.h.a.a().n(com.bytedance.sdk.openadsdk.h.a.d.b().a(4).c(adSlot.getCodeId()).b((int) j).b(jSONObject.toString()));
+            com.bytedance.sdk.openadsdk.g.a.a().n(com.bytedance.sdk.openadsdk.g.a.c.b().a(4).c(adSlot.getCodeId()).b((int) j).b(jSONObject.toString()));
         } catch (Throwable th) {
         }
     }
 
-    public static void a(com.bytedance.sdk.openadsdk.h.a.d dVar, String str) {
-        com.bytedance.sdk.openadsdk.h.a.a().f(dVar.b(-7).g(h.a(-7)).i(str));
+    public static void a(com.bytedance.sdk.openadsdk.g.a.c cVar, String str) {
+        com.bytedance.sdk.openadsdk.g.a.a().f(cVar.b(-7).g(h.a(-7)).i(str));
     }
 
-    public static void a(long j, boolean z, boolean z2, l lVar, long j2, com.bytedance.sdk.adnet.core.p pVar) {
+    public static void a(long j, boolean z, boolean z2, l lVar, long j2, o oVar) {
         String str;
         long elapsedRealtime = SystemClock.elapsedRealtime() - j;
         if (z) {
@@ -75,8 +75,8 @@ public class c {
             str = z2 ? "download_video_image_success" : "download_video_image_fail";
         }
         String str2 = null;
-        if (!z2 && pVar != null && pVar.pvP != null) {
-            str2 = pVar.pvP.getMessage();
+        if (!z2 && oVar != null && oVar.pxT != null) {
+            str2 = oVar.pxT.getMessage();
         }
         if (z) {
             Map<String, Object> a2 = aj.a(z2, lVar, elapsedRealtime, j2, str2);
@@ -84,39 +84,39 @@ public class c {
             com.bytedance.sdk.openadsdk.c.d.f(p.a(), lVar, "splash_ad", str, a2);
             return;
         }
-        Map<String, Object> b2 = aj.b(z2, lVar, elapsedRealtime, j2, str2);
-        b2.put("splash_show_type", 2);
-        com.bytedance.sdk.openadsdk.c.d.e(p.a(), lVar, "splash_ad", str, b2);
+        Map<String, Object> b = aj.b(z2, lVar, elapsedRealtime, j2, str2);
+        b.put("splash_show_type", 2);
+        com.bytedance.sdk.openadsdk.c.d.e(p.a(), lVar, "splash_ad", str, b);
     }
 
     public static void a(final com.bytedance.sdk.openadsdk.core.d.a aVar) {
         if (b(aVar)) {
             final l lVar = aVar.c().get(0);
-            int d = aj.d(lVar.W());
-            s F = lVar.F();
-            if (F != null) {
+            int d = aj.d(lVar.aj());
+            t R = lVar.R();
+            if (R != null) {
                 final long elapsedRealtime = SystemClock.elapsedRealtime();
-                String h = F.h();
-                if (TextUtils.isEmpty(h)) {
+                String i = R.i();
+                if (TextUtils.isEmpty(i)) {
                     a(elapsedRealtime, true, false, lVar, -1L, null);
                     return;
                 }
                 a(lVar, 1);
-                String k = F.k();
-                if (TextUtils.isEmpty(k)) {
-                    k = j.a(h);
+                String l = R.l();
+                if (TextUtils.isEmpty(l)) {
+                    l = j.a(i);
                 }
-                final File a2 = a(p.a(), a.a(p.a()).a(String.valueOf(d), com.bytedance.sdk.openadsdk.multipro.b.b()), k);
+                final File a2 = a(p.a(), a.a(p.a()).a(String.valueOf(d), com.bytedance.sdk.openadsdk.multipro.b.b()), l);
                 if (p.h().e(String.valueOf(d)) && !x.d(p.a())) {
-                    if (k != null && a2.exists()) {
+                    if (l != null && a2.exists()) {
                         u.b("preLoadVideo", "非wifi环境，已缓存相同url的视频文件也是可以播放的");
-                        a.a(p.a()).b(new o(aVar, lVar, null));
+                        a.a(p.a()).b(new com.bytedance.sdk.openadsdk.core.d.p(aVar, lVar, null));
                         return;
                     }
                     return;
                 }
-                final String str = k;
-                com.bytedance.sdk.openadsdk.i.e.a(p.a()).a(h, new b.a() { // from class: com.bytedance.sdk.openadsdk.component.splash.c.1
+                final String str = l;
+                com.bytedance.sdk.openadsdk.h.d.a(p.a()).a(i, new b.a() { // from class: com.bytedance.sdk.openadsdk.component.splash.c.1
                     @Override // com.bytedance.sdk.adnet.b.b.a
                     public File a(String str2) {
                         try {
@@ -124,7 +124,7 @@ public class c {
                             if (parentFile != null && parentFile.exists()) {
                                 u.f("splashLoadAd", "SplashUtils preLoadVideo getFile  s " + str2);
                                 c.a(a2);
-                                return i.c().o().a(str, parentFile);
+                                return i.d().p().a(str, parentFile);
                             }
                         } catch (IOException e) {
                             u.f("SplashUtils", "datastoreGet throw IOException : " + e.toString());
@@ -150,20 +150,20 @@ public class c {
                     public void a(long j, long j2) {
                     }
 
-                    @Override // com.bytedance.sdk.adnet.core.p.a
-                    public void a(com.bytedance.sdk.adnet.core.p<File> pVar) {
-                        if (pVar != null && pVar.f6047a != null) {
-                            a.a(p.a()).b(new o(aVar, lVar, null));
-                            a.a(p.a()).a(new o(aVar, lVar, null));
-                            c.a(elapsedRealtime, true, true, lVar, 0L, pVar);
+                    @Override // com.bytedance.sdk.adnet.core.o.a
+                    public void a(o<File> oVar) {
+                        if (oVar != null && oVar.f4049a != null) {
+                            a.a(p.a()).b(new com.bytedance.sdk.openadsdk.core.d.p(aVar, lVar, null));
+                            a.a(p.a()).a(new com.bytedance.sdk.openadsdk.core.d.p(aVar, lVar, null));
+                            c.a(elapsedRealtime, true, true, lVar, 0L, oVar);
                             return;
                         }
-                        c.a(elapsedRealtime, true, false, lVar, pVar == null ? -3L : pVar.h, pVar);
+                        c.a(elapsedRealtime, true, false, lVar, oVar == null ? -3L : oVar.h, oVar);
                     }
 
-                    @Override // com.bytedance.sdk.adnet.core.p.a
-                    public void b(com.bytedance.sdk.adnet.core.p<File> pVar) {
-                        c.a(elapsedRealtime, true, false, lVar, pVar == null ? -2L : pVar.h, pVar);
+                    @Override // com.bytedance.sdk.adnet.core.o.a
+                    public void b(o<File> oVar) {
+                        c.a(elapsedRealtime, true, false, lVar, oVar == null ? -2L : oVar.h, oVar);
                     }
                 });
             }
@@ -171,27 +171,27 @@ public class c {
     }
 
     public static void a(l lVar) {
-        if (lVar != null && lVar.B() != null) {
-            if (lVar.ai() && lVar.M() != null && !lVar.M().isEmpty()) {
-                for (k kVar : lVar.M()) {
+        if (lVar != null && lVar.M() != null) {
+            if (lVar.aA() && lVar.Z() != null && !lVar.Z().isEmpty()) {
+                for (k kVar : lVar.Z()) {
                     if (!TextUtils.isEmpty(kVar.a())) {
-                        com.bytedance.sdk.openadsdk.i.e.a(p.a()).f().a(kVar.a(), (b.InterfaceC1022b) com.bytedance.sdk.openadsdk.i.a.b.a(), kVar.b(), kVar.c(), true);
+                        com.bytedance.sdk.openadsdk.h.d.a(p.a()).f().a(kVar.a(), (b.InterfaceC1033b) com.bytedance.sdk.openadsdk.h.a.b.a(), kVar.b(), kVar.c(), true);
                     }
                 }
             }
-            k I = lVar.I();
-            if (I != null && !TextUtils.isEmpty(I.a())) {
-                com.bytedance.sdk.openadsdk.i.e.a(p.a()).f().a(I.a(), (b.InterfaceC1022b) com.bytedance.sdk.openadsdk.i.a.b.a(), I.b(), I.c(), true);
+            k U = lVar.U();
+            if (U != null && !TextUtils.isEmpty(U.a())) {
+                com.bytedance.sdk.openadsdk.h.d.a(p.a()).f().a(U.a(), (b.InterfaceC1033b) com.bytedance.sdk.openadsdk.h.a.b.a(), U.b(), U.c(), true);
             }
         }
     }
 
-    public static boolean a(o oVar) {
-        return (oVar == null || oVar.a() == null) ? false : true;
+    public static boolean a(com.bytedance.sdk.openadsdk.core.d.p pVar) {
+        return (pVar == null || pVar.a() == null) ? false : true;
     }
 
-    public static boolean b(o oVar) {
-        return (oVar.a() == null || !oVar.a().ai() || oVar.b() == null || oVar.b().length == 0) ? false : true;
+    public static boolean b(com.bytedance.sdk.openadsdk.core.d.p pVar) {
+        return (pVar.a() == null || !pVar.a().aA() || pVar.b() == null || pVar.b().length == 0) ? false : true;
     }
 
     public static boolean b(com.bytedance.sdk.openadsdk.core.d.a aVar) {
@@ -213,7 +213,7 @@ public class c {
     }
 
     public static File a(Context context, String str, String str2) {
-        if (p.h().C() == 1) {
+        if (p.h().B() == 1) {
             u.f("splashLoadAd", "视频存储使用内部存储");
             return com.bytedance.sdk.openadsdk.utils.l.b(context, com.bytedance.sdk.openadsdk.multipro.b.b(), str, str2);
         }
@@ -221,11 +221,11 @@ public class c {
         return com.bytedance.sdk.openadsdk.utils.l.a(context, com.bytedance.sdk.openadsdk.multipro.b.b(), str, str2);
     }
 
-    public static int c(o oVar) {
-        if (oVar != null) {
-            int c = c(oVar.c());
+    public static int c(com.bytedance.sdk.openadsdk.core.d.p pVar) {
+        if (pVar != null) {
+            int c = c(pVar.c());
             if (c <= 0) {
-                return b(oVar.a());
+                return b(pVar.a());
             }
             return c;
         }
@@ -234,7 +234,7 @@ public class c {
 
     public static int b(l lVar) {
         if (lVar != null) {
-            return aj.d(lVar.W());
+            return aj.d(lVar.aj());
         }
         return 0;
     }

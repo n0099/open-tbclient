@@ -21,27 +21,27 @@ import java.util.Map;
 import okhttp3.HttpUrl;
 import okhttp3.Response;
 import org.apache.http.client.methods.HttpHead;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static volatile a cWi = null;
-    public static final boolean cWn = com.baidu.swan.apps.t.a.awZ().getSwitch("swan_hot_start_prelink_switch", false);
+    private static volatile a cXI = null;
+    public static final boolean cXN = com.baidu.swan.apps.t.a.axc().getSwitch("swan_hot_start_prelink_switch", false);
     @Nullable
-    private volatile String cWj = null;
+    private volatile String cXJ = null;
     @Nullable
-    private volatile String cWk = null;
-    private volatile boolean cWl = false;
-    private Map<String, String> cWm = new LinkedHashMap();
+    private volatile String cXK = null;
+    private volatile boolean cXL = false;
+    private Map<String, String> cXM = new LinkedHashMap();
 
-    public static a art() {
-        if (cWi == null) {
+    public static a arw() {
+        if (cXI == null) {
             synchronized (a.class) {
-                if (cWi == null) {
-                    cWi = new a();
+                if (cXI == null) {
+                    cXI = new a();
                 }
             }
         }
-        return cWi;
+        return cXI;
     }
 
     private a() {
@@ -70,7 +70,7 @@ public class a {
         if (DEBUG) {
             Log.d("SwanPrelink", "start prelink");
         }
-        SwanAppConfigData.d dVar = swanAppConfigData.dEY;
+        SwanAppConfigData.d dVar = swanAppConfigData.dGz;
         if (dVar == null) {
             if (DEBUG) {
                 Log.d("SwanPrelink", "prelink: prelink config is null");
@@ -78,7 +78,7 @@ public class a {
             trace("校验失败", "app.json 中未配置 prelinks");
             return;
         }
-        ArrayList<String> arrayList = dVar.dFh;
+        ArrayList<String> arrayList = dVar.dGI;
         if (arrayList == null) {
             if (DEBUG) {
                 Log.d("SwanPrelink", "prelink: prelink config urls are null");
@@ -98,12 +98,12 @@ public class a {
             Log.d("SwanPrelink", "prelink: urls " + arrayList.toString());
         }
         HttpUrl parse = HttpUrl.parse(arrayList.get(0));
-        this.cWj = parse == null ? null : parse.host();
-        boolean agY = com.baidu.swan.apps.t.a.awZ().agY();
+        this.cXJ = parse == null ? null : parse.host();
+        boolean ahb = com.baidu.swan.apps.t.a.axc().ahb();
         if (DEBUG) {
-            Log.d("SwanPrelink", "prelink: isPrelinkEnable " + agY);
+            Log.d("SwanPrelink", "prelink: isPrelinkEnable " + ahb);
         }
-        if (!agY) {
+        if (!ahb) {
             if (DEBUG) {
                 Log.d("SwanPrelink", "prelink: miss prelink");
             }
@@ -131,21 +131,21 @@ public class a {
                 }
                 trace("校验失败", "配置的 url 为空");
             } else {
-                HttpUrl kQ = c.kQ(str);
-                if (kQ == null) {
+                HttpUrl kX = c.kX(str);
+                if (kX == null) {
                     if (DEBUG) {
                         Log.w("SwanPrelink", "prelink: url cannot be " + str);
                     }
                     trace("校验失败", "配置的 url 非法，参考 request api url 要求。url=" + str);
                 } else {
-                    String httpUrl = kQ.toString();
+                    String httpUrl = kX.toString();
                     if (com.baidu.swan.apps.af.a.b.Y("request", httpUrl, "") != 0) {
                         if (DEBUG) {
                             Log.w("SwanPrelink", "prelink: url check fail " + httpUrl);
                         }
                         trace("校验失败", "配置的 url 非法，参考 request api url 要求。url=" + str);
                     } else {
-                        nb(httpUrl);
+                        ni(httpUrl);
                     }
                 }
             }
@@ -154,19 +154,19 @@ public class a {
         }
     }
 
-    private void nb(@NonNull final String str) {
+    private void ni(@NonNull final String str) {
         if (DEBUG) {
             Log.d("SwanPrelink", "doPrelink: " + str);
         }
         com.baidu.swan.a.b.a aVar = new com.baidu.swan.a.b.a();
         aVar.method = HttpHead.METHOD_NAME;
         HttpRequestBuilder d = com.baidu.swan.a.c.b.d(aVar);
-        d.setHeader("Referer", c.akf());
+        d.setHeader("Referer", c.aki());
         aVar.url = str;
-        aVar.etH = true;
-        aVar.etI = false;
-        aVar.etJ = true;
-        com.baidu.swan.a.c.a.bbY().a(d, aVar);
+        aVar.evi = true;
+        aVar.evj = false;
+        aVar.evk = true;
+        com.baidu.swan.a.c.a.bca().a(d, aVar);
         HttpRequest build = d.enableStat(true).build();
         trace("校验通过", "开始向 url=" + str + " 发送预连接 HEAD 请求");
         build.executeStat(new StatResponseCallback() { // from class: com.baidu.swan.apps.core.i.a.2
@@ -179,7 +179,7 @@ public class a {
                     long j = networkStatRecord.dnsEndTs - networkStatRecord.dnsStartTs;
                     long j2 = networkStatRecord.connTs - networkStatRecord.startTs;
                     if (a.DEBUG) {
-                        Log.d("SwanPrelink", "doPrelink: hit: url: " + str + " firstPrelinkUrlHost: " + a.this.cWj);
+                        Log.d("SwanPrelink", "doPrelink: hit: url: " + str + " firstPrelinkUrlHost: " + a.this.cXJ);
                         Log.d("SwanPrelink", "doPrelink: networkStatRecord: \n" + networkStatRecord.toUBCJson());
                         Log.d("SwanPrelink", "doPrelink: isConnReused: " + networkStatRecord.isConnReused);
                         Log.d("SwanPrelink", "doPrelink: dnsTime: " + j + " connTime: " + j2);
@@ -210,32 +210,32 @@ public class a {
     }
 
     public void a(@NonNull String str, @NonNull HttpUrl httpUrl) {
-        if (arw() && this.cWk == null) {
-            if (!TextUtils.equals(httpUrl.host(), this.cWj)) {
+        if (arz() && this.cXK == null) {
+            if (!TextUtils.equals(httpUrl.host(), this.cXJ)) {
                 if (DEBUG) {
-                    Log.d("SwanPrelink", "onBusinessRequest: miss: tag: " + str + " url: " + httpUrl.toString() + " firstPrelinkUrlHost: " + this.cWj);
+                    Log.d("SwanPrelink", "onBusinessRequest: miss: tag: " + str + " url: " + httpUrl.toString() + " firstPrelinkUrlHost: " + this.cXJ);
                     return;
                 }
                 return;
             }
-            this.cWk = str;
+            this.cXK = str;
             if (DEBUG) {
-                Log.d("SwanPrelink", "onBusinessRequest: hit: tag: " + str + " url: " + httpUrl.toString() + " firstPrelinkUrlHost: " + this.cWj);
+                Log.d("SwanPrelink", "onBusinessRequest: hit: tag: " + str + " url: " + httpUrl.toString() + " firstPrelinkUrlHost: " + this.cXJ);
             }
             trace("业务方触发第一个同域名请求", "url=" + httpUrl);
         }
     }
 
     public void a(@NonNull String str, @NonNull HttpUrl httpUrl, NetworkStatRecord networkStatRecord) {
-        if (arw() && !this.cWl && this.cWk != null) {
-            if (!TextUtils.equals(this.cWk, str)) {
+        if (arz() && !this.cXL && this.cXK != null) {
+            if (!TextUtils.equals(this.cXK, str)) {
                 if (DEBUG) {
-                    Log.d("SwanPrelink", "tryRecordNetworkStat: miss : tag: " + str + " firstBusinessRequestTag:" + this.cWk + " url: " + httpUrl + " firstPrelinkUrlHost: " + this.cWj);
+                    Log.d("SwanPrelink", "tryRecordNetworkStat: miss : tag: " + str + " firstBusinessRequestTag:" + this.cXK + " url: " + httpUrl + " firstPrelinkUrlHost: " + this.cXJ);
                     return;
                 }
                 return;
             }
-            this.cWl = true;
+            this.cXL = true;
             if (networkStatRecord == null) {
                 if (DEBUG) {
                     Log.w("SwanPrelink", "tryRecordNetworkStat: networkStateRecord cannot be null");
@@ -250,13 +250,13 @@ public class a {
             long j5 = j - j2;
             long j6 = j3 - j4;
             if (DEBUG) {
-                Log.d("SwanPrelink", "tryRecordNetworkStat: hit: tag: " + str + " firstBusinessRequestTag:" + this.cWk + " url: " + httpUrl + " firstPrelinkUrlHost: " + this.cWj);
+                Log.d("SwanPrelink", "tryRecordNetworkStat: hit: tag: " + str + " firstBusinessRequestTag:" + this.cXK + " url: " + httpUrl + " firstPrelinkUrlHost: " + this.cXJ);
                 Log.d("SwanPrelink", "tryRecordNetworkStat: networkStatRecord: \n" + networkStatRecord.toUBCJson());
                 Log.d("SwanPrelink", "tryRecordNetworkStat: isConnReused: " + networkStatRecord.isConnReused);
                 Log.d("SwanPrelink", "tryRecordNetworkStat: dnsTime: " + j5 + " connTime: " + j6);
             }
             trace("业务方第一个同域名请求返回", " 连接是否复用=" + networkStatRecord.isConnReused + " dns解析时长=" + j5 + "ms 网络连接时长=" + j6 + "ms url=" + httpUrl);
-            i.qk("startup").f(new UbcFlowEvent("request_network_start").cE(j4)).f(new UbcFlowEvent("request_network_conn").cE(j3)).f(new UbcFlowEvent("request_dns_start").cE(j2)).f(new UbcFlowEvent("request_dns_end").cE(j)).f(new UbcFlowEvent("request_network_response").cE(networkStatRecord.responseTs)).f(new UbcFlowEvent("request_send_header").cE(networkStatRecord.sendHeaderTs)).f(new UbcFlowEvent("request_receive_header").cE(networkStatRecord.receiveHeaderTs));
+            i.qr("startup").f(new UbcFlowEvent("request_network_start").cE(j4)).f(new UbcFlowEvent("request_network_conn").cE(j3)).f(new UbcFlowEvent("request_dns_start").cE(j2)).f(new UbcFlowEvent("request_dns_end").cE(j)).f(new UbcFlowEvent("request_network_response").cE(networkStatRecord.responseTs)).f(new UbcFlowEvent("request_send_header").cE(networkStatRecord.sendHeaderTs)).f(new UbcFlowEvent("request_receive_header").cE(networkStatRecord.receiveHeaderTs));
         }
     }
 
@@ -264,32 +264,32 @@ public class a {
         if (DEBUG) {
             Log.d("SwanPrelink", "release: ");
         }
-        if (cWi != null) {
-            cWi = null;
+        if (cXI != null) {
+            cXI = null;
         }
     }
 
-    public void aru() {
+    public void arx() {
         if (DEBUG) {
-            this.cWk = null;
-            this.cWl = false;
-            this.cWj = null;
+            this.cXK = null;
+            this.cXL = false;
+            this.cXJ = null;
         }
     }
 
     public synchronized void trace(@NonNull String str, @NonNull String str2) {
-        if (!this.cWm.containsKey(str)) {
-            this.cWm.put(str, str2);
-            e.dOh.ab(arv());
+        if (!this.cXM.containsKey(str)) {
+            this.cXM.put(str, str2);
+            e.dPI.ad(ary());
         }
     }
 
     @NonNull
-    private synchronized String arv() {
+    private synchronized String ary() {
         StringBuilder sb;
         sb = new StringBuilder();
         sb.append("========== prelink start ==========").append("\r\n");
-        for (Map.Entry<String, String> entry : this.cWm.entrySet()) {
+        for (Map.Entry<String, String> entry : this.cXM.entrySet()) {
             if (entry != null) {
                 sb.append("----- ").append(entry.getKey()).append(": ").append(entry.getValue()).append("\r\n\r\n");
             }
@@ -298,7 +298,7 @@ public class a {
         return sb.toString();
     }
 
-    private boolean arw() {
-        return this.cWj != null;
+    private boolean arz() {
+        return this.cXJ != null;
     }
 }

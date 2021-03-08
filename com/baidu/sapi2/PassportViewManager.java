@@ -3,18 +3,16 @@ package com.baidu.sapi2;
 import android.graphics.drawable.Drawable;
 import com.baidu.j.a.a;
 import com.baidu.sapi2.callback.TitleBtnCallback;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class PassportViewManager implements NoProguard {
     private static SapiConfiguration c;
     private static PassportViewManager d;
 
     /* renamed from: a  reason: collision with root package name */
-    private TitleBtnCallback f4529a;
+    private TitleBtnCallback f3118a;
+    private TitleViewModule b = null;
 
-    /* renamed from: b  reason: collision with root package name */
-    private TitleViewModule f4530b = null;
-
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static class TitleViewModule implements NoProguard {
         public static final int DEFAULT_TEXT_COLOR = PassportViewManager.c.context.getResources().getColor(a.b.sapi_sdk_edit_text_color);
         public int bgColor = Integer.MAX_VALUE;
@@ -62,7 +60,7 @@ public class PassportViewManager implements NoProguard {
     }
 
     public void configTitle(TitleViewModule titleViewModule) {
-        this.f4530b = titleViewModule;
+        this.b = titleViewModule;
         if (titleViewModule.bgColor == Integer.MAX_VALUE) {
             titleViewModule.bgColor = -1;
         }
@@ -72,20 +70,20 @@ public class PassportViewManager implements NoProguard {
     }
 
     public TitleBtnCallback getTitleBtnCallback() {
-        return this.f4529a;
+        return this.f3118a;
     }
 
     public TitleViewModule getTitleViewModule() {
-        return this.f4530b;
+        return this.b;
     }
 
     public void release() {
-        this.f4529a = null;
-        this.f4530b = null;
+        this.f3118a = null;
+        this.b = null;
         SapiWebView.statLoadLogin = null;
     }
 
     public void setTitleBtnCallback(TitleBtnCallback titleBtnCallback) {
-        this.f4529a = titleBtnCallback;
+        this.f3118a = titleBtnCallback;
     }
 }

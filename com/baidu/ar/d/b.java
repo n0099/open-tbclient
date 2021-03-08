@@ -1,5 +1,5 @@
 package com.baidu.ar.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public abstract class b {
     private String J;
     private long mTimestamp;

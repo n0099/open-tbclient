@@ -5,27 +5,27 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.StringHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private long hBl;
-    private TextView hBm;
+    private long hCU;
+    private TextView hCV;
     private TbPageContext mContext;
     private View mView;
 
     public void fG(long j) {
-        if (j > this.hBl) {
-            this.hBl = j;
-            ceu();
+        if (j > this.hCU) {
+            this.hCU = j;
+            ceA();
         }
     }
 
-    public void cet() {
-        this.hBl = 0L;
-        ceu();
+    public void cez() {
+        this.hCU = 0L;
+        ceA();
     }
 
-    private void ceu() {
-        this.hBm.setText(String.format(this.mContext.getString(a.h.sdk_charm_name), StringHelper.formatTosepara((int) this.hBl)));
+    private void ceA() {
+        this.hCV.setText(String.format(this.mContext.getString(a.h.sdk_charm_name), StringHelper.formatTosepara((int) this.hCU)));
     }
 
     public View getView() {

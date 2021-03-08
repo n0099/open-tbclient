@@ -8,9 +8,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class l extends h {
-    private ForumGoodsEnterLayout agL;
-    private int agM;
-    private com.baidu.tbadk.core.data.a agj;
+    private com.baidu.tbadk.core.data.a ahB;
+    private ForumGoodsEnterLayout aie;
+    private int aif;
     private final View.OnClickListener mOnClickListener;
 
     public l(Context context) {
@@ -19,27 +19,27 @@ public class l extends h {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (l.this.sO() != null) {
-                    l.this.sO().a(view, l.this.agj);
+                    l.this.sO().a(view, l.this.ahB);
                 }
             }
         };
         int dimens = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.M_H_X003);
         int dimens2 = com.baidu.adp.lib.util.l.getDimens(context, com.baidu.tbadk.a.b.b.aH(R.dimen.tbds21, R.dimen.tbds0));
         setTopMargin(dimens);
-        bt(dimens2);
-        this.agL = new ForumGoodsEnterLayout(context);
-        this.agL.setOnAfterClickListener(this.mOnClickListener);
+        bu(dimens2);
+        this.aie = new ForumGoodsEnterLayout(context);
+        this.aie.setOnAfterClickListener(this.mOnClickListener);
     }
 
     public void sW() {
         int dimens = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.M_H_X003);
         setTopMargin(dimens);
-        bt(0);
-        e(this.agL, dimens, 0);
+        bu(0);
+        e(this.aie, dimens, 0);
     }
 
-    public void bu(int i) {
-        this.agM = i;
+    public void bv(int i) {
+        this.aif = i;
     }
 
     public void e(View view, int i, int i2) {
@@ -56,21 +56,21 @@ public class l extends h {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.a
     public View getView() {
-        return this.agL;
+        return this.aie;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
-    public void C(com.baidu.tbadk.core.data.a aVar) {
-        this.agj = aVar;
-        this.agL.setSourceForPb(this.agd.tf());
-        this.agL.setFrstype(this.agM);
-        this.agL.setData(aVar);
+    public void E(com.baidu.tbadk.core.data.a aVar) {
+        this.ahB = aVar;
+        this.aie.setSourceForPb(this.ahw.tf());
+        this.aie.setFrstype(this.aif);
+        this.aie.setData(aVar);
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.agL.onChangeSkinType(tbPageContext, i);
+        this.aie.onChangeSkinType(tbPageContext, i);
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.tbadk.download.DownloadData;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class e implements com.baidu.tbadk.download.c {
     @Override // com.baidu.tbadk.download.c
     public void onFileDownloadSucceed(DownloadData downloadData) {
@@ -48,10 +48,10 @@ public class e implements com.baidu.tbadk.download.c {
             try {
                 fileInputStream = new FileInputStream(downloadData.getPath());
                 try {
-                    int b2 = a.cyv().b(downloadData.getId(), fileInputStream);
-                    EmotionGroupData JD = i.cyL().JD(downloadData.getId());
-                    if (JD == null) {
-                        if (b2 == 0) {
+                    int b = a.cyB().b(downloadData.getId(), fileInputStream);
+                    EmotionGroupData JM = i.cyR().JM(downloadData.getId());
+                    if (JM == null) {
+                        if (b == 0) {
                             if (fileInputStream != null) {
                                 try {
                                     fileInputStream.close();
@@ -63,21 +63,21 @@ public class e implements com.baidu.tbadk.download.c {
                             }
                             return false;
                         }
-                        JD = new EmotionGroupData();
-                        JD.setBytesLength((int) downloadData.getSize());
-                        JD.setBytesReceived((int) downloadData.getLength());
-                        JD.setDownloadUrl(downloadData.getUrl());
-                        JD.setGroupId(downloadData.getId());
-                        JD.setEmotionsCount(b2);
-                        JD.setHeight(downloadData.getHeight());
-                        JD.setWidth(downloadData.getWidth());
-                        JD.setDownloadTime(System.currentTimeMillis());
-                        JD.setGroupDesc(downloadData.getDescription());
-                        JD.setGroupName(downloadData.getName());
-                        JD.setStatus(1);
-                        i.cyL().a(JD);
+                        JM = new EmotionGroupData();
+                        JM.setBytesLength((int) downloadData.getSize());
+                        JM.setBytesReceived((int) downloadData.getLength());
+                        JM.setDownloadUrl(downloadData.getUrl());
+                        JM.setGroupId(downloadData.getId());
+                        JM.setEmotionsCount(b);
+                        JM.setHeight(downloadData.getHeight());
+                        JM.setWidth(downloadData.getWidth());
+                        JM.setDownloadTime(System.currentTimeMillis());
+                        JM.setGroupDesc(downloadData.getDescription());
+                        JM.setGroupName(downloadData.getName());
+                        JM.setStatus(1);
+                        i.cyR().a(JM);
                     }
-                    i.cyL().a(downloadData.getStatusMsg(), JD);
+                    i.cyR().a(downloadData.getStatusMsg(), JM);
                     downloadData.setStatusMsg(null);
                     if (fileInputStream != null) {
                         try {
@@ -123,7 +123,7 @@ public class e implements com.baidu.tbadk.download.c {
     @Override // com.baidu.tbadk.download.c
     public void onFileUpdateProgress(DownloadData downloadData) {
         if (downloadData != null) {
-            f.cyy().b(downloadData);
+            f.cyE().b(downloadData);
         }
     }
 
@@ -132,9 +132,9 @@ public class e implements com.baidu.tbadk.download.c {
         if (downloadData == null) {
             return false;
         }
-        EmotionGroupData JD = i.cyL().JD(downloadData.getId());
-        if (JD != null && b.Jy(downloadData.getId())) {
-            i.cyL().a(downloadData.getStatusMsg(), JD);
+        EmotionGroupData JM = i.cyR().JM(downloadData.getId());
+        if (JM != null && b.JH(downloadData.getId())) {
+            i.cyR().a(downloadData.getStatusMsg(), JM);
             downloadData.setStatusMsg(null);
             return false;
         }

@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static void nx(boolean z) {
         v(z, "rightgess_show");
@@ -20,7 +20,7 @@ public class c {
         v(z, "missguess_show");
     }
 
-    public static void bXQ() {
+    public static void bXW() {
         UbcStatisticItem ubcStatisticItem = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "jointeam_clk");
         JSONObject jSONObject = new JSONObject();
         try {

@@ -7,17 +7,17 @@ import android.view.View;
 class d implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PermissionsHelperActivity f4120a;
+    final /* synthetic */ PermissionsHelperActivity f2853a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(PermissionsHelperActivity permissionsHelperActivity) {
-        this.f4120a = permissionsHelperActivity;
+        this.f2853a = permissionsHelperActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
-        intent.setData(Uri.fromParts("package", this.f4120a.getPackageName(), null));
-        this.f4120a.startActivityForResult(intent, 8000);
+        intent.setData(Uri.fromParts("package", this.f2853a.getPackageName(), null));
+        this.f2853a.startActivityForResult(intent, 8000);
     }
 }

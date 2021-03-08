@@ -7,22 +7,22 @@ import com.baidu.live.data.bd;
 import com.baidu.live.data.bg;
 import com.baidu.live.data.bk;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface i {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(boolean z, com.baidu.live.challenge.a aVar);
 
         void m(int i, String str);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface b {
-        void cx(int i);
+        void cy(int i);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface c {
         void b(bg bgVar, bk bkVar, bk bkVar2);
 
@@ -33,12 +33,12 @@ public interface i {
         void e(bg bgVar, bk bkVar, bk bkVar2);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface d {
         void g(boolean z, String str);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface e {
         void a(int i, String str, com.baidu.live.challenge.a aVar);
 
@@ -47,19 +47,19 @@ public interface i {
         void n(int i, String str);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface f {
-        int AL();
+        int AO();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface g {
         void o(int i, String str);
 
         void y(List<com.baidu.live.challenge.d> list);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface h {
         void a(com.baidu.live.challenge.d dVar);
 
@@ -67,19 +67,19 @@ public interface i {
     }
 
     /* renamed from: com.baidu.live.challenge.i$i  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0166i {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0172i {
         void a(com.baidu.live.challenge.b bVar, List<com.baidu.live.challenge.d> list);
 
         void q(int i, String str);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface j {
-        void k(boolean z, long j);
+        void l(boolean z, long j);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface k {
         void a(boolean z, String str, com.baidu.live.challenge.a aVar);
 
@@ -88,28 +88,24 @@ public interface i {
         void r(int i, String str);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface l {
         void s(int i, String str);
 
         void z(List<com.baidu.live.challenge.d> list);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface m {
-        void AM();
+        void AP();
 
         void t(int i, String str);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface n {
         void h(boolean z, String str);
     }
-
-    void AA();
-
-    void AB();
 
     void AC();
 
@@ -119,19 +115,23 @@ public interface i {
 
     void AF();
 
-    ChallenfeInfoData.ChallengeStatus AG();
+    void AG();
 
-    boolean AH();
+    void AH();
 
     void AI();
 
-    long AJ();
+    ChallenfeInfoData.ChallengeStatus AJ();
 
-    void AK();
+    boolean AK();
 
-    void Ar();
+    void AL();
 
-    void Az();
+    long AM();
+
+    void AN();
+
+    void Au();
 
     void a(long j2, long j3, long j4, int i, String str);
 
@@ -151,7 +151,7 @@ public interface i {
 
     void a(h hVar);
 
-    void a(InterfaceC0166i interfaceC0166i);
+    void a(InterfaceC0172i interfaceC0172i);
 
     void a(j jVar);
 
@@ -179,13 +179,13 @@ public interface i {
 
     void c(ab abVar);
 
-    void cw(int i);
+    void cx(int i);
 
-    void fo(String str);
+    void fu(String str);
 
-    void fp(String str);
+    void fv(String str);
 
-    void fq(String str);
+    void fw(String str);
 
     void g(int i, int i2, String str);
 

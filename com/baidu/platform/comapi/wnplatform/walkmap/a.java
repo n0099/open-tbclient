@@ -11,10 +11,8 @@ import java.lang.ref.SoftReference;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    SoftReference<MapView> f4473a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    private BaiduMap f4474b;
+    SoftReference<MapView> f3092a = null;
+    private BaiduMap b;
     private WNaviBaiduMap c;
     private f d;
 
@@ -23,12 +21,12 @@ public class a {
     }
 
     public void a() {
-        this.f4473a = null;
+        this.f3092a = null;
     }
 
     public void a(MapView mapView) {
-        this.f4473a = new SoftReference<>(mapView);
-        this.f4474b = this.f4473a.get().getMap();
+        this.f3092a = new SoftReference<>(mapView);
+        this.b = this.f3092a.get().getMap();
         this.c = WNaviBaiduMap.getInstance();
     }
 
@@ -36,11 +34,11 @@ public class a {
     }
 
     public void a(MapStatusUpdate mapStatusUpdate) {
-        this.f4474b.setMapStatus(mapStatusUpdate);
+        this.b.setMapStatus(mapStatusUpdate);
     }
 
     public MapStatus c() {
-        return this.f4474b.getMapStatus();
+        return this.b.getMapStatus();
     }
 
     public float d() {
@@ -49,15 +47,15 @@ public class a {
 
     public void a(f fVar) {
         this.d = fVar;
-        this.f4474b.setOnMapStatusChangeListener(new b(this));
+        this.b.setOnMapStatusChangeListener(new b(this));
     }
 
     public void a(MapStatus mapStatus, int i) {
-        this.f4474b.animateMapStatus(com.baidu.platform.comapi.wnplatform.o.e.a(mapStatus), i);
+        this.b.animateMapStatus(com.baidu.platform.comapi.wnplatform.o.e.a(mapStatus), i);
     }
 
     public void a(int i, int i2) {
-        this.f4474b.setCompassPosition(new Point(i, i2));
+        this.b.setCompassPosition(new Point(i, i2));
     }
 
     public void e() {

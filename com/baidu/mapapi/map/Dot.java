@@ -8,10 +8,8 @@ import com.baidu.mapapi.model.inner.GeoPoint;
 public final class Dot extends Overlay {
 
     /* renamed from: a  reason: collision with root package name */
-    LatLng f2703a;
-
-    /* renamed from: b  reason: collision with root package name */
-    int f2704b;
+    LatLng f2014a;
+    int b;
     int c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -23,20 +21,20 @@ public final class Dot extends Overlay {
     @Override // com.baidu.mapapi.map.Overlay
     public Bundle a(Bundle bundle) {
         super.a(bundle);
-        GeoPoint ll2mc = CoordUtil.ll2mc(this.f2703a);
+        GeoPoint ll2mc = CoordUtil.ll2mc(this.f2014a);
         bundle.putDouble("location_x", ll2mc.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
         bundle.putInt("radius", this.c);
-        Overlay.a(this.f2704b, bundle);
+        Overlay.a(this.b, bundle);
         return bundle;
     }
 
     public LatLng getCenter() {
-        return this.f2703a;
+        return this.f2014a;
     }
 
     public int getColor() {
-        return this.f2704b;
+        return this.b;
     }
 
     public int getRadius() {
@@ -47,12 +45,12 @@ public final class Dot extends Overlay {
         if (latLng == null) {
             throw new IllegalArgumentException("dot center can not be null");
         }
-        this.f2703a = latLng;
+        this.f2014a = latLng;
         this.listener.b(this);
     }
 
     public void setColor(int i) {
-        this.f2704b = i;
+        this.b = i;
         this.listener.b(this);
     }
 

@@ -7,10 +7,8 @@ public class TrainInfo extends TransitBaseInfo {
     public static final Parcelable.Creator<TrainInfo> CREATOR = new n();
 
     /* renamed from: a  reason: collision with root package name */
-    private double f2854a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f2855b;
+    private double f2105a;
+    private String b;
 
     public TrainInfo() {
     }
@@ -18,16 +16,16 @@ public class TrainInfo extends TransitBaseInfo {
     /* JADX INFO: Access modifiers changed from: protected */
     public TrainInfo(Parcel parcel) {
         super(parcel);
-        this.f2854a = parcel.readDouble();
-        this.f2855b = parcel.readString();
+        this.f2105a = parcel.readDouble();
+        this.b = parcel.readString();
     }
 
     public void a(double d) {
-        this.f2854a = d;
+        this.f2105a = d;
     }
 
     public void a(String str) {
-        this.f2855b = str;
+        this.b = str;
     }
 
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
@@ -38,7 +36,7 @@ public class TrainInfo extends TransitBaseInfo {
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         super.writeToParcel(parcel, i);
-        parcel.writeDouble(this.f2854a);
-        parcel.writeString(this.f2855b);
+        parcel.writeDouble(this.f2105a);
+        parcel.writeString(this.b);
     }
 }

@@ -7,6 +7,7 @@ import com.baidu.android.util.io.GZIP;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
+import com.baidu.webkit.internal.ETAG;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,31 +15,31 @@ import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public abstract class a implements u {
     private static final boolean DEBUG = AppConfig.isDebug();
-    protected af oSC = new af();
+    protected af oUH = new af();
 
     public abstract ad a(String str, byte[] bArr, Map<String, String> map) throws IOException;
 
     @Override // com.baidu.ubc.u
-    public boolean k(JSONObject jSONObject, boolean z) {
-        return b(BaseContentUploader.ONLINE_URL, jSONObject, z);
+    public boolean i(JSONObject jSONObject, boolean z) {
+        return a(BaseContentUploader.ONLINE_URL, jSONObject, z);
     }
 
-    public boolean b(String str, JSONObject jSONObject, boolean z) {
+    public boolean a(String str, JSONObject jSONObject, boolean z) {
         String str2;
-        boolean ehW = this.oSC.ehW();
-        if (ehW) {
+        boolean eie = this.oUH.eie();
+        if (eie) {
             str2 = "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox?action=zubc";
         } else {
             str2 = str + "/ztbox?action=zubc";
         }
         String processUrl = com.baidu.d.c.b.ug().processUrl(str2);
-        if (ehW && !TextUtils.isEmpty(processUrl)) {
-            processUrl = UrlUtil.addParam(processUrl, "debug", "1");
+        if (eie && !TextUtils.isEmpty(processUrl)) {
+            processUrl = UrlUtil.addParam(processUrl, ETAG.KEY_DEBUG, "1");
         }
         if (z) {
             processUrl = UrlUtil.addParam(processUrl, "reallog", "1");
         }
-        if (g.ehF().isBeta()) {
+        if (g.ehN().isBeta()) {
             processUrl = UrlUtil.addParam(processUrl, "beta", "1");
         }
         HashMap hashMap = new HashMap(2);
@@ -56,7 +57,7 @@ public abstract class a implements u {
                 if (DEBUG) {
                     Log.d("UploadManager", "postByteRequest, fail: " + a2.getMessage());
                 } else {
-                    ac.ehX().he(a2.getMessage(), null);
+                    ac.eif().he(a2.getMessage(), null);
                 }
                 a2.close();
                 return false;
@@ -68,14 +69,14 @@ public abstract class a implements u {
                         Log.d("UploadManager", "server error");
                     }
                     if (!DEBUG) {
-                        ac.ehX().Nm(i);
+                        ac.eif().Nq(i);
                     }
                 }
             } catch (Exception e) {
                 if (DEBUG) {
                     Log.d("UploadManager", "body tostring fail:" + e.getMessage());
                 } else {
-                    ac.ehX().XF(Log.getStackTraceString(e));
+                    ac.eif().XM(Log.getStackTraceString(e));
                 }
             }
             a2.close();
@@ -84,7 +85,7 @@ public abstract class a implements u {
             if (DEBUG) {
                 Log.d("UploadManager", "postByteRequest, Exception: ", e2);
             } else {
-                ac.ehX().he(null, Log.getStackTraceString(e2));
+                ac.eif().he(null, Log.getStackTraceString(e2));
             }
             return false;
         }

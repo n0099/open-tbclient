@@ -13,11 +13,11 @@ import javax.microedition.khronos.opengles.GL10;
 public class k implements com.baidu.mapsdkplatform.comapi.map.l {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MapView f2796a;
+    final /* synthetic */ MapView f2068a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(MapView mapView) {
-        this.f2796a = mapView;
+        this.f2068a = mapView;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
@@ -36,44 +36,44 @@ public class k implements com.baidu.mapsdkplatform.comapi.map.l {
         TextView textView;
         TextView textView2;
         com.baidu.mapsdkplatform.comapi.map.j jVar8;
-        jVar = this.f2796a.d;
+        jVar = this.f2068a.d;
         if (jVar != null) {
-            jVar2 = this.f2796a.d;
+            jVar2 = this.f2068a.d;
             if (jVar2.a() == null) {
                 return;
             }
-            jVar3 = this.f2796a.d;
-            float f3 = jVar3.a().E().f3038a;
-            jVar4 = this.f2796a.d;
-            if (f3 < jVar4.a().f3051b) {
-                jVar8 = this.f2796a.d;
-                f = jVar8.a().f3051b;
+            jVar3 = this.f2068a.d;
+            float f3 = jVar3.a().E().f2214a;
+            jVar4 = this.f2068a.d;
+            if (f3 < jVar4.a().b) {
+                jVar8 = this.f2068a.d;
+                f = jVar8.a().b;
             } else {
-                jVar5 = this.f2796a.d;
-                if (f3 > jVar5.a().f3050a) {
-                    jVar6 = this.f2796a.d;
-                    f = jVar6.a().f3050a;
+                jVar5 = this.f2068a.d;
+                if (f3 > jVar5.a().f2221a) {
+                    jVar6 = this.f2068a.d;
+                    f = jVar6.a().f2221a;
                 } else {
                     f = f3;
                 }
             }
-            f2 = this.f2796a.t;
+            f2 = this.f2068a.t;
             if (Math.abs(f2 - f) > 0.0f) {
                 sparseArray = MapView.p;
                 int intValue = ((Integer) sparseArray.get(Math.round(f))).intValue();
-                jVar7 = this.f2796a.d;
+                jVar7 = this.f2068a.d;
                 int i = (int) (intValue / jVar7.a().E().m);
-                imageView = this.f2796a.n;
+                imageView = this.f2068a.n;
                 imageView.setPadding(i / 2, 0, i / 2, 0);
                 String format = intValue >= 1000 ? String.format(" %d公里 ", Integer.valueOf(intValue / 1000)) : String.format(" %d米 ", Integer.valueOf(intValue));
-                textView = this.f2796a.l;
+                textView = this.f2068a.l;
                 textView.setText(format);
-                textView2 = this.f2796a.m;
+                textView2 = this.f2068a.m;
                 textView2.setText(format);
-                this.f2796a.t = f;
+                this.f2068a.t = f;
             }
-            this.f2796a.b();
-            this.f2796a.requestLayout();
+            this.f2068a.b();
+            this.f2068a.requestLayout();
         }
     }
 

@@ -1,15 +1,15 @@
 package com.airbnb.lottie.model.content;
 
 import com.airbnb.lottie.a.a.r;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ShapeTrimPath implements b {
-    private final Type En;
-    private final com.airbnb.lottie.model.a.b Ge;
-    private final com.airbnb.lottie.model.a.b Gm;
-    private final com.airbnb.lottie.model.a.b Gn;
+    private final Type FG;
+    private final com.airbnb.lottie.model.a.b HA;
+    private final com.airbnb.lottie.model.a.b HI;
+    private final com.airbnb.lottie.model.a.b HJ;
     private final String name;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public enum Type {
         Simultaneously,
         Individually;
@@ -28,10 +28,10 @@ public class ShapeTrimPath implements b {
 
     public ShapeTrimPath(String str, Type type, com.airbnb.lottie.model.a.b bVar, com.airbnb.lottie.model.a.b bVar2, com.airbnb.lottie.model.a.b bVar3) {
         this.name = str;
-        this.En = type;
-        this.Gm = bVar;
-        this.Gn = bVar2;
-        this.Ge = bVar3;
+        this.FG = type;
+        this.HI = bVar;
+        this.HJ = bVar2;
+        this.HA = bVar3;
     }
 
     public String getName() {
@@ -39,19 +39,19 @@ public class ShapeTrimPath implements b {
     }
 
     public Type iB() {
-        return this.En;
+        return this.FG;
     }
 
     public com.airbnb.lottie.model.a.b jP() {
-        return this.Gn;
+        return this.HJ;
     }
 
     public com.airbnb.lottie.model.a.b jQ() {
-        return this.Gm;
+        return this.HI;
     }
 
     public com.airbnb.lottie.model.a.b jJ() {
-        return this.Ge;
+        return this.HA;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -60,6 +60,6 @@ public class ShapeTrimPath implements b {
     }
 
     public String toString() {
-        return "Trim Path: {start: " + this.Gm + ", end: " + this.Gn + ", offset: " + this.Ge + "}";
+        return "Trim Path: {start: " + this.HI + ", end: " + this.HJ + ", offset: " + this.HA + "}";
     }
 }

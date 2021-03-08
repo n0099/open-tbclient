@@ -9,7 +9,7 @@ public class a extends n<Integer, Integer> {
 
     @Override // com.ksad.lottie.model.a.m
     public com.ksad.lottie.a.b.a<Integer, Integer> a() {
-        return new com.ksad.lottie.a.b.b(this.f8050a);
+        return new com.ksad.lottie.a.b.b(this.f5377a);
     }
 
     @Override // com.ksad.lottie.model.a.n

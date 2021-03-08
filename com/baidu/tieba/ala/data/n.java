@@ -1,19 +1,19 @@
 package com.baidu.tieba.ala.data;
 
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class n {
-    public String gTd;
-    public String gTe;
-    public String gTf;
-    public String gTg;
+    public String gUM;
+    public String gUN;
+    public String gUO;
+    public String gUP;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.gTd = jSONObject.optString("pk_count");
-            this.gTe = jSONObject.optString("win_rate");
-            this.gTf = jSONObject.optString("pk_rank");
-            this.gTg = jSONObject.optString("last_pk_res");
+            this.gUM = jSONObject.optString("pk_count");
+            this.gUN = jSONObject.optString("win_rate");
+            this.gUO = jSONObject.optString("pk_rank");
+            this.gUP = jSONObject.optString("last_pk_res");
         }
     }
 }

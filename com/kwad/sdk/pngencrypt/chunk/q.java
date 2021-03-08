@@ -21,22 +21,22 @@ public class q extends aa {
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
     public void a(d dVar) {
-        if (dVar.f10503a != 13) {
-            throw new PngjException("Bad IDHR len " + dVar.f10503a);
+        if (dVar.f6921a != 13) {
+            throw new PngjException("Bad IDHR len " + dVar.f6921a);
         }
-        ByteArrayInputStream b2 = dVar.b();
-        this.h = com.kwad.sdk.pngencrypt.n.b(b2);
-        this.i = com.kwad.sdk.pngencrypt.n.b(b2);
-        this.j = com.kwad.sdk.pngencrypt.n.a(b2);
-        this.k = com.kwad.sdk.pngencrypt.n.a(b2);
-        this.l = com.kwad.sdk.pngencrypt.n.a(b2);
-        this.m = com.kwad.sdk.pngencrypt.n.a(b2);
-        this.n = com.kwad.sdk.pngencrypt.n.a(b2);
+        ByteArrayInputStream b = dVar.b();
+        this.h = com.kwad.sdk.pngencrypt.n.b(b);
+        this.i = com.kwad.sdk.pngencrypt.n.b(b);
+        this.j = com.kwad.sdk.pngencrypt.n.a(b);
+        this.k = com.kwad.sdk.pngencrypt.n.a(b);
+        this.l = com.kwad.sdk.pngencrypt.n.a(b);
+        this.m = com.kwad.sdk.pngencrypt.n.a(b);
+        this.n = com.kwad.sdk.pngencrypt.n.a(b);
     }
 
     public void a(com.kwad.sdk.pngencrypt.k kVar) {
-        b(this.e.f10513a);
-        c(this.e.f10514b);
+        b(this.e.f6927a);
+        c(this.e.b);
         d(this.e.c);
         int i = this.e.e ? 4 : 0;
         if (this.e.g) {

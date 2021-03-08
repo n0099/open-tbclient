@@ -21,7 +21,7 @@ public class f {
         if (a4) {
             com.kwad.sdk.core.report.e.d(adTemplate, 1);
         } else {
-            com.kwad.sdk.core.report.e.b(adTemplate, 1, aVar.f9088a);
+            com.kwad.sdk.core.report.e.b(adTemplate, 1, aVar.f6041a);
         }
         return a4;
     }
@@ -36,7 +36,7 @@ public class f {
     }
 
     public static boolean b(@NonNull AdTemplate adTemplate) {
-        File b2 = com.kwad.sdk.core.diskcache.b.a.a().b(com.kwad.sdk.core.response.b.a.a(com.kwad.sdk.core.response.b.c.j(adTemplate)));
-        return b2 != null && b2.exists();
+        File b = com.kwad.sdk.core.diskcache.b.a.a().b(com.kwad.sdk.core.response.b.a.a(com.kwad.sdk.core.response.b.c.j(adTemplate)));
+        return b != null && b.exists();
     }
 }

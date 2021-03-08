@@ -2,7 +2,7 @@ package com.baidu.live.liveroom.a;
 
 import com.baidu.live.data.AlaLiveInfoData;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface c {
     void cC(boolean z);
 

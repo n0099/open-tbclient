@@ -1,5 +1,5 @@
 package com.baidu.yuyinala.privatemessage.implugin.util;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class Base64Encoder {
     public static final native byte[] nativeB64Decode(byte[] bArr);
 

@@ -45,7 +45,7 @@ public class b extends com.kwad.sdk.lib.widget.recycler.c<AdTemplate, com.kwad.s
     @Override // com.kwad.sdk.lib.widget.recycler.c
     public void a(com.kwad.sdk.contentalliance.detail.photo.related.a.b bVar, int i) {
         super.a((b) bVar, i);
-        bVar.f8578a = this.c;
+        bVar.f5725a = this.c;
     }
 
     @Override // com.kwad.sdk.lib.widget.recycler.c

@@ -9,57 +9,57 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static volatile d gfT;
-    private ArrayList<Integer> gfP = new ArrayList<>();
-    private c gfQ;
-    private a gfU;
-    private List<ar> gfV;
+    private static volatile d ghw;
+    private ArrayList<Integer> ghs = new ArrayList<>();
+    private c ght;
+    private a ghx;
+    private List<ar> ghy;
 
-    public static d bKU() {
-        if (gfT == null) {
+    public static d bKY() {
+        if (ghw == null) {
             synchronized (c.class) {
-                if (gfT == null) {
-                    gfT = new d();
+                if (ghw == null) {
+                    ghw = new d();
                 }
             }
         }
-        return gfT;
+        return ghw;
     }
 
     private d() {
-        this.gfP.add(1);
-        this.gfP.add(2);
-        this.gfQ = new c();
-        this.gfU = new a(this.gfQ, this.gfP);
-        setChannel(com.baidu.tbadk.core.sharedPref.b.brQ().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0));
+        this.ghs.add(1);
+        this.ghs.add(2);
+        this.ght = new c();
+        this.ghx = new a(this.ght, this.ghs);
+        setChannel(com.baidu.tbadk.core.sharedPref.b.brR().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0));
     }
 
     public int aB(String str, int i) {
-        if (this.gfU == null) {
+        if (this.ghx == null) {
             return 0;
         }
-        return this.gfU.aB(str, i);
+        return this.ghx.aB(str, i);
     }
 
-    public void Ev(String str) {
-        if (this.gfU != null) {
-            this.gfU.Eu(str);
+    public void EC(String str) {
+        if (this.ghx != null) {
+            this.ghx.EB(str);
         }
     }
 
     public void e(ar arVar) {
         if (arVar != null) {
-            if (this.gfV == null) {
-                this.gfV = new ArrayList();
+            if (this.ghy == null) {
+                this.ghy = new ArrayList();
             }
-            this.gfV.add(arVar);
+            this.ghy.add(arVar);
         }
     }
 
     public void dK(String str, String str2) {
-        if (!y.isEmpty(this.gfV) && this.gfQ != null && this.gfQ.bKS()) {
+        if (!y.isEmpty(this.ghy) && this.ght != null && this.ght.bKW()) {
             int i = -1;
-            for (ar arVar : this.gfV) {
+            for (ar arVar : this.ghy) {
                 if (arVar != null) {
                     if (arVar.getPosition() == 0) {
                         a(str, str2, arVar);
@@ -70,12 +70,12 @@ public class d {
                     i = i;
                 }
             }
-            this.gfV.clear();
+            this.ghy.clear();
         }
     }
 
     public void a(String str, String str2, ar arVar) {
-        if (arVar != null && this.gfQ != null && this.gfQ.bKS()) {
+        if (arVar != null && this.ght != null && this.ght.bKW()) {
             HashMap hashMap = new HashMap();
             List<Object> params = arVar.getParams();
             if (params != null) {
@@ -99,20 +99,20 @@ public class d {
     }
 
     public void onPageStart(String str) {
-        if (au.isEmpty(str) || this.gfQ == null || !this.gfQ.bKS()) {
-            com.baidu.ubs.analytics.a.XI(str);
+        if (au.isEmpty(str) || this.ght == null || !this.ght.bKW()) {
+            com.baidu.ubs.analytics.a.XP(str);
         }
     }
 
     public void onPageEnd(String str) {
-        if (au.isEmpty(str) || this.gfQ == null || !this.gfQ.bKS()) {
-            com.baidu.ubs.analytics.a.XJ(str);
+        if (au.isEmpty(str) || this.ght == null || !this.ght.bKW()) {
+            com.baidu.ubs.analytics.a.XQ(str);
         }
     }
 
     public void setChannel(int i) {
-        if (this.gfQ != null) {
-            this.gfQ.setChannel(i);
+        if (this.ght != null) {
+            this.ght.setChannel(i);
         }
     }
 }

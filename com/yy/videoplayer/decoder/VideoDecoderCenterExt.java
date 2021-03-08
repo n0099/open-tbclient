@@ -6,7 +6,7 @@ import com.yy.videoplayer.utils.YMFLog;
 import java.text.SimpleDateFormat;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoDecoderCenterExt {
     private static final int GPUMaxRenderFrameRate = 40;
     private static final String TAG = "VideoDecoderCenterExt";
@@ -20,14 +20,14 @@ public class VideoDecoderCenterExt {
     private static int mHardDecDirectRenderConfig = 0;
     private static HardDecoderStaffVersion currentHardDecoderStaffVersion = HardDecoderStaffVersion.GPURENDER;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum HardDecoderStaffVersion {
         SIMPLIFIED,
         GPURENDER,
         YUVBUFFER
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class VideoStreamType {
         public static final int H264 = 0;
         public static final int H265 = 1;

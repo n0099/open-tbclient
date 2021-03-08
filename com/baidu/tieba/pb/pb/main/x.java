@@ -10,15 +10,15 @@ import tbclient.AlaLiveInfo;
 import tbclient.DislikeInfo;
 /* loaded from: classes2.dex */
 public class x implements com.baidu.adp.widget.ListView.n {
-    public static final BdUniqueId lUS = BdUniqueId.gen();
+    public static final BdUniqueId lWU = BdUniqueId.gen();
     public String cover;
     public String description;
-    public MetaData eRz;
+    public MetaData eTa;
     public boolean isChushou;
     private boolean isValid;
-    public int lUi;
-    public boolean lUj = false;
-    public av lUl;
+    public int lWk;
+    public boolean lWl = false;
+    public av lWn;
     public long liveId;
     public int liveStatus;
     public String routeType;
@@ -32,7 +32,7 @@ public class x implements com.baidu.adp.widget.ListView.n {
         if (alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.pb_display_type.intValue() == 3 && alaLiveInfo.live_status.intValue() == 1) {
             this.userName = alaLiveInfo.user_info.user_name;
             this.liveStatus = alaLiveInfo.live_status.intValue();
-            this.lUi = alaLiveInfo.audience_count.intValue();
+            this.lWk = alaLiveInfo.audience_count.intValue();
             this.description = alaLiveInfo.description;
             this.cover = alaLiveInfo.cover;
             this.liveId = alaLiveInfo.live_id.longValue();
@@ -41,7 +41,7 @@ public class x implements com.baidu.adp.widget.ListView.n {
             this.thirdRoomId = alaLiveInfo.third_room_id;
             this.routeType = alaLiveInfo.router_type;
             if (alaLiveInfo.user_info.user_id != null && alaLiveInfo.user_info.user_id.longValue() > 0 && this.userMap != null && (metaData = this.userMap.get(alaLiveInfo.user_info.user_id.toString())) != null) {
-                this.eRz = metaData;
+                this.eTa = metaData;
             }
             List<DislikeInfo> list = alaLiveInfo.dislike_info;
             if (com.baidu.tbadk.core.util.y.getCount(list) > 0) {
@@ -53,11 +53,11 @@ public class x implements com.baidu.adp.widget.ListView.n {
                         sparseArray2.put(dislikeInfo.dislike_id.intValue(), dislikeInfo.extra);
                     }
                 }
-                this.lUl = new av();
-                this.lUl.setFeedBackReasonMap(sparseArray);
-                this.lUl.eOo = sparseArray2;
+                this.lWn = new av();
+                this.lWn.setFeedBackReasonMap(sparseArray);
+                this.lWn.ePP = sparseArray2;
             } else {
-                this.lUl = null;
+                this.lWn = null;
             }
             this.isValid = true;
             return;
@@ -75,6 +75,6 @@ public class x implements com.baidu.adp.widget.ListView.n {
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return lUS;
+        return lWU;
     }
 }

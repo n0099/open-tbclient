@@ -10,7 +10,7 @@ import android.text.TextUtils;
 import com.baidu.webkit.internal.utils.CommonUtils;
 import java.net.URISyntaxException;
 import java.net.URLDecoder;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public final class g extends j {
     /* JADX WARN: Removed duplicated region for block: B:14:0x0040  */
     /* JADX WARN: Removed duplicated region for block: B:26:0x006f  */
@@ -86,11 +86,11 @@ public final class g extends j {
     @Override // com.baidu.webkit.internal.b.j
     public final boolean a(Context context, String str) {
         if (str != null && !TextUtils.isEmpty(str) && str.startsWith("bds://") && "openurl".equals(Uri.parse(str).getHost())) {
-            String b2 = b(context, str);
-            if (TextUtils.isEmpty(b2)) {
+            String b = b(context, str);
+            if (TextUtils.isEmpty(b)) {
                 return true;
             }
-            return new h().a(context, b2);
+            return new h().a(context, b);
         }
         return false;
     }

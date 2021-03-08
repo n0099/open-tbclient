@@ -96,13 +96,13 @@ public class TipsConfigItem extends a<TipConfigData> {
 
     @Override // com.kwad.sdk.core.config.item.a
     public void a(@NonNull SharedPreferences sharedPreferences) {
-        TipConfigData b2 = b();
-        if (b2 == null) {
-            b2 = new TipConfigData();
+        TipConfigData b = b();
+        if (b == null) {
+            b = new TipConfigData();
         }
-        b2.setTipShowSwitch(sharedPreferences.getInt("tipsSwitch", 0));
-        b2.setTipInfoData(sharedPreferences.getString("tipsInfo", ""));
-        a((TipsConfigItem) b2);
+        b.setTipShowSwitch(sharedPreferences.getInt("tipsSwitch", 0));
+        b.setTipInfoData(sharedPreferences.getString("tipsInfo", ""));
+        a((TipsConfigItem) b);
     }
 
     @Override // com.kwad.sdk.core.config.item.a

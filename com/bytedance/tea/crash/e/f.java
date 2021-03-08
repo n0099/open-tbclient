@@ -11,19 +11,19 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class f implements Handler.Callback {
-    private static Printer pwt = null;
-    private static f pwu = null;
-    private static final Printer pwv = new Printer() { // from class: com.bytedance.tea.crash.e.f.1
+    private static Printer pyw = null;
+    private static f pyx = null;
+    private static final Printer pyy = new Printer() { // from class: com.bytedance.tea.crash.e.f.1
         @Override // android.util.Printer
         public void println(String str) {
             if (str != null) {
                 if (str.startsWith(">>>>> Dispatching")) {
-                    f.erh().a(str);
+                    f.erq().a(str);
                 } else if (str.startsWith("<<<<< Finished")) {
-                    f.erh().b(str);
+                    f.erq().b(str);
                 }
-                if (f.pwt != null && f.pwt != f.pwv) {
-                    f.pwt.println(str);
+                if (f.pyw != null && f.pyw != f.pyy) {
+                    f.pyw.println(str);
                 }
             }
         }
@@ -42,29 +42,29 @@ public class f implements Handler.Callback {
         b();
     }
 
-    public static f erh() {
-        if (pwu == null) {
+    public static f erq() {
+        if (pyx == null) {
             synchronized (f.class) {
-                if (pwu == null) {
-                    pwu = new f();
+                if (pyx == null) {
+                    pyx = new f();
                 }
             }
         }
-        return pwu;
+        return pyx;
     }
 
     public void b() {
         if (!this.k) {
             this.k = true;
-            pwt = eri();
-            if (pwt == pwv) {
-                pwt = null;
+            pyw = ers();
+            if (pyw == pyy) {
+                pyw = null;
             }
-            Looper.getMainLooper().setMessageLogging(pwv);
+            Looper.getMainLooper().setMessageLogging(pyy);
         }
     }
 
-    private Printer eri() {
+    private Printer ers() {
         try {
             Field declaredField = Class.forName("android.os.Looper").getDeclaredField("mLogging");
             declaredField.setAccessible(true);

@@ -1,5 +1,5 @@
 package com.baidu.live.yuyinnoble.c;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
     void a(c cVar);
 

@@ -1,4 +1,4 @@
 package com.baidu.live.liveroom.middleware.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
 }

@@ -43,32 +43,32 @@ import java.util.Comparator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaPokeDialogActivity extends BaseFragmentActivity {
-    private ab bxN;
-    HeadImageView caZ;
-    ImageView hdU;
-    TbImageView ifA;
-    ImageView ifB;
-    TextView ifC;
-    TextView ifD;
-    TbImageView ifE;
-    ImageView ifF;
-    g ifI;
-    int ifJ;
-    TextView ifs;
-    RelativeLayout ift;
-    TextView ifu;
-    TextView ifv;
-    TbImageView ifw;
-    ImageView ifx;
-    TextView ify;
-    TextView ifz;
+    private ab bzn;
+    HeadImageView ccB;
+    ImageView hfD;
+    TextView ihb;
+    RelativeLayout ihc;
+    TextView ihd;
+    TextView ihe;
+    TbImageView ihf;
+    ImageView ihg;
+    TextView ihh;
+    TextView ihi;
+    TbImageView ihj;
+    ImageView ihk;
+    TextView ihl;
+    TextView ihm;
+    TbImageView ihn;
+    ImageView iho;
+    g ihr;
+    int ihs;
     String otherParams = "";
-    String ifG = "";
-    private ArrayList<g> ifH = new ArrayList<>();
-    boolean fCP = true;
-    private HttpMessageListener ifK = new HttpMessageListener(1021228) { // from class: com.baidu.tieba.ala.poke.AlaPokeDialogActivity.7
+    String ihp = "";
+    private ArrayList<g> ihq = new ArrayList<>();
+    boolean fEo = true;
+    private HttpMessageListener iht = new HttpMessageListener(1021228) { // from class: com.baidu.tieba.ala.poke.AlaPokeDialogActivity.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -77,46 +77,46 @@ public class AlaPokeDialogActivity extends BaseFragmentActivity {
                 if (alaPokeBackResponseMessage.getError() == 0 && alaPokeBackResponseMessage.isSuccess()) {
                     AlaPokeDialogActivity.this.pi(true);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913263, true));
-                    AlaPokeDialogActivity.this.fCP = false;
+                    AlaPokeDialogActivity.this.fEo = false;
                     AlaPokeDialogActivity.this.finish();
                     return;
                 }
-                AlaPokeDialogActivity.this.fCP = true;
+                AlaPokeDialogActivity.this.fEo = true;
             }
         }
     };
-    private CustomMessageListener awl = new CustomMessageListener(2913129) { // from class: com.baidu.tieba.ala.poke.AlaPokeDialogActivity.8
+    private CustomMessageListener axL = new CustomMessageListener(2913129) { // from class: com.baidu.tieba.ala.poke.AlaPokeDialogActivity.8
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AlaPokeDialogActivity.this.finish();
         }
     };
-    private HttpMessageListener bvv = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GIFT_REFRESH_SCORES) { // from class: com.baidu.tieba.ala.poke.AlaPokeDialogActivity.9
+    private HttpMessageListener bwV = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GIFT_REFRESH_SCORES) { // from class: com.baidu.tieba.ala.poke.AlaPokeDialogActivity.9
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGiftRefreshScoresHttpResponseMessage)) {
                 AlaGiftRefreshScoresHttpResponseMessage alaGiftRefreshScoresHttpResponseMessage = (AlaGiftRefreshScoresHttpResponseMessage) httpResponsedMessage;
                 if (alaGiftRefreshScoresHttpResponseMessage.getError() == 0) {
-                    TbadkCoreApplication.getInst().currentAccountTdouNum = alaGiftRefreshScoresHttpResponseMessage.Op().mTDouScores;
+                    TbadkCoreApplication.getInst().currentAccountTdouNum = alaGiftRefreshScoresHttpResponseMessage.Os().mTDouScores;
                 }
                 long j = TbadkCoreApplication.getInst().currentAccountTdouNum;
-                g gVar = (g) AlaPokeDialogActivity.this.ifH.get(AlaPokeDialogActivity.this.ifJ);
-                AlaPokeDialogActivity.this.ifI = gVar;
+                g gVar = (g) AlaPokeDialogActivity.this.ihq.get(AlaPokeDialogActivity.this.ihs);
+                AlaPokeDialogActivity.this.ihr = gVar;
                 if (j < Long.parseLong(gVar.getPrice())) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(AlaPokeDialogActivity.this.getActivity(), 0L, AlaPokeDialogActivity.this.otherParams, true, "", true)));
                     return;
                 }
-                AlaPokeDialogActivity.this.fCP = false;
+                AlaPokeDialogActivity.this.fEo = false;
                 HttpMessage httpMessage = new HttpMessage(1021228);
-                httpMessage.addParam(LogConfig.LOG_GIFT_ID, AlaPokeDialogActivity.this.ifJ == 0 ? 0 : gVar.DR());
-                httpMessage.addParam("live_id", AlaPokeDialogActivity.this.bxN.mLiveInfo.live_id);
-                httpMessage.addParam("charm_user_id", AlaPokeDialogActivity.this.bxN.aId.userId);
-                httpMessage.addParam("poke_id", AlaPokeDialogActivity.this.ifG);
-                httpMessage.addParam("scene_from", q.Fv());
+                httpMessage.addParam(LogConfig.LOG_GIFT_ID, AlaPokeDialogActivity.this.ihs == 0 ? 0 : gVar.DU());
+                httpMessage.addParam("live_id", AlaPokeDialogActivity.this.bzn.mLiveInfo.live_id);
+                httpMessage.addParam("charm_user_id", AlaPokeDialogActivity.this.bzn.aJD.userId);
+                httpMessage.addParam("poke_id", AlaPokeDialogActivity.this.ihp);
+                httpMessage.addParam("scene_from", q.Fy());
                 MessageManager.getInstance().sendMessage(httpMessage);
-                b.Hr().a(gVar, 1L, AlaPokeDialogActivity.this.bxN.aId.userId + "", AlaPokeDialogActivity.this.bxN.aId.userName, AlaPokeDialogActivity.this.bxN.mLiveInfo.live_id + "", AlaPokeDialogActivity.this.bxN.mLiveInfo.room_id + "", AlaPokeDialogActivity.this.bxN.mLiveInfo.appId, AlaPokeDialogActivity.this.bxN.mLiveInfo.feed_id, AlaPokeDialogActivity.this.otherParams, 0L, System.currentTimeMillis());
+                b.Hu().a(gVar, 1L, AlaPokeDialogActivity.this.bzn.aJD.userId + "", AlaPokeDialogActivity.this.bzn.aJD.userName, AlaPokeDialogActivity.this.bzn.mLiveInfo.live_id + "", AlaPokeDialogActivity.this.bzn.mLiveInfo.room_id + "", AlaPokeDialogActivity.this.bzn.mLiveInfo.appId, AlaPokeDialogActivity.this.bzn.mLiveInfo.feed_id, AlaPokeDialogActivity.this.otherParams, 0L, System.currentTimeMillis());
                 AlaPokeDialogActivity.this.pi(false);
             }
         }
@@ -130,90 +130,90 @@ public class AlaPokeDialogActivity extends BaseFragmentActivity {
         super.onCreate(bundle);
         setContentView(a.g.ala_poke_dialog_activity);
         initView();
-        MessageManager.getInstance().registerListener(this.awl);
-        MessageManager.getInstance().registerListener(this.ifK);
-        MessageManager.getInstance().registerListener(this.bvv);
-        cow();
+        MessageManager.getInstance().registerListener(this.axL);
+        MessageManager.getInstance().registerListener(this.iht);
+        MessageManager.getInstance().registerListener(this.bwV);
+        coC();
     }
 
     private void initView() {
-        if (!cov()) {
+        if (!coB()) {
             finish();
             return;
         }
-        this.ift = (RelativeLayout) findViewById(a.f.sdk_poke_dialog);
-        this.ift.post(new Runnable() { // from class: com.baidu.tieba.ala.poke.AlaPokeDialogActivity.1
+        this.ihc = (RelativeLayout) findViewById(a.f.sdk_poke_dialog);
+        this.ihc.post(new Runnable() { // from class: com.baidu.tieba.ala.poke.AlaPokeDialogActivity.1
             @Override // java.lang.Runnable
             public void run() {
                 float screenWidth = n.getScreenWidth(AlaPokeDialogActivity.this.getActivity());
-                float width = AlaPokeDialogActivity.this.ift.getWidth();
+                float width = AlaPokeDialogActivity.this.ihc.getWidth();
                 if (screenWidth < width) {
-                    AlaPokeDialogActivity.this.ift.setScaleX(screenWidth / width);
-                    AlaPokeDialogActivity.this.ift.setScaleY(screenWidth / width);
+                    AlaPokeDialogActivity.this.ihc.setScaleX(screenWidth / width);
+                    AlaPokeDialogActivity.this.ihc.setScaleY(screenWidth / width);
                 }
             }
         });
-        this.hdU = (ImageView) findViewById(a.f.sdk_poke_close_poke);
-        this.hdU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.poke.AlaPokeDialogActivity.2
+        this.hfD = (ImageView) findViewById(a.f.sdk_poke_close_poke);
+        this.hfD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.poke.AlaPokeDialogActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AlaPokeDialogActivity.this.finish();
             }
         });
-        this.caZ = (HeadImageView) findViewById(a.f.poke_user_head);
-        this.ifs = (TextView) findViewById(a.f.sdk_poke_user_title);
-        this.ifu = (TextView) findViewById(a.f.poke_free_name);
-        this.ifv = (TextView) findViewById(a.f.poke_free_cost);
-        this.ifw = (TbImageView) findViewById(a.f.poke_free_img);
-        this.ifx = (ImageView) findViewById(a.f.poke_free_button);
-        this.ify = (TextView) findViewById(a.f.poke_center_name);
-        this.ifz = (TextView) findViewById(a.f.poke_center_cost);
-        this.ifA = (TbImageView) findViewById(a.f.poke_center_img);
-        this.ifB = (ImageView) findViewById(a.f.poke_center_button);
-        this.ifC = (TextView) findViewById(a.f.poke_right_name);
-        this.ifD = (TextView) findViewById(a.f.poke_right_cost);
-        this.ifE = (TbImageView) findViewById(a.f.poke_right_img);
-        this.ifF = (ImageView) findViewById(a.f.poke_right_button);
-        cot();
-        this.ifx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.poke.AlaPokeDialogActivity.3
+        this.ccB = (HeadImageView) findViewById(a.f.poke_user_head);
+        this.ihb = (TextView) findViewById(a.f.sdk_poke_user_title);
+        this.ihd = (TextView) findViewById(a.f.poke_free_name);
+        this.ihe = (TextView) findViewById(a.f.poke_free_cost);
+        this.ihf = (TbImageView) findViewById(a.f.poke_free_img);
+        this.ihg = (ImageView) findViewById(a.f.poke_free_button);
+        this.ihh = (TextView) findViewById(a.f.poke_center_name);
+        this.ihi = (TextView) findViewById(a.f.poke_center_cost);
+        this.ihj = (TbImageView) findViewById(a.f.poke_center_img);
+        this.ihk = (ImageView) findViewById(a.f.poke_center_button);
+        this.ihl = (TextView) findViewById(a.f.poke_right_name);
+        this.ihm = (TextView) findViewById(a.f.poke_right_cost);
+        this.ihn = (TbImageView) findViewById(a.f.poke_right_img);
+        this.iho = (ImageView) findViewById(a.f.poke_right_button);
+        coz();
+        this.ihg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.poke.AlaPokeDialogActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaPokeDialogActivity.this.wz(0);
+                AlaPokeDialogActivity.this.wA(0);
             }
         });
-        this.ifB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.poke.AlaPokeDialogActivity.4
+        this.ihk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.poke.AlaPokeDialogActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaPokeDialogActivity.this.wz(1);
+                AlaPokeDialogActivity.this.wA(1);
             }
         });
-        this.ifF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.poke.AlaPokeDialogActivity.5
+        this.iho.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.poke.AlaPokeDialogActivity.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaPokeDialogActivity.this.wz(2);
+                AlaPokeDialogActivity.this.wA(2);
             }
         });
     }
 
-    private void cot() {
-        this.ifs.setText(this.bxN.aId.nickName);
-        this.caZ.setDefaultBgResource(a.e.sdk_default_avatar);
-        this.caZ.setIsRound(true);
-        this.caZ.setAutoChangeStyle(false);
-        this.caZ.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.caZ.startLoad(this.bxN.aId.portrait, 12, false);
-        this.ifu.setText(this.ifH.get(0).DS());
-        this.ify.setText(this.ifH.get(1).DS());
-        this.ifC.setText(this.ifH.get(2).DS());
-        this.ifv.setText("免费");
-        this.ifz.setText(cou().append((CharSequence) this.ifH.get(1).getPrice()));
-        this.ifD.setText(cou().append((CharSequence) this.ifH.get(2).getPrice()));
-        this.ifw.startLoad(this.ifH.get(0).getThumbnail_url(), 10, false);
-        this.ifA.startLoad(this.ifH.get(1).getThumbnail_url(), 10, false);
-        this.ifE.startLoad(this.ifH.get(2).getThumbnail_url(), 10, false);
+    private void coz() {
+        this.ihb.setText(this.bzn.aJD.nickName);
+        this.ccB.setDefaultBgResource(a.e.sdk_default_avatar);
+        this.ccB.setIsRound(true);
+        this.ccB.setAutoChangeStyle(false);
+        this.ccB.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.ccB.startLoad(this.bzn.aJD.portrait, 12, false);
+        this.ihd.setText(this.ihq.get(0).DV());
+        this.ihh.setText(this.ihq.get(1).DV());
+        this.ihl.setText(this.ihq.get(2).DV());
+        this.ihe.setText("免费");
+        this.ihi.setText(coA().append((CharSequence) this.ihq.get(1).getPrice()));
+        this.ihm.setText(coA().append((CharSequence) this.ihq.get(2).getPrice()));
+        this.ihf.startLoad(this.ihq.get(0).getThumbnail_url(), 10, false);
+        this.ihj.startLoad(this.ihq.get(1).getThumbnail_url(), 10, false);
+        this.ihn.startLoad(this.ihq.get(2).getThumbnail_url(), 10, false);
     }
 
-    private SpannableStringBuilder cou() {
+    private SpannableStringBuilder coA() {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         CenteredImageSpan centeredImageSpan = new CenteredImageSpan(getActivity(), BitmapFactory.decodeResource(getResources(), a.e.sdk_icon_huobi_tdou));
         SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(" [img]");
@@ -222,51 +222,51 @@ public class AlaPokeDialogActivity extends BaseFragmentActivity {
         return spannableStringBuilder;
     }
 
-    private boolean cov() {
-        this.bxN = new ab();
-        this.bxN.aId.userId = getIntent().getLongExtra("ala_get_poke_user_id", 0L);
-        this.bxN.aId.portrait = getIntent().getStringExtra("ala_get_poke_portrait");
-        this.bxN.aId.userName = getIntent().getStringExtra("ala_get_poke_userName");
-        this.bxN.aId.nickName = getIntent().getStringExtra("ala_get_poke_nickName");
-        this.bxN.mLiveInfo.live_id = getIntent().getLongExtra("ala_get_poke_live_id", 0L);
-        this.bxN.mLiveInfo.room_id = getIntent().getLongExtra("ala_get_poke_room_id", 0L);
-        this.bxN.mLiveInfo.appId = getIntent().getStringExtra("ala_get_poke_appId");
-        this.bxN.mLiveInfo.feed_id = getIntent().getStringExtra("ala_get_poke_feed_id");
+    private boolean coB() {
+        this.bzn = new ab();
+        this.bzn.aJD.userId = getIntent().getLongExtra("ala_get_poke_user_id", 0L);
+        this.bzn.aJD.portrait = getIntent().getStringExtra("ala_get_poke_portrait");
+        this.bzn.aJD.userName = getIntent().getStringExtra("ala_get_poke_userName");
+        this.bzn.aJD.nickName = getIntent().getStringExtra("ala_get_poke_nickName");
+        this.bzn.mLiveInfo.live_id = getIntent().getLongExtra("ala_get_poke_live_id", 0L);
+        this.bzn.mLiveInfo.room_id = getIntent().getLongExtra("ala_get_poke_room_id", 0L);
+        this.bzn.mLiveInfo.appId = getIntent().getStringExtra("ala_get_poke_appId");
+        this.bzn.mLiveInfo.feed_id = getIntent().getStringExtra("ala_get_poke_feed_id");
         this.otherParams = getIntent().getStringExtra("ala_get_poke_other_params");
         if (getIntent().getStringExtra("ala_get_poke_poke_info") == null) {
             finish();
         }
         try {
             JSONObject jSONObject = new JSONObject(getIntent().getStringExtra("ala_get_poke_poke_info"));
-            this.ifG = jSONObject.optString("poke_id");
+            this.ihp = jSONObject.optString("poke_id");
             JSONArray optJSONArray = jSONObject.optJSONArray("gift_list");
             for (int i = 0; i < optJSONArray.length(); i++) {
                 g gVar = new g();
                 gVar.setPrice(optJSONArray.optJSONObject(i).optString("tdou"));
                 gVar.setThumbnailUrl(optJSONArray.optJSONObject(i).optString("pic"));
                 gVar.setGiftName(optJSONArray.optJSONObject(i).optString("gift_name"));
-                gVar.fQ(optJSONArray.optJSONObject(i).optString(LogConfig.LOG_GIFT_ID));
-                if (gVar.getPrice().isEmpty() || gVar.getThumbnail_url().isEmpty() || gVar.DR().isEmpty() || gVar.DS().isEmpty()) {
-                    this.ifH.clear();
+                gVar.fW(optJSONArray.optJSONObject(i).optString(LogConfig.LOG_GIFT_ID));
+                if (gVar.getPrice().isEmpty() || gVar.getThumbnail_url().isEmpty() || gVar.DU().isEmpty() || gVar.DV().isEmpty()) {
+                    this.ihq.clear();
                     break;
                 }
-                this.ifH.add(gVar);
+                this.ihq.add(gVar);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (this.ifG.isEmpty() || this.ifH.size() < 3) {
+        if (this.ihp.isEmpty() || this.ihq.size() < 3) {
             return false;
         }
-        Y(this.ifH);
+        Y(this.ihq);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wz(int i) {
-        if (this.ifH.size() >= i && this.fCP) {
-            this.ifJ = i;
-            HU();
+    public void wA(int i) {
+        if (this.ihq.size() >= i && this.fEo) {
+            this.ihs = i;
+            HX();
         }
     }
 
@@ -288,7 +288,7 @@ public class AlaPokeDialogActivity extends BaseFragmentActivity {
         });
     }
 
-    private void cow() {
+    private void coC() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021228, TbConfig.SERVER_ADDRESS + "/ala/live/pokeBack");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -315,9 +315,9 @@ public class AlaPokeDialogActivity extends BaseFragmentActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.awl);
-        MessageManager.getInstance().unRegisterListener(this.ifK);
-        MessageManager.getInstance().unRegisterListener(this.bvv);
+        MessageManager.getInstance().unRegisterListener(this.axL);
+        MessageManager.getInstance().unRegisterListener(this.iht);
+        MessageManager.getInstance().unRegisterListener(this.bwV);
         MessageManager.getInstance().unRegisterTask(1021228);
         super.onDestroy();
     }
@@ -326,16 +326,16 @@ public class AlaPokeDialogActivity extends BaseFragmentActivity {
     public void pi(boolean z) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.putOpt(LogConfig.LOG_GIFT_ID, this.ifI.DR());
-            jSONObject.putOpt("gift_name", this.ifI.DS());
-            jSONObject.putOpt(LogConfig.LOG_GIFT_VALUE, this.ifI.getPrice());
+            jSONObject.putOpt(LogConfig.LOG_GIFT_ID, this.ihr.DU());
+            jSONObject.putOpt("gift_name", this.ihr.DV());
+            jSONObject.putOpt(LogConfig.LOG_GIFT_VALUE, this.ihr.getPrice());
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", z ? UbcStatConstant.Value.VALUE_USER_POKE_BACK_SUCCESS : UbcStatConstant.Value.VALUE_USER_POKE_BACK).setContentExt(this.ifJ == 0 ? "normal" : "pay", null, jSONObject));
+        UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", z ? UbcStatConstant.Value.VALUE_USER_POKE_BACK_SUCCESS : UbcStatConstant.Value.VALUE_USER_POKE_BACK).setContentExt(this.ihs == 0 ? "normal" : "pay", null, jSONObject));
     }
 
-    private void HU() {
+    private void HX() {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GIFT_REFRESH_SCORES);
         httpMessage.addParam("tbs", TbadkCoreApplication.getCurrentTbs());
         MessageManager.getInstance().sendMessage(httpMessage);

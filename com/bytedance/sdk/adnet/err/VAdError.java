@@ -1,19 +1,19 @@
 package com.bytedance.sdk.adnet.err;
 
-import com.bytedance.sdk.adnet.core.l;
+import com.bytedance.sdk.adnet.core.k;
 /* loaded from: classes6.dex */
 public class VAdError extends Exception {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f6065a;
-    public final l networkResponse;
+    private long f4059a;
+    public final k networkResponse;
 
     public VAdError() {
         this.networkResponse = null;
     }
 
-    public VAdError(l lVar) {
-        this.networkResponse = lVar;
+    public VAdError(k kVar) {
+        this.networkResponse = kVar;
     }
 
     public VAdError(String str) {
@@ -32,10 +32,10 @@ public class VAdError extends Exception {
     }
 
     public void setNetworkTimeMs(long j) {
-        this.f6065a = j;
+        this.f4059a = j;
     }
 
     public long getNetworkTimeMs() {
-        return this.f6065a;
+        return this.f4059a;
     }
 }

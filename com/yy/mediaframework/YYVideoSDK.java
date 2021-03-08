@@ -7,7 +7,7 @@ import com.yy.mediaframework.gpuimage.custom.PhonePerformanceLevel;
 import com.yy.mediaframework.utils.CPUTool;
 import com.yy.mediaframework.utils.YMFLog;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YYVideoSDK {
     private static volatile YYVideoSDK instance;
     public boolean mIsEmulator;

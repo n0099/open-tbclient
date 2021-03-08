@@ -8,14 +8,12 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.pass.biometrics.face.R;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ConstrastLoadingView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f4050a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private ImageView f4051b;
+    private ImageView f2806a;
+    private ImageView b;
 
     public ConstrastLoadingView(Context context) {
         super(context);
@@ -24,13 +22,13 @@ public class ConstrastLoadingView extends LinearLayout {
 
     private void a(Context context) {
         LayoutInflater.from(context).inflate(R.layout.layout_pass_liveness_constrast_loading, this);
-        this.f4050a = (ImageView) findViewById(R.id.iv_recog_circle);
-        this.f4051b = (ImageView) findViewById(R.id.iv_recog_logo);
+        this.f2806a = (ImageView) findViewById(R.id.iv_recog_circle);
+        this.b = (ImageView) findViewById(R.id.iv_recog_logo);
         b();
     }
 
     private void b() {
-        this.f4050a.startAnimation(a(true, 1200L));
+        this.f2806a.startAnimation(a(true, 1200L));
     }
 
     public void setVisible(int i) {
@@ -59,7 +57,7 @@ public class ConstrastLoadingView extends LinearLayout {
     }
 
     public void a() {
-        this.f4050a.clearAnimation();
+        this.f2806a.clearAnimation();
         clearAnimation();
         setVisibility(4);
     }

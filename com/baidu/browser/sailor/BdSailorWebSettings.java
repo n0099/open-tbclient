@@ -8,13 +8,13 @@ import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
 import com.baidu.webkit.sdk.dumper.ZeusLogRecorder;
 import com.baidu.webkit.sdk.jschecker.BdJsCheckPolicy;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class BdSailorWebSettings implements INoProGuard {
     private static boolean lastNightModeEnabled = false;
     private static BdJsCheckPolicy sDefaultJsCheckPolicy;
     private WebSettings mWebSettings;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     protected class BdSailorWebSettingsExt implements ISailorWebSettingsExt {
         private static final String ENABLE_LOG_RECORD = "enable_log_record";
 

@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.guardclub.model;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.utils.q;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class j extends HttpMessage {
     private String id;
 
@@ -11,12 +11,12 @@ public class j extends HttpMessage {
         super(AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT);
     }
 
-    public void GV(String str) {
+    public void He(String str) {
         this.id = str;
     }
 
     public void setParams() {
-        addParam("scene_from", q.Fv());
+        addParam("scene_from", q.Fy());
         addParam("guard_club_id", this.id);
         addParam("client_type", 2);
     }

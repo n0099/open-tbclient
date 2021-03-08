@@ -12,26 +12,26 @@ import com.baidu.android.imsdk.chatmessage.messages.AudioMsg;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.live.sdk.a;
 import com.baidu.yuyinala.privatemessage.implugin.ui.theme.ThemeManager;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class s extends e {
     public View mContentView;
     private Context mContext;
     public View mConvertView;
-    public ImageView oZA;
-    public TextView oZB;
-    AnimationDrawable oZC;
+    public ImageView pbH;
+    public TextView pbI;
+    AnimationDrawable pbJ;
 
     public s(Context context, LayoutInflater layoutInflater) {
         this.mContext = context;
         this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_send_audio_item, (ViewGroup) null);
-        this.oZB = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_audio_length);
-        this.oZA = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_audio);
+        this.pbI = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_audio_length);
+        this.pbH = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_audio);
         this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_layout);
-        this.oYw = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
-        this.oYt = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
-        this.oYz = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status);
-        this.oYA = this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status_layout);
-        this.oYB = (ProgressBar) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_progress);
+        this.paD = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
+        this.paA = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.paG = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status);
+        this.paH = this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status_layout);
+        this.paI = (ProgressBar) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_progress);
         this.mContentView.setTag(this);
         this.mConvertView.setTag(this);
     }
@@ -42,21 +42,21 @@ public class s extends e {
     }
 
     public void startAnim() {
-        this.oZA.setImageDrawable(null);
-        this.oZA.setBackgroundResource(ThemeManager.U(this.mContext, a.C0195a.bd_im_anim_playing_right));
-        this.oZC = (AnimationDrawable) this.oZA.getBackground();
-        this.oZC.setOneShot(false);
-        if (!this.oZC.isRunning()) {
-            this.oZC.start();
+        this.pbH.setImageDrawable(null);
+        this.pbH.setBackgroundResource(ThemeManager.U(this.mContext, a.C0201a.bd_im_anim_playing_right));
+        this.pbJ = (AnimationDrawable) this.pbH.getBackground();
+        this.pbJ.setOneShot(false);
+        if (!this.pbJ.isRunning()) {
+            this.pbJ.start();
         }
     }
 
     public void stopAnim() {
-        if (this.oZC != null && this.oZC.isRunning()) {
-            this.oZC.stop();
+        if (this.pbJ != null && this.pbJ.isRunning()) {
+            this.pbJ.stop();
         }
-        this.oZA.setImageResource(ThemeManager.U(this.mContext, a.e.bd_im_speck_right_3));
-        this.oZA.setBackgroundResource(0);
+        this.pbH.setImageResource(ThemeManager.U(this.mContext, a.e.bd_im_speck_right_3));
+        this.pbH.setBackgroundResource(0);
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.a.a.e
@@ -73,16 +73,16 @@ public class s extends e {
         AudioMsg audioMsg = (AudioMsg) chatMsg;
         String format = String.format(context.getString(a.h.bd_im_audio_length), Integer.valueOf(audioMsg.getDuration()));
         if (chatMsg.getStatus() == 0) {
-            this.oZB.setVisibility(0);
-            this.oZB.setText(format);
+            this.pbI.setVisibility(0);
+            this.pbI.setText(format);
         } else {
-            this.oZB.setVisibility(8);
+            this.pbI.setVisibility(8);
         }
         this.mContentView.setMinimumWidth(a.c(context.getResources().getDimension(a.d.bd_im_audio_msg_min_width), audioMsg.getDuration()));
-        ejM();
+        ejW();
         super.b(context, chatMsg);
     }
 
-    private void ejM() {
+    private void ejW() {
     }
 }

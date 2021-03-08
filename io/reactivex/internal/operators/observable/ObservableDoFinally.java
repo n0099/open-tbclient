@@ -3,7 +3,7 @@ package io.reactivex.internal.operators.observable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.observers.BasicIntQueueDisposable;
 import io.reactivex.u;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ObservableDoFinally<T> extends a<T, T> {
     final io.reactivex.b.a onFinally;
 
@@ -12,7 +12,7 @@ public final class ObservableDoFinally<T> extends a<T, T> {
         this.source.subscribe(new DoFinallyObserver(uVar, this.onFinally));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class DoFinallyObserver<T> extends BasicIntQueueDisposable<T> implements u<T> {
         private static final long serialVersionUID = 4109457741734051389L;
         final u<? super T> actual;

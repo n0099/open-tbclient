@@ -6,7 +6,7 @@ import android.opengl.GLUtils;
 import com.yy.mediaframework.utils.YMFLog;
 import com.yy.mediaframework.watermark.WaterMark;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class WaterMarkTexture {
     public int mWaterMarkTextureId = -1;
     public int mWatermarkHeight;

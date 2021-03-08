@@ -11,47 +11,47 @@ import com.baidu.swan.apps.core.d.i;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c extends i {
     /* JADX WARN: Type inference failed for: r0v6, types: [com.baidu.swan.apps.adaptation.b.d] */
     @Override // com.baidu.swan.apps.core.d.i, com.baidu.swan.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(a.g.aiapps_webview_fragment, viewGroup, false);
         inflate.findViewById(a.f.ai_apps_title_bar_root).setVisibility(8);
-        this.cSQ = aiP();
-        this.cSQ.a(ajq());
-        this.cCq = this.cSQ.aiW();
-        this.cSQ.loadUrl(this.mUrl);
-        this.cSQ.b((FrameLayout) inflate.findViewById(a.f.aiapps_webView_container), this.cCq.covertToView());
-        return a(aoI() ? av(inflate) : inflate, this);
+        this.cUq = aiS();
+        this.cUq.a(ajt());
+        this.cDQ = this.cUq.aiZ();
+        this.cUq.loadUrl(this.mUrl);
+        this.cUq.b((FrameLayout) inflate.findViewById(a.f.aiapps_webView_container), this.cDQ.covertToView());
+        return a(aoL() ? av(inflate) : inflate, this);
     }
 
     @Override // com.baidu.swan.apps.core.d.i
-    public com.baidu.swan.apps.adaptation.b.f aiP() {
-        return com.baidu.swan.apps.core.turbo.d.ase().asf().ci(getContext());
+    public com.baidu.swan.apps.adaptation.b.f aiS() {
+        return com.baidu.swan.apps.core.turbo.d.ash().asi().ch(getContext());
     }
 
     @Override // com.baidu.swan.apps.core.d.i
-    protected com.baidu.swan.apps.core.f.d ajq() {
+    protected com.baidu.swan.apps.core.f.d ajt() {
         return new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.aa.c.1
             @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
-            public boolean iw(String str) {
+            public boolean iC(String str) {
                 if (str != null && str.startsWith("https://etrade.baidu.com/cashier/create-qrcode/close")) {
                     Map<String, String> stringToMap = ai.stringToMap(ai.getParams(str));
                     if (stringToMap != null && stringToMap.get("statusCode") != null) {
                         try {
-                            e.aDF().onPayResult(Integer.valueOf(stringToMap.get("statusCode")).intValue(), URLDecoder.decode(stringToMap.get("result"), "UTF-8"));
+                            e.aDI().onPayResult(Integer.valueOf(stringToMap.get("statusCode")).intValue(), URLDecoder.decode(stringToMap.get("result"), "UTF-8"));
                         } catch (UnsupportedEncodingException e) {
                             e.printStackTrace();
-                            e.aDF().onPayResult(Integer.valueOf(stringToMap.get("statusCode")).intValue(), null);
+                            e.aDI().onPayResult(Integer.valueOf(stringToMap.get("statusCode")).intValue(), null);
                         }
                     } else {
-                        e.aDF().onPayResult(6, null);
+                        e.aDI().onPayResult(6, null);
                     }
-                    i.apL();
+                    i.apO();
                     return true;
                 }
-                return super.iw(str);
+                return super.iC(str);
             }
         };
     }

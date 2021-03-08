@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MsgPhotoLiveItemAdapter extends MsgCommonItemAdapter<MsgPhotoLiveCardVew> {
     public MsgPhotoLiveItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -16,7 +16,7 @@ public class MsgPhotoLiveItemAdapter extends MsgCommonItemAdapter<MsgPhotoLiveCa
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ci */
+    /* renamed from: ch */
     public MsgCommonItemAdapter.MsgViewHolder<MsgPhotoLiveCardVew> e(ViewGroup viewGroup) {
         MsgPhotoLiveCardVew msgPhotoLiveCardVew = new MsgPhotoLiveCardVew(this.mPageContext);
         return new a(msgPhotoLiveCardVew.getConvertView(), msgPhotoLiveCardVew);
@@ -27,17 +27,17 @@ public class MsgPhotoLiveItemAdapter extends MsgCommonItemAdapter<MsgPhotoLiveCa
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgPhotoLiveCardVew> msgViewHolder) {
         super.a(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) msgViewHolder);
-        MsgPhotoLiveCardVew cUM = msgViewHolder.cUM();
-        cUM.a(this.mPageContext, chatMessage, viewGroup);
-        cUM.a(this.kAt);
-        cUM.setPosition(i);
+        MsgPhotoLiveCardVew cUT = msgViewHolder.cUT();
+        cUT.a(this.mPageContext, chatMessage, viewGroup);
+        cUT.a(this.kCv);
+        cUT.setPosition(i);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a extends MsgCommonItemAdapter.MsgViewHolder<MsgPhotoLiveCardVew> {
         public a(View view, MsgPhotoLiveCardVew msgPhotoLiveCardVew) {
             super(view, msgPhotoLiveCardVew);

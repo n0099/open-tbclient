@@ -30,7 +30,7 @@ public final class d implements ServiceConnection {
             if (aVar2 != null) {
                 com.baidu.mapframework.open.aidl.a unused = b.d = null;
             }
-            com.baidu.mapframework.open.aidl.a unused2 = b.d = a.AbstractBinderC0248a.a(iBinder);
+            com.baidu.mapframework.open.aidl.a unused2 = b.d = a.AbstractBinderC0254a.a(iBinder);
             aVar3 = b.d;
             aVar3.a(new e(this));
         } catch (RemoteException e) {

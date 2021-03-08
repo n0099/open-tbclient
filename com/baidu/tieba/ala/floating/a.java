@@ -14,17 +14,17 @@ import com.baidu.tieba.ala.floating.d;
 import com.baidu.tieba.ala.liveroom.n.d;
 import com.baidu.tieba.ala.player.SdkLivePlayer;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private d gUj;
-    private SdkLivePlayer gUk;
-    private com.baidu.live.liveroom.e.b gUl;
-    private com.baidu.tieba.ala.liveroom.n.a gUm;
-    private JSONObject gUn;
-    private InterfaceC0627a gUo;
-    private com.baidu.live.liveroom.e.a gUp = new com.baidu.live.liveroom.e.a() { // from class: com.baidu.tieba.ala.floating.a.1
+    private d gVS;
+    private SdkLivePlayer gVT;
+    private com.baidu.live.liveroom.e.b gVU;
+    private com.baidu.tieba.ala.liveroom.n.a gVV;
+    private JSONObject gVW;
+    private InterfaceC0633a gVX;
+    private com.baidu.live.liveroom.e.a gVY = new com.baidu.live.liveroom.e.a() { // from class: com.baidu.tieba.ala.floating.a.1
         @Override // com.baidu.live.liveroom.e.a
-        public boolean MN() {
+        public boolean MQ() {
             if (a.this.isDebug()) {
                 Log.d("AlaFloatLiveController", "onFloatingClosed");
             }
@@ -36,12 +36,12 @@ public class a {
     private AlaLiveInfoData mLiveInfo;
 
     /* renamed from: com.baidu.tieba.ala.floating.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0627a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0633a {
         boolean a(SdkLivePlayer sdkLivePlayer);
     }
 
-    public AlaLiveInfoData bUQ() {
+    public AlaLiveInfoData bUW() {
         return this.mLiveInfo;
     }
 
@@ -49,167 +49,167 @@ public class a {
         this.mContext = context;
     }
 
-    public void dK(JSONObject jSONObject) {
-        this.gUn = jSONObject;
+    public void dM(JSONObject jSONObject) {
+        this.gVW = jSONObject;
     }
 
     public void a(SdkLivePlayer sdkLivePlayer, ab abVar, String str, long j) {
-        this.gUk = sdkLivePlayer;
-        if (this.gUk == null || !this.gUk.isPlaying()) {
+        this.gVT = sdkLivePlayer;
+        if (this.gVT == null || !this.gVT.isPlaying()) {
             Log.d("AlaFloatLiveController", "switchToFloating canceled when player null or stoped");
-        } else if (!bUT()) {
+        } else if (!bUZ()) {
             AlaLiveInfoData alaLiveInfoData = abVar != null ? abVar.mLiveInfo : null;
             if (alaLiveInfoData != null) {
                 this.mLiveInfo = alaLiveInfoData;
                 if (alaLiveInfoData.live_status == 2) {
-                    bUS();
+                    bUY();
                     return;
                 }
-                this.gUl = i.MT().MV();
-                if (this.gUl != null) {
-                    this.gUk.setPlayerCallback(new g() { // from class: com.baidu.tieba.ala.floating.a.2
+                this.gVU = i.MW().MY();
+                if (this.gVU != null) {
+                    this.gVT.setPlayerCallback(new g() { // from class: com.baidu.tieba.ala.floating.a.2
                         @Override // com.baidu.live.liveroom.e.g, com.baidu.live.liveroom.e.f
                         public void onStart() {
                             super.onStart();
-                            a.this.gUj.nd(false);
+                            a.this.gVS.nd(false);
                         }
 
                         @Override // com.baidu.live.liveroom.e.g, com.baidu.live.liveroom.e.f
                         public void onPause() {
                             super.onPause();
-                            a.this.gUj.nd(true);
+                            a.this.gVS.nd(true);
                         }
 
                         @Override // com.baidu.live.liveroom.e.g, com.baidu.live.liveroom.e.f
                         public void onEnd(int i) {
                             super.onEnd(i);
-                            a.this.gUj.nd(true);
+                            a.this.gVS.nd(true);
                         }
 
                         @Override // com.baidu.live.liveroom.e.g, com.baidu.live.liveroom.e.f
                         public void a(com.baidu.live.liveroom.e.d dVar, int i, int i2) {
-                            if (a.this.gUj != null) {
+                            if (a.this.gVS != null) {
                                 if (i == 701) {
-                                    a.this.gUj.ne(true);
+                                    a.this.gVS.ne(true);
                                 } else {
-                                    a.this.gUj.ne(false);
+                                    a.this.gVS.ne(false);
                                 }
                             }
                         }
                     });
-                    AlaLiveInfoData currentLiveInfoData = this.gUk.getCurrentLiveInfoData();
+                    AlaLiveInfoData currentLiveInfoData = this.gVT.getCurrentLiveInfoData();
                     if (currentLiveInfoData != null) {
                         String d = h.d(currentLiveInfoData);
                         if (!TextUtils.isEmpty(currentLiveInfoData.playUrl) && !TextUtils.equals(d, currentLiveInfoData.playUrl)) {
                             currentLiveInfoData.playUrl = null;
-                            this.gUk.con();
-                            this.gUk.c(currentLiveInfoData);
+                            this.gVT.cot();
+                            this.gVT.c(currentLiveInfoData);
                         }
                     }
                     c cVar = new c();
-                    cVar.dK(this.gUn);
-                    cVar.dL(alaLiveInfoData.toJson());
+                    cVar.dM(this.gVW);
+                    cVar.dN(alaLiveInfoData.toJson());
                     String jSONObject = cVar.toJson().toString();
                     if (isDebug()) {
                         Log.d("AlaFloatLiveController", "switchToFloating ...");
                     }
-                    this.gUl.a(this.gUk.getCurrentFloatingPlayer(), bUR().h(this.mContext, null), jSONObject, this.gUp);
-                    this.gUk.setFloatingModel(true);
-                    if (this.gUm == null) {
-                        this.gUm = new com.baidu.tieba.ala.liveroom.n.a();
-                        this.gUm.a(new d.a() { // from class: com.baidu.tieba.ala.floating.a.3
+                    this.gVU.a(this.gVT.getCurrentFloatingPlayer(), bUX().h(this.mContext, null), jSONObject, this.gVY);
+                    this.gVT.setFloatingModel(true);
+                    if (this.gVV == null) {
+                        this.gVV = new com.baidu.tieba.ala.liveroom.n.a();
+                        this.gVV.a(new d.a() { // from class: com.baidu.tieba.ala.floating.a.3
                             @Override // com.baidu.tieba.ala.liveroom.n.d.a
                             public void a(int i, String str2, int i2, Object obj) {
                                 ab abVar2;
                                 if (i2 == 1 && (abVar2 = (ab) obj) != null && abVar2.mLiveInfo != null && abVar2.mLiveInfo.live_status == 2) {
-                                    a.this.bUS();
+                                    a.this.bUY();
                                 }
                             }
                         });
                     }
-                    this.gUm.a(abVar, str, j);
+                    this.gVV.a(abVar, str, j);
                 }
             }
         }
     }
 
-    private d bUR() {
-        if (this.gUj != null) {
-            return this.gUj;
+    private d bUX() {
+        if (this.gVS != null) {
+            return this.gVS;
         }
-        this.gUj = new d(this.mContext);
-        this.gUj.a(new d.a() { // from class: com.baidu.tieba.ala.floating.a.4
+        this.gVS = new d(this.mContext);
+        this.gVS.a(new d.a() { // from class: com.baidu.tieba.ala.floating.a.4
             @Override // com.baidu.tieba.ala.floating.d.a
-            public void bUW() {
+            public void bVc() {
                 if (a.this.isDebug()) {
                     Log.d("AlaFloatLiveController", "onRetryClicked");
                 }
             }
 
             @Override // com.baidu.tieba.ala.floating.d.a
-            public void bUX() {
+            public void bVd() {
                 if (a.this.isDebug()) {
                     Log.d("AlaFloatLiveController", "onFloatingClicked");
                 }
-                a.this.bUU();
+                a.this.bVa();
             }
 
             @Override // com.baidu.tieba.ala.floating.d.a
-            public void bUY() {
-                if (a.this.gUk != null) {
+            public void bVe() {
+                if (a.this.gVT != null) {
                     if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isYinbo()) {
-                        a.this.gUk.com();
+                        a.this.gVT.cos();
                         return;
                     }
-                    a.this.gUk.resume();
-                    if (!a.this.gUk.isPlaying()) {
-                        a.this.gUk.com();
+                    a.this.gVT.resume();
+                    if (!a.this.gVT.isPlaying()) {
+                        a.this.gVT.cos();
                     }
-                    a.this.gUj.nd(false);
+                    a.this.gVS.nd(false);
                 }
             }
         });
-        return this.gUj;
+        return this.gVS;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUS() {
-        bUR().bUZ();
+    public void bUY() {
+        bUX().bVf();
     }
 
-    public boolean bUT() {
-        return this.gUl != null && this.gUl.MQ();
+    public boolean bUZ() {
+        return this.gVU != null && this.gVU.MT();
     }
 
-    public void bUU() {
+    public void bVa() {
         if (isDebug()) {
             Log.d("AlaFloatLiveController", "switchFloatingToNormal");
         }
-        if (this.gUk != null) {
-            this.gUk.setFloatingModel(false);
+        if (this.gVT != null) {
+            this.gVT.setFloatingModel(false);
         }
-        if (this.gUm != null) {
-            this.gUm.stop();
-            this.gUm = null;
+        if (this.gVV != null) {
+            this.gVV.stop();
+            this.gVV = null;
         }
-        if (this.gUl != null) {
-            this.gUl.MO();
+        if (this.gVU != null) {
+            this.gVU.MR();
         }
     }
 
-    public void bUV() {
+    public void bVb() {
         if (isDebug()) {
             Log.d("AlaFloatLiveController", "dismissFloating");
         }
-        if (this.gUk != null) {
-            this.gUk.setFloatingModel(false);
+        if (this.gVT != null) {
+            this.gVT.setFloatingModel(false);
         }
-        if (this.gUm != null) {
-            this.gUm.stop();
-            this.gUm = null;
+        if (this.gVV != null) {
+            this.gVV.stop();
+            this.gVV = null;
         }
-        if (this.gUl != null) {
-            this.gUl.cG(false);
+        if (this.gVU != null) {
+            this.gVU.cG(false);
         }
     }
 
@@ -218,29 +218,29 @@ public class a {
         if (isDebug()) {
             Log.d("AlaFloatLiveController", MissionEvent.MESSAGE_DESTROY);
         }
-        if (this.gUk != null) {
-            this.gUk.setFloatingModel(false);
-            if (this.gUo != null && this.gUo.a(this.gUk)) {
+        if (this.gVT != null) {
+            this.gVT.setFloatingModel(false);
+            if (this.gVX != null && this.gVX.a(this.gVT)) {
                 if (isDebug()) {
                     Log.d("AlaFloatLiveController", "has OnClosePlayer");
                 }
             } else {
-                this.gUk.con();
+                this.gVT.cot();
                 if (isDebug()) {
                     Log.d("AlaFloatLiveController", "close player");
                 }
             }
-            this.gUo = null;
-            this.gUk = null;
+            this.gVX = null;
+            this.gVT = null;
         }
-        if (this.gUm != null) {
-            this.gUm.stop();
-            this.gUm = null;
+        if (this.gVV != null) {
+            this.gVV.stop();
+            this.gVV = null;
         }
     }
 
-    public void a(InterfaceC0627a interfaceC0627a) {
-        this.gUo = interfaceC0627a;
+    public void a(InterfaceC0633a interfaceC0633a) {
+        this.gVX = interfaceC0633a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

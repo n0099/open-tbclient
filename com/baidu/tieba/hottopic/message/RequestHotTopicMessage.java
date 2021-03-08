@@ -6,12 +6,12 @@ import com.baidu.tbadk.util.v;
 import tbclient.CommonReq;
 import tbclient.Hottopic.DataReq;
 import tbclient.Hottopic.HottopicReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class RequestHotTopicMessage extends NetMessage {
     private int call_from;
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f5340common;
+    private CommonReq f3593common;
     private Long fid;
     private String first_dir;
     private Integer q_type;
@@ -45,11 +45,11 @@ public class RequestHotTopicMessage extends NetMessage {
     }
 
     public CommonReq getCommon() {
-        return this.f5340common;
+        return this.f3593common;
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f5340common = commonReq;
+        this.f3593common = commonReq;
     }
 
     public Long getTopicId() {
@@ -112,7 +112,7 @@ public class RequestHotTopicMessage extends NetMessage {
     public Object encode(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f14624common = getCommon();
+            builder.f8854common = getCommon();
             builder.topic_id = getTopicId();
             builder.topic_name = getTopicName();
             builder.scr_w = getScrW();

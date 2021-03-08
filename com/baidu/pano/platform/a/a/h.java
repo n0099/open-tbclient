@@ -79,8 +79,8 @@ public class h {
             j4 = j8;
         }
         b.a aVar = new b.a();
-        aVar.f3867a = lVar.f3884b;
-        aVar.f3868b = str5;
+        aVar.f2699a = lVar.b;
+        aVar.b = str5;
         aVar.f = j4;
         aVar.e = j3;
         aVar.c = j5;

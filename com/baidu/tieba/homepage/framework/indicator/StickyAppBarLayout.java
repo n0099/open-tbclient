@@ -13,9 +13,9 @@ import com.google.android.material.appbar.AppBarLayout;
 @CoordinatorLayout.DefaultBehavior(StickyAppBarLayoutBehavior.class)
 /* loaded from: classes2.dex */
 public class StickyAppBarLayout extends AppBarLayout {
-    CustomMessageListener fjP;
-    private StickyAppBarLayoutBehavior keI;
-    private a keJ;
+    CustomMessageListener flo;
+    private StickyAppBarLayoutBehavior kgK;
+    private a kgL;
     private int mSkinType;
 
     /* loaded from: classes2.dex */
@@ -26,16 +26,16 @@ public class StickyAppBarLayout extends AppBarLayout {
     public StickyAppBarLayout(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.fjP = new CustomMessageListener(2921441) { // from class: com.baidu.tieba.homepage.framework.indicator.StickyAppBarLayout.1
+        this.flo = new CustomMessageListener(2921441) { // from class: com.baidu.tieba.homepage.framework.indicator.StickyAppBarLayout.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 Boolean bool = (Boolean) customResponsedMessage.getData();
                 if (bool != null) {
                     if (bool.booleanValue()) {
-                        StickyAppBarLayout.this.cQc();
+                        StickyAppBarLayout.this.cQj();
                     } else if (!StickyAppBarLayout.this.isSticky()) {
-                        StickyAppBarLayout.this.cQd();
+                        StickyAppBarLayout.this.cQk();
                     }
                 }
             }
@@ -45,16 +45,16 @@ public class StickyAppBarLayout extends AppBarLayout {
     public StickyAppBarLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.fjP = new CustomMessageListener(2921441) { // from class: com.baidu.tieba.homepage.framework.indicator.StickyAppBarLayout.1
+        this.flo = new CustomMessageListener(2921441) { // from class: com.baidu.tieba.homepage.framework.indicator.StickyAppBarLayout.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 Boolean bool = (Boolean) customResponsedMessage.getData();
                 if (bool != null) {
                     if (bool.booleanValue()) {
-                        StickyAppBarLayout.this.cQc();
+                        StickyAppBarLayout.this.cQj();
                     } else if (!StickyAppBarLayout.this.isSticky()) {
-                        StickyAppBarLayout.this.cQd();
+                        StickyAppBarLayout.this.cQk();
                     }
                 }
             }
@@ -64,80 +64,80 @@ public class StickyAppBarLayout extends AppBarLayout {
     @Override // android.view.View
     protected void onFinishInflate() {
         super.onFinishInflate();
-        cQb();
+        cQi();
     }
 
-    private void cQb() {
+    private void cQi() {
         if (getLayoutParams() instanceof CoordinatorLayout.LayoutParams) {
             CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) getLayoutParams()).getBehavior();
             if (behavior instanceof StickyAppBarLayoutBehavior) {
-                this.keI = (StickyAppBarLayoutBehavior) behavior;
+                this.kgK = (StickyAppBarLayoutBehavior) behavior;
             }
         }
     }
 
-    public boolean cQc() {
-        if (this.keI == null) {
-            cQb();
+    public boolean cQj() {
+        if (this.kgK == null) {
+            cQi();
         }
-        if (this.keI != null) {
-            if (isSticky() && this.keI.cQh() != null && this.keI.cQh().getVisibility() == 0) {
-                cQe();
+        if (this.kgK != null) {
+            if (isSticky() && this.kgK.cQo() != null && this.kgK.cQo().getVisibility() == 0) {
+                cQl();
             }
-            this.keI.cQf();
+            this.kgK.cQm();
             return true;
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cQd() {
-        if (this.keI == null) {
-            cQb();
+    public boolean cQk() {
+        if (this.kgK == null) {
+            cQi();
         }
-        if (this.keI != null) {
-            this.keI.cQg();
+        if (this.kgK != null) {
+            this.kgK.cQn();
             return true;
         }
         return false;
     }
 
     public boolean isSticky() {
-        if (this.keI == null) {
-            cQb();
+        if (this.kgK == null) {
+            cQi();
         }
-        if (this.keI != null) {
-            return this.keI.isSticky();
+        if (this.kgK != null) {
+            return this.kgK.isSticky();
         }
         return false;
     }
 
-    private void cQe() {
+    private void cQl() {
         ar arVar = new ar("c13422");
-        arVar.ap("obj_type", 1);
-        arVar.ap("obj_locate", 1);
-        arVar.ap("ab_tag", TbSingleton.getInstance().getHomePageStyleAbTest());
+        arVar.aq("obj_type", 1);
+        arVar.aq("obj_locate", 1);
+        arVar.aq("ab_tag", TbSingleton.getInstance().getHomePageStyleAbTest());
         arVar.dR("obj_source", TbSingleton.getInstance().getMissionEntranceObjSource());
         TiebaStatic.log(arVar);
     }
 
     public void setOnHeaderStickyListener(a aVar) {
-        this.keJ = aVar;
+        this.kgL = aVar;
     }
 
     public a getOnHeaderStickyListener() {
-        return this.keJ;
+        return this.kgL;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        MessageManager.getInstance().registerListener(this.fjP);
+        MessageManager.getInstance().registerListener(this.flo);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        MessageManager.getInstance().unRegisterListener(this.fjP);
+        MessageManager.getInstance().unRegisterListener(this.flo);
     }
 }

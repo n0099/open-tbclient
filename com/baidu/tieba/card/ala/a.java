@@ -9,50 +9,50 @@ import com.baidu.tieba.play.e;
 import com.baidu.tieba.play.f;
 /* loaded from: classes.dex */
 public class a implements e {
-    private cb akU;
-    private f gAm;
-    private AlaVideoContainer hnw;
-    private AlaInfoData iAb;
-    private String iAc;
-    private boolean iwQ = false;
-    private f.a ixc = new f.a() { // from class: com.baidu.tieba.card.ala.a.1
+    private cb amn;
+    private f gBV;
+    private AlaVideoContainer hpg;
+    private AlaInfoData iBK;
+    private String iBL;
+    private String mForumName;
+    private boolean iyz = false;
+    private f.a iyL = new f.a() { // from class: com.baidu.tieba.card.ala.a.1
         @Override // com.baidu.tieba.play.f.a
         public void rD() {
-            a.this.csi();
+            a.this.cso();
         }
     };
-    private String mForumName;
 
     public a(AlaVideoContainer alaVideoContainer) {
-        this.hnw = alaVideoContainer;
-        if (this.hnw != null) {
-            this.gAm = new f();
-            this.gAm.setPlayer(this.hnw.getVideoView());
-            this.gAm.a(this.ixc);
+        this.hpg = alaVideoContainer;
+        if (this.hpg != null) {
+            this.gBV = new f();
+            this.gBV.setPlayer(this.hpg.getVideoView());
+            this.gBV.a(this.iyL);
         }
     }
 
     public void a(cb cbVar, String str, String str2, boolean z) {
-        this.iAc = str2;
+        this.iBL = str2;
         this.mForumName = str;
         if (cbVar != null) {
-            this.akU = cbVar;
-            if (this.hnw != null && this.akU.boj() != null) {
-                this.iAb = this.akU.boj();
-                this.hnw.setVideoThumbnail(this.iAb.cover);
+            this.amn = cbVar;
+            if (this.hpg != null && this.amn.bol() != null) {
+                this.iBK = this.amn.bol();
+                this.hpg.setVideoThumbnail(this.iBK.cover);
                 if (z) {
-                    this.hnw.setTitle(this.akU.getTitle());
+                    this.hpg.setTitle(this.amn.getTitle());
                 } else {
-                    this.hnw.setTitle("");
+                    this.hpg.setTitle("");
                 }
-                this.hnw.setPlayCount(String.format(this.hnw.getVideoView().getContext().getResources().getString(R.string.ala_audience_count_prefix), au.numFormatOverWan(this.akU.boj().audience_count)));
+                this.hpg.setPlayCount(String.format(this.hpg.getVideoView().getContext().getResources().getString(R.string.ala_audience_count_prefix), au.numFormatOverWan(this.amn.bol().audience_count)));
             }
         }
     }
 
     @Override // com.baidu.tieba.play.e
     public boolean isPlayStarted() {
-        return this.iwQ;
+        return this.iyz;
     }
 
     @Override // com.baidu.tieba.play.e
@@ -71,49 +71,49 @@ public class a implements e {
 
     @Override // com.baidu.tieba.play.e
     public void stopPlay() {
-        if (this.hnw != null && this.hnw.getVideoView() != null) {
-            this.hnw.getVideoView().stopPlayback();
-            this.hnw.bRs();
-            if (this.gAm != null) {
-                this.gAm.stop();
+        if (this.hpg != null && this.hpg.getVideoView() != null) {
+            this.hpg.getVideoView().stopPlayback();
+            this.hpg.bRy();
+            if (this.gBV != null) {
+                this.gBV.stop();
             }
         }
-        this.iwQ = false;
+        this.iyz = false;
     }
 
     @Override // com.baidu.tieba.play.e
     public View getVideoContainer() {
-        if (this.hnw != null) {
-            return this.hnw.getView();
+        if (this.hpg != null) {
+            return this.hpg.getView();
         }
         return null;
     }
 
     @Override // com.baidu.tieba.play.e
     public String getPlayUrl() {
-        if (this.akU == null || this.akU.boh() == null) {
+        if (this.amn == null || this.amn.boj() == null) {
             return null;
         }
-        return this.akU.boh().video_url;
+        return this.amn.boj().video_url;
     }
 
     @Override // com.baidu.tieba.play.e
     public int getCurrentPosition() {
-        if (this.hnw == null || this.hnw.getVideoView() == null) {
+        if (this.hpg == null || this.hpg.getVideoView() == null) {
             return 0;
         }
-        return this.hnw.getVideoView().getCurrentPositionSync();
+        return this.hpg.getVideoView().getCurrentPositionSync();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void csi() {
-        if (this.akU == null || this.akU.boh() == null) {
+    public void cso() {
+        if (this.amn == null || this.amn.boj() == null) {
         }
     }
 
     public void startPlayAnimation() {
-        if (this.hnw != null) {
-            this.hnw.startPlayAnimation();
+        if (this.hpg != null) {
+            this.hpg.startPlayAnimation();
         }
     }
 }

@@ -1,5 +1,5 @@
 package kotlin.jvm.internal;
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public class PropertyReference1Impl extends PropertyReference1 {
     private final String name;
     private final kotlin.reflect.d owner;

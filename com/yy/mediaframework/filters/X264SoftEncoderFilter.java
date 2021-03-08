@@ -33,7 +33,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 @SuppressLint({"NewApi"})
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class X264SoftEncoderFilter extends AbstractEncoderFilter implements Runnable {
     private static final int MSG_CHECK_IDLE = 3;
     private static final int MSG_FRAME_AVAILABLE = 1;
@@ -668,7 +668,7 @@ public class X264SoftEncoderFilter extends AbstractEncoderFilter implements Runn
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class EncoderHandler extends Handler {
         private WeakReference<X264SoftEncoderFilter> mWeakEncoder;
 

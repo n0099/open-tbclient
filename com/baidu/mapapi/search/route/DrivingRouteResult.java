@@ -11,10 +11,8 @@ public final class DrivingRouteResult extends SearchResult implements Parcelable
     public static final Parcelable.Creator<DrivingRouteResult> CREATOR = new f();
 
     /* renamed from: a  reason: collision with root package name */
-    private List<DrivingRouteLine> f2897a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private List<TaxiInfo> f2898b;
+    private List<DrivingRouteLine> f2130a;
+    private List<TaxiInfo> b;
     private TaxiInfo c;
     private SuggestAddrInfo d;
 
@@ -23,10 +21,10 @@ public final class DrivingRouteResult extends SearchResult implements Parcelable
 
     /* JADX INFO: Access modifiers changed from: protected */
     public DrivingRouteResult(Parcel parcel) {
-        this.f2897a = new ArrayList();
-        parcel.readTypedList(this.f2897a, DrivingRouteLine.CREATOR);
-        this.f2898b = new ArrayList();
-        parcel.readTypedList(this.f2898b, TaxiInfo.CREATOR);
+        this.f2130a = new ArrayList();
+        parcel.readTypedList(this.f2130a, DrivingRouteLine.CREATOR);
+        this.b = new ArrayList();
+        parcel.readTypedList(this.b, TaxiInfo.CREATOR);
         this.d = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
     }
 
@@ -36,7 +34,7 @@ public final class DrivingRouteResult extends SearchResult implements Parcelable
     }
 
     public List<DrivingRouteLine> getRouteLines() {
-        return this.f2897a;
+        return this.f2130a;
     }
 
     public SuggestAddrInfo getSuggestAddrInfo() {
@@ -49,11 +47,11 @@ public final class DrivingRouteResult extends SearchResult implements Parcelable
     }
 
     public List<TaxiInfo> getTaxiInfos() {
-        return this.f2898b;
+        return this.b;
     }
 
     public void setRouteLines(List<DrivingRouteLine> list) {
-        this.f2897a = list;
+        this.f2130a = list;
     }
 
     public void setSuggestAddrInfo(SuggestAddrInfo suggestAddrInfo) {
@@ -61,13 +59,13 @@ public final class DrivingRouteResult extends SearchResult implements Parcelable
     }
 
     public void setTaxiInfos(List<TaxiInfo> list) {
-        this.f2898b = list;
+        this.b = list;
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeTypedList(this.f2897a);
-        parcel.writeTypedList(this.f2898b);
+        parcel.writeTypedList(this.f2130a);
+        parcel.writeTypedList(this.b);
         parcel.writeParcelable(this.d, 1);
     }
 }

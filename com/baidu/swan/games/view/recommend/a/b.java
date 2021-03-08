@@ -1,9 +1,9 @@
 package com.baidu.swan.games.view.recommend.a;
 
 import com.baidu.swan.games.view.recommend.a.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface b extends com.baidu.swan.games.view.recommend.a {
-    void a(a.InterfaceC0530a interfaceC0530a);
+    void a(a.InterfaceC0536a interfaceC0536a);
 
     void a(com.baidu.swan.games.view.recommend.model.a aVar);
 

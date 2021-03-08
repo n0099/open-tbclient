@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
     private int maxCount;
     private List<b> userList = new ArrayList();
 
-    public void dH(JSONObject jSONObject) {
+    public void dJ(JSONObject jSONObject) {
         if (jSONObject != null) {
             JSONArray optJSONArray = jSONObject.optJSONArray("admins");
             if (optJSONArray != null) {
@@ -17,7 +17,7 @@ public class a {
                 for (int i = 0; i < length; i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     b bVar = new b();
-                    bVar.dH(optJSONObject);
+                    bVar.dJ(optJSONObject);
                     this.userList.add(bVar);
                 }
             }
@@ -25,7 +25,7 @@ public class a {
         }
     }
 
-    public int bYl() {
+    public int bYr() {
         return this.maxCount;
     }
 

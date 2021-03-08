@@ -9,7 +9,7 @@ import io.reactivex.w;
 import io.reactivex.y;
 import java.util.NoSuchElementException;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class MaybeFlatMapSingle<T, R> extends w<R> {
     final h<? super T, ? extends aa<? extends R>> mapper;
     final o<T> source;
@@ -19,7 +19,7 @@ public final class MaybeFlatMapSingle<T, R> extends w<R> {
         this.source.a(new FlatMapMaybeObserver(yVar, this.mapper));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class FlatMapMaybeObserver<T, R> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, m<T> {
         private static final long serialVersionUID = 4827726964688405508L;
         final y<? super R> actual;
@@ -50,7 +50,7 @@ public final class MaybeFlatMapSingle<T, R> extends w<R> {
         @Override // io.reactivex.m
         public void onSuccess(T t) {
             try {
-                aa aaVar = (aa) io.reactivex.internal.functions.a.m(this.mapper.apply(t), "The mapper returned a null SingleSource");
+                aa aaVar = (aa) io.reactivex.internal.functions.a.n(this.mapper.apply(t), "The mapper returned a null SingleSource");
                 if (!isDisposed()) {
                     aaVar.a(new a(this, this.actual));
                 }
@@ -71,19 +71,19 @@ public final class MaybeFlatMapSingle<T, R> extends w<R> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class a<R> implements y<R> {
         final y<? super R> actual;
-        final AtomicReference<io.reactivex.disposables.b> qoo;
+        final AtomicReference<io.reactivex.disposables.b> qoQ;
 
         a(AtomicReference<io.reactivex.disposables.b> atomicReference, y<? super R> yVar) {
-            this.qoo = atomicReference;
+            this.qoQ = atomicReference;
             this.actual = yVar;
         }
 
         @Override // io.reactivex.y
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            DisposableHelper.replace(this.qoo, bVar);
+            DisposableHelper.replace(this.qoQ, bVar);
         }
 
         @Override // io.reactivex.y

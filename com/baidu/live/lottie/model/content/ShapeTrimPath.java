@@ -1,15 +1,15 @@
 package com.baidu.live.lottie.model.content;
 
 import com.baidu.live.lottie.a.a.r;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class ShapeTrimPath implements b {
-    private final Type bsQ;
-    private final com.baidu.live.lottie.model.a.b btX;
-    private final com.baidu.live.lottie.model.a.b bua;
-    private final com.baidu.live.lottie.model.a.b bub;
+    private final Type bus;
+    private final com.baidu.live.lottie.model.a.b bvB;
+    private final com.baidu.live.lottie.model.a.b bvC;
+    private final com.baidu.live.lottie.model.a.b bvy;
     private final String name;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public enum Type {
         Simultaneously,
         Individually;
@@ -28,30 +28,30 @@ public class ShapeTrimPath implements b {
 
     public ShapeTrimPath(String str, Type type, com.baidu.live.lottie.model.a.b bVar, com.baidu.live.lottie.model.a.b bVar2, com.baidu.live.lottie.model.a.b bVar3) {
         this.name = str;
-        this.bsQ = type;
-        this.bua = bVar;
-        this.bub = bVar2;
-        this.btX = bVar3;
+        this.bus = type;
+        this.bvB = bVar;
+        this.bvC = bVar2;
+        this.bvy = bVar3;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Type Ni() {
-        return this.bsQ;
+    public Type Nl() {
+        return this.bus;
     }
 
-    public com.baidu.live.lottie.model.a.b Oa() {
-        return this.bub;
+    public com.baidu.live.lottie.model.a.b Od() {
+        return this.bvC;
     }
 
-    public com.baidu.live.lottie.model.a.b Ob() {
-        return this.bua;
+    public com.baidu.live.lottie.model.a.b Oe() {
+        return this.bvB;
     }
 
-    public com.baidu.live.lottie.model.a.b NW() {
-        return this.btX;
+    public com.baidu.live.lottie.model.a.b NZ() {
+        return this.bvy;
     }
 
     @Override // com.baidu.live.lottie.model.content.b
@@ -60,6 +60,6 @@ public class ShapeTrimPath implements b {
     }
 
     public String toString() {
-        return "Trim Path: {start: " + this.bua + ", end: " + this.bub + ", offset: " + this.btX + "}";
+        return "Trim Path: {start: " + this.bvB + ", end: " + this.bvC + ", offset: " + this.bvy + "}";
     }
 }

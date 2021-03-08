@@ -8,83 +8,83 @@ import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.swan.apps.r.d;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class g {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void gg(int i);
+        void gh(int i);
 
-        void ki(String str);
+        void kp(String str);
     }
 
     public static void a(com.baidu.swan.apps.runtime.e eVar, com.baidu.swan.apps.model.b bVar, final String str, final a aVar, String str2) {
         if (aVar != null) {
-            if (eVar == null || bVar == null || TextUtils.isEmpty(bVar.mPage) || TextUtils.isEmpty(bVar.dnO)) {
-                aVar.gg(2110);
+            if (eVar == null || bVar == null || TextUtils.isEmpty(bVar.mPage) || TextUtils.isEmpty(bVar.dps)) {
+                aVar.gh(2110);
                 return;
             }
-            String str3 = bVar.dnO;
-            final String kb = eVar.kb(bVar.mPage);
-            boolean rA = eVar.rA(str3);
-            if (com.baidu.swan.apps.console.debugger.a.e.amk() || com.baidu.swan.apps.ad.a.a.aFm()) {
-                if (rA || !TextUtils.isEmpty(kb)) {
-                    aVar.ki(str);
+            String str3 = bVar.dps;
+            final String ki = eVar.ki(bVar.mPage);
+            boolean rH = eVar.rH(str3);
+            if (com.baidu.swan.apps.console.debugger.a.e.amn() || com.baidu.swan.apps.ad.a.a.aFp()) {
+                if (rH || !TextUtils.isEmpty(ki)) {
+                    aVar.kp(str);
                 } else {
-                    aVar.gg(2111);
+                    aVar.gh(2111);
                 }
-            } else if (com.baidu.swan.apps.ac.b.a.qI(bVar.mPage)) {
-                aVar.ki(str);
+            } else if (com.baidu.swan.apps.ac.b.a.qP(bVar.mPage)) {
+                aVar.kp(str);
             } else {
-                if (rA) {
+                if (rH) {
                     if (com.baidu.swan.apps.r.d.bK(eVar.id, eVar.getVersion())) {
-                        aVar.ki(str);
+                        aVar.kp(str);
                         return;
-                    } else if (eVar.aJf()) {
+                    } else if (eVar.aJi()) {
                         a(eVar, str3, str, aVar, str2);
                         return;
                     }
                 }
-                if (TextUtils.isEmpty(kb)) {
-                    aVar.gg(2111);
-                } else if (eVar.rB(kb)) {
-                    aVar.ki(str);
-                } else if (eVar.rC(kb) && eVar.rD(kb)) {
-                    aVar.ki(str);
-                    eVar.ab(kb, true);
+                if (TextUtils.isEmpty(ki)) {
+                    aVar.gh(2111);
+                } else if (eVar.rI(ki)) {
+                    aVar.kp(str);
+                } else if (eVar.rJ(ki) && eVar.rK(ki)) {
+                    aVar.kp(str);
+                    eVar.ab(ki, true);
                 } else {
-                    String rE = eVar.rE(kb);
-                    if (TextUtils.isEmpty(rE)) {
-                        aVar.gg(2112);
+                    String rL = eVar.rL(ki);
+                    if (TextUtils.isEmpty(rL)) {
+                        aVar.gh(2112);
                         return;
                     }
-                    boolean rG = eVar.rG(str3);
-                    if (!com.baidu.swan.apps.r.d.bK(eVar.id, eVar.getVersion()) && !rG) {
+                    boolean rN = eVar.rN(str3);
+                    if (!com.baidu.swan.apps.r.d.bK(eVar.id, eVar.getVersion()) && !rN) {
                         a(eVar, str3, str, aVar, str2);
                         return;
                     }
-                    com.baidu.swan.pms.c.d.f fVar = new com.baidu.swan.pms.c.d.f(eVar.id, eVar.getVersion(), rE, 0);
+                    com.baidu.swan.pms.c.d.f fVar = new com.baidu.swan.pms.c.d.f(eVar.id, eVar.getVersion(), rL, 0);
                     com.baidu.swan.apps.core.pms.e.a aVar2 = new com.baidu.swan.apps.core.pms.e.a(eVar.id, eVar.getVersion(), new com.baidu.swan.apps.core.pms.b() { // from class: com.baidu.swan.apps.scheme.actions.k.g.1
                         @Override // com.baidu.swan.apps.core.pms.b
-                        public void aqD() {
-                            com.baidu.swan.apps.runtime.e aIK = com.baidu.swan.apps.runtime.e.aIK();
-                            if (aIK != null) {
-                                aIK.ab(kb, true);
+                        public void aqG() {
+                            com.baidu.swan.apps.runtime.e aIN = com.baidu.swan.apps.runtime.e.aIN();
+                            if (aIN != null) {
+                                aIN.ab(ki, true);
                             }
                             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.k.g.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    aVar.ki(str);
+                                    aVar.kp(str);
                                 }
                             });
                         }
 
                         @Override // com.baidu.swan.apps.core.pms.b
-                        public void gU(final int i) {
+                        public void gV(final int i) {
                             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.k.g.1.2
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    aVar.gg(i);
+                                    aVar.gh(i);
                                 }
                             });
                         }
@@ -99,27 +99,27 @@ public class g {
     private static void a(com.baidu.swan.apps.runtime.e eVar, String str, final String str2, final a aVar, String str3) {
         if (aVar != null) {
             if (eVar == null) {
-                aVar.gg(2111);
+                aVar.gh(2111);
                 return;
             }
             com.baidu.swan.apps.performance.i.cd("route", str3).f(new UbcFlowEvent("na_start_sub_package_download")).cg("sub_state", "1");
-            com.baidu.swan.pms.c.d.c cVar = new com.baidu.swan.pms.c.d.c(eVar.id, com.baidu.swan.apps.runtime.d.aIG().getFrameType());
-            cVar.lW(ak.ui(eVar.getVersion()));
-            cVar.yf(str);
-            com.baidu.swan.pms.c.a(cVar, new com.baidu.swan.apps.core.pms.c.a(eVar.id, new a.InterfaceC0409a() { // from class: com.baidu.swan.apps.scheme.actions.k.g.2
-                @Override // com.baidu.swan.apps.core.pms.c.a.InterfaceC0409a
-                public void arb() {
-                    a.this.gg(2113);
+            com.baidu.swan.pms.c.d.c cVar = new com.baidu.swan.pms.c.d.c(eVar.id, com.baidu.swan.apps.runtime.d.aIJ().getFrameType());
+            cVar.lX(ak.up(eVar.getVersion()));
+            cVar.ym(str);
+            com.baidu.swan.pms.c.a(cVar, new com.baidu.swan.apps.core.pms.c.a(eVar.id, new a.InterfaceC0415a() { // from class: com.baidu.swan.apps.scheme.actions.k.g.2
+                @Override // com.baidu.swan.apps.core.pms.c.a.InterfaceC0415a
+                public void are() {
+                    a.this.gh(2113);
                 }
 
-                @Override // com.baidu.swan.apps.core.pms.c.a.InterfaceC0409a
+                @Override // com.baidu.swan.apps.core.pms.c.a.InterfaceC0415a
                 public void onSuccess() {
-                    a.this.ki(str2);
+                    a.this.kp(str2);
                 }
 
-                @Override // com.baidu.swan.apps.core.pms.c.a.InterfaceC0409a
+                @Override // com.baidu.swan.apps.core.pms.c.a.InterfaceC0415a
                 public void onError() {
-                    a.this.gg(2113);
+                    a.this.gh(2113);
                 }
             }));
         }
@@ -129,17 +129,17 @@ public class g {
         if (aVar != null) {
             com.baidu.swan.pms.c.a(new com.baidu.swan.pms.c.d.f(str, str2, str4, 0), new com.baidu.swan.apps.core.pms.e.a(str, str2, new com.baidu.swan.apps.core.pms.b() { // from class: com.baidu.swan.apps.scheme.actions.k.g.3
                 @Override // com.baidu.swan.apps.core.pms.b
-                public void aqD() {
-                    com.baidu.swan.apps.runtime.e aIK = com.baidu.swan.apps.runtime.e.aIK();
-                    if (aIK != null) {
-                        aIK.ab(str3, true);
+                public void aqG() {
+                    com.baidu.swan.apps.runtime.e aIN = com.baidu.swan.apps.runtime.e.aIN();
+                    if (aIN != null) {
+                        aIN.ab(str3, true);
                     }
-                    aVar.ki(str5);
+                    aVar.kp(str5);
                 }
 
                 @Override // com.baidu.swan.apps.core.pms.b
-                public void gU(int i) {
-                    aVar.gg(i);
+                public void gV(int i) {
+                    aVar.gh(i);
                 }
             }));
         }
@@ -149,26 +149,26 @@ public class g {
         if (fVar == null) {
             return false;
         }
-        return b(bVar, fVar.deS);
+        return b(bVar, fVar.dgt);
     }
 
     public static boolean b(com.baidu.swan.apps.u.c.b bVar, SwanAppConfigData swanAppConfigData) {
-        if (bVar == null || TextUtils.isEmpty(bVar.getPage()) || com.baidu.swan.apps.console.debugger.a.e.amk()) {
+        if (bVar == null || TextUtils.isEmpty(bVar.getPage()) || com.baidu.swan.apps.console.debugger.a.e.amn()) {
             return false;
         }
         String delAllParamsFromUrl = ai.delAllParamsFromUrl(bVar.getPage());
         if (!TextUtils.isEmpty(delAllParamsFromUrl) && delAllParamsFromUrl.startsWith(File.separator)) {
             delAllParamsFromUrl = delAllParamsFromUrl.substring(1);
         }
-        if (swanAppConfigData == null || swanAppConfigData.dEP == null || swanAppConfigData.dEP.rU(delAllParamsFromUrl)) {
+        if (swanAppConfigData == null || swanAppConfigData.dGq == null || swanAppConfigData.dGq.sb(delAllParamsFromUrl)) {
             return false;
         }
-        String str = swanAppConfigData.dEQ.dFs.get(delAllParamsFromUrl);
+        String str = swanAppConfigData.dGr.dGT.get(delAllParamsFromUrl);
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (com.baidu.swan.pms.database.a.bcv().ak(bVar.getAppId(), bVar.getVersion(), str)) {
-            return !new File(d.C0446d.bL(bVar.getAppId(), bVar.getVersion()), str).exists();
+        if (com.baidu.swan.pms.database.a.bcx().ak(bVar.getAppId(), bVar.getVersion(), str)) {
+            return !new File(d.C0452d.bL(bVar.getAppId(), bVar.getVersion()), str).exists();
         }
         return true;
     }

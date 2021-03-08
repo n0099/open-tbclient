@@ -99,7 +99,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.ThemeColorInfo;
 import tbclient.ThemeElement;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class OpenNative {
     public static final String kNativeBarBroadcastHistoryPage = "kNativeBarBroadcastHistoryPage";
     public static final String kNativePageKeyAddFriend = "kNativePageKeyAddFriend";
@@ -374,7 +374,7 @@ public class OpenNative {
                 }
             }
             if (map.containsKey("from")) {
-                d.Do((String) map.get("from"));
+                d.Dv((String) map.get("from"));
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, videoMiddlePageActivityConfig));
         }
@@ -401,8 +401,8 @@ public class OpenNative {
     private static void openNativeCustomVideo(Context context, Map<String, Object> map) {
         String str = (String) map.get("videoUrl");
         SimpleVideoPlayActivityConfig.a aVar = new SimpleVideoPlayActivityConfig.a();
-        aVar.zQ(str).zP(str);
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, aVar.eQ(context)));
+        aVar.zX(str).zW(str);
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, aVar.eP(context)));
     }
 
     private static void openNativeHotTopicTrendDetail(Context context, Map<String, Object> map) {
@@ -588,7 +588,7 @@ public class OpenNative {
             pbActivityConfig.setUnKnowPbType((String) map.get(PbActivityConfig.KEY_UNKNOW_PB_TYPE));
         }
         if (map.containsKey("enter_type")) {
-            d.Do((String) map.get("enter_type"));
+            d.Dv((String) map.get("enter_type"));
         }
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
     }
@@ -637,7 +637,7 @@ public class OpenNative {
             }
         }
         if (map.containsKey(FrsActivityConfig.FRS_CALL_FROM)) {
-            d.Do((String) map.get(FrsActivityConfig.FRS_CALL_FROM));
+            d.Dv((String) map.get(FrsActivityConfig.FRS_CALL_FROM));
         }
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createNormalCfg));
     }
@@ -658,7 +658,7 @@ public class OpenNative {
         }
         try {
             if (TbadkApplication.getInst().getCurrentActivity() != null) {
-                bf.bsV().b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext(), new String[]{str});
+                bf.bsY().b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext(), new String[]{str});
             }
         } catch (Exception e) {
             BdLog.e("openPageByUrl fail:" + e.toString());
@@ -777,15 +777,15 @@ public class OpenNative {
                 str = arrayList.get(arrayList.size() - 1);
             }
             ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-            aVar.s(arrayList).mQ(((Integer) map.get("index")).intValue()).zJ((String) map.get("forum_name")).zK((String) map.get("forum_id")).zL((String) map.get("thread_id")).jg(true).zM(str).jh(true).ji(true);
-            ImageViewerConfig eP = aVar.eP(context);
-            eP.getIntent().putExtra(ImageViewerConfig.IS_SHOW_HOST, false);
-            eP.getIntent().putExtra("from", "index");
+            aVar.s(arrayList).mR(((Integer) map.get("index")).intValue()).zQ((String) map.get("forum_name")).zR((String) map.get("forum_id")).zS((String) map.get("thread_id")).jg(true).zT(str).jh(true).ji(true);
+            ImageViewerConfig eO = aVar.eO(context);
+            eO.getIntent().putExtra(ImageViewerConfig.IS_SHOW_HOST, false);
+            eO.getIntent().putExtra("from", "index");
             if (map.containsKey("enter_type")) {
-                d.Do((String) map.get("enter_type"));
-                g.publishEvent(new PrePageKeyEvent(d.bDM()));
+                d.Dv((String) map.get("enter_type"));
+                g.publishEvent(new PrePageKeyEvent(d.bDP()));
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, eP));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, eO));
         }
     }
 
@@ -824,19 +824,19 @@ public class OpenNative {
                 i = i2 + 1;
             }
             ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-            aVar.s(arrayList).mQ(((Integer) map.get("index")).intValue()).zJ(str3).zK(str2).zL(str4).jg(true).zM(str).jh(true).d(concurrentHashMap).ji(true);
-            ImageViewerConfig eP = aVar.eP(context);
-            eP.getIntent().putExtra(ImageViewerConfig.IS_SHOW_HOST, true);
+            aVar.s(arrayList).mR(((Integer) map.get("index")).intValue()).zQ(str3).zR(str2).zS(str4).jg(true).zT(str).jh(true).d(concurrentHashMap).ji(true);
+            ImageViewerConfig eO = aVar.eO(context);
+            eO.getIntent().putExtra(ImageViewerConfig.IS_SHOW_HOST, true);
             if (map.get("from") != null && (map.get("from") instanceof String)) {
-                eP.getIntent().putExtra("from", (String) map.get("from"));
+                eO.getIntent().putExtra("from", (String) map.get("from"));
             } else {
-                eP.getIntent().putExtra("from", "index");
+                eO.getIntent().putExtra("from", "index");
             }
             if (map.containsKey("enter_type")) {
-                d.Do((String) map.get("enter_type"));
-                g.publishEvent(new PrePageKeyEvent(d.bDM()));
+                d.Dv((String) map.get("enter_type"));
+                g.publishEvent(new PrePageKeyEvent(d.bDP()));
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, eP));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, eO));
         }
     }
 
@@ -900,7 +900,7 @@ public class OpenNative {
     private static void openNativeCreateForumPage(Context context, Map<String, Object> map) {
         try {
             if (TbadkApplication.getInst().getCurrentActivity() != null) {
-                bf.bsV().b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/priforum/create/info?nomenu=1"});
+                bf.bsY().b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/priforum/create/info?nomenu=1"});
             }
         } catch (Exception e) {
             BdLog.e("openPageByUrl fail:" + e.toString());
@@ -920,44 +920,44 @@ public class OpenNative {
     }
 
     public static ArrayList<Integer> getGradientColor(ThemeElement themeElement, ThemeElement themeElement2, ThemeElement themeElement3) {
-        int rM;
+        int rT;
         int i;
-        int rM2;
+        int rT2;
         int i2;
-        int rM3;
-        int rM4;
+        int rT3;
+        int rT4;
         if (themeElement == null) {
-            int rM5 = com.baidu.tieba.lego.card.c.b.rM("#2BB8FF");
-            rM = com.baidu.tieba.lego.card.c.b.rM("#2BB8FF");
-            i = rM5;
+            int rT5 = com.baidu.tieba.lego.card.c.b.rT("#2BB8FF");
+            rT = com.baidu.tieba.lego.card.c.b.rT("#2BB8FF");
+            i = rT5;
         } else {
-            int rM6 = com.baidu.tieba.lego.card.c.b.rM(themeElement.common_color);
-            rM = com.baidu.tieba.lego.card.c.b.rM(themeElement.common_color);
-            i = rM6;
+            int rT6 = com.baidu.tieba.lego.card.c.b.rT(themeElement.common_color);
+            rT = com.baidu.tieba.lego.card.c.b.rT(themeElement.common_color);
+            i = rT6;
         }
         if (themeElement2 == null) {
-            int rM7 = com.baidu.tieba.lego.card.c.b.rM("#249BD6");
-            rM2 = com.baidu.tieba.lego.card.c.b.rM("#246CD6");
-            i2 = rM7;
+            int rT7 = com.baidu.tieba.lego.card.c.b.rT("#249BD6");
+            rT2 = com.baidu.tieba.lego.card.c.b.rT("#246CD6");
+            i2 = rT7;
         } else {
-            int rM8 = com.baidu.tieba.lego.card.c.b.rM(themeElement2.common_color);
-            rM2 = com.baidu.tieba.lego.card.c.b.rM(themeElement2.common_color);
-            i2 = rM8;
+            int rT8 = com.baidu.tieba.lego.card.c.b.rT(themeElement2.common_color);
+            rT2 = com.baidu.tieba.lego.card.c.b.rT(themeElement2.common_color);
+            i2 = rT8;
         }
         if (themeElement3 == null) {
-            rM3 = com.baidu.tieba.lego.card.c.b.rM("#249BD6");
-            rM4 = com.baidu.tieba.lego.card.c.b.rM("#246CD6");
+            rT3 = com.baidu.tieba.lego.card.c.b.rT("#249BD6");
+            rT4 = com.baidu.tieba.lego.card.c.b.rT("#246CD6");
         } else {
-            rM3 = com.baidu.tieba.lego.card.c.b.rM(themeElement3.common_color);
-            rM4 = com.baidu.tieba.lego.card.c.b.rM(themeElement3.common_color);
+            rT3 = com.baidu.tieba.lego.card.c.b.rT(themeElement3.common_color);
+            rT4 = com.baidu.tieba.lego.card.c.b.rT(themeElement3.common_color);
         }
         ArrayList<Integer> arrayList = new ArrayList<>();
         arrayList.add(Integer.valueOf(i));
-        arrayList.add(Integer.valueOf(rM));
+        arrayList.add(Integer.valueOf(rT));
         arrayList.add(Integer.valueOf(i2));
-        arrayList.add(Integer.valueOf(rM2));
-        arrayList.add(Integer.valueOf(rM3));
-        arrayList.add(Integer.valueOf(rM4));
+        arrayList.add(Integer.valueOf(rT2));
+        arrayList.add(Integer.valueOf(rT3));
+        arrayList.add(Integer.valueOf(rT4));
         return arrayList;
     }
 }

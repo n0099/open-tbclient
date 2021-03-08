@@ -5,51 +5,51 @@ import androidx.annotation.NonNull;
 import java.io.File;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class a implements d {
-    private static final ReadWriteLock dLU = new ReentrantReadWriteLock();
-    private File dLV = aLZ();
+    private static final ReadWriteLock dNv = new ReentrantReadWriteLock();
+    private File dNw = aMc();
     private final long MAX_SIZE = getMaxSize();
 
     @NonNull
-    public abstract String aMa();
+    public abstract String aMd();
 
     @Override // com.baidu.swan.apps.storage.b.d
     public void cW(long j) {
-        dLU.writeLock().lock();
+        dNv.writeLock().lock();
         try {
-            if (this.dLV == null) {
-                this.dLV = aLZ();
+            if (this.dNw == null) {
+                this.dNw = aMc();
             }
-            File file = this.dLV;
+            File file = this.dNw;
             if (!file.exists()) {
                 file.createNewFile();
             }
-            com.baidu.swan.c.d.saveFileCommon(String.valueOf(aLY() + j).getBytes(), file);
+            com.baidu.swan.c.d.saveFileCommon(String.valueOf(aMb() + j).getBytes(), file);
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
                 e.printStackTrace();
             }
         } finally {
-            dLU.writeLock().unlock();
+            dNv.writeLock().unlock();
         }
     }
 
     @Override // com.baidu.swan.apps.storage.b.d
     public boolean cX(long j) {
-        dLU.readLock().lock();
+        dNv.readLock().lock();
         try {
-            return aLY() + j > this.MAX_SIZE;
+            return aMb() + j > this.MAX_SIZE;
         } finally {
-            dLU.readLock().unlock();
+            dNv.readLock().unlock();
         }
     }
 
-    private long aLY() {
-        if (this.dLV == null) {
-            this.dLV = aLZ();
+    private long aMb() {
+        if (this.dNw == null) {
+            this.dNw = aMc();
         }
-        File file = this.dLV;
+        File file = this.dNw;
         if (file.exists() && file.isFile()) {
             String readFileData = com.baidu.swan.c.d.readFileData(file);
             try {
@@ -68,7 +68,7 @@ public abstract class a implements d {
         return 0L;
     }
 
-    private File aLZ() {
-        return new File(aMa() + File.separator + "record.pro");
+    private File aMc() {
+        return new File(aMd() + File.separator + "record.pro");
     }
 }

@@ -10,10 +10,10 @@ import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
 /* loaded from: classes6.dex */
 public final class a extends c {
-    private final f prn;
+    private final f ptt;
 
     public a(f fVar) {
-        this.prn = fVar;
+        this.ptt = fVar;
     }
 
     @Override // com.bytedance.sdk.a.b.a.i.c
@@ -27,12 +27,12 @@ public final class a extends c {
             boolean z2 = z;
             if (i < 9) {
                 X509Certificate x509Certificate = (X509Certificate) arrayList.get(arrayList.size() - 1);
-                X509Certificate b2 = this.prn.b(x509Certificate);
-                if (b2 != null) {
-                    if (arrayList.size() > 1 || !x509Certificate.equals(b2)) {
-                        arrayList.add(b2);
+                X509Certificate b = this.ptt.b(x509Certificate);
+                if (b != null) {
+                    if (arrayList.size() > 1 || !x509Certificate.equals(b)) {
+                        arrayList.add(b);
                     }
-                    if (a(b2, b2)) {
+                    if (a(b, b)) {
                         return arrayList;
                     }
                     z = true;
@@ -71,13 +71,13 @@ public final class a extends c {
     }
 
     public int hashCode() {
-        return this.prn.hashCode();
+        return this.ptt.hashCode();
     }
 
     public boolean equals(Object obj) {
         if (obj == this) {
             return true;
         }
-        return (obj instanceof a) && ((a) obj).prn.equals(this.prn);
+        return (obj instanceof a) && ((a) obj).ptt.equals(this.ptt);
     }
 }

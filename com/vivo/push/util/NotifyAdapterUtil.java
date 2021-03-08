@@ -22,7 +22,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class NotifyAdapterUtil {
     public static final int NOTIFY_MULTITERM_STYLE = 1;
     public static final int NOTIFY_SINGLE_STYLE = 0;
@@ -305,14 +305,14 @@ public class NotifyAdapterUtil {
     public static boolean repealNotifyById(Context context, int i) {
         int r = com.vivo.push.p.a().r();
         if (r == 0) {
-            long b2 = w.b().b("com.vivo.push.notify_key", -1L);
-            if (b2 == i) {
+            long b = w.b().b("com.vivo.push.notify_key", -1L);
+            if (b == i) {
                 p.d(TAG, "undo showed message " + i);
                 p.a(context, "回收已展示的通知： " + i);
                 return cancelNotify(context, sNotifyId);
             }
-            p.d(TAG, "current showing message id " + b2 + " not match " + i);
-            p.a(context, "与已展示的通知" + b2 + "与待回收的通知" + i + "不匹配");
+            p.d(TAG, "current showing message id " + b + " not match " + i);
+            p.a(context, "与已展示的通知" + b + "与待回收的通知" + i + "不匹配");
             return false;
         } else if (r == 1) {
             return cancelNotify(context, i);

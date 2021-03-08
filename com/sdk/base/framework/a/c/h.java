@@ -5,13 +5,13 @@ import java.util.concurrent.Callable;
 abstract class h<Params, Result> implements Callable<Result> {
 
     /* renamed from: a  reason: collision with root package name */
-    Params[] f12786a;
+    Params[] f7612a;
 
     private h() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ h(byte b2) {
+    public /* synthetic */ h(byte b) {
         this();
     }
 }

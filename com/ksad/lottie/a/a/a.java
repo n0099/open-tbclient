@@ -14,7 +14,7 @@ import com.ksad.lottie.model.content.ShapeTrimPath;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public abstract class a implements d, j, a.InterfaceC1067a {
+public abstract class a implements d, j, a.InterfaceC1084a {
     private final com.ksad.lottie.f f;
     private final com.ksad.lottie.model.layer.a g;
     private final float[] i;
@@ -25,32 +25,28 @@ public abstract class a implements d, j, a.InterfaceC1067a {
     private final com.ksad.lottie.a.b.a<?, Float> m;
     @Nullable
     private com.ksad.lottie.a.b.a<ColorFilter, ColorFilter> n;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final PathMeasure f7932b = new PathMeasure();
+    private final PathMeasure b = new PathMeasure();
     private final Path c = new Path();
     private final Path d = new Path();
     private final RectF e = new RectF();
-    private final List<C1066a> h = new ArrayList();
+    private final List<C1083a> h = new ArrayList();
 
     /* renamed from: a  reason: collision with root package name */
-    final Paint f7931a = new Paint(1);
+    final Paint f5308a = new Paint(1);
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.ksad.lottie.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static final class C1066a {
+    public static final class C1083a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final List<l> f7933a;
+        private final List<l> f5309a;
         @Nullable
+        private final r b;
 
-        /* renamed from: b  reason: collision with root package name */
-        private final r f7934b;
-
-        private C1066a(@Nullable r rVar) {
-            this.f7933a = new ArrayList();
-            this.f7934b = rVar;
+        private C1083a(@Nullable r rVar) {
+            this.f5309a = new ArrayList();
+            this.b = rVar;
         }
     }
 
@@ -58,10 +54,10 @@ public abstract class a implements d, j, a.InterfaceC1067a {
     public a(com.ksad.lottie.f fVar, com.ksad.lottie.model.layer.a aVar, Paint.Cap cap, Paint.Join join, float f, com.ksad.lottie.model.a.d dVar, com.ksad.lottie.model.a.b bVar, List<com.ksad.lottie.model.a.b> list, com.ksad.lottie.model.a.b bVar2) {
         this.f = fVar;
         this.g = aVar;
-        this.f7931a.setStyle(Paint.Style.STROKE);
-        this.f7931a.setStrokeCap(cap);
-        this.f7931a.setStrokeJoin(join);
-        this.f7931a.setStrokeMiter(f);
+        this.f5308a.setStyle(Paint.Style.STROKE);
+        this.f5308a.setStrokeCap(cap);
+        this.f5308a.setStrokeJoin(join);
+        this.f5308a.setStrokeMiter(f);
         this.k = dVar.a();
         this.j = bVar.a();
         if (bVar2 == null) {
@@ -92,45 +88,45 @@ public abstract class a implements d, j, a.InterfaceC1067a {
         }
     }
 
-    private void a(Canvas canvas, C1066a c1066a, Matrix matrix) {
+    private void a(Canvas canvas, C1083a c1083a, Matrix matrix) {
         float f;
         com.ksad.lottie.c.c("StrokeContent#applyTrimPath");
-        if (c1066a.f7934b == null) {
+        if (c1083a.b == null) {
             com.ksad.lottie.c.d("StrokeContent#applyTrimPath");
             return;
         }
         this.c.reset();
-        for (int size = c1066a.f7933a.size() - 1; size >= 0; size--) {
-            this.c.addPath(((l) c1066a.f7933a.get(size)).d(), matrix);
+        for (int size = c1083a.f5309a.size() - 1; size >= 0; size--) {
+            this.c.addPath(((l) c1083a.f5309a.get(size)).d(), matrix);
         }
-        this.f7932b.setPath(this.c, false);
-        float length = this.f7932b.getLength();
+        this.b.setPath(this.c, false);
+        float length = this.b.getLength();
         while (true) {
             f = length;
-            if (!this.f7932b.nextContour()) {
+            if (!this.b.nextContour()) {
                 break;
             }
-            length = this.f7932b.getLength() + f;
+            length = this.b.getLength() + f;
         }
-        float floatValue = (c1066a.f7934b.e().e().floatValue() * f) / 360.0f;
-        float floatValue2 = ((c1066a.f7934b.c().e().floatValue() * f) / 100.0f) + floatValue;
-        float floatValue3 = ((c1066a.f7934b.d().e().floatValue() * f) / 100.0f) + floatValue;
-        int size2 = c1066a.f7933a.size() - 1;
+        float floatValue = (c1083a.b.e().e().floatValue() * f) / 360.0f;
+        float floatValue2 = ((c1083a.b.c().e().floatValue() * f) / 100.0f) + floatValue;
+        float floatValue3 = ((c1083a.b.d().e().floatValue() * f) / 100.0f) + floatValue;
+        int size2 = c1083a.f5309a.size() - 1;
         float f2 = 0.0f;
         while (size2 >= 0) {
-            this.d.set(((l) c1066a.f7933a.get(size2)).d());
+            this.d.set(((l) c1083a.f5309a.get(size2)).d());
             this.d.transform(matrix);
-            this.f7932b.setPath(this.d, false);
-            float length2 = this.f7932b.getLength();
+            this.b.setPath(this.d, false);
+            float length2 = this.b.getLength();
             if (floatValue3 > f && floatValue3 - f < f2 + length2 && f2 < floatValue3 - f) {
                 com.ksad.lottie.d.f.a(this.d, floatValue2 > f ? (floatValue2 - f) / length2 : 0.0f, Math.min((floatValue3 - f) / length2, 1.0f), 0.0f);
-                canvas.drawPath(this.d, this.f7931a);
+                canvas.drawPath(this.d, this.f5308a);
             } else if (f2 + length2 >= floatValue2 && f2 <= floatValue3) {
                 if (f2 + length2 > floatValue3 || floatValue2 >= f2) {
                     com.ksad.lottie.d.f.a(this.d, floatValue2 < f2 ? 0.0f : (floatValue2 - f2) / length2, floatValue3 > f2 + length2 ? 1.0f : (floatValue3 - f2) / length2, 0.0f);
-                    canvas.drawPath(this.d, this.f7931a);
+                    canvas.drawPath(this.d, this.f5308a);
                 } else {
-                    canvas.drawPath(this.d, this.f7931a);
+                    canvas.drawPath(this.d, this.f5308a);
                 }
             }
             size2--;
@@ -164,11 +160,11 @@ public abstract class a implements d, j, a.InterfaceC1067a {
             fArr[i2] = fArr[i2] * a2;
             i = i2 + 1;
         }
-        this.f7931a.setPathEffect(new DashPathEffect(this.i, this.m == null ? 0.0f : this.m.e().floatValue()));
+        this.f5308a.setPathEffect(new DashPathEffect(this.i, this.m == null ? 0.0f : this.m.e().floatValue()));
         com.ksad.lottie.c.d("StrokeContent#applyDashPattern");
     }
 
-    @Override // com.ksad.lottie.a.b.a.InterfaceC1067a
+    @Override // com.ksad.lottie.a.b.a.InterfaceC1084a
     public void a() {
         this.f.invalidateSelf();
     }
@@ -176,29 +172,29 @@ public abstract class a implements d, j, a.InterfaceC1067a {
     @Override // com.ksad.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
         com.ksad.lottie.c.c("StrokeContent#draw");
-        this.f7931a.setAlpha(com.ksad.lottie.d.e.a((int) (((this.k.e().intValue() * (i / 255.0f)) / 100.0f) * 255.0f), 0, 255));
-        this.f7931a.setStrokeWidth(this.j.e().floatValue() * com.ksad.lottie.d.f.a(matrix));
-        if (this.f7931a.getStrokeWidth() <= 0.0f) {
+        this.f5308a.setAlpha(com.ksad.lottie.d.e.a((int) (((this.k.e().intValue() * (i / 255.0f)) / 100.0f) * 255.0f), 0, 255));
+        this.f5308a.setStrokeWidth(this.j.e().floatValue() * com.ksad.lottie.d.f.a(matrix));
+        if (this.f5308a.getStrokeWidth() <= 0.0f) {
             com.ksad.lottie.c.d("StrokeContent#draw");
             return;
         }
         a(matrix);
         if (this.n != null) {
-            this.f7931a.setColorFilter(this.n.e());
+            this.f5308a.setColorFilter(this.n.e());
         }
         for (int i2 = 0; i2 < this.h.size(); i2++) {
-            C1066a c1066a = this.h.get(i2);
-            if (c1066a.f7934b != null) {
-                a(canvas, c1066a, matrix);
+            C1083a c1083a = this.h.get(i2);
+            if (c1083a.b != null) {
+                a(canvas, c1083a, matrix);
             } else {
                 com.ksad.lottie.c.c("StrokeContent#buildPath");
                 this.c.reset();
-                for (int size = c1066a.f7933a.size() - 1; size >= 0; size--) {
-                    this.c.addPath(((l) c1066a.f7933a.get(size)).d(), matrix);
+                for (int size = c1083a.f5309a.size() - 1; size >= 0; size--) {
+                    this.c.addPath(((l) c1083a.f5309a.get(size)).d(), matrix);
                 }
                 com.ksad.lottie.c.d("StrokeContent#buildPath");
                 com.ksad.lottie.c.c("StrokeContent#drawPath");
-                canvas.drawPath(this.c, this.f7931a);
+                canvas.drawPath(this.c, this.f5308a);
                 com.ksad.lottie.c.d("StrokeContent#drawPath");
             }
         }
@@ -210,9 +206,9 @@ public abstract class a implements d, j, a.InterfaceC1067a {
         com.ksad.lottie.c.c("StrokeContent#getBounds");
         this.c.reset();
         for (int i = 0; i < this.h.size(); i++) {
-            C1066a c1066a = this.h.get(i);
-            for (int i2 = 0; i2 < c1066a.f7933a.size(); i2++) {
-                this.c.addPath(((l) c1066a.f7933a.get(i2)).d(), matrix);
+            C1083a c1083a = this.h.get(i);
+            for (int i2 = 0; i2 < c1083a.f5309a.size(); i2++) {
+                this.c.addPath(((l) c1083a.f5309a.get(i2)).d(), matrix);
             }
         }
         this.c.computeBounds(this.e, false);
@@ -225,7 +221,7 @@ public abstract class a implements d, j, a.InterfaceC1067a {
 
     @Override // com.ksad.lottie.a.a.b
     public void a(List<b> list, List<b> list2) {
-        C1066a c1066a;
+        C1083a c1083a;
         int size = list.size() - 1;
         r rVar = null;
         while (size >= 0) {
@@ -237,27 +233,27 @@ public abstract class a implements d, j, a.InterfaceC1067a {
             rVar.a(this);
         }
         int size2 = list2.size() - 1;
-        C1066a c1066a2 = null;
+        C1083a c1083a2 = null;
         while (size2 >= 0) {
             b bVar2 = list2.get(size2);
             if ((bVar2 instanceof r) && ((r) bVar2).b() == ShapeTrimPath.Type.Individually) {
-                if (c1066a2 != null) {
-                    this.h.add(c1066a2);
+                if (c1083a2 != null) {
+                    this.h.add(c1083a2);
                 }
-                C1066a c1066a3 = new C1066a((r) bVar2);
+                C1083a c1083a3 = new C1083a((r) bVar2);
                 ((r) bVar2).a(this);
-                c1066a = c1066a3;
+                c1083a = c1083a3;
             } else if (bVar2 instanceof l) {
-                c1066a = c1066a2 == null ? new C1066a(rVar) : c1066a2;
-                c1066a.f7933a.add((l) bVar2);
+                c1083a = c1083a2 == null ? new C1083a(rVar) : c1083a2;
+                c1083a.f5309a.add((l) bVar2);
             } else {
-                c1066a = c1066a2;
+                c1083a = c1083a2;
             }
             size2--;
-            c1066a2 = c1066a;
+            c1083a2 = c1083a;
         }
-        if (c1066a2 != null) {
-            this.h.add(c1066a2);
+        if (c1083a2 != null) {
+            this.h.add(c1083a2);
         }
     }
 }

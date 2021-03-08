@@ -25,7 +25,7 @@ public interface m extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof m)) {
                 return (m) queryLocalInterface;
             }
-            return new C1246a(iBinder);
+            return new C1236a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -43,9 +43,9 @@ public interface m extends IInterface {
                     return true;
                 case 2:
                     parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.IDownloadCompleteAidlHandler");
-                    boolean b2 = b(parcel.readInt() != 0 ? com.ss.android.socialbase.downloader.g.c.CREATOR.createFromParcel(parcel) : null);
+                    boolean b = b(parcel.readInt() != 0 ? com.ss.android.socialbase.downloader.g.c.CREATOR.createFromParcel(parcel) : null);
                     parcel2.writeNoException();
-                    parcel2.writeInt(b2 ? 1 : 0);
+                    parcel2.writeInt(b ? 1 : 0);
                     return true;
                 case 1598968902:
                     parcel2.writeString("com.ss.android.socialbase.downloader.depend.IDownloadCompleteAidlHandler");
@@ -57,18 +57,18 @@ public interface m extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.d.m$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        private static class C1246a implements m {
+        private static class C1236a implements m {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f13118a;
+            private IBinder f7807a;
 
-            C1246a(IBinder iBinder) {
-                this.f13118a = iBinder;
+            C1236a(IBinder iBinder) {
+                this.f7807a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f13118a;
+                return this.f7807a;
             }
 
             @Override // com.ss.android.socialbase.downloader.d.m
@@ -83,7 +83,7 @@ public interface m extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f13118a.transact(1, obtain, obtain2, 0);
+                    this.f7807a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -103,7 +103,7 @@ public interface m extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f13118a.transact(2, obtain, obtain2, 0);
+                    this.f7807a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {

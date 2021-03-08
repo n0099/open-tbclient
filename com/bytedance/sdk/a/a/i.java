@@ -4,64 +4,64 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
 public class i extends t {
-    private t poe;
+    private t pqo;
 
     public i(t tVar) {
         if (tVar == null) {
             throw new IllegalArgumentException("delegate == null");
         }
-        this.poe = tVar;
+        this.pqo = tVar;
     }
 
-    public final t eoy() {
-        return this.poe;
+    public final t eoF() {
+        return this.pqo;
     }
 
     public final i a(t tVar) {
         if (tVar == null) {
             throw new IllegalArgumentException("delegate == null");
         }
-        this.poe = tVar;
+        this.pqo = tVar;
         return this;
     }
 
     @Override // com.bytedance.sdk.a.a.t
-    public t c(long j, TimeUnit timeUnit) {
-        return this.poe.c(j, timeUnit);
+    public t b(long j, TimeUnit timeUnit) {
+        return this.pqo.b(j, timeUnit);
     }
 
     @Override // com.bytedance.sdk.a.a.t
-    public long eoK() {
-        return this.poe.eoK();
+    public long eoR() {
+        return this.pqo.eoR();
     }
 
     @Override // com.bytedance.sdk.a.a.t
     public boolean c() {
-        return this.poe.c();
+        return this.pqo.c();
     }
 
     @Override // com.bytedance.sdk.a.a.t
-    public long eoL() {
-        return this.poe.eoL();
+    public long eoS() {
+        return this.pqo.eoS();
     }
 
     @Override // com.bytedance.sdk.a.a.t
     public t ip(long j) {
-        return this.poe.ip(j);
+        return this.pqo.ip(j);
     }
 
     @Override // com.bytedance.sdk.a.a.t
-    public t eoM() {
-        return this.poe.eoM();
+    public t eoT() {
+        return this.pqo.eoT();
     }
 
     @Override // com.bytedance.sdk.a.a.t
-    public t eoN() {
-        return this.poe.eoN();
+    public t eoU() {
+        return this.pqo.eoU();
     }
 
     @Override // com.bytedance.sdk.a.a.t
     public void g() throws IOException {
-        this.poe.g();
+        this.pqo.g();
     }
 }

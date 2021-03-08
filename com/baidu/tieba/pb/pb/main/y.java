@@ -19,7 +19,7 @@ public class y extends l<com.baidu.tieba.pb.data.k, PbLoadMoreItemViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cx */
+    /* renamed from: cw */
     public PbLoadMoreItemViewHolder e(ViewGroup viewGroup) {
         return new PbLoadMoreItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.new_pb_list_more, viewGroup, false), this.mPageId);
     }
@@ -29,7 +29,7 @@ public class y extends l<com.baidu.tieba.pb.data.k, PbLoadMoreItemViewHolder> {
     @Override // com.baidu.tieba.pb.pb.main.l, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.k kVar, PbLoadMoreItemViewHolder pbLoadMoreItemViewHolder) {
         super.a(i, view, viewGroup, (ViewGroup) kVar, (com.baidu.tieba.pb.data.k) pbLoadMoreItemViewHolder);
-        pbLoadMoreItemViewHolder.av(kVar.showText, com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds104));
+        pbLoadMoreItemViewHolder.setText(kVar.showText, com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds104));
         pbLoadMoreItemViewHolder.setOnClickListener(this.mOnClickListener);
         pbLoadMoreItemViewHolder.onChangeSkinType();
         return view;

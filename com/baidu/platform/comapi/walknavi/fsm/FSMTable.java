@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class FSMTable {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final byte[] f4274a = new byte[0];
+    private static final byte[] f2956a = new byte[0];
     public static HashMap<String, HashMap<String, String>> dictFSM;
     public static HashMap<String, String> dictStateBrowseMap;
     public static HashMap<String, String> dictStateCar3D;
@@ -62,7 +62,7 @@ public class FSMTable {
     }
 
     public static String queryDestState(String str, String str2) {
-        synchronized (f4274a) {
+        synchronized (f2956a) {
             new HashMap();
             HashMap<String, String> hashMap = dictFSM.get(str);
             if (hashMap == null) {

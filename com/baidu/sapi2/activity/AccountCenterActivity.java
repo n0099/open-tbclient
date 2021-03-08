@@ -27,7 +27,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.AccountType;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class AccountCenterActivity extends SlideActiviy {
     private static final String D = AccountCenterActivity.class.getSimpleName();
     private static final String E = "AccountCenterActivity";

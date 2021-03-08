@@ -4,13 +4,13 @@ import android.view.View;
 import com.baidu.live.data.AlaWheatInfoDataWrapper;
 import com.baidu.live.data.ab;
 import com.baidu.tieba.yuyinala.liveroom.wheat.view.WheatDatingLayout;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c extends a {
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
-    public View eeJ() {
-        this.oJS = new WheatDatingLayout(this.mActivity);
-        this.oJS.setTbPageContext(this.oGE);
-        return this.oJS;
+    public View eeR() {
+        this.oLX = new WheatDatingLayout(this.mActivity);
+        this.oLX.setTbPageContext(this.oIJ);
+        return this.oLX;
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
@@ -19,17 +19,17 @@ public class c extends a {
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
-    public void Mk() {
-        if (this.oJS != null) {
-            this.oJS.a(this.oJI, this.oJJ, this.oJK, this.bxN);
+    public void Mn() {
+        if (this.oLX != null) {
+            this.oLX.a(this.oLN, this.oLO, this.oLP, this.bzn);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
     public void ar(ab abVar) {
         super.ar(abVar);
-        if (abVar != null && abVar.aIY != null) {
-            AlaWheatInfoDataWrapper alaWheatInfoDataWrapper = abVar.aIY;
+        if (abVar != null && abVar.aKy != null) {
+            AlaWheatInfoDataWrapper alaWheatInfoDataWrapper = abVar.aKy;
             c(alaWheatInfoDataWrapper.getHostWheatLists(), alaWheatInfoDataWrapper.getAnchorWheatLists(), alaWheatInfoDataWrapper.getXiangqinLists());
         }
     }

@@ -7,10 +7,8 @@ import android.graphics.drawable.GradientDrawable;
 public class a extends GradientDrawable {
 
     /* renamed from: a  reason: collision with root package name */
-    private Drawable f9525a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Drawable f9526b;
+    private Drawable f6313a;
+    private Drawable b;
     private float c;
 
     public void a(float f) {
@@ -21,25 +19,25 @@ public class a extends GradientDrawable {
     @Override // android.graphics.drawable.GradientDrawable, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         if (this.c == 0.0f) {
-            this.f9526b.setBounds(getBounds());
-            this.f9526b.draw(canvas);
+            this.b.setBounds(getBounds());
+            this.b.draw(canvas);
             super.draw(canvas);
             return;
         }
-        if (this.f9525a.getBounds().width() != getBounds().width()) {
-            this.f9525a.setBounds(getBounds());
+        if (this.f6313a.getBounds().width() != getBounds().width()) {
+            this.f6313a.setBounds(getBounds());
         }
-        if (this.f9526b.getBounds().width() != getBounds().width()) {
-            this.f9526b.setBounds(getBounds());
+        if (this.b.getBounds().width() != getBounds().width()) {
+            this.b.setBounds(getBounds());
         }
         canvas.save();
         int width = (int) (getBounds().width() * this.c);
         canvas.clipRect(0, 0, width, getBounds().height());
-        this.f9525a.draw(canvas);
+        this.f6313a.draw(canvas);
         canvas.restore();
         canvas.save();
         canvas.clipRect(width, 0, getBounds().width(), getBounds().height());
-        this.f9526b.draw(canvas);
+        this.b.draw(canvas);
         canvas.restore();
         super.draw(canvas);
     }

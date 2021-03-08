@@ -10,7 +10,7 @@ import okhttp3.internal.Util;
 import okhttp3.internal.http2.Hpack;
 import okio.Buffer;
 import okio.BufferedSink;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 final class Http2Writer implements Closeable {
     private static final Logger logger = Logger.getLogger(Http2.class.getName());
     private final boolean client;
@@ -117,8 +117,8 @@ final class Http2Writer implements Closeable {
         dataFrame(i, z ? (byte) 1 : (byte) 0, buffer, i2);
     }
 
-    void dataFrame(int i, byte b2, Buffer buffer, int i2) throws IOException {
-        frameHeader(i, i2, (byte) 0, b2);
+    void dataFrame(int i, byte b, Buffer buffer, int i2) throws IOException {
+        frameHeader(i, i2, (byte) 0, b);
         if (i2 > 0) {
             this.sink.write(buffer, i2);
         }
@@ -188,9 +188,9 @@ final class Http2Writer implements Closeable {
         this.sink.flush();
     }
 
-    public void frameHeader(int i, int i2, byte b2, byte b3) throws IOException {
+    public void frameHeader(int i, int i2, byte b, byte b2) throws IOException {
         if (logger.isLoggable(Level.FINE)) {
-            logger.fine(Http2.frameLog(false, i, i2, b2, b3));
+            logger.fine(Http2.frameLog(false, i, i2, b, b2));
         }
         if (i2 > this.maxFrameSize) {
             throw Http2.illegalArgument("FRAME_SIZE_ERROR length > %d: %d", Integer.valueOf(this.maxFrameSize), Integer.valueOf(i2));
@@ -199,8 +199,8 @@ final class Http2Writer implements Closeable {
             throw Http2.illegalArgument("reserved bit set: %s", Integer.valueOf(i));
         }
         writeMedium(this.sink, i2);
+        this.sink.writeByte(b & 255);
         this.sink.writeByte(b2 & 255);
-        this.sink.writeByte(b3 & 255);
         this.sink.writeInt(Integer.MAX_VALUE & i);
     }
 
@@ -232,11 +232,11 @@ final class Http2Writer implements Closeable {
         this.hpackWriter.writeHeaders(list);
         long size = this.hpackBuffer.size();
         int min = (int) Math.min(this.maxFrameSize, size);
-        byte b2 = size == ((long) min) ? (byte) 4 : (byte) 0;
+        byte b = size == ((long) min) ? (byte) 4 : (byte) 0;
         if (z) {
-            b2 = (byte) (b2 | 1);
+            b = (byte) (b | 1);
         }
-        frameHeader(i, min, (byte) 1, b2);
+        frameHeader(i, min, (byte) 1, b);
         this.sink.write(this.hpackBuffer, min);
         if (size > min) {
             writeContinuationFrames(i, size - min);

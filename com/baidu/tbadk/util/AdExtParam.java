@@ -16,51 +16,51 @@ public class AdExtParam {
 
     /* loaded from: classes.dex */
     public static class a {
-        private HashMap fMp;
+        private HashMap fNP;
 
         private a() {
         }
 
-        public static a bEU() {
+        public static a bEY() {
             a aVar = new a();
-            aVar.fMp = new HashMap();
-            aVar.fMp.put(AdExtParam.KEY_IADEX, d.bFb());
+            aVar.fNP = new HashMap();
+            aVar.fNP.put(AdExtParam.KEY_IADEX, d.bFf());
             return aVar;
         }
 
-        public a rB(int i) {
-            this.fMp.put(AdExtParam.KEY_REQUEST_TYPE, Integer.valueOf(i));
+        public a rD(int i) {
+            this.fNP.put(AdExtParam.KEY_REQUEST_TYPE, Integer.valueOf(i));
             return this;
         }
 
-        public a rC(int i) {
-            this.fMp.put(AdExtParam.KEY_THREAD_COUNT, Integer.valueOf(i));
+        public a rE(int i) {
+            this.fNP.put(AdExtParam.KEY_THREAD_COUNT, Integer.valueOf(i));
             return this;
         }
 
-        public a DE(String str) {
-            this.fMp.put(AdExtParam.KEY_SHOUBAI_CUID, str);
+        public a DL(String str) {
+            this.fNP.put(AdExtParam.KEY_SHOUBAI_CUID, str);
             return this;
         }
 
-        public a DF(String str) {
-            this.fMp.put(AdExtParam.KEY_AD_CONTEXT_LIST, str);
+        public a DM(String str) {
+            this.fNP.put(AdExtParam.KEY_AD_CONTEXT_LIST, str);
             return this;
         }
 
-        public a DG(String str) {
-            this.fMp.put("forum_name", str);
+        public a DN(String str) {
+            this.fNP.put("forum_name", str);
             return this;
         }
 
-        public a DH(String str) {
-            this.fMp.put(AdExtParam.KEY_FLOOR_INFO, str);
+        public a DO(String str) {
+            this.fNP.put(AdExtParam.KEY_FLOOR_INFO, str);
             return this;
         }
 
-        public String bEV() {
+        public String bEZ() {
             try {
-                return new Gson().toJson(this.fMp);
+                return new Gson().toJson(this.fNP);
             } catch (Exception e) {
                 return "";
             }

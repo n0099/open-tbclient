@@ -9,32 +9,32 @@ import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionPackageData;
 import com.baidu.tieba.faceshop.forumpackage.model.ForumEmotionModel;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
-    private BdTypeListView gzp;
-    private b jak;
-    private d jal;
+    private BdTypeListView gAY;
+    private b jbT;
+    private d jbU;
     private TbPageContext mPageContext;
-    private final List<com.baidu.adp.widget.ListView.a> bns = new ArrayList();
+    private final List<com.baidu.adp.widget.ListView.a> boS = new ArrayList();
     private final List<n> mListData = new ArrayList();
 
     public c(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, ForumEmotionModel forumEmotionModel) {
         this.mPageContext = tbPageContext;
-        this.gzp = bdTypeListView;
+        this.gAY = bdTypeListView;
         a(forumEmotionModel);
     }
 
     private void a(ForumEmotionModel forumEmotionModel) {
-        this.jak = new b(this.mPageContext, forumEmotionModel.cAt(), com.baidu.tieba.faceshop.forumpackage.data.c.jay);
-        this.bns.add(this.jak);
-        this.jal = new d(this.mPageContext, forumEmotionModel.cAt(), com.baidu.tieba.faceshop.forumpackage.data.a.jaw);
-        this.bns.add(this.jal);
-        this.gzp.addAdapters(this.bns);
+        this.jbT = new b(this.mPageContext, forumEmotionModel.cAz(), com.baidu.tieba.faceshop.forumpackage.data.c.jch);
+        this.boS.add(this.jbT);
+        this.jbU = new d(this.mPageContext, forumEmotionModel.cAz(), com.baidu.tieba.faceshop.forumpackage.data.a.jcf);
+        this.boS.add(this.jbU);
+        this.gAY.addAdapters(this.boS);
     }
 
     public void a(a aVar) {
-        this.jak.a(aVar);
-        this.jal.a(aVar);
+        this.jbT.a(aVar);
+        this.jbU.a(aVar);
     }
 
     public void setData(List<n> list) {
@@ -42,8 +42,8 @@ public class c {
             if (!y.isEmpty(this.mListData)) {
                 this.mListData.clear();
             }
-            if (this.gzp != null) {
-                this.gzp.setData(list);
+            if (this.gAY != null) {
+                this.gAY.setData(list);
                 this.mListData.addAll(list);
             }
             notifyDataSetChanged();
@@ -52,15 +52,15 @@ public class c {
 
     public void cv(List<n> list) {
         if (!y.isEmpty(list)) {
-            if (this.gzp != null) {
+            if (this.gAY != null) {
                 this.mListData.addAll(list);
-                this.gzp.setData(this.mListData);
+                this.gAY.setData(this.mListData);
             }
             notifyDataSetChanged();
         }
     }
 
-    public int bDF() {
+    public int bDI() {
         return this.mListData.size();
     }
 
@@ -68,7 +68,7 @@ public class c {
         ForumEmotionPackageData forumEmotionPackageData2;
         if (forumEmotionPackageData != null && !y.isEmpty(this.mListData)) {
             for (n nVar : this.mListData) {
-                if (nVar != null && (nVar instanceof com.baidu.tieba.faceshop.forumpackage.data.c) && (forumEmotionPackageData2 = ((com.baidu.tieba.faceshop.forumpackage.data.c) nVar).jaz) != null && forumEmotionPackageData2.id == forumEmotionPackageData.id) {
+                if (nVar != null && (nVar instanceof com.baidu.tieba.faceshop.forumpackage.data.c) && (forumEmotionPackageData2 = ((com.baidu.tieba.faceshop.forumpackage.data.c) nVar).jci) != null && forumEmotionPackageData2.id == forumEmotionPackageData.id) {
                     forumEmotionPackageData2.download = forumEmotionPackageData.download;
                     forumEmotionPackageData2.share = forumEmotionPackageData.share;
                     notifyDataSetChanged();
@@ -79,8 +79,8 @@ public class c {
     }
 
     public void notifyDataSetChanged() {
-        if (this.gzp != null && this.gzp.getAdapter() != null && (this.gzp.getAdapter() instanceof BaseAdapter)) {
-            this.gzp.getAdapter().notifyDataSetChanged();
+        if (this.gAY != null && this.gAY.getAdapter() != null && (this.gAY.getAdapter() instanceof BaseAdapter)) {
+            this.gAY.getAdapter().notifyDataSetChanged();
         }
     }
 }

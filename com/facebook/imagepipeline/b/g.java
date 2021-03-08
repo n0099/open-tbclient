@@ -10,33 +10,33 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes5.dex */
 public class g<K, V> {
-    private final v<V> pHI;
+    private final v<V> pJN;
     @GuardedBy("this")
-    private final LinkedHashMap<K, V> pHJ = new LinkedHashMap<>();
+    private final LinkedHashMap<K, V> pJO = new LinkedHashMap<>();
     @GuardedBy("this")
-    private int pHK = 0;
+    private int pJP = 0;
 
     public g(v<V> vVar) {
-        this.pHI = vVar;
+        this.pJN = vVar;
     }
 
     public synchronized int getCount() {
-        return this.pHJ.size();
+        return this.pJO.size();
     }
 
     public synchronized int getSizeInBytes() {
-        return this.pHK;
+        return this.pJP;
     }
 
     @Nullable
-    public synchronized K evR() {
-        return this.pHJ.isEmpty() ? null : this.pHJ.keySet().iterator().next();
+    public synchronized K ewa() {
+        return this.pJO.isEmpty() ? null : this.pJO.keySet().iterator().next();
     }
 
     public synchronized ArrayList<Map.Entry<K, V>> a(@Nullable com.facebook.common.internal.h<K> hVar) {
         ArrayList<Map.Entry<K, V>> arrayList;
-        arrayList = new ArrayList<>(this.pHJ.entrySet().size());
-        for (Map.Entry<K, V> entry : this.pHJ.entrySet()) {
+        arrayList = new ArrayList<>(this.pJO.entrySet().size());
+        for (Map.Entry<K, V> entry : this.pJO.entrySet()) {
             if (hVar == null || hVar.apply(entry.getKey())) {
                 arrayList.add(entry);
             }
@@ -45,51 +45,51 @@ public class g<K, V> {
     }
 
     public synchronized boolean contains(K k) {
-        return this.pHJ.containsKey(k);
+        return this.pJO.containsKey(k);
     }
 
     @Nullable
     public synchronized V get(K k) {
-        return this.pHJ.get(k);
+        return this.pJO.get(k);
     }
 
     @Nullable
     public synchronized V put(K k, V v) {
         V remove;
-        remove = this.pHJ.remove(k);
-        this.pHK -= bs(remove);
-        this.pHJ.put(k, v);
-        this.pHK += bs(v);
+        remove = this.pJO.remove(k);
+        this.pJP -= bu(remove);
+        this.pJO.put(k, v);
+        this.pJP += bu(v);
         return remove;
     }
 
     @Nullable
     public synchronized V remove(K k) {
         V remove;
-        remove = this.pHJ.remove(k);
-        this.pHK -= bs(remove);
+        remove = this.pJO.remove(k);
+        this.pJP -= bu(remove);
         return remove;
     }
 
     public synchronized ArrayList<V> b(@Nullable com.facebook.common.internal.h<K> hVar) {
         ArrayList<V> arrayList;
         arrayList = new ArrayList<>();
-        Iterator<Map.Entry<K, V>> it = this.pHJ.entrySet().iterator();
+        Iterator<Map.Entry<K, V>> it = this.pJO.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry<K, V> next = it.next();
             if (hVar == null || hVar.apply(next.getKey())) {
                 arrayList.add(next.getValue());
-                this.pHK -= bs(next.getValue());
+                this.pJP -= bu(next.getValue());
                 it.remove();
             }
         }
         return arrayList;
     }
 
-    private int bs(V v) {
+    private int bu(V v) {
         if (v == null) {
             return 0;
         }
-        return this.pHI.bq(v);
+        return this.pJN.bs(v);
     }
 }

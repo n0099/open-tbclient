@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.pay.channel.interfaces;
 
 import com.baidu.live.tbadk.core.data.PayChannelData;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface IChannelPayController {
     public static final String TAG = "ChannelPayController";
 

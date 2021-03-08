@@ -10,10 +10,8 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f11294a = b.class.getSimpleName();
-
-    /* renamed from: b  reason: collision with root package name */
-    private HashMap<String, String> f11295b;
+    private static String f7417a = b.class.getSimpleName();
+    private HashMap<String, String> b;
     private HashMap<String, Object> c;
     private HashMap<String, String> d;
 
@@ -21,10 +19,10 @@ public class b {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f11296a = null;
+        private Context f7418a = null;
 
         public a a(Context context) {
-            this.f11296a = context;
+            this.f7418a = context;
             return this;
         }
 
@@ -34,17 +32,17 @@ public class b {
     }
 
     private b(a aVar) {
-        this.f11295b = new HashMap<>();
+        this.b = new HashMap<>();
         this.c = new HashMap<>();
         this.d = new HashMap<>();
         d();
         e();
         f();
         g();
-        if (aVar.f11296a != null) {
-            a(aVar.f11296a);
+        if (aVar.f7418a != null) {
+            a(aVar.f7418a);
         }
-        com.meizu.cloud.pushsdk.c.f.c.c(f11294a, "Subject created successfully.", new Object[0]);
+        com.meizu.cloud.pushsdk.c.f.c.c(f7417a, "Subject created successfully.", new Object[0]);
     }
 
     private void a(String str, Object obj) {
@@ -93,7 +91,7 @@ public class b {
     public void b(Context context) {
         Location c = e.c(context);
         if (c == null) {
-            com.meizu.cloud.pushsdk.c.f.c.a(f11294a, "Location information not available.", new Object[0]);
+            com.meizu.cloud.pushsdk.c.f.c.a(f7417a, "Location information not available.", new Object[0]);
             return;
         }
         a("la", Double.valueOf(c.getLatitude()));
@@ -105,13 +103,13 @@ public class b {
     }
 
     public Map<String, String> c() {
-        return this.f11295b;
+        return this.b;
     }
 
     public void c(Context context) {
-        String b2 = e.b(context);
-        if (b2 != null) {
-            a("ca", b2);
+        String b = e.b(context);
+        if (b != null) {
+            a("ca", b);
         }
     }
 }

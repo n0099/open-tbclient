@@ -11,7 +11,7 @@ import com.baidu.tbadk.data.o;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class j {
     public static String i(TbPageContext tbPageContext, String str) {
         if (tbPageContext == null || StringUtils.isNull(str)) {
@@ -24,9 +24,9 @@ public class j {
     }
 
     public static void a(o oVar, BdUniqueId bdUniqueId) {
-        if (oVar != null && !StringUtils.isNull(oVar.bAH()) && y.isEmpty(MessageManager.getInstance().findMessage(1003063, bdUniqueId))) {
+        if (oVar != null && !StringUtils.isNull(oVar.bAK()) && y.isEmpty(MessageManager.getInstance().findMessage(1003063, bdUniqueId))) {
             HttpMessage httpMessage = new HttpMessage(1003063);
-            httpMessage.addParam("pic_url", oVar.bAH());
+            httpMessage.addParam("pic_url", oVar.bAK());
             httpMessage.setTag(bdUniqueId);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
@@ -34,13 +34,13 @@ public class j {
 
     public static void a(o oVar, List<n> list) {
         o oVar2;
-        if (oVar != null && !y.isEmpty(list) && !StringUtils.isNull(oVar.bAH())) {
+        if (oVar != null && !y.isEmpty(list) && !StringUtils.isNull(oVar.bAK())) {
             JSONArray jSONArray = new JSONArray();
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 n nVar = list.get(i);
-                if ((nVar instanceof o) && (oVar2 = (o) nVar) != oVar && !oVar2.bAI()) {
-                    jSONArray.put(oVar2.bAH());
+                if ((nVar instanceof o) && (oVar2 = (o) nVar) != oVar && !oVar2.bAL()) {
+                    jSONArray.put(oVar2.bAK());
                 }
             }
             HttpMessage httpMessage = new HttpMessage(1003064);
@@ -65,8 +65,8 @@ public class j {
                 n nVar = list.get(i);
                 if (nVar instanceof o) {
                     o oVar = (o) nVar;
-                    if (!oVar.bAI()) {
-                        jSONArray.put(oVar.bAH());
+                    if (!oVar.bAL()) {
+                        jSONArray.put(oVar.bAK());
                     }
                 }
             }

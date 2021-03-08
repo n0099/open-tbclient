@@ -2,24 +2,24 @@ package com.baidu.live.utils;
 
 import android.text.style.ForegroundColorSpan;
 import android.text.style.URLSpan;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c {
-    public int bNG;
-    public int bNH;
-    public int bNI;
-    public boolean bNJ = false;
-    private ForegroundColorSpan bNK;
-    private URLSpan bNL;
+    public int bPg;
+    public int bPh;
+    public int bPi;
+    public boolean bPj = false;
+    private ForegroundColorSpan bPk;
+    private URLSpan bPl;
     public String mUrl;
 
     public c(ForegroundColorSpan foregroundColorSpan) {
-        this.bNK = foregroundColorSpan;
-        this.bNI = foregroundColorSpan.getForegroundColor();
+        this.bPk = foregroundColorSpan;
+        this.bPi = foregroundColorSpan.getForegroundColor();
     }
 
     public void a(URLSpan uRLSpan) {
-        this.bNL = uRLSpan;
+        this.bPl = uRLSpan;
         this.mUrl = uRLSpan.getURL();
-        this.bNJ = true;
+        this.bPj = true;
     }
 }

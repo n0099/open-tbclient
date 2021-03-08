@@ -10,37 +10,37 @@ import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.tieba.themeCenter.bubble.list.BubbleListModel;
 import com.baidu.tieba.themeCenter.dressCenter.e;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
-    private com.baidu.tieba.themeCenter.bubble.all.a nHZ;
-    private BubbleListModel nIj;
-    private b nIk;
-    private BubbleListModel.a nIl = new BubbleListModel.a() { // from class: com.baidu.tieba.themeCenter.bubble.list.BubbleListActivity.1
+    private com.baidu.tieba.themeCenter.bubble.all.a nKf;
+    private BubbleListModel nKp;
+    private b nKq;
+    private BubbleListModel.a nKr = new BubbleListModel.a() { // from class: com.baidu.tieba.themeCenter.bubble.list.BubbleListActivity.1
         @Override // com.baidu.tieba.themeCenter.bubble.list.BubbleListModel.a
         public void a(int i, String str, e eVar, List<DressItemData> list) {
-            BubbleListActivity.this.nIk.bRI();
-            BubbleListActivity.this.hideLoadingView(BubbleListActivity.this.nIk.getRootView());
+            BubbleListActivity.this.nKq.bRO();
+            BubbleListActivity.this.hideLoadingView(BubbleListActivity.this.nKq.getRootView());
             if (i == 0) {
-                BubbleListActivity.this.nIk.a(eVar, list, BubbleListActivity.this.nIj.dRn());
+                BubbleListActivity.this.nKq.a(eVar, list, BubbleListActivity.this.nKp.dRw());
                 return;
             }
             BubbleListActivity.this.showToast(str);
-            BubbleListActivity.this.nIk.cAO();
+            BubbleListActivity.this.nKq.cAU();
         }
     };
-    private BdListView.e gBC = new BdListView.e() { // from class: com.baidu.tieba.themeCenter.bubble.list.BubbleListActivity.2
+    private BdListView.e gDl = new BdListView.e() { // from class: com.baidu.tieba.themeCenter.bubble.list.BubbleListActivity.2
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            if (BubbleListActivity.this.nIj != null) {
-                BubbleListActivity.this.nIj.dRm();
+            if (BubbleListActivity.this.nKp != null) {
+                BubbleListActivity.this.nKp.dRv();
             }
         }
     };
-    private final f.c gHz = new f.c() { // from class: com.baidu.tieba.themeCenter.bubble.list.BubbleListActivity.3
+    private final f.c gJi = new f.c() { // from class: com.baidu.tieba.themeCenter.bubble.list.BubbleListActivity.3
         @Override // com.baidu.tbadk.core.view.f.c
         public void onListPullRefresh(boolean z) {
-            if (BubbleListActivity.this.nIj != null) {
-                BubbleListActivity.this.nIj.LoadData();
+            if (BubbleListActivity.this.nKp != null) {
+                BubbleListActivity.this.nKp.LoadData();
             }
         }
     };
@@ -49,21 +49,21 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.nIj = new BubbleListModel(this);
-        this.nIj.a(this.nIl);
-        this.nHZ = new com.baidu.tieba.themeCenter.bubble.all.a(getPageContext());
-        this.nIk = new b(this, this.nHZ);
-        this.nIk.a(this.gBC, this.gHz);
-        showLoadingView(this.nIk.getRootView());
-        this.nIj.LoadData();
+        this.nKp = new BubbleListModel(this);
+        this.nKp.a(this.nKr);
+        this.nKf = new com.baidu.tieba.themeCenter.bubble.all.a(getPageContext());
+        this.nKq = new b(this, this.nKf);
+        this.nKq.a(this.gDl, this.gJi);
+        showLoadingView(this.nKq.getRootView());
+        this.nKp.LoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.nIk != null) {
-            this.nIk.bzn();
+        if (this.nKq != null) {
+            this.nKq.bzq();
         }
     }
 
@@ -76,9 +76,9 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        if (this.nIj != null && this.nIk != null) {
-            showLoadingView(this.nIk.getRootView());
-            this.nIj.LoadData();
+        if (this.nKp != null && this.nKq != null) {
+            showLoadingView(this.nKq.getRootView());
+            this.nKp.LoadData();
         }
     }
 

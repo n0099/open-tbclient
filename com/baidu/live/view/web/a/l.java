@@ -6,9 +6,9 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class l extends com.baidu.live.view.web.a {
-    private AlaLastLiveroomInfo bVZ;
+    private AlaLastLiveroomInfo bXz;
     private boolean isHost;
 
     @Override // com.baidu.live.view.web.a
@@ -17,7 +17,7 @@ public class l extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void is(String str) {
+    public void iy(String str) {
         if (!this.isHost) {
             Log.d("JsInterface", "@@ JsInterface-impl OpenLiveBridgeJsInterface params = " + str);
             try {
@@ -25,7 +25,7 @@ public class l extends com.baidu.live.view.web.a {
                 long optLong = jSONObject.optLong("liveId");
                 if (jSONObject.optInt("isForceEnter") == 1) {
                 }
-                com.baidu.live.liveroom.a.Mr().a(com.baidu.live.liveroom.a.Mr().Ms().hk(String.valueOf(optLong)));
+                com.baidu.live.liveroom.a.Mu().a(com.baidu.live.liveroom.a.Mu().Mv().hq(String.valueOf(optLong)));
                 try {
                     jSONObject.put("recommend_type", 0);
                     jSONObject.put("open_giftlist", 0);
@@ -35,10 +35,10 @@ public class l extends com.baidu.live.view.web.a {
                 String jSONObject2 = jSONObject.toString();
                 AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = new AlaLiveRoomActivityConfig(TbadkCoreApplication.getInst());
                 alaLiveRoomActivityConfig.addExtraByLiveId(optLong, jSONObject2);
-                alaLiveRoomActivityConfig.addLastLiveInfoParams(this.bVZ);
+                alaLiveRoomActivityConfig.addLastLiveInfoParams(this.bXz);
                 alaLiveRoomActivityConfig.setNeedStopImWhenClose(true);
                 alaLiveRoomActivityConfig.getIntent().addFlags(268435456);
-                com.baidu.live.liveroom.a.Mr().a(alaLiveRoomActivityConfig);
+                com.baidu.live.liveroom.a.Mu().a(alaLiveRoomActivityConfig);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

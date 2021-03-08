@@ -11,14 +11,12 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class bl {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f3767a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private WeakReference<WebView> f3768b;
+    private static String f2640a;
+    private WeakReference<WebView> b;
     private WeakReference<Activity> c;
     private JSONObject d;
     private boolean e;
@@ -35,11 +33,11 @@ public class bl {
         if (bd.c().b()) {
             bd.c().a("setViewportTreeToNative " + str);
         }
-        f3767a = str;
+        f2640a = str;
     }
 
     public static String a(Activity activity, WebView webView, Rect rect) {
-        f3767a = "";
+        f2640a = "";
         b(activity, webView, rect);
         int i = 0;
         while (true) {
@@ -51,8 +49,8 @@ public class bl {
                 Thread.sleep(20L);
             } catch (Exception e) {
             }
-            if (!TextUtils.isEmpty(f3767a)) {
-                return f3767a;
+            if (!TextUtils.isEmpty(f2640a)) {
+                return f2640a;
             }
             i = i2;
         }
@@ -107,7 +105,7 @@ public class bl {
                 this.c = new WeakReference<>(activity);
             }
             if (webView != null) {
-                this.f3768b = new WeakReference<>(webView);
+                this.b = new WeakReference<>(webView);
             }
             this.e = z;
             String a2 = a();
@@ -128,7 +126,7 @@ public class bl {
     }
 
     private boolean a(WebView webView, boolean z) {
-        return (this.f3768b == null || this.f3768b.get() != webView || this.e == z) ? false : true;
+        return (this.b == null || this.b.get() != webView || this.e == z) ? false : true;
     }
 
     private String a() {
@@ -153,7 +151,7 @@ public class bl {
         if (bh.c().b()) {
             bh.c().a("setEventToNative: " + str);
         }
-        if (this.c != null && (activity = this.c.get()) != null && this.f3768b != null && (webView = this.f3768b.get()) != null) {
+        if (this.c != null && (activity = this.c.get()) != null && this.b != null && (webView = this.b.get()) != null) {
             a(str, activity, webView);
         }
     }
@@ -189,12 +187,12 @@ public class bl {
             JSONArray a2 = bj.a(activity, webView);
             String name = activity.getClass().getName();
             String a3 = bj.a(a2);
-            String b2 = bj.b(jSONArray);
+            String b = bj.b(jSONArray);
             String f = bj.f(webView);
             Map<String, String> g = bj.g(webView);
             Context applicationContext = activity.getApplicationContext();
             long currentTimeMillis = System.currentTimeMillis();
-            if (a(this.d, activity.getClass().getName(), str3, a3, b2)) {
+            if (a(this.d, activity.getClass().getName(), str3, a3, b)) {
                 BDStatCore.instance().onEvent(applicationContext, "", str2, 1, System.currentTimeMillis(), a2, jSONArray, name, str3, f, g, true);
             } else if (bd.c().b() && this.f) {
                 bd.c().a("setEventToNative: not circle event, will not take effect");

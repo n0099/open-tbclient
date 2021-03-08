@@ -12,16 +12,16 @@ import com.baidu.live.data.ab;
 import com.baidu.live.message.AlaGetLiveInfoHttpResponseMessage;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ala.liveroom.n.d;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends BdBaseModel {
-    private ab aDd;
-    private String buO;
-    private long hGJ;
-    private d.a hGT;
-    private boolean hJV;
-    private long hJW;
+    private ab aED;
+    private String bwo;
+    private d.a hIC;
+    private long hIs;
+    private boolean hLE;
+    private long hLF;
     private Handler mHandler = new Handler();
-    private HttpMessageListener hJX = new HttpMessageListener(1021007) { // from class: com.baidu.tieba.ala.liveroom.n.a.1
+    private HttpMessageListener hLG = new HttpMessageListener(1021007) { // from class: com.baidu.tieba.ala.liveroom.n.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -30,124 +30,124 @@ public class a extends BdBaseModel {
                     a.this.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), 1, null);
                     return;
                 }
-                ab Fm = httpResponsedMessage instanceof AlaGetLiveInfoHttpResponseMessage ? ((AlaGetLiveInfoHttpResponseMessage) httpResponsedMessage).Fm() : null;
-                a.this.hJW = System.currentTimeMillis();
-                if (Fm == null) {
-                    a.this.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), 1, Fm);
+                ab Fp = httpResponsedMessage instanceof AlaGetLiveInfoHttpResponseMessage ? ((AlaGetLiveInfoHttpResponseMessage) httpResponsedMessage).Fp() : null;
+                a.this.hLF = System.currentTimeMillis();
+                if (Fp == null) {
+                    a.this.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), 1, Fp);
                     return;
                 }
-                if (a.this.aDd == null) {
-                    a.this.aDd = Fm;
-                } else if (a.this.aDd.mLiveInfo != null && Fm.mLiveInfo != null && a.this.aDd.mLiveInfo.live_id != Fm.mLiveInfo.live_id) {
-                    a.this.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), 1, a.this.aDd);
+                if (a.this.aED == null) {
+                    a.this.aED = Fp;
+                } else if (a.this.aED.mLiveInfo != null && Fp.mLiveInfo != null && a.this.aED.mLiveInfo.live_id != Fp.mLiveInfo.live_id) {
+                    a.this.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), 1, a.this.aED);
                     return;
                 }
-                if (a.this.aDd.mLiveInfo != null && Fm.mLiveInfo != null && a.this.aDd.mLiveInfo.user_id == Fm.mLiveInfo.user_id) {
-                    if (a.this.aDd.mLiveInfo.imEffect != null && Fm.mLiveInfo.imEffect == null) {
-                        Fm.mLiveInfo.imEffect = a.this.aDd.mLiveInfo.imEffect;
+                if (a.this.aED.mLiveInfo != null && Fp.mLiveInfo != null && a.this.aED.mLiveInfo.user_id == Fp.mLiveInfo.user_id) {
+                    if (a.this.aED.mLiveInfo.imEffect != null && Fp.mLiveInfo.imEffect == null) {
+                        Fp.mLiveInfo.imEffect = a.this.aED.mLiveInfo.imEffect;
                     }
-                    if (a.this.aDd.mLiveInfo.mLiveCloseData != null && Fm.mLiveInfo.mLiveCloseData == null) {
-                        Fm.mLiveInfo.mLiveCloseData = a.this.aDd.mLiveInfo.mLiveCloseData;
+                    if (a.this.aED.mLiveInfo.mLiveCloseData != null && Fp.mLiveInfo.mLiveCloseData == null) {
+                        Fp.mLiveInfo.mLiveCloseData = a.this.aED.mLiveInfo.mLiveCloseData;
                     }
-                    if (a.this.aDd.mLiveInfo.mAlaLiveSwitchData != null && Fm.mLiveInfo.mAlaLiveSwitchData == null) {
-                        Fm.mLiveInfo.mAlaLiveSwitchData = a.this.aDd.mLiveInfo.mAlaLiveSwitchData;
+                    if (a.this.aED.mLiveInfo.mAlaLiveSwitchData != null && Fp.mLiveInfo.mAlaLiveSwitchData == null) {
+                        Fp.mLiveInfo.mAlaLiveSwitchData = a.this.aED.mLiveInfo.mAlaLiveSwitchData;
                     }
                 }
-                a.this.aDd.mLiveInfo = Fm.mLiveInfo;
-                a.this.aDd.serverTime = Fm.serverTime;
-                a.this.aDd.aIW = Fm.aIW;
-                a.this.aDd.aId = Fm.aId;
-                a.this.aDd.aIe = Fm.aIe;
-                a.this.aDd.aIi = Fm.aIi;
-                a.this.aDd.aIL = Fm.aIL;
-                a.this.aDd.aIJ = Fm.aIJ;
-                a.this.aDd.aIE = Fm.aIE;
-                a.this.aDd.aIF = Fm.aIF;
-                a.this.aDd.aIG = Fm.aIG;
-                a.this.aDd.aIH = Fm.aIH;
-                a.this.aDd.aII = Fm.aII;
-                a.this.aDd.countDown = Fm.countDown;
-                if (Fm.url != null) {
-                    a.this.aDd.url = Fm.url;
+                a.this.aED.mLiveInfo = Fp.mLiveInfo;
+                a.this.aED.serverTime = Fp.serverTime;
+                a.this.aED.aKw = Fp.aKw;
+                a.this.aED.aJD = Fp.aJD;
+                a.this.aED.aJE = Fp.aJE;
+                a.this.aED.aJI = Fp.aJI;
+                a.this.aED.aKl = Fp.aKl;
+                a.this.aED.aKj = Fp.aKj;
+                a.this.aED.aKe = Fp.aKe;
+                a.this.aED.aKf = Fp.aKf;
+                a.this.aED.aKg = Fp.aKg;
+                a.this.aED.aKh = Fp.aKh;
+                a.this.aED.aKi = Fp.aKi;
+                a.this.aED.countDown = Fp.countDown;
+                if (Fp.url != null) {
+                    a.this.aED.url = Fp.url;
                 }
-                if (Fm.aIB != null) {
-                    a.this.aDd.aIB = Fm.aIB;
+                if (Fp.aKb != null) {
+                    a.this.aED.aKb = Fp.aKb;
                 }
-                if (Fm.aIO != null && Fm.aIO.aNQ != null && !Fm.aIO.aNQ.isEmpty()) {
-                    a.this.aDd.aIO = Fm.aIO;
+                if (Fp.aKo != null && Fp.aKo.aPq != null && !Fp.aKo.aPq.isEmpty()) {
+                    a.this.aED.aKo = Fp.aKo;
                 }
-                if (Fm.aIz != null) {
-                    if (Fm.aIz.userId == 0) {
-                        if (a.this.aDd.aIz == null) {
-                            a.this.aDd.aIz = new AlaLiveUserInfoData();
+                if (Fp.aJZ != null) {
+                    if (Fp.aJZ.userId == 0) {
+                        if (a.this.aED.aJZ == null) {
+                            a.this.aED.aJZ = new AlaLiveUserInfoData();
                         }
-                        a.this.aDd.aIz.throneUid = Fm.aIz.throneUid;
+                        a.this.aED.aJZ.throneUid = Fp.aJZ.throneUid;
                     } else {
-                        boolean z = Fm.aIz.isNewUser;
-                        if (a.this.aDd.aIz != null) {
-                            z = a.this.aDd.aIz.isNewUser;
+                        boolean z = Fp.aJZ.isNewUser;
+                        if (a.this.aED.aJZ != null) {
+                            z = a.this.aED.aJZ.isNewUser;
                         }
-                        Fm.aIz.isNewUser = z;
-                        a.this.aDd.aIz = Fm.aIz;
-                        TbadkCoreApplication.getCurrentAccountObj().setNameShow(a.this.aDd.aIz.nickName);
+                        Fp.aJZ.isNewUser = z;
+                        a.this.aED.aJZ = Fp.aJZ;
+                        TbadkCoreApplication.getCurrentAccountObj().setNameShow(a.this.aED.aJZ.nickName);
                     }
                 }
-                if (Fm.aIC != null) {
-                    a.this.aDd.aIC = Fm.aIC;
+                if (Fp.aKc != null) {
+                    a.this.aED.aKc = Fp.aKc;
                 }
-                if (Fm.aIJ) {
-                    a.this.aDd.aIK = Fm.aIK;
+                if (Fp.aKj) {
+                    a.this.aED.aKk = Fp.aKk;
                 }
-                a.this.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), 1, a.this.aDd);
-                a.this.R(a.this.aDd);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913082, a.this.aDd));
-                if (a.this.aDd != null) {
-                    com.baidu.live.im.b.d.KN().W(a.this.aDd.aIK);
+                a.this.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), 1, a.this.aED);
+                a.this.R(a.this.aED);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913082, a.this.aED));
+                if (a.this.aED != null) {
+                    com.baidu.live.im.b.d.KQ().W(a.this.aED.aKk);
                 }
             }
         }
     };
-    private Runnable hJY = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.n.a.2
+    private Runnable hLH = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.n.a.2
         @Override // java.lang.Runnable
         public void run() {
-            a.this.cjb();
+            a.this.cjh();
         }
     };
 
     /* JADX INFO: Access modifiers changed from: private */
     public void R(ab abVar) {
-        if (abVar != null && this.hJV) {
-            this.mHandler.removeCallbacks(this.hJY);
-            this.mHandler.postDelayed(this.hJY, abVar.aIi);
+        if (abVar != null && this.hLE) {
+            this.mHandler.removeCallbacks(this.hLH);
+            this.mHandler.postDelayed(this.hLH, abVar.aJI);
         }
     }
 
-    public void cja() {
-        this.mHandler.removeCallbacks(this.hJY);
+    public void cjg() {
+        this.mHandler.removeCallbacks(this.hLH);
     }
 
     public void a(ab abVar, String str, long j) {
-        this.aDd = abVar;
-        this.buO = str;
-        this.hGJ = j;
+        this.aED = abVar;
+        this.bwo = str;
+        this.hIs = j;
         if (getUniqueId() == null) {
             setUniqueId(BdUniqueId.gen());
         }
-        registerListener(this.hJX);
-        this.hJV = true;
-        R(this.aDd);
+        registerListener(this.hLG);
+        this.hLE = true;
+        R(this.aED);
     }
 
     public void stop() {
-        this.hJV = false;
-        MessageManager.getInstance().unRegisterListener(this.hJX);
-        cja();
+        this.hLE = false;
+        MessageManager.getInstance().unRegisterListener(this.hLG);
+        cjg();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cjb() {
-        if (this.aDd != null && this.aDd.mLiveInfo != null) {
-            a(this.aDd.mLiveInfo.live_id, this.buO, this.hGJ);
+    public void cjh() {
+        if (this.aED != null && this.aED.mLiveInfo != null) {
+            a(this.aED.mLiveInfo.live_id, this.bwo, this.hIs);
         }
     }
 
@@ -172,13 +172,13 @@ public class a extends BdBaseModel {
     }
 
     public void a(d.a aVar) {
-        this.hGT = aVar;
+        this.hIC = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i, String str, int i2, Object obj) {
-        if (this.hGT != null) {
-            this.hGT.a(i, str, i2, obj);
+        if (this.hIC != null) {
+            this.hIC.a(i, str, i2, obj);
         }
     }
 }

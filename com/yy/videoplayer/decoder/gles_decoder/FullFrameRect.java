@@ -3,7 +3,7 @@ package com.yy.videoplayer.decoder.gles_decoder;
 import com.yy.videoplayer.decoder.VideoConstant;
 import com.yy.videoplayer.decoder.gles_decoder.Drawable2d;
 import java.nio.FloatBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FullFrameRect {
     private static final float[] FULL_RECTANGLE_COORDS = {-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
     private Texture2dProgram mProgram;

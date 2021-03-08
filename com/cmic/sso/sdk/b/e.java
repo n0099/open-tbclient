@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.android.util.io.FileUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class e {
     public static JSONObject a(String str, String str2) {
         JSONObject jSONObject = new JSONObject();
@@ -22,15 +22,15 @@ public class e {
     public static JSONObject a(String str, com.cmic.sso.sdk.a aVar, JSONObject jSONObject) {
         String[] strArr = {FileUtils.UNKNOW, "移动", "联通", "电信"};
         try {
-            String b2 = aVar.b("operatortype", "0");
-            if ("0".equals(b2) || TextUtils.isEmpty(b2)) {
+            String b = aVar.b("operatortype", "0");
+            if ("0".equals(b) || TextUtils.isEmpty(b)) {
                 if ("103000".equals(str)) {
                     jSONObject.put("operatorType", strArr[1]);
                 } else {
                     jSONObject.put("operatorType", strArr[0]);
                 }
             } else {
-                jSONObject.put("operatorType", strArr[Integer.parseInt(b2)]);
+                jSONObject.put("operatorType", strArr[Integer.parseInt(b)]);
             }
         } catch (Exception e) {
             Log.e("AuthnResult", "JSONException", e);

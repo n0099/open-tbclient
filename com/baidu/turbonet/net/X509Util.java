@@ -37,14 +37,14 @@ import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 import javax.security.auth.x500.X500Principal;
 @JNINamespace
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class X509Util {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final char[] HEX_DIGITS;
-    private static c oRR;
-    private static a oRS;
-    private static c oRT;
-    private static boolean oRU;
+    private static c oTW;
+    private static a oTX;
+    private static c oTY;
+    private static boolean oTZ;
     private static CertificateFactory sCertificateFactory;
     private static boolean sLoadedSystemKeyStore;
     private static final Object sLock;
@@ -54,7 +54,7 @@ public class X509Util {
     private static KeyStore sTestKeyStore;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface c {
         List<X509Certificate> checkServerTrusted(X509Certificate[] x509CertificateArr, String str, String str2) throws CertificateException;
     }
@@ -66,12 +66,12 @@ public class X509Util {
     static {
         $assertionsDisabled = !X509Util.class.desiredAssertionStatus();
         sLock = new Object();
-        oRU = false;
+        oTZ = false;
         HEX_DIGITS = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class a extends BroadcastReceiver {
         private a() {
         }
@@ -93,7 +93,7 @@ public class X509Util {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class b implements c {
         private final X509TrustManager mTrustManager;
 
@@ -109,7 +109,7 @@ public class X509Util {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class d implements c {
         private final X509TrustManagerExtensions mTrustManagerExtensions;
 
@@ -137,8 +137,8 @@ public class X509Util {
         if (sCertificateFactory == null) {
             sCertificateFactory = CertificateFactory.getInstance("X.509");
         }
-        if (oRR == null) {
-            oRR = b(null);
+        if (oTW == null) {
+            oTW = b(null);
         }
         if (!sLoadedSystemKeyStore) {
             try {
@@ -150,7 +150,7 @@ public class X509Util {
                 sSystemCertificateDirectory = new File(System.getenv("ANDROID_ROOT") + "/etc/security/cacerts");
             } catch (KeyStoreException e2) {
             }
-            if (!oRU) {
+            if (!oTZ) {
                 nativeRecordCertVerifyCapabilitiesHistogram(sSystemKeyStore != null);
             }
             sLoadedSystemKeyStore = true;
@@ -165,12 +165,12 @@ public class X509Util {
             } catch (IOException e3) {
             }
         }
-        if (oRT == null) {
-            oRT = b(sTestKeyStore);
+        if (oTY == null) {
+            oTY = b(sTestKeyStore);
         }
-        if (!oRU && oRS == null) {
-            oRS = new a();
-            ContextUtils.getApplicationContext().registerReceiver(oRS, new IntentFilter("android.security.STORAGE_CHANGED"));
+        if (!oTZ && oTX == null) {
+            oTX = new a();
+            ContextUtils.getApplicationContext().registerReceiver(oTX, new IntentFilter("android.security.STORAGE_CHANGED"));
         }
     }
 
@@ -201,13 +201,13 @@ public class X509Util {
         if (!$assertionsDisabled && !Thread.holdsLock(sLock)) {
             throw new AssertionError();
         }
-        oRT = b(sTestKeyStore);
+        oTY = b(sTestKeyStore);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void reloadDefaultTrustManager() throws KeyStoreException, NoSuchAlgorithmException, CertificateException {
         synchronized (sLock) {
-            oRR = null;
+            oTW = null;
             sSystemTrustAnchorCache = null;
             ensureInitializedLocked();
         }
@@ -337,15 +337,15 @@ public class X509Util {
                     return new AndroidCertVerifyResult(-6);
                 }
                 synchronized (sLock) {
-                    if (oRR == null) {
+                    if (oTW == null) {
                         return new AndroidCertVerifyResult(-1);
                     }
                     try {
-                        emptyList = oRR.checkServerTrusted(x509CertificateArr, str, str2);
+                        emptyList = oTW.checkServerTrusted(x509CertificateArr, str, str2);
                         z = false;
                     } catch (CertificateException e2) {
                         try {
-                            emptyList = oRT.checkServerTrusted(x509CertificateArr, str, str2);
+                            emptyList = oTY.checkServerTrusted(x509CertificateArr, str, str2);
                             z = false;
                         } catch (CertificateException e3) {
                             Log.i("X509Util", "Failed to validate the certificate chain, error: " + e2.getMessage());

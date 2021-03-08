@@ -25,24 +25,22 @@ import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationExceptio
 import com.google.ar.core.exceptions.UnsupportedConfigurationException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class Session {
-    long pRO;
-    final q pSd;
+    long pSD;
+    final q pSS;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     enum a {
         END_OF_LIST(0);
         
-
-        /* renamed from: b  reason: collision with root package name */
-        final int f7849b = 0;
+        final int b = 0;
 
         a(int i) {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     enum b {
         SUCCESS(0, null),
         ERROR_INVALID_ARGUMENT(-1, IllegalArgumentException.class),
@@ -88,21 +86,19 @@ public class Session {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* JADX WARN: Unknown enum class pattern. Please report as an issue! */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     static abstract class c {
-
-        /* renamed from: b  reason: collision with root package name */
-        final int f7853b;
+        final int b;
         private final Class<?> h;
         private static final c c = new ad("BASE_TRACKABLE", 0, 1095893248, k.class);
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f7852a = new ae("UNKNOWN_TO_JAVA", 1, -1, null);
+        public static final c f5259a = new ae("UNKNOWN_TO_JAVA", 1, -1, null);
         private static final c d = new af("PLANE", 2, 1095893249, Plane.class);
         private static final c e = new ag("POINT", 3, 1095893250, Point.class);
         private static final c f = new ah("AUGMENTED_IMAGE", 4, 1095893252, AugmentedImage.class);
         private static final c g = new ai("FACE", 5, 1095893253, AugmentedFace.class);
-        private static final /* synthetic */ c[] i = {c, f7852a, d, e, f, g};
+        private static final /* synthetic */ c[] i = {c, f5259a, d, e, f, g};
 
         public static c[] values() {
             return (c[]) i.clone();
@@ -111,7 +107,7 @@ public class Session {
         public abstract k a(long j, Session session);
 
         private c(String str, int i2, int i3, Class cls) {
-            this.f7853b = i3;
+            this.b = i3;
             this.h = cls;
         }
 
@@ -122,11 +118,11 @@ public class Session {
                     return cVar;
                 }
             }
-            return f7852a;
+            return f5259a;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public /* synthetic */ c(String str, int i2, int i3, Class cls, byte b2) {
+        public /* synthetic */ c(String str, int i2, int i3, Class cls, byte b) {
             this(str, i2, i3, cls);
         }
     }
@@ -173,7 +169,7 @@ public class Session {
 
     native long[] nativeAcquireAllTrackables(long j, int i);
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public enum Feature {
         FRONT_CAMERA(1),
         SHARED_CAMERA(1000);
@@ -186,9 +182,9 @@ public class Session {
     }
 
     protected void finalize() throws Throwable {
-        if (this.pRO != 0) {
-            nativeDestroySession(this.pRO);
-            this.pRO = 0L;
+        if (this.pSD != 0) {
+            nativeDestroySession(this.pSD);
+            this.pSD = 0L;
         }
         super.finalize();
     }

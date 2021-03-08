@@ -41,23 +41,23 @@ public class h extends a {
         this.e = true;
         a(z, z2, i, 0);
         if (com.kwad.sdk.contentalliance.home.c.a()) {
-            this.f8625b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.h.1
+            this.b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.h.1
                 @Override // java.lang.Runnable
                 public void run() {
                     if (z) {
-                        h.this.f8624a.clear();
+                        h.this.f5755a.clear();
                     }
-                    if (h.this.f8624a.isEmpty()) {
+                    if (h.this.f5755a.isEmpty()) {
                         m.e();
                     }
-                    h.this.f8624a.addAll(com.kwad.sdk.contentalliance.home.c.b());
+                    h.this.f5755a.addAll(com.kwad.sdk.contentalliance.home.c.b());
                     com.kwad.sdk.contentalliance.home.c.c();
                     h.this.a(z, 0);
                     h.this.e = false;
                 }
             });
         } else if (!e()) {
-            this.f8625b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.h.2
+            this.b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.h.2
                 @Override // java.lang.Runnable
                 public void run() {
                     h.this.a(com.kwad.sdk.core.network.f.g.k, com.kwad.sdk.core.network.f.g.l);
@@ -67,11 +67,11 @@ public class h extends a {
         } else {
             final l.a aVar = new l.a();
             com.kwad.sdk.core.g.a.f fVar = new com.kwad.sdk.core.g.a.f(this.c);
-            fVar.f9168b = this.c.getPageScene();
-            aVar.f9284a = fVar;
+            fVar.b = this.c.getPageScene();
+            aVar.f6164a = fVar;
             com.kwad.sdk.core.g.a.c cVar = new com.kwad.sdk.core.g.a.c();
             cVar.d = this.f;
-            aVar.f9285b = cVar;
+            aVar.b = cVar;
             aVar.c = this.d.mSourcePhotoId;
             this.h = new com.kwad.sdk.core.network.i<com.kwad.sdk.core.network.g, AdResultData>() { // from class: com.kwad.sdk.contentalliance.home.a.h.3
                 /* JADX DEBUG: Method merged with bridge method */
@@ -96,7 +96,7 @@ public class h extends a {
             this.h.a(new com.kwad.sdk.core.network.j<com.kwad.sdk.core.network.g, AdResultData>() { // from class: com.kwad.sdk.contentalliance.home.a.h.4
                 @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
                 public void a(@NonNull com.kwad.sdk.core.network.g gVar, final int i2, final String str) {
-                    h.this.f8625b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.h.4.2
+                    h.this.b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.h.4.2
                         @Override // java.lang.Runnable
                         public void run() {
                             if (com.kwad.sdk.core.network.f.g.k == i2) {
@@ -111,13 +111,13 @@ public class h extends a {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
                 public void a(@NonNull com.kwad.sdk.core.network.g gVar, @NonNull final AdResultData adResultData) {
-                    h.this.f8625b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.h.4.1
+                    h.this.b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.h.4.1
                         @Override // java.lang.Runnable
                         public void run() {
                             if (z) {
-                                h.this.f8624a.clear();
+                                h.this.f5755a.clear();
                             }
-                            if (h.this.f8624a.isEmpty()) {
+                            if (h.this.f5755a.isEmpty()) {
                                 m.e();
                             }
                             ArrayList arrayList = new ArrayList();
@@ -126,7 +126,7 @@ public class h extends a {
                                     arrayList.add(adTemplate);
                                 }
                             }
-                            h.this.f8624a.addAll(arrayList);
+                            h.this.f5755a.addAll(arrayList);
                             h.this.a(z, 0);
                             h.this.e = false;
                             h.b(h.this);

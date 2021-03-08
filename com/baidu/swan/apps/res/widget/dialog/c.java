@@ -4,22 +4,22 @@ import android.app.Dialog;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.annotation.StyleRes;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c extends Dialog {
-    private boolean cRO;
+    private boolean cTo;
 
     public c(@NonNull Context context, @StyleRes int i) {
         super(context, i);
-        this.cRO = com.baidu.swan.apps.res.widget.a.dAU;
+        this.cTo = com.baidu.swan.apps.res.widget.a.dCv;
     }
 
     public void gN(boolean z) {
-        this.cRO = com.baidu.swan.apps.res.widget.a.dAU && z;
+        this.cTo = com.baidu.swan.apps.res.widget.a.dCv && z;
     }
 
     @Override // android.app.Dialog
     public void show() {
-        if (this.cRO) {
+        if (this.cTo) {
             com.baidu.swan.apps.res.widget.a.e(this);
         }
         boolean f = com.baidu.swan.apps.res.widget.a.f(this);

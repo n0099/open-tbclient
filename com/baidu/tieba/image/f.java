@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class f {
     public static void aU(Context context, String str) {
         String format;

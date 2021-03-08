@@ -8,14 +8,12 @@ import java.security.MessageDigest;
 public final class d<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final a<Object> f10135a = new a<Object>() { // from class: com.kwad.sdk.glide.load.d.1
+    private static final a<Object> f6710a = new a<Object>() { // from class: com.kwad.sdk.glide.load.d.1
         @Override // com.kwad.sdk.glide.load.d.a
         public void a(@NonNull byte[] bArr, @NonNull Object obj, @NonNull MessageDigest messageDigest) {
         }
     };
-
-    /* renamed from: b  reason: collision with root package name */
-    private final T f10136b;
+    private final T b;
     private final a<T> c;
     private final String d;
     private volatile byte[] e;
@@ -27,7 +25,7 @@ public final class d<T> {
 
     private d(@NonNull String str, @Nullable T t, @NonNull a<T> aVar) {
         this.d = j.a(str);
-        this.f10136b = t;
+        this.b = t;
         this.c = (a) j.a(aVar);
     }
 
@@ -49,19 +47,19 @@ public final class d<T> {
     @NonNull
     private byte[] b() {
         if (this.e == null) {
-            this.e = this.d.getBytes(c.f10134a);
+            this.e = this.d.getBytes(c.f6709a);
         }
         return this.e;
     }
 
     @NonNull
     private static <T> a<T> c() {
-        return (a<T>) f10135a;
+        return (a<T>) f6710a;
     }
 
     @Nullable
     public T a() {
-        return this.f10136b;
+        return this.b;
     }
 
     public void a(@NonNull T t, @NonNull MessageDigest messageDigest) {

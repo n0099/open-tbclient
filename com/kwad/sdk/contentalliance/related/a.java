@@ -23,10 +23,8 @@ import java.io.Serializable;
 public class a extends IFragmentActivityProxy implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private RelatedVideoDetailParam f8836a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private ImageView f8837b;
+    private RelatedVideoDetailParam f5887a;
+    private ImageView b;
     private g c;
 
     public static void a(KsFragment ksFragment, int i, RelatedVideoDetailParam relatedVideoDetailParam) {
@@ -41,24 +39,24 @@ public class a extends IFragmentActivityProxy implements View.OnClickListener {
     private boolean a() {
         Serializable serializableExtra = getIntent().getSerializableExtra("KEY_RELATED_VIDEO_DETAIL_PARAM");
         if (serializableExtra instanceof RelatedVideoDetailParam) {
-            this.f8836a = (RelatedVideoDetailParam) serializableExtra;
+            this.f5887a = (RelatedVideoDetailParam) serializableExtra;
         }
-        return (this.f8836a == null || this.f8836a.mEntryScene == 0) ? false : true;
+        return (this.f5887a == null || this.f5887a.mEntryScene == 0) ? false : true;
     }
 
     private void b() {
-        this.f8837b = (ImageView) findViewById(R.id.ksad_back_btn);
+        this.b = (ImageView) findViewById(R.id.ksad_back_btn);
         if (d.a(getActivity())) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f8837b.getLayoutParams();
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.b.getLayoutParams();
             marginLayoutParams.topMargin = ao.a((Context) getActivity());
-            this.f8837b.setLayoutParams(marginLayoutParams);
+            this.b.setLayoutParams(marginLayoutParams);
         }
-        this.f8837b.setOnClickListener(this);
+        this.b.setOnClickListener(this);
     }
 
     private void c() {
-        this.c = g.a(new KsScene.Builder(this.f8836a.mEntryScene).build());
-        this.c.getArguments().putSerializable("KEY_RELATED_VIDEO_DETAIL_PARAM", this.f8836a);
+        this.c = g.a(new KsScene.Builder(this.f5887a.mEntryScene).build());
+        this.c.getArguments().putSerializable("KEY_RELATED_VIDEO_DETAIL_PARAM", this.f5887a);
         getSupportFragmentManager().beginTransaction().replace(R.id.ksad_fragment_container, this.c).commitAllowingStateLoss();
     }
 
@@ -85,7 +83,7 @@ public class a extends IFragmentActivityProxy implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f8837b == view) {
+        if (this.b == view) {
             onBackPressed();
         }
     }

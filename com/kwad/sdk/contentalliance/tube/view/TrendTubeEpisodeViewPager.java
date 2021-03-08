@@ -11,20 +11,18 @@ import androidx.viewpager.widget.ViewPager;
 public class TrendTubeEpisodeViewPager extends ViewPager {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f9001a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private float f9002b;
+    private final int f5988a;
+    private float b;
     private float c;
 
     public TrendTubeEpisodeViewPager(@NonNull Context context) {
         super(context);
-        this.f9001a = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+        this.f5988a = ViewConfiguration.get(getContext()).getScaledTouchSlop();
     }
 
     public TrendTubeEpisodeViewPager(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f9001a = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+        this.f5988a = ViewConfiguration.get(getContext()).getScaledTouchSlop();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -32,16 +30,16 @@ public class TrendTubeEpisodeViewPager extends ViewPager {
         switch (motionEvent.getAction()) {
             case 0:
                 getParent().requestDisallowInterceptTouchEvent(false);
-                this.f9002b = motionEvent.getRawX();
+                this.b = motionEvent.getRawX();
                 this.c = motionEvent.getRawY();
                 break;
             case 2:
                 float rawX = motionEvent.getRawX();
                 float rawY = motionEvent.getRawY();
-                float f = rawX - this.f9002b;
+                float f = rawX - this.b;
                 float f2 = rawY - this.c;
-                if (Math.abs(f) - Math.abs(f2) <= this.f9001a) {
-                    if (Math.abs(f2) - Math.abs(f) > this.f9001a) {
+                if (Math.abs(f) - Math.abs(f2) <= this.f5988a) {
+                    if (Math.abs(f2) - Math.abs(f) > this.f5988a) {
                         getParent().requestDisallowInterceptTouchEvent(false);
                         break;
                     }

@@ -3,7 +3,7 @@ package androidx.recyclerview.widget;
 import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class LayoutState {
     static final int INVALID_LAYOUT = Integer.MIN_VALUE;
     static final int ITEM_DIRECTION_HEAD = -1;

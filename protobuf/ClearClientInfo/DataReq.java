@@ -2,7 +2,7 @@ package protobuf.ClearClientInfo;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class DataReq extends Message {
     @ProtoField(tag = 2, type = Message.Datatype.INT64)
     public final Long groupId;
@@ -31,7 +31,7 @@ public final class DataReq extends Message {
         this.groupId = builder.groupId;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Long groupId;
         public Integer unread_msg;

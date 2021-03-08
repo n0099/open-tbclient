@@ -5,7 +5,7 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public final class e {
     private static final String d = e.class.getSimpleName();
     private static final int[] e = {0, 1, 2, 3};
@@ -14,19 +14,17 @@ public final class e {
     private static boolean g;
 
     /* renamed from: a  reason: collision with root package name */
-    List<Vector<BdNetTask>> f5730a;
-
-    /* renamed from: b  reason: collision with root package name */
-    Vector<BdNetEngine> f5731b;
+    List<Vector<BdNetTask>> f3868a;
+    Vector<BdNetEngine> b;
     Context c;
 
     private e() {
         int length = e.length;
-        this.f5730a = new ArrayList(length);
+        this.f3868a = new ArrayList(length);
         for (int i = 0; i < length; i++) {
-            this.f5730a.add(new Vector<>());
+            this.f3868a.add(new Vector<>());
         }
-        this.f5731b = new Vector<>();
+        this.b = new Vector<>();
     }
 
     public static e a() {
@@ -49,7 +47,7 @@ public final class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Code restructure failed: missing block: B:20:0x003a, code lost:
-        r4.f5730a.get(r0).add(r5);
+        r4.f3868a.get(r0).add(r5);
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -58,12 +56,12 @@ public final class e {
         int i2 = 0;
         synchronized (this) {
             if (bdNetTask != null) {
-                if (this.f5730a == null) {
-                    this.f5730a = new ArrayList(e.length);
+                if (this.f3868a == null) {
+                    this.f3868a = new ArrayList(e.length);
                 }
-                if (this.f5730a.isEmpty()) {
+                if (this.f3868a.isEmpty()) {
                     for (int i3 = 0; i3 < e.length; i3++) {
-                        this.f5730a.add(new Vector<>());
+                        this.f3868a.add(new Vector<>());
                     }
                 }
                 int length = e.length;
@@ -89,14 +87,14 @@ public final class e {
     */
     public final synchronized BdNetTask d() {
         BdNetTask bdNetTask;
-        int size = this.f5730a.size();
+        int size = this.f3868a.size();
         int i = 0;
         while (true) {
             if (i >= size) {
                 bdNetTask = null;
                 break;
             }
-            Vector<BdNetTask> vector = this.f5730a.get(i);
+            Vector<BdNetTask> vector = this.f3868a.get(i);
             if (vector.size() > 0) {
                 break;
             }
@@ -108,11 +106,11 @@ public final class e {
     /* JADX INFO: Access modifiers changed from: package-private */
     public final synchronized BdNetEngine e() {
         BdNetEngine bdNetEngine;
-        int size = this.f5731b.size();
+        int size = this.b.size();
         int i = 0;
         while (true) {
             if (i < size) {
-                bdNetEngine = this.f5731b.get(i);
+                bdNetEngine = this.b.get(i);
                 if (!bdNetEngine.isWorking() && bdNetEngine.isRecycle()) {
                     bdNetEngine.allocate();
                     break;
@@ -121,7 +119,7 @@ public final class e {
             } else if (size < 6) {
                 bdNetEngine = new BdNetEngine();
                 bdNetEngine.allocate();
-                this.f5731b.add(bdNetEngine);
+                this.b.add(bdNetEngine);
             } else {
                 bdNetEngine = null;
             }

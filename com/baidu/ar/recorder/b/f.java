@@ -7,7 +7,7 @@ import android.view.Surface;
 import com.baidu.ar.record.EncoderParams;
 import com.kwai.video.player.KsMediaMeta;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class f extends b {
     private static final String TAG = f.class.getSimpleName();
     private Surface uX;

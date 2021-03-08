@@ -6,39 +6,39 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static a oWO;
+    private static a oYT;
     private TbPageContext mPageContext;
-    private b oWP;
+    private b oYU;
 
-    public static a ejk() {
-        if (oWO == null) {
+    public static a eju() {
+        if (oYT == null) {
             synchronized (a.class) {
-                if (oWO == null) {
-                    oWO = new a();
+                if (oYT == null) {
+                    oYT = new a();
                 }
             }
         }
-        return oWO;
+        return oYT;
     }
 
     public void b(TbPageContext tbPageContext, ab abVar) {
         if (this.mPageContext != tbPageContext) {
             this.mPageContext = tbPageContext;
-            this.oWP = null;
+            this.oYU = null;
         }
         AlaAudioModeDialogData alaAudioModeDialogData = new AlaAudioModeDialogData();
-        alaAudioModeDialogData.setModeList(Yg(abVar == null ? "" : abVar.aIT));
-        if (this.oWP == null) {
-            this.oWP = new b(tbPageContext, abVar, alaAudioModeDialogData);
+        alaAudioModeDialogData.setModeList(Yn(abVar == null ? "" : abVar.aKt));
+        if (this.oYU == null) {
+            this.oYU = new b(tbPageContext, abVar, alaAudioModeDialogData);
         } else {
-            this.oWP.a(abVar, alaAudioModeDialogData);
+            this.oYU.a(abVar, alaAudioModeDialogData);
         }
-        this.oWP.show();
+        this.oYU.show();
     }
 
-    private List<com.baidu.yuyinala.mode.b.a> Yg(String str) {
+    private List<com.baidu.yuyinala.mode.b.a> Yn(String str) {
         try {
             JSONArray optJSONArray = new JSONObject(str).optJSONArray("mode_list");
             int length = optJSONArray.length();
@@ -56,9 +56,9 @@ public class a {
         }
     }
 
-    public void FA() {
-        if (this.oWP != null && this.oWP.isShowing()) {
-            this.oWP.dismiss();
+    public void FD() {
+        if (this.oYU != null && this.oYU.isShowing()) {
+            this.oYU.dismiss();
         }
     }
 }

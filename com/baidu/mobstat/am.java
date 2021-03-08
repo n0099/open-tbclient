@@ -23,15 +23,13 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class am {
     private static final am B = new am();
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f3668a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private ak f3669b;
+    private Context f2584a;
+    private ak b;
     private aj c;
     private Activity d;
     private Handler f;
@@ -100,7 +98,7 @@ public class am {
         this.f = new a(this.g.getLooper());
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class c extends Handler {
         public c(Looper looper) {
             super(looper);
@@ -122,7 +120,7 @@ public class am {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements aj.a {
         private b() {
         }
@@ -152,7 +150,7 @@ public class am {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class a extends Handler {
         public a(Looper looper) {
             super(looper);
@@ -239,7 +237,7 @@ public class am {
                 if (!TextUtils.isEmpty(g)) {
                     launchInfo.setRefererPkgName(g);
                 }
-                BDStatCore.instance().autoTrackLaunchInfo(this.f3668a, launchInfo, true);
+                BDStatCore.instance().autoTrackLaunchInfo(this.f2584a, launchInfo, true);
             } else {
                 LaunchInfo launchInfo2 = new LaunchInfo();
                 if (booleanExtra) {
@@ -249,7 +247,7 @@ public class am {
                 if (!TextUtils.isEmpty(g2)) {
                     launchInfo2.setRefererPkgName(g2);
                 }
-                BDStatCore.instance().autoTrackLaunchInfo(this.f3668a, launchInfo2, false);
+                BDStatCore.instance().autoTrackLaunchInfo(this.f2584a, launchInfo2, false);
             }
             this.E = false;
         }
@@ -258,7 +256,7 @@ public class am {
     public void b(Activity activity) {
         Intent intent;
         if (q()) {
-            this.f3668a = activity.getApplicationContext();
+            this.f2584a = activity.getApplicationContext();
             if (activity != null && (intent = activity.getIntent()) != null && a(activity, intent)) {
                 a().i();
             }
@@ -298,11 +296,11 @@ public class am {
 
     public void a(WebView webView, String str, bl blVar) {
         if (TextUtils.isEmpty(this.p)) {
-            this.p = bo.a(this.f3668a, "mtj_vizParser.js");
+            this.p = bo.a(this.f2584a, "mtj_vizParser.js");
         }
         b(webView, this.p, blVar);
         if (TextUtils.isEmpty(this.q)) {
-            this.q = bo.a(this.f3668a, "mtj_autoTracker.js");
+            this.q = bo.a(this.f2584a, "mtj_autoTracker.js");
         }
         c(webView, this.q, blVar);
     }
@@ -311,17 +309,17 @@ public class am {
         if (bd.c().b()) {
             bd.c().a("installConnectionTracker");
         }
-        this.f3669b = new ak(this.D);
-        this.f3669b.a(activity);
+        this.b = new ak(this.D);
+        this.b.a(activity);
     }
 
     private void f() {
         if (bd.c().b()) {
             bd.c().a("uninstallConnectionTracker");
         }
-        if (this.f3669b != null) {
-            this.f3669b.b();
-            this.f3669b = null;
+        if (this.b != null) {
+            this.b.b();
+            this.b = null;
         }
     }
 
@@ -347,7 +345,7 @@ public class am {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        this.r = bo.a(this.f3668a, "mtj_auto.config");
+        this.r = bo.a(this.f2584a, "mtj_auto.config");
         c(this.r);
         av.b(this.r);
         ar.a(this.r);
@@ -358,7 +356,7 @@ public class am {
         if (!p()) {
             bc.c().a("autotrace: gesture success");
             a(0);
-            if (!bw.s(this.f3668a)) {
+            if (!bw.s(this.f2584a)) {
                 bc.c().a("autotrace: network invalid, failed to connect to circle server");
                 return;
             }
@@ -393,10 +391,10 @@ public class am {
     /* JADX INFO: Access modifiers changed from: private */
     public void l() {
         if (!this.k) {
-            boolean a2 = bg.a(this.f3668a, this.v, 0, true);
+            boolean a2 = bg.a(this.f2584a, this.v, 0, true);
             this.k = true;
             if (a2) {
-                this.p = bo.a(this.f3668a, "mtj_vizParser.js");
+                this.p = bo.a(this.f2584a, "mtj_vizParser.js");
             }
         }
     }
@@ -404,10 +402,10 @@ public class am {
     /* JADX INFO: Access modifiers changed from: private */
     public void m() {
         if (!this.l) {
-            boolean a2 = bg.a(this.f3668a, this.v, 1, true);
+            boolean a2 = bg.a(this.f2584a, this.v, 1, true);
             this.l = true;
             if (a2) {
-                this.q = bo.a(this.f3668a, "mtj_autoTracker.js");
+                this.q = bo.a(this.f2584a, "mtj_autoTracker.js");
             }
         }
     }
@@ -415,7 +413,7 @@ public class am {
     /* JADX INFO: Access modifiers changed from: private */
     public void n() {
         if (!this.m) {
-            boolean a2 = bg.a(this.f3668a, this.v, 2, true);
+            boolean a2 = bg.a(this.f2584a, this.v, 2, true);
             this.m = true;
             if (a2) {
                 this.C.sendMessage(this.C.obtainMessage(34));
@@ -425,9 +423,9 @@ public class am {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(String str) {
-        if (this.f3668a != null && !TextUtils.isEmpty(str)) {
-            bq.a().c(this.f3668a, System.currentTimeMillis());
-            bo.a(this.f3668a, "mtj_auto.config", str, false);
+        if (this.f2584a != null && !TextUtils.isEmpty(str)) {
+            bq.a().c(this.f2584a, System.currentTimeMillis());
+            bo.a(this.f2584a, "mtj_auto.config", str, false);
             this.C.sendMessage(this.C.obtainMessage(34));
         }
     }
@@ -440,7 +438,7 @@ public class am {
             bc.c().a("autotrace: connect established, no need to duplicate connect");
             return;
         }
-        String a2 = a(this.f3668a);
+        String a2 = a(this.f2584a);
         if (bd.c().b()) {
             bd.c().a(TextUtils.isEmpty(a2) ? "url:" : "url:" + a2);
         }
@@ -556,9 +554,9 @@ public class am {
     }
 
     private void t() {
-        if (bw.s(this.f3668a) && !this.m) {
+        if (bw.s(this.f2584a) && !this.m) {
             if (this.u == 0) {
-                this.u = bq.a().p(this.f3668a);
+                this.u = bq.a().p(this.f2584a);
             }
             if (System.currentTimeMillis() - this.u > 86400000) {
                 this.f.sendMessage(this.f.obtainMessage(23));
@@ -567,14 +565,14 @@ public class am {
     }
 
     private void u() {
-        if (bw.s(this.f3668a) && !this.l) {
+        if (bw.s(this.f2584a) && !this.l) {
             if (!this.n) {
-                this.q = bo.a(this.f3668a, "mtj_autoTracker.js");
+                this.q = bo.a(this.f2584a, "mtj_autoTracker.js");
                 this.n = true;
             }
             if (this.s == 0) {
-                this.s = bq.a().n(this.f3668a);
-                this.t = bq.a().o(this.f3668a);
+                this.s = bq.a().n(this.f2584a);
+                this.t = bq.a().o(this.f2584a);
             }
             if ((this.n && TextUtils.isEmpty(this.q)) || System.currentTimeMillis() - this.s > this.t) {
                 this.f.sendMessage(this.f.obtainMessage(22));
@@ -663,12 +661,12 @@ public class am {
 
     public void a(int i, String str) {
         synchronized (this.G) {
-            if (this.f3668a != null) {
+            if (this.f2584a != null) {
                 if (str == null) {
                     str = "";
                 }
-                this.F.put(i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + System.currentTimeMillis() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + ((bw.s(this.f3668a) ? 1 : 0) + "|" + str));
-                bo.a(this.f3668a, "trace_circle.data", this.F.toString(), false);
+                this.F.put(i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + System.currentTimeMillis() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + ((bw.s(this.f2584a) ? 1 : 0) + "|" + str));
+                bo.a(this.f2584a, "trace_circle.data", this.F.toString(), false);
             }
         }
     }
@@ -676,10 +674,10 @@ public class am {
     public JSONArray e() {
         JSONArray jSONArray;
         synchronized (this.G) {
-            if (this.f3668a == null) {
+            if (this.f2584a == null) {
                 jSONArray = new JSONArray();
             } else {
-                String a2 = bo.a(this.f3668a, "trace_circle.data");
+                String a2 = bo.a(this.f2584a, "trace_circle.data");
                 try {
                     jSONArray = !TextUtils.isEmpty(a2) ? new JSONArray(a2) : null;
                 } catch (Exception e) {
@@ -689,7 +687,7 @@ public class am {
                     jSONArray = new JSONArray();
                 }
                 this.F = new JSONArray();
-                bo.a(this.f3668a, "trace_circle.data", this.F.toString(), false);
+                bo.a(this.f2584a, "trace_circle.data", this.F.toString(), false);
             }
         }
         return jSONArray;

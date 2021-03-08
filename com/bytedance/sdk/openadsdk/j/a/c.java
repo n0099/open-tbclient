@@ -1,327 +1,98 @@
 package com.bytedance.sdk.openadsdk.j.a;
 
-import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
-import android.text.TextUtils;
-import com.bytedance.sdk.openadsdk.j.d;
-import com.bytedance.sdk.openadsdk.j.e;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class c extends com.bytedance.sdk.openadsdk.j.a.a {
+public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final File f7224a;
+    private final String f4863a;
+    private int b;
+    private int c;
+    private int d;
+    private long e;
+    private long f;
+    private long g;
+    private long h;
+    private int i;
 
-    /* renamed from: b  reason: collision with root package name */
-    private final LinkedHashMap<String, File> f7225b = new LinkedHashMap<>(0, 0.75f, true);
-    private final ReentrantReadWriteLock c = new ReentrantReadWriteLock();
-    private final ReentrantReadWriteLock.ReadLock d = this.c.readLock();
-    private final ReentrantReadWriteLock.WriteLock e = this.c.writeLock();
-    private final Set<a> f = Collections.newSetFromMap(new ConcurrentHashMap());
-    private volatile long g = 104857600;
-    private volatile float h = 0.5f;
-    private final b i = new b();
-    private final Runnable j = new Runnable() { // from class: com.bytedance.sdk.openadsdk.j.a.c.1
-        @Override // java.lang.Runnable
-        public void run() {
-            com.bytedance.sdk.openadsdk.k.a.a().c(new Runnable() { // from class: com.bytedance.sdk.openadsdk.j.a.c.1.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    c.this.b(c.this.g);
-                }
-            }, 1);
-        }
-    };
-    private final Handler k = new Handler(Looper.getMainLooper());
-
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(String str);
-
-        void a(Set<String> set);
-    }
-
-    public void a(a aVar) {
-        if (aVar != null) {
-            this.f.add(aVar);
-        }
-    }
-
-    public c(File file) throws IOException {
-        String str;
-        if (file == null || !file.exists() || !file.isDirectory() || !file.canRead() || !file.canWrite()) {
-            if (file == null) {
-                str = " dir null";
-            } else {
-                str = "exists: " + file.exists() + ", isDirectory: " + file.isDirectory() + ", canRead: " + file.canRead() + ", canWrite: " + file.canWrite();
-            }
-            throw new IOException("dir error!  " + str);
-        }
-        this.f7224a = file;
-        com.bytedance.sdk.openadsdk.k.a.a().c(new Runnable() { // from class: com.bytedance.sdk.openadsdk.j.a.c.2
-            @Override // java.lang.Runnable
-            public void run() {
-                c.this.b();
-            }
-        }, 5);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
-        this.e.lock();
+    public JSONObject a() {
+        JSONObject jSONObject = new JSONObject();
         try {
-            File[] listFiles = this.f7224a.listFiles();
-            if (listFiles != null && listFiles.length > 0) {
-                final HashMap hashMap = new HashMap(listFiles.length);
-                ArrayList arrayList = new ArrayList(listFiles.length);
-                for (File file : listFiles) {
-                    if (file.isFile()) {
-                        arrayList.add(file);
-                        hashMap.put(file, Long.valueOf(file.lastModified()));
-                    }
-                }
-                Collections.sort(arrayList, new Comparator<File>() { // from class: com.bytedance.sdk.openadsdk.j.a.c.3
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // java.util.Comparator
-                    /* renamed from: a */
-                    public int compare(File file2, File file3) {
-                        long longValue = ((Long) hashMap.get(file2)).longValue() - ((Long) hashMap.get(file3)).longValue();
-                        if (longValue < 0) {
-                            return -1;
-                        }
-                        if (longValue > 0) {
-                            return 1;
-                        }
-                        return 0;
-                    }
-                });
-                Iterator it = arrayList.iterator();
-                while (it.hasNext()) {
-                    File file2 = (File) it.next();
-                    this.f7225b.put(a(file2), file2);
-                }
+            if (this.i <= 0) {
+                return null;
             }
-            this.e.unlock();
-            c();
-        } catch (Throwable th) {
-            this.e.unlock();
-            throw th;
+            jSONObject.put("poolType", this.f4863a);
+            jSONObject.put("corePoolSize", this.b);
+            jSONObject.put("maximumPoolSize", this.c);
+            jSONObject.put("largestPoolSize", this.d);
+            jSONObject.put("waitLargestTime", this.e);
+            jSONObject.put("waitAvgTime", (((float) this.f) * 1.0f) / this.i);
+            jSONObject.put("taskCostLargestTime", this.g);
+            jSONObject.put("taskCostAvgTime", (((float) this.h) * 1.0f) / this.i);
+            jSONObject.put("logCount", this.i);
+            return jSONObject;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
         }
+    }
+
+    public c(String str, int i, int i2, long j, long j2, long j3, long j4, int i3) {
+        this.b = 0;
+        this.c = 0;
+        this.e = 0L;
+        this.f = 0L;
+        this.g = 0L;
+        this.h = 0L;
+        this.i = 0;
+        this.f4863a = str;
+        this.b = i;
+        this.c = i2;
+        this.e = j;
+        this.f = j2;
+        this.g = j3;
+        this.h = j4;
+        this.i = i3;
+    }
+
+    public String b() {
+        return this.f4863a;
+    }
+
+    public long c() {
+        return this.e;
     }
 
     public void a(long j) {
-        this.g = j;
-        c();
+        this.e = j;
     }
 
-    private void c() {
-        this.k.removeCallbacks(this.j);
-        this.k.postDelayed(this.j, 10000L);
-    }
-
-    public void a() {
-        d.c().d();
-        Context a2 = e.a();
-        if (a2 != null) {
-            com.bytedance.sdk.openadsdk.j.b.c.a(a2).a(0);
-        }
-        this.k.removeCallbacks(this.j);
-        com.bytedance.sdk.openadsdk.k.a.a().c(new Runnable() { // from class: com.bytedance.sdk.openadsdk.j.a.c.4
-            @Override // java.lang.Runnable
-            public void run() {
-                c.this.b(0L);
-            }
-        }, 1);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.j.a.a
-    public void a(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            this.i.a(str);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.j.a.a
-    public void b(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            this.i.b(str);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.j.a.a
-    public File c(String str) {
-        this.d.lock();
-        File file = this.f7225b.get(str);
-        this.d.unlock();
-        if (file == null) {
-            File file2 = new File(this.f7224a, str);
-            this.e.lock();
-            this.f7225b.put(str, file2);
-            this.e.unlock();
-            for (a aVar : this.f) {
-                aVar.a(str);
-            }
-            c();
-            return file2;
-        }
-        return file;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.j.a.a
-    public File d(String str) {
-        if (this.d.tryLock()) {
-            File file = this.f7225b.get(str);
-            this.d.unlock();
-            return file;
-        }
-        return null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x00ef A[LOOP:3: B:39:0x00e9->B:41:0x00ef, LOOP_END] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public void b(long j) {
-        HashSet hashSet;
-        HashSet hashSet2;
-        final HashSet hashSet3 = new HashSet();
-        this.e.lock();
-        long j2 = 0;
-        try {
-            for (Map.Entry<String, File> entry : this.f7225b.entrySet()) {
-                j2 += entry.getValue().length();
-            }
-        } catch (Throwable th) {
-            th = th;
-            hashSet = null;
-        }
-        if (j2 > j) {
-            long j3 = ((float) j) * this.h;
-            HashSet hashSet4 = new HashSet();
-            try {
-                long j4 = j2;
-                for (Map.Entry<String, File> entry2 : this.f7225b.entrySet()) {
-                    File value = entry2.getValue();
-                    if (value != null && value.exists()) {
-                        if (!this.i.c(a(value))) {
-                            long length = value.length();
-                            File file = new File(value.getAbsolutePath() + "-tmp");
-                            if (value.renameTo(file)) {
-                                hashSet3.add(file);
-                                j4 -= length;
-                                hashSet4.add(entry2.getKey());
-                            }
-                            j4 = j4;
-                        }
-                    } else {
-                        hashSet4.add(entry2.getKey());
-                    }
-                    if (j4 <= j3) {
-                        break;
-                    }
-                }
-                Iterator it = hashSet4.iterator();
-                while (it.hasNext()) {
-                    this.f7225b.remove((String) it.next());
-                }
-                this.e.unlock();
-                hashSet2 = hashSet4;
-            } catch (Throwable th2) {
-                th = th2;
-                hashSet = hashSet4;
-                try {
-                    th.printStackTrace();
-                    this.e.unlock();
-                    hashSet2 = hashSet;
-                    while (r4.hasNext()) {
-                    }
-                    com.bytedance.sdk.openadsdk.k.a.a().c(new Runnable() { // from class: com.bytedance.sdk.openadsdk.j.a.c.5
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            Iterator it2 = hashSet3.iterator();
-                            while (it2.hasNext()) {
-                                try {
-                                    ((File) it2.next()).delete();
-                                } catch (Throwable th3) {
-                                }
-                            }
-                        }
-                    }, 1);
-                } finally {
-                    this.e.unlock();
-                }
-            }
-            for (a aVar : this.f) {
-                aVar.a(hashSet2);
-            }
-            com.bytedance.sdk.openadsdk.k.a.a().c(new Runnable() { // from class: com.bytedance.sdk.openadsdk.j.a.c.5
-                @Override // java.lang.Runnable
-                public void run() {
-                    Iterator it2 = hashSet3.iterator();
-                    while (it2.hasNext()) {
-                        try {
-                            ((File) it2.next()).delete();
-                        } catch (Throwable th3) {
-                        }
-                    }
-                }
-            }, 1);
-        }
+        this.f += j;
     }
 
-    private String a(File file) {
-        return file.getName();
+    public long d() {
+        return this.g;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
-    public static final class b {
+    public void c(long j) {
+        this.g = j;
+    }
 
-        /* renamed from: a  reason: collision with root package name */
-        private final Map<String, Integer> f7234a;
+    public void d(long j) {
+        this.h += j;
+    }
 
-        private b() {
-            this.f7234a = new HashMap();
-        }
+    public int e() {
+        return this.i;
+    }
 
-        synchronized void a(String str) {
-            if (!TextUtils.isEmpty(str)) {
-                Integer num = this.f7234a.get(str);
-                if (num == null) {
-                    this.f7234a.put(str, 1);
-                } else {
-                    this.f7234a.put(str, Integer.valueOf(num.intValue() + 1));
-                }
-            }
-        }
+    public void a(int i) {
+        this.i += i;
+    }
 
-        synchronized void b(String str) {
-            Integer num;
-            if (!TextUtils.isEmpty(str) && (num = this.f7234a.get(str)) != null) {
-                if (num.intValue() == 1) {
-                    this.f7234a.remove(str);
-                } else {
-                    this.f7234a.put(str, Integer.valueOf(num.intValue() - 1));
-                }
-            }
-        }
-
-        synchronized boolean c(String str) {
-            return !TextUtils.isEmpty(str) ? this.f7234a.containsKey(str) : false;
-        }
+    public void b(int i) {
+        this.d = i;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.recapp.download.http;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class f {
-    public static boolean bQ(String str) {
+    public static boolean bU(String str) {
         return str != null && str.contains("vnd.wap.wml");
     }
 }

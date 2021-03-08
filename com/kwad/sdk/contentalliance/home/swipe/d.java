@@ -6,12 +6,12 @@ import android.view.View;
 public abstract class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f8753a = false;
+    private boolean f5831a = false;
 
     protected abstract void a(View view, MotionEvent motionEvent);
 
     public void a(boolean z) {
-        this.f8753a = !z;
+        this.f5831a = !z;
     }
 
     protected abstract boolean b(View view, MotionEvent motionEvent);
@@ -19,17 +19,17 @@ public abstract class d {
     protected abstract boolean c(View view, MotionEvent motionEvent);
 
     public final void d(View view, MotionEvent motionEvent) {
-        if (this.f8753a) {
+        if (this.f5831a) {
             return;
         }
         a(view, motionEvent);
     }
 
     public final boolean e(View view, MotionEvent motionEvent) {
-        return !this.f8753a && b(view, motionEvent);
+        return !this.f5831a && b(view, motionEvent);
     }
 
     public final boolean f(View view, MotionEvent motionEvent) {
-        return !this.f8753a && c(view, motionEvent);
+        return !this.f5831a && c(view, motionEvent);
     }
 }

@@ -29,18 +29,18 @@ import com.baidu.live.utils.ResultCode;
 import com.baidu.sapi2.openbduss.PASSMethodCallTransfer;
 import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d {
-    public static String bVz = "weblog";
-    private BaseActivity bVA;
-    private f bVB;
-    private CommonWebLayout bVC;
-    private View bVD;
-    private TextView bVE;
-    private RelativeLayout bVF;
-    private int bVG;
-    private int bVI;
-    private View bVJ;
+    public static String bWZ = "weblog";
+    private BaseActivity bXa;
+    private f bXb;
+    private CommonWebLayout bXc;
+    private View bXd;
+    private TextView bXe;
+    private RelativeLayout bXf;
+    private int bXg;
+    private int bXi;
+    private View bXj;
     private ImageView mBack;
     private FrameLayout mContentView;
     private Context mContext;
@@ -48,62 +48,62 @@ public class d {
     private LinearLayout mRootView;
     private String mTitle;
     protected String mUrl;
-    private int bVH = 0;
-    private CustomMessageListener bVK = new CustomMessageListener(2913142) { // from class: com.baidu.live.view.web.d.3
+    private int bXh = 0;
+    private CustomMessageListener bXk = new CustomMessageListener(2913142) { // from class: com.baidu.live.view.web.d.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (d.this.bVC.canGoBack()) {
-                d.this.bVC.goBack();
+            if (d.this.bXc.canGoBack()) {
+                d.this.bXc.goBack();
             } else {
-                d.this.bVB.fp(-1);
+                d.this.bXb.fq(-1);
             }
         }
     };
 
     public d(BaseActivity baseActivity, f fVar, Intent intent) {
-        this.bVA = baseActivity;
+        this.bXa = baseActivity;
         this.mContext = baseActivity.getPageContext().getPageActivity();
-        this.bVB = fVar;
+        this.bXb = fVar;
         this.mIntent = intent;
         init();
-        MessageManager.getInstance().registerListener(this.bVK);
+        MessageManager.getInstance().registerListener(this.bXk);
     }
 
     private void init() {
         this.mRootView = (LinearLayout) LayoutInflater.from(this.mContext).inflate(a.g.sdk_webview_layout, (ViewGroup) null);
-        this.bVA.setContentView(this.mRootView);
-        this.bVJ = this.mRootView.findViewById(a.f.view_status_bar);
+        this.bXa.setContentView(this.mRootView);
+        this.bXj = this.mRootView.findViewById(a.f.view_status_bar);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            ViewGroup.LayoutParams layoutParams = this.bVJ.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.bXj.getLayoutParams();
             layoutParams.height = UtilHelper.getStatusBarHeight();
-            this.bVJ.setLayoutParams(layoutParams);
-            this.bVJ.setVisibility(0);
+            this.bXj.setLayoutParams(layoutParams);
+            this.bXj.setVisibility(0);
         } else {
-            this.bVJ.setVisibility(8);
+            this.bXj.setVisibility(8);
         }
         this.mContentView = (FrameLayout) this.mRootView.findViewById(a.f.contentView);
-        this.bVE = (TextView) this.mRootView.findViewById(a.f.tv_title);
-        this.bVF = (RelativeLayout) this.mRootView.findViewById(a.f.title);
+        this.bXe = (TextView) this.mRootView.findViewById(a.f.tv_title);
+        this.bXf = (RelativeLayout) this.mRootView.findViewById(a.f.title);
         this.mBack = (ImageView) this.mRootView.findViewById(a.f.img_back);
         this.mBack.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.view.web.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (d.this.bVG == ResultCode.h5UploadDone.code) {
-                    if (d.this.bVB != null) {
-                        d.this.bVB.fp(d.this.bVG);
-                        d.this.bVG = -1;
+                if (d.this.bXg == ResultCode.h5UploadDone.code) {
+                    if (d.this.bXb != null) {
+                        d.this.bXb.fq(d.this.bXg);
+                        d.this.bXg = -1;
                     }
-                } else if (d.this.bVC.canGoBack()) {
-                    d.this.bVC.goBack();
+                } else if (d.this.bXc.canGoBack()) {
+                    d.this.bXc.goBack();
                 } else {
-                    d.this.bVB.fp(-1);
+                    d.this.bXb.fq(-1);
                 }
             }
         });
         k(this.mIntent);
         initWebView();
-        this.bVC.loadUrl(this.mUrl);
+        this.bXc.loadUrl(this.mUrl);
     }
 
     private void k(Intent intent) {
@@ -111,67 +111,67 @@ public class d {
             this.mUrl = intent.getStringExtra("tag_url");
             if (TextUtils.isEmpty(this.mUrl)) {
                 Toast.makeText(this.mContext, PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR, 0).show();
-                this.bVB.fp(-1);
+                this.bXb.fq(-1);
             }
             this.mTitle = intent.getStringExtra("tag_url");
-            this.bVH = aQ(this.mUrl, "background");
-            this.bVI = aQ(this.mUrl, "tintColor");
-            if (this.bVH != 0) {
-                this.bVF.setBackgroundColor(this.bVH);
-                this.mRootView.setBackgroundColor(this.bVH);
+            this.bXh = aQ(this.mUrl, "background");
+            this.bXi = aQ(this.mUrl, "tintColor");
+            if (this.bXh != 0) {
+                this.bXf.setBackgroundColor(this.bXh);
+                this.mRootView.setBackgroundColor(this.bXh);
             }
-            if (this.bVI != 0) {
-                this.mBack.setColorFilter(this.bVI);
-                this.bVE.setTextColor(this.bVI);
+            if (this.bXi != 0) {
+                this.mBack.setColorFilter(this.bXi);
+                this.bXe.setTextColor(this.bXi);
             }
         }
     }
 
     private void initWebView() {
-        this.bVC = new CommonWebLayout(this.mContext);
-        this.bVC.setBackgroundColor(this.mContext.getResources().getColor(a.c.sdk_black_alpha0));
-        this.bVC.setCallback(new c() { // from class: com.baidu.live.view.web.d.2
+        this.bXc = new CommonWebLayout(this.mContext);
+        this.bXc.setBackgroundColor(this.mContext.getResources().getColor(a.c.sdk_black_alpha0));
+        this.bXc.setCallback(new c() { // from class: com.baidu.live.view.web.d.2
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
-            public void it(String str) {
-                super.it(str);
-                if (d.this.bVD != null) {
-                    d.this.bVD.setVisibility(0);
+            public void iz(String str) {
+                super.iz(str);
+                if (d.this.bXd != null) {
+                    d.this.bXd.setVisibility(0);
                 }
             }
 
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
-            public void fn(int i) {
-                super.fn(i);
-                if (i == 100 && d.this.bVD != null) {
-                    d.this.bVD.setVisibility(8);
+            public void fo(int i) {
+                super.fo(i);
+                if (i == 100 && d.this.bXd != null) {
+                    d.this.bXd.setVisibility(8);
                 }
             }
 
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
-            public void iu(String str) {
-                super.iu(str);
+            public void iA(String str) {
+                super.iA(str);
                 d.this.mUrl = str;
                 if (Build.VERSION.SDK_INT >= 19) {
-                    d.this.bVC.evaluateJavascript("javascript:window.rmbCertifyDone", new ValueCallback<String>() { // from class: com.baidu.live.view.web.d.2.1
+                    d.this.bXc.evaluateJavascript("javascript:window.rmbCertifyDone", new ValueCallback<String>() { // from class: com.baidu.live.view.web.d.2.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // android.webkit.ValueCallback
                         public void onReceiveValue(String str2) {
                             int i;
-                            Log.i(d.bVz + "CommonWebController", "evaJS value:" + str2);
+                            Log.i(d.bWZ + "CommonWebController", "evaJS value:" + str2);
                             try {
                                 i = Integer.valueOf(str2).intValue();
                             } catch (Exception e) {
                                 e.printStackTrace();
                                 i = -1;
                             }
-                            if (d.this.bVB == null || i != 1) {
-                                d.this.bVG = -1;
+                            if (d.this.bXb == null || i != 1) {
+                                d.this.bXg = -1;
                                 return;
                             }
-                            d.this.bVG = ResultCode.h5UploadDone.code;
+                            d.this.bXg = ResultCode.h5UploadDone.code;
                         }
                     });
-                    d.this.bVC.evaluateJavascript("javascript:window.isSuperCustomer", new ValueCallback<String>() { // from class: com.baidu.live.view.web.d.2.2
+                    d.this.bXc.evaluateJavascript("javascript:window.isSuperCustomer", new ValueCallback<String>() { // from class: com.baidu.live.view.web.d.2.2
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // android.webkit.ValueCallback
                         public void onReceiveValue(String str2) {
@@ -189,32 +189,32 @@ public class d {
                         }
                     });
                 }
-                if (d.this.bVD != null) {
-                    d.this.bVD.setVisibility(8);
+                if (d.this.bXd != null) {
+                    d.this.bXd.setVisibility(8);
                 }
             }
 
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
             public void f(String str, int i, String str2) {
                 super.f(str, i, str2);
-                if (d.this.bVD != null) {
-                    d.this.bVD.setVisibility(8);
+                if (d.this.bXd != null) {
+                    d.this.bXd.setVisibility(8);
                 }
             }
 
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
-            public void iv(String str) {
-                super.iv(str);
-                if (d.this.bVE != null) {
+            public void iB(String str) {
+                super.iB(str);
+                if (d.this.bXe != null) {
                     d.this.mTitle = str;
-                    d.this.bVE.setText(str);
+                    d.this.bXe.setText(str);
                 }
             }
 
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
-            public boolean iw(String str) {
-                Log.i(d.bVz + "CommonWebController", "shouldOverrideUrlLoading url:" + str);
-                return super.iw(str);
+            public boolean iC(String str) {
+                Log.i(d.bWZ + "CommonWebController", "shouldOverrideUrlLoading url:" + str);
+                return super.iC(str);
             }
 
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
@@ -223,34 +223,34 @@ public class d {
             }
         });
         g gVar = new g();
-        gVar.t(this.bVA.getPageContext().getPageActivity()).a(this.bVB).a(this.bVC.getSchemeCallback());
-        gVar.a(this.bVA);
-        a[] XY = gVar.XY();
-        for (a aVar : XY) {
-            this.bVC.addJavascriptInterface(aVar, aVar.getName());
+        gVar.t(this.bXa.getPageContext().getPageActivity()).a(this.bXb).a(this.bXc.getSchemeCallback());
+        gVar.a(this.bXa);
+        a[] Yb = gVar.Yb();
+        for (a aVar : Yb) {
+            this.bXc.addJavascriptInterface(aVar, aVar.getName());
         }
-        this.mContentView.addView(this.bVC, new ViewGroup.LayoutParams(-1, -1));
+        this.mContentView.addView(this.bXc, new ViewGroup.LayoutParams(-1, -1));
     }
 
     public void onResume() {
-        if (this.bVH != 0) {
-            UtilHelper.changeStatusBarIconAndTextColor(e.fo(this.bVH), this.bVA.getActivity());
+        if (this.bXh != 0) {
+            UtilHelper.changeStatusBarIconAndTextColor(e.fp(this.bXh), this.bXa.getActivity());
         }
     }
 
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.bVG == ResultCode.h5UploadDone.code) {
-            if (this.bVB != null) {
-                this.bVB.fp(this.bVG);
-                this.bVG = -1;
+        if (this.bXg == ResultCode.h5UploadDone.code) {
+            if (this.bXb != null) {
+                this.bXb.fq(this.bXg);
+                this.bXg = -1;
                 return true;
             }
             return true;
-        } else if (this.bVC.onKeyDown(i, keyEvent)) {
+        } else if (this.bXc.onKeyDown(i, keyEvent)) {
             return true;
         } else {
-            if (i == 4 && keyEvent.getRepeatCount() == 0 && this.bVC.canGoBack()) {
-                this.bVC.goBack();
+            if (i == 4 && keyEvent.getRepeatCount() == 0 && this.bXc.canGoBack()) {
+                this.bXc.goBack();
                 return true;
             }
             return false;
@@ -259,17 +259,17 @@ public class d {
 
     public void onActivityResult(int i, int i2, Intent intent) {
         if (25047 == i && intent != null) {
-            if ((i2 == ResultCode.naCertifyDone.code || i2 == ResultCode.h5UploadDone.code) && this.bVC != null && !TextUtils.isEmpty(this.mUrl)) {
-                this.bVC.loadUrl(this.mUrl);
+            if ((i2 == ResultCode.naCertifyDone.code || i2 == ResultCode.h5UploadDone.code) && this.bXc != null && !TextUtils.isEmpty(this.mUrl)) {
+                this.bXc.loadUrl(this.mUrl);
                 return;
             }
             return;
         }
-        this.bVC.b(i, i2, intent);
+        this.bXc.b(i, i2, intent);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.bVK);
+        MessageManager.getInstance().unRegisterListener(this.bXk);
     }
 
     private int aQ(String str, String str2) {

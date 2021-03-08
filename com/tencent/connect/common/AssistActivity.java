@@ -14,17 +14,15 @@ import com.tencent.open.utils.j;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.UiError;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class AssistActivity extends Activity {
     public static final String EXTRA_INTENT = "openSDK_LOG.AssistActivity.ExtraIntent";
     private String d;
     private boolean c = false;
 
     /* renamed from: a  reason: collision with root package name */
-    protected boolean f13324a = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    protected Handler f13325b = new Handler() { // from class: com.tencent.connect.common.AssistActivity.1
+    protected boolean f7923a = false;
+    protected Handler b = new Handler() { // from class: com.tencent.connect.common.AssistActivity.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
@@ -61,7 +59,7 @@ public class AssistActivity extends Activity {
         Bundle bundleExtra = getIntent().getBundleExtra("h5_share_data");
         if (bundle != null) {
             this.c = bundle.getBoolean("RESTART_FLAG");
-            this.f13324a = bundle.getBoolean("RESUME_FLAG", false);
+            this.f7923a = bundle.getBoolean("RESUME_FLAG", false);
         }
         if (!this.c) {
             if (bundleExtra == null) {
@@ -96,18 +94,18 @@ public class AssistActivity extends Activity {
             if (!intent.getBooleanExtra("is_qq_mobile_share", false) && this.c && !isFinishing()) {
                 finish();
             }
-            if (this.f13324a) {
-                this.f13325b.sendMessage(this.f13325b.obtainMessage(0));
+            if (this.f7923a) {
+                this.b.sendMessage(this.b.obtainMessage(0));
                 return;
             }
-            this.f13324a = true;
+            this.f7923a = true;
         }
     }
 
     @Override // android.app.Activity
     protected void onPause() {
         f.b("openSDK_LOG.AssistActivity", "-->onPause");
-        this.f13325b.removeMessages(0);
+        this.b.removeMessages(0);
         super.onPause();
     }
 
@@ -139,7 +137,7 @@ public class AssistActivity extends Activity {
     protected void onSaveInstanceState(Bundle bundle) {
         f.b("openSDK_LOG.AssistActivity", "--onSaveInstanceState--");
         bundle.putBoolean("RESTART_FLAG", true);
-        bundle.putBoolean("RESUME_FLAG", this.f13324a);
+        bundle.putBoolean("RESUME_FLAG", this.f7923a);
         super.onSaveInstanceState(bundle);
     }
 

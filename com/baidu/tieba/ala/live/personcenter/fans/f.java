@@ -12,23 +12,23 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.data.Config;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f extends BdBaseModel<PersonListActivity> {
-    public static final BdUniqueId hlr = BdUniqueId.gen();
-    public static final BdUniqueId hls = BdUniqueId.gen();
-    private boolean blC;
-    private int cdp;
-    private a hlo;
-    private PersonListActivity hlt;
-    private int hlu;
-    private int hlv;
-    private String hlw;
-    public HttpMessageListener hlx;
+    public static final BdUniqueId hna = BdUniqueId.gen();
+    public static final BdUniqueId hnb = BdUniqueId.gen();
+    private boolean bnd;
+    private int ceQ;
+    private a hmX;
+    private PersonListActivity hnc;
+    private int hnd;
+    private int hne;
+    private String hnf;
+    public HttpMessageListener hng;
     private String mId;
     private int mSex;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         e a(e eVar, boolean z);
 
@@ -37,9 +37,9 @@ public class f extends BdBaseModel<PersonListActivity> {
 
     public f(PersonListActivity personListActivity, a aVar) {
         super(personListActivity.getPageContext());
-        this.cdp = 0;
-        this.hlu = 0;
-        this.hlx = new HttpMessageListener(1002004) { // from class: com.baidu.tieba.ala.live.personcenter.fans.f.1
+        this.ceQ = 0;
+        this.hnd = 0;
+        this.hng = new HttpMessageListener(1002004) { // from class: com.baidu.tieba.ala.live.personcenter.fans.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -48,37 +48,37 @@ public class f extends BdBaseModel<PersonListActivity> {
                     int statusCode = httpResponsedMessage.getStatusCode();
                     int error = httpResponsedMessage.getError();
                     if (statusCode != 200 || error != 0) {
-                        if (f.this.hlo != null) {
+                        if (f.this.hmX != null) {
                             if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                                errorString = f.this.hlt.getResources().getString(a.h.sdk_neterror);
+                                errorString = f.this.hnc.getResources().getString(a.h.sdk_neterror);
                             } else {
                                 errorString = httpResponsedMessage.getErrorString();
                             }
-                            f.this.hlo.aC(errorString, false);
+                            f.this.hmX.aC(errorString, false);
                             return;
                         }
                         return;
                     }
-                    e bYC = ((ResponseNetPersonListMessage) httpResponsedMessage).bYC();
-                    if (bYC != null) {
-                        if (!StringUtils.isNull(bYC.eOV)) {
-                            f.this.hlw = bYC.eOV;
-                            f.this.hlv = bYC.type;
+                    e bYI = ((ResponseNetPersonListMessage) httpResponsedMessage).bYI();
+                    if (bYI != null) {
+                        if (!StringUtils.isNull(bYI.eQw)) {
+                            f.this.hnf = bYI.eQw;
+                            f.this.hne = bYI.type;
                         }
-                        bYC.type = f.this.hlv;
-                        bYC.eOV = f.this.hlw;
+                        bYI.type = f.this.hne;
+                        bYI.eQw = f.this.hnf;
                     }
-                    if (f.this.hlo != null) {
-                        f.this.hlo.a(bYC, false);
+                    if (f.this.hmX != null) {
+                        f.this.hmX.a(bYI, false);
                     }
                 }
             }
         };
-        this.hlt = personListActivity;
-        this.blC = false;
+        this.hnc = personListActivity;
+        this.bnd = false;
         this.mId = null;
-        this.hlo = aVar;
-        bRh();
+        this.hmX = aVar;
+        bRn();
     }
 
     public void setId(String str) {
@@ -94,17 +94,17 @@ public class f extends BdBaseModel<PersonListActivity> {
     }
 
     public void bz(boolean z) {
-        this.blC = z;
+        this.bnd = z;
     }
 
-    public boolean bYA() {
-        return this.blC;
+    public boolean bYG() {
+        return this.bnd;
     }
 
-    private void bRh() {
+    private void bRn() {
         String str;
         MessageManager messageManager = MessageManager.getInstance();
-        if (this.blC) {
+        if (this.bnd) {
             str = TbConfig.SERVER_ADDRESS + Config.GET_FOLLOW_ADDRESS;
         } else {
             str = TbConfig.SERVER_ADDRESS + Config.GET_FANS_ADDRESS;
@@ -113,7 +113,7 @@ public class f extends BdBaseModel<PersonListActivity> {
         tbHttpMessageTask.setResponsedClass(ResponseNetPersonListMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
         messageManager.registerTask(tbHttpMessageTask);
-        registerListener(this.hlx);
+        registerListener(this.hng);
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -121,22 +121,22 @@ public class f extends BdBaseModel<PersonListActivity> {
         return false;
     }
 
-    public void bYB() {
+    public void bYH() {
         HttpMessage httpMessage = new HttpMessage(1002004);
         HashMap hashMap = new HashMap();
-        if (this.blC) {
-            httpMessage.setTag(hls);
+        if (this.bnd) {
+            httpMessage.setTag(hnb);
         } else {
-            httpMessage.setTag(hlr);
+            httpMessage.setTag(hna);
         }
         httpMessage.addParam("uid", this.mId);
         hashMap.put("id", String.valueOf(this.mId));
-        if (this.cdp != 0) {
-            this.cdp++;
-            httpMessage.addParam(com.baidu.mobstat.Config.PACKAGE_NAME, String.valueOf(this.cdp));
+        if (this.ceQ != 0) {
+            this.ceQ++;
+            httpMessage.addParam(com.baidu.mobstat.Config.PACKAGE_NAME, String.valueOf(this.ceQ));
         }
-        httpMessage.addParam("tab", this.hlu);
-        hashMap.put("page", String.valueOf(this.cdp));
+        httpMessage.addParam("tab", this.hnd);
+        hashMap.put("page", String.valueOf(this.ceQ));
         httpMessage.setExtra(hashMap);
         sendMessage(httpMessage);
     }

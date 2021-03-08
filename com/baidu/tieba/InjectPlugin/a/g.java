@@ -4,7 +4,7 @@ import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class g {
     protected int event;
-    protected b gcu;
+    protected b gdU;
     protected TbPageContext pageContext;
 
     public g(TbPageContext tbPageContext, int i) {
@@ -13,7 +13,7 @@ public class g {
     }
 
     public g(b bVar, int i) {
-        this.gcu = bVar;
+        this.gdU = bVar;
         this.event = i;
     }
 
@@ -21,11 +21,11 @@ public class g {
         return this.pageContext;
     }
 
-    public b bJC() {
-        return this.gcu;
+    public b bJG() {
+        return this.gdU;
     }
 
-    public int bJD() {
+    public int bJH() {
         return this.event;
     }
 }

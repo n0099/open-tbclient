@@ -25,7 +25,7 @@ public interface j {
     public interface d {
     }
 
-    boolean EA(String str);
+    boolean EH(String str);
 
     void a(Context context, String[] strArr, boolean z, Bundle bundle);
 

@@ -8,35 +8,35 @@ import java.nio.charset.Charset;
 public abstract class c implements Closeable {
     public abstract long b();
 
-    public abstract y epv();
+    public abstract y epC();
 
-    public abstract com.bytedance.sdk.a.a.e epw();
+    public abstract com.bytedance.sdk.a.a.e epD();
 
     public final InputStream c() {
-        return epw().eoB();
+        return epD().eoI();
     }
 
     public final String e() throws IOException {
-        com.bytedance.sdk.a.a.e epw = epw();
+        com.bytedance.sdk.a.a.e epD = epD();
         try {
-            return epw.b(com.bytedance.sdk.a.b.a.c.a(epw, epS()));
+            return epD.b(com.bytedance.sdk.a.b.a.c.a(epD, epZ()));
         } finally {
-            com.bytedance.sdk.a.b.a.c.a(epw);
+            com.bytedance.sdk.a.b.a.c.a(epD);
         }
     }
 
-    private Charset epS() {
-        y epv = epv();
-        return epv != null ? epv.a(com.bytedance.sdk.a.b.a.c.ppA) : com.bytedance.sdk.a.b.a.c.ppA;
+    private Charset epZ() {
+        y epC = epC();
+        return epC != null ? epC.a(com.bytedance.sdk.a.b.a.c.prF) : com.bytedance.sdk.a.b.a.c.prF;
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        com.bytedance.sdk.a.b.a.c.a(epw());
+        com.bytedance.sdk.a.b.a.c.a(epD());
     }
 
     public static c a(y yVar, byte[] bArr) {
-        return a(yVar, bArr.length, new com.bytedance.sdk.a.a.c().ah(bArr));
+        return a(yVar, bArr.length, new com.bytedance.sdk.a.a.c().aj(bArr));
     }
 
     public static c a(final y yVar, final long j, final com.bytedance.sdk.a.a.e eVar) {
@@ -45,7 +45,7 @@ public abstract class c implements Closeable {
         }
         return new c() { // from class: com.bytedance.sdk.a.b.c.1
             @Override // com.bytedance.sdk.a.b.c
-            public y epv() {
+            public y epC() {
                 return y.this;
             }
 
@@ -55,7 +55,7 @@ public abstract class c implements Closeable {
             }
 
             @Override // com.bytedance.sdk.a.b.c
-            public com.bytedance.sdk.a.a.e epw() {
+            public com.bytedance.sdk.a.a.e epD() {
                 return eVar;
             }
         };

@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ev implements et {
     private void a(Context context, String str) {
         try {
@@ -24,11 +24,11 @@ public class ev implements et {
                         if (TextUtils.isEmpty(decode)) {
                             em.a(context, "provider", 1008, "B get a incorrect message");
                         } else {
-                            String b2 = el.b(decode);
-                            if (TextUtils.isEmpty(b2)) {
+                            String b = el.b(decode);
+                            if (TextUtils.isEmpty(b)) {
                                 em.a(context, "provider", 1008, "B get a incorrect message");
                             } else {
-                                em.a(context, b2, 1007, "play with provider successfully");
+                                em.a(context, b, 1007, "play with provider successfully");
                             }
                         }
                     }
@@ -40,16 +40,16 @@ public class ev implements et {
     }
 
     private void b(Context context, ep epVar) {
-        String b2 = epVar.b();
+        String b = epVar.b();
         String d = epVar.d();
         int a2 = epVar.a();
-        if (context == null || TextUtils.isEmpty(b2) || TextUtils.isEmpty(d)) {
+        if (context == null || TextUtils.isEmpty(b) || TextUtils.isEmpty(d)) {
             if (TextUtils.isEmpty(d)) {
                 em.a(context, "provider", 1008, "argument error");
             } else {
                 em.a(context, d, 1008, "argument error");
             }
-        } else if (!com.xiaomi.push.service.f.b(context, b2)) {
+        } else if (!com.xiaomi.push.service.f.b(context, b)) {
             em.a(context, d, 1003, "B is not ready");
         } else {
             em.a(context, d, 1002, "B is ready");
@@ -58,8 +58,8 @@ public class ev implements et {
             try {
                 if (TextUtils.isEmpty(a3)) {
                     em.a(context, d, 1008, "info is empty");
-                } else if (a2 != 1 || eq.m292a(context)) {
-                    String type = context.getContentResolver().getType(el.a(b2, a3));
+                } else if (a2 != 1 || eq.m271a(context)) {
+                    String type = context.getContentResolver().getType(el.a(b, a3));
                     if (TextUtils.isEmpty(type) || !"success".equals(type)) {
                         em.a(context, d, 1008, "A is fail to help B's provider");
                     } else {

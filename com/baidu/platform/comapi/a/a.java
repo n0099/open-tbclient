@@ -5,7 +5,7 @@ import android.content.Context;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f4145a = 621133959;
+    private static int f2868a = 621133959;
 
     public static boolean a(Context context) {
         return c(context);
@@ -20,6 +20,6 @@ public class a {
     }
 
     private static boolean c(Context context) {
-        return b(context) == f4145a;
+        return b(context) == f2868a;
     }
 }

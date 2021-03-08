@@ -1,11 +1,11 @@
 package com.tencent.open.a;
 
 import android.util.Log;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class e extends i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final e f13379a = new e();
+    public static final e f7954a = new e();
 
     @Override // com.tencent.open.a.i
     protected void a(int i, Thread thread, long j, String str, String str2, Throwable th) {

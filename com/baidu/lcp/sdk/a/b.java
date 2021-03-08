@@ -16,11 +16,11 @@ public class b {
         return i;
     }
 
-    public static void aq(final Context context) {
-        if (context == null || !RequsetNetworkUtils.isConnected(context) || !d.au(context) || !d.aw(context)) {
+    public static void ap(final Context context) {
+        if (context == null || !RequsetNetworkUtils.isConnected(context) || !d.at(context) || !d.av(context)) {
             com.baidu.lcp.sdk.d.d.e("LcpTrackManager", "uploadTrackActionData return");
         } else {
-            com.baidu.lcp.sdk.c.a.aF(context).submitForNetWork(new Runnable() { // from class: com.baidu.lcp.sdk.a.b.1
+            com.baidu.lcp.sdk.c.a.aE(context).submitForNetWork(new Runnable() { // from class: com.baidu.lcp.sdk.a.b.1
                 @Override // java.lang.Runnable
                 public void run() {
                     b.requestUpload(context);
@@ -31,33 +31,33 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void requestUpload(final Context context) {
-        byte[] as = new c().as(context);
-        com.baidu.lcp.sdk.d.d.d("LcpTrackManager", "RequestUpload payload.length = " + (as != null ? as.length : 0));
-        if (as == null || as.length >= 307200 || as.length <= 0) {
-            com.baidu.lcp.sdk.d.d.d("LcpTrackManager", "RequestUpload payload.length = " + (as != null ? as.length : 0) + ", clear datas and no upload.");
-            ar(context);
+        byte[] ar = new c().ar(context);
+        com.baidu.lcp.sdk.d.d.d("LcpTrackManager", "RequestUpload payload.length = " + (ar != null ? ar.length : 0));
+        if (ar == null || ar.length >= 307200 || ar.length <= 0) {
+            com.baidu.lcp.sdk.d.d.d("LcpTrackManager", "RequestUpload payload.length = " + (ar != null ? ar.length : 0) + ", clear datas and no upload.");
+            aq(context);
             return;
         }
         com.baidu.lcp.sdk.d.d.d("LcpTrackManager", "requestUpload begin");
-        IMPushUploadManager.getInstance(context).requestUpload(null, as, "", new IMPushUploadResponseListener() { // from class: com.baidu.lcp.sdk.a.b.2
+        IMPushUploadManager.getInstance(context).requestUpload(null, ar, "", new IMPushUploadResponseListener() { // from class: com.baidu.lcp.sdk.a.b.2
             @Override // com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener
             public void uploadResponse(int i, String str) {
                 int i2 = 1;
                 com.baidu.lcp.sdk.d.d.d("LcpTrackManager", "uploadIMData response :" + i + ", msg :" + str);
-                d.at(context);
+                d.as(context);
                 if (i == 0) {
-                    b.ar(context);
+                    b.aq(context);
                     int unused = b.retryCount = 0;
                 } else if (b.retryCount < 1) {
                     b.requestUpload(context);
                     b.access$208();
                 } else {
                     int unused2 = b.retryCount = 0;
-                    int av = d.av(context);
-                    if (av >= 3) {
-                        b.ar(context);
+                    int au = d.au(context);
+                    if (au >= 3) {
+                        b.aq(context);
                     } else {
-                        i2 = av + 1;
+                        i2 = au + 1;
                     }
                     d.g(context, i2);
                 }
@@ -66,14 +66,14 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void ar(Context context) {
-        d.az(context);
+    public static void aq(Context context) {
+        d.ay(context);
         retryCount = 0;
     }
 
     public static void a(final Context context, @NonNull final IMPushPb.Action action) {
         if (context != null && RequsetNetworkUtils.isConnected(context)) {
-            com.baidu.lcp.sdk.c.a.aF(context).submitForNetWork(new Runnable() { // from class: com.baidu.lcp.sdk.a.b.3
+            com.baidu.lcp.sdk.c.a.aE(context).submitForNetWork(new Runnable() { // from class: com.baidu.lcp.sdk.a.b.3
                 @Override // java.lang.Runnable
                 public void run() {
                     b.b(context, action);

@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class FlowableSkipLastTimed<T> extends a<T, T> {
     final int bufferSize;
     final boolean delayError;
@@ -17,10 +17,10 @@ public final class FlowableSkipLastTimed<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.qow.a((j) new SkipLastTimedSubscriber(cVar, this.time, this.unit, this.scheduler, this.bufferSize, this.delayError));
+        this.qoY.a((j) new SkipLastTimedSubscriber(cVar, this.time, this.unit, this.scheduler, this.bufferSize, this.delayError));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class SkipLastTimedSubscriber<T> extends AtomicInteger implements j<T>, d {
         private static final long serialVersionUID = -5677354903406201275L;
         final org.a.c<? super T> actual;
@@ -55,7 +55,7 @@ public final class FlowableSkipLastTimed<T> extends a<T, T> {
 
         @Override // org.a.c
         public void onNext(T t) {
-            this.queue.offer(Long.valueOf(this.scheduler.a(this.unit)), t);
+            this.queue.offer(Long.valueOf(this.scheduler.b(this.unit)), t);
             drain();
         }
 
@@ -113,8 +113,8 @@ public final class FlowableSkipLastTimed<T> extends a<T, T> {
                         boolean z2 = this.done;
                         Long l = (Long) aVar.peek();
                         boolean z3 = l == null;
-                        long a2 = vVar.a(timeUnit);
-                        if (!z3 && l.longValue() > a2 - j2) {
+                        long b = vVar.b(timeUnit);
+                        if (!z3 && l.longValue() > b - j2) {
                             z3 = true;
                         }
                         if (!checkTerminated(z2, z3, cVar, z)) {

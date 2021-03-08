@@ -29,7 +29,7 @@ public class WLocData implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public WLocData m24clone() {
+    public WLocData m25clone() {
         WLocData wLocData = new WLocData();
         synchronized (this) {
             wLocData.accuracy = this.accuracy;

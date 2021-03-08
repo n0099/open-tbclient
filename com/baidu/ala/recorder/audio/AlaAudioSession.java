@@ -13,7 +13,7 @@ import com.baidu.ala.recorder.audio.IAudioService;
 import com.baidu.android.imsdk.internal.IMConnection;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AlaAudioSession {
     private static final int CHECK_INTERVAL = 3000;
     private static final String TAG = AlaAudioSession.class.getSimpleName();
@@ -236,7 +236,7 @@ public class AlaAudioSession {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class CaptureThread extends Thread {
         private IAudioService.FrameCallback callback;
         private byte[] mMuteBytes;

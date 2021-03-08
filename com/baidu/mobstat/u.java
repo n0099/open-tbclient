@@ -1,11 +1,11 @@
 package com.baidu.mobstat;
 
 import android.content.Context;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f3838a;
+    private static a f2681a;
 
     /* JADX WARN: Removed duplicated region for block: B:11:0x002f A[Catch: all -> 0x005b, TRY_ENTER, TryCatch #2 {, blocks: (B:4:0x0003, B:6:0x0011, B:8:0x001a, B:9:0x0023, B:11:0x002f, B:12:0x003e, B:17:0x0052), top: B:29:0x0003 }] */
     /*
@@ -18,7 +18,7 @@ public class u {
         Class<?> a2;
         synchronized (u.class) {
             bb.c().a("getBPStretegyController begin");
-            a aVar3 = f3838a;
+            a aVar3 = f2681a;
             if (aVar3 == null) {
                 try {
                     a2 = x.a(context, "com.baidu.bottom.remote.BPStretegyController2");
@@ -37,7 +37,7 @@ public class u {
                         aVar2 = aVar;
                         if (aVar2 == null) {
                         }
-                        f3838a = aVar2;
+                        f2681a = aVar2;
                         x.a(context, aVar2);
                         bb.c().a("getBPStretegyController end");
                         return aVar2;
@@ -46,7 +46,7 @@ public class u {
                         aVar2 = new v();
                         bb.c().a("Get BPStretegyController load local class");
                     }
-                    f3838a = aVar2;
+                    f2681a = aVar2;
                     x.a(context, aVar2);
                     bb.c().a("getBPStretegyController end");
                 }
@@ -54,7 +54,7 @@ public class u {
             aVar2 = aVar3;
             if (aVar2 == null) {
             }
-            f3838a = aVar2;
+            f2681a = aVar2;
             x.a(context, aVar2);
             bb.c().a("getBPStretegyController end");
         }
@@ -63,7 +63,7 @@ public class u {
 
     public static synchronized void a() {
         synchronized (u.class) {
-            f3838a = null;
+            f2681a = null;
         }
     }
 }

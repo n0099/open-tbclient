@@ -1,26 +1,26 @@
 package com.facebook.fresco.animation.b.c;
 
 import com.facebook.fresco.animation.a.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class a implements d {
-    private final com.facebook.imagepipeline.animated.base.a pFB;
+    private final com.facebook.imagepipeline.animated.base.a pHG;
 
     public a(com.facebook.imagepipeline.animated.base.a aVar) {
-        this.pFB = aVar;
+        this.pHG = aVar;
     }
 
     @Override // com.facebook.fresco.animation.a.d
     public int getFrameCount() {
-        return this.pFB.getFrameCount();
+        return this.pHG.getFrameCount();
     }
 
     @Override // com.facebook.fresco.animation.a.d
-    public int Pt(int i) {
-        return this.pFB.Pz(i);
+    public int Px(int i) {
+        return this.pHG.PD(i);
     }
 
     @Override // com.facebook.fresco.animation.a.d
     public int getLoopCount() {
-        return this.pFB.getLoopCount();
+        return this.pHG.getLoopCount();
     }
 }

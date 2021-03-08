@@ -1,5 +1,5 @@
 package com.baidu.searchbox.aperf.bosuploader;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class STSInfo {
     public String ak;
     public String bucket;

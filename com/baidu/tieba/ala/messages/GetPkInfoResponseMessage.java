@@ -3,9 +3,9 @@ package com.baidu.tieba.ala.messages;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.data.PkInfoData;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class GetPkInfoResponseMessage extends JsonHttpResponsedMessage {
-    PkInfoData hTM;
+    PkInfoData hVv;
 
     public GetPkInfoResponseMessage(int i) {
         super(i);
@@ -16,14 +16,14 @@ public class GetPkInfoResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.hTM = new PkInfoData();
-            this.hTM.parserJson(optJSONObject);
-            this.hTM.logId = jSONObject.optLong("logid");
-            this.hTM.pkStatusInfoData.nowTime = jSONObject.optLong("time");
+            this.hVv = new PkInfoData();
+            this.hVv.parserJson(optJSONObject);
+            this.hVv.logId = jSONObject.optLong("logid");
+            this.hVv.pkStatusInfoData.nowTime = jSONObject.optLong("time");
         }
     }
 
-    public PkInfoData cma() {
-        return this.hTM;
+    public PkInfoData cmg() {
+        return this.hVv;
     }
 }

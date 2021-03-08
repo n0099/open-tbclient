@@ -18,12 +18,12 @@ import org.apache.http.HttpHost;
 public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.bytedance.sdk.openadsdk.core.d.l f6638a;
+    private com.bytedance.sdk.openadsdk.core.d.l f4487a;
     private boolean h;
 
     public f(Context context, x xVar, com.bytedance.sdk.openadsdk.core.d.l lVar, com.bytedance.sdk.openadsdk.c.j jVar, boolean z) {
-        super(context, xVar, lVar.T(), jVar);
-        this.f6638a = lVar;
+        super(context, xVar, lVar.ag(), jVar);
+        this.f4487a = lVar;
         this.h = z;
     }
 
@@ -72,7 +72,7 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
         }
         e.a a2 = com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str);
         if (a2 != e.a.IMAGE) {
-            Iterator<com.bytedance.sdk.openadsdk.core.d.k> it = this.f6638a.M().iterator();
+            Iterator<com.bytedance.sdk.openadsdk.core.d.k> it = this.f4487a.Z().iterator();
             while (it.hasNext()) {
                 kVar = it.next();
                 if (!TextUtils.isEmpty(kVar.a()) && !TextUtils.isEmpty(str)) {
@@ -100,7 +100,7 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
             return null;
         }
         try {
-            a2 = com.bytedance.sdk.openadsdk.i.a.a.a().a(com.bytedance.sdk.openadsdk.i.a.a.a().a(str, 0, 0, null), this.h);
+            a2 = com.bytedance.sdk.openadsdk.h.a.a.a().a(com.bytedance.sdk.openadsdk.h.a.a.a().a(str, 0, 0, null), this.h);
         } catch (Throwable th) {
             u.c("ExpressClient", "get image WebResourceResponse error", th);
         }

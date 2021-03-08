@@ -1,5 +1,5 @@
 package com.baidu.live.y;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
-    boolean PE();
+    boolean PH();
 }

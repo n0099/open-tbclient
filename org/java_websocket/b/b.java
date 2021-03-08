@@ -6,7 +6,7 @@ import org.java_websocket.framing.Framedata;
 public interface b {
     boolean acA(String str);
 
-    boolean acB(String str);
+    boolean acz(String str);
 
     void c(Framedata framedata) throws InvalidDataException;
 
@@ -14,11 +14,11 @@ public interface b {
 
     void e(Framedata framedata) throws InvalidDataException;
 
-    String eMm();
+    String eLU();
 
-    String eMn();
+    String eLV();
 
-    b eMo();
+    b eLW();
 
     void reset();
 

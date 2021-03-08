@@ -16,10 +16,8 @@ import com.kwad.sdk.utils.ag;
 public class i extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f8524a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private ImageView f8525b;
+    private int f5687a;
+    private ImageView b;
     private TextView c;
     private LottieAnimationView d;
 
@@ -29,8 +27,8 @@ public class i extends FrameLayout {
 
     public i(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f8524a = 1;
-        this.f8525b = null;
+        this.f5687a = 1;
+        this.b = null;
         this.c = null;
         c();
     }
@@ -42,13 +40,13 @@ public class i extends FrameLayout {
         this.d.a(true);
         this.d.setAnimation(z ? R.raw.ksad_detail_right_button_like_anim_2 : R.raw.ksad_detail_right_button_unlike_anim_2);
         this.d.setVisibility(0);
-        this.f8525b.setVisibility(8);
+        this.b.setVisibility(8);
         this.d.a(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.contentalliance.detail.photo.f.i.1
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
                 super.onAnimationCancel(animator);
                 i.this.setImageView(i);
-                i.this.f8525b.setVisibility(0);
+                i.this.b.setVisibility(0);
                 i.this.d.setVisibility(8);
             }
 
@@ -56,7 +54,7 @@ public class i extends FrameLayout {
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
                 i.this.setImageView(i);
-                i.this.f8525b.setVisibility(0);
+                i.this.b.setVisibility(0);
                 i.this.d.setVisibility(8);
             }
 
@@ -64,11 +62,11 @@ public class i extends FrameLayout {
             public void onAnimationStart(Animator animator) {
                 super.onAnimationStart(animator);
                 if (z) {
-                    i.this.f8525b.setVisibility(8);
+                    i.this.b.setVisibility(8);
                     return;
                 }
                 i.this.setImageView(i);
-                i.this.f8525b.setVisibility(0);
+                i.this.b.setVisibility(0);
             }
         });
         this.d.b();
@@ -76,14 +74,14 @@ public class i extends FrameLayout {
 
     private void c() {
         LayoutInflater.from(getContext()).inflate(R.layout.ksad_content_alliance_photo_like_button_2, (ViewGroup) this, true);
-        this.f8525b = (ImageView) findViewById(R.id.ksad_photo_like_button_image);
+        this.b = (ImageView) findViewById(R.id.ksad_photo_like_button_image);
         this.c = (TextView) findViewById(R.id.ksad_photo_like_count_text);
         this.d = (LottieAnimationView) findViewById(R.id.ksad_photo_like_animation_view);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setImageView(int i) {
-        this.f8525b.setImageResource(i == 1 ? R.drawable.ksad_photo_like_button_2_normal : R.drawable.ksad_photo_like_button_2_selected);
+        this.b.setImageResource(i == 1 ? R.drawable.ksad_photo_like_button_2_normal : R.drawable.ksad_photo_like_button_2_selected);
     }
 
     private void setImageViewWithAnimator(int i) {
@@ -92,13 +90,13 @@ public class i extends FrameLayout {
     }
 
     public void a(int i, long j) {
-        this.f8524a = i;
+        this.f5687a = i;
         setImageView(i);
         setLikeCount(j);
     }
 
     public boolean a() {
-        return this.f8524a == 2;
+        return this.f5687a == 2;
     }
 
     public void b() {
@@ -108,7 +106,7 @@ public class i extends FrameLayout {
     }
 
     public int getLikeState() {
-        return this.f8524a;
+        return this.f5687a;
     }
 
     public void setLikeCount(long j) {
@@ -116,7 +114,7 @@ public class i extends FrameLayout {
     }
 
     public void setLikeState(int i) {
-        this.f8524a = i;
+        this.f5687a = i;
         setImageViewWithAnimator(i);
     }
 }

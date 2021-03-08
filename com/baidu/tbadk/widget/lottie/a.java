@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.d.j;
 /* loaded from: classes.dex */
 public class a implements com.airbnb.lottie.b {
     public static final String INTERNEL_STORAGE_DIRECTORY = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
-    private j fUL;
+    private j fWl;
     private boolean isFirstLoadInternal = false;
     private String mPath;
 
@@ -23,10 +23,10 @@ public class a implements com.airbnb.lottie.b {
         String str = this.mPath + gVar.ik().replace("/", "") + "/" + gVar.getFileName();
         com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) d.mw().loadResourceFromMemery(str, 36, new Object[0]);
         if (aVar == null && getFristLoadInternal()) {
-            if (this.fUL == null) {
-                this.fUL = new j();
+            if (this.fWl == null) {
+                this.fWl = new j();
             }
-            aVar = this.fUL.q(str, 0, 0);
+            aVar = this.fWl.q(str, 0, 0);
         }
         if (aVar != null && aVar.getRawBitmap() != null) {
             Bitmap rawBitmap = aVar.getRawBitmap();

@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c implements a {
-    private final int aam;
-    private HashMap aap;
+    private final int abG;
+    private HashMap abJ;
     private int floor;
     private final int height;
     private final String pid;
@@ -14,7 +14,7 @@ public class c implements a {
     private final int width;
 
     private c(int i, int i2, String str, int i3, int i4, int i5) {
-        this.aam = i;
+        this.abG = i;
         this.refreshCount = i2;
         this.pid = str;
         this.floor = i3;
@@ -43,7 +43,7 @@ public class c implements a {
 
     @Override // com.baidu.afd.videopaster.a
     public int qN() {
-        return this.aam;
+        return this.abG;
     }
 
     @Override // com.baidu.afd.videopaster.a
@@ -53,14 +53,14 @@ public class c implements a {
 
     @Override // com.baidu.afd.videopaster.a
     public Map<String, String> qQ() {
-        return this.aap;
+        return this.abJ;
     }
 
     @Override // com.baidu.afd.videopaster.a
     public void u(HashMap hashMap) {
-        this.aap = hashMap;
-        if (!this.aap.containsKey(AdExtParam.KEY_IADEX)) {
-            hashMap.put(AdExtParam.KEY_IADEX, com.baidu.tbadk.util.d.bFb());
+        this.abJ = hashMap;
+        if (!this.abJ.containsKey(AdExtParam.KEY_IADEX)) {
+            hashMap.put(AdExtParam.KEY_IADEX, com.baidu.tbadk.util.d.bFf());
         }
     }
 }

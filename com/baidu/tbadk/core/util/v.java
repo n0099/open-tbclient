@@ -5,37 +5,37 @@ import com.baidu.adp.lib.util.BdLog;
 import java.net.URL;
 /* loaded from: classes.dex */
 public class v {
-    private static v eZR;
-    private long eZM = 0;
-    private long eZN = 0;
-    private String eZO = "";
-    private String eZP = "";
-    private final long eZQ = 120000;
+    private static v fbq;
+    private long fbl = 0;
+    private long fbm = 0;
+    private String fbn = "";
+    private String fbo = "";
+    private final long fbp = 120000;
 
-    public static v bsm() {
-        if (eZR == null) {
+    public static v bsp() {
+        if (fbq == null) {
             synchronized (v.class) {
-                if (eZR == null) {
-                    eZR = new v();
+                if (fbq == null) {
+                    fbq = new v();
                 }
             }
         }
-        return eZR;
+        return fbq;
     }
 
-    public String bsn() {
+    public String bsq() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.eZM > 120000) {
+        if (currentTimeMillis - this.fbl > 120000) {
             if (com.baidu.adp.lib.util.l.isMainThread()) {
                 return "";
             }
-            this.eZM = currentTimeMillis;
-            this.eZO = UtilHelper.getIpFromDomain("c.tieba.baidu.com");
+            this.fbl = currentTimeMillis;
+            this.fbn = UtilHelper.getIpFromDomain("c.tieba.baidu.com");
         }
-        return this.eZO;
+        return this.fbn;
     }
 
-    public String AX(String str) {
+    public String Be(String str) {
         try {
             String host = new URL(str).getHost();
             if (!TextUtils.isEmpty(host)) {
@@ -47,17 +47,17 @@ public class v {
         return null;
     }
 
-    public String AY(String str) {
+    public String Bf(String str) {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.eZN > 120000) {
+        if (currentTimeMillis - this.fbm > 120000) {
             int indexOf = str.indexOf("hiphotos.baidu.com");
             if (indexOf <= 0 || com.baidu.adp.lib.util.l.isMainThread()) {
                 return "";
             }
-            this.eZN = currentTimeMillis;
-            this.eZP = UtilHelper.getIpFromDomain(str.substring(0, indexOf).replace("http://", "") + "hiphotos.baidu.com");
-            return this.eZP;
+            this.fbm = currentTimeMillis;
+            this.fbo = UtilHelper.getIpFromDomain(str.substring(0, indexOf).replace("http://", "") + "hiphotos.baidu.com");
+            return this.fbo;
         }
-        return this.eZP;
+        return this.fbo;
     }
 }

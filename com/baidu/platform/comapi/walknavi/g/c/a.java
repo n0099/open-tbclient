@@ -3,16 +3,14 @@ package com.baidu.platform.comapi.walknavi.g.c;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f4331a = -1;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final int[] f4332b = {500, 400, 300, 200, 100, 90, 80, 70, 60, 50, 30, 20, 10};
+    public static int f2998a = -1;
+    private static final int[] b = {500, 400, 300, 200, 100, 90, 80, 70, 60, 50, 30, 20, 10};
 
     /* loaded from: classes4.dex */
     static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        static final a f4335a = new a();
+        static final a f3000a = new a();
     }
 
     /* loaded from: classes4.dex */
@@ -21,7 +19,7 @@ public class a {
     }
 
     public static a a() {
-        return b.f4335a;
+        return b.f3000a;
     }
 
     private a() {
@@ -67,33 +65,33 @@ public class a {
             i2 = 0;
             i3 = -1;
         } else {
-            C0288a b2 = b(i);
-            int i4 = b2.f4333a;
-            i2 = b2.f4334b;
+            C0294a b2 = b(i);
+            int i4 = b2.f2999a;
+            i2 = b2.b;
             i3 = i4;
         }
-        if (f4331a != i3) {
+        if (f2998a != i3) {
             cVar.a(i3, i2);
         }
-        f4331a = i3;
+        f2998a = i3;
     }
 
-    private C0288a b(int i) {
-        C0288a c0288a = new C0288a();
+    private C0294a b(int i) {
+        C0294a c0294a = new C0294a();
         int i2 = (i / 10) * 10;
         int i3 = 0;
         while (true) {
-            if (i3 >= f4332b.length) {
+            if (i3 >= b.length) {
                 break;
-            } else if (i2 < f4332b[i3] || i2 % f4332b[i3] != 0) {
+            } else if (i2 < b[i3] || i2 % b[i3] != 0) {
                 i3++;
             } else {
-                c0288a.f4333a = c(f4332b[i3]);
-                c0288a.f4334b = i2 / f4332b[i3];
+                c0294a.f2999a = c(b[i3]);
+                c0294a.b = i2 / b[i3];
                 break;
             }
         }
-        return c0288a;
+        return c0294a;
     }
 
     private int c(int i) {
@@ -188,15 +186,13 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.walknavi.g.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0288a {
+    public class C0294a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f4333a;
+        public int f2999a;
+        public int b;
 
-        /* renamed from: b  reason: collision with root package name */
-        public int f4334b;
-
-        C0288a() {
+        C0294a() {
         }
     }
 }

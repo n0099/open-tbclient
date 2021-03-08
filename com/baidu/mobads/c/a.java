@@ -13,15 +13,13 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Observer;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a {
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final Handler f3295b = new Handler(Looper.getMainLooper());
+    private static final Handler b = new Handler(Looper.getMainLooper());
     private static a c;
 
     /* renamed from: a  reason: collision with root package name */
-    private LruCache<String, Bitmap> f3296a = new b(this, ((int) Runtime.getRuntime().maxMemory()) / 32);
+    private LruCache<String, Bitmap> f2360a = new b(this, ((int) Runtime.getRuntime().maxMemory()) / 32);
 
     public static a a() {
         if (c == null) {
@@ -42,7 +40,7 @@ public class a {
             throw new IllegalThreadStateException("please invoke in main thread!");
         }
         if (imageView != null && str != null) {
-            Bitmap bitmap = this.f3296a.get(str);
+            Bitmap bitmap = this.f2360a.get(str);
             if (bitmap != null) {
                 imageView.setImageBitmap(bitmap);
                 return;
@@ -66,7 +64,7 @@ public class a {
     }
 
     public boolean a(String str) {
-        if (!TextUtils.isEmpty(str) && this.f3296a.get(str) == null) {
+        if (!TextUtils.isEmpty(str) && this.f2360a.get(str) == null) {
             Bitmap c2 = c(b(str));
             if (c2 == null) {
                 return true;
@@ -78,8 +76,8 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, Bitmap bitmap) {
-        if (this.f3296a.get(str) == null && str != null && bitmap != null) {
-            this.f3296a.put(str, bitmap);
+        if (this.f2360a.get(str) == null && str != null && bitmap != null) {
+            this.f2360a.put(str, bitmap);
         }
     }
 
@@ -114,17 +112,17 @@ public class a {
     }
 
     private static int a(BitmapFactory.Options options, ImageView imageView) {
-        C0262a a2 = a(imageView);
+        C0268a a2 = a(imageView);
         int i = options.outWidth;
         int i2 = options.outHeight;
-        if (i <= a2.f3297a && i2 <= a2.f3298b) {
+        if (i <= a2.f2361a && i2 <= a2.b) {
             return 1;
         }
-        return Math.max(Math.round((i * 1.0f) / a2.f3297a), Math.round((i2 * 1.0f) / a2.f3298b));
+        return Math.max(Math.round((i * 1.0f) / a2.f2361a), Math.round((i2 * 1.0f) / a2.b));
     }
 
-    private static C0262a a(ImageView imageView) {
-        C0262a c0262a = new C0262a(null);
+    private static C0268a a(ImageView imageView) {
+        C0268a c0268a = new C0268a(null);
         DisplayMetrics displayMetrics = imageView.getContext().getResources().getDisplayMetrics();
         ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
         int width = imageView.getWidth();
@@ -147,9 +145,9 @@ public class a {
         if (height <= 0) {
             height = displayMetrics.heightPixels;
         }
-        c0262a.f3297a = width;
-        c0262a.f3298b = height;
-        return c0262a;
+        c0268a.f2361a = width;
+        c0268a.b = height;
+        return c0268a;
     }
 
     public static String b(String str) {
@@ -167,19 +165,17 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.mobads.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C0262a {
+    /* loaded from: classes4.dex */
+    public static class C0268a {
 
         /* renamed from: a  reason: collision with root package name */
-        int f3297a;
+        int f2361a;
+        int b;
 
-        /* renamed from: b  reason: collision with root package name */
-        int f3298b;
-
-        private C0262a() {
+        private C0268a() {
         }
 
-        /* synthetic */ C0262a(b bVar) {
+        /* synthetic */ C0268a(b bVar) {
             this();
         }
     }

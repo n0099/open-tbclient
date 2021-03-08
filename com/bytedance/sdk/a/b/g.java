@@ -6,8 +6,8 @@ import java.util.concurrent.TimeUnit;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes6.dex */
 public final class g {
-    public static final g prB = new a().epW().epY();
-    public static final g prC = new a().epX().a(Integer.MAX_VALUE, TimeUnit.SECONDS).epY();
+    public static final g ptH = new a().eqd().eqf();
+    public static final g ptI = new a().eqe().a(Integer.MAX_VALUE, TimeUnit.SECONDS).eqf();
     String c;
     private final boolean d;
     private final boolean e;
@@ -39,8 +39,8 @@ public final class g {
     }
 
     g(a aVar) {
-        this.d = aVar.f5959a;
-        this.e = aVar.f5960b;
+        this.d = aVar.f4001a;
+        this.e = aVar.b;
         this.f = aVar.c;
         this.g = -1;
         this.h = false;
@@ -115,12 +115,12 @@ public final class g {
         int i6 = 0;
         while (i6 < a2) {
             String a3 = vVar.a(i6);
-            String b2 = vVar.b(i6);
+            String b = vVar.b(i6);
             if (a3.equalsIgnoreCase(Headers.CACHE_CONTROL)) {
                 if (str2 != null) {
                     z10 = false;
                 } else {
-                    str2 = b2;
+                    str2 = b;
                 }
             } else if (!a3.equalsIgnoreCase("Pragma")) {
                 z = z2;
@@ -130,22 +130,22 @@ public final class g {
                 z10 = false;
             }
             z = z2;
-            for (int i7 = 0; i7 < b2.length(); i7 = i) {
-                int y = com.bytedance.sdk.a.b.a.c.e.y(b2, i7, "=,;");
-                String trim = b2.substring(i7, y).trim();
-                if (y == b2.length() || b2.charAt(y) == ',' || b2.charAt(y) == ';') {
-                    i = y + 1;
+            for (int i7 = 0; i7 < b.length(); i7 = i) {
+                int z11 = com.bytedance.sdk.a.b.a.c.e.z(b, i7, "=,;");
+                String trim = b.substring(i7, z11).trim();
+                if (z11 == b.length() || b.charAt(z11) == ',' || b.charAt(z11) == ';') {
+                    i = z11 + 1;
                     str = null;
                 } else {
-                    int a4 = com.bytedance.sdk.a.b.a.c.e.a(b2, y + 1);
-                    if (a4 < b2.length() && b2.charAt(a4) == '\"') {
+                    int a4 = com.bytedance.sdk.a.b.a.c.e.a(b, z11 + 1);
+                    if (a4 < b.length() && b.charAt(a4) == '\"') {
                         int i8 = a4 + 1;
-                        int y2 = com.bytedance.sdk.a.b.a.c.e.y(b2, i8, "\"");
-                        str = b2.substring(i8, y2);
-                        i = y2 + 1;
+                        int z12 = com.bytedance.sdk.a.b.a.c.e.z(b, i8, "\"");
+                        str = b.substring(i8, z12);
+                        i = z12 + 1;
                     } else {
-                        i = com.bytedance.sdk.a.b.a.c.e.y(b2, a4, ",;");
-                        str = b2.substring(a4, i).trim();
+                        i = com.bytedance.sdk.a.b.a.c.e.z(b, a4, ",;");
+                        str = b.substring(a4, i).trim();
                     }
                 }
                 if ("no-cache".equalsIgnoreCase(trim)) {
@@ -239,10 +239,8 @@ public final class g {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        boolean f5959a;
-
-        /* renamed from: b  reason: collision with root package name */
-        boolean f5960b;
+        boolean f4001a;
+        boolean b;
         int c = -1;
         int d = -1;
         int e = -1;
@@ -250,8 +248,8 @@ public final class g {
         boolean g;
         boolean h;
 
-        public a epW() {
-            this.f5959a = true;
+        public a eqd() {
+            this.f4001a = true;
             return this;
         }
 
@@ -264,12 +262,12 @@ public final class g {
             return this;
         }
 
-        public a epX() {
+        public a eqe() {
             this.f = true;
             return this;
         }
 
-        public g epY() {
+        public g eqf() {
             return new g(this);
         }
     }

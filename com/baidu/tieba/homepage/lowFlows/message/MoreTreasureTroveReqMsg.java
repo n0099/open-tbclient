@@ -46,7 +46,7 @@ public class MoreTreasureTroveReqMsg extends NetMessage {
             builder.tab_code = this.tabCode;
             builder.lf_user = this.lfUser;
             builder.lf_user_taskid = this.taskId;
-            builder.app_pos = com.baidu.tieba.recapp.c.a.dEm().dEq();
+            builder.app_pos = com.baidu.tieba.recapp.c.a.dEu().dEy();
             if (z) {
                 v.a(builder, true, true, false);
             }

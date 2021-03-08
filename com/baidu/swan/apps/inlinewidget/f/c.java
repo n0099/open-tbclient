@@ -4,12 +4,12 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c implements ZeusPluginFactory {
-    private String cEi;
+    private String cFI;
 
     public c(@NonNull String str) {
-        this.cEi = str;
+        this.cFI = str;
     }
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
@@ -19,10 +19,10 @@ public class c implements ZeusPluginFactory {
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
     public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
-        com.baidu.swan.apps.inlinewidget.f.c.a b2 = com.baidu.swan.apps.t.a.axK().b(invoker, this.cEi);
+        com.baidu.swan.apps.inlinewidget.f.c.a b = com.baidu.swan.apps.t.a.axN().b(invoker, this.cFI);
         if (com.baidu.swan.apps.b.DEBUG) {
-            Log.i("【InlineLiveFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline live「Hash:" + b2.hashCode() + "」");
+            Log.i("【InlineLiveFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline live「Hash:" + b.hashCode() + "」");
         }
-        return new a(b2);
+        return new a(b);
     }
 }

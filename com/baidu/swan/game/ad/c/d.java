@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class d {
     public static void a(AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar) {
         if (adElementInfo != null) {
-            for (String str : adElementInfo.aRW()) {
+            for (String str : adElementInfo.aRZ()) {
                 a(a(str, (b) null), bVar);
             }
         }
@@ -29,7 +29,7 @@ public class d {
 
     public static void a(b bVar, AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar2) {
         if (adElementInfo != null) {
-            for (String str : adElementInfo.aRY()) {
+            for (String str : adElementInfo.aSb()) {
                 a(a(str, bVar), bVar2);
             }
         }
@@ -45,18 +45,18 @@ public class d {
 
     public static String a(String str, b bVar) {
         if (bVar != null) {
-            return str.replaceAll("\\{REQ_WIDTH\\}", bVar.dZv).replaceAll("\\{REQ_HEIGHT\\}", bVar.dZw).replaceAll("\\{WIDTH\\}", bVar.dZx).replaceAll("\\{HEIGHT\\}", bVar.dZy).replaceAll("\\{DOWN_X\\}", bVar.dZz).replaceAll("\\{DOWN_Y\\}", bVar.dZA).replaceAll("\\{UP_X\\}", bVar.dZB).replaceAll("\\{UP_Y\\}", bVar.dZC).replaceAll("\\{VIDEO_TIME\\}", bVar.dZD).replaceAll("\\{BEGIN_TIME\\}", bVar.dZE).replaceAll("\\{END_TIME\\}", bVar.mEndTime).replaceAll("\\{PLAY_FIRST_FRAME\\}", bVar.dZF).replaceAll("\\{PLAY_LAST_FRAME\\}", bVar.dZG).replaceAll("\\{SCENE\\}", bVar.dZH).replaceAll("\\{TYPE\\}", bVar.mType).replaceAll("\\{BEHAVIOR\\}", bVar.dZI).replaceAll("\\{STATUS\\}", bVar.mStatus).replaceAll("\\{CONVERSION_ACTION\\}", bVar.dZJ).replaceAll("\\{CLICK_ID\\}", bVar.dZt);
+            return str.replaceAll("\\{REQ_WIDTH\\}", bVar.eaX).replaceAll("\\{REQ_HEIGHT\\}", bVar.eaY).replaceAll("\\{WIDTH\\}", bVar.eaZ).replaceAll("\\{HEIGHT\\}", bVar.eba).replaceAll("\\{DOWN_X\\}", bVar.ebb).replaceAll("\\{DOWN_Y\\}", bVar.ebc).replaceAll("\\{UP_X\\}", bVar.ebd).replaceAll("\\{UP_Y\\}", bVar.ebe).replaceAll("\\{VIDEO_TIME\\}", bVar.ebf).replaceAll("\\{BEGIN_TIME\\}", bVar.ebg).replaceAll("\\{END_TIME\\}", bVar.mEndTime).replaceAll("\\{PLAY_FIRST_FRAME\\}", bVar.ebh).replaceAll("\\{PLAY_LAST_FRAME\\}", bVar.ebi).replaceAll("\\{SCENE\\}", bVar.ebj).replaceAll("\\{TYPE\\}", bVar.mType).replaceAll("\\{BEHAVIOR\\}", bVar.ebk).replaceAll("\\{STATUS\\}", bVar.mStatus).replaceAll("\\{CONVERSION_ACTION\\}", bVar.ebl).replaceAll("\\{CLICK_ID\\}", bVar.eaV);
         }
         return str;
     }
 
     private static void a(String str, com.baidu.swan.game.ad.a.b bVar) {
-        bVar.vm(str);
+        bVar.vt(str);
     }
 
     public static void a(b bVar, AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar2, final a.d dVar) {
-        if (adElementInfo != null && !TextUtils.isEmpty(adElementInfo.aRR())) {
-            String a2 = a(adElementInfo.aRR(), bVar);
+        if (adElementInfo != null && !TextUtils.isEmpty(adElementInfo.aRU())) {
+            String a2 = a(adElementInfo.aRU(), bVar);
             ResponseCallback<a> responseCallback = new ResponseCallback<a>() { // from class: com.baidu.swan.game.ad.c.d.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -78,8 +78,8 @@ public class d {
                                     return null;
                                 }
                                 a aVar = new a();
-                                aVar.dZt = optJSONObject.optString("clickid");
-                                aVar.dZu = optJSONObject.optString("dstlink");
+                                aVar.eaV = optJSONObject.optString("clickid");
+                                aVar.eaW = optJSONObject.optString("dstlink");
                                 return aVar;
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -98,7 +98,7 @@ public class d {
                 /* renamed from: a */
                 public void onSuccess(a aVar, int i) {
                     if (aVar != null && a.d.this != null) {
-                        a.d.this.cM(aVar.dZt, aVar.dZu);
+                        a.d.this.cM(aVar.eaV, aVar.eaW);
                     }
                 }
 

@@ -1,5 +1,5 @@
 package com.google.protobuf;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public interface MessageLiteOrBuilder {
     MessageLite getDefaultInstanceForType();
 

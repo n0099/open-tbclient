@@ -17,7 +17,7 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.forumRule.b.c, ForumRuleDetailItemVH> {
-    private TbRichText jvd;
+    private TbRichText jwM;
     private Context mContext;
     private List<n> mData;
 
@@ -33,7 +33,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.forum
     /* renamed from: bC */
     public ForumRuleDetailItemVH e(ViewGroup viewGroup) {
         ForumRuleDetailItemVH forumRuleDetailItemVH = new ForumRuleDetailItemVH(this.mContext, LayoutInflater.from(this.mContext).inflate(R.layout.forum_rules_item, viewGroup, false));
-        this.Wo = forumRuleDetailItemVH;
+        this.XI = forumRuleDetailItemVH;
         return forumRuleDetailItemVH;
     }
 
@@ -43,34 +43,34 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.forum
     public View a(final int i, View view, ViewGroup viewGroup, com.baidu.tieba.frs.forumRule.b.c cVar, ForumRuleDetailItemVH forumRuleDetailItemVH) {
         boolean z;
         if (cVar != null && this.mContext != null) {
-            forumRuleDetailItemVH.rh(cVar.cHp());
-            if (!StringUtils.isNull(cVar.cHn())) {
+            forumRuleDetailItemVH.rh(cVar.cHv());
+            if (!StringUtils.isNull(cVar.cHt())) {
                 z = true;
-                forumRuleDetailItemVH.jvf.setVisibility(0);
-                forumRuleDetailItemVH.jvf.setText(cVar.cHn());
+                forumRuleDetailItemVH.jwO.setVisibility(0);
+                forumRuleDetailItemVH.jwO.setText(cVar.cHt());
             } else {
-                forumRuleDetailItemVH.jvf.setVisibility(8);
+                forumRuleDetailItemVH.jwO.setVisibility(8);
                 z = false;
             }
-            if (cVar.cHo() != null && !StringUtils.isNull(cVar.cHo().toString())) {
-                forumRuleDetailItemVH.jvg.setVisibility(0);
+            if (cVar.cHu() != null && !StringUtils.isNull(cVar.cHu().toString())) {
+                forumRuleDetailItemVH.jwP.setVisibility(0);
                 if (!z) {
-                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) forumRuleDetailItemVH.jvg.getLayoutParams();
+                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) forumRuleDetailItemVH.jwP.getLayoutParams();
                     layoutParams.topMargin = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds0);
-                    forumRuleDetailItemVH.jvg.setLayoutParams(layoutParams);
+                    forumRuleDetailItemVH.jwP.setLayoutParams(layoutParams);
                 }
-                this.jvd = TbRichTextView.a(this.mContext, cVar.cHo(), false);
-                forumRuleDetailItemVH.jvg.setText(this.jvd);
+                this.jwM = TbRichTextView.a(this.mContext, cVar.cHu(), false);
+                forumRuleDetailItemVH.jwP.setText(this.jwM);
             } else {
-                forumRuleDetailItemVH.jvg.setVisibility(8);
+                forumRuleDetailItemVH.jwP.setVisibility(8);
             }
-            forumRuleDetailItemVH.jvg.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.frs.forumRule.adapter.c.1
+            forumRuleDetailItemVH.jwP.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.frs.forumRule.adapter.c.1
                 @Override // android.view.View.OnLongClickListener
                 public boolean onLongClick(View view2) {
                     if (c.this.mData != null) {
                         n nVar = (n) c.this.mData.get(i);
                         if (nVar instanceof com.baidu.tieba.frs.forumRule.b.c) {
-                            TbRichText a2 = TbRichTextView.a(c.this.mContext, ((com.baidu.tieba.frs.forumRule.b.c) nVar).cHo(), false);
+                            TbRichText a2 = TbRichTextView.a(c.this.mContext, ((com.baidu.tieba.frs.forumRule.b.c) nVar).cHu(), false);
                             ClipboardManager clipboardManager = (ClipboardManager) c.this.mContext.getSystemService("clipboard");
                             clipboardManager.setText(a2.toString());
                             if (clipboardManager.getText() != null) {

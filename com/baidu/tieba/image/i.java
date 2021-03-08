@@ -12,102 +12,102 @@ import com.baidu.tbadk.core.util.au;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class i {
-    private String kVR;
-    private int kVS;
-    private int kVT;
-    private int kVU;
-    private long kVQ = 0;
-    private HashMap<String, Boolean> kVP = new HashMap<>();
+    private String kXT;
+    private int kXU;
+    private int kXV;
+    private int kXW;
+    private long kXS = 0;
+    private HashMap<String, Boolean> kXR = new HashMap<>();
 
-    public void DJ(int i) {
-        this.kVT = i;
+    public void DM(int i) {
+        this.kXV = i;
     }
 
-    public int dat() {
-        return this.kVT;
+    public int daC() {
+        return this.kXV;
     }
 
-    public void DK(int i) {
-        this.kVU = i;
+    public void DN(int i) {
+        this.kXW = i;
     }
 
-    public int dau() {
-        return this.kVU;
+    public int daD() {
+        return this.kXW;
     }
 
     public void a(Bundle bundle, Intent intent) {
         if (bundle != null) {
-            this.kVR = bundle.getString(ImageViewerConfig.PV_TYPE);
+            this.kXT = bundle.getString(ImageViewerConfig.PV_TYPE);
         } else if (intent != null) {
-            this.kVR = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
+            this.kXT = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
             int intExtra = intent.getIntExtra("index", -1);
-            this.kVS = intExtra;
-            this.kVT = intExtra;
-            this.kVU = intExtra;
+            this.kXU = intExtra;
+            this.kXV = intExtra;
+            this.kXW = intExtra;
         }
     }
 
     public void az(Bundle bundle) {
         if (bundle != null) {
-            bundle.putString(ImageViewerConfig.PV_TYPE, this.kVR);
+            bundle.putString(ImageViewerConfig.PV_TYPE, this.kXT);
         }
     }
 
     public void e(List<String> list, int i, int i2) {
-        synchronized (this.kVP) {
-            if (System.nanoTime() - this.kVQ > 300000000 && list != null && i < list.size()) {
-                this.kVP.put(list.get(i), true);
+        synchronized (this.kXR) {
+            if (System.nanoTime() - this.kXS > 300000000 && list != null && i < list.size()) {
+                this.kXR.put(list.get(i), true);
             }
-            this.kVQ = System.nanoTime();
-            if (list != null && i2 < list.size() && this.kVP.get(list.get(i2)) == null) {
-                this.kVP.put(list.get(i2), false);
+            this.kXS = System.nanoTime();
+            if (list != null && i2 < list.size() && this.kXR.get(list.get(i2)) == null) {
+                this.kXR.put(list.get(i2), false);
             }
         }
-        if (this.kVP.size() >= 100) {
-            dav();
+        if (this.kXR.size() >= 100) {
+            daE();
         }
     }
 
-    public void dav() {
-        if (this.kVP != null) {
-            synchronized (this.kVP) {
-                if (this.kVP.size() > 0) {
+    public void daE() {
+        if (this.kXR != null) {
+            synchronized (this.kXR) {
+                if (this.kXR.size() > 0) {
                     int i = 0;
-                    for (Map.Entry<String, Boolean> entry : this.kVP.entrySet()) {
+                    for (Map.Entry<String, Boolean> entry : this.kXR.entrySet()) {
                         if (entry.getValue().booleanValue()) {
                             i++;
                         }
                     }
-                    TbadkCoreApplication.getInst().sendImagePv(i, this.kVP.size(), this.kVR, this.kVS + 1, this.kVT + 1);
-                    this.kVP.clear();
+                    TbadkCoreApplication.getInst().sendImagePv(i, this.kXR.size(), this.kXT, this.kXU + 1, this.kXV + 1);
+                    this.kXR.clear();
                 }
             }
         }
     }
 
     public void bH(int i, String str) {
-        if (i == 1 && System.nanoTime() - this.kVQ > 300000000) {
-            this.kVP.put(str, true);
+        if (i == 1 && System.nanoTime() - this.kXS > 300000000) {
+            this.kXR.put(str, true);
         }
     }
 
     public void a(int i, String str, String str2, String str3, String str4, String str5) {
         StringBuilder sb = new StringBuilder();
         StringBuilder sb2 = new StringBuilder();
-        if (this.kVU == this.kVT) {
-            sb.append(this.kVU + 1);
-            if (this.kVT == i - 1) {
+        if (this.kXW == this.kXV) {
+            sb.append(this.kXW + 1);
+            if (this.kXV == i - 1) {
                 sb2.append(1);
             } else {
                 sb2.append(0);
             }
         } else {
-            for (int i2 = this.kVU; i2 <= this.kVT; i2++) {
-                if (i2 == this.kVT) {
+            for (int i2 = this.kXW; i2 <= this.kXV; i2++) {
+                if (i2 == this.kXV) {
                     sb.append(i2 + 1);
-                    if (this.kVT == i - 1) {
+                    if (this.kXV == i - 1) {
                         sb2.append(1);
                     } else {
                         sb2.append(0);
@@ -129,14 +129,14 @@ public class i {
             arVar.dR("tid", str3);
         }
         if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            arVar.dR("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().fqv);
+            arVar.dR("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().frW);
         }
-        arVar.ap("pic_count", i);
+        arVar.aq("pic_count", i);
         arVar.dR("obj_floors", sb.toString());
         arVar.dR("obj_isads", sb2.toString());
-        int i3 = (this.kVT - this.kVU) + 1;
+        int i3 = (this.kXV - this.kXW) + 1;
         if (i3 == 1) {
-            if (this.kVT == i - 1) {
+            if (this.kXV == i - 1) {
                 arVar.dR("obj_id", str);
             } else {
                 arVar.dR("obj_id", "");
@@ -147,7 +147,7 @@ public class i {
             for (int i4 = 0; i4 < i3 - 1; i4++) {
                 sb3.append("|");
             }
-            if (this.kVT == i - 1) {
+            if (this.kXV == i - 1) {
                 sb3.append(str);
             }
             arVar.dR("obj_ids", str);

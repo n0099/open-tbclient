@@ -48,7 +48,7 @@ public class InnerPanoramaView extends BaseGLMapView {
         this.r = true;
         this.s = true;
         this.t = new c(this);
-        f3924b = context;
+        b = context;
         MessageProxy.registerPanoViewListener(new d(this));
     }
 
@@ -118,9 +118,9 @@ public class InnerPanoramaView extends BaseGLMapView {
             try {
                 String optString = new JSONObject(str).optString("Type", "");
                 if (optString.equals("street")) {
-                    this.f3925a.b(-15.0f, 90.0f);
+                    this.f2729a.b(-15.0f, 90.0f);
                 } else if (optString.equals("inter")) {
-                    this.f3925a.b(-25.0f, 90.0f);
+                    this.f2729a.b(-25.0f, 90.0f);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -131,8 +131,8 @@ public class InnerPanoramaView extends BaseGLMapView {
     public void a(String str) {
         if (this.s) {
             this.r = false;
-            if (this.f3925a != null) {
-                this.f3925a.a(str);
+            if (this.f2729a != null) {
+                this.f2729a.a(str);
             }
         }
     }
@@ -140,8 +140,8 @@ public class InnerPanoramaView extends BaseGLMapView {
     public void a(int i, int i2) {
         if (this.s) {
             this.r = false;
-            if (this.f3925a != null) {
-                this.f3925a.a(i, i2);
+            if (this.f2729a != null) {
+                this.f2729a.a(i, i2);
             }
         }
     }
@@ -149,8 +149,8 @@ public class InnerPanoramaView extends BaseGLMapView {
     public void a(double d, double d2) {
         if (this.s) {
             this.r = false;
-            if (this.f3925a != null) {
-                this.f3925a.a(d, d2);
+            if (this.f2729a != null) {
+                this.f2729a.a(d, d2);
             }
         }
     }
@@ -161,97 +161,97 @@ public class InnerPanoramaView extends BaseGLMapView {
             if (TextUtils.isEmpty(str)) {
                 throw new IllegalArgumentException("when you set the uid of panorama, it can not be null or empty string.");
             }
-            if (this.f3925a != null) {
-                this.f3925a.b(str);
+            if (this.f2729a != null) {
+                this.f2729a.b(str);
             }
         }
     }
 
     public void a(float f) {
-        if (this.f3925a != null) {
+        if (this.f2729a != null) {
             if (f < -90.0f) {
                 f = -90.0f;
             } else if (f > 90.0f) {
                 f = 90.0f;
             }
-            this.f3925a.a(f, b(), 0.0f);
+            this.f2729a.a(f, b(), 0.0f);
         }
     }
 
     public float a() {
-        if (this.f3925a != null) {
-            return this.f3925a.a(1);
+        if (this.f2729a != null) {
+            return this.f2729a.a(1);
         }
         throw new NullPointerException("PanoController is null!");
     }
 
     public void b(float f) {
-        if (this.f3925a != null) {
+        if (this.f2729a != null) {
             while (f < 0.0f) {
                 f += 360.0f;
             }
-            this.f3925a.a(a(), f % 360.0f, 0.0f);
+            this.f2729a.a(a(), f % 360.0f, 0.0f);
         }
     }
 
     public float b() {
-        if (this.f3925a != null) {
-            return this.f3925a.a(2);
+        if (this.f2729a != null) {
+            return this.f2729a.a(2);
         }
         throw new NullPointerException("PanoController is null!");
     }
 
     public void b(int i) {
-        if (this.f3925a != null && i >= 1 && i <= 5) {
-            this.f3925a.a(70 - (i * 10));
+        if (this.f2729a != null && i >= 1 && i <= 5) {
+            this.f2729a.a(70 - (i * 10));
         }
     }
 
     public float c() {
-        if (this.f3925a != null) {
-            return this.f3925a.c();
+        if (this.f2729a != null) {
+            return this.f2729a.c();
         }
         throw new NullPointerException("PanoController is null!");
     }
 
     public void a(PanoramaView.ImageDefinition imageDefinition) {
-        if (this.f3925a != null) {
-            this.f3925a.b(imageDefinition.getValue());
+        if (this.f2729a != null) {
+            this.f2729a.b(imageDefinition.getValue());
         }
     }
 
     public boolean a(Bitmap bitmap) {
-        if (this.f3925a == null) {
+        if (this.f2729a == null) {
             return false;
         }
-        return this.f3925a.c(bitmap);
+        return this.f2729a.c(bitmap);
     }
 
     public boolean c(String str) {
-        if (this.f3925a == null) {
+        if (this.f2729a == null) {
             return false;
         }
-        return this.f3925a.d(str);
+        return this.f2729a.d(str);
     }
 
     public void a(boolean z) {
-        if (this.f3925a != null) {
-            this.f3925a.c(z);
+        if (this.f2729a != null) {
+            this.f2729a.c(z);
         }
     }
 
     public void b(Bitmap bitmap) {
-        this.f3925a.c(bitmap);
+        this.f2729a.c(bitmap);
     }
 
     public void d() {
         MessageProxy.unRegisterPanoViewListener();
-        this.f3925a.b();
+        this.f2729a.b();
     }
 
     public void b(boolean z) {
-        if (this.f3925a != null) {
-            this.f3925a.a(z);
+        if (this.f2729a != null) {
+            this.f2729a.a(z);
         }
     }
 
@@ -268,13 +268,13 @@ public class InnerPanoramaView extends BaseGLMapView {
         String str = String.valueOf(System.currentTimeMillis()) + String.valueOf(this.d.size());
         Bundle bundle = aVar.toBundle(str, new Bundle());
         if (1003 == bundle.getInt("markerType")) {
-            z = this.f3925a.b(bundle);
+            z = this.f2729a.b(bundle);
         } else if (1001 == bundle.getInt("markerType")) {
-            z = this.f3925a.a(bundle);
+            z = this.f2729a.a(bundle);
         } else if (1002 != bundle.getInt("markerType")) {
             z = false;
         } else {
-            z = this.f3925a.a(bundle, ((ImageMarker) aVar).getMarkerBitmap());
+            z = this.f2729a.a(bundle, ((ImageMarker) aVar).getMarkerBitmap());
         }
         if (z) {
             this.d.put(str, aVar);
@@ -291,12 +291,12 @@ public class InnerPanoramaView extends BaseGLMapView {
         bundle.putDouble(Config.EVENT_HEAT_X, d * 100.0d);
         bundle.putDouble("y", d2 * 100.0d);
         bundle.putFloat("z", ((float) d3) * 100.0f);
-        return this.f3925a.a(bundle, bitmap);
+        return this.f2729a.a(bundle, bitmap);
     }
 
     public void a(String str, float f, float f2) {
-        if (this.f3925a != null) {
-            this.f3925a.a(str, f, f2);
+        if (this.f2729a != null) {
+            this.f2729a.a(str, f, f2);
         }
     }
 
@@ -306,7 +306,7 @@ public class InnerPanoramaView extends BaseGLMapView {
         }
         for (Map.Entry<String, com.baidu.pano.platform.comapi.a.a> entry : this.d.entrySet()) {
             if (aVar.mKey != null && aVar.mKey.equals(entry.getKey())) {
-                boolean c = this.f3925a.c(entry.getKey());
+                boolean c = this.f2729a.c(entry.getKey());
                 if (c) {
                     this.d.remove(entry.getKey());
                 }
@@ -317,7 +317,7 @@ public class InnerPanoramaView extends BaseGLMapView {
     }
 
     public boolean e() {
-        boolean f = this.f3925a.f();
+        boolean f = this.f2729a.f();
         if (f) {
             this.d.clear();
         }
@@ -335,38 +335,38 @@ public class InnerPanoramaView extends BaseGLMapView {
         if (bVar == null) {
             throw new IllegalArgumentException("when you add an overlay item, it can not be null");
         }
-        this.f3925a.d(bVar.toBundle("", new Bundle()));
-        if (bVar.f3923b) {
-            this.f3925a.a(bVar.c);
+        this.f2729a.d(bVar.toBundle("", new Bundle()));
+        if (bVar.b) {
+            this.f2729a.a(bVar.c);
         }
     }
 
     public void d(String str) {
         if (this.g != null) {
             this.g.a(str);
-            this.f3925a.b(this.g.d);
+            this.f2729a.b(this.g.d);
         }
     }
 
     public void c(boolean z) {
-        if (this.f3925a != null) {
-            this.f3925a.b(z);
+        if (this.f2729a != null) {
+            this.f2729a.b(z);
         }
     }
 
     public void f() {
-        this.f3925a.g();
+        this.f2729a.g();
     }
 
     public void d(boolean z) {
-        if (this.f3925a != null) {
-            this.f3925a.d(z);
+        if (this.f2729a != null) {
+            this.f2729a.d(z);
         }
     }
 
     public double[] a(float f, float f2) {
-        if (this.f3925a != null) {
-            return this.f3925a.d(f, f2);
+        if (this.f2729a != null) {
+            return this.f2729a.d(f, f2);
         }
         return null;
     }

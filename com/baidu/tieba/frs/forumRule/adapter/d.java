@@ -20,17 +20,17 @@ import tbclient.ForumRule;
 import tbclient.PbContent;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.forumRule.b.b, ForumRuleDetailSelfVH> {
-    private ForumRulesShowActivity jvi;
-    private boolean jvj;
-    private int jvk;
+    private ForumRulesShowActivity jwR;
+    private boolean jwS;
+    private int jwT;
     private String mFrom;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d(ForumRulesShowActivity forumRulesShowActivity, BdUniqueId bdUniqueId) {
         super(forumRulesShowActivity, bdUniqueId);
-        this.jvj = false;
-        this.jvk = 0;
-        this.jvi = forumRulesShowActivity;
+        this.jwS = false;
+        this.jwT = 0;
+        this.jwR = forumRulesShowActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -38,8 +38,8 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.forum
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bD */
     public ForumRuleDetailSelfVH e(ViewGroup viewGroup) {
-        ForumRuleDetailSelfVH forumRuleDetailSelfVH = new ForumRuleDetailSelfVH(LayoutInflater.from(this.jvi).inflate(R.layout.forum_rules_user_area, viewGroup, false));
-        this.Wo = forumRuleDetailSelfVH;
+        ForumRuleDetailSelfVH forumRuleDetailSelfVH = new ForumRuleDetailSelfVH(LayoutInflater.from(this.jwR).inflate(R.layout.forum_rules_user_area, viewGroup, false));
+        this.XI = forumRuleDetailSelfVH;
         return forumRuleDetailSelfVH;
     }
 
@@ -54,68 +54,68 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.forum
     }
 
     private void a(ForumRuleDetailSelfVH forumRuleDetailSelfVH, com.baidu.tieba.frs.forumRule.b.b bVar) {
-        if (bVar.cHk() != null) {
-            forumRuleDetailSelfVH.ffU.setDefaultResource(R.drawable.img_default_100);
-            forumRuleDetailSelfVH.ffU.startLoad(bVar.cHk().portrait, 12, false);
-            forumRuleDetailSelfVH.eIO.setText(bVar.cHk().name_show);
-            forumRuleDetailSelfVH.zu(bVar.cHk().user_level.intValue());
-            forumRuleDetailSelfVH.jvo.setVisibility(0);
+        if (bVar.cHq() != null) {
+            forumRuleDetailSelfVH.fht.setDefaultResource(R.drawable.img_default_100);
+            forumRuleDetailSelfVH.fht.startLoad(bVar.cHq().portrait, 12, false);
+            forumRuleDetailSelfVH.eKp.setText(bVar.cHq().name_show);
+            forumRuleDetailSelfVH.zv(bVar.cHq().user_level.intValue());
+            forumRuleDetailSelfVH.jwX.setVisibility(0);
         }
-        forumRuleDetailSelfVH.jvn.setText(R.string.bawu_member_bazhu_tip);
-        forumRuleDetailSelfVH.jvn.setVisibility(0);
-        forumRuleDetailSelfVH.Kx(Config.BAWU_TYPE_MANAGER);
+        forumRuleDetailSelfVH.jwW.setText(R.string.bawu_member_bazhu_tip);
+        forumRuleDetailSelfVH.jwW.setVisibility(0);
+        forumRuleDetailSelfVH.KG(Config.BAWU_TYPE_MANAGER);
         if (ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.mFrom)) {
-            forumRuleDetailSelfVH.Ky(String.valueOf(System.currentTimeMillis() / 1000));
+            forumRuleDetailSelfVH.KH(String.valueOf(System.currentTimeMillis() / 1000));
         } else {
-            forumRuleDetailSelfVH.gDC.setText(bVar.cHe());
+            forumRuleDetailSelfVH.gFl.setText(bVar.cHk());
         }
         b(forumRuleDetailSelfVH, bVar);
-        forumRuleDetailSelfVH.Kz(bVar.getPreface());
+        forumRuleDetailSelfVH.KI(bVar.getPreface());
     }
 
     private void b(ForumRuleDetailSelfVH forumRuleDetailSelfVH, final com.baidu.tieba.frs.forumRule.b.b bVar) {
-        if (bVar.cHj()) {
-            forumRuleDetailSelfVH.jvq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.forumRule.adapter.d.1
+        if (bVar.cHp()) {
+            forumRuleDetailSelfVH.jwZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.forumRule.adapter.d.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (d.this.jvj) {
-                        d.this.cHd();
+                    if (d.this.jwS) {
+                        d.this.cHj();
                     } else {
                         d.this.b(bVar);
                     }
                 }
             });
             if (ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.mFrom)) {
-                forumRuleDetailSelfVH.jvq.setVisibility(8);
-            } else if (!StringUtils.isNull(bVar.cHe()) && bVar.cHh() == 0) {
-                long KE = com.baidu.tieba.frs.forumRule.d.a.KE(bVar.cHe());
-                int gu = com.baidu.tieba.frs.forumRule.d.a.gu(Long.valueOf(StringUtils.isNull(bVar.cHl()) ? "0" : bVar.cHl()).longValue() - KE);
+                forumRuleDetailSelfVH.jwZ.setVisibility(8);
+            } else if (!StringUtils.isNull(bVar.cHk()) && bVar.cHn() == 0) {
+                long KN = com.baidu.tieba.frs.forumRule.d.a.KN(bVar.cHk());
+                int gu = com.baidu.tieba.frs.forumRule.d.a.gu(Long.valueOf(StringUtils.isNull(bVar.cHr()) ? "0" : bVar.cHr()).longValue() - KN);
                 if (gu < 0) {
-                    gu = com.baidu.tieba.frs.forumRule.d.a.gu((System.currentTimeMillis() / 1000) - KE);
+                    gu = com.baidu.tieba.frs.forumRule.d.a.gu((System.currentTimeMillis() / 1000) - KN);
                 }
-                forumRuleDetailSelfVH.jvq.setVisibility(0);
+                forumRuleDetailSelfVH.jwZ.setVisibility(0);
                 if (gu >= 7) {
-                    this.jvj = false;
+                    this.jwS = false;
                     return;
                 }
-                forumRuleDetailSelfVH.jvq.setUseDisableState(true);
-                this.jvj = true;
-                this.jvk = 7 - gu;
+                forumRuleDetailSelfVH.jwZ.setUseDisableState(true);
+                this.jwS = true;
+                this.jwT = 7 - gu;
             } else {
-                forumRuleDetailSelfVH.zv(bVar.cHh());
+                forumRuleDetailSelfVH.zw(bVar.cHn());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tieba.frs.forumRule.b.b bVar) {
-        if (this.jvi != null && bVar != null) {
+        if (this.jwR != null && bVar != null) {
             ForumRuleBaseData forumRuleBaseData = new ForumRuleBaseData();
             forumRuleBaseData.setTitle(bVar.getTitle());
             forumRuleBaseData.setPreface(bVar.getPreface());
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < bVar.cHg().size(); i++) {
-                ForumRule forumRule = bVar.cHg().get(i);
+            for (int i = 0; i < bVar.cHm().size(); i++) {
+                ForumRule forumRule = bVar.cHm().get(i);
                 ForumRuleBaseData.ForumRuleItemPbData forumRuleItemPbData = new ForumRuleBaseData.ForumRuleItemPbData();
                 forumRuleItemPbData.status = forumRule.status + "";
                 forumRuleItemPbData.title = forumRule.title + "";
@@ -139,7 +139,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.forum
                 arrayList.add(forumRuleItemPbData);
             }
             forumRuleBaseData.setPbDataList(arrayList);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumRuleEditActivityConfig(this.jvi, bVar.cHf().forum_id + "", bVar.cHf().forum_name + "", ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_SHOW, forumRuleBaseData, bVar.cHf().avatar, bVar.cHk().user_level.intValue(), 25053)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumRuleEditActivityConfig(this.jwR, bVar.cHl().forum_id + "", bVar.cHl().forum_name + "", ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_SHOW, forumRuleBaseData, bVar.cHl().avatar, bVar.cHq().user_level.intValue(), 25053)));
         }
     }
 
@@ -148,11 +148,11 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.forum
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cHd() {
-        if (this.jvi != null) {
-            String format = String.format(this.jvi.getString(R.string.forum_rules_later_days_edit), this.jvk + "");
-            if (this.jvi.cHc() != null) {
-                new BdTopToast(this.jvi).zn(false).UZ(format).aR(this.jvi.cHc().getRootView());
+    public void cHj() {
+        if (this.jwR != null) {
+            String format = String.format(this.jwR.getString(R.string.forum_rules_later_days_edit), this.jwT + "");
+            if (this.jwR.cHi() != null) {
+                new BdTopToast(this.jwR).zm(false).Vg(format).aR(this.jwR.cHi().getRootView());
             }
         }
     }

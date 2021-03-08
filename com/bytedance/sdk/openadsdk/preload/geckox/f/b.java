@@ -9,20 +9,18 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
 public class b {
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f7484b;
+    private String b;
     private String d;
 
     /* renamed from: a  reason: collision with root package name */
-    private final Map<String, a> f7483a = new HashMap();
+    private final Map<String, a> f5077a = new HashMap();
     private AtomicBoolean c = new AtomicBoolean(false);
 
     public b(Context context, String str, File file) {
         if (TextUtils.isEmpty(str)) {
             throw new RuntimeException("access key empty");
         }
-        this.f7484b = str;
+        this.b = str;
         if (file == null) {
             this.d = new File(context.getFilesDir(), "gecko_offline_res_x" + File.separator + str).getAbsolutePath();
         } else {
@@ -57,11 +55,11 @@ public class b {
             new RuntimeException("缺少channel：" + str);
         }
         String substring = str.substring(0, indexOf);
-        synchronized (this.f7483a) {
-            aVar = this.f7483a.get(substring);
+        synchronized (this.f5077a) {
+            aVar = this.f5077a.get(substring);
             if (aVar == null) {
-                aVar = new a(this.f7484b, this.d, substring);
-                this.f7483a.put(substring, aVar);
+                aVar = new a(this.b, this.d, substring);
+                this.f5077a.put(substring, aVar);
             }
         }
         return aVar;
@@ -75,11 +73,11 @@ public class b {
     }
 
     private void b() throws Exception {
-        synchronized (this.f7483a) {
-            for (a aVar : this.f7483a.values()) {
+        synchronized (this.f5077a) {
+            for (a aVar : this.f5077a.values()) {
                 aVar.a();
             }
-            this.f7483a.clear();
+            this.f5077a.clear();
         }
     }
 }

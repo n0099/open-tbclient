@@ -8,7 +8,7 @@ import java.util.ArrayDeque;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ObservableWindow<T> extends a<T, q<T>> {
     final int capacityHint;
     final long count;
@@ -23,7 +23,7 @@ public final class ObservableWindow<T> extends a<T, q<T>> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class WindowExactObserver<T> extends AtomicInteger implements io.reactivex.disposables.b, u<T>, Runnable {
         private static final long serialVersionUID = -7481782523886138128L;
         final u<? super q<T>> actual;
@@ -109,7 +109,7 @@ public final class ObservableWindow<T> extends a<T, q<T>> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class WindowSkipObserver<T> extends AtomicBoolean implements io.reactivex.disposables.b, u<T>, Runnable {
         private static final long serialVersionUID = 3366976432059579510L;
         final u<? super q<T>> actual;

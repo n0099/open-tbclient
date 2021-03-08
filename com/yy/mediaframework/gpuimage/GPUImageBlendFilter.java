@@ -10,7 +10,7 @@ import com.yy.mediaframework.utils.YMFLog;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.FloatBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GPUImageBlendFilter extends GPUImageFilter {
     private static final String FRAGMENT_SHADER = "precision mediump float;\n\nvarying vec2 vTextureCoord;\nvarying vec2 vExtraTextureCoord;\n\nuniform sampler2D inputImageTexture;\nuniform sampler2D uExtraTexture;\n\nvoid main() {\n    vec4 base = texture2D(inputImageTexture, vTextureCoord);\n    vec4 overlay = texture2D(uExtraTexture, vExtraTextureCoord);\n    vec4 outputColor;\n    outputColor.r = overlay.r + base.r * base.a * (1.0 - overlay.a);\n    outputColor.g = overlay.g + base.g * base.a * (1.0 - overlay.a);\n    outputColor.b = overlay.b + base.b * base.a * (1.0 - overlay.a);\n    outputColor.a = overlay.a + base.a * (1.0 - overlay.a);\n    gl_FragColor = outputColor;\n}";
     private static final String VERTEX_SHADER = "uniform mat4 uTexMatrix;\n\nattribute vec4 position;\n\nattribute vec4 inputTextureCoordinate;\nattribute vec4 aExtraTextureCoord;\n\nvarying vec2 vTextureCoord;\nvarying vec2 vExtraTextureCoord;\n\n\nvoid main() {\n    gl_Position = position;\n    vExtraTextureCoord = vec2(aExtraTextureCoord.x, 1.0 - aExtraTextureCoord.y);  //OpenGL纹理系统坐标 与 Android图像坐标 Y轴是颠倒的。这里旋转过来\n    vTextureCoord = (uTexMatrix * inputTextureCoordinate).xy;\n}";
@@ -85,11 +85,11 @@ public class GPUImageBlendFilter extends GPUImageFilter {
                 while (i11 < i) {
                     if (i10 >= i6 && i10 < i6 + height && i11 >= i7 && i11 < i7 + width) {
                         int i12 = iArr[(i11 - i7) + ((i10 - i6) * width)];
-                        byte b2 = (byte) ((i12 >> 24) & 255);
-                        bArr[i9] = (byte) ((((((byte) ((i12 >> 16) & 255)) & 255) * 1.0f) * (b2 & 255)) / 255.0f);
-                        bArr[i9 + 1] = (byte) ((((((byte) ((i12 >> 8) & 255)) & 255) * 1.0f) * (b2 & 255)) / 255.0f);
-                        bArr[i9 + 2] = (byte) ((((((byte) (i12 & 255)) & 255) * 1.0f) * (b2 & 255)) / 255.0f);
-                        bArr[i9 + 3] = b2;
+                        byte b = (byte) ((i12 >> 24) & 255);
+                        bArr[i9] = (byte) ((((((byte) ((i12 >> 16) & 255)) & 255) * 1.0f) * (b & 255)) / 255.0f);
+                        bArr[i9 + 1] = (byte) ((((((byte) ((i12 >> 8) & 255)) & 255) * 1.0f) * (b & 255)) / 255.0f);
+                        bArr[i9 + 2] = (byte) ((((((byte) (i12 & 255)) & 255) * 1.0f) * (b & 255)) / 255.0f);
+                        bArr[i9 + 3] = b;
                     } else {
                         bArr[i9] = 0;
                         bArr[i9 + 1] = 0;

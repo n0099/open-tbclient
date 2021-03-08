@@ -21,7 +21,7 @@ public class HttpDnsResolver {
         if (!Aegon.isInitialized() || list == null) {
             return;
         }
-        Aegon.eCx();
+        Aegon.eCD();
         com.kuaishou.aegon.a.a.b(com.kuaishou.aegon.httpdns.a.gP(list));
     }
 
@@ -42,8 +42,8 @@ public class HttpDnsResolver {
 
     public static List<ResolvedIP> resolve(String str) {
         if (Aegon.isInitialized()) {
-            Aegon.eCx();
-            List<ResolvedIP> list = (List) com.kuaishou.aegon.a.a.a(b.aad(str));
+            Aegon.eCD();
+            List<ResolvedIP> list = (List) com.kuaishou.aegon.a.a.a(b.aai(str));
             return list == null ? new ArrayList() : list;
         }
         return new ArrayList();
@@ -58,8 +58,8 @@ public class HttpDnsResolver {
 
     public static void updateConfig(String str) {
         if (Aegon.isInitialized()) {
-            Aegon.eCx();
-            com.kuaishou.aegon.a.a.b(c.aae(str));
+            Aegon.eCD();
+            com.kuaishou.aegon.a.a.b(c.aaj(str));
         }
     }
 }

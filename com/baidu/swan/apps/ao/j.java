@@ -5,25 +5,25 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class j {
-    private static final Set<Integer> dOP = new HashSet();
-    private static final Set<Integer> dOQ = new HashSet();
-    private static final Set<Integer> dOR = new HashSet();
+    private static final Set<Integer> dQq = new HashSet();
+    private static final Set<Integer> dQr = new HashSet();
+    private static final Set<Integer> dQs = new HashSet();
 
     static {
-        dOP.add(2);
-        dOP.add(3);
-        dOP.add(4);
-        dOP.add(5);
-        dOP.add(6);
-        dOQ.add(7);
-        dOQ.add(1);
-        dOR.addAll(dOP);
-        dOR.addAll(dOQ);
+        dQq.add(2);
+        dQq.add(3);
+        dQq.add(4);
+        dQq.add(5);
+        dQq.add(6);
+        dQr.add(7);
+        dQr.add(1);
+        dQs.addAll(dQq);
+        dQs.addAll(dQr);
     }
 
-    public static Date aNL() {
+    public static Date aNO() {
         return new Date();
     }
 

@@ -2,14 +2,14 @@ package com.thunder.livesdk;
 
 import com.thunder.livesdk.ThunderPublisher;
 import com.thunder.livesdk.log.ThunderLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderDefaultMic extends ThunderAudioCapture {
     private int mSampleRate = 16000;
     private int mChannels = 2;
     private int mSampleBitDepth = 16;
     private IYYLiveDefaultMicDataCallback mMicDataCallback = null;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface IYYLiveDefaultMicDataCallback {
         void onAudioDataCallback(byte[] bArr, boolean z);
     }

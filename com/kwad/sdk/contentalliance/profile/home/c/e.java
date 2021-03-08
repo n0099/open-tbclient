@@ -12,9 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class e extends com.kwad.sdk.contentalliance.profile.home.b.a {
-
-    /* renamed from: b  reason: collision with root package name */
-    private com.kwad.sdk.contentalliance.profile.home.c f8793b;
+    private com.kwad.sdk.contentalliance.profile.home.c b;
     private ViewPager c;
     private ProfileHomeParam d;
     private com.kwad.sdk.contentalliance.profile.home.a.a e = new com.kwad.sdk.contentalliance.profile.home.a.a() { // from class: com.kwad.sdk.contentalliance.profile.home.c.e.1
@@ -42,35 +40,35 @@ public class e extends com.kwad.sdk.contentalliance.profile.home.b.a {
         Bundle bundle = new Bundle();
         ProfileTabVideoParam profileTabVideoParam = new ProfileTabVideoParam();
         profileTabVideoParam.mEntryScene = this.d.mEntryScene;
-        profileTabVideoParam.mURLPackage = this.f8780a.f8782b.getUrlPackage();
+        profileTabVideoParam.mURLPackage = this.f5850a.b.getUrlPackage();
         profileTabVideoParam.mCurrentPhotoId = this.d.mCurrentPhotoId;
         profileTabVideoParam.mAuthorId = this.d.mAuthorId;
         profileTabVideoParam.mTabId = tabInfo.tabId;
         profileTabVideoParam.mTabName = tabInfo.tabName;
         bundle.putSerializable("KEY_PROFILE_TAB_VIDEO_PARAM", profileTabVideoParam);
         arrayList.add(new com.kwad.sdk.lib.widget.viewpager.tabstrip.b(a2, com.kwad.sdk.contentalliance.profile.tabvideo.c.class, bundle));
-        this.f8793b.a(arrayList);
+        this.b.a(arrayList);
         a(tabInfo.tabName);
     }
 
     private void a(String str) {
-        com.kwad.sdk.core.report.e.a(this.f8780a.f8782b, str);
+        com.kwad.sdk.core.report.e.a(this.f5850a.b, str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.contentalliance.profile.home.b.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f8793b = this.f8780a.f8781a;
-        this.c = this.f8780a.c;
-        this.d = this.f8780a.d;
-        this.f8780a.f.add(this.e);
+        this.b = this.f5850a.f5851a;
+        this.c = this.f5850a.c;
+        this.d = this.f5850a.d;
+        this.f5850a.f.add(this.e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f8780a.f.remove(this.e);
+        this.f5850a.f.remove(this.e);
     }
 }

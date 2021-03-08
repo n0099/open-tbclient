@@ -1,21 +1,19 @@
 package com.baidu.mobads;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 class l implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f3393a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ k f3394b;
+    final /* synthetic */ String f2419a;
+    final /* synthetic */ k b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar, String str) {
-        this.f3394b = kVar;
-        this.f3393a = str;
+        this.b = kVar;
+        this.f2419a = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f3394b.d.onUrl(this.f3393a);
+        this.b.d.onUrl(this.f2419a);
     }
 }

@@ -14,10 +14,8 @@ public class k implements i, l {
     private final MergePaths f;
 
     /* renamed from: a  reason: collision with root package name */
-    private final Path f7944a = new Path();
-
-    /* renamed from: b  reason: collision with root package name */
-    private final Path f7945b = new Path();
+    private final Path f5314a = new Path();
+    private final Path b = new Path();
     private final Path c = new Path();
     private final List<l> e = new ArrayList();
 
@@ -43,8 +41,8 @@ public class k implements i, l {
 
     @TargetApi(19)
     private void a(Path.Op op) {
-        this.f7945b.reset();
-        this.f7944a.reset();
+        this.b.reset();
+        this.f5314a.reset();
         int size = this.e.size() - 1;
         while (true) {
             int i = size;
@@ -53,29 +51,29 @@ public class k implements i, l {
             }
             l lVar = this.e.get(i);
             if (lVar instanceof c) {
-                List<l> b2 = ((c) lVar).b();
-                for (int size2 = b2.size() - 1; size2 >= 0; size2--) {
-                    Path d = b2.get(size2).d();
+                List<l> b = ((c) lVar).b();
+                for (int size2 = b.size() - 1; size2 >= 0; size2--) {
+                    Path d = b.get(size2).d();
                     d.transform(((c) lVar).c());
-                    this.f7945b.addPath(d);
+                    this.b.addPath(d);
                 }
             } else {
-                this.f7945b.addPath(lVar.d());
+                this.b.addPath(lVar.d());
             }
             size = i - 1;
         }
         l lVar2 = this.e.get(0);
         if (lVar2 instanceof c) {
-            List<l> b3 = ((c) lVar2).b();
-            for (int i2 = 0; i2 < b3.size(); i2++) {
-                Path d2 = b3.get(i2).d();
+            List<l> b2 = ((c) lVar2).b();
+            for (int i2 = 0; i2 < b2.size(); i2++) {
+                Path d2 = b2.get(i2).d();
                 d2.transform(((c) lVar2).c());
-                this.f7944a.addPath(d2);
+                this.f5314a.addPath(d2);
             }
         } else {
-            this.f7944a.set(lVar2.d());
+            this.f5314a.set(lVar2.d());
         }
-        this.c.op(this.f7944a, this.f7945b, op);
+        this.c.op(this.f5314a, this.b, op);
     }
 
     @Override // com.ksad.lottie.a.a.b

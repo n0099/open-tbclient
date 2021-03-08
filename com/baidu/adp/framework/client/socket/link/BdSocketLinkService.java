@@ -281,7 +281,7 @@ public class BdSocketLinkService extends BdBaseService {
 
     public static void stopReConnStrategy(String str) {
         if (reConnStra != null) {
-            reConnStra.bq(str);
+            reConnStra.bu(str);
         }
     }
 

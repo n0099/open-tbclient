@@ -16,7 +16,7 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b extends com.baidu.mobads.production.a implements a {
     protected final IXAdLogger A;
     private d B;
@@ -91,10 +91,10 @@ public class b extends com.baidu.mobads.production.a implements a {
             this.e.setBackgroundColor(0);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             layoutParams.topMargin = rect.top;
-            ViewGroup b2 = b(activity);
+            ViewGroup b = b(activity);
             this.G = new RelativeLayout(activity);
             this.G.addView(this.e, layoutParams);
-            b2.addView(this.G, new RelativeLayout.LayoutParams(-1, -1));
+            b.addView(this.G, new RelativeLayout.LayoutParams(-1, -1));
             this.e.setFocusableInTouchMode(true);
             this.e.setFocusable(true);
             this.e.requestFocus();

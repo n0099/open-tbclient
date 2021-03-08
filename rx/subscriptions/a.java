@@ -2,24 +2,24 @@ package rx.subscriptions;
 
 import java.util.concurrent.atomic.AtomicReference;
 import rx.k;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class a implements k {
-    static final rx.functions.a qFn = new rx.functions.a() { // from class: rx.subscriptions.a.1
+    static final rx.functions.a qFP = new rx.functions.a() { // from class: rx.subscriptions.a.1
         @Override // rx.functions.a
         public void call() {
         }
     };
-    final AtomicReference<rx.functions.a> qFm;
+    final AtomicReference<rx.functions.a> qFO;
 
     public a() {
-        this.qFm = new AtomicReference<>();
+        this.qFO = new AtomicReference<>();
     }
 
     private a(rx.functions.a aVar) {
-        this.qFm = new AtomicReference<>(aVar);
+        this.qFO = new AtomicReference<>(aVar);
     }
 
-    public static a eOo() {
+    public static a eNW() {
         return new a();
     }
 
@@ -29,13 +29,13 @@ public final class a implements k {
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.qFm.get() == qFn;
+        return this.qFO.get() == qFP;
     }
 
     @Override // rx.k
     public void unsubscribe() {
         rx.functions.a andSet;
-        if (this.qFm.get() != qFn && (andSet = this.qFm.getAndSet(qFn)) != null && andSet != qFn) {
+        if (this.qFO.get() != qFP && (andSet = this.qFO.getAndSet(qFP)) != null && andSet != qFP) {
             andSet.call();
         }
     }

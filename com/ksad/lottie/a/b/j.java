@@ -16,12 +16,12 @@ public class j extends f<PointF> {
     /* renamed from: b */
     public PointF a(com.ksad.lottie.e.a<PointF> aVar, float f) {
         PointF pointF;
-        if (aVar.f8003a == null || aVar.f8004b == null) {
+        if (aVar.f5351a == null || aVar.b == null) {
             throw new IllegalStateException("Missing values for keyframe.");
         }
-        PointF pointF2 = aVar.f8003a;
-        PointF pointF3 = aVar.f8004b;
-        if (this.f7960b == null || (pointF = (PointF) this.f7960b.a(aVar.d, aVar.e.floatValue(), pointF2, pointF3, f, c(), f())) == null) {
+        PointF pointF2 = aVar.f5351a;
+        PointF pointF3 = aVar.b;
+        if (this.b == null || (pointF = (PointF) this.b.a(aVar.d, aVar.e.floatValue(), pointF2, pointF3, f, c(), f())) == null) {
             this.c.set(pointF2.x + ((pointF3.x - pointF2.x) * f), pointF2.y + ((pointF3.y - pointF2.y) * f));
             return this.c;
         }

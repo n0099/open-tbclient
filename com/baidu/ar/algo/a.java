@@ -1,7 +1,7 @@
 package com.baidu.ar.algo;
 
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static a bV = new a();
     private static a bW;

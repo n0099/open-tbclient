@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.v;
 import tbclient.GetMyGift.DataReq;
 import tbclient.GetMyGift.GetMyGiftReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class GetPersonalGiftListRequest extends NetMessage {
     private int pageNumber;
     private String type;

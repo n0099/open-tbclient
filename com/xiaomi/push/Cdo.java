@@ -6,22 +6,20 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 /* renamed from: com.xiaomi.push.do  reason: invalid class name */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class Cdo implements Application.ActivityLifecycleCallbacks {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f13953a;
+    private Context f8327a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f304a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f13954b;
+    private String f225a;
+    private String b;
 
     public Cdo(Context context, String str) {
-        this.f304a = "";
-        this.f13953a = context;
-        this.f304a = str;
+        this.f225a = "";
+        this.f8327a = context;
+        this.f225a = str;
     }
 
     private void a(String str) {
@@ -29,7 +27,7 @@ public class Cdo implements Application.ActivityLifecycleCallbacks {
         huVar.a(str);
         huVar.a(System.currentTimeMillis());
         huVar.a(ho.ActivityActiveTimeStamp);
-        ed.a(this.f13953a, huVar);
+        ed.a(this.f8327a, huVar);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -43,25 +41,25 @@ public class Cdo implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityPaused(Activity activity) {
         String localClassName = activity.getLocalClassName();
-        if (TextUtils.isEmpty(this.f304a) || TextUtils.isEmpty(localClassName)) {
+        if (TextUtils.isEmpty(this.f225a) || TextUtils.isEmpty(localClassName)) {
             return;
         }
-        this.f13954b = "";
-        if (!TextUtils.isEmpty(this.f13954b) && !TextUtils.equals(this.f13954b, localClassName)) {
-            this.f304a = "";
+        this.b = "";
+        if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.b, localClassName)) {
+            this.f225a = "";
             return;
         }
-        a(this.f13953a.getPackageName() + "|" + localClassName + ":" + this.f304a + "," + String.valueOf(System.currentTimeMillis() / 1000));
-        this.f304a = "";
-        this.f13954b = "";
+        a(this.f8327a.getPackageName() + "|" + localClassName + ":" + this.f225a + "," + String.valueOf(System.currentTimeMillis() / 1000));
+        this.f225a = "";
+        this.b = "";
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityResumed(Activity activity) {
-        if (TextUtils.isEmpty(this.f13954b)) {
-            this.f13954b = activity.getLocalClassName();
+        if (TextUtils.isEmpty(this.b)) {
+            this.b = activity.getLocalClassName();
         }
-        this.f304a = String.valueOf(System.currentTimeMillis() / 1000);
+        this.f225a = String.valueOf(System.currentTimeMillis() / 1000);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks

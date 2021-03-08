@@ -11,36 +11,32 @@ import java.util.List;
 public class WarpLinearLayout extends ViewGroup {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f9008a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private float f9009b;
+    private int f5992a;
+    private float b;
     private float c;
     private boolean d;
     private List<a> e;
 
     /* loaded from: classes3.dex */
     private final class a {
-
-        /* renamed from: b  reason: collision with root package name */
-        private List<View> f9011b;
+        private List<View> b;
         private int c;
         private int d;
 
         private a() {
-            this.f9011b = new ArrayList();
+            this.b = new ArrayList();
             this.c = WarpLinearLayout.this.getPaddingLeft() + WarpLinearLayout.this.getPaddingRight();
             this.d = 0;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(View view) {
-            if (this.f9011b.size() != 0) {
-                this.c = (int) (this.c + WarpLinearLayout.this.f9009b);
+            if (this.b.size() != 0) {
+                this.c = (int) (this.c + WarpLinearLayout.this.b);
             }
             this.d = this.d > view.getMeasuredHeight() ? this.d : view.getMeasuredHeight();
             this.c += view.getMeasuredWidth();
-            this.f9011b.add(view);
+            this.b.add(view);
         }
     }
 
@@ -54,8 +50,8 @@ public class WarpLinearLayout extends ViewGroup {
 
     public WarpLinearLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f9008a = 1;
-        this.f9009b = ao.a(getContext(), 8.0f);
+        this.f5992a = 1;
+        this.b = ao.a(getContext(), 8.0f);
         this.c = ao.a(getContext(), 8.0f);
     }
 
@@ -64,11 +60,11 @@ public class WarpLinearLayout extends ViewGroup {
     }
 
     public int getGrivate() {
-        return this.f9008a;
+        return this.f5992a;
     }
 
     public float getHorizontalSpace() {
-        return this.f9009b;
+        return this.b;
     }
 
     public float getVerticalSpace() {
@@ -94,13 +90,13 @@ public class WarpLinearLayout extends ViewGroup {
             int i8 = 0;
             while (true) {
                 int i9 = i8;
-                if (i9 < aVar.f9011b.size()) {
-                    View view = (View) aVar.f9011b.get(i9);
+                if (i9 < aVar.b.size()) {
+                    View view = (View) aVar.b.get(i9);
                     if (a()) {
-                        view.layout(paddingLeft, i7, view.getMeasuredWidth() + paddingLeft + (measuredWidth2 / aVar.f9011b.size()), view.getMeasuredHeight() + i7);
+                        view.layout(paddingLeft, i7, view.getMeasuredWidth() + paddingLeft + (measuredWidth2 / aVar.b.size()), view.getMeasuredHeight() + i7);
                         f = paddingLeft;
-                        measuredWidth = view.getMeasuredWidth() + this.f9009b;
-                        f2 = measuredWidth2 / aVar.f9011b.size();
+                        measuredWidth = view.getMeasuredWidth() + this.b;
+                        f2 = measuredWidth2 / aVar.b.size();
                     } else {
                         switch (getGrivate()) {
                             case 0:
@@ -116,7 +112,7 @@ public class WarpLinearLayout extends ViewGroup {
                         }
                         f = paddingLeft;
                         measuredWidth = view.getMeasuredWidth();
-                        f2 = this.f9009b;
+                        f2 = this.b;
                     }
                     paddingLeft = (int) (measuredWidth + f2 + f);
                     i8 = i9 + 1;
@@ -140,7 +136,7 @@ public class WarpLinearLayout extends ViewGroup {
                 int i3 = 0;
                 for (int i4 = 0; i4 < childCount; i4++) {
                     if (i4 != 0) {
-                        i3 = (int) (i3 + this.f9009b);
+                        i3 = (int) (i3 + this.b);
                     }
                     i3 += getChildAt(i4).getMeasuredWidth();
                 }
@@ -154,7 +150,7 @@ public class WarpLinearLayout extends ViewGroup {
                 int i5 = 0;
                 for (int i6 = 0; i6 < childCount; i6++) {
                     if (i6 != 0) {
-                        i5 = (int) (i5 + this.f9009b);
+                        i5 = (int) (i5 + this.b);
                     }
                     i5 += getChildAt(i6).getMeasuredWidth();
                 }
@@ -164,9 +160,9 @@ public class WarpLinearLayout extends ViewGroup {
         a aVar = new a();
         this.e = new ArrayList();
         for (int i7 = 0; i7 < childCount; i7++) {
-            if (aVar.c + getChildAt(i7).getMeasuredWidth() + this.f9009b <= size) {
+            if (aVar.c + getChildAt(i7).getMeasuredWidth() + this.b <= size) {
                 aVar.a(getChildAt(i7));
-            } else if (aVar.f9011b.size() == 0) {
+            } else if (aVar.b.size() == 0) {
                 aVar.a(getChildAt(i7));
                 this.e.add(aVar);
                 aVar = new a();
@@ -176,7 +172,7 @@ public class WarpLinearLayout extends ViewGroup {
                 aVar.a(getChildAt(i7));
             }
         }
-        if (aVar.f9011b.size() > 0 && !this.e.contains(aVar)) {
+        if (aVar.b.size() > 0 && !this.e.contains(aVar)) {
             this.e.add(aVar);
         }
         int paddingTop = getPaddingTop() + getPaddingBottom();
@@ -201,11 +197,11 @@ public class WarpLinearLayout extends ViewGroup {
     }
 
     public void setGrivate(int i) {
-        this.f9008a = i;
+        this.f5992a = i;
     }
 
     public void setHorizontalSpace(float f) {
-        this.f9009b = f;
+        this.b = f;
     }
 
     public void setIsFull(boolean z) {

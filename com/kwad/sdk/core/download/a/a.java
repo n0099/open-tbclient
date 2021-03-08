@@ -13,10 +13,8 @@ import com.kwad.sdk.mvp.Presenter;
 public class a extends com.kwad.sdk.core.view.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Dialog f9093a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private AdBaseFrameLayout f9094b;
+    private final Dialog f6044a;
+    private AdBaseFrameLayout b;
     private d c;
     private Presenter d;
     @NonNull
@@ -27,33 +25,33 @@ public class a extends com.kwad.sdk.core.view.b {
     public a(Context context, @NonNull b bVar, @NonNull AdTemplate adTemplate, int i) {
         super(context);
         this.g = i;
-        this.f9093a = bVar;
+        this.f6044a = bVar;
         a(context);
         a(adTemplate);
     }
 
     private void a(Context context) {
         inflate(context, R.layout.ksad_download_dialog_layout, this);
-        this.f9094b = (AdBaseFrameLayout) findViewById(R.id.ksad_root_container);
+        this.b = (AdBaseFrameLayout) findViewById(R.id.ksad_root_container);
     }
 
     private d d() {
         d dVar = new d();
-        dVar.d = this.f9094b;
+        dVar.d = this.b;
         dVar.e = this.e;
-        dVar.f9100a = this.g;
+        dVar.f6049a = this.g;
         if (com.kwad.sdk.core.response.b.a.y(this.f)) {
             dVar.f = new com.kwad.sdk.core.download.b.b(this.e);
         }
-        dVar.f9101b = new e() { // from class: com.kwad.sdk.core.download.a.a.1
+        dVar.b = new e() { // from class: com.kwad.sdk.core.download.a.a.1
             @Override // com.kwad.sdk.core.download.a.e
             public void a() {
                 com.kwad.sdk.core.d.a.a("DownloadDialogView", "onClose()");
                 com.kwad.sdk.core.report.b.o(a.this.e);
-                if (a.this.f9093a == null || !a.this.f9093a.isShowing()) {
+                if (a.this.f6044a == null || !a.this.f6044a.isShowing()) {
                     return;
                 }
-                a.this.f9093a.dismiss();
+                a.this.f6044a.dismiss();
             }
         };
         return dVar;
@@ -69,7 +67,7 @@ public class a extends com.kwad.sdk.core.view.b {
     protected void a() {
         this.c = d();
         this.d = e();
-        this.d.a((View) this.f9094b);
+        this.d.a((View) this.b);
         this.d.a(this.c);
     }
 

@@ -5,7 +5,7 @@ import com.baidu.swan.apps.ao.p;
 import com.baidu.swan.games.view.webview.GameWebViewJavascriptInterface;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
     private c() {
     }
@@ -31,14 +31,14 @@ public class c {
                     jSONObject.put("page", aVar.page);
                 }
                 boolean isEmpty = TextUtils.isEmpty(aVar.appId);
-                boolean isEmpty2 = TextUtils.isEmpty(aVar.dKO);
+                boolean isEmpty2 = TextUtils.isEmpty(aVar.dMp);
                 if (!isEmpty || !isEmpty2) {
                     JSONObject jSONObject2 = new JSONObject();
                     if (!isEmpty) {
                         jSONObject2.put("appid", aVar.appId);
                     }
                     if (!isEmpty2) {
-                        jSONObject2.put("info", aVar.dKO);
+                        jSONObject2.put("info", aVar.dMp);
                     }
                     jSONObject.put("ext", jSONObject2);
                 }
@@ -57,43 +57,43 @@ public class c {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         private String appId;
-        private String dKO;
+        private String dMp;
         private String page;
         private String source;
         private String type;
         private String value;
-        private c dKN = new c();
+        private c dMo = new c();
         private String from = GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME;
 
         public a(int i) {
             this.type = String.valueOf(i);
         }
 
-        public a sB(String str) {
+        public a sI(String str) {
             this.source = str;
             return this;
         }
 
-        public a sC(String str) {
+        public a sJ(String str) {
             this.page = str;
             return this;
         }
 
-        public a sD(String str) {
+        public a sK(String str) {
             this.appId = str;
             return this;
         }
 
-        public a sE(String str) {
-            this.dKO = str;
+        public a sL(String str) {
+            this.dMp = str;
             return this;
         }
 
-        public void auo() {
-            this.dKN.a(this);
+        public void aur() {
+            this.dMo.a(this);
         }
     }
 }

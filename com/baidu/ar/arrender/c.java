@@ -29,7 +29,7 @@ import com.baidu.ar.databasic.AlgoHandleAdapter;
 import java.util.HashMap;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class c extends e implements OrientationManager.OrientationListener, l {
     private static boolean gS = true;
     private b R;
@@ -49,12 +49,12 @@ public class c extends e implements OrientationManager.OrientationListener, l {
     private ARRenderFpsCallback gW;
     private List<String> u;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void onInputSizeChange(int i, int i2);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(int i, int i2);
     }

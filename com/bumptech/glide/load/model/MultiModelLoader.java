@@ -14,7 +14,7 @@ import com.bumptech.glide.util.Preconditions;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 class MultiModelLoader<Model, Data> implements ModelLoader<Model, Data> {
     private final Pools.Pool<List<Throwable>> exceptionListPool;
     private final List<ModelLoader<Model, Data>> modelLoaders;
@@ -64,13 +64,14 @@ class MultiModelLoader<Model, Data> implements ModelLoader<Model, Data> {
         return "MultiModelLoader{modelLoaders=" + Arrays.toString(this.modelLoaders.toArray()) + '}';
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     static class MultiFetcher<Data> implements DataFetcher<Data>, DataFetcher.DataCallback<Data> {
         private DataFetcher.DataCallback<? super Data> callback;
         private int currentIndex;
         @Nullable
         private List<Throwable> exceptions;
         private final List<DataFetcher<Data>> fetchers;
+        private boolean isCancelled;
         private Priority priority;
         private final Pools.Pool<List<Throwable>> throwableListPool;
 
@@ -87,6 +88,9 @@ class MultiModelLoader<Model, Data> implements ModelLoader<Model, Data> {
             this.callback = dataCallback;
             this.exceptions = this.throwableListPool.acquire();
             this.fetchers.get(this.currentIndex).loadData(priority, this);
+            if (this.isCancelled) {
+                cancel();
+            }
         }
 
         @Override // com.bumptech.glide.load.data.DataFetcher
@@ -102,6 +106,7 @@ class MultiModelLoader<Model, Data> implements ModelLoader<Model, Data> {
 
         @Override // com.bumptech.glide.load.data.DataFetcher
         public void cancel() {
+            this.isCancelled = true;
             for (DataFetcher<Data> dataFetcher : this.fetchers) {
                 dataFetcher.cancel();
             }
@@ -135,13 +140,15 @@ class MultiModelLoader<Model, Data> implements ModelLoader<Model, Data> {
         }
 
         private void startNextOrFail() {
-            if (this.currentIndex < this.fetchers.size() - 1) {
-                this.currentIndex++;
-                loadData(this.priority, this.callback);
-                return;
+            if (!this.isCancelled) {
+                if (this.currentIndex < this.fetchers.size() - 1) {
+                    this.currentIndex++;
+                    loadData(this.priority, this.callback);
+                    return;
+                }
+                Preconditions.checkNotNull(this.exceptions);
+                this.callback.onLoadFailed(new GlideException("Fetch failed", new ArrayList(this.exceptions)));
             }
-            Preconditions.checkNotNull(this.exceptions);
-            this.callback.onLoadFailed(new GlideException("Fetch failed", new ArrayList(this.exceptions)));
         }
     }
 }

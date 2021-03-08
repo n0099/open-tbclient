@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.util.au;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private String OU;
+    private String Qt;
     private String mAction;
     private JSONObject mParams;
-    private String nzB;
-    private String nzC;
+    private String nBG;
+    private String nBH;
 
     public String getAction() {
         return this.mAction;
@@ -19,34 +19,34 @@ public class e {
     }
 
     public String getModule() {
-        return this.OU;
+        return this.Qt;
     }
 
-    public void bW(String str) {
-        this.OU = str;
+    public void ca(String str) {
+        this.Qt = str;
     }
 
-    public JSONObject dOp() {
+    public JSONObject dOy() {
         return this.mParams;
     }
 
-    public void eL(JSONObject jSONObject) {
+    public void eO(JSONObject jSONObject) {
         this.mParams = jSONObject;
     }
 
-    public String dOq() {
-        return this.nzB;
+    public String dOz() {
+        return this.nBG;
     }
 
-    public void Tw(String str) {
-        this.nzB = str;
+    public void TD(String str) {
+        this.nBG = str;
     }
 
-    public void Tx(String str) {
-        this.nzC = str;
+    public void TE(String str) {
+        this.nBH = str;
     }
 
-    public String dOr() {
-        return au.isEmpty(this.OU) ? this.mAction : this.OU + "/" + this.mAction;
+    public String dOA() {
+        return au.isEmpty(this.Qt) ? this.mAction : this.Qt + "/" + this.mAction;
     }
 }

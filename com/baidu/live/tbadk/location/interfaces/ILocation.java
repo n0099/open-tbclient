@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.location.interfaces;
 
 import com.baidu.live.tbadk.location.LocationInfo;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface ILocation {
     void getLocation(LocationCallback locationCallback);
 

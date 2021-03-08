@@ -22,7 +22,7 @@ import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class Base64 {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final int DONT_GUNZIP = 4;
@@ -575,9 +575,9 @@ public class Base64 {
                 i4 = i8;
                 break;
             }
-            byte b2 = decodabet[bArr[i6] & 255];
-            if (b2 >= -5) {
-                if (b2 >= -1) {
+            byte b = decodabet[bArr[i6] & 255];
+            if (b >= -5) {
+                if (b >= -1) {
                     i5 = i7 + 1;
                     bArr3[i7] = bArr[i6];
                     if (i5 > 3) {
@@ -1098,7 +1098,7 @@ public class Base64 {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class InputStream extends FilterInputStream {
         private boolean breakLines;
         private byte[] buffer;
@@ -1185,11 +1185,11 @@ public class Base64 {
                 byte[] bArr3 = this.buffer;
                 int i4 = this.position;
                 this.position = i4 + 1;
-                byte b2 = bArr3[i4];
+                byte b = bArr3[i4];
                 if (this.position >= this.bufferLength) {
                     this.position = -1;
                 }
-                return b2 & 255;
+                return b & 255;
             }
             throw new IOException("Error in Base64 code reading stream.");
         }
@@ -1212,7 +1212,7 @@ public class Base64 {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class OutputStream extends FilterOutputStream {
         private byte[] b4;
         private boolean breakLines;

@@ -5,10 +5,8 @@ import java.util.ArrayList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f2826a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Point f2827b;
+    public int f2090a;
+    public Point b;
     public Point c;
     public ArrayList<ArrayList<Point>> d;
 }

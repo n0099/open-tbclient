@@ -1,5 +1,5 @@
 package com.yy.mediaframework.opengles;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFProgramOES extends YMFProgramBase {
     public static String fragmentShader = "#extension GL_OES_EGL_image_external : require                     \nprecision mediump float;                                           \nvarying vec2 vTextureCoord;                                        \nuniform samplerExternalOES uTexture0;                              \nvoid main()                                                        \n{                                                                  \n    vec4 color = texture2D(uTexture0, vTextureCoord);              \n    gl_FragColor = color;                                          \n}";
     public static final String vertexShader = "uniform mat4 uMVPMatrix;           \nuniform mat4 uTexMatrix;           \nattribute vec4 aPosition;          \nattribute vec4 aTextureCoord;      \nvarying vec2 vTextureCoord;        \nvoid main()                        \n{                                  \n    gl_Position = uMVPMatrix * aPosition;       \n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;  \n}";

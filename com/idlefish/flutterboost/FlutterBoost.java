@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FlutterBoost {
     private static boolean sInit;
     static FlutterBoost sInstance = null;
@@ -44,7 +44,7 @@ public class FlutterBoost {
     private boolean mEnterActivityCreate = false;
     private long FlutterPostFrameCallTime = 0;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface BoostLifecycleListener {
         void beforeCreateEngine();
 
@@ -175,7 +175,7 @@ public class FlutterBoost {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class ConfigBuilder {
         private BoostLifecycleListener lifecycleListener;
         private Application mApp;
@@ -288,17 +288,17 @@ public class FlutterBoost {
                 try {
                     if (FlutterCrashRepairEnableSwitch.isOn() && findPluginSetting != null && findPluginSetting.apkPath != null) {
                         Object pathList = com.baidu.adp.plugin.util.a.getPathList((PathClassLoader) TbadkCoreApplication.getInst().getClassLoader());
-                        Object A = com.baidu.adp.plugin.util.a.A(pathList);
-                        if (A instanceof File[]) {
-                            File[] fileArr = (File[]) A;
+                        Object C = com.baidu.adp.plugin.util.a.C(pathList);
+                        if (C instanceof File[]) {
+                            File[] fileArr = (File[]) C;
                             z = false;
                             for (int i = 0; i < fileArr.length; i++) {
                                 if (fileArr[i] != null && fileArr[i].getPath().contains("pluginFlutter")) {
                                     z = true;
                                 }
                             }
-                        } else if (A instanceof List) {
-                            List list2 = (List) A;
+                        } else if (C instanceof List) {
+                            List list2 = (List) C;
                             int i2 = 0;
                             boolean z2 = false;
                             while (i2 < list2.size()) {
@@ -312,14 +312,14 @@ public class FlutterBoost {
                         }
                         if (!z) {
                             String replace = findPluginSetting.apkPath.replace(".apk", "/lib");
-                            if (A instanceof File[]) {
-                                list = com.baidu.adp.plugin.util.a.f(A, new File(replace));
-                            } else if (A instanceof List) {
-                                List list3 = (List) A;
+                            if (C instanceof File[]) {
+                                list = com.baidu.adp.plugin.util.a.f(C, new File(replace));
+                            } else if (C instanceof List) {
+                                List list3 = (List) C;
                                 list3.add(0, new File(replace));
                                 list = list3;
                             } else {
-                                list = A;
+                                list = C;
                             }
                             com.baidu.adp.plugin.util.a.setField(pathList, pathList.getClass(), "nativeLibraryDirectories", list);
                             if (Build.VERSION.SDK_INT > 25 || (Build.VERSION.SDK_INT == 25 && Util.isPreview())) {

@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.Locale;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class NTLMEngineImpl {
     protected static final int FLAG_DOMAIN_PRESENT = 4096;
     protected static final int FLAG_REQUEST_128BIT_KEY_EXCH = 536870912;
@@ -34,7 +34,7 @@ public final class NTLMEngineImpl {
     private static final Charset UNICODE_LITTLE_UNMARKED = Charset.forName("UnicodeLittleUnmarked");
     private static final Charset DEFAULT_CHARSET = Charset.forName("US-ASCII");
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class NTLMEngineException extends Exception {
         public NTLMEngineException(String str) {
             super(str);
@@ -148,7 +148,7 @@ public final class NTLMEngineImpl {
         return bArr;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     protected static class CipherGen {
         protected final byte[] challenge;
         protected byte[] clientChallenge;
@@ -553,8 +553,8 @@ public final class NTLMEngineImpl {
 
     private static void oddParity(byte[] bArr) {
         for (int i = 0; i < bArr.length; i++) {
-            byte b2 = bArr[i];
-            if ((((b2 >>> 1) ^ ((((((b2 >>> 7) ^ (b2 >>> 6)) ^ (b2 >>> 5)) ^ (b2 >>> 4)) ^ (b2 >>> 3)) ^ (b2 >>> 2))) & 1) == 0) {
+            byte b = bArr[i];
+            if ((((b >>> 1) ^ ((((((b >>> 7) ^ (b >>> 6)) ^ (b >>> 5)) ^ (b >>> 4)) ^ (b >>> 3)) ^ (b >>> 2))) & 1) == 0) {
                 bArr[i] = (byte) (bArr[i] | 1);
             } else {
                 bArr[i] = (byte) (bArr[i] & (-2));
@@ -563,7 +563,7 @@ public final class NTLMEngineImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class NTLMMessage {
         private int currentOutputPosition;
         private byte[] messageContents;
@@ -634,15 +634,15 @@ public final class NTLMEngineImpl {
             addULong(i2);
         }
 
-        protected void addByte(byte b2) {
-            this.messageContents[this.currentOutputPosition] = b2;
+        protected void addByte(byte b) {
+            this.messageContents[this.currentOutputPosition] = b;
             this.currentOutputPosition++;
         }
 
         protected void addBytes(byte[] bArr) {
             if (bArr != null) {
-                for (byte b2 : bArr) {
-                    this.messageContents[this.currentOutputPosition] = b2;
+                for (byte b : bArr) {
+                    this.messageContents[this.currentOutputPosition] = b;
                     this.currentOutputPosition++;
                 }
             }
@@ -672,7 +672,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     static class Type1Message extends NTLMMessage {
         private final byte[] domainBytes;
         private final byte[] hostBytes;
@@ -716,7 +716,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     static class Type2Message extends NTLMMessage {
         protected byte[] challenge;
         protected int flags;
@@ -769,7 +769,7 @@ public final class NTLMEngineImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class Type3Message extends NTLMMessage {
         protected byte[] domainBytes;
         protected byte[] hostBytes;
@@ -921,7 +921,7 @@ public final class NTLMEngineImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class MD4 {
         protected int A = 1732584193;
         protected int B = -271733879;
@@ -1046,7 +1046,7 @@ public final class NTLMEngineImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class HMACMD5 {
         protected byte[] ipad;
         protected MessageDigest md5;

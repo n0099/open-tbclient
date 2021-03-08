@@ -1,5 +1,5 @@
 package com.baidu.sapi2.utils.enums;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public enum BindWidgetAction {
     BIND_MOBILE("/wp/bindwidget-bindmobile", "绑定手机"),
     BIND_EMAIL("/wp/bindwidget-bindemail", "绑定邮箱"),
@@ -10,21 +10,19 @@ public enum BindWidgetAction {
     
 
     /* renamed from: a  reason: collision with root package name */
-    private String f5115a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f5116b;
+    private String f3452a;
+    private String b;
 
     BindWidgetAction(String str, String str2) {
-        this.f5115a = str;
-        this.f5116b = str2;
+        this.f3452a = str;
+        this.b = str2;
     }
 
     public String getName() {
-        return this.f5116b;
+        return this.b;
     }
 
     public String getUri() {
-        return this.f5115a;
+        return this.f3452a;
     }
 }

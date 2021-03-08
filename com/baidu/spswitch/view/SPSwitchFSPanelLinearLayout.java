@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import com.baidu.spswitch.a.a;
 /* loaded from: classes3.dex */
 public class SPSwitchFSPanelLinearLayout extends LinearLayout {
-    private a cBO;
+    private a cDo;
 
     public SPSwitchFSPanelLinearLayout(Context context) {
         this(context, null);
@@ -23,6 +23,6 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout {
     }
 
     private void init() {
-        this.cBO = new a(this);
+        this.cDo = new a(this);
     }
 }

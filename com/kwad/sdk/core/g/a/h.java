@@ -12,10 +12,8 @@ import org.json.JSONObject;
 public class h implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f9171a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f9172b;
+    private int f6102a;
+    private String b;
     private int c;
     private Long d;
     private Long e;
@@ -27,8 +25,8 @@ public class h implements com.kwad.sdk.core.b {
 
     public static h a() {
         h hVar = new h();
-        hVar.f9171a = ah.c();
-        hVar.f9172b = AbiUtil.a();
+        hVar.f6102a = ah.c();
+        hVar.b = AbiUtil.a();
         hVar.c = ah.a(KsAdSDKImpl.get().getContext());
         hVar.d = Long.valueOf(ah.b(KsAdSDKImpl.get().getContext()));
         hVar.e = Long.valueOf(ah.c(KsAdSDKImpl.get().getContext()));
@@ -43,8 +41,8 @@ public class h implements com.kwad.sdk.core.b {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, "cpuCount", this.f9171a);
-        o.a(jSONObject, "cpuAbi", this.f9172b);
+        o.a(jSONObject, "cpuCount", this.f6102a);
+        o.a(jSONObject, "cpuAbi", this.b);
         o.a(jSONObject, "batteryPercent", this.c);
         o.a(jSONObject, "totalMemorySize", this.d.longValue());
         o.a(jSONObject, "availableMemorySize", this.e.longValue());

@@ -6,17 +6,17 @@ import android.location.OnNmeaMessageListener;
 public class f implements OnNmeaMessageListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f2608a;
+    final /* synthetic */ e f1954a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.f2608a = eVar;
+        this.f1954a = eVar;
     }
 
     @Override // android.location.OnNmeaMessageListener
     public void onNmeaMessage(String str, long j) {
-        if (this.f2608a.b(str)) {
-            this.f2608a.a(str);
+        if (this.f1954a.b(str)) {
+            this.f1954a.a(str);
         }
     }
 }

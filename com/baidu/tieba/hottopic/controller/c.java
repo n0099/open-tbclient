@@ -7,22 +7,22 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.widget.OvalActionButton;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
-    private OvalActionButton jCB;
+    private OvalActionButton jEk;
     private TbPageContext<?> mPageContext;
     private String mPostContent;
     private String mTopicId;
 
     public c(OvalActionButton ovalActionButton, TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.jCB = ovalActionButton;
-        this.jCB.setIsCircle(true);
-        this.jCB.setHasShadow(false);
-        this.jCB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.controller.c.1
+        this.jEk = ovalActionButton;
+        this.jEk.setIsCircle(true);
+        this.jEk.setHasShadow(false);
+        this.jEk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.controller.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.cSq();
+                c.this.cSx();
             }
         });
     }
@@ -31,12 +31,12 @@ public class c {
         this.mTopicId = str;
     }
 
-    public void CW(String str) {
+    public void Dd(String str) {
         this.mPostContent = str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cSq() {
+    public void cSx() {
         if (!WriteActivityConfig.isAsyncWriting() && this.mTopicId != null) {
             String str = null;
             if (!StringUtils.isNull(this.mPostContent)) {

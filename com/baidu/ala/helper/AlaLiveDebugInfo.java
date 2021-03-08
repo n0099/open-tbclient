@@ -1,7 +1,7 @@
 package com.baidu.ala.helper;
 
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AlaLiveDebugInfo implements Serializable {
     private static final long serialVersionUID = 5698793191517772253L;
     public long bandWidth;

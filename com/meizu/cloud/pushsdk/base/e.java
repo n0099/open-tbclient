@@ -16,10 +16,8 @@ public class e {
     private BufferedWriter d;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f11240a = "EncryptionWriter";
-
-    /* renamed from: b  reason: collision with root package name */
-    private SimpleDateFormat f11241b = new SimpleDateFormat("yyyy-MM-dd");
+    private String f7388a = "EncryptionWriter";
+    private SimpleDateFormat b = new SimpleDateFormat("yyyy-MM-dd");
     private int e = 7;
     private String f = ".log.txt";
     private d c = new d("lo");
@@ -70,13 +68,13 @@ public class e {
         if (!file.exists() && !file.mkdirs()) {
             throw new IOException("create " + str + " dir failed!!!");
         }
-        String format = this.f11241b.format(new Date());
+        String format = this.b.format(new Date());
         File file2 = new File(str, format + this.f);
         if (!file2.exists()) {
             if (file2.createNewFile()) {
                 a(file);
             } else {
-                Log.e(this.f11240a, "create new file " + format + " failed !!!");
+                Log.e(this.f7388a, "create new file " + format + " failed !!!");
             }
         }
         this.d = new BufferedWriter(new FileWriter(file2, true));

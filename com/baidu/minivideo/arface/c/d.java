@@ -4,12 +4,12 @@ import android.text.TextUtils;
 import java.text.DecimalFormat;
 import java.util.Vector;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class d {
     private String TAG = "TimerArFrameStatistician";
-    private Vector<Integer> clA = new Vector<>();
-    private long clB = 0;
-    private Vector<Integer> clC = new Vector<>();
+    private Vector<Integer> cnb = new Vector<>();
+    private long cnc = 0;
+    private Vector<Integer> cnd = new Vector<>();
     private long mLastTime;
 
     public void onFrameAvailable() {
@@ -20,32 +20,32 @@ public class d {
         long currentTimeMillis = System.currentTimeMillis();
         int i = (int) (currentTimeMillis - this.mLastTime);
         if (i >= 0) {
-            this.clA.add(Integer.valueOf(i));
+            this.cnb.add(Integer.valueOf(i));
             this.mLastTime = currentTimeMillis;
         }
     }
 
     public void onRenderStarted() {
-        this.clB = System.currentTimeMillis();
+        this.cnc = System.currentTimeMillis();
     }
 
     public void onRenderFinished() {
         int currentTimeMillis;
-        if (this.clB > 0 && (currentTimeMillis = (int) (System.currentTimeMillis() - this.clB)) >= 0) {
-            this.clC.add(Integer.valueOf(currentTimeMillis));
+        if (this.cnc > 0 && (currentTimeMillis = (int) (System.currentTimeMillis() - this.cnc)) >= 0) {
+            this.cnd.add(Integer.valueOf(currentTimeMillis));
         }
     }
 
     public String ei(boolean z) {
-        if (this.clA == null || this.clA.size() == 0) {
+        if (this.cnb == null || this.cnb.size() == 0) {
             return "";
         }
         JSONArray jSONArray = new JSONArray();
         float f = 0.0f;
-        int size = this.clA.size();
+        int size = this.cnb.size();
         int i = 0;
         while (i < size) {
-            Integer num = this.clA.get(i);
+            Integer num = this.cnb.get(i);
             if (num != null) {
                 f += num.intValue();
                 jSONArray.put(num);
@@ -61,15 +61,15 @@ public class d {
     }
 
     public String ej(boolean z) {
-        if (this.clC == null || this.clC.size() == 0) {
+        if (this.cnd == null || this.cnd.size() == 0) {
             return "";
         }
         JSONArray jSONArray = new JSONArray();
         float f = 0.0f;
-        int size = this.clC.size();
+        int size = this.cnd.size();
         int i = 0;
         while (i < size) {
-            Integer num = this.clC.get(i);
+            Integer num = this.cnd.get(i);
             if (num != null) {
                 f += num.intValue();
                 jSONArray.put(num);
@@ -85,14 +85,14 @@ public class d {
     }
 
     public int getFps() {
-        if (this.clA == null || this.clA.size() == 0) {
+        if (this.cnb == null || this.cnb.size() == 0) {
             return 0;
         }
-        int size = this.clA.size();
+        int size = this.cnb.size();
         int i = 0;
         int i2 = 0;
         while (i < size) {
-            Integer num = this.clA.get(i);
+            Integer num = this.cnb.get(i);
             i++;
             i2 = num == null ? i2 : num.intValue() + i2;
         }
@@ -105,8 +105,8 @@ public class d {
 
     public void resetData() {
         this.mLastTime = 0L;
-        this.clB = 0L;
-        this.clA.clear();
-        this.clC.clear();
+        this.cnc = 0L;
+        this.cnb.clear();
+        this.cnd.clear();
     }
 }

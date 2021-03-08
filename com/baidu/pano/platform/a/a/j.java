@@ -27,10 +27,8 @@ import org.apache.http.message.BasicStatusLine;
 public class j implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    private final a f3861a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final SSLSocketFactory f3862b;
+    private final a f2695a;
+    private final SSLSocketFactory b;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -46,8 +44,8 @@ public class j implements i {
     }
 
     public j(a aVar, SSLSocketFactory sSLSocketFactory) {
-        this.f3861a = aVar;
-        this.f3862b = sSLSocketFactory;
+        this.f2695a = aVar;
+        this.b = sSLSocketFactory;
     }
 
     @Override // com.baidu.pano.platform.a.a.i
@@ -57,8 +55,8 @@ public class j implements i {
         HashMap hashMap = new HashMap();
         hashMap.putAll(nVar.i());
         hashMap.putAll(map);
-        if (this.f3861a != null) {
-            str = this.f3861a.a(c);
+        if (this.f2695a != null) {
+            str = this.f2695a.a(c);
             if (str == null) {
                 throw new IOException("URL blocked by rewriter: " + c);
             }
@@ -110,8 +108,8 @@ public class j implements i {
         a2.setReadTimeout(t);
         a2.setUseCaches(false);
         a2.setDoInput(true);
-        if ("https".equals(url.getProtocol()) && this.f3862b != null) {
-            ((HttpsURLConnection) a2).setSSLSocketFactory(this.f3862b);
+        if ("https".equals(url.getProtocol()) && this.b != null) {
+            ((HttpsURLConnection) a2).setSSLSocketFactory(this.b);
         }
         return a2;
     }

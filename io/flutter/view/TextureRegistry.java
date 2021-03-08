@@ -1,10 +1,10 @@
 package io.flutter.view;
 
 import android.graphics.SurfaceTexture;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public interface TextureRegistry {
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface SurfaceTextureEntry {
         long id();
 

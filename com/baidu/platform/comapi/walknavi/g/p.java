@@ -6,17 +6,17 @@ import android.app.Activity;
 public class p implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f4349a;
+    final /* synthetic */ a f3014a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(a aVar) {
-        this.f4349a = aVar;
+        this.f3014a = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Activity activity;
-        activity = this.f4349a.i;
+        activity = this.f3014a.i;
         if (activity != null) {
             com.baidu.platform.comapi.walknavi.b.a().H().b("WALKNAVI_AR_HINT_HAS_SHOW", true);
         }

@@ -8,26 +8,24 @@ public final class ArcOptions extends OverlayOptions {
     private static final String d = ArcOptions.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    int f2690a;
+    int f2007a;
     Bundle c;
     private LatLng g;
     private LatLng h;
     private LatLng i;
     private int e = ViewCompat.MEASURED_STATE_MASK;
     private int f = 5;
-
-    /* renamed from: b  reason: collision with root package name */
-    boolean f2691b = true;
+    boolean b = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Arc arc = new Arc();
-        arc.x = this.f2691b;
-        arc.w = this.f2690a;
+        arc.x = this.b;
+        arc.w = this.f2007a;
         arc.y = this.c;
-        arc.f2688a = this.e;
-        arc.f2689b = this.f;
+        arc.f2006a = this.e;
+        arc.b = this.f;
         arc.c = this.g;
         arc.d = this.h;
         arc.e = this.i;
@@ -69,11 +67,11 @@ public final class ArcOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2690a;
+        return this.f2007a;
     }
 
     public boolean isVisible() {
-        return this.f2691b;
+        return this.b;
     }
 
     public ArcOptions points(LatLng latLng, LatLng latLng2, LatLng latLng3) {
@@ -90,7 +88,7 @@ public final class ArcOptions extends OverlayOptions {
     }
 
     public ArcOptions visible(boolean z) {
-        this.f2691b = z;
+        this.b = z;
         return this;
     }
 
@@ -102,7 +100,7 @@ public final class ArcOptions extends OverlayOptions {
     }
 
     public ArcOptions zIndex(int i) {
-        this.f2690a = i;
+        this.f2007a = i;
         return this;
     }
 }

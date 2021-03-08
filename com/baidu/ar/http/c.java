@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 class c implements l {
     private Object mLock;
     private com.baidu.ar.ihttp.a qF;
@@ -52,7 +52,7 @@ class c implements l {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0085 */
     /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.lang.Object[] */
     /* JADX DEBUG: Multi-variable search result rejected for r4v1, resolved type: android.app.blob.BlobStoreManager$Session */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: com.baidu.live.adp.lib.util.Base64$InputStream */
+    /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: com.baidu.live.adp.lib.util.Base64$1 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:21:0x007a A[Catch: all -> 0x0085, TryCatch #2 {all -> 0x0085, blocks: (B:57:0x00fb, B:19:0x0076, B:21:0x007a, B:22:0x007f, B:23:0x0084), top: B:77:0x000c }] */
     /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Object] */
@@ -96,9 +96,9 @@ class c implements l {
                                     try {
                                         byte[] bArr = new byte[1024];
                                         int i = 0;
-                                        for (Base64.InputStream inputStream : objArr) {
+                                        for (Base64.AnonymousClass1 anonymousClass1 : objArr) {
                                             while (true) {
-                                                int read = inputStream.read(bArr);
+                                                int read = anonymousClass1.read(bArr);
                                                 if (read != -1) {
                                                     outputStream3.write(bArr, 0, read);
                                                     if (this.qN != null) {

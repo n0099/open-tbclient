@@ -12,30 +12,30 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private final List<cb> koe = new ArrayList();
+    private final List<cb> kqg = new ArrayList();
 
     public c a(boolean z, com.baidu.tieba.homepage.tabfeed.data.a aVar) {
         c cVar = new c();
-        cVar.gcC = z;
+        cVar.gec = z;
         cVar.hasMore = aVar.hasMore();
-        cVar.knZ = aVar.cSe();
-        cVar.koa = aVar.cSf();
-        ArrayList<cb> cxi = aVar.cxi();
+        cVar.kqb = aVar.cSl();
+        cVar.kqc = aVar.cSm();
+        ArrayList<cb> cxo = aVar.cxo();
         if (z) {
-            if (!y.isEmpty(cxi)) {
-                this.koe.clear();
-                this.koe.addAll(cxi);
+            if (!y.isEmpty(cxo)) {
+                this.kqg.clear();
+                this.kqg.addAll(cxo);
             }
-        } else if (!y.isEmpty(cxi)) {
-            this.koe.addAll(cxi);
+        } else if (!y.isEmpty(cxo)) {
+            this.kqg.addAll(cxo);
         }
         ArrayList<n> arrayList = new ArrayList<>();
-        arrayList.addAll(this.koe);
-        a(arrayList, aVar.cSc());
-        a(arrayList, aVar.cSd());
-        a(arrayList, aVar.cSg());
-        a(arrayList, aVar.cSh());
-        cVar.knY = aE(arrayList);
+        arrayList.addAll(this.kqg);
+        a(arrayList, aVar.cSj());
+        a(arrayList, aVar.cSk());
+        a(arrayList, aVar.cSn());
+        a(arrayList, aVar.cSo());
+        cVar.kqa = aE(arrayList);
         return cVar;
     }
 
@@ -48,84 +48,84 @@ public class a {
             if (next instanceof cb) {
                 cb cbVar = (cb) next;
                 int[] imageWidthAndHeight = cbVar.getImageWidthAndHeight();
-                if (cbVar.getType() == cb.eQm) {
+                if (cbVar.getType() == cb.eRN) {
                     ca caVar = new ca();
-                    caVar.eJQ = cbVar;
+                    caVar.eLr = cbVar;
                     caVar.position = i;
-                    caVar.ePR = true;
+                    caVar.eRs = true;
                     arrayList2.add(caVar);
                     ca caVar2 = new ca();
-                    caVar2.eJQ = cbVar;
+                    caVar2.eLr = cbVar;
                     caVar2.position = i;
-                    if (cbVar.bpN()) {
-                        caVar2.ePW = true;
-                    } else if (cbVar.boX() == 1) {
-                        caVar2.ePU = true;
-                        caVar2.eQj = imageWidthAndHeight[0];
-                        caVar2.eQk = imageWidthAndHeight[1];
-                    } else if (cbVar.boX() >= 2) {
-                        caVar2.ePV = true;
+                    if (cbVar.bpP()) {
+                        caVar2.eRx = true;
+                    } else if (cbVar.boZ() == 1) {
+                        caVar2.eRv = true;
+                        caVar2.eRK = imageWidthAndHeight[0];
+                        caVar2.eRL = imageWidthAndHeight[1];
+                    } else if (cbVar.boZ() >= 2) {
+                        caVar2.eRw = true;
                     } else {
-                        caVar2.ePS = true;
+                        caVar2.eRt = true;
                     }
                     arrayList2.add(caVar2);
-                    if (cbVar.bpW() != null) {
+                    if (cbVar.bpY() != null) {
                         ca caVar3 = new ca();
-                        caVar3.eQe = true;
-                        caVar3.eJQ = cbVar;
+                        caVar3.eRF = true;
+                        caVar3.eLr = cbVar;
                         caVar3.position = i;
                         arrayList2.add(caVar3);
                     }
-                    if (!y.isEmpty(cbVar.bpZ()) || !y.isEmpty(cbVar.bqa())) {
+                    if (!y.isEmpty(cbVar.bqb()) || !y.isEmpty(cbVar.bqc())) {
                         ca caVar4 = new ca();
-                        caVar4.eJQ = cbVar;
+                        caVar4.eLr = cbVar;
                         caVar4.position = i;
-                        if (y.getCount(cbVar.bpZ()) + y.getCount(cbVar.bqa()) == 1) {
-                            caVar4.eQg = true;
-                        } else if (y.getCount(cbVar.bpZ()) + y.getCount(cbVar.bqa()) > 1) {
-                            caVar4.eQh = true;
+                        if (y.getCount(cbVar.bqb()) + y.getCount(cbVar.bqc()) == 1) {
+                            caVar4.eRH = true;
+                        } else if (y.getCount(cbVar.bqb()) + y.getCount(cbVar.bqc()) > 1) {
+                            caVar4.eRI = true;
                         }
                         arrayList2.add(caVar4);
                     }
                     ca caVar5 = new ca();
-                    caVar5.eQd = true;
-                    caVar5.eJQ = cbVar;
+                    caVar5.eRE = true;
+                    caVar5.eLr = cbVar;
                     caVar5.position = i;
                     arrayList2.add(caVar5);
                     ca caVar6 = new ca();
-                    caVar6.ePX = true;
-                    caVar6.eJQ = cbVar;
+                    caVar6.eRy = true;
+                    caVar6.eLr = cbVar;
                     caVar6.position = i;
                     arrayList2.add(caVar6);
-                } else if (cbVar.getType() == cb.eQK) {
+                } else if (cbVar.getType() == cb.eSl) {
                     ca caVar7 = new ca();
-                    caVar7.eJQ = cbVar;
+                    caVar7.eLr = cbVar;
                     caVar7.position = i;
-                    caVar7.ePR = true;
+                    caVar7.eRs = true;
                     arrayList2.add(caVar7);
                     ca caVar8 = new ca();
-                    caVar8.eJQ = cbVar;
+                    caVar8.eLr = cbVar;
                     caVar8.position = i;
-                    caVar8.ePZ = true;
+                    caVar8.eRA = true;
                     arrayList2.add(caVar8);
-                    if (cbVar.bpW() != null) {
+                    if (cbVar.bpY() != null) {
                         ca caVar9 = new ca();
-                        caVar9.eQe = true;
-                        caVar9.eJQ = cbVar;
+                        caVar9.eRF = true;
+                        caVar9.eLr = cbVar;
                         caVar9.position = i;
                         arrayList2.add(caVar9);
                     }
                     ca caVar10 = new ca();
-                    caVar10.eQd = true;
-                    caVar10.eJQ = cbVar;
+                    caVar10.eRE = true;
+                    caVar10.eLr = cbVar;
                     caVar10.position = i;
                     arrayList2.add(caVar10);
                     ca caVar11 = new ca();
-                    caVar11.ePX = true;
-                    caVar11.eJQ = cbVar;
+                    caVar11.eRy = true;
+                    caVar11.eLr = cbVar;
                     caVar11.position = i;
                     arrayList2.add(caVar11);
-                } else if (cbVar.getType() == cb.eQB && cbVar.bmx()) {
+                } else if (cbVar.getType() == cb.eSc && cbVar.bmz()) {
                     cbVar.position = i;
                     arrayList2.add(cbVar);
                 } else if (j.ae(cbVar)) {
@@ -134,7 +134,7 @@ public class a {
                     arrayList2.add(jVar);
                 } else {
                     ca caVar12 = new ca();
-                    caVar12.eJQ = cbVar;
+                    caVar12.eLr = cbVar;
                     caVar12.position = i;
                     arrayList2.add(caVar12);
                 }
@@ -173,6 +173,6 @@ public class a {
     }
 
     public boolean hasData() {
-        return (this.koe == null || y.isEmpty(this.koe)) ? false : true;
+        return (this.kqg == null || y.isEmpty(this.kqg)) ? false : true;
     }
 }

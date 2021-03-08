@@ -4,13 +4,13 @@ import io.reactivex.internal.functions.Functions;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 abstract class AbstractDirectTask extends AtomicReference<Future<?>> implements io.reactivex.disposables.b {
     private static final long serialVersionUID = 1811839108042568751L;
     protected final Runnable runnable;
     protected Thread runner;
-    protected static final FutureTask<Void> FINISHED = new FutureTask<>(Functions.qob, null);
-    protected static final FutureTask<Void> DISPOSED = new FutureTask<>(Functions.qob, null);
+    protected static final FutureTask<Void> FINISHED = new FutureTask<>(Functions.qoD, null);
+    protected static final FutureTask<Void> DISPOSED = new FutureTask<>(Functions.qoD, null);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public AbstractDirectTask(Runnable runnable) {

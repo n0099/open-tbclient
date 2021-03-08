@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import com.baidu.swan.apps.SwanAppBaseActivity;
 import com.baidu.swan.apps.ab.c;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static String TAG = "RequestPermissionHelper";
@@ -15,7 +15,7 @@ public class a {
         if (context == null || !(context instanceof Activity)) {
             bVar.am(2, "context should be activity ref");
         } else if (com.baidu.swan.uuid.b.c.hasPermission(context, str)) {
-            bVar.jU("permission has already granted");
+            bVar.kb("permission has already granted");
         } else {
             a(context, strArr, i, bVar);
         }
@@ -31,7 +31,7 @@ public class a {
         if (arrayList.size() > 0) {
             a(context, (String[]) arrayList.toArray(new String[0]), i, bVar);
         } else {
-            bVar.jU("permission has already granted");
+            bVar.kb("permission has already granted");
         }
     }
 
@@ -60,7 +60,7 @@ public class a {
                         return;
                     }
                 }
-                bVar.jU("permission granted successful");
+                bVar.kb("permission granted successful");
             }
         });
     }

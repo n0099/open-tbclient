@@ -14,9 +14,7 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a extends com.kwad.sdk.core.e.b {
     @NonNull
-
-    /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.reward.a.b f10527b;
+    public com.kwad.sdk.reward.a.b b;
     @NonNull
     public KsVideoPlayConfig c;
     @Nullable
@@ -41,13 +39,13 @@ public class a extends com.kwad.sdk.core.e.b {
     public boolean q;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<com.kwad.sdk.reward.a.a> f10526a = new ArrayList();
+    public List<com.kwad.sdk.reward.a.a> f6935a = new ArrayList();
     public Set<com.kwad.sdk.reward.a.e> n = new HashSet();
     public Set<com.kwad.sdk.reward.a.d> o = new HashSet();
 
     @Override // com.kwad.sdk.core.e.b
     public void a() {
-        this.f10526a.clear();
+        this.f6935a.clear();
         this.n.clear();
         this.i.h();
         if (this.j != null) {

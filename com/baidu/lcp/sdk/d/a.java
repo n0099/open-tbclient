@@ -32,16 +32,16 @@ public class a {
         String appVersionName = TextUtils.isEmpty(getAppVersionName(context)) ? "" : getAppVersionName(context);
         long currentTimeMillis = System.currentTimeMillis();
         String appId = e.getAppId(context);
-        String aM = e.aM(context);
+        String aL = e.aL(context);
         try {
             if (z) {
-                if (TextUtils.isEmpty(appId) || TextUtils.isEmpty(aM)) {
-                    d.e("LCPCommon", "getData appId : " + appId + ", cuid :" + aM);
+                if (TextUtils.isEmpty(appId) || TextUtils.isEmpty(aL)) {
+                    d.e("LCPCommon", "getData appId : " + appId + ", cuid :" + aL);
                     return null;
                 }
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("request_id", valueOf);
-                jSONObject.put("cuid", aM);
+                jSONObject.put("cuid", aL);
                 jSONObject.put(HttpConstants.DEVICE_TYPE, HttpConstants.OS_TYPE_VALUE);
                 jSONObject.put("os_version", str);
                 jSONObject.put("manufacture", str2);
@@ -50,7 +50,7 @@ public class a {
                 jSONObject.put("app_version", appVersionName);
                 jSONObject.put(SapiContext.KEY_SDK_VERSION, "2240016");
                 jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, currentTimeMillis);
-                jSONObject.put("sign", b(appId, aM, HttpConstants.OS_TYPE_VALUE, currentTimeMillis));
+                jSONObject.put("sign", b(appId, aL, HttpConstants.OS_TYPE_VALUE, currentTimeMillis));
                 return jSONObject;
             }
             String str4 = "nonNet";
@@ -61,7 +61,7 @@ public class a {
                     str4 = RequsetNetworkUtils.getMobileType(context);
                 }
             }
-            return LcmPb.Common.newBuilder().ek(aM).el(HttpConstants.OS_TYPE_VALUE).em(str).en(str2).eo(str3).ep(appId).eq(appVersionName).er("2240016").es(str4).et(aG(context)).build();
+            return LcmPb.Common.newBuilder().eq(aL).er(HttpConstants.OS_TYPE_VALUE).es(str).et(str2).eu(str3).ev(appId).ew(appVersionName).ey("2240016").ez(str4).eA(aF(context)).build();
         } catch (Exception e) {
             d.e("LCPCommon", "getData :", e);
             return null;
@@ -86,8 +86,8 @@ public class a {
         try {
             byte[] digest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5).digest(str.getBytes());
             StringBuilder sb = new StringBuilder();
-            for (byte b2 : digest) {
-                int i = b2 & 255;
+            for (byte b : digest) {
+                int i = b & 255;
                 if (i < 16) {
                     sb.append(0);
                 }
@@ -99,7 +99,7 @@ public class a {
         }
     }
 
-    public static String aG(Context context) {
+    public static String aF(Context context) {
         String str;
         String str2;
         String str3 = "";
@@ -178,7 +178,7 @@ public class a {
 
     public static void a(Context context, long j, String str, String str2) {
         try {
-            new a.b(context).ef(str).eg("1").Y(j).eh(str2).Z(501112L).build();
+            new a.b(context).el(str).em("1").Y(j).en(str2).Z(501112L).build();
         } catch (Exception e) {
             d.e("LCPCommon", "businessEvent exception ", e);
         }

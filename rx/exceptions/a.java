@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import rx.e;
 import rx.i;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class a {
     public static RuntimeException s(Throwable th) {
         if (th instanceof RuntimeException) {
@@ -71,7 +71,7 @@ public final class a {
         return th;
     }
 
-    public static void hk(List<? extends Throwable> list) {
+    public static void hj(List<? extends Throwable> list) {
         if (list != null && !list.isEmpty()) {
             if (list.size() == 1) {
                 Throwable th = list.get(0);

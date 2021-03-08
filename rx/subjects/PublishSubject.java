@@ -9,36 +9,36 @@ import rx.exceptions.MissingBackpressureException;
 import rx.f;
 import rx.j;
 import rx.k;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class PublishSubject<T> extends c<T, T> {
-    final PublishSubjectState<T> qEW;
+    final PublishSubjectState<T> qFy;
 
-    public static <T> PublishSubject<T> eOk() {
+    public static <T> PublishSubject<T> eNS() {
         return new PublishSubject<>(new PublishSubjectState());
     }
 
     protected PublishSubject(PublishSubjectState<T> publishSubjectState) {
         super(publishSubjectState);
-        this.qEW = publishSubjectState;
+        this.qFy = publishSubjectState;
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.qEW.onNext(t);
+        this.qFy.onNext(t);
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.qEW.onError(th);
+        this.qFy.onError(th);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.qEW.onCompleted();
+        this.qFy.onCompleted();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class PublishSubjectState<T> extends AtomicReference<PublishSubjectProducer<T>[]> implements d.a<T>, e<T> {
         static final PublishSubjectProducer[] EMPTY = new PublishSubjectProducer[0];
         static final PublishSubjectProducer[] TERMINATED = new PublishSubjectProducer[0];
@@ -146,7 +146,7 @@ public final class PublishSubject<T> extends c<T, T> {
                     arrayList.add(th2);
                 }
             }
-            rx.exceptions.a.hk(arrayList);
+            rx.exceptions.a.hj(arrayList);
         }
 
         @Override // rx.e
@@ -158,7 +158,7 @@ public final class PublishSubject<T> extends c<T, T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class PublishSubjectProducer<T> extends AtomicLong implements e<T>, f, k {
         private static final long serialVersionUID = 6451806817170721536L;
         final j<? super T> actual;

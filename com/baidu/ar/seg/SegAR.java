@@ -17,7 +17,7 @@ import com.baidu.ar.statistic.StatisticConstants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class SegAR extends c {
     private static final String TAG = SegAR.class.getSimpleName();
     private static final float[] vo = {0.0f, -1.0f, 1.0f, 0.0f};
@@ -53,7 +53,7 @@ public class SegAR extends c {
     private int vx = 0;
 
     /* renamed from: io  reason: collision with root package name */
-    private byte[] f1568io = null;
+    private byte[] f1308io = null;
     private long vy = 0;
     private AlgoHandleController cb = null;
     private int vz = -1;
@@ -405,9 +405,9 @@ public class SegAR extends c {
                     if (r != null) {
                         SegAR.this.vw = gd.getWidth();
                         SegAR.this.vx = gd.getHeight();
-                        SegAR.this.f1568io = gd.gc();
+                        SegAR.this.f1308io = gd.gc();
                         SegAR.this.vy = bVar.getTimestamp();
-                        if (SegAR.this.vw <= 0 || SegAR.this.vx <= 0 || SegAR.this.f1568io == null) {
+                        if (SegAR.this.vw <= 0 || SegAR.this.vx <= 0 || SegAR.this.f1308io == null) {
                             return;
                         }
                         j jVar = new j();

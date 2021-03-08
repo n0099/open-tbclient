@@ -12,13 +12,13 @@ public class SDKInitializer {
     public static final String SDK_BROADTCAST_INTENT_EXTRA_INFO_KEY_ERROR_MESSAGE = "error_message";
 
     /* renamed from: a  reason: collision with root package name */
-    private static CoordType f2648a = CoordType.BD09LL;
+    private static CoordType f1978a = CoordType.BD09LL;
 
     private SDKInitializer() {
     }
 
     public static CoordType getCoordType() {
-        return f2648a;
+        return f1978a;
     }
 
     public static void initialize(Context context) {
@@ -38,7 +38,7 @@ public class SDKInitializer {
     }
 
     public static void setCoordType(CoordType coordType) {
-        f2648a = coordType;
+        f1978a = coordType;
     }
 
     public static void setHttpsEnable(boolean z) {

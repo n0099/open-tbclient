@@ -26,30 +26,30 @@ import com.baidu.tieba.themeCenter.avatarPendant.c;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.tieba.themeCenter.dressCenter.e;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AvatarPendantActivity extends BaseActivity implements View.OnClickListener, SetAvatarPendantModel.a, c.a {
-    private c nGf;
-    private AvatarPendantModel nGg;
-    private SetAvatarPendantModel nGh;
-    private boolean nGj;
-    private String nGi = "";
-    private AvatarPendantModel.a nGk = new AvatarPendantModel.a() { // from class: com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity.1
+    private c nIl;
+    private AvatarPendantModel nIm;
+    private SetAvatarPendantModel nIn;
+    private boolean nIp;
+    private String nIo = "";
+    private AvatarPendantModel.a nIq = new AvatarPendantModel.a() { // from class: com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity.1
         @Override // com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantModel.a
         public void a(int i, String str, e eVar, List<a> list) {
-            AvatarPendantActivity.this.hideLoadingView(AvatarPendantActivity.this.nGf.getRootView());
+            AvatarPendantActivity.this.hideLoadingView(AvatarPendantActivity.this.nIl.getRootView());
             if (i == 0) {
-                AvatarPendantActivity.this.nGf.a(eVar, list);
+                AvatarPendantActivity.this.nIl.a(eVar, list);
             } else {
                 AvatarPendantActivity.this.showToast(str);
-                AvatarPendantActivity.this.nGf.cAO();
+                AvatarPendantActivity.this.nIl.cAU();
             }
-            AvatarPendantActivity.this.nGj = !y.isEmpty(list);
+            AvatarPendantActivity.this.nIp = !y.isEmpty(list);
         }
     };
-    private NoNetworkView.a fLS = new NoNetworkView.a() { // from class: com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity.2
+    private NoNetworkView.a fNs = new NoNetworkView.a() { // from class: com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity.2
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void onNetworkChange(boolean z) {
-            BdListViewHelper.a(AvatarPendantActivity.this.nGf.dRj(), BdListViewHelper.HeadType.DEFAULT, z);
+            BdListViewHelper.a(AvatarPendantActivity.this.nIl.dRs(), BdListViewHelper.HeadType.DEFAULT, z);
         }
     };
 
@@ -59,55 +59,55 @@ public class AvatarPendantActivity extends BaseActivity implements View.OnClickL
         super.onCreate(bundle);
         initUI();
         initData();
-        showLoadingView(this.nGf.getRootView());
-        this.nGg.LoadData();
+        showLoadingView(this.nIl.getRootView());
+        this.nIm.LoadData();
     }
 
     private void initUI() {
-        this.nGf = new c(this);
-        this.nGf.a(this.fLS);
-        this.nGf.setAvatarPendantItemClickListener(this);
+        this.nIl = new c(this);
+        this.nIl.a(this.fNs);
+        this.nIl.setAvatarPendantItemClickListener(this);
     }
 
     private void initData() {
-        this.nGg = new AvatarPendantModel(this);
-        this.nGg.a(this.nGk);
-        this.nGh = new SetAvatarPendantModel();
-        this.nGh.a(this);
+        this.nIm = new AvatarPendantModel(this);
+        this.nIm.a(this.nIq);
+        this.nIn = new SetAvatarPendantModel();
+        this.nIn.a(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        if (this.nGg != null && this.nGf != null) {
-            showLoadingView(this.nGf.getRootView());
-            this.nGg.LoadData();
+        if (this.nIm != null && this.nIl != null) {
+            showLoadingView(this.nIl.getRootView());
+            this.nIm.LoadData();
         }
     }
 
     @Override // com.baidu.tieba.themeCenter.avatarPendant.c.a
     public void b(DressItemData dressItemData) {
-        if (HZ() && dressItemData != null && dressItemData.getPropsId() >= 0 && this.nGj) {
-            this.nGi = c(dressItemData);
-            TiebaStatic.log(new ar("c11614").dR("obj_type", this.nGi));
-            this.nGh.i(dressItemData.getPropsId(), 1, dressItemData.getFreeUserLevel());
+        if (Ic() && dressItemData != null && dressItemData.getPropsId() >= 0 && this.nIp) {
+            this.nIo = c(dressItemData);
+            TiebaStatic.log(new ar("c11614").dR("obj_type", this.nIo));
+            this.nIn.i(dressItemData.getPropsId(), 1, dressItemData.getFreeUserLevel());
         }
     }
 
     private String c(DressItemData dressItemData) {
-        List<a> dRh;
+        List<a> dRq;
         String str;
         String str2 = "";
-        if (dressItemData != null && (dRh = this.nGg.dRh()) != null && dRh.size() > 0) {
-            int size = dRh.size();
+        if (dressItemData != null && (dRq = this.nIm.dRq()) != null && dRq.size() > 0) {
+            int size = dRq.size();
             int i = 0;
             while (i < size) {
-                if (dRh.get(i) != null && !y.isEmpty(dRh.get(i).dRh())) {
-                    List<DressItemData> dRh2 = dRh.get(i).dRh();
-                    int size2 = dRh2.size();
+                if (dRq.get(i) != null && !y.isEmpty(dRq.get(i).dRq())) {
+                    List<DressItemData> dRq2 = dRq.get(i).dRq();
+                    int size2 = dRq2.size();
                     for (int i2 = 0; i2 < size2; i2++) {
-                        if (dRh2.get(i2) != null && dressItemData.getPropsId() == dRh2.get(i2).getPropsId()) {
-                            str = dRh.get(i).dRg();
+                        if (dRq2.get(i2) != null && dressItemData.getPropsId() == dRq2.get(i2).getPropsId()) {
+                            str = dRq.get(i).dRp();
                             break;
                         }
                     }
@@ -124,8 +124,8 @@ public class AvatarPendantActivity extends BaseActivity implements View.OnClickL
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.nGh.onDestroy();
-        this.nGg.onDestory();
+        this.nIn.onDestroy();
+        this.nIm.onDestory();
     }
 
     public void i(int i, String str, int i2) {
@@ -136,9 +136,9 @@ public class AvatarPendantActivity extends BaseActivity implements View.OnClickL
             i3 = 0;
         }
         if (!StringUtils.isNull(str)) {
-            if (i == com.baidu.tieba.themeCenter.c.nGc) {
+            if (i == com.baidu.tieba.themeCenter.c.nIi) {
                 com.baidu.tieba.themeCenter.b.a(getPageContext(), 7, str, i3, MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
-            } else if (i == com.baidu.tieba.themeCenter.c.nGd) {
+            } else if (i == com.baidu.tieba.themeCenter.c.nIj) {
                 com.baidu.tieba.themeCenter.b.a(getPageContext(), 7, str, i3);
             }
         }
@@ -151,26 +151,26 @@ public class AvatarPendantActivity extends BaseActivity implements View.OnClickL
             i(i2, str, i);
             return;
         }
-        List<a> dRh = this.nGg.dRh();
-        if (dRh != null && dRh.size() > 0) {
+        List<a> dRq = this.nIm.dRq();
+        if (dRq != null && dRq.size() > 0) {
             if (i == 0) {
                 TiebaStatic.log("c11681");
             } else {
                 TiebaStatic.log("c11682");
             }
             String str3 = "";
-            int size = dRh.size();
+            int size = dRq.size();
             for (int i3 = 0; i3 < size; i3++) {
-                if (dRh.get(i3) != null && !y.isEmpty(dRh.get(i3).dRh())) {
-                    List<DressItemData> dRh2 = dRh.get(i3).dRh();
-                    int size2 = dRh2.size();
+                if (dRq.get(i3) != null && !y.isEmpty(dRq.get(i3).dRq())) {
+                    List<DressItemData> dRq2 = dRq.get(i3).dRq();
+                    int size2 = dRq2.size();
                     int i4 = 0;
                     while (i4 < size2) {
-                        if (dRh2.get(i4) != null && j == dRh2.get(i4).getPropsId()) {
-                            dRh2.get(i4).setInUse(true);
-                            str2 = dRh2.get(i4).getExampleImgUrl();
+                        if (dRq2.get(i4) != null && j == dRq2.get(i4).getPropsId()) {
+                            dRq2.get(i4).setInUse(true);
+                            str2 = dRq2.get(i4).getExampleImgUrl();
                         } else {
-                            dRh2.get(i4).setInUse(false);
+                            dRq2.get(i4).setInUse(false);
                             str2 = str3;
                         }
                         i4++;
@@ -180,8 +180,8 @@ public class AvatarPendantActivity extends BaseActivity implements View.OnClickL
             }
             n nVar = new n();
             nVar.ek(j);
-            nVar.Ad(str3);
-            this.nGf.fT(this.nGg.dRh());
+            nVar.Ak(str3);
+            this.nIl.fT(this.nIm.dRq());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_PENDANT, nVar));
         }
     }
@@ -189,7 +189,7 @@ public class AvatarPendantActivity extends BaseActivity implements View.OnClickL
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.nGf.bzn();
+        this.nIl.bzq();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -199,7 +199,7 @@ public class AvatarPendantActivity extends BaseActivity implements View.OnClickL
         if (i2 == -1) {
             switch (i) {
                 case RequestResponseCode.REQUEST_LOGIN_AVATAR_PENDANT /* 11041 */:
-                    this.nGg.LoadData();
+                    this.nIm.LoadData();
                     return;
                 default:
                     return;
@@ -207,7 +207,7 @@ public class AvatarPendantActivity extends BaseActivity implements View.OnClickL
         }
     }
 
-    private boolean HZ() {
+    private boolean Ic() {
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
@@ -218,7 +218,7 @@ public class AvatarPendantActivity extends BaseActivity implements View.OnClickL
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.nGf.dRi().getButton() && HZ()) {
+        if (view == this.nIl.dRr().getButton() && Ic()) {
             TiebaStatic.log("c11613");
             MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(getActivity(), TbadkCoreApplication.getCurrentMemberType(), "", 22);
             memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_OPENDE_RENEWALFEE_BUTTON);

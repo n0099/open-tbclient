@@ -2,14 +2,14 @@ package com.baidu.tieba.yuyinala.data;
 
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class g {
-    public long aGA;
-    public long aGB;
-    public boolean aGC;
-    public long aGD;
-    public int aGy;
-    public long aGz;
+    public int aHY;
+    public long aHZ;
+    public long aIa;
+    public long aIb;
+    public boolean aIc;
+    public long aId;
     public String cover;
     public int live_status;
     public String room_name;
@@ -19,10 +19,10 @@ public class g {
             this.room_name = jSONObject.optString(DpStatConstants.KEY_ROOM_NAME);
             this.cover = jSONObject.optString("cover");
             this.live_status = jSONObject.optInt("live_status");
-            this.aGy = jSONObject.optInt("current_rank");
-            this.aGz = jSONObject.optLong("current_charm_value");
-            this.aGA = jSONObject.optLong("up_charm_value");
-            this.aGB = jSONObject.optLong("down_charm_value");
+            this.aHY = jSONObject.optInt("current_rank");
+            this.aHZ = jSONObject.optLong("current_charm_value");
+            this.aIa = jSONObject.optLong("up_charm_value");
+            this.aIb = jSONObject.optLong("down_charm_value");
         }
     }
 
@@ -31,10 +31,10 @@ public class g {
     }
 
     public void bt(boolean z) {
-        this.aGC = z;
+        this.aIc = z;
     }
 
     public void aM(long j) {
-        this.aGD = j;
+        this.aId = j;
     }
 }

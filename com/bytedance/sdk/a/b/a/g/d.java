@@ -6,16 +6,14 @@ import java.lang.reflect.Method;
 class d<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Class<?> f5942a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final String f5943b;
+    private final Class<?> f3995a;
+    private final String b;
     private final Class[] c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(Class<?> cls, String str, Class... clsArr) {
-        this.f5942a = cls;
-        this.f5943b = str;
+        this.f3995a = cls;
+        this.b = str;
         this.c = clsArr;
     }
 
@@ -52,7 +50,7 @@ class d<T> {
     public Object d(T t, Object... objArr) throws InvocationTargetException {
         Method a2 = a(t.getClass());
         if (a2 == null) {
-            throw new AssertionError("Method " + this.f5943b + " not supported for object " + t);
+            throw new AssertionError("Method " + this.b + " not supported for object " + t);
         }
         try {
             return a2.invoke(t, objArr);
@@ -78,9 +76,9 @@ class d<T> {
     }
 
     private Method a(Class<?> cls) {
-        if (this.f5943b != null) {
-            Method a2 = a(cls, this.f5943b, this.c);
-            if (a2 == null || this.f5942a == null || this.f5942a.isAssignableFrom(a2.getReturnType())) {
+        if (this.b != null) {
+            Method a2 = a(cls, this.b, this.c);
+            if (a2 == null || this.f3995a == null || this.f3995a.isAssignableFrom(a2.getReturnType())) {
                 return a2;
             }
             return null;

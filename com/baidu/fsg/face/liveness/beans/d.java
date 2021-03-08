@@ -16,10 +16,8 @@ import org.json.JSONObject;
 public class d extends BaseBean {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2269a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f2270b;
+    private int f1752a;
+    private int b;
     private LivenessRecogDTO c;
 
     public d(Context context) {
@@ -27,11 +25,11 @@ public class d extends BaseBean {
     }
 
     public void a(int i) {
-        this.f2269a = i;
+        this.f1752a = i;
     }
 
     public void b(int i) {
-        this.f2270b = i;
+        this.b = i;
     }
 
     public void a(LivenessRecogDTO livenessRecogDTO) {
@@ -66,9 +64,9 @@ public class d extends BaseBean {
                 arrayList.add(new RestNameValuePair("type", "outer"));
                 arrayList.add(new RestNameValuePair("exuid", this.c.exUid));
             }
-            arrayList.add(new RestNameValuePair("opt", String.valueOf(this.f2269a)));
+            arrayList.add(new RestNameValuePair("opt", String.valueOf(this.f1752a)));
             arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.c.serviceType));
-            arrayList.add(new RestNameValuePair("living_type", String.valueOf(this.f2270b)));
+            arrayList.add(new RestNameValuePair("living_type", String.valueOf(this.b)));
         }
         return arrayList;
     }

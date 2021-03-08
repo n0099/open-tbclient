@@ -1,5 +1,5 @@
 package kotlin;
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public class NoWhenBranchMatchedException extends RuntimeException {
     public NoWhenBranchMatchedException() {
     }

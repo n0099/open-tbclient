@@ -1,7 +1,7 @@
 package com.thunder.livesdk;
 
 import android.media.projection.MediaProjection;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ScreenRecordSource implements ThunderCustomVideoSource {
     public ThunderScreenCapture mScreenCapture;
 

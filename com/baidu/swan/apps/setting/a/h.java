@@ -19,11 +19,11 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class h extends aa {
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void j(boolean z, int i);
     }
@@ -38,22 +38,22 @@ public class h extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(401, "runtime parameter error");
             return false;
         }
-        JSONObject b2 = b(unitedSchemeEntity, "params");
-        if (b2 == null || !b2.has("scopes")) {
+        JSONObject b = b(unitedSchemeEntity, "params");
+        if (b == null || !b.has("scopes")) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(100203, "illegal parameter"));
             return false;
         }
-        final JSONArray optJSONArray = b2.optJSONArray("scopes");
+        final JSONArray optJSONArray = b.optJSONArray("scopes");
         if (optJSONArray == null || optJSONArray.length() < 2 || optJSONArray.length() > 4) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(100203, "scopes count error"));
             return false;
         }
-        final String optString = b2.optString("cb");
-        eVar.aIW().b(context, "scope_multi_authorize", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.setting.a.h.1
+        final String optString = b.optString("cb");
+        eVar.aIZ().b(context, "scope_multi_authorize", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.setting.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
-            public void L(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
+            public void N(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                 if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                     h.this.a((Activity) context, eVar, callbackHandler, optJSONArray, optString);
                 } else {
@@ -67,55 +67,55 @@ public class h extends aa {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.swan.apps.setting.a.h$2  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class AnonymousClass2 implements com.baidu.swan.apps.network.c.a.a {
-        final /* synthetic */ com.baidu.swan.apps.runtime.e cCA;
-        final /* synthetic */ String cCE;
-        final /* synthetic */ JSONArray dIF;
+        final /* synthetic */ com.baidu.swan.apps.runtime.e cEa;
+        final /* synthetic */ String cEe;
+        final /* synthetic */ JSONArray dKg;
         final /* synthetic */ Activity val$activity;
         final /* synthetic */ CallbackHandler val$handler;
 
         AnonymousClass2(CallbackHandler callbackHandler, String str, JSONArray jSONArray, com.baidu.swan.apps.runtime.e eVar, Activity activity) {
             this.val$handler = callbackHandler;
-            this.cCE = str;
-            this.dIF = jSONArray;
-            this.cCA = eVar;
+            this.cEe = str;
+            this.dKg = jSONArray;
+            this.cEa = eVar;
             this.val$activity = activity;
         }
 
         @Override // com.baidu.swan.apps.network.c.a.a
-        public void aDl() {
+        public void aDo() {
             final List<com.baidu.swan.apps.setting.oauth.e> a2;
             Map<String, com.baidu.swan.apps.setting.oauth.e> gq = com.baidu.swan.apps.network.c.b.a.gq(true);
-            final com.baidu.swan.apps.setting.oauth.e a3 = h.this.a(gq, this.val$handler, this.cCE);
-            if (a3 != null && (a2 = h.this.a(gq, this.dIF, this.val$handler, this.cCE)) != null) {
+            final com.baidu.swan.apps.setting.oauth.e a3 = h.this.a(gq, this.val$handler, this.cEe);
+            if (a3 != null && (a2 = h.this.a(gq, this.dKg, this.val$handler, this.cEe)) != null) {
                 a3.aW(a2);
-                if (this.cCA.aIX().isLogin(this.val$activity)) {
+                if (this.cEa.aJa().isLogin(this.val$activity)) {
                     h.this.z(new com.baidu.swan.apps.ao.e.b<String>() { // from class: com.baidu.swan.apps.setting.a.h.2.2
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.swan.apps.ao.e.b
                         /* renamed from: onCallback */
-                        public void L(String str) {
+                        public void N(String str) {
                             h.this.a(AnonymousClass2.this.val$activity, a3, str);
-                            ak.k(new Runnable() { // from class: com.baidu.swan.apps.setting.a.h.2.2.1
+                            ak.j(new Runnable() { // from class: com.baidu.swan.apps.setting.a.h.2.2.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    h.this.a(a3, a2, false, AnonymousClass2.this.val$activity, AnonymousClass2.this.cCA, AnonymousClass2.this.val$handler, AnonymousClass2.this.cCE);
+                                    h.this.a(a3, a2, false, AnonymousClass2.this.val$activity, AnonymousClass2.this.cEa, AnonymousClass2.this.val$handler, AnonymousClass2.this.cEe);
                                 }
                             });
                         }
                     });
                 } else {
-                    com.baidu.swan.apps.t.a.axq().b(this.val$activity, new com.baidu.swan.apps.ao.e.b<Boolean>() { // from class: com.baidu.swan.apps.setting.a.h.2.1
+                    com.baidu.swan.apps.t.a.axt().b(this.val$activity, new com.baidu.swan.apps.ao.e.b<Boolean>() { // from class: com.baidu.swan.apps.setting.a.h.2.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.swan.apps.ao.e.b
                         /* renamed from: g */
-                        public void L(final Boolean bool) {
+                        public void N(final Boolean bool) {
                             h.this.a(AnonymousClass2.this.val$activity, a3, bool);
-                            ak.k(new Runnable() { // from class: com.baidu.swan.apps.setting.a.h.2.1.1
+                            ak.j(new Runnable() { // from class: com.baidu.swan.apps.setting.a.h.2.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    h.this.a(a3, a2, bool.booleanValue(), AnonymousClass2.this.val$activity, AnonymousClass2.this.cCA, AnonymousClass2.this.val$handler, AnonymousClass2.this.cCE);
+                                    h.this.a(a3, a2, bool.booleanValue(), AnonymousClass2.this.val$activity, AnonymousClass2.this.cEa, AnonymousClass2.this.val$handler, AnonymousClass2.this.cEe);
                                 }
                             });
                         }
@@ -128,7 +128,7 @@ public class h extends aa {
     /* JADX INFO: Access modifiers changed from: private */
     @AnyThread
     public void a(@NonNull Activity activity, @NonNull com.baidu.swan.apps.runtime.e eVar, @NonNull CallbackHandler callbackHandler, @NonNull JSONArray jSONArray, @NonNull String str) {
-        com.baidu.swan.apps.network.c.a.aDi().a(new AnonymousClass2(callbackHandler, str, jSONArray, eVar, activity));
+        com.baidu.swan.apps.network.c.a.aDl().a(new AnonymousClass2(callbackHandler, str, jSONArray, eVar, activity));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -154,10 +154,10 @@ public class h extends aa {
                         com.baidu.swan.apps.statistic.h.b(10005, eVar);
                         return null;
                     } else {
-                        if (!arrayList.contains(eVar) && !eVar.aKH()) {
+                        if (!arrayList.contains(eVar) && !eVar.aKK()) {
                             arrayList.add(eVar);
                         }
-                        if (!eVar.aKH()) {
+                        if (!eVar.aKK()) {
                             z = false;
                         }
                     }
@@ -194,7 +194,7 @@ public class h extends aa {
                     return;
                 }
                 boolean z3 = z;
-                if (eVar2.aIX().isLogin(activity)) {
+                if (eVar2.aJa().isLogin(activity)) {
                     h.this.a(list, activity, callbackHandler, str);
                 } else if (z3) {
                     h.this.b(list, activity, callbackHandler, str);
@@ -233,7 +233,7 @@ public class h extends aa {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: onCallback */
-                public void L(String str2) {
+                public void N(String str2) {
                     h.this.a(TextUtils.equals(str2, "1"), list, activity, callbackHandler, str);
                 }
             });
@@ -252,7 +252,7 @@ public class h extends aa {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: onCallback */
-            public void L(String str2) {
+            public void N(String str2) {
                 if (!TextUtils.isEmpty(str2)) {
                     h.this.a(activity, list, callbackHandler, str);
                 } else {
@@ -264,11 +264,11 @@ public class h extends aa {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(final List<com.baidu.swan.apps.setting.oauth.e> list, @NonNull final Activity activity, @NonNull final CallbackHandler callbackHandler, @NonNull final String str) {
-        com.baidu.swan.apps.t.a.axq().a(new com.baidu.swan.apps.ao.e.b<Integer>() { // from class: com.baidu.swan.apps.setting.a.h.7
+        com.baidu.swan.apps.t.a.axt().a(new com.baidu.swan.apps.ao.e.b<Integer>() { // from class: com.baidu.swan.apps.setting.a.h.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: f */
-            public void L(Integer num) {
+            public void N(Integer num) {
                 if (num.intValue() == 0) {
                     h.this.a(list, activity, callbackHandler, str);
                 } else {
@@ -279,12 +279,12 @@ public class h extends aa {
     }
 
     private void y(com.baidu.swan.apps.ao.e.b<String> bVar) {
-        com.baidu.swan.apps.t.a.axq().a(false, bVar);
+        com.baidu.swan.apps.t.a.axt().a(false, bVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void z(com.baidu.swan.apps.ao.e.b<String> bVar) {
-        com.baidu.swan.apps.t.a.axq().a(com.baidu.swan.apps.t.a.awW(), bVar);
+        com.baidu.swan.apps.t.a.axt().a(com.baidu.swan.apps.t.a.awZ(), bVar);
     }
 
     private boolean aT(List<com.baidu.swan.apps.setting.oauth.e> list) {
@@ -351,25 +351,25 @@ public class h extends aa {
         for (int i = 0; i < size; i++) {
             strArr[i] = list.get(i).id;
         }
-        com.baidu.swan.apps.runtime.d.aIG().aII().ags().ail().a(activity, false, true, strArr, null, true).A(new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.setting.a.h.8
+        com.baidu.swan.apps.runtime.d.aIJ().aIL().agv().aio().a(activity, false, true, strArr, null, true).A(new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.setting.a.h.8
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
-            public void L(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
+            public void N(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                 if (hVar == null) {
                     com.baidu.swan.apps.setting.oauth.c.a(10001, callbackHandler, str);
                     com.baidu.swan.apps.statistic.h.b(10001, null);
                     return;
                 }
                 int errorCode = hVar.getErrorCode();
-                com.baidu.swan.apps.console.c.w("MultiAuthorize", "requestAuthorize " + hVar.aKT() + ",  code=" + errorCode + ", data=" + hVar.mData);
+                com.baidu.swan.apps.console.c.w("MultiAuthorize", "requestAuthorize " + hVar.aKW() + ",  code=" + errorCode + ", data=" + hVar.mData);
                 if (errorCode != 0) {
                     com.baidu.swan.apps.setting.oauth.c.a(errorCode, callbackHandler, str);
                 } else {
                     callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(0, "success").toString());
                 }
             }
-        }).aKB();
+        }).aKE();
     }
 
     private boolean d(com.baidu.swan.apps.setting.oauth.e eVar) {
@@ -386,39 +386,39 @@ public class h extends aa {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@NonNull Activity activity, com.baidu.swan.apps.setting.oauth.e eVar, String str) {
-        String name = com.baidu.swan.apps.runtime.d.aIG().aIC().getName();
+        String name = com.baidu.swan.apps.runtime.d.aIJ().aIF().getName();
         boolean equals = TextUtils.equals(str, "1");
-        if (aV(eVar.dJo)) {
+        if (aV(eVar.dKP)) {
             if (equals) {
-                eVar.dJn = activity.getString(a.h.swanapp_multi_auth_realname_name_head) + name + activity.getString(a.h.swanapp_multi_auth_realname_name_end);
+                eVar.dKO = activity.getString(a.h.swanapp_multi_auth_realname_name_head) + name + activity.getString(a.h.swanapp_multi_auth_realname_name_end);
                 return;
             } else {
-                eVar.dJn = activity.getString(a.h.swanapp_multi_auth_un_realname_name_head) + name + activity.getString(a.h.swanapp_multi_auth_un_realname_name_end);
+                eVar.dKO = activity.getString(a.h.swanapp_multi_auth_un_realname_name_head) + name + activity.getString(a.h.swanapp_multi_auth_un_realname_name_end);
                 return;
             }
         }
-        eVar.dJn = activity.getString(a.h.swanapp_multi_auth_realname_name_head) + name + activity.getString(a.h.swanapp_multi_auth_realname_name_end);
+        eVar.dKO = activity.getString(a.h.swanapp_multi_auth_realname_name_head) + name + activity.getString(a.h.swanapp_multi_auth_realname_name_end);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@NonNull Activity activity, com.baidu.swan.apps.setting.oauth.e eVar, Boolean bool) {
-        String name = com.baidu.swan.apps.runtime.d.aIG().aIC().getName();
-        boolean aU = aU(eVar.dJo);
-        boolean aV = aV(eVar.dJo);
+        String name = com.baidu.swan.apps.runtime.d.aIJ().aIF().getName();
+        boolean aU = aU(eVar.dKP);
+        boolean aV = aV(eVar.dKP);
         if (bool.booleanValue() || aU) {
             if (aV) {
-                eVar.dJn = activity.getString(a.h.swanapp_multi_auth_un_realname_name_head) + name + activity.getString(a.h.swanapp_multi_auth_not_login_name_end);
+                eVar.dKO = activity.getString(a.h.swanapp_multi_auth_un_realname_name_head) + name + activity.getString(a.h.swanapp_multi_auth_not_login_name_end);
                 return;
             } else {
-                eVar.dJn = activity.getString(a.h.swanapp_multi_auth_not_login_name_head) + name + activity.getString(a.h.swanapp_multi_auth_not_login_name_end);
+                eVar.dKO = activity.getString(a.h.swanapp_multi_auth_not_login_name_head) + name + activity.getString(a.h.swanapp_multi_auth_not_login_name_end);
                 return;
             }
         }
-        eVar.dJn = activity.getString(a.h.swanapp_multi_auth_guest_login_name_head) + name + activity.getString(a.h.swanapp_multi_auth_guest_login_name_end);
+        eVar.dKO = activity.getString(a.h.swanapp_multi_auth_guest_login_name_head) + name + activity.getString(a.h.swanapp_multi_auth_guest_login_name_end);
     }
 
     private void b(@NonNull com.baidu.swan.apps.runtime.e eVar, @NonNull Activity activity, @NonNull final a aVar) {
-        eVar.aIX().a(activity, null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.setting.a.h.9
+        eVar.aJa().a(activity, null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.setting.a.h.9
             @Override // com.baidu.swan.apps.a.a
             public void onResult(int i) {
                 switch (i) {

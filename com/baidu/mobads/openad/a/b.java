@@ -3,14 +3,12 @@ package com.baidu.mobads.openad.a;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
 import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b implements IOAdEvent {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f3416a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final HashMap<String, Object> f3417b;
+    private final String f2434a;
+    private final HashMap<String, Object> b;
     private final int c;
     private Object d;
 
@@ -27,19 +25,19 @@ public class b implements IOAdEvent {
     }
 
     public b(String str, int i, HashMap<String, Object> hashMap) {
-        this.f3416a = str;
+        this.f2434a = str;
         this.c = i;
-        this.f3417b = hashMap;
+        this.b = hashMap;
     }
 
     public b(String str, int i, String str2) {
         this(str, i, new HashMap());
-        this.f3417b.put("message", str2);
+        this.b.put("message", str2);
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEvent
     public String getType() {
-        return this.f3416a;
+        return this.f2434a;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEvent
@@ -51,12 +49,12 @@ public class b implements IOAdEvent {
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEvent
     /* renamed from: a */
     public HashMap<String, Object> getData() {
-        return this.f3417b;
+        return this.b;
     }
 
     public void a(IXAdInstanceInfo iXAdInstanceInfo) {
         if (iXAdInstanceInfo != null) {
-            this.f3417b.put("instanceInfo", iXAdInstanceInfo.getUniqueId());
+            this.b.put("instanceInfo", iXAdInstanceInfo.getUniqueId());
         }
     }
 
@@ -73,7 +71,7 @@ public class b implements IOAdEvent {
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEvent
     public String getMessage() {
         try {
-            return (String) this.f3417b.get("message");
+            return (String) this.b.get("message");
         } catch (Exception e) {
             return "";
         }

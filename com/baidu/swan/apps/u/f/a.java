@@ -15,15 +15,15 @@ import com.baidu.swan.games.l.a;
 import com.baidu.swan.pms.model.PMSAppInfo;
 import java.io.File;
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
 
-    public static boolean pl(@Nullable String str) {
+    public static boolean ps(@Nullable String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return m(com.baidu.swan.pms.database.a.bcv().xV(str));
+        return m(com.baidu.swan.pms.database.a.bcx().yc(str));
     }
 
     public static boolean a(@Nullable PMSAppInfo pMSAppInfo, @Nullable Bundle bundle) {
@@ -31,7 +31,7 @@ public class a {
         if (pMSAppInfo == null || TextUtils.isEmpty(pMSAppInfo.appId) || pMSAppInfo.versionCode == 0 || bundle == null || pMSAppInfo.appCategory == 1) {
             return false;
         }
-        File bL = d.C0446d.bL(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode));
+        File bL = d.C0452d.bL(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode));
         if (bL.exists()) {
             String string = bundle.getString("mPage");
             if (TextUtils.isEmpty(string)) {
@@ -39,18 +39,18 @@ public class a {
                 c.bl("SwanAppLaunchUtils", "checkSwanAppPageDirExist app.json exists: " + exists);
                 return exists;
             }
-            String ue = ai.ue(string);
-            int lastIndexOf = ue.lastIndexOf(File.separator);
+            String ul = ai.ul(string);
+            int lastIndexOf = ul.lastIndexOf(File.separator);
             if (lastIndexOf >= 0) {
-                ue = ue.substring(0, lastIndexOf);
+                ul = ul.substring(0, lastIndexOf);
             }
-            boolean exists2 = new File(bL, ue).exists();
+            boolean exists2 = new File(bL, ul).exists();
             if (exists2) {
                 if (new File(bL, "app.json").exists()) {
                     return true;
                 }
-                int lastIndexOf2 = ue.lastIndexOf(File.separator);
-                String str = ue;
+                int lastIndexOf2 = ul.lastIndexOf(File.separator);
+                String str = ul;
                 while (true) {
                     if (lastIndexOf2 < 0) {
                         z = false;
@@ -83,35 +83,35 @@ public class a {
         if (pMSAppInfo.appCategory == 1) {
             return a.c.bL(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode)).exists();
         }
-        return d.w(d.C0446d.bL(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode)));
+        return d.w(d.C0452d.bL(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode)));
     }
 
     public static boolean a(PMSAppInfo pMSAppInfo, String str) {
         if (pMSAppInfo == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        String ue = ai.ue(str);
-        if (ue.lastIndexOf(File.separator) != -1) {
-            ue = ue.substring(0, ue.lastIndexOf(File.separator));
+        String ul = ai.ul(str);
+        if (ul.lastIndexOf(File.separator) != -1) {
+            ul = ul.substring(0, ul.lastIndexOf(File.separator));
         }
-        return d.S(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode), ue).exists();
+        return d.S(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode), ul).exists();
     }
 
     public static String b(PMSAppInfo pMSAppInfo, String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        String ue = ai.ue(str);
-        int lastIndexOf = ue.lastIndexOf(File.separator);
+        String ul = ai.ul(str);
+        int lastIndexOf = ul.lastIndexOf(File.separator);
         while (lastIndexOf != -1) {
-            ue = ue.substring(0, lastIndexOf);
-            if (!d.T(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode), ue)) {
-                lastIndexOf = ue.lastIndexOf(File.separator);
+            ul = ul.substring(0, lastIndexOf);
+            if (!d.T(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode), ul)) {
+                lastIndexOf = ul.lastIndexOf(File.separator);
             } else {
-                return ue;
+                return ul;
             }
         }
-        return !d.T(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode), ue) ? "" : ue;
+        return !d.T(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode), ul) ? "" : ul;
     }
 
     public static void I(@NonNull Bundle bundle) {
@@ -126,21 +126,21 @@ public class a {
             }
             com.baidu.swan.pms.c.d.c cVar = new com.baidu.swan.pms.c.d.c(string, i);
             if (bundle.containsKey("pms_update_expect_pkg_ver")) {
-                cVar.lW(bundle.getInt("pms_update_expect_pkg_ver"));
+                cVar.lX(bundle.getInt("pms_update_expect_pkg_ver"));
             }
             if (DEBUG) {
-                Log.i("SwanAppLaunchUtils", String.format(Locale.getDefault(), "asyncUpdatePkg: swanAsyncUpdate -> 异步更新 appid=%s frameType=%d expectVer=%d", string, Integer.valueOf(i), Integer.valueOf(cVar.bdn())));
+                Log.i("SwanAppLaunchUtils", String.format(Locale.getDefault(), "asyncUpdatePkg: swanAsyncUpdate -> 异步更新 appid=%s frameType=%d expectVer=%d", string, Integer.valueOf(i), Integer.valueOf(cVar.bdp())));
             }
-            cVar.yj("4");
+            cVar.yq("4");
             com.baidu.swan.pms.c.a(cVar, new e(string) { // from class: com.baidu.swan.apps.u.f.a.1
                 @Override // com.baidu.swan.pms.a.g, com.baidu.swan.pms.a.d
                 public void bp(String str, String str2) {
                     super.bp(str, str2);
-                    if (!TextUtils.isEmpty(str2) && TextUtils.equals(str, "770") && this.cUK != null) {
-                        this.cUK.add(new UbcFlowEvent(str2));
+                    if (!TextUtils.isEmpty(str2) && TextUtils.equals(str, "770") && this.cWk != null) {
+                        this.cWk.add(new UbcFlowEvent(str2));
                     }
                 }
-            }.gW(3));
+            }.gX(3));
         }
     }
 }

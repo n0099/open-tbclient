@@ -1,7 +1,7 @@
 package com.baidu.live.adp.base;
 
 import com.baidu.live.adp.lib.interfaces.BdLoadDataCallback;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class BdBaseModelEx {
     protected BdLoadDataCallback mLoadDataCallback = null;
 

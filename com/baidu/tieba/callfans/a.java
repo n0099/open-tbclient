@@ -23,16 +23,16 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a {
-    private TbPageContext eUY;
-    private TextView gPA;
-    private TextView iuA;
-    boolean iuB = false;
-    private ImageView iuz;
+    private TbPageContext eWx;
+    private TextView gRj;
+    private ImageView iwi;
+    private TextView iwj;
+    boolean iwk = false;
     private String mThreadId;
     private TextView mTitle;
 
     public a(TbPageContext tbPageContext) {
-        this.eUY = tbPageContext;
+        this.eWx = tbPageContext;
         registerTask();
     }
 
@@ -40,57 +40,57 @@ public class a {
         this.mThreadId = str;
     }
 
-    public void crW() {
+    public void csc() {
         if (!TbSingleton.getInstance().mCanCallFans) {
-            this.eUY.showToast(R.string.have_used_call_fans_this_week);
-        } else if (b.brQ().getBoolean("key_call_fans_no_tip_again", false)) {
-            crX();
+            this.eWx.showToast(R.string.have_used_call_fans_this_week);
+        } else if (b.brR().getBoolean("key_call_fans_no_tip_again", false)) {
+            csd();
         } else {
-            final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.eUY.getPageActivity());
-            aVar.nA(1);
-            View inflate = LayoutInflater.from(this.eUY.getPageActivity()).inflate(R.layout.call_fans_dialog_content, (ViewGroup) null);
+            final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.eWx.getPageActivity());
+            aVar.nB(1);
+            View inflate = LayoutInflater.from(this.eWx.getPageActivity()).inflate(R.layout.call_fans_dialog_content, (ViewGroup) null);
             this.mTitle = (TextView) inflate.findViewById(R.id.title);
-            this.gPA = (TextView) inflate.findViewById(R.id.call_fans_intro);
-            this.iuA = (TextView) inflate.findViewById(R.id.no_tip_again_text);
-            this.iuz = (ImageView) inflate.findViewById(R.id.checkbox);
-            bqu();
-            this.iuz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.callfans.a.1
+            this.gRj = (TextView) inflate.findViewById(R.id.call_fans_intro);
+            this.iwj = (TextView) inflate.findViewById(R.id.no_tip_again_text);
+            this.iwi = (ImageView) inflate.findViewById(R.id.checkbox);
+            bqw();
+            this.iwi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.callfans.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.iuB = !a.this.iuB;
-                    a.this.bqu();
-                    b.brQ().putBoolean("key_call_fans_no_tip_again", a.this.iuB);
+                    a.this.iwk = !a.this.iwk;
+                    a.this.bqw();
+                    b.brR().putBoolean("key_call_fans_no_tip_again", a.this.iwk);
                 }
             });
             onChangeSkinType();
             aVar.bn(inflate);
-            aVar.a(this.eUY.getString(R.string.call_fans), new a.b() { // from class: com.baidu.tieba.callfans.a.2
+            aVar.a(this.eWx.getString(R.string.call_fans), new a.b() { // from class: com.baidu.tieba.callfans.a.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    a.this.crX();
+                    a.this.csd();
                     aVar.dismiss();
                 }
             });
-            aVar.b(this.eUY.getString(R.string.next_time), new a.b() { // from class: com.baidu.tieba.callfans.a.3
+            aVar.b(this.eWx.getString(R.string.next_time), new a.b() { // from class: com.baidu.tieba.callfans.a.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    b.brQ().putBoolean("key_call_fans_no_tip_again", false);
+                    b.brR().putBoolean("key_call_fans_no_tip_again", false);
                     aVar.dismiss();
                 }
             });
-            aVar.b(this.eUY).bqx();
+            aVar.b(this.eWx).bqz();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bqu() {
+    public void bqw() {
         Drawable a2;
-        if (this.iuz != null) {
-            ImageView imageView = this.iuz;
-            if (this.iuB) {
-                a2 = SvgManager.bsR().a(R.drawable.ic_icon_mask_use_complete16_svg, null);
+        if (this.iwi != null) {
+            ImageView imageView = this.iwi;
+            if (this.iwk) {
+                a2 = SvgManager.bsU().a(R.drawable.ic_icon_mask_use_complete16_svg, null);
             } else {
-                a2 = SvgManager.bsR().a(R.drawable.ic_icon_mask_use_check16_svg, null);
+                a2 = SvgManager.bsU().a(R.drawable.ic_icon_mask_use_check16_svg, null);
             }
             imageView.setImageDrawable(a2);
         }
@@ -98,9 +98,9 @@ public class a {
 
     public void onChangeSkinType() {
         ap.setViewTextColor(this.mTitle, R.color.CAM_X0105);
-        ap.setViewTextColor(this.gPA, R.color.CAM_X0107);
-        bqu();
-        ap.setViewTextColor(this.iuA, R.color.CAM_X0107);
+        ap.setViewTextColor(this.gRj, R.color.CAM_X0107);
+        bqw();
+        ap.setViewTextColor(this.iwj, R.color.CAM_X0107);
     }
 
     private void registerTask() {
@@ -112,16 +112,16 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void crX() {
+    public void csd() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CALL_FANS);
         httpMessage.addParam("thread_id", this.mThreadId);
         MessageManager.getInstance().sendMessage(httpMessage);
-        this.eUY.showToast(R.string.your_thread_is_recommended_to_fans);
+        this.eWx.showToast(R.string.your_thread_is_recommended_to_fans);
         TbSingleton.getInstance().mCallFansTid = this.mThreadId;
         TbSingleton.getInstance().mCanCallFans = false;
     }
 
     public void k(int i, int i2, String str) {
-        TiebaStatic.log(new ar("c13847").ap("obj_source", i).ap("obj_type", i2).dR("tid", str).dR("uid", TbadkCoreApplication.getCurrentAccount()));
+        TiebaStatic.log(new ar("c13847").aq("obj_source", i).aq("obj_type", i2).dR("tid", str).dR("uid", TbadkCoreApplication.getCurrentAccount()));
     }
 }

@@ -15,11 +15,11 @@ import java.io.File;
 import java.net.URI;
 import java.util.HashMap;
 import org.json.JSONArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class k extends a {
-    private String cJT;
-    private Uri cJU;
-    private String cJV;
+    private String cLt;
+    private Uri cLu;
+    private String cLv;
     private Bitmap mBitmap;
     private Rect mDstRect;
     private int mDx;
@@ -32,8 +32,8 @@ public class k extends a {
         try {
             int length = jSONArray.length();
             if (length > 0) {
-                this.cJV = this.cJT;
-                this.cJT = jSONArray.optString(0);
+                this.cLv = this.cLt;
+                this.cLt = jSONArray.optString(0);
             }
             if (length > 2) {
                 this.mDx = a(jSONArray, 1);
@@ -57,14 +57,14 @@ public class k extends a {
                     this.mSrcRect = new Rect(optInt, optInt2, optInt3 + optInt, optInt4 + optInt2);
                 }
             }
-            com.baidu.swan.apps.runtime.e aos = com.baidu.swan.apps.v.f.aAl().aos();
-            if (aos != null) {
-                String a4 = a(this.cJT, aos);
+            com.baidu.swan.apps.runtime.e aov = com.baidu.swan.apps.v.f.aAo().aov();
+            if (aov != null) {
+                String a4 = a(this.cLt, aov);
                 if (!TextUtils.isEmpty(a4)) {
                     this.mBitmap = BitmapFactory.decodeFile(a4);
-                } else if (!TextUtils.isEmpty(this.cJT)) {
-                    if (this.cJU == null || !TextUtils.equals(this.cJT, this.cJV)) {
-                        this.cJU = Uri.parse(this.cJT);
+                } else if (!TextUtils.isEmpty(this.cLt)) {
+                    if (this.cLu == null || !TextUtils.equals(this.cLt, this.cLv)) {
+                        this.cLu = Uri.parse(this.cLt);
                     }
                 }
             }
@@ -101,16 +101,16 @@ public class k extends a {
         if (this.mBitmap != null) {
             return true;
         }
-        if (this.cJU == null || bVar == null) {
+        if (this.cLu == null || bVar == null) {
             return false;
         }
-        CanvasView canvasView = bVar.cJE;
+        CanvasView canvasView = bVar.cLe;
         if (canvasView == null) {
             return false;
         }
-        this.mBitmap = canvasView.lI(this.cJT);
+        this.mBitmap = canvasView.lP(this.cLt);
         if (this.mBitmap == null) {
-            this.mBitmap = com.baidu.swan.apps.ao.s.b(this.cJU, bVar.cJE.getContext());
+            this.mBitmap = com.baidu.swan.apps.ao.s.b(this.cLu, bVar.cLe.getContext());
             return this.mBitmap != null;
         }
         return true;
@@ -118,18 +118,18 @@ public class k extends a {
 
     @UiThread
     private void b(final b bVar) {
-        if (this.mLoadStatus == 0 && bVar.cJE != null && bVar.cJE.getContext() != null && !TextUtils.isEmpty(this.cJT)) {
+        if (this.mLoadStatus == 0 && bVar.cLe != null && bVar.cLe.getContext() != null && !TextUtils.isEmpty(this.cLt)) {
             this.mLoadStatus = 1;
-            Context context = bVar.cJE.getContext();
-            final com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> e = com.facebook.drawee.a.a.c.ety().e(ImageRequestBuilder.ag(Uri.parse(this.cJT)).eAq(), context);
+            Context context = bVar.cLe.getContext();
+            final com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> e = com.facebook.drawee.a.a.c.etH().e(ImageRequestBuilder.ag(Uri.parse(this.cLt)).eAz(), context);
             e.a(new com.facebook.imagepipeline.d.b() { // from class: com.baidu.swan.apps.canvas.a.a.k.1
                 @Override // com.facebook.imagepipeline.d.b
                 public void f(@Nullable Bitmap bitmap) {
                     if (e.isFinished() && bitmap != null) {
                         k.this.mBitmap = Bitmap.createBitmap(bitmap);
-                        e.apL();
-                        if (bVar.cJE != null) {
-                            bVar.cJE.postInvalidate();
+                        e.apO();
+                        if (bVar.cLe != null) {
+                            bVar.cLe.postInvalidate();
                         }
                     }
                     k.this.mLoadStatus = 2;
@@ -139,16 +139,16 @@ public class k extends a {
                 @Override // com.facebook.datasource.a
                 public void a(com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> bVar2) {
                     if (bVar2 != null) {
-                        bVar2.apL();
+                        bVar2.apO();
                     }
                     k.this.mLoadStatus = 3;
                 }
-            }, com.facebook.common.b.i.esE());
+            }, com.facebook.common.b.i.esN());
         }
     }
 
     private int a(JSONArray jSONArray, int i) {
-        return com.baidu.swan.apps.ao.ah.P((float) jSONArray.optDouble(i));
+        return com.baidu.swan.apps.ao.ah.T((float) jSONArray.optDouble(i));
     }
 
     private String a(String str, com.baidu.swan.apps.runtime.e eVar) {
@@ -173,8 +173,8 @@ public class k extends a {
     }
 
     public void A(HashMap<String, Bitmap> hashMap) {
-        if (hashMap != null && !TextUtils.isEmpty(this.cJT) && this.mBitmap != null && !hashMap.containsKey(this.cJT)) {
-            hashMap.put(this.cJT, this.mBitmap);
+        if (hashMap != null && !TextUtils.isEmpty(this.cLt) && this.mBitmap != null && !hashMap.containsKey(this.cLt)) {
+            hashMap.put(this.cLt, this.mBitmap);
         }
     }
 }

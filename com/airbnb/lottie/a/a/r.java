@@ -4,30 +4,30 @@ import com.airbnb.lottie.a.b.a;
 import com.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
-public class r implements b, a.InterfaceC0007a {
-    private final ShapeTrimPath.Type En;
-    private final com.airbnb.lottie.a.b.a<?, Float> Eo;
-    private final com.airbnb.lottie.a.b.a<?, Float> Ep;
-    private final com.airbnb.lottie.a.b.a<?, Float> Eq;
-    private final List<a.InterfaceC0007a> listeners = new ArrayList();
+/* loaded from: classes5.dex */
+public class r implements b, a.InterfaceC0013a {
+    private final ShapeTrimPath.Type FG;
+    private final com.airbnb.lottie.a.b.a<?, Float> FH;
+    private final com.airbnb.lottie.a.b.a<?, Float> FI;
+    private final com.airbnb.lottie.a.b.a<?, Float> FJ;
+    private final List<a.InterfaceC0013a> listeners = new ArrayList();
     private final String name;
 
     public r(com.airbnb.lottie.model.layer.a aVar, ShapeTrimPath shapeTrimPath) {
         this.name = shapeTrimPath.getName();
-        this.En = shapeTrimPath.iB();
-        this.Eo = shapeTrimPath.jQ().jb();
-        this.Ep = shapeTrimPath.jP().jb();
-        this.Eq = shapeTrimPath.jJ().jb();
-        aVar.a(this.Eo);
-        aVar.a(this.Ep);
-        aVar.a(this.Eq);
-        this.Eo.b(this);
-        this.Ep.b(this);
-        this.Eq.b(this);
+        this.FG = shapeTrimPath.iB();
+        this.FH = shapeTrimPath.jQ().jb();
+        this.FI = shapeTrimPath.jP().jb();
+        this.FJ = shapeTrimPath.jJ().jb();
+        aVar.a(this.FH);
+        aVar.a(this.FI);
+        aVar.a(this.FJ);
+        this.FH.b(this);
+        this.FI.b(this);
+        this.FJ.b(this);
     }
 
-    @Override // com.airbnb.lottie.a.b.a.InterfaceC0007a
+    @Override // com.airbnb.lottie.a.b.a.InterfaceC0013a
     public void ir() {
         int i = 0;
         while (true) {
@@ -42,7 +42,7 @@ public class r implements b, a.InterfaceC0007a {
     }
 
     @Override // com.airbnb.lottie.a.a.b
-    public void c(List<b> list, List<b> list2) {
+    public void b(List<b> list, List<b> list2) {
     }
 
     @Override // com.airbnb.lottie.a.a.b
@@ -51,24 +51,24 @@ public class r implements b, a.InterfaceC0007a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(a.InterfaceC0007a interfaceC0007a) {
-        this.listeners.add(interfaceC0007a);
+    public void a(a.InterfaceC0013a interfaceC0013a) {
+        this.listeners.add(interfaceC0013a);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ShapeTrimPath.Type iB() {
-        return this.En;
+        return this.FG;
     }
 
     public com.airbnb.lottie.a.b.a<?, Float> iC() {
-        return this.Eo;
+        return this.FH;
     }
 
     public com.airbnb.lottie.a.b.a<?, Float> iD() {
-        return this.Ep;
+        return this.FI;
     }
 
     public com.airbnb.lottie.a.b.a<?, Float> iE() {
-        return this.Eq;
+        return this.FJ;
     }
 }

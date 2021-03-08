@@ -1,7 +1,7 @@
 package com.yy.mediaframework.gpuimage.util;
 
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public enum Rotation {
     NORMAL,
     ROTATION_90,

@@ -59,8 +59,8 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.b.a {
 
     private void inflateJsBridgeContext() {
         this.mJsBridgeContext = new com.kwad.sdk.core.webview.a();
-        this.mJsBridgeContext.f9539b = this.mAdTemplate;
-        this.mJsBridgeContext.f9538a = 0;
+        this.mJsBridgeContext.b = this.mAdTemplate;
+        this.mJsBridgeContext.f6320a = 0;
         this.mJsBridgeContext.f = this.mAdWebView;
         this.mJsBridgeContext.e = this.mWebContainer;
     }

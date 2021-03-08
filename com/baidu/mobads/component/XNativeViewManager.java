@@ -2,7 +2,7 @@ package com.baidu.mobads.component;
 
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class XNativeViewManager {
     private static XNativeViewManager sInstance;
     private CopyOnWriteArrayList<XNativeView> mViewList;

@@ -4,14 +4,12 @@ import android.text.TextUtils;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ao {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3683a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f3684b;
+    private String f2594a;
+    private String b;
     private String c;
     private long d;
     private long e;
@@ -24,8 +22,8 @@ public class ao {
     private String l;
 
     public ao(String str, String str2, String str3, long j, long j2, float f, float f2, float f3, float f4, String str4, boolean z, String str5) {
-        this.f3683a = str;
-        this.f3684b = str2;
+        this.f2594a = str;
+        this.b = str2;
         this.c = str3;
         this.d = j;
         this.e = j2;
@@ -39,7 +37,7 @@ public class ao {
     }
 
     public String a() {
-        return this.f3683a;
+        return this.f2594a;
     }
 
     public String b() {
@@ -53,7 +51,7 @@ public class ao {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("n", str);
-            jSONObject.put("t", this.f3684b);
+            jSONObject.put("t", this.b);
             jSONObject.put("d", this.d);
             long j2 = this.e - j;
             if (j2 <= 0) {

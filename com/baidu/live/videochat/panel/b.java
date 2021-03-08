@@ -14,13 +14,13 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.tbadk.widget.lottie.TBLottieAnimationView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b extends BaseAdapter {
-    private a bQQ;
+    private a bSq;
     private Context mContext;
     private List<com.baidu.live.videochat.panel.a.a> mDataList = new ArrayList();
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void c(com.baidu.live.videochat.panel.a.a aVar);
     }
@@ -40,8 +40,8 @@ public class b extends BaseAdapter {
     public void E(String str, boolean z) {
         if (!StringUtils.isNull(str)) {
             for (com.baidu.live.videochat.panel.a.a aVar : this.mDataList) {
-                if (aVar != null && str.equals(aVar.bRq)) {
-                    aVar.bRo = z ? 3 : 0;
+                if (aVar != null && str.equals(aVar.bSQ)) {
+                    aVar.bSO = z ? 3 : 0;
                 }
             }
             notifyDataSetChanged();
@@ -56,7 +56,7 @@ public class b extends BaseAdapter {
     }
 
     public void a(a aVar) {
-        this.bQQ = aVar;
+        this.bSq = aVar;
     }
 
     @Override // android.widget.Adapter
@@ -66,7 +66,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: fh */
+    /* renamed from: fi */
     public com.baidu.live.videochat.panel.a.a getItem(int i) {
         if (i < getCount()) {
             return this.mDataList.get(i);
@@ -81,71 +81,71 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0228b c0228b;
+        C0234b c0234b;
         if (view == null) {
-            C0228b c0228b2 = new C0228b();
+            C0234b c0234b2 = new C0234b();
             view = LayoutInflater.from(this.mContext).inflate(a.g.video_chat_friend_item_viewl, viewGroup, false);
-            c0228b2.bQT = (HeadImageView) view.findViewById(a.f.video_chat_user_header);
-            c0228b2.bQT.setIsRound(true);
-            c0228b2.bQT.setDrawBorder(true);
-            c0228b2.bQT.setBorderWidth(this.mContext.getResources().getDimensionPixelOffset(a.d.sdk_ds1));
-            c0228b2.bQT.setBorderColor(this.mContext.getResources().getColor(a.c.sdk_black_alpha10));
-            c0228b2.bQT.setAutoChangeStyle(false);
-            c0228b2.bQU = (TextView) view.findViewById(a.f.video_chat_user_name);
-            c0228b2.bQV = view.findViewById(a.f.video_chat_user_top_divider);
-            c0228b2.bQW = view.findViewById(a.f.video_chat_user_bottom_divider);
-            c0228b2.bQX = (TBLottieAnimationView) view.findViewById(a.f.video_chat_active_view);
-            c0228b2.bQX.setAnimation("video_chat_active_anim.json");
-            c0228b2.bQX.loop(true);
-            c0228b2.bQY = (TextView) view.findViewById(a.f.video_chat_status_invite);
-            c0228b2.bQZ = (TextView) view.findViewById(a.f.video_chat_status_inviting);
-            c0228b2.bRa = (TextView) view.findViewById(a.f.video_chat_status_active);
-            view.setTag(c0228b2);
-            c0228b = c0228b2;
+            c0234b2.bSt = (HeadImageView) view.findViewById(a.f.video_chat_user_header);
+            c0234b2.bSt.setIsRound(true);
+            c0234b2.bSt.setDrawBorder(true);
+            c0234b2.bSt.setBorderWidth(this.mContext.getResources().getDimensionPixelOffset(a.d.sdk_ds1));
+            c0234b2.bSt.setBorderColor(this.mContext.getResources().getColor(a.c.sdk_black_alpha10));
+            c0234b2.bSt.setAutoChangeStyle(false);
+            c0234b2.bSu = (TextView) view.findViewById(a.f.video_chat_user_name);
+            c0234b2.bSv = view.findViewById(a.f.video_chat_user_top_divider);
+            c0234b2.bSw = view.findViewById(a.f.video_chat_user_bottom_divider);
+            c0234b2.bSx = (TBLottieAnimationView) view.findViewById(a.f.video_chat_active_view);
+            c0234b2.bSx.setAnimation("video_chat_active_anim.json");
+            c0234b2.bSx.loop(true);
+            c0234b2.bSy = (TextView) view.findViewById(a.f.video_chat_status_invite);
+            c0234b2.bSz = (TextView) view.findViewById(a.f.video_chat_status_inviting);
+            c0234b2.bSA = (TextView) view.findViewById(a.f.video_chat_status_active);
+            view.setTag(c0234b2);
+            c0234b = c0234b2;
         } else {
-            c0228b = (C0228b) view.getTag();
+            c0234b = (C0234b) view.getTag();
         }
         if (i == getCount() - 1) {
-            c0228b.bQW.setVisibility(8);
+            c0234b.bSw.setVisibility(8);
         } else {
-            c0228b.bQW.setVisibility(0);
+            c0234b.bSw.setVisibility(0);
         }
         if (i == 0) {
-            c0228b.bQV.setVisibility(0);
+            c0234b.bSv.setVisibility(0);
         } else {
-            c0228b.bQV.setVisibility(8);
+            c0234b.bSv.setVisibility(8);
         }
         final com.baidu.live.videochat.panel.a.a item = getItem(i);
         if (item != null) {
             if (StringUtils.isNull(item.portrait)) {
-                c0228b.bQT.startLoad("https://error", 12, false);
+                c0234b.bSt.startLoad("https://error", 12, false);
             } else {
-                c0228b.bQT.startLoad(item.portrait, 12, false);
+                c0234b.bSt.startLoad(item.portrait, 12, false);
             }
-            c0228b.bQU.setText(item.userName);
-            if (item.bRo == 0) {
-                c0228b.bQY.setVisibility(0);
-                c0228b.bQX.setVisibility(8);
-                c0228b.bQZ.setVisibility(8);
-                c0228b.bRa.setVisibility(8);
-            } else if (1 == item.bRo) {
-                c0228b.bQZ.setVisibility(0);
-                c0228b.bQX.setVisibility(8);
-                c0228b.bQY.setVisibility(8);
-                c0228b.bRa.setVisibility(8);
-            } else if (2 == item.bRo || 3 == item.bRo) {
-                c0228b.bRa.setVisibility(0);
-                c0228b.bQX.setVisibility(0);
-                c0228b.bQX.playAnimation();
-                c0228b.bQY.setVisibility(8);
-                c0228b.bQZ.setVisibility(8);
+            c0234b.bSu.setText(item.userName);
+            if (item.bSO == 0) {
+                c0234b.bSy.setVisibility(0);
+                c0234b.bSx.setVisibility(8);
+                c0234b.bSz.setVisibility(8);
+                c0234b.bSA.setVisibility(8);
+            } else if (1 == item.bSO) {
+                c0234b.bSz.setVisibility(0);
+                c0234b.bSx.setVisibility(8);
+                c0234b.bSy.setVisibility(8);
+                c0234b.bSA.setVisibility(8);
+            } else if (2 == item.bSO || 3 == item.bSO) {
+                c0234b.bSA.setVisibility(0);
+                c0234b.bSx.setVisibility(0);
+                c0234b.bSx.playAnimation();
+                c0234b.bSy.setVisibility(8);
+                c0234b.bSz.setVisibility(8);
             }
         }
-        c0228b.bQY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.videochat.panel.b.1
+        c0234b.bSy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.videochat.panel.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (b.this.bQQ != null) {
-                    b.this.bQQ.c(item);
+                if (b.this.bSq != null) {
+                    b.this.bSq.c(item);
                 }
             }
         });
@@ -153,18 +153,18 @@ public class b extends BaseAdapter {
     }
 
     /* renamed from: com.baidu.live.videochat.panel.b$b  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    private static class C0228b {
-        public HeadImageView bQT;
-        public TextView bQU;
-        public View bQV;
-        public View bQW;
-        public TBLottieAnimationView bQX;
-        public TextView bQY;
-        public TextView bQZ;
-        public TextView bRa;
+    /* loaded from: classes10.dex */
+    private static class C0234b {
+        public TextView bSA;
+        public HeadImageView bSt;
+        public TextView bSu;
+        public View bSv;
+        public View bSw;
+        public TBLottieAnimationView bSx;
+        public TextView bSy;
+        public TextView bSz;
 
-        private C0228b() {
+        private C0234b() {
         }
     }
 }

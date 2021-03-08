@@ -31,24 +31,24 @@ import com.baidu.tieba.yuyinala.liveroom.chooselover.a;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b extends Dialog {
-    private ab aDd;
-    private View bYd;
-    private CommonEmptyView bwJ;
-    private AlphaGradientHListView bxP;
+    private ab aED;
+    private View bZD;
+    private CommonEmptyView byj;
+    private AlphaGradientHListView bzp;
     private Activity mActivity;
     private int mCurrentPosition;
     private List<AlaWheatInfoData> mList;
-    private TextView mdj;
-    private d our;
-    private com.baidu.tieba.yuyinala.liveroom.chooselover.a ous;
-    private TextView ouu;
-    private View ouv;
-    private a ouw;
-    public CustomMessageListener oux;
+    private TextView mfm;
+    private View owA;
+    private a owB;
+    public CustomMessageListener owC;
+    private d owx;
+    private com.baidu.tieba.yuyinala.liveroom.chooselover.a owy;
+    private TextView owz;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void e(AlaWheatInfoData alaWheatInfoData);
 
@@ -60,11 +60,11 @@ public class b extends Dialog {
     public b(Activity activity) {
         super(activity, a.i.DialogRoomcardStyle);
         this.mCurrentPosition = -2;
-        this.oux = new CustomMessageListener(2501014) { // from class: com.baidu.tieba.yuyinala.liveroom.chooselover.b.6
+        this.owC = new CustomMessageListener(2501014) { // from class: com.baidu.tieba.yuyinala.liveroom.chooselover.b.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501014 && (customResponsedMessage.getData() instanceof g) && ((g) customResponsedMessage.getData()).Bm() != 1) {
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501014 && (customResponsedMessage.getData() instanceof g) && ((g) customResponsedMessage.getData()).Bp() != 1) {
                     b.this.dismiss();
                 }
             }
@@ -75,10 +75,10 @@ public class b extends Dialog {
 
     private void init() {
         initView();
-        YB();
+        YE();
     }
 
-    private void YB() {
+    private void YE() {
         Window window = getWindow();
         if (window != null) {
             window.setFlags(262144, 262144);
@@ -95,36 +95,36 @@ public class b extends Dialog {
 
     private void initView() {
         setContentView(a.g.yuyin_layout_dialog_choose_love_person);
-        this.bwJ = (CommonEmptyView) findViewById(a.f.empty_view);
-        this.ouv = findViewById(a.f.not_empty_view);
-        this.bYd = findViewById(a.f.view);
-        this.mdj = (TextView) findViewById(a.f.tv_cancel);
-        this.ouu = (TextView) findViewById(a.f.tv_confirm);
-        this.bxP = (AlphaGradientHListView) findViewById(a.f.ala_live_manager_listview);
-        this.ous = new com.baidu.tieba.yuyinala.liveroom.chooselover.a(this.mActivity);
-        this.our = new d(this.mActivity);
-        this.bxP.setAdapter((ListAdapter) this.our);
-        this.bxP.setSelector(this.mActivity.getResources().getDrawable(a.e.sdk_transparent_bg));
-        this.bxP.setColor(this.mActivity.getResources().getColor(a.c.sdk_white_alpha100), this.mActivity.getResources().getColor(a.c.sdk_white_alpha0));
-        this.bxP.setNeedAlphaShade(true);
-        this.bxP.setDividerWidth(BdUtilHelper.getDimens(this.mActivity, a.d.sdk_ds0));
-        this.bxP.setOnItemClickListener(new AdapterView.c() { // from class: com.baidu.tieba.yuyinala.liveroom.chooselover.b.1
+        this.byj = (CommonEmptyView) findViewById(a.f.empty_view);
+        this.owA = findViewById(a.f.not_empty_view);
+        this.bZD = findViewById(a.f.view);
+        this.mfm = (TextView) findViewById(a.f.tv_cancel);
+        this.owz = (TextView) findViewById(a.f.tv_confirm);
+        this.bzp = (AlphaGradientHListView) findViewById(a.f.ala_live_manager_listview);
+        this.owy = new com.baidu.tieba.yuyinala.liveroom.chooselover.a(this.mActivity);
+        this.owx = new d(this.mActivity);
+        this.bzp.setAdapter((ListAdapter) this.owx);
+        this.bzp.setSelector(this.mActivity.getResources().getDrawable(a.e.sdk_transparent_bg));
+        this.bzp.setColor(this.mActivity.getResources().getColor(a.c.sdk_white_alpha100), this.mActivity.getResources().getColor(a.c.sdk_white_alpha0));
+        this.bzp.setNeedAlphaShade(true);
+        this.bzp.setDividerWidth(BdUtilHelper.getDimens(this.mActivity, a.d.sdk_ds0));
+        this.bzp.setOnItemClickListener(new AdapterView.c() { // from class: com.baidu.tieba.yuyinala.liveroom.chooselover.b.1
             @Override // com.baidu.live.tieba.horizonallist.widget.AdapterView.c
             public void a(AdapterView<?> adapterView, View view, int i, long j) {
                 try {
                     if (b.this.mCurrentPosition < 0 || b.this.mCurrentPosition != i || !((AlaWheatInfoData) b.this.mList.get(b.this.mCurrentPosition)).isSelect) {
                         b.this.mCurrentPosition = i;
-                        b.this.ebb();
+                        b.this.ebj();
                         int i2 = 0;
                         while (i2 < b.this.mList.size()) {
                             ((AlaWheatInfoData) b.this.mList.get(i2)).isSelect = i2 == i;
                             i2++;
                         }
-                        if (b.this.our != null) {
-                            b.this.our.ep(view);
+                        if (b.this.owx != null) {
+                            b.this.owx.ep(view);
                         }
-                        if (b.this.ouw != null) {
-                            b.this.ouw.e((AlaWheatInfoData) b.this.mList.get(b.this.mCurrentPosition));
+                        if (b.this.owB != null) {
+                            b.this.owB.e((AlaWheatInfoData) b.this.mList.get(b.this.mCurrentPosition));
                             return;
                         }
                         return;
@@ -132,54 +132,54 @@ public class b extends Dialog {
                     for (int i3 = 0; i3 < b.this.mList.size(); i3++) {
                         ((AlaWheatInfoData) b.this.mList.get(i3)).isSelect = false;
                     }
-                    b.this.ebb();
+                    b.this.ebj();
                     b.this.mCurrentPosition = -2;
-                    if (b.this.ouw != null) {
-                        b.this.ouw.e(null);
+                    if (b.this.owB != null) {
+                        b.this.owB.e(null);
                     }
                 } catch (Exception e) {
                 }
             }
         });
-        this.bYd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.chooselover.b.2
+        this.bZD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.chooselover.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 b.this.dismiss();
             }
         });
-        this.mdj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.chooselover.b.3
+        this.mfm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.chooselover.b.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 b.this.dismiss();
             }
         });
-        this.ouu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.chooselover.b.4
+        this.owz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.chooselover.b.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.mCurrentPosition != -2 && b.this.aDd != null && b.this.aDd.aIz != null && b.this.aDd.aIU != null) {
-                    b.this.ous.m(b.this.aDd.aIz.userUk, ((AlaWheatInfoData) b.this.mList.get(b.this.mCurrentPosition)).uk, com.baidu.tieba.yuyinala.liveroom.wheat.e.g.av(b.this.aDd), com.baidu.tieba.yuyinala.liveroom.wheat.e.g.au(b.this.aDd));
+                if (b.this.mCurrentPosition != -2 && b.this.aED != null && b.this.aED.aJZ != null && b.this.aED.aKu != null) {
+                    b.this.owy.m(b.this.aED.aJZ.userUk, ((AlaWheatInfoData) b.this.mList.get(b.this.mCurrentPosition)).uk, com.baidu.tieba.yuyinala.liveroom.wheat.e.g.av(b.this.aED), com.baidu.tieba.yuyinala.liveroom.wheat.e.g.au(b.this.aED));
                 }
             }
         });
-        this.ous.a(new a.InterfaceC0925a() { // from class: com.baidu.tieba.yuyinala.liveroom.chooselover.b.5
-            @Override // com.baidu.tieba.yuyinala.liveroom.chooselover.a.InterfaceC0925a
+        this.owy.a(new a.InterfaceC0931a() { // from class: com.baidu.tieba.yuyinala.liveroom.chooselover.b.5
+            @Override // com.baidu.tieba.yuyinala.liveroom.chooselover.a.InterfaceC0931a
             public void a(ChooseLoverHttpResponseMessage chooseLoverHttpResponseMessage) {
                 b.this.dismiss();
                 BdUtilHelper.showToast(b.this.getContext(), "选择成功");
-                if (b.this.ouw != null) {
-                    b.this.ouw.f((AlaWheatInfoData) b.this.mList.get(b.this.mCurrentPosition));
+                if (b.this.owB != null) {
+                    b.this.owB.f((AlaWheatInfoData) b.this.mList.get(b.this.mCurrentPosition));
                 }
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                    jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, b.this.aDd.aIU.croom_id);
+                    jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, b.this.aED.aKu.croom_id);
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
                 UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "selectguest_clk").setContentExt(jSONObject));
             }
 
-            @Override // com.baidu.tieba.yuyinala.liveroom.chooselover.a.InterfaceC0925a
+            @Override // com.baidu.tieba.yuyinala.liveroom.chooselover.a.InterfaceC0931a
             public void onFail(int i, String str) {
                 b.this.dismiss();
                 BdUtilHelper.showToast(b.this.getContext(), "操作失败，请重试");
@@ -188,42 +188,42 @@ public class b extends Dialog {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ebb() {
-        for (int i = 0; i < this.bxP.getChildCount(); i++) {
-            View childAt = this.bxP.getChildAt(i);
-            if (this.our != null) {
-                this.our.eo(childAt);
+    public void ebj() {
+        for (int i = 0; i < this.bzp.getChildCount(); i++) {
+            View childAt = this.bzp.getChildAt(i);
+            if (this.owx != null) {
+                this.owx.eo(childAt);
             }
         }
     }
 
     public void ab(ab abVar) {
-        this.aDd = abVar;
+        this.aED = abVar;
         try {
             show();
-            this.mList = ebc();
+            this.mList = ebk();
             if (ListUtils.isEmpty(this.mList)) {
-                this.bwJ.reset();
-                this.bwJ.setTitle(a.h.yuyin_ala_dating_none_on_wheat);
-                this.bwJ.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.LIGHT);
-                this.bwJ.setVisibility(0);
-                this.ouv.setVisibility(8);
+                this.byj.reset();
+                this.byj.setTitle(a.h.yuyin_ala_dating_none_on_wheat);
+                this.byj.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.LIGHT);
+                this.byj.setVisibility(0);
+                this.owA.setVisibility(8);
             } else {
-                this.our.setData(this.mList);
-                this.our.notifyDataSetChanged();
-                this.bwJ.setVisibility(8);
-                this.ouv.setVisibility(0);
+                this.owx.setData(this.mList);
+                this.owx.notifyDataSetChanged();
+                this.byj.setVisibility(8);
+                this.owA.setVisibility(0);
             }
         } catch (Exception e) {
         }
     }
 
-    private List<AlaWheatInfoData> ebc() {
+    private List<AlaWheatInfoData> ebk() {
         int i;
         ArrayList arrayList = new ArrayList();
         try {
-            String Yp = Yp();
-            List<AlaWheatInfoData> anchorWheatLists = this.aDd.aIY.getAnchorWheatLists();
+            String Ys = Ys();
+            List<AlaWheatInfoData> anchorWheatLists = this.aED.aKy.getAnchorWheatLists();
             int i2 = 0;
             while (true) {
                 if (i2 >= ListUtils.getCount(anchorWheatLists)) {
@@ -231,7 +231,7 @@ public class b extends Dialog {
                     break;
                 }
                 AlaWheatInfoData alaWheatInfoData = anchorWheatLists.get(i2);
-                if (alaWheatInfoData != null && Yp != null && Yp.equals(alaWheatInfoData.uk)) {
+                if (alaWheatInfoData != null && Ys != null && Ys.equals(alaWheatInfoData.uk)) {
                     i = i2;
                     break;
                 }
@@ -255,7 +255,7 @@ public class b extends Dialog {
         return arrayList;
     }
 
-    public String Yp() {
+    public String Ys() {
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         if (currentAccountInfo != null) {
             return ExtraParamsManager.getEncryptionUserId(currentAccountInfo.getID());
@@ -266,10 +266,10 @@ public class b extends Dialog {
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
         try {
-            if (this.ouw != null) {
-                this.ouw.onDismiss();
+            if (this.owB != null) {
+                this.owB.onDismiss();
             }
-            MessageManager.getInstance().unRegisterListener(this.oux);
+            MessageManager.getInstance().unRegisterListener(this.owC);
             super.dismiss();
         } catch (Throwable th) {
         }
@@ -279,12 +279,12 @@ public class b extends Dialog {
     public void show() {
         try {
             super.show();
-            MessageManager.getInstance().registerListener(this.oux);
+            MessageManager.getInstance().registerListener(this.owC);
         } catch (Throwable th) {
         }
     }
 
     public void a(a aVar) {
-        this.ouw = aVar;
+        this.owB = aVar;
     }
 }

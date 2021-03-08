@@ -3,7 +3,7 @@ package com.baidu.mapsdkplatform.comapi.map;
 public class f extends d {
     public f() {
         this.c = 6;
-        this.f3049b = "map";
+        this.b = "map";
         this.d = 10;
     }
 }

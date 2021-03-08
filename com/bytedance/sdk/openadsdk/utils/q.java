@@ -1,11 +1,15 @@
 package com.bytedance.sdk.openadsdk.utils;
 
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.os.Build;
+import android.os.Environment;
 import android.text.TextUtils;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
+import java.io.File;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -15,8 +19,8 @@ public class q {
     @Nullable
     @MainThread
     public static JSONArray a(@NonNull final Context context) {
-        if (com.bytedance.sdk.openadsdk.core.p.h().E() && com.bytedance.sdk.openadsdk.core.i.c().d().alist() && com.bytedance.sdk.openadsdk.core.h.i.d() && e(context)) {
-            com.bytedance.sdk.openadsdk.k.a.a().c(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.q.1
+        if (com.bytedance.sdk.openadsdk.core.p.h().D() && com.bytedance.sdk.openadsdk.core.i.d().e().alist() && com.bytedance.sdk.openadsdk.core.h.f.d() && e(context)) {
+            com.bytedance.sdk.openadsdk.j.e.a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.q.1
                 @Override // java.lang.Runnable
                 public void run() {
                     q.d(context);
@@ -30,9 +34,9 @@ public class q {
     @Nullable
     private static JSONArray c(Context context) {
         try {
-            String b2 = com.bytedance.sdk.openadsdk.core.d.a(context).b("install_app_incremental_string", (String) null);
-            if (!TextUtils.isEmpty(b2)) {
-                return new JSONArray((Collection) a(b2));
+            String b = com.bytedance.sdk.openadsdk.core.d.a(context).b("install_app_incremental_string", (String) null);
+            if (!TextUtils.isEmpty(b)) {
+                return new JSONArray((Collection) b(b));
             }
         } catch (Throwable th) {
             u.a("InstallAppUtils", "getCacheIncrementalApps error: ", th);
@@ -46,10 +50,10 @@ public class q {
         try {
             List<String> a2 = com.bytedance.sdk.openadsdk.core.h.b.a().a(context);
             if (a2 != null && !a2.isEmpty()) {
-                List<String> a3 = a(com.bytedance.sdk.openadsdk.core.d.a(context).b("install_app_string", (String) null));
+                List<String> b = b(com.bytedance.sdk.openadsdk.core.d.a(context).b("install_app_string", (String) null));
                 a(context, a(a2));
-                if (a3 != null && !a3.isEmpty()) {
-                    a2.removeAll(a3);
+                if (b != null && !b.isEmpty()) {
+                    a2.removeAll(b);
                 }
                 b(context, a(a2));
             }
@@ -75,7 +79,7 @@ public class q {
         return longValue == -1 || System.currentTimeMillis() - longValue > 43200000;
     }
 
-    private static List<String> a(String str) {
+    private static List<String> b(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -100,5 +104,56 @@ public class q {
                 return sb.toString().trim();
             }
         }
+    }
+
+    @WorkerThread
+    public static boolean a(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        if (!aj.c(com.bytedance.sdk.openadsdk.core.p.a()) || aj.c(com.bytedance.sdk.openadsdk.core.p.a(), str)) {
+            if (Build.VERSION.SDK_INT >= 29) {
+                return true;
+            }
+            try {
+                File file = new File(Environment.getExternalStorageDirectory().getPath(), "android/data/" + str);
+                if (file.exists()) {
+                    long a2 = a(file);
+                    PackageInfo packageInfo = com.bytedance.sdk.openadsdk.core.p.a().getPackageManager().getPackageInfo(str, 0);
+                    if (packageInfo != null) {
+                        return packageInfo.lastUpdateTime < a2;
+                    }
+                    return false;
+                }
+                return false;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static long a(File file) {
+        if (file == null || !file.exists()) {
+            return 0L;
+        }
+        return a(file, file.lastModified(), 0);
+    }
+
+    private static long a(File file, long j, int i) {
+        File[] listFiles;
+        if (file == null || !file.exists()) {
+            return j;
+        }
+        long max = Math.max(j, file.lastModified());
+        int i2 = i + 1;
+        if (i2 < 50 && file.isDirectory() && (listFiles = file.listFiles()) != null) {
+            for (File file2 : listFiles) {
+                max = Math.max(max, a(file2, max, i2));
+            }
+            return max;
+        }
+        return max;
     }
 }

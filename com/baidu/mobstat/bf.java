@@ -13,15 +13,13 @@ import android.webkit.WebView;
 import com.baidu.mobstat.bk;
 import java.lang.ref.WeakReference;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class bf {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile int f3745a = 0;
+    private static volatile int f2629a = 0;
     private static final bf k = new bf();
-
-    /* renamed from: b  reason: collision with root package name */
-    private WeakReference<Activity> f3746b;
+    private WeakReference<Activity> b;
     private int c;
     private boolean d;
     private JSONObject e;
@@ -32,8 +30,8 @@ public class bf {
     private be j = new be();
 
     static /* synthetic */ int c() {
-        int i = f3745a + 1;
-        f3745a = i;
+        int i = f2629a + 1;
+        f2629a = i;
         return i;
     }
 
@@ -48,7 +46,7 @@ public class bf {
     }
 
     public static void b() {
-        f3745a = 0;
+        f2629a = 0;
     }
 
     public void a(Activity activity, boolean z, JSONObject jSONObject, boolean z2) {
@@ -61,19 +59,19 @@ public class bf {
             this.e = jSONObject;
         }
         if (!a(activity, 1)) {
-            if (this.f3746b != null && this.i != null) {
+            if (this.b != null && this.i != null) {
                 this.i.a();
             }
-            this.f3746b = new WeakReference<>(activity);
+            this.b = new WeakReference<>(activity);
             this.c = 1;
-            this.i = new a(activity, bj.a(activity), new bk.a(1, this.f3746b, this.j), this.g, this.h, this.e, this.d, true, this.f);
+            this.i = new a(activity, bj.a(activity), new bk.a(1, this.b, this.j), this.g, this.h, this.e, this.d, true, this.f);
         }
     }
 
     public void a(Activity activity, boolean z) {
         ar.b(activity, !z);
         if (!a(activity, 2)) {
-            this.f3746b = new WeakReference<>(activity);
+            this.b = new WeakReference<>(activity);
             this.c = 2;
             if (this.i != null) {
                 this.i.a();
@@ -82,11 +80,11 @@ public class bf {
     }
 
     private boolean a(Activity activity, int i) {
-        return this.f3746b != null && this.f3746b.get() == activity && this.c == i;
+        return this.b != null && this.b.get() == activity && this.c == i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements ViewTreeObserver.OnGlobalLayoutListener, Runnable {
         private final WeakReference<View> c;
         private final bk d;
@@ -98,12 +96,10 @@ public class bf {
         private boolean j;
         private boolean k;
         private Runnable l = null;
-
-        /* renamed from: b  reason: collision with root package name */
-        private boolean f3748b = true;
+        private boolean b = true;
 
         /* renamed from: a  reason: collision with root package name */
-        private volatile boolean f3747a = false;
+        private volatile boolean f2630a = false;
 
         public a(Activity activity, View view, bk bkVar, Handler handler, Handler handler2, JSONObject jSONObject, boolean z, boolean z2, boolean z3) {
             this.h = new WeakReference<>(activity);
@@ -129,8 +125,8 @@ public class bf {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f3748b) {
-                if (this.c.get() == null || this.f3747a) {
+            if (this.b) {
+                if (this.c.get() == null || this.f2630a) {
                     b();
                     return;
                 }
@@ -161,15 +157,15 @@ public class bf {
         }
 
         public void a() {
-            if (!this.f3747a) {
-                this.f3747a = true;
+            if (!this.f2630a) {
+                this.f2630a = true;
                 this.e.post(this);
             }
         }
 
         @SuppressLint({"NewApi"})
         private void b() {
-            if (this.f3748b) {
+            if (this.b) {
                 View view = this.c.get();
                 if (view != null) {
                     ViewTreeObserver viewTreeObserver = view.getViewTreeObserver();
@@ -183,7 +179,7 @@ public class bf {
                 }
                 a(this.d, this.f);
             }
-            this.f3748b = false;
+            this.b = false;
         }
 
         private void a(final WeakReference<Activity> weakReference, final JSONObject jSONObject, final bk bkVar, Handler handler, final boolean z) {

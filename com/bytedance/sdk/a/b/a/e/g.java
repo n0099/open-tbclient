@@ -1,6 +1,6 @@
 package com.bytedance.sdk.a.b.a.e;
 
-import androidx.core.internal.view.SupportMenu;
+import android.os.SystemClock;
 import com.bytedance.sdk.a.b.a.e.h;
 import java.io.Closeable;
 import java.io.IOException;
@@ -20,64 +20,62 @@ import java.util.concurrent.TimeUnit;
 public final class g implements Closeable {
 
     /* renamed from: a  reason: collision with root package name */
-    static final ExecutorService f5901a;
+    static final ExecutorService f3970a;
     static final /* synthetic */ boolean s;
-
-    /* renamed from: b  reason: collision with root package name */
-    final boolean f5902b;
-    private Map<Integer, l> ciM;
+    final boolean b;
+    private Map<Integer, l> ckm;
     final String e;
     int f;
     int g;
     boolean h;
     long k;
-    final b pqp;
-    private final ExecutorService pqq;
-    final m pqr;
-    final Socket pqu;
-    final j pqv;
-    final c pqw;
+    final j psA;
+    final c psB;
+    final b psu;
+    private final ExecutorService psv;
+    final m psw;
+    final Socket psz;
     private int v;
     final Map<Integer, i> d = new LinkedHashMap();
     long j = 0;
-    n pqs = new n();
-    final n pqt = new n();
+    n psx = new n();
+    final n psy = new n();
     boolean n = false;
-    final Set<Integer> pqx = new LinkedHashSet();
+    final Set<Integer> psC = new LinkedHashSet();
 
     static {
         s = !g.class.desiredAssertionStatus();
-        f5901a = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), com.bytedance.sdk.a.b.a.c.bm("OkHttp Http2Connection", true));
+        f3970a = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), com.bytedance.sdk.a.b.a.c.bm("OkHttp Http2Connection", true));
     }
 
     g(a aVar) {
-        this.pqr = aVar.pqE;
-        this.f5902b = aVar.g;
-        this.pqp = aVar.pqD;
+        this.psw = aVar.psJ;
+        this.b = aVar.g;
+        this.psu = aVar.psI;
         this.g = aVar.g ? 1 : 2;
         if (aVar.g) {
             this.g += 2;
         }
         this.v = aVar.g ? 1 : 2;
         if (aVar.g) {
-            this.pqs.dV(7, 16777216);
+            this.psx.dV(7, 16777216);
         }
-        this.e = aVar.f5911b;
-        this.pqq = new ThreadPoolExecutor(0, 1, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), com.bytedance.sdk.a.b.a.c.bm(com.bytedance.sdk.a.b.a.c.a("OkHttp %s Push Observer", this.e), true));
-        this.pqt.dV(7, SupportMenu.USER_MASK);
-        this.pqt.dV(5, 16384);
-        this.k = this.pqt.d();
-        this.pqu = aVar.f5910a;
-        this.pqv = new j(aVar.poG, this.f5902b);
-        this.pqw = new c(new h(aVar.ppQ, this.f5902b));
+        this.e = aVar.b;
+        this.psv = new ThreadPoolExecutor(0, 1, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), com.bytedance.sdk.a.b.a.c.bm(com.bytedance.sdk.a.b.a.c.a("OkHttp %s Push Observer", this.e), true));
+        this.psy.dV(7, 65535);
+        this.psy.dV(5, 16384);
+        this.k = this.psy.d();
+        this.psz = aVar.f3978a;
+        this.psA = new j(aVar.pqN, this.b);
+        this.psB = new c(new h(aVar.prV, this.b));
     }
 
-    synchronized i OD(int i) {
+    synchronized i OH(int i) {
         return this.d.get(Integer.valueOf(i));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized i OE(int i) {
+    public synchronized i OI(int i) {
         i remove;
         remove = this.d.remove(Integer.valueOf(i));
         notifyAll();
@@ -85,7 +83,7 @@ public final class g implements Closeable {
     }
 
     public synchronized int a() {
-        return this.pqt.c(Integer.MAX_VALUE);
+        return this.psy.c(Integer.MAX_VALUE);
     }
 
     public i C(List<com.bytedance.sdk.a.b.a.e.c> list, boolean z) throws IOException {
@@ -97,7 +95,7 @@ public final class g implements Closeable {
         i iVar;
         boolean z2 = false;
         boolean z3 = !z;
-        synchronized (this.pqv) {
+        synchronized (this.psA) {
             synchronized (this) {
                 if (this.h) {
                     throw new com.bytedance.sdk.a.b.a.e.a();
@@ -105,7 +103,7 @@ public final class g implements Closeable {
                 i2 = this.g;
                 this.g += 2;
                 iVar = new i(i2, this, z3, false, list);
-                if (!z || this.k == 0 || iVar.f5916b == 0) {
+                if (!z || this.k == 0 || iVar.b == 0) {
                     z2 = true;
                 }
                 if (iVar.b()) {
@@ -113,15 +111,15 @@ public final class g implements Closeable {
                 }
             }
             if (i == 0) {
-                this.pqv.a(z3, i2, i, list);
-            } else if (this.f5902b) {
+                this.psA.a(z3, i2, i, list);
+            } else if (this.b) {
                 throw new IllegalArgumentException("client streams shouldn't have associated stream IDs");
             } else {
-                this.pqv.b(i, i2, list);
+                this.psA.b(i, i2, list);
             }
         }
         if (z2) {
-            this.pqv.b();
+            this.psA.b();
         }
         return iVar;
     }
@@ -129,7 +127,7 @@ public final class g implements Closeable {
     public void a(int i, boolean z, com.bytedance.sdk.a.a.c cVar, long j) throws IOException {
         int min;
         if (j == 0) {
-            this.pqv.a(z, i, cVar, 0);
+            this.psA.a(z, i, cVar, 0);
             return;
         }
         while (j > 0) {
@@ -144,11 +142,11 @@ public final class g implements Closeable {
                         throw new InterruptedIOException();
                     }
                 }
-                min = Math.min((int) Math.min(j, this.k), this.pqv.c());
+                min = Math.min((int) Math.min(j, this.k), this.psA.c());
                 this.k -= min;
             }
             j -= min;
-            this.pqv.a(z && j == 0, i, cVar, min);
+            this.psA.a(z && j == 0, i, cVar, min);
         }
     }
 
@@ -161,7 +159,7 @@ public final class g implements Closeable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(final int i, final com.bytedance.sdk.a.b.a.e.b bVar) {
-        f5901a.execute(new com.bytedance.sdk.a.b.a.b("OkHttp %s stream %d", new Object[]{this.e, Integer.valueOf(i)}) { // from class: com.bytedance.sdk.a.b.a.e.g.1
+        f3970a.execute(new com.bytedance.sdk.a.b.a.b("OkHttp %s stream %d", new Object[]{this.e, Integer.valueOf(i)}) { // from class: com.bytedance.sdk.a.b.a.e.g.1
             @Override // com.bytedance.sdk.a.b.a.b
             public void b() {
                 try {
@@ -174,16 +172,16 @@ public final class g implements Closeable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(int i, com.bytedance.sdk.a.b.a.e.b bVar) throws IOException {
-        this.pqv.a(i, bVar);
+        this.psA.a(i, bVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(final int i, final long j) {
-        f5901a.execute(new com.bytedance.sdk.a.b.a.b("OkHttp Window Update %s stream %d", new Object[]{this.e, Integer.valueOf(i)}) { // from class: com.bytedance.sdk.a.b.a.e.g.2
+        f3970a.execute(new com.bytedance.sdk.a.b.a.b("OkHttp Window Update %s stream %d", new Object[]{this.e, Integer.valueOf(i)}) { // from class: com.bytedance.sdk.a.b.a.e.g.2
             @Override // com.bytedance.sdk.a.b.a.b
             public void b() {
                 try {
-                    g.this.pqv.a(i, j);
+                    g.this.psA.a(i, j);
                 } catch (IOException e) {
                 }
             }
@@ -191,7 +189,7 @@ public final class g implements Closeable {
     }
 
     void a(final boolean z, final int i, final int i2, final l lVar) {
-        f5901a.execute(new com.bytedance.sdk.a.b.a.b("OkHttp %s ping %08x%08x", new Object[]{this.e, Integer.valueOf(i), Integer.valueOf(i2)}) { // from class: com.bytedance.sdk.a.b.a.e.g.3
+        f3970a.execute(new com.bytedance.sdk.a.b.a.b("OkHttp %s ping %08x%08x", new Object[]{this.e, Integer.valueOf(i), Integer.valueOf(i2)}) { // from class: com.bytedance.sdk.a.b.a.e.g.3
             @Override // com.bytedance.sdk.a.b.a.b
             public void b() {
                 try {
@@ -203,28 +201,28 @@ public final class g implements Closeable {
     }
 
     void b(boolean z, int i, int i2, l lVar) throws IOException {
-        synchronized (this.pqv) {
+        synchronized (this.psA) {
             if (lVar != null) {
                 lVar.a();
             }
-            this.pqv.b(z, i, i2);
+            this.psA.b(z, i, i2);
         }
     }
 
-    synchronized l OF(int i) {
-        return this.ciM != null ? this.ciM.remove(Integer.valueOf(i)) : null;
+    synchronized l OJ(int i) {
+        return this.ckm != null ? this.ckm.remove(Integer.valueOf(i)) : null;
     }
 
     public void b() throws IOException {
-        this.pqv.b();
+        this.psA.b();
     }
 
     public void a(com.bytedance.sdk.a.b.a.e.b bVar) throws IOException {
-        synchronized (this.pqv) {
+        synchronized (this.psA) {
             synchronized (this) {
                 if (!this.h) {
                     this.h = true;
-                    this.pqv.a(this.f, bVar, com.bytedance.sdk.a.b.a.c.f5872a);
+                    this.psA.a(this.f, bVar, com.bytedance.sdk.a.b.a.c.f3956a);
                 }
             }
         }
@@ -255,9 +253,9 @@ public final class g implements Closeable {
                 this.d.clear();
                 iVarArr = (i[]) this.d.values().toArray(new i[this.d.size()]);
             }
-            if (this.ciM != null) {
-                this.ciM = null;
-                lVarArr = (l[]) this.ciM.values().toArray(new l[this.ciM.size()]);
+            if (this.ckm != null) {
+                this.ckm = null;
+                lVarArr = (l[]) this.ckm.values().toArray(new l[this.ckm.size()]);
             } else {
                 lVarArr = null;
             }
@@ -281,7 +279,7 @@ public final class g implements Closeable {
             }
         }
         try {
-            this.pqv.close();
+            this.psA.close();
             e = iOException;
         } catch (IOException e3) {
             e = e3;
@@ -290,7 +288,7 @@ public final class g implements Closeable {
             }
         }
         try {
-            this.pqu.close();
+            this.psz.close();
         } catch (IOException e4) {
             e = e4;
         }
@@ -305,14 +303,16 @@ public final class g implements Closeable {
 
     void a(boolean z) throws IOException {
         if (z) {
-            this.pqv.a();
-            this.pqv.b(this.pqs);
-            int d = this.pqs.d();
+            this.psA.a();
+            this.psA.b(this.psx);
+            int d = this.psx.d();
             if (d != 65535) {
-                this.pqv.a(0, d - SupportMenu.USER_MASK);
+                this.psA.a(0, d - 65535);
             }
         }
-        new Thread(this.pqw).start();
+        Thread thread = new Thread(this.psB);
+        thread.setName("tt_pangle_thread_http2_connection" + SystemClock.uptimeMillis());
+        thread.start();
     }
 
     public synchronized boolean d() {
@@ -323,34 +323,32 @@ public final class g implements Closeable {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        Socket f5910a;
-
-        /* renamed from: b  reason: collision with root package name */
-        String f5911b;
+        Socket f3978a;
+        String b;
         boolean g;
-        com.bytedance.sdk.a.a.d poG;
-        com.bytedance.sdk.a.a.e ppQ;
-        b pqD = b.pqF;
-        m pqE = m.pre;
+        com.bytedance.sdk.a.a.d pqN;
+        com.bytedance.sdk.a.a.e prV;
+        b psI = b.psK;
+        m psJ = m.ptj;
 
         public a(boolean z) {
             this.g = z;
         }
 
         public a a(Socket socket, String str, com.bytedance.sdk.a.a.e eVar, com.bytedance.sdk.a.a.d dVar) {
-            this.f5910a = socket;
-            this.f5911b = str;
-            this.ppQ = eVar;
-            this.poG = dVar;
+            this.f3978a = socket;
+            this.b = str;
+            this.prV = eVar;
+            this.pqN = dVar;
             return this;
         }
 
         public a a(b bVar) {
-            this.pqD = bVar;
+            this.psI = bVar;
             return this;
         }
 
-        public g epA() {
+        public g epH() {
             return new g(this);
         }
     }
@@ -358,11 +356,11 @@ public final class g implements Closeable {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public class c extends com.bytedance.sdk.a.b.a.b implements h.b {
-        final h pqG;
+        final h psL;
 
         c(h hVar) {
             super("OkHttp %s", g.this.e);
-            this.pqG = hVar;
+            this.psL = hVar;
         }
 
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x0004 */
@@ -380,15 +378,15 @@ public final class g implements Closeable {
             com.bytedance.sdk.a.b.a.e.b bVar2 = com.bytedance.sdk.a.b.a.e.b.INTERNAL_ERROR;
             try {
                 try {
-                    this.pqG.a(this);
+                    this.psL.a(this);
                     do {
-                    } while (this.pqG.a(false, (h.b) this));
+                    } while (this.psL.a(false, (h.b) this));
                     r0 = com.bytedance.sdk.a.b.a.e.b.NO_ERROR;
                     try {
                         g.this.a(r0, com.bytedance.sdk.a.b.a.e.b.CANCEL);
                     } catch (IOException e) {
                     }
-                    r0 = this.pqG;
+                    r0 = this.psL;
                     com.bytedance.sdk.a.b.a.c.a((Closeable) r0);
                 } catch (Throwable th2) {
                     th = th2;
@@ -397,7 +395,7 @@ public final class g implements Closeable {
                         g.this.a(bVar, bVar2);
                     } catch (IOException e2) {
                     }
-                    com.bytedance.sdk.a.b.a.c.a(this.pqG);
+                    com.bytedance.sdk.a.b.a.c.a(this.psL);
                     throw th;
                 }
             } catch (IOException e3) {
@@ -407,11 +405,11 @@ public final class g implements Closeable {
                         g.this.a(bVar, com.bytedance.sdk.a.b.a.e.b.PROTOCOL_ERROR);
                     } catch (IOException e4) {
                     }
-                    com.bytedance.sdk.a.b.a.c.a(this.pqG);
+                    com.bytedance.sdk.a.b.a.c.a(this.psL);
                 } catch (Throwable th3) {
                     th = th3;
                     g.this.a(bVar, bVar2);
-                    com.bytedance.sdk.a.b.a.c.a(this.pqG);
+                    com.bytedance.sdk.a.b.a.c.a(this.psL);
                     throw th;
                 }
             }
@@ -423,15 +421,15 @@ public final class g implements Closeable {
                 g.this.a(i, eVar, i2, z);
                 return;
             }
-            i OD = g.this.OD(i);
-            if (OD == null) {
+            i OH = g.this.OH(i);
+            if (OH == null) {
                 g.this.a(i, com.bytedance.sdk.a.b.a.e.b.PROTOCOL_ERROR);
                 eVar.h(i2);
                 return;
             }
-            OD.a(eVar, i2);
+            OH.a(eVar, i2);
             if (z) {
-                OD.i();
+                OH.i();
             }
         }
 
@@ -442,21 +440,21 @@ public final class g implements Closeable {
                 return;
             }
             synchronized (g.this) {
-                i OD = g.this.OD(i);
-                if (OD == null) {
+                i OH = g.this.OH(i);
+                if (OH == null) {
                     if (!g.this.h) {
                         if (i > g.this.f) {
                             if (i % 2 != g.this.g % 2) {
                                 final i iVar = new i(i, g.this, false, z, list);
                                 g.this.f = i;
                                 g.this.d.put(Integer.valueOf(i), iVar);
-                                g.f5901a.execute(new com.bytedance.sdk.a.b.a.b("OkHttp %s stream %d", new Object[]{g.this.e, Integer.valueOf(i)}) { // from class: com.bytedance.sdk.a.b.a.e.g.c.1
+                                g.f3970a.execute(new com.bytedance.sdk.a.b.a.b("OkHttp %s stream %d", new Object[]{g.this.e, Integer.valueOf(i)}) { // from class: com.bytedance.sdk.a.b.a.e.g.c.1
                                     @Override // com.bytedance.sdk.a.b.a.b
                                     public void b() {
                                         try {
-                                            g.this.pqp.a(iVar);
+                                            g.this.psu.a(iVar);
                                         } catch (IOException e) {
-                                            com.bytedance.sdk.a.b.a.g.e.epH().a(4, "Http2Connection.Listener failure for " + g.this.e, e);
+                                            com.bytedance.sdk.a.b.a.g.e.epO().a(4, "Http2Connection.Listener failure for " + g.this.e, e);
                                             try {
                                                 iVar.a(com.bytedance.sdk.a.b.a.e.b.PROTOCOL_ERROR);
                                             } catch (IOException e2) {
@@ -468,9 +466,9 @@ public final class g implements Closeable {
                         }
                     }
                 } else {
-                    OD.a(list);
+                    OH.a(list);
                     if (z) {
-                        OD.i();
+                        OH.i();
                     }
                 }
             }
@@ -482,9 +480,9 @@ public final class g implements Closeable {
                 g.this.c(i, bVar);
                 return;
             }
-            i OE = g.this.OE(i);
-            if (OE != null) {
-                OE.d(bVar);
+            i OI = g.this.OI(i);
+            if (OI != null) {
+                OI.d(bVar);
             }
         }
 
@@ -493,13 +491,13 @@ public final class g implements Closeable {
             i[] iVarArr;
             long j;
             synchronized (g.this) {
-                int d = g.this.pqt.d();
+                int d = g.this.psy.d();
                 if (z) {
-                    g.this.pqt.a();
+                    g.this.psy.a();
                 }
-                g.this.pqt.a(nVar);
+                g.this.psy.a(nVar);
                 a(nVar);
-                int d2 = g.this.pqt.d();
+                int d2 = g.this.psy.d();
                 if (d2 == -1 || d2 == d) {
                     iVarArr = null;
                     j = 0;
@@ -511,10 +509,10 @@ public final class g implements Closeable {
                     }
                     iVarArr = !g.this.d.isEmpty() ? (i[]) g.this.d.values().toArray(new i[g.this.d.size()]) : null;
                 }
-                g.f5901a.execute(new com.bytedance.sdk.a.b.a.b("OkHttp %s settings", g.this.e) { // from class: com.bytedance.sdk.a.b.a.e.g.c.2
+                g.f3970a.execute(new com.bytedance.sdk.a.b.a.b("OkHttp %s settings", g.this.e) { // from class: com.bytedance.sdk.a.b.a.e.g.c.2
                     @Override // com.bytedance.sdk.a.b.a.b
                     public void b() {
-                        g.this.pqp.a(g.this);
+                        g.this.psu.a(g.this);
                     }
                 });
             }
@@ -528,11 +526,11 @@ public final class g implements Closeable {
         }
 
         private void a(final n nVar) {
-            g.f5901a.execute(new com.bytedance.sdk.a.b.a.b("OkHttp %s ACK Settings", new Object[]{g.this.e}) { // from class: com.bytedance.sdk.a.b.a.e.g.c.3
+            g.f3970a.execute(new com.bytedance.sdk.a.b.a.b("OkHttp %s ACK Settings", new Object[]{g.this.e}) { // from class: com.bytedance.sdk.a.b.a.e.g.c.3
                 @Override // com.bytedance.sdk.a.b.a.b
                 public void b() {
                     try {
-                        g.this.pqv.a(nVar);
+                        g.this.psA.a(nVar);
                     } catch (IOException e) {
                     }
                 }
@@ -546,9 +544,9 @@ public final class g implements Closeable {
         @Override // com.bytedance.sdk.a.b.a.e.h.b
         public void b(boolean z, int i, int i2) {
             if (z) {
-                l OF = g.this.OF(i);
-                if (OF != null) {
-                    OF.b();
+                l OJ = g.this.OJ(i);
+                if (OJ != null) {
+                    OJ.b();
                     return;
                 }
                 return;
@@ -568,7 +566,7 @@ public final class g implements Closeable {
             for (i iVar : iVarArr) {
                 if (iVar.a() > i && iVar.c()) {
                     iVar.d(com.bytedance.sdk.a.b.a.e.b.REFUSED_STREAM);
-                    g.this.OE(iVar.a());
+                    g.this.OI(iVar.a());
                 }
             }
         }
@@ -582,10 +580,10 @@ public final class g implements Closeable {
                 }
                 return;
             }
-            i OD = g.this.OD(i);
-            if (OD != null) {
-                synchronized (OD) {
-                    OD.a(j);
+            i OH = g.this.OH(i);
+            if (OH != null) {
+                synchronized (OH) {
+                    OH.a(j);
                 }
             }
         }
@@ -606,19 +604,19 @@ public final class g implements Closeable {
 
     void a(final int i, final List<com.bytedance.sdk.a.b.a.e.c> list) {
         synchronized (this) {
-            if (this.pqx.contains(Integer.valueOf(i))) {
+            if (this.psC.contains(Integer.valueOf(i))) {
                 a(i, com.bytedance.sdk.a.b.a.e.b.PROTOCOL_ERROR);
                 return;
             }
-            this.pqx.add(Integer.valueOf(i));
-            this.pqq.execute(new com.bytedance.sdk.a.b.a.b("OkHttp %s Push Request[%s]", new Object[]{this.e, Integer.valueOf(i)}) { // from class: com.bytedance.sdk.a.b.a.e.g.4
+            this.psC.add(Integer.valueOf(i));
+            this.psv.execute(new com.bytedance.sdk.a.b.a.b("OkHttp %s Push Request[%s]", new Object[]{this.e, Integer.valueOf(i)}) { // from class: com.bytedance.sdk.a.b.a.e.g.4
                 @Override // com.bytedance.sdk.a.b.a.b
                 public void b() {
-                    if (g.this.pqr.r(i, list)) {
+                    if (g.this.psw.r(i, list)) {
                         try {
-                            g.this.pqv.a(i, com.bytedance.sdk.a.b.a.e.b.CANCEL);
+                            g.this.psA.a(i, com.bytedance.sdk.a.b.a.e.b.CANCEL);
                             synchronized (g.this) {
-                                g.this.pqx.remove(Integer.valueOf(i));
+                                g.this.psC.remove(Integer.valueOf(i));
                             }
                         } catch (IOException e) {
                         }
@@ -629,20 +627,20 @@ public final class g implements Closeable {
     }
 
     void b(final int i, final List<com.bytedance.sdk.a.b.a.e.c> list, final boolean z) {
-        this.pqq.execute(new com.bytedance.sdk.a.b.a.b("OkHttp %s Push Headers[%s]", new Object[]{this.e, Integer.valueOf(i)}) { // from class: com.bytedance.sdk.a.b.a.e.g.5
+        this.psv.execute(new com.bytedance.sdk.a.b.a.b("OkHttp %s Push Headers[%s]", new Object[]{this.e, Integer.valueOf(i)}) { // from class: com.bytedance.sdk.a.b.a.e.g.5
             @Override // com.bytedance.sdk.a.b.a.b
             public void b() {
-                boolean c2 = g.this.pqr.c(i, list, z);
+                boolean c2 = g.this.psw.c(i, list, z);
                 if (c2) {
                     try {
-                        g.this.pqv.a(i, com.bytedance.sdk.a.b.a.e.b.CANCEL);
+                        g.this.psA.a(i, com.bytedance.sdk.a.b.a.e.b.CANCEL);
                     } catch (IOException e) {
                         return;
                     }
                 }
                 if (c2 || z) {
                     synchronized (g.this) {
-                        g.this.pqx.remove(Integer.valueOf(i));
+                        g.this.psC.remove(Integer.valueOf(i));
                     }
                 }
             }
@@ -656,17 +654,17 @@ public final class g implements Closeable {
         if (cVar.b() != i2) {
             throw new IOException(cVar.b() + " != " + i2);
         }
-        this.pqq.execute(new com.bytedance.sdk.a.b.a.b("OkHttp %s Push Data[%s]", new Object[]{this.e, Integer.valueOf(i)}) { // from class: com.bytedance.sdk.a.b.a.e.g.6
+        this.psv.execute(new com.bytedance.sdk.a.b.a.b("OkHttp %s Push Data[%s]", new Object[]{this.e, Integer.valueOf(i)}) { // from class: com.bytedance.sdk.a.b.a.e.g.6
             @Override // com.bytedance.sdk.a.b.a.b
             public void b() {
                 try {
-                    boolean b2 = g.this.pqr.b(i, cVar, i2, z);
+                    boolean b2 = g.this.psw.b(i, cVar, i2, z);
                     if (b2) {
-                        g.this.pqv.a(i, com.bytedance.sdk.a.b.a.e.b.CANCEL);
+                        g.this.psA.a(i, com.bytedance.sdk.a.b.a.e.b.CANCEL);
                     }
                     if (b2 || z) {
                         synchronized (g.this) {
-                            g.this.pqx.remove(Integer.valueOf(i));
+                            g.this.psC.remove(Integer.valueOf(i));
                         }
                     }
                 } catch (IOException e) {
@@ -676,12 +674,12 @@ public final class g implements Closeable {
     }
 
     void c(final int i, final com.bytedance.sdk.a.b.a.e.b bVar) {
-        this.pqq.execute(new com.bytedance.sdk.a.b.a.b("OkHttp %s Push Reset[%s]", new Object[]{this.e, Integer.valueOf(i)}) { // from class: com.bytedance.sdk.a.b.a.e.g.7
+        this.psv.execute(new com.bytedance.sdk.a.b.a.b("OkHttp %s Push Reset[%s]", new Object[]{this.e, Integer.valueOf(i)}) { // from class: com.bytedance.sdk.a.b.a.e.g.7
             @Override // com.bytedance.sdk.a.b.a.b
             public void b() {
-                g.this.pqr.a(i, bVar);
+                g.this.psw.a(i, bVar);
                 synchronized (g.this) {
-                    g.this.pqx.remove(Integer.valueOf(i));
+                    g.this.psC.remove(Integer.valueOf(i));
                 }
             }
         });
@@ -689,7 +687,7 @@ public final class g implements Closeable {
 
     /* loaded from: classes6.dex */
     public static abstract class b {
-        public static final b pqF = new b() { // from class: com.bytedance.sdk.a.b.a.e.g.b.1
+        public static final b psK = new b() { // from class: com.bytedance.sdk.a.b.a.e.g.b.1
             @Override // com.bytedance.sdk.a.b.a.e.g.b
             public void a(i iVar) throws IOException {
                 iVar.a(com.bytedance.sdk.a.b.a.e.b.REFUSED_STREAM);

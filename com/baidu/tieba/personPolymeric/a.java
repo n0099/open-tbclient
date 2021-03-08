@@ -5,61 +5,61 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.cb;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ar;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static void a(View view, com.baidu.tbadk.core.data.a aVar, int i) {
-        if (view != null && aVar != null && aVar.bln() != null && !StringUtils.isNull(aVar.bln().getTid())) {
+        if (view != null && aVar != null && aVar.blp() != null && !StringUtils.isNull(aVar.blp().getTid())) {
             ar arVar = new ar("c13564");
-            arVar.ap("obj_source", 3);
-            cb bln = aVar.bln();
-            if (bln.bmx()) {
-                arVar.ap("obj_type", 1);
-            } else if (bln.bmy()) {
-                arVar.ap("obj_type", 2);
-            } else if (bln.bpN()) {
-                arVar.ap("obj_type", 3);
-            } else if (bln.bpO()) {
-                arVar.ap("obj_type", 4);
-            } else if (bln.threadType == 0) {
-                arVar.ap("obj_type", 5);
-            } else if (bln.bmv()) {
-                arVar.ap("obj_type", 6);
+            arVar.aq("obj_source", 3);
+            cb blp = aVar.blp();
+            if (blp.bmz()) {
+                arVar.aq("obj_type", 1);
+            } else if (blp.bmA()) {
+                arVar.aq("obj_type", 2);
+            } else if (blp.bpP()) {
+                arVar.aq("obj_type", 3);
+            } else if (blp.bpQ()) {
+                arVar.aq("obj_type", 4);
+            } else if (blp.threadType == 0) {
+                arVar.aq("obj_type", 5);
+            } else if (blp.bmx()) {
+                arVar.aq("obj_type", 6);
             }
-            if (aVar.bln().bnQ() != null) {
-                arVar.dR("uid", aVar.bln().bnQ().getUserId());
+            if (aVar.blp().bnS() != null) {
+                arVar.dR("uid", aVar.blp().bnS().getUserId());
             }
-            if (bln.getBaijiahaoData() != null) {
-                arVar.dR("obj_id", bln.getBaijiahaoData().oriUgcNid);
+            if (blp.getBaijiahaoData() != null) {
+                arVar.dR("obj_id", blp.getBaijiahaoData().oriUgcNid);
             } else {
-                arVar.dR("obj_id", bln.getTid());
+                arVar.dR("obj_id", blp.getTid());
             }
-            arVar.ap("obj_locate", i);
+            arVar.aq("obj_locate", i);
             TiebaStatic.log(arVar);
         }
     }
 
     public static void j(com.baidu.tbadk.core.data.a aVar) {
         ar arVar = new ar("c13578");
-        cb bln = aVar.bln();
-        if (bln.bmx()) {
-            arVar.ap("obj_type", 1);
-        } else if (bln.bmy()) {
-            arVar.ap("obj_type", 2);
-        } else if (bln.bpN()) {
-            arVar.ap("obj_type", 3);
-        } else if (bln.bpO()) {
-            arVar.ap("obj_type", 4);
-        } else if (bln.threadType == 0) {
-            arVar.ap("obj_type", 5);
-        } else if (bln.bmv()) {
-            arVar.ap("obj_type", 6);
+        cb blp = aVar.blp();
+        if (blp.bmz()) {
+            arVar.aq("obj_type", 1);
+        } else if (blp.bmA()) {
+            arVar.aq("obj_type", 2);
+        } else if (blp.bpP()) {
+            arVar.aq("obj_type", 3);
+        } else if (blp.bpQ()) {
+            arVar.aq("obj_type", 4);
+        } else if (blp.threadType == 0) {
+            arVar.aq("obj_type", 5);
+        } else if (blp.bmx()) {
+            arVar.aq("obj_type", 6);
         }
-        if (bln.getBaijiahaoData() != null) {
-            arVar.dR("obj_id", bln.getBaijiahaoData().oriUgcNid);
+        if (blp.getBaijiahaoData() != null) {
+            arVar.dR("obj_id", blp.getBaijiahaoData().oriUgcNid);
         } else {
-            arVar.dR("obj_id", bln.getTid());
+            arVar.dR("obj_id", blp.getTid());
         }
-        arVar.dR("uid", bln.bnQ().getUserId());
+        arVar.dR("uid", blp.bnS().getUserId());
         TiebaStatic.log(arVar);
     }
 }

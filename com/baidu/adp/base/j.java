@@ -4,7 +4,7 @@ import android.content.Context;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class j {
-    public static i I(Context context) {
+    public static i H(Context context) {
         Object forceGetProperty;
         if (context == null) {
             return null;
@@ -25,7 +25,7 @@ public class j {
         return (i) forceGetProperty;
     }
 
-    public static g<?> J(Context context) {
+    public static g<?> I(Context context) {
         Object forceGetProperty;
         if (context == null) {
             return null;
@@ -40,7 +40,7 @@ public class j {
         return (g) forceGetProperty;
     }
 
-    public static f<?> K(Context context) {
+    public static f<?> J(Context context) {
         Object forceGetProperty;
         if (context == null) {
             return null;

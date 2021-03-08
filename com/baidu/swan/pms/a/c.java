@@ -6,21 +6,21 @@ import java.util.Map;
 import okio.BufferedSource;
 /* loaded from: classes3.dex */
 public interface c<T> extends e {
-    void Q(T t);
-
-    void R(T t);
-
     void S(T t);
 
     void T(T t);
 
-    String U(T t);
+    void U(T t);
+
+    void V(T t);
+
+    String W(T t);
 
     com.baidu.swan.pms.model.a a(T t, BufferedSource bufferedSource, File file, long j) throws IOException;
 
     void a(T t, com.baidu.swan.pms.model.a aVar);
 
-    void ak(T t);
+    void am(T t);
 
-    Map<String, Object> bcr();
+    Map<String, Object> bct();
 }

@@ -6,37 +6,37 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private Map<DownloadCacheKey, AdDownloadData> ght;
+    private Map<DownloadCacheKey, AdDownloadData> giX;
 
     /* loaded from: classes.dex */
     private static final class a {
-        private static final b ghu = new b();
+        private static final b giY = new b();
     }
 
     private b() {
-        this.ght = new HashMap();
+        this.giX = new HashMap();
     }
 
-    public static b bLv() {
-        return a.ghu;
+    public static b bLz() {
+        return a.giY;
     }
 
     public void a(@NonNull DownloadCacheKey downloadCacheKey, @NonNull AdDownloadData adDownloadData) {
-        if (this.ght.get(downloadCacheKey) == null) {
-            this.ght.put(downloadCacheKey, adDownloadData);
+        if (this.giX.get(downloadCacheKey) == null) {
+            this.giX.put(downloadCacheKey, adDownloadData);
         }
     }
 
     public AdDownloadData b(@NonNull DownloadCacheKey downloadCacheKey) {
-        return this.ght.get(downloadCacheKey);
+        return this.giX.get(downloadCacheKey);
     }
 
-    public Map<DownloadCacheKey, AdDownloadData> EF(String str) {
-        HashMap hashMap = new HashMap(this.ght.size());
+    public Map<DownloadCacheKey, AdDownloadData> EM(String str) {
+        HashMap hashMap = new HashMap(this.giX.size());
         if (TextUtils.isEmpty(str)) {
             return hashMap;
         }
-        for (Map.Entry<DownloadCacheKey, AdDownloadData> entry : this.ght.entrySet()) {
+        for (Map.Entry<DownloadCacheKey, AdDownloadData> entry : this.giX.entrySet()) {
             if (entry.getKey() != null && entry.getKey().samePackage(str)) {
                 hashMap.put(entry.getKey(), entry.getValue());
             }

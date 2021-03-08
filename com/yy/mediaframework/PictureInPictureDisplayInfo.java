@@ -1,7 +1,7 @@
 package com.yy.mediaframework;
 
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PictureInPictureDisplayInfo {
     public float bottomOffset = 0.15f;
     public float scaleRatio = 0.83f;

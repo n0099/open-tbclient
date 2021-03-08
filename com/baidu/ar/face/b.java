@@ -4,7 +4,7 @@ import com.baidu.ar.auth.ARAuth;
 import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.ar.face.a.a;
 import com.yy.videoplayer.decoder.VideoConstant;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
     private boolean needHeadPose = false;
@@ -48,27 +48,27 @@ public class b {
         this.nG = true;
     }
 
-    public a.C0079a a(a.b bVar) {
-        a.C0079a c0079a = null;
+    public a.C0085a a(a.b bVar) {
+        a.C0085a c0085a = null;
         switch (bVar.qg) {
             case 0:
                 this.nL = 1;
-                c0079a = bVar.qd;
+                c0085a = bVar.qd;
                 break;
             case 1:
                 this.nL = 1;
-                c0079a = bVar.qe;
+                c0085a = bVar.qe;
                 break;
             case 2:
                 this.nL = 4;
-                c0079a = bVar.qf;
+                c0085a = bVar.qf;
                 break;
             default:
                 com.baidu.ar.h.b.b(TAG, "createFaceParams() device not support!!!");
                 break;
         }
         this.nM = this.nL;
-        return c0079a;
+        return c0085a;
     }
 
     public void b(String str, int i) {

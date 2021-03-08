@@ -1,5 +1,8 @@
 package com.bytedance.sdk.openadsdk.b;
 
+import com.bytedance.sdk.openadsdk.j.e;
+import com.bytedance.sdk.openadsdk.j.f;
+import com.bytedance.sdk.openadsdk.j.g;
 import com.bytedance.sdk.openadsdk.utils.l;
 import com.bytedance.sdk.openadsdk.utils.u;
 import java.io.File;
@@ -17,11 +20,11 @@ public abstract class b implements com.bytedance.sdk.openadsdk.b.a {
 
     @Override // com.bytedance.sdk.openadsdk.b.a
     public void a(File file) throws IOException {
-        final com.bytedance.sdk.openadsdk.k.b bVar = new com.bytedance.sdk.openadsdk.k.b(new a(file), 1, 2);
-        com.bytedance.sdk.openadsdk.k.a.a().b(new com.bytedance.sdk.openadsdk.k.c(bVar.a()) { // from class: com.bytedance.sdk.openadsdk.b.b.1
+        final f fVar = new f(new a(file), 1, 2);
+        e.a().execute(new g(fVar.a()) { // from class: com.bytedance.sdk.openadsdk.b.b.1
             @Override // java.lang.Runnable
             public void run() {
-                bVar.run();
+                fVar.run();
             }
         });
     }
@@ -71,19 +74,17 @@ public abstract class b implements com.bytedance.sdk.openadsdk.b.a {
 
     /* loaded from: classes6.dex */
     private class a implements Callable<Void> {
-
-        /* renamed from: b  reason: collision with root package name */
-        private final File f6213b;
+        private final File b;
 
         private a(File file) {
-            this.f6213b = file;
+            this.b = file;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public Void call() throws Exception {
-            b.this.b(this.f6213b);
+            b.this.b(this.b);
             return null;
         }
     }

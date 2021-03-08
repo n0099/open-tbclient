@@ -8,14 +8,14 @@ import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e extends BdBaseModel {
-    private BdUniqueId aCW = BdUniqueId.gen();
-    private final HttpMessageListener bBe;
-    private Context bNw;
-    private a oMT;
+    private BdUniqueId aEw = BdUniqueId.gen();
+    private final HttpMessageListener bCE;
+    private Context bOW;
+    private a oOY;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(JsonHttpResponsedMessage jsonHttpResponsedMessage);
 
@@ -23,37 +23,37 @@ public class e extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.oMT = aVar;
+        this.oOY = aVar;
     }
 
     public e(Context context) {
-        this.bNw = context;
-        setUniqueId(this.aCW);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031018, com.baidu.live.a.avJ + "ala/audio/room/follow");
+        this.bOW = context;
+        setUniqueId(this.aEw);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031018, com.baidu.live.a.axj + "ala/audio/room/follow");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.bBe = new HttpMessageListener(1031018) { // from class: com.baidu.tieba.yuyinala.c.e.1
+        this.bCE = new HttpMessageListener(1031018) { // from class: com.baidu.tieba.yuyinala.c.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof JsonHttpResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == e.this.getUniqueId() && e.this.oMT != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof JsonHttpResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == e.this.getUniqueId() && e.this.oOY != null) {
                     JsonHttpResponsedMessage jsonHttpResponsedMessage = (JsonHttpResponsedMessage) httpResponsedMessage;
                     if (jsonHttpResponsedMessage.getError() != 0 || !jsonHttpResponsedMessage.isSuccess()) {
-                        e.this.oMT.onFail(jsonHttpResponsedMessage.getError(), jsonHttpResponsedMessage.getErrorString());
+                        e.this.oOY.onFail(jsonHttpResponsedMessage.getError(), jsonHttpResponsedMessage.getErrorString());
                     } else {
-                        e.this.oMT.a(jsonHttpResponsedMessage);
+                        e.this.oOY.a(jsonHttpResponsedMessage);
                     }
                 }
             }
         };
-        registerListener(this.bBe);
+        registerListener(this.bCE);
     }
 
     public void y(String str, String str2, int i) {
         com.baidu.tieba.yuyinala.data.e eVar = new com.baidu.tieba.yuyinala.data.e(str, str2, i);
-        eVar.setTag(this.aCW);
+        eVar.setTag(this.aEw);
         sendMessage(eVar);
     }
 

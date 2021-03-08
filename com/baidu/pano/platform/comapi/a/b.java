@@ -12,10 +12,8 @@ import com.baidu.pano.platform.c.h;
 public class b extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3922a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f3923b;
+    public String f2728a;
+    public boolean b;
     public Bitmap c;
     public Bitmap d;
     private int e;
@@ -32,9 +30,9 @@ public class b extends a {
         this.g = h.a(5, context);
         this.h = h.a(8, context);
         this.i = h.a(8, context);
-        this.f3923b = z;
-        this.f3922a = str;
-        if (this.f3923b) {
+        this.b = z;
+        this.f2728a = str;
+        if (this.b) {
             a();
         }
     }
@@ -59,8 +57,8 @@ public class b extends a {
         Paint.FontMetrics fontMetrics = paint.getFontMetrics();
         int measureText = (int) paint.measureText("进入");
         int ceil = (int) Math.ceil(fontMetrics.descent - fontMetrics.ascent);
-        int height = com.baidu.pano.platform.b.a.f3903a.getHeight();
-        int width = measureText + com.baidu.pano.platform.b.a.f3903a.getWidth() + this.f + this.g + 15;
+        int height = com.baidu.pano.platform.b.a.f2718a.getHeight();
+        int width = measureText + com.baidu.pano.platform.b.a.f2718a.getWidth() + this.f + this.g + 15;
         if (height <= ceil) {
             height = ceil;
         }
@@ -74,10 +72,10 @@ public class b extends a {
         Rect rect = new Rect(20, 0, width, this.j);
         canvas.drawRoundRect(rectF, 10.0f, 10.0f, paint);
         canvas.drawRect(rect, paint);
-        canvas.drawBitmap(com.baidu.pano.platform.b.a.f3903a, this.f, (this.j / 2) - (com.baidu.pano.platform.b.a.f3903a.getHeight() / 2), paint);
+        canvas.drawBitmap(com.baidu.pano.platform.b.a.f2718a, this.f, (this.j / 2) - (com.baidu.pano.platform.b.a.f2718a.getHeight() / 2), paint);
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(-1315344);
-        canvas.drawText("进入", this.f + com.baidu.pano.platform.b.a.f3903a.getWidth() + 15, ((0.0f - fontMetrics.ascent) + (this.j / 2)) - (ceil / 2), paint);
+        canvas.drawText("进入", this.f + com.baidu.pano.platform.b.a.f2718a.getWidth() + 15, ((0.0f - fontMetrics.ascent) + (this.j / 2)) - (ceil / 2), paint);
     }
 
     private void b() {
@@ -87,7 +85,7 @@ public class b extends a {
         paint.setAntiAlias(true);
         paint.setTextSize(this.e);
         Paint.FontMetrics fontMetrics = paint.getFontMetrics();
-        int measureText = (int) paint.measureText(this.f3922a);
+        int measureText = (int) paint.measureText(this.f2728a);
         int ceil = (int) Math.ceil(fontMetrics.descent - fontMetrics.ascent);
         int measureText2 = this.f + measureText + this.g + 30 + 2 + ((int) paint.measureText(this.k));
         int i = this.h + ceil + this.i;
@@ -100,7 +98,7 @@ public class b extends a {
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(-11642518);
         canvas.drawRoundRect(new RectF(0.0f, 0.0f, measureText2, i), 10.0f, 10.0f, paint);
-        if (this.f3923b) {
+        if (this.b) {
             canvas.drawRect(new Rect(0, 0, measureText2 - 20, i), paint);
         }
         paint.setStyle(Paint.Style.FILL);
@@ -108,7 +106,7 @@ public class b extends a {
         canvas.drawRect(new Rect(this.f + measureText + 15, this.h, this.f + measureText + 15 + 2, i - this.i), paint);
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(-1315344);
-        canvas.drawText(this.f3922a, this.f + 0, ((0.0f - fontMetrics.ascent) + (i / 2)) - (ceil / 2), paint);
+        canvas.drawText(this.f2728a, this.f + 0, ((0.0f - fontMetrics.ascent) + (i / 2)) - (ceil / 2), paint);
         paint.setColor(-13400577);
         canvas.drawText(this.k, measureText + this.f + 30 + 2, ((i / 2) + (0.0f - fontMetrics.ascent)) - (ceil / 2), paint);
     }

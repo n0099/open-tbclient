@@ -12,31 +12,31 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class d implements h {
-    private final l eXB;
-    private final HashMap<String, Method> eXC = new HashMap<>();
+    private final l eZa;
+    private final HashMap<String, Method> eZb = new HashMap<>();
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tbadk.core.hybrid.d */
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Multi-variable type inference failed */
     public d(l lVar) {
-        this.eXB = lVar;
+        this.eZa = lVar;
         m(getClass());
-        if (this.eXC.isEmpty()) {
+        if (this.eZb.isEmpty()) {
             throw new IllegalStateException("No native methods found!");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public Context getContext() {
-        return this.eXB.getContext();
+        return this.eZa.getContext();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void sendMessage(Message<?> message) {
-        a.C0560a.sendMessage(message);
+        a.C0566a.sendMessage(message);
     }
 
-    protected void o(String str, JSONObject jSONObject) {
+    protected void p(String str, JSONObject jSONObject) {
         if (TextUtils.isEmpty(str)) {
             e.debug("sendResponseToJS got empty callbackId.");
             return;
@@ -47,19 +47,19 @@ public abstract class d implements h {
         if (jSONObject != null) {
             hashMap.put("data", jSONObject);
         }
-        this.eXB.a(m.k(str, hashMap));
+        this.eZa.a(m.k(str, hashMap));
     }
 
     @Override // com.baidu.tbadk.core.hybrid.h
     public void a(String str, JSONObject jSONObject, JSONObject jSONObject2) {
         Object invoke;
-        Method method = this.eXC.get(str);
+        Method method = this.eZb.get(str);
         if (method != null) {
             o oVar = (o) method.getAnnotation(o.class);
             String optString = jSONObject2.optString(WBConstants.SHARE_CALLBACK_ID);
             try {
                 Class<?>[] parameterTypes = method.getParameterTypes();
-                if (!oVar.brB()) {
+                if (!oVar.brC()) {
                     if (parameterTypes.length == 2) {
                         invoke = method.invoke(this, optString, jSONObject);
                     } else if (parameterTypes.length == 1) {
@@ -72,7 +72,7 @@ public abstract class d implements h {
                         return;
                     }
                     if (!TextUtils.isEmpty(optString)) {
-                        o(optString, (JSONObject) invoke);
+                        p(optString, (JSONObject) invoke);
                         return;
                     }
                     return;
@@ -80,7 +80,7 @@ public abstract class d implements h {
                     if (parameterTypes.length == 1) {
                         method.invoke(this, jSONObject);
                         if (!TextUtils.isEmpty(optString)) {
-                            o(optString, null);
+                            p(optString, null);
                             return;
                         }
                         return;
@@ -88,7 +88,7 @@ public abstract class d implements h {
                         e.debug("native method " + getClass().getSimpleName() + ":" + oVar.value() + " ignored all parameters.");
                         method.invoke(this, new Object[0]);
                         if (!TextUtils.isEmpty(optString)) {
-                            o(optString, null);
+                            p(optString, null);
                             return;
                         }
                         return;
@@ -126,7 +126,7 @@ public abstract class d implements h {
         HashMap hashMap = new HashMap(4);
         hashMap.put("errNo", str2);
         hashMap.put("errMsg", str3);
-        this.eXB.a(m.k(optString, hashMap));
+        this.eZa.a(m.k(optString, hashMap));
     }
 
     private void m(Class<? extends d> cls) {
@@ -138,14 +138,14 @@ public abstract class d implements h {
                 if (TextUtils.isEmpty(value)) {
                     value = null;
                 }
-                if (oVar.brB() && !Void.TYPE.equals(method.getReturnType())) {
+                if (oVar.brC() && !Void.TYPE.equals(method.getReturnType())) {
                     throw new IllegalArgumentException("Method with async flag should return void.");
                 }
                 if (TextUtils.isEmpty(value)) {
                     value = method.getName();
                 }
                 method.setAccessible(true);
-                this.eXC.put(value, method);
+                this.eZb.put(value, method);
             }
         }
         Class<? super Object> superclass = cls.getSuperclass();

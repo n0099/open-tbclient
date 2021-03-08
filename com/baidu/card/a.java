@@ -10,15 +10,15 @@ import com.baidu.tbadk.core.data.a;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public abstract class a<T extends com.baidu.tbadk.core.data.a> implements p<T>, q {
-    protected ak agd;
-    private Boolean agf = false;
-    private com.baidu.tieba.card.ab<T> agg;
-    public InterfaceC0088a agh;
+    protected ak ahw;
+    private Boolean ahx = false;
+    private com.baidu.tieba.card.ab<T> ahy;
+    public InterfaceC0094a ahz;
     protected Context mContext;
 
     /* renamed from: com.baidu.card.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0088a {
+    public interface InterfaceC0094a {
         void a(com.baidu.tbadk.core.data.a aVar);
     }
 
@@ -30,13 +30,13 @@ public abstract class a<T extends com.baidu.tbadk.core.data.a> implements p<T>, 
     }
 
     public void a(ak akVar) {
-        this.agd = akVar;
-    }
-
-    public void bq(int i) {
+        this.ahw = akVar;
     }
 
     public void br(int i) {
+    }
+
+    public void bs(int i) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -44,18 +44,18 @@ public abstract class a<T extends com.baidu.tbadk.core.data.a> implements p<T>, 
     }
 
     public com.baidu.tieba.card.ab<T> sO() {
-        return this.agg;
+        return this.ahy;
     }
 
     public void setOnCardSubClickListener(com.baidu.tieba.card.ab<T> abVar) {
-        this.agg = abVar;
+        this.ahy = abVar;
     }
 
     public void a(int i, a.b bVar) {
-        this.agd.a(i, bVar);
+        this.ahw.a(i, bVar);
     }
 
-    public void bs(int i) {
+    public void bt(int i) {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
@@ -72,11 +72,11 @@ public abstract class a<T extends com.baidu.tbadk.core.data.a> implements p<T>, 
     }
 
     public Boolean sP() {
-        return this.agf;
+        return this.ahx;
     }
 
     public void c(Boolean bool) {
-        this.agf = bool;
+        this.ahx = bool;
     }
 
     private ThreadCardView f(View view, int i) {
@@ -92,7 +92,7 @@ public abstract class a<T extends com.baidu.tbadk.core.data.a> implements p<T>, 
     public void g(View view, int i) {
         ThreadCardView f = f(view, i);
         if (f != null) {
-            com.baidu.tbadk.core.elementsMaven.c.br(f).og(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
+            com.baidu.tbadk.core.elementsMaven.c.br(f).oh(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
         }
     }
 }

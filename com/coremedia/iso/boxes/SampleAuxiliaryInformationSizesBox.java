@@ -15,21 +15,21 @@ import java.util.LinkedList;
 import java.util.List;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final String TYPE = "saiz";
-    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_9 = null;
     private String auxInfoType;
     private String auxInfoTypeParameter;
     private int defaultSampleInfoSize;
@@ -131,7 +131,7 @@ public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
     }
 
     public void setDefaultSampleInfoSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.Sx(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.Sw(i)));
         if (!$assertionsDisabled && i > 255) {
             throw new AssertionError();
         }
@@ -154,7 +154,7 @@ public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
     }
 
     public void setSampleCount(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.Sx(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.Sw(i)));
         this.sampleCount = i;
     }
 

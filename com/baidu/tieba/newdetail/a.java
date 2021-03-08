@@ -3,13 +3,13 @@ package com.baidu.tieba.newdetail;
 import android.view.View;
 import com.baidu.tieba.hottopic.data.d;
 import com.baidu.tieba.hottopic.data.e;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface a {
 
     /* renamed from: com.baidu.tieba.newdetail.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC0802a {
-        void ER(int i);
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0808a {
+        void EU(int i);
 
         void a(int i, long j, long j2, int i2);
 
@@ -20,39 +20,39 @@ public interface a {
         void d(e eVar);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void E(boolean z, int i);
 
-        void EU(int i);
+        void EX(int i);
 
-        void EV(int i);
+        void EY(int i);
 
-        void EW(int i);
+        void EZ(int i);
 
-        d EX(int i);
+        d Fa(int i);
 
         void K(long j, long j2);
 
         void a(d dVar, boolean z, int i);
 
-        void bRI();
+        void bRO();
+
+        void d(long j, long j2, int i);
 
         void destroy();
 
-        void dia();
+        void dij();
 
-        void dib();
+        void dik();
 
-        void dic();
+        void dil();
 
-        e did();
+        e dim();
 
-        int die();
+        int din();
 
-        void dif();
-
-        void e(long j, long j2, int i);
+        void dio();
 
         void e(e eVar);
 

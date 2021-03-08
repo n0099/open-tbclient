@@ -10,8 +10,8 @@ public class Crypto {
             messageDigest.update(bArr);
             byte[] digest = messageDigest.digest();
             StringBuffer stringBuffer = new StringBuffer();
-            for (byte b2 : digest) {
-                String hexString = Integer.toHexString(b2 & 255);
+            for (byte b : digest) {
+                String hexString = Integer.toHexString(b & 255);
                 if (hexString.length() < 2) {
                     stringBuffer.append(0);
                 }

@@ -1,5 +1,5 @@
 package com.yy.mediaframework.beautystyle;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AestheticismStyle extends AbstractStyle {
     public AestheticismStyle() {
         this.sMinParams = new float[]{0.44f, 0.28f, 0.46f, 0.0f};

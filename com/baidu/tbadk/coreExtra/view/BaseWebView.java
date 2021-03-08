@@ -137,7 +137,7 @@ public class BaseWebView extends WebView {
         getSettings().setJavaScriptEnabled(true);
         getSettings().setCacheMode(2);
         getSettings().setUseWideViewPort(true);
-        getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion() + " skin/" + ap.bsK());
+        getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion() + " skin/" + ap.bsN());
         com.baidu.tbadk.browser.a.WebViewNoDataBase(getSettings());
         this.mWebViewClient = new a();
         this.mWebChromeClient = new h();
@@ -360,7 +360,7 @@ public class BaseWebView extends WebView {
     public void onChangeSkinType() {
         if (this.mJsBridge != null) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
-            linkedHashMap.put("skin", ap.bsK());
+            linkedHashMap.put("skin", ap.bsN());
             this.mJsBridge.a(getWebView(), "changeSkinType", linkedHashMap);
         }
     }

@@ -20,19 +20,19 @@ public class k extends a<e> {
     }
 
     private void p() {
-        com.kwad.sdk.contentalliance.detail.photo.d.d dVar = new com.kwad.sdk.contentalliance.detail.photo.d.d(this.f8395a.j, this.f8395a.i);
+        com.kwad.sdk.contentalliance.detail.photo.d.d dVar = new com.kwad.sdk.contentalliance.detail.photo.d.d(this.f5594a.j, this.f5594a.i);
         if (this.e == null || !this.e.isShowing()) {
             this.e = new com.kwad.sdk.contentalliance.detail.photo.d.e(o(), dVar);
             this.e.a(new e.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.f.k.1
                 @Override // com.kwad.sdk.contentalliance.detail.photo.d.e.a
                 public void a() {
-                    k.this.f8395a.n = true;
+                    k.this.f5594a.n = true;
                     k.this.d.a(false, 3);
                 }
 
                 @Override // com.kwad.sdk.contentalliance.detail.photo.d.e.a
                 public void b() {
-                    k.this.f8395a.n = false;
+                    k.this.f5594a.n = false;
                     k.this.d.a(true, 3);
                 }
             });
@@ -44,8 +44,8 @@ public class k extends a<e> {
     @Override // com.kwad.sdk.contentalliance.detail.photo.f.a, com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        ((e) this.f8516b).setOnClickListener(this);
-        this.d = this.f8395a.l;
+        ((e) this.b).setOnClickListener(this);
+        this.d = this.f5594a.l;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -71,11 +71,11 @@ public class k extends a<e> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (com.kwad.sdk.core.response.b.c.c(this.f8395a.j)) {
+        if (com.kwad.sdk.core.response.b.c.c(this.f5594a.j)) {
             p.a(view.getContext(), view.getContext().getString(R.string.ksad_ad_function_disable));
         } else {
             p();
         }
-        com.kwad.sdk.core.report.e.c(this.f8395a.j);
+        com.kwad.sdk.core.report.e.c(this.f5594a.j);
     }
 }

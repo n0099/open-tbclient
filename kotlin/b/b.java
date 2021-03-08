@@ -2,17 +2,17 @@ package kotlin.b;
 
 import java.util.NoSuchElementException;
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public final class b extends kotlin.collections.m {
     private boolean hasNext;
     private int next;
-    private final int qtZ;
+    private final int quB;
     private final int step;
 
     public b(char c, char c2, int i) {
         boolean z = true;
         this.step = i;
-        this.qtZ = c2;
+        this.quB = c2;
         if (this.step > 0) {
             if (c > c2) {
                 z = false;
@@ -21,7 +21,7 @@ public final class b extends kotlin.collections.m {
             z = false;
         }
         this.hasNext = z;
-        this.next = this.hasNext ? c : this.qtZ;
+        this.next = this.hasNext ? c : this.quB;
     }
 
     @Override // java.util.Iterator
@@ -30,9 +30,9 @@ public final class b extends kotlin.collections.m {
     }
 
     @Override // kotlin.collections.m
-    public char eLd() {
+    public char eKL() {
         int i = this.next;
-        if (i == this.qtZ) {
+        if (i == this.quB) {
             if (!this.hasNext) {
                 throw new NoSuchElementException();
             }

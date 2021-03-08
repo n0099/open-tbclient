@@ -11,35 +11,35 @@ import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static a oXd;
+    private static a oZi;
     private TbPageContext mPageContext;
-    private AlaMoreFunctionDialogData oXe = new AlaMoreFunctionDialogData();
-    private b oXf;
+    private AlaMoreFunctionDialogData oZj = new AlaMoreFunctionDialogData();
+    private b oZk;
 
     private a() {
     }
 
-    public static a ejw() {
-        if (oXd == null) {
+    public static a ejG() {
+        if (oZi == null) {
             synchronized (a.class) {
-                if (oXd == null) {
-                    oXd = new a();
+                if (oZi == null) {
+                    oZi = new a();
                 }
             }
         }
-        return oXd;
+        return oZi;
     }
 
     public void aS(ab abVar) {
         if (abVar != null) {
-            if (this.oXf == null || !this.oXf.isShowing()) {
-                this.oXe.parseData(abVar.aIS);
-                this.oXe.setLiveId(abVar.mLiveInfo == null ? null : String.valueOf(abVar.mLiveInfo.live_id));
-                this.oXe.setRoomId(abVar.aIU == null ? null : abVar.aIU.aTK);
-                this.oXe.setCustomRoomId(abVar.aIU == null ? null : abVar.aIU.croom_id);
-                this.oXe.setGroupId(abVar.mLiveInfo != null ? String.valueOf(abVar.mLiveInfo.group_id) : null);
+            if (this.oZk == null || !this.oZk.isShowing()) {
+                this.oZj.parseData(abVar.aKs);
+                this.oZj.setLiveId(abVar.mLiveInfo == null ? null : String.valueOf(abVar.mLiveInfo.live_id));
+                this.oZj.setRoomId(abVar.aKu == null ? null : abVar.aKu.aVk);
+                this.oZj.setCustomRoomId(abVar.aKu == null ? null : abVar.aKu.croom_id);
+                this.oZj.setGroupId(abVar.mLiveInfo != null ? String.valueOf(abVar.mLiveInfo.group_id) : null);
             }
         }
     }
@@ -47,27 +47,27 @@ public class a {
     public void a(TbPageContext tbPageContext, e eVar) {
         if (this.mPageContext != tbPageContext) {
             this.mPageContext = tbPageContext;
-            this.oXf = null;
+            this.oZk = null;
         }
-        if (this.oXe != null && !ListUtils.isEmpty(this.oXe.getGroupList())) {
-            if (this.oXf == null) {
-                this.oXf = new b(tbPageContext, this.oXe);
-                this.oXf.a(eVar);
+        if (this.oZj != null && !ListUtils.isEmpty(this.oZj.getGroupList())) {
+            if (this.oZk == null) {
+                this.oZk = new b(tbPageContext, this.oZj);
+                this.oZk.a(eVar);
             } else {
-                this.oXf.a((b) this.oXe);
+                this.oZk.a((b) this.oZj);
             }
-            this.oXf.show();
-            ejx();
+            this.oZk.show();
+            ejH();
         }
     }
 
-    private void ejx() {
+    private void ejH() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "moretab");
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            if (this.oXe != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.oXe.getCustomRoomId());
+            if (this.oZj != null) {
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.oZj.getCustomRoomId());
             }
         } catch (JSONException e) {
             BdLog.e(e);
@@ -76,12 +76,12 @@ public class a {
     }
 
     public void aG(boolean z, boolean z2) {
-        this.oXe.setShowFirstCharge(z, z2);
+        this.oZj.setShowFirstCharge(z, z2);
     }
 
-    public void FA() {
-        if (this.oXf != null && this.oXf.isShowing()) {
-            this.oXf.dismiss();
+    public void FD() {
+        if (this.oZk != null && this.oZk.isShowing()) {
+            this.oZk.dismiss();
         }
     }
 }

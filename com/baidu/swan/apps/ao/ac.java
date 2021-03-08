@@ -14,32 +14,32 @@ import com.baidu.ar.constants.HttpConstants;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ac {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static String sRomName;
     private static String sRomVersion;
 
-    public static boolean dB(Context context) {
+    public static boolean dA(Context context) {
         if (context == null) {
             return false;
         }
         if (isEmui()) {
-            return dC(context);
+            return dB(context);
         }
         if (isVivo()) {
-            return dD(context);
+            return dC(context);
         }
         if (isOppo()) {
-            return dE(context);
+            return dD(context);
         }
         if (isMiui()) {
-            return dF(context);
+            return dE(context);
         }
         return false;
     }
 
-    private static boolean dC(@NonNull Context context) {
+    private static boolean dB(@NonNull Context context) {
         try {
             Class<?> loadClass = context.getClassLoader().loadClass("com.huawei.android.util.HwNotchSizeUtil");
             return ((Boolean) loadClass.getMethod("hasNotchInScreen", new Class[0]).invoke(loadClass, new Object[0])).booleanValue();
@@ -51,7 +51,7 @@ public class ac {
         }
     }
 
-    private static boolean dD(@NonNull Context context) {
+    private static boolean dC(@NonNull Context context) {
         try {
             Class<?> loadClass = context.getClassLoader().loadClass("android.util.FtFeature");
             return ((Boolean) loadClass.getMethod("isFeatureSupport", Integer.TYPE).invoke(loadClass, 32)).booleanValue();
@@ -63,11 +63,11 @@ public class ac {
         }
     }
 
-    private static boolean dE(@NonNull Context context) {
+    private static boolean dD(@NonNull Context context) {
         return context.getPackageManager().hasSystemFeature("com.oppo.feature.screen.heteromorphism");
     }
 
-    private static boolean dF(@NonNull Context context) {
+    private static boolean dE(@NonNull Context context) {
         try {
             Class<?> loadClass = context.getClassLoader().loadClass("android.os.SystemProperties");
             return ((Integer) loadClass.getMethod("getInt", String.class, Integer.TYPE).invoke(loadClass, "ro.miui.notch", 0)).intValue() == 1;
@@ -80,14 +80,14 @@ public class ac {
         }
     }
 
-    public static int dG(Context context) {
+    public static int dF(Context context) {
         if (Build.VERSION.SDK_INT < 26) {
             return 0;
         }
         if (Build.VERSION.SDK_INT >= 28) {
-            return aNZ();
+            return aOc();
         }
-        if (dB(context)) {
+        if (dA(context)) {
             if (isMiui()) {
                 Resources resources = context.getResources();
                 try {
@@ -110,7 +110,7 @@ public class ac {
                 return 80;
             } else {
                 if (isVivo()) {
-                    return ah.P(32.0f);
+                    return ah.T(32.0f);
                 }
                 return 0;
             }
@@ -119,12 +119,12 @@ public class ac {
     }
 
     @RequiresApi(28)
-    private static int aNZ() {
+    private static int aOc() {
         DisplayCutout displayCutout;
         int i = 0;
-        if (com.baidu.swan.apps.runtime.e.aIK() != null && com.baidu.swan.apps.runtime.e.aIK().getActivity() != null) {
+        if (com.baidu.swan.apps.runtime.e.aIN() != null && com.baidu.swan.apps.runtime.e.aIN().getActivity() != null) {
             try {
-                WindowInsets rootWindowInsets = com.baidu.swan.apps.runtime.e.aIK().getActivity().getWindow().getDecorView().getRootWindowInsets();
+                WindowInsets rootWindowInsets = com.baidu.swan.apps.runtime.e.aIN().getActivity().getWindow().getDecorView().getRootWindowInsets();
                 if (rootWindowInsets != null && (displayCutout = rootWindowInsets.getDisplayCutout()) != null) {
                     i = displayCutout.getSafeInsetTop();
                     if (DEBUG) {

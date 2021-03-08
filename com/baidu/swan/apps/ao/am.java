@@ -2,23 +2,23 @@ package com.baidu.swan.apps.ao;
 
 import androidx.annotation.NonNull;
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class am implements com.baidu.swan.pms.utils.a {
     private am() {
     }
 
-    public static am aOu() {
-        return a.dPr;
+    public static am aOx() {
+        return a.dQS;
     }
 
     @Override // com.baidu.swan.pms.utils.a
-    public boolean ul(@NonNull String str) {
-        File file = new File(com.baidu.swan.apps.r.d.awM(), str);
+    public boolean us(@NonNull String str) {
+        File file = new File(com.baidu.swan.apps.r.d.awP(), str);
         return file.exists() && file.isDirectory();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     private static class a {
-        private static final am dPr = new am();
+        private static final am dQS = new am();
     }
 }

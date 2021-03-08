@@ -24,10 +24,10 @@ public class MD5 {
             int i = 0;
             int i2 = 0;
             while (i < 16) {
-                byte b2 = digest[i];
+                byte b = digest[i];
                 int i3 = i2 + 1;
-                cArr[i2] = hexDigits[(b2 >>> 4) & 15];
-                cArr[i3] = hexDigits[b2 & 15];
+                cArr[i2] = hexDigits[(b >>> 4) & 15];
+                cArr[i3] = hexDigits[b & 15];
                 i++;
                 i2 = i3 + 1;
             }

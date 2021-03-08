@@ -15,17 +15,17 @@ import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.bdprivate.b;
 import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
 import com.baidu.swan.bdprivate.extensions.quicklogin.f;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private Bundle mParams = new Bundle();
 
     public void c(final com.baidu.swan.apps.a.a aVar) {
-        SwanAppActivity aIE = com.baidu.swan.apps.runtime.d.aIG().aIE();
+        SwanAppActivity aIH = com.baidu.swan.apps.runtime.d.aIJ().aIH();
         final ViewGroup viewGroup = null;
-        if (aIE != null && !aIE.isFinishing()) {
-            viewGroup = (ViewGroup) aIE.findViewById(16908290);
-            com.baidu.swan.apps.res.widget.loadingview.a.a(aIE, viewGroup, aIE.getResources().getString(b.g.swanapp_login_loading));
+        if (aIH != null && !aIH.isFinishing()) {
+            viewGroup = (ViewGroup) aIH.findViewById(16908290);
+            com.baidu.swan.apps.res.widget.loadingview.a.a(aIH, viewGroup, aIH.getResources().getString(b.g.swanapp_login_loading));
         }
         f.a(new com.baidu.swan.bdprivate.extensions.quicklogin.c() { // from class: com.baidu.swan.bdprivate.extensions.loginauthmobile.a.1
             @Override // com.baidu.swan.bdprivate.extensions.quicklogin.c
@@ -41,15 +41,15 @@ public class a {
                 if (a.this.b(quickLoginInfo)) {
                     a.this.mParams.putParcelable("quick_login_info", quickLoginInfo);
                 }
-                String aza = com.baidu.swan.apps.runtime.d.aIG().aIC().aIO().aza();
-                String appId = com.baidu.swan.apps.runtime.d.aIG().getAppId();
-                a.this.mParams.putString("app_name", com.baidu.swan.apps.runtime.d.aIG().aIC().getName());
+                String azd = com.baidu.swan.apps.runtime.d.aIJ().aIF().aIR().azd();
+                String appId = com.baidu.swan.apps.runtime.d.aIJ().getAppId();
+                a.this.mParams.putString("app_name", com.baidu.swan.apps.runtime.d.aIJ().aIF().getName());
                 a.this.mParams.putString("appid", appId);
-                a.this.mParams.putString("launch_from", aza);
+                a.this.mParams.putString("launch_from", azd);
                 if (a.DEBUG) {
                     Log.d("LoginAndGetMobile", "onQueryResult: mParams: " + a.this.mParams.toString());
                 }
-                d.g("show", OneKeyLoginSdkCall.k, null, aza, appId);
+                d.g("show", OneKeyLoginSdkCall.k, null, azd, appId);
                 a.this.d(aVar);
             }
         });
@@ -70,18 +70,18 @@ public class a {
     }
 
     private void e(com.baidu.swan.apps.a.a aVar) {
-        SwanAppActivity azV = com.baidu.swan.apps.v.f.aAl().azV();
-        if (azV != null) {
-            Intent intent = new Intent(azV, LoginAndGetMobileActivity.class);
+        SwanAppActivity azY = com.baidu.swan.apps.v.f.aAo().azY();
+        if (azY != null) {
+            Intent intent = new Intent(azY, LoginAndGetMobileActivity.class);
             intent.putExtras(this.mParams);
-            azV.startActivity(intent);
-            azV.overridePendingTransition(b.a.login_get_mobile_act_enter, 0);
+            azY.startActivity(intent);
+            azY.overridePendingTransition(b.a.login_get_mobile_act_enter, 0);
             c.g(aVar);
         }
     }
 
     private void f(final com.baidu.swan.apps.a.a aVar) {
-        DelegateUtils.callOnMainWithActivity(com.baidu.swan.apps.v.f.aAl().azV(), PluginDelegateActivity.class, b.class, this.mParams, new DelegateListener() { // from class: com.baidu.swan.bdprivate.extensions.loginauthmobile.a.2
+        DelegateUtils.callOnMainWithActivity(com.baidu.swan.apps.v.f.aAo().azY(), PluginDelegateActivity.class, b.class, this.mParams, new DelegateListener() { // from class: com.baidu.swan.bdprivate.extensions.loginauthmobile.a.2
             @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
             public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
                 if (delegateResult.isOk()) {

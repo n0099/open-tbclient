@@ -5,16 +5,14 @@ import android.net.NetworkInfo;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3183a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f3184b;
+    public String f2299a;
+    public int b;
     public int c;
 
     public c(NetworkInfo networkInfo) {
-        this.f3183a = networkInfo.getTypeName();
-        this.f3184b = networkInfo.getType();
-        switch (d.f3185a[networkInfo.getState().ordinal()]) {
+        this.f2299a = networkInfo.getTypeName();
+        this.b = networkInfo.getType();
+        switch (d.f2300a[networkInfo.getState().ordinal()]) {
             case 1:
                 this.c = 2;
                 return;

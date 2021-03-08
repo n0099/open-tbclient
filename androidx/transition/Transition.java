@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public abstract class Transition implements Cloneable {
     static final boolean DBG = false;
     private static final String LOG_TAG = "Transition";
@@ -89,18 +89,18 @@ public abstract class Transition implements Cloneable {
     private ArrayList<Animator> mAnimators = new ArrayList<>();
     private PathMotion mPathMotion = STRAIGHT_PATH_MOTION;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes5.dex */
     public static abstract class EpicenterCallback {
         public abstract Rect onGetEpicenter(@NonNull Transition transition);
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes15.dex */
+    /* loaded from: classes5.dex */
     public @interface MatchOrder {
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes5.dex */
     public interface TransitionListener {
         void onTransitionCancel(@NonNull Transition transition);
 
@@ -1253,7 +1253,7 @@ public abstract class Transition implements Cloneable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes5.dex */
     public static class AnimationInfo {
         String mName;
         Transition mTransition;
@@ -1271,7 +1271,7 @@ public abstract class Transition implements Cloneable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes5.dex */
     public static class ArrayListManager {
         private ArrayListManager() {
         }

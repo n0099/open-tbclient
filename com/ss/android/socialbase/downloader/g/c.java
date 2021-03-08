@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteStatement;
-import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.SystemClock;
@@ -18,6 +17,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
@@ -37,7 +37,7 @@ public class c implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: RD */
+        /* renamed from: RH */
         public c[] newArray(int i) {
             return new c[i];
         }
@@ -70,14 +70,14 @@ public class c implements Parcelable {
     private long Z;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f13155a;
+    private int f7833a;
     private com.ss.android.socialbase.downloader.e.a aA;
     @Deprecated
     private int aB;
     private JSONObject aC;
     private JSONObject aD;
     private String aE;
-    private Bundle aF;
+    private ConcurrentHashMap<String, Object> aF;
     private boolean aG;
     private boolean aa;
     private boolean ab;
@@ -105,9 +105,7 @@ public class c implements Parcelable {
     private boolean ax;
     private boolean ay;
     private String az;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f13156b;
+    private String b;
     private String c;
     private String d;
     private String e;
@@ -164,8 +162,8 @@ public class c implements Parcelable {
         if (aVar == null) {
             return;
         }
-        this.f13156b = aVar.f13157a;
-        this.c = aVar.f13158b;
+        this.b = aVar.f7834a;
+        this.c = aVar.b;
         this.d = aVar.c;
         this.e = aVar.d;
         this.f = aVar.e;
@@ -178,7 +176,7 @@ public class c implements Parcelable {
         this.m = aVar.l;
         this.n = aVar.m;
         this.o = aVar.n;
-        this.k = aVar.qgs;
+        this.k = aVar.qhh;
         this.l = aVar.k;
         this.p = aVar.o;
         this.q = aVar.p;
@@ -197,7 +195,7 @@ public class c implements Parcelable {
         this.y = aVar.A;
         this.H = aVar.E;
         this.L = aVar.F;
-        this.al = aVar.qgt;
+        this.al = aVar.qhi;
         this.J = aVar.H;
         this.K = aVar.I;
         this.av = aVar.M;
@@ -205,7 +203,7 @@ public class c implements Parcelable {
         this.ax = aVar.J;
         this.N = aVar.K;
         this.au = aVar.L;
-        JSONObject jSONObject = aVar.qgu;
+        JSONObject jSONObject = aVar.qhj;
         if (jSONObject != null) {
             a("download_setting", jSONObject.toString());
         }
@@ -214,8 +212,8 @@ public class c implements Parcelable {
     }
 
     public void a(Parcel parcel) {
-        this.f13155a = parcel.readInt();
-        this.f13156b = parcel.readString();
+        this.f7833a = parcel.readInt();
+        this.b = parcel.readString();
         this.c = parcel.readString();
         this.d = parcel.readString();
         this.e = parcel.readString();
@@ -290,7 +288,7 @@ public class c implements Parcelable {
         this.at = parcel.readInt();
     }
 
-    private String eGW() {
+    private String eHa() {
         if (this.az == null && this.s != null && !this.s.isEmpty()) {
             try {
                 JSONArray jSONArray = new JSONArray();
@@ -407,11 +405,11 @@ public class c implements Parcelable {
             try {
                 int columnIndex = cursor.getColumnIndex(IMConstants.MSG_ROW_ID);
                 if (columnIndex != -1) {
-                    this.f13155a = cursor.getInt(columnIndex);
+                    this.f7833a = cursor.getInt(columnIndex);
                 }
                 int columnIndex2 = cursor.getColumnIndex("name");
                 if (columnIndex2 != -1) {
-                    this.f13156b = cursor.getString(columnIndex2);
+                    this.b = cursor.getString(columnIndex2);
                 }
                 int columnIndex3 = cursor.getColumnIndex("title");
                 if (columnIndex3 != -1) {
@@ -580,16 +578,16 @@ public class c implements Parcelable {
         }
     }
 
-    public ContentValues eGX() {
+    public ContentValues eHb() {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(IMConstants.MSG_ROW_ID, Integer.valueOf(this.f13155a));
+        contentValues.put(IMConstants.MSG_ROW_ID, Integer.valueOf(this.f7833a));
         contentValues.put("url", this.d);
         contentValues.put("savePath", this.e);
         contentValues.put("tempPath", this.f);
-        contentValues.put("name", this.f13156b);
+        contentValues.put("name", this.b);
         contentValues.put("chunkCount", Integer.valueOf(this.S));
         contentValues.put("status", Integer.valueOf(q()));
-        contentValues.put("curBytes", Long.valueOf(eHi()));
+        contentValues.put("curBytes", Long.valueOf(eHm()));
         contentValues.put("totalBytes", Long.valueOf(this.U));
         contentValues.put("eTag", this.E);
         contentValues.put("onlyWifi", Integer.valueOf(this.g ? 1 : 0));
@@ -613,18 +611,18 @@ public class c implements Parcelable {
         contentValues.put("chunkRunnableReuse", Integer.valueOf(this.D ? 1 : 0));
         contentValues.put("retryDelayTimeArray", this.B);
         contentValues.put("chunkDowngradeRetry", Integer.valueOf(this.ax ? 1 : 0));
-        contentValues.put("backUpUrlsStr", eGW());
+        contentValues.put("backUpUrlsStr", eHa());
         contentValues.put("backUpUrlRetryCount", Integer.valueOf(this.n));
         contentValues.put("realDownloadTime", Long.valueOf(this.Z));
         contentValues.put("retryScheduleMinutes", Integer.valueOf(this.aB));
         contentValues.put("independentProcess", Integer.valueOf(this.L ? 1 : 0));
-        contentValues.put("auxiliaryJsonobjectString", eGY());
+        contentValues.put("auxiliaryJsonobjectString", eHc());
         contentValues.put("iconUrl", this.N);
         contentValues.put("appVersionCode", Integer.valueOf(this.at));
         return contentValues;
     }
 
-    private String eGY() {
+    private String eHc() {
         String str;
         if (this.aE != null) {
             return this.aE;
@@ -643,7 +641,7 @@ public class c implements Parcelable {
             sQLiteStatement.clearBindings();
             int i = this.af + 1;
             this.af = i;
-            sQLiteStatement.bindLong(i, this.f13155a);
+            sQLiteStatement.bindLong(i, this.f7833a);
             int i2 = this.af + 1;
             this.af = i2;
             sQLiteStatement.bindString(i2, this.d == null ? "" : this.d);
@@ -655,7 +653,7 @@ public class c implements Parcelable {
             sQLiteStatement.bindString(i4, this.f == null ? "" : this.f);
             int i5 = this.af + 1;
             this.af = i5;
-            sQLiteStatement.bindString(i5, this.f13156b == null ? "" : this.f13156b);
+            sQLiteStatement.bindString(i5, this.b == null ? "" : this.b);
             int i6 = this.af + 1;
             this.af = i6;
             sQLiteStatement.bindLong(i6, this.S);
@@ -664,7 +662,7 @@ public class c implements Parcelable {
             sQLiteStatement.bindLong(i7, q());
             int i8 = this.af + 1;
             this.af = i8;
-            sQLiteStatement.bindLong(i8, eHi());
+            sQLiteStatement.bindLong(i8, eHm());
             int i9 = this.af + 1;
             this.af = i9;
             sQLiteStatement.bindLong(i9, this.U);
@@ -736,7 +734,7 @@ public class c implements Parcelable {
             sQLiteStatement.bindLong(i31, this.ax ? 1L : 0L);
             int i32 = this.af + 1;
             this.af = i32;
-            sQLiteStatement.bindString(i32, eGW());
+            sQLiteStatement.bindString(i32, eHa());
             int i33 = this.af + 1;
             this.af = i33;
             sQLiteStatement.bindLong(i33, this.n);
@@ -751,7 +749,7 @@ public class c implements Parcelable {
             sQLiteStatement.bindLong(i36, this.L ? 1L : 0L);
             int i37 = this.af + 1;
             this.af = i37;
-            sQLiteStatement.bindString(i37, eGY());
+            sQLiteStatement.bindString(i37, eHc());
             int i38 = this.af + 1;
             this.af = i38;
             sQLiteStatement.bindString(i38, this.N == null ? "" : this.N);
@@ -766,18 +764,18 @@ public class c implements Parcelable {
     }
 
     public int g() {
-        if (this.f13155a == 0) {
-            this.f13155a = com.ss.android.socialbase.downloader.downloader.b.r(this);
+        if (this.f7833a == 0) {
+            this.f7833a = com.ss.android.socialbase.downloader.downloader.b.r(this);
         }
-        return this.f13155a;
+        return this.f7833a;
     }
 
     public String h() {
-        return this.f13156b;
+        return this.b;
     }
 
     public String i() {
-        return TextUtils.isEmpty(this.c) ? this.f13156b : this.c;
+        return TextUtils.isEmpty(this.c) ? this.b : this.c;
     }
 
     public String j() {
@@ -793,11 +791,11 @@ public class c implements Parcelable {
     }
 
     public String m() {
-        return com.ss.android.socialbase.downloader.m.d.b(this.f13156b);
+        return com.ss.android.socialbase.downloader.m.d.b(this.b);
     }
 
     public String n() {
-        return com.ss.android.socialbase.downloader.m.d.a(this.e, this.f13156b);
+        return com.ss.android.socialbase.downloader.m.d.a(this.e, this.b);
     }
 
     public boolean o() {
@@ -819,7 +817,7 @@ public class c implements Parcelable {
         return 0;
     }
 
-    public g eGZ() {
+    public g eHd() {
         return this.al;
     }
 
@@ -862,7 +860,7 @@ public class c implements Parcelable {
         this.g = z;
     }
 
-    public long eos() {
+    public long eoz() {
         bC();
         return this.aD.optLong("dbjson_key_first_speed_time");
     }
@@ -880,7 +878,7 @@ public class c implements Parcelable {
         a("ttmd5_check_status", Integer.valueOf(i));
     }
 
-    public long eHa() {
+    public long eHe() {
         bC();
         if (this.z == null) {
             this.z = new AtomicLong(this.aD.optLong("dbjson_key_all_connect_time"));
@@ -890,19 +888,19 @@ public class c implements Parcelable {
 
     public void b(long j) {
         if (j > 0) {
-            eHa();
+            eHe();
             a("dbjson_key_all_connect_time", Long.valueOf(this.z.addAndGet(j)));
         }
     }
 
-    public long eEp() {
+    public long eEt() {
         bC();
         return this.aD.optLong("dbjson_key_download_prepare_time");
     }
 
     public void c(long j) {
         if (j > 0) {
-            a("dbjson_key_download_prepare_time", Long.valueOf(eEp() + j));
+            a("dbjson_key_download_prepare_time", Long.valueOf(eEt() + j));
         }
     }
 
@@ -926,12 +924,12 @@ public class c implements Parcelable {
         return this.y;
     }
 
-    public long eEq() {
+    public long eEu() {
         bC();
         return this.aD.optLong("dbjson_key_expect_file_length");
     }
 
-    public List<e> eHb() {
+    public List<e> eHf() {
         return this.i;
     }
 
@@ -947,7 +945,7 @@ public class c implements Parcelable {
         return this.n;
     }
 
-    public int eHc() {
+    public int L() {
         int i = this.m;
         if (this.s != null && !this.s.isEmpty()) {
             return i + (this.n * this.s.size());
@@ -955,7 +953,7 @@ public class c implements Parcelable {
         return i;
     }
 
-    public int up() {
+    public int ur() {
         int i = this.F;
         if (this.aa) {
             int i2 = i + this.m;
@@ -967,7 +965,7 @@ public class c implements Parcelable {
         return i;
     }
 
-    public List<String> eHd() {
+    public List<String> eHg() {
         return this.aj;
     }
 
@@ -1036,7 +1034,7 @@ public class c implements Parcelable {
         return this.aD.optString("download_setting");
     }
 
-    public int eHe() {
+    public int eHh() {
         bC();
         return this.aD.optInt("retry_schedule_count", 0);
     }
@@ -1054,18 +1052,18 @@ public class c implements Parcelable {
     }
 
     public boolean U() {
-        return (eHg() & 2) > 0;
+        return (eHj() & 2) > 0;
     }
 
     public boolean V() {
-        return (eHg() & 1) > 0;
+        return (eHj() & 1) > 0;
     }
 
-    public boolean eHf() {
+    public boolean eHi() {
         return w() == -2 || w() == -5;
     }
 
-    private int eHg() {
+    private int eHj() {
         bD();
         try {
             return this.aC.optInt("pause_reserve_on_wifi", 0);
@@ -1078,7 +1076,7 @@ public class c implements Parcelable {
         bD();
         try {
             this.aC.put("pause_reserve_on_wifi", 3);
-            eHW();
+            eHY();
         } catch (Exception e) {
         }
     }
@@ -1087,7 +1085,7 @@ public class c implements Parcelable {
         bD();
         try {
             this.aC.put("pause_reserve_on_wifi", 1);
-            eHW();
+            eHY();
         } catch (Exception e) {
         }
     }
@@ -1096,7 +1094,7 @@ public class c implements Parcelable {
         a("rw_concurrent", Integer.valueOf(z ? 1 : 0));
     }
 
-    public boolean uv() {
+    public boolean uy() {
         bC();
         return this.aD.optInt("rw_concurrent", 0) == 1;
     }
@@ -1119,7 +1117,7 @@ public class c implements Parcelable {
         }
     }
 
-    public void eHh() {
+    public void ac() {
         this.ad = 0L;
     }
 
@@ -1159,11 +1157,11 @@ public class c implements Parcelable {
         return this.K;
     }
 
-    public boolean ah() {
+    public boolean eHk() {
         return this.av;
     }
 
-    public boolean ai() {
+    public boolean eHl() {
         return this.aw;
     }
 
@@ -1171,7 +1169,7 @@ public class c implements Parcelable {
         return this.o;
     }
 
-    public long eHi() {
+    public long eHm() {
         if (this.T != null) {
             return this.T.get();
         }
@@ -1189,12 +1187,12 @@ public class c implements Parcelable {
     public void a(long j, boolean z) {
         if (z) {
             d(j);
-        } else if (j > eHi()) {
+        } else if (j > eHm()) {
             d(j);
         }
     }
 
-    public com.ss.android.socialbase.downloader.b.b eHj() {
+    public com.ss.android.socialbase.downloader.b.b eHn() {
         return this.ak;
     }
 
@@ -1219,7 +1217,7 @@ public class c implements Parcelable {
     }
 
     public void d(String str) {
-        this.f13156b = str;
+        this.b = str;
     }
 
     public void f(long j) {
@@ -1242,15 +1240,15 @@ public class c implements Parcelable {
         this.w = str;
     }
 
-    public long eir() {
+    public long am() {
         return this.U;
     }
 
-    public String an() {
+    public String eHo() {
         return this.E;
     }
 
-    public String eHk() {
+    public String eHp() {
         return this.P;
     }
 
@@ -1262,7 +1260,7 @@ public class c implements Parcelable {
         this.S = i;
     }
 
-    public int eHl() {
+    public int eHq() {
         return this.R;
     }
 
@@ -1274,7 +1272,7 @@ public class c implements Parcelable {
         this.O = z;
     }
 
-    public int aq() {
+    public int eHr() {
         return this.an;
     }
 
@@ -1286,7 +1284,7 @@ public class c implements Parcelable {
         this.ao = str;
     }
 
-    public boolean eHm() {
+    public boolean eHs() {
         return (!this.ag && this.t) || (this.ag && (this.ah || this.ai));
     }
 
@@ -1294,23 +1292,23 @@ public class c implements Parcelable {
         this.u = str;
     }
 
-    public boolean eiu() {
+    public boolean eiE() {
         return this.t;
     }
 
-    public String eHn() {
+    public String at() {
         return this.u;
     }
 
-    public boolean eHo() {
+    public boolean eHt() {
         return this.v;
     }
 
-    public boolean eHp() {
+    public boolean av() {
         return this.A;
     }
 
-    public String eHq() {
+    public String eHu() {
         return this.B;
     }
 
@@ -1318,15 +1316,15 @@ public class c implements Parcelable {
         return this.F;
     }
 
-    public boolean eiz() {
+    public boolean eiJ() {
         return this.as;
     }
 
-    public void eHr() {
+    public void eHv() {
         this.as = true;
     }
 
-    public String eHs() {
+    public String eHw() {
         return this.N;
     }
 
@@ -1334,27 +1332,27 @@ public class c implements Parcelable {
         this.at = i;
     }
 
-    public int eHt() {
+    public int aB() {
         return this.at;
     }
 
-    public boolean eHu() {
+    public boolean aC() {
         return this.ax;
     }
 
-    public boolean eHv() {
+    public boolean eHx() {
         return this.ay;
     }
 
-    public i eHw() {
+    public i eHy() {
         return this.G;
     }
 
-    public com.ss.android.socialbase.downloader.b.a eHx() {
+    public com.ss.android.socialbase.downloader.b.a eHz() {
         return this.I;
     }
 
-    public boolean eHy() {
+    public boolean eHA() {
         int q = q();
         return q == 7 || this.G == i.DELAY_RETRY_WAITING || q == 8 || this.I == com.ss.android.socialbase.downloader.b.a.ASYNC_HANDLE_WAITING || this.I == com.ss.android.socialbase.downloader.b.a.ASYNC_HANDLE_RESTART || this.ak == com.ss.android.socialbase.downloader.b.b.BYTE_INVALID_RETRY_STATUS_RESTART;
     }
@@ -1372,7 +1370,7 @@ public class c implements Parcelable {
         }
     }
 
-    public boolean eHz() {
+    public boolean eHB() {
         return this.A && q() != -3 && this.G == i.DELAY_RETRY_WAITING;
     }
 
@@ -1380,7 +1378,7 @@ public class c implements Parcelable {
         this.G = iVar;
     }
 
-    public boolean eHA() {
+    public boolean eHC() {
         return q() != -3 && this.I == com.ss.android.socialbase.downloader.b.a.ASYNC_HANDLE_WAITING;
     }
 
@@ -1395,21 +1393,21 @@ public class c implements Parcelable {
         }
     }
 
-    public long eHB() {
+    public long eHD() {
         return this.Y;
     }
 
-    public long eHC() {
+    public long eHE() {
         return TimeUnit.NANOSECONDS.toMillis(this.Z);
     }
 
     public void a(c cVar, boolean z) {
         if (cVar != null) {
-            d(cVar.eHU());
-            f(cVar.eir());
-            a(cVar.eHi(), true);
+            d(cVar.eHW());
+            f(cVar.am());
+            a(cVar.eHm(), true);
             this.Z = cVar.Z;
-            if (!cVar.eHy() && !eHy()) {
+            if (!cVar.eHA() && !eHA()) {
                 this.F = 0;
                 this.as = false;
                 this.aa = false;
@@ -1418,13 +1416,13 @@ public class c implements Parcelable {
             } else {
                 this.F = cVar.ax();
             }
-            c(cVar.an());
+            c(cVar.eHo());
             if (z) {
                 c(cVar.q());
             }
-            this.W = cVar.eHD();
-            this.X = cVar.eHE();
-            this.G = cVar.eHw();
+            this.W = cVar.eHF();
+            this.X = cVar.eHG();
+            this.G = cVar.eHy();
             a(cVar.aD);
         }
     }
@@ -1471,11 +1469,11 @@ public class c implements Parcelable {
         }
     }
 
-    public boolean eHD() {
+    public boolean eHF() {
         return this.W;
     }
 
-    public boolean eHE() {
+    public boolean eHG() {
         return this.X;
     }
 
@@ -1484,16 +1482,16 @@ public class c implements Parcelable {
     }
 
     public void i(int i) {
-        this.f13155a = i;
+        this.f7833a = i;
     }
 
-    public boolean eHF() {
-        return !x() || com.ss.android.socialbase.downloader.m.d.a(com.ss.android.socialbase.downloader.downloader.b.eGC());
+    public boolean eHH() {
+        return !x() || com.ss.android.socialbase.downloader.m.d.a(com.ss.android.socialbase.downloader.downloader.b.eGG());
     }
 
-    public boolean eHG() {
+    public boolean eHI() {
         if (this.aG) {
-            return U() && com.ss.android.socialbase.downloader.m.d.a(com.ss.android.socialbase.downloader.downloader.b.eGC());
+            return U() && com.ss.android.socialbase.downloader.m.d.a(com.ss.android.socialbase.downloader.downloader.b.eGG());
         }
         return true;
     }
@@ -1502,19 +1500,19 @@ public class c implements Parcelable {
         return com.ss.android.socialbase.downloader.b.f.a(q());
     }
 
-    public List<String> eHH() {
+    public List<String> eHJ() {
         return this.s;
     }
 
-    public boolean eHI() {
+    public boolean eHK() {
         return com.ss.android.socialbase.downloader.m.d.b(this.U);
     }
 
-    public boolean eHJ() {
+    public boolean eHL() {
         return this.p;
     }
 
-    public int eHK() {
+    public int eHM() {
         return this.q;
     }
 
@@ -1530,7 +1528,7 @@ public class c implements Parcelable {
         return j2;
     }
 
-    public int eHL() {
+    public int eHN() {
         int i = this.r;
         if (i < 1000) {
             return 1000;
@@ -1539,7 +1537,7 @@ public class c implements Parcelable {
     }
 
     public boolean aW() {
-        return TextUtils.isEmpty(this.d) || TextUtils.isEmpty(this.f13156b) || TextUtils.isEmpty(this.e);
+        return TextUtils.isEmpty(this.d) || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.e);
     }
 
     public boolean aX() {
@@ -1600,7 +1598,7 @@ public class c implements Parcelable {
         this.Z = 0L;
     }
 
-    public void eHM() {
+    public void eHO() {
         a(0L, true);
         this.U = 0L;
         this.S = 1;
@@ -1609,7 +1607,7 @@ public class c implements Parcelable {
         this.Z = 0L;
     }
 
-    public void eHN() {
+    public void eHP() {
         a(0L, true);
         this.U = 0L;
         this.S = 1;
@@ -1642,15 +1640,15 @@ public class c implements Parcelable {
             return false;
         }
         long length = file.length();
-        long eHi = eHi();
-        return length > 0 && eHi > 0 && this.U > 0 && this.S > 0 && length >= eHi && length <= this.U && eHi < this.U;
+        long eHm = eHm();
+        return length > 0 && eHm > 0 && this.U > 0 && this.S > 0 && length >= eHm && length <= this.U && eHm < this.U;
     }
 
-    public boolean eHO() {
-        k eGs;
+    public boolean eHQ() {
+        k eGw;
         long j;
-        if (this.S > 1 && (eGs = com.ss.android.socialbase.downloader.downloader.b.eGs()) != null) {
-            List<b> c = eGs.c(g());
+        if (this.S > 1 && (eGw = com.ss.android.socialbase.downloader.downloader.b.eGw()) != null) {
+            List<b> c = eGw.c(g());
             if (c == null || c.size() != this.S) {
                 return false;
             }
@@ -1664,14 +1662,14 @@ public class c implements Parcelable {
                 b next = it.next();
                 j2 = next != null ? next.o() + j : j;
             }
-            if (j != eHi()) {
+            if (j != eHm()) {
                 d(j);
             }
         }
         return true;
     }
 
-    public synchronized boolean eHP() {
+    public synchronized boolean eHR() {
         return this.aq;
     }
 
@@ -1699,34 +1697,34 @@ public class c implements Parcelable {
         this.ay = z;
     }
 
-    public boolean eHQ() {
+    public boolean eHS() {
         if (bd()) {
-            return eHO();
+            return eHQ();
         }
         return false;
     }
 
-    public boolean eHR() {
+    public boolean eHT() {
         return (!this.W || TextUtils.isEmpty(l()) || TextUtils.isEmpty(m()) || new File(l(), m()).exists()) ? false : true;
     }
 
-    public int eHS() {
+    public int eHU() {
         return com.ss.android.socialbase.downloader.m.d.a(k(), h(), this.y);
     }
 
-    public boolean eHT() {
+    public boolean eHV() {
         int q = q();
         if (q == 4 || q == 3 || q == -1 || q == 5 || q == 8) {
             return true;
         }
-        return (q == 1 || q == 2) && eHi() > 0;
+        return (q == 1 || q == 2) && eHm() > 0;
     }
 
     public boolean bk() {
         return q() == 0;
     }
 
-    public int eHU() {
+    public int eHW() {
         return this.S;
     }
 
@@ -1737,8 +1735,8 @@ public class c implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f13155a);
-        parcel.writeString(this.f13156b);
+        parcel.writeInt(this.f7833a);
+        parcel.writeString(this.b);
         parcel.writeString(this.c);
         parcel.writeString(this.d);
         parcel.writeString(this.e);
@@ -1774,7 +1772,7 @@ public class c implements Parcelable {
         parcel.writeInt(this.Q);
         parcel.writeInt(this.R);
         parcel.writeInt(this.S);
-        parcel.writeLong(eHi());
+        parcel.writeLong(eHm());
         parcel.writeLong(this.U);
         parcel.writeInt(w());
         parcel.writeLong(this.Y);
@@ -1803,13 +1801,13 @@ public class c implements Parcelable {
         parcel.writeByte((byte) (this.ay ? 1 : 0));
         parcel.writeParcelable(this.aA, i);
         parcel.writeInt(this.aB);
-        parcel.writeString(eGY());
+        parcel.writeString(eHc());
         parcel.writeByte((byte) (this.M ? 1 : 0));
         parcel.writeString(this.N);
         parcel.writeInt(this.at);
     }
 
-    public com.ss.android.socialbase.downloader.e.a eHV() {
+    public com.ss.android.socialbase.downloader.e.a eHX() {
         return this.aA;
     }
 
@@ -1819,9 +1817,9 @@ public class c implements Parcelable {
 
     private void bD() {
         if (this.aC == null) {
-            Context eGC = com.ss.android.socialbase.downloader.downloader.b.eGC();
-            if (eGC != null) {
-                String string = eGC.getSharedPreferences("sp_download_info", 0).getString(Long.toString(g()), "");
+            Context eGG = com.ss.android.socialbase.downloader.downloader.b.eGG();
+            if (eGG != null) {
+                String string = eGG.getSharedPreferences("sp_download_info", 0).getString(Long.toString(g()), "");
                 if (!TextUtils.isEmpty(string)) {
                     try {
                         this.aC = new JSONObject(string);
@@ -1836,25 +1834,25 @@ public class c implements Parcelable {
         }
     }
 
-    public void eHW() {
-        Context eGC;
-        if (this.aC != null && (eGC = com.ss.android.socialbase.downloader.downloader.b.eGC()) != null) {
-            eGC.getSharedPreferences("sp_download_info", 0).edit().putString(Integer.toString(g()), this.aC.toString()).apply();
+    public void eHY() {
+        Context eGG;
+        if (this.aC != null && (eGG = com.ss.android.socialbase.downloader.downloader.b.eGG()) != null) {
+            eGG.getSharedPreferences("sp_download_info", 0).edit().putString(Integer.toString(g()), this.aC.toString()).apply();
         }
     }
 
     public void bo() {
-        Context eGC = com.ss.android.socialbase.downloader.downloader.b.eGC();
-        if (eGC != null) {
+        Context eGG = com.ss.android.socialbase.downloader.downloader.b.eGG();
+        if (eGG != null) {
             try {
-                eGC.getSharedPreferences("sp_download_info", 0).edit().remove(Integer.toString(g())).apply();
+                eGG.getSharedPreferences("sp_download_info", 0).edit().remove(Integer.toString(g())).apply();
             } catch (Throwable th) {
                 th.printStackTrace();
             }
         }
     }
 
-    public int eHX() {
+    public int eHZ() {
         bD();
         return this.aC.optInt("failed_resume_count", 0);
     }
@@ -1868,7 +1866,7 @@ public class c implements Parcelable {
         }
     }
 
-    public long eHY() {
+    public long eIa() {
         bD();
         return this.aC.optLong("last_failed_resume_time", 0L);
     }
@@ -1882,7 +1880,7 @@ public class c implements Parcelable {
         }
     }
 
-    public int eHZ() {
+    public int eIb() {
         bD();
         return this.aC.optInt("unins_resume_count", 0);
     }
@@ -1896,7 +1894,7 @@ public class c implements Parcelable {
         }
     }
 
-    public long eIa() {
+    public long eIc() {
         bD();
         return this.aC.optLong("last_unins_resume_time", 0L);
     }
@@ -1910,12 +1908,12 @@ public class c implements Parcelable {
         }
     }
 
-    public long eIb() {
+    public long eId() {
         bC();
         return this.aD.optLong("dbjson_last_start_download_time", 0L);
     }
 
-    public int fN(int i) {
+    public int fO(int i) {
         bC();
         return this.aD.optInt("anti_hijack_error_code", i);
     }
@@ -1924,7 +1922,7 @@ public class c implements Parcelable {
         a("anti_hijack_error_code", Integer.valueOf(i));
     }
 
-    public boolean eIc() {
+    public boolean eIe() {
         bC();
         return this.aD.optBoolean("is_save_path_redirected", false);
     }
@@ -1934,10 +1932,10 @@ public class c implements Parcelable {
     }
 
     public String toString() {
-        return "DownloadInfo{id=" + this.f13155a + ", name='" + this.f13156b + "', title='" + this.c + "', url='" + this.d + "', savePath='" + this.e + "'}";
+        return "DownloadInfo{id=" + this.f7833a + ", name='" + this.b + "', title='" + this.c + "', url='" + this.d + "', savePath='" + this.e + "'}";
     }
 
-    public int eId() {
+    public int eIf() {
         bC();
         return this.aD.optInt("dbjson_key_preconnect_level", 0);
     }
@@ -1947,22 +1945,22 @@ public class c implements Parcelable {
         a("dbjson_key_preconnect_level", Integer.valueOf(i));
     }
 
-    private void eIe() {
+    private void eIg() {
         if (this.aF == null) {
             synchronized (this) {
                 if (this.aF == null) {
-                    this.aF = new Bundle();
+                    this.aF = new ConcurrentHashMap<>();
                 }
             }
         }
     }
 
-    public Bundle eIf() {
-        eIe();
+    public ConcurrentHashMap<String, Object> eIh() {
+        eIg();
         return this.aF;
     }
 
-    public int eIg() {
+    public int eIi() {
         bC();
         return this.aD.optInt("executor_group", 2);
     }
@@ -1975,7 +1973,7 @@ public class c implements Parcelable {
         this.au = j;
     }
 
-    public long eIh() {
+    public long eIj() {
         return this.au;
     }
 
@@ -1996,10 +1994,8 @@ public class c implements Parcelable {
         private int P;
 
         /* renamed from: a  reason: collision with root package name */
-        private String f13157a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private String f13158b;
+        private String f7834a;
+        private String b;
         private String c;
         private String d;
         private String e;
@@ -2013,8 +2009,8 @@ public class c implements Parcelable {
         private boolean n;
         private int p;
         private int q;
-        private String[] qgs;
-        private JSONObject qgu;
+        private String[] qhh;
+        private JSONObject qhj;
         private List<String> r;
         private boolean s;
         private String t;
@@ -2025,7 +2021,7 @@ public class c implements Parcelable {
         private String z;
         private boolean o = true;
         private boolean x = true;
-        private g qgt = g.ENQUEUE_NONE;
+        private g qhi = g.ENQUEUE_NONE;
         private boolean M = true;
 
         public a() {
@@ -2035,32 +2031,32 @@ public class c implements Parcelable {
             this.c = str;
         }
 
-        public a abm(String str) {
-            this.f13157a = str;
+        public a abr(String str) {
+            this.f7834a = str;
             return this;
         }
 
-        public a abn(String str) {
-            this.f13158b = str;
+        public a abs(String str) {
+            this.b = str;
             return this;
         }
 
-        public a abo(String str) {
+        public a abt(String str) {
             this.c = str;
             return this;
         }
 
-        public a abp(String str) {
+        public a abu(String str) {
             this.d = str;
             return this;
         }
 
-        public a abq(String str) {
+        public a abv(String str) {
             this.g = str;
             return this;
         }
 
-        public a Co(boolean z) {
+        public a Cm(boolean z) {
             this.f = z;
             return this;
         }
@@ -2070,27 +2066,27 @@ public class c implements Parcelable {
             return this;
         }
 
-        public a RE(int i) {
+        public a RI(int i) {
             this.l = i;
             return this;
         }
 
-        public a RF(int i) {
+        public a RJ(int i) {
             this.m = i;
             return this;
         }
 
-        public a Cp(boolean z) {
+        public a Cn(boolean z) {
             this.n = z;
             return this;
         }
 
-        public a RG(int i) {
+        public a RK(int i) {
             this.p = i;
             return this;
         }
 
-        public a RH(int i) {
+        public a RL(int i) {
             this.q = i;
             return this;
         }
@@ -2100,47 +2096,47 @@ public class c implements Parcelable {
             return this;
         }
 
-        public a abr(String str) {
+        public a abw(String str) {
             this.t = str;
             return this;
         }
 
-        public a Cq(boolean z) {
+        public a Co(boolean z) {
             this.u = z;
             return this;
         }
 
-        public a Cr(boolean z) {
+        public a Cp(boolean z) {
             this.s = z;
             return this;
         }
 
-        public a Cs(boolean z) {
+        public a Cq(boolean z) {
             this.v = z;
             return this;
         }
 
-        public a Ct(boolean z) {
+        public a Cr(boolean z) {
             this.w = z;
             return this;
         }
 
-        public a Cu(boolean z) {
+        public a Cs(boolean z) {
             this.x = z;
             return this;
         }
 
-        public a Cv(boolean z) {
+        public a Ct(boolean z) {
             this.y = z;
             return this;
         }
 
-        public a abs(String str) {
+        public a abx(String str) {
             this.z = str;
             return this;
         }
 
-        public a abt(String str) {
+        public a aby(String str) {
             this.A = str;
             return this;
         }
@@ -2150,52 +2146,52 @@ public class c implements Parcelable {
             return this;
         }
 
-        public a Cw(boolean z) {
+        public a Cu(boolean z) {
             this.C = z;
             return this;
         }
 
-        public a abu(String str) {
+        public a abz(String str) {
             this.D = str;
             return this;
         }
 
-        public a Cx(boolean z) {
+        public a Cv(boolean z) {
             this.E = z;
             return this;
         }
 
-        public a Cy(boolean z) {
+        public a Cw(boolean z) {
             this.F = z;
             return this;
         }
 
         public a b(g gVar) {
-            this.qgt = gVar;
+            this.qhi = gVar;
             return this;
         }
 
-        public a Cz(boolean z) {
+        public a Cx(boolean z) {
             this.H = z;
             return this;
         }
 
-        public a CA(boolean z) {
+        public a Cy(boolean z) {
             this.J = z;
             return this;
         }
 
-        public a fk(JSONObject jSONObject) {
-            this.qgu = jSONObject;
+        public a fn(JSONObject jSONObject) {
+            this.qhj = jSONObject;
             return this;
         }
 
-        public a abv(String str) {
+        public a abA(String str) {
             this.K = str;
             return this;
         }
 
-        public a RI(int i) {
+        public a RM(int i) {
             this.P = i;
             return this;
         }

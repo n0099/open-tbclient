@@ -9,16 +9,16 @@ import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.holder.CardViewHolder;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.adp.widget.ListView.a<a, CardViewHolder<c>> {
-    private ab aig;
-    private TbPageContext<?> eUY;
+    private ab ajy;
+    private TbPageContext<?> eWx;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getContext(), bdUniqueId);
-        this.eUY = tbPageContext;
+        this.eWx = tbPageContext;
     }
 
     public void setOnCardSubClickListener(ab abVar) {
-        this.aig = abVar;
+        this.ajy = abVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,9 +26,9 @@ public class b extends com.baidu.adp.widget.ListView.a<a, CardViewHolder<c>> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aX */
     public CardViewHolder<c> e(ViewGroup viewGroup) {
-        c cVar = new c(this.eUY, viewGroup);
-        if (this.aig != null) {
-            cVar.c(this.aig);
+        c cVar = new c(this.eWx, viewGroup);
+        if (this.ajy != null) {
+            cVar.c(this.ajy);
         }
         return new CardViewHolder<>(cVar);
     }
@@ -37,10 +37,10 @@ public class b extends com.baidu.adp.widget.ListView.a<a, CardViewHolder<c>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, a aVar, CardViewHolder<c> cardViewHolder) {
-        if (aVar == null || cardViewHolder == null || cardViewHolder.cti() == null) {
+        if (aVar == null || cardViewHolder == null || cardViewHolder.cto() == null) {
             return null;
         }
-        cardViewHolder.cti().a(aVar);
+        cardViewHolder.cto().a(aVar);
         return cardViewHolder.getView();
     }
 

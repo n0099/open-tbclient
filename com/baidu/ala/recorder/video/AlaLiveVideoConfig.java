@@ -2,7 +2,7 @@ package com.baidu.ala.recorder.video;
 
 import com.baidu.ala.recorder.video.DynamicBitRateConfig;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AlaLiveVideoConfig {
     public static final int HW_ENCODER = 1;
     private static final int PREVIEW_HEIGHT = 1280;
@@ -29,7 +29,7 @@ public class AlaLiveVideoConfig {
     private VideoEncoderConfig mVideoEncoderConfig;
     private int mVideoGOP;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class VideoEncoderConfig {
         public String x264Param;
     }

@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class CameraInterface implements Runnable {
     public static final int DISPLAY_ROTATION_LANDSCAPE = 90;
     public static final int DISPLAY_ROTATION_LANDSCAPE_UPSIDEDOWN = 270;
@@ -138,13 +138,13 @@ public class CameraInterface implements Runnable {
     private String mDeviceBrand = Build.BRAND.toLowerCase();
     private Timer mCameraTimer = new Timer();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum CameraResolutionMode {
         CAMERA_RESOLUTION_PRECISE_MODE,
         CAMERA_RESOLUTION_RANGE_MODE
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface FocusListener {
         void focusResult(boolean z);
     }
@@ -881,7 +881,7 @@ public class CameraInterface implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public final class AutoFocusCallback implements Camera.AutoFocusCallback {
         private AutoFocusCallback() {
         }
@@ -1138,7 +1138,7 @@ public class CameraInterface implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class CameraInterfaceHandler extends Handler {
         private WeakReference<CameraInterface> mWeakWay;
 

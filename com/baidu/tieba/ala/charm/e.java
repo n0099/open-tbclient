@@ -8,149 +8,149 @@ import com.baidu.live.data.AlaLiveUserInfoData;
 import com.baidu.live.data.v;
 import com.baidu.live.sdk.a;
 import com.baidu.tieba.ala.charm.model.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e implements com.baidu.live.liveroom.d.d {
-    private String aDB;
-    private String bdi;
-    private boolean bnF;
-    private ALaCharmCardActivity gNE;
-    private d gOc;
-    private com.baidu.tieba.ala.charm.model.b gOd;
-    private String gOe;
-    private long gOf;
-    b.a gOg = new b.a() { // from class: com.baidu.tieba.ala.charm.e.1
+    private String aFb;
+    private String beK;
+    private boolean bpf;
+    private d gPL;
+    private com.baidu.tieba.ala.charm.model.b gPM;
+    private String gPN;
+    private long gPO;
+    b.a gPP = new b.a() { // from class: com.baidu.tieba.ala.charm.e.1
         @Override // com.baidu.tieba.ala.charm.model.b.a
         public void a(long j, v vVar, AlaLiveUserInfoData alaLiveUserInfoData, long j2) {
-            if (e.this.gOc != null) {
-                e.this.gOc.ff(j);
+            if (e.this.gPL != null) {
+                e.this.gPL.ff(j);
                 if (vVar == null) {
-                    e.this.gOc.dQ(true);
+                    e.this.gPL.dQ(true);
                     return;
                 }
-                e.this.gOc.WZ();
-                e.this.gOc.a(vVar.getList(), alaLiveUserInfoData, j2);
+                e.this.gPL.Xc();
+                e.this.gPL.a(vVar.getList(), alaLiveUserInfoData, j2);
                 int size = vVar.getList().size();
                 if (size <= 0) {
-                    e.this.gOc.dQ(true);
+                    e.this.gPL.dQ(true);
                 } else if (size < 100) {
-                    e.this.gOc.aB(e.this.gNE.getPageContext().getResources().getString(a.h.online_no_more), true);
+                    e.this.gPL.aB(e.this.gPn.getPageContext().getResources().getString(a.h.online_no_more), true);
                 } else {
-                    e.this.gOc.aB(e.this.gNE.getPageContext().getResources().getString(a.h.online_show_100), false);
+                    e.this.gPL.aB(e.this.gPn.getPageContext().getResources().getString(a.h.online_show_100), false);
                 }
             }
         }
 
         @Override // com.baidu.tieba.ala.charm.model.b.a
         public void A(int i, String str) {
-            if (e.this.gOc != null) {
-                e.this.gOc.dQ(false);
-                e.this.gOc.n(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.e.1.1
+            if (e.this.gPL != null) {
+                e.this.gPL.dQ(false);
+                e.this.gPL.n(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.e.1.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (BdNetTypeUtil.isNetWorkAvailable()) {
-                            if (e.this.gOd != null) {
-                                e.this.gOd.w(e.this.mLiveId, 0, 0);
+                            if (e.this.gPM != null) {
+                                e.this.gPM.w(e.this.mLiveId, 0, 0);
                                 return;
                             }
                             return;
                         }
-                        e.this.gNE.getPageContext().showToast(e.this.gNE.getResources().getString(a.h.sdk_no_network_guide));
+                        e.this.gPn.getPageContext().showToast(e.this.gPn.getResources().getString(a.h.sdk_no_network_guide));
                     }
                 });
             }
         }
     };
-    b.InterfaceC0625b gOh = new b.InterfaceC0625b() { // from class: com.baidu.tieba.ala.charm.e.2
-        @Override // com.baidu.tieba.ala.charm.model.b.InterfaceC0625b
+    b.InterfaceC0631b gPQ = new b.InterfaceC0631b() { // from class: com.baidu.tieba.ala.charm.e.2
+        @Override // com.baidu.tieba.ala.charm.model.b.InterfaceC0631b
         public void u(long j, int i) {
-            e.this.gOc.t(j, i);
+            e.this.gPL.t(j, i);
         }
 
-        @Override // com.baidu.tieba.ala.charm.model.b.InterfaceC0625b
+        @Override // com.baidu.tieba.ala.charm.model.b.InterfaceC0631b
         public void A(int i, String str) {
             if (TextUtils.isEmpty(str)) {
-                BdUtilHelper.showToast(e.this.gNE, e.this.gNE.getString(a.h.sdk_poke_poke_once_fail));
+                BdUtilHelper.showToast(e.this.gPn, e.this.gPn.getString(a.h.sdk_poke_poke_once_fail));
             } else {
-                BdUtilHelper.showToast(e.this.gNE, str);
+                BdUtilHelper.showToast(e.this.gPn, str);
             }
         }
     };
+    private ALaCharmCardActivity gPn;
     private String mGroupId;
     private String mLiveId;
 
     public e(ALaCharmCardActivity aLaCharmCardActivity) {
-        this.gNE = aLaCharmCardActivity;
+        this.gPn = aLaCharmCardActivity;
     }
 
     public void createView() {
-        this.gOc = new d(this.gNE, this.mGroupId, this.mLiveId, this.bnF, this.aDB, this.gOe, this.bdi);
+        this.gPL = new d(this.gPn, this.mGroupId, this.mLiveId, this.bpf, this.aFb, this.gPN, this.beK);
         loadData();
     }
 
     private void loadData() {
-        if (this.gOd == null) {
-            this.gOd = new com.baidu.tieba.ala.charm.model.b(this.gNE.getPageContext(), this.gOg, this.gOh);
+        if (this.gPM == null) {
+            this.gPM = new com.baidu.tieba.ala.charm.model.b(this.gPn.getPageContext(), this.gPP, this.gPQ);
         }
-        this.gOd.v(this.mLiveId, 0, 100);
+        this.gPM.v(this.mLiveId, 0, 100);
     }
 
     public void ff(long j) {
-        this.gOf = j;
-        if (this.gOc != null) {
-            this.gOc.ff(j);
+        this.gPO = j;
+        if (this.gPL != null) {
+            this.gPL.ff(j);
         }
     }
 
-    public e Gp(String str) {
+    public e Gy(String str) {
         this.mGroupId = str;
         return this;
     }
 
-    public e Gq(String str) {
+    public e Gz(String str) {
         this.mLiveId = str;
         return this;
     }
 
     public e mT(boolean z) {
-        this.bnF = z;
+        this.bpf = z;
         return this;
     }
 
-    public e Gr(String str) {
-        this.aDB = str;
+    public e GA(String str) {
+        this.aFb = str;
         return this;
     }
 
-    public e Gs(String str) {
-        this.gOe = str;
+    public e GB(String str) {
+        this.gPN = str;
         return this;
     }
 
-    public e Gt(String str) {
-        this.bdi = str;
+    public e GC(String str) {
+        this.beK = str;
         return this;
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.gOc == null) {
+        if (this.gPL == null) {
             return null;
         }
-        return this.gOc.getRootView();
+        return this.gPL.getRootView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public String getTitle() {
-        return this.gNE.getResources().getString(a.h.audience_list_title);
+        return this.gPn.getResources().getString(a.h.audience_list_title);
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String JK() {
+    public String JN() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short JL() {
+    public short JO() {
         return (short) 0;
     }
 
@@ -164,8 +164,8 @@ public class e implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.gOd != null) {
-            this.gOd.onDestroy();
+        if (this.gPM != null) {
+            this.gPM.onDestroy();
         }
     }
 

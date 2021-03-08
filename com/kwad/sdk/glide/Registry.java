@@ -21,10 +21,8 @@ public class Registry {
     private final Pools.Pool<List<Throwable>> j = com.kwad.sdk.glide.g.a.a.a();
 
     /* renamed from: a  reason: collision with root package name */
-    private final p f9922a = new p(this.j);
-
-    /* renamed from: b  reason: collision with root package name */
-    private final com.kwad.sdk.glide.e.a f9923b = new com.kwad.sdk.glide.e.a();
+    private final p f6572a = new p(this.j);
+    private final com.kwad.sdk.glide.e.a b = new com.kwad.sdk.glide.e.a();
     private final com.kwad.sdk.glide.e.e c = new com.kwad.sdk.glide.e.e();
     private final com.kwad.sdk.glide.e.f d = new com.kwad.sdk.glide.e.f();
     private final com.kwad.sdk.glide.load.a.f e = new com.kwad.sdk.glide.load.a.f();
@@ -99,7 +97,7 @@ public class Registry {
 
     @NonNull
     public <Data> Registry a(@NonNull Class<Data> cls, @NonNull com.kwad.sdk.glide.load.a<Data> aVar) {
-        this.f9923b.a(cls, aVar);
+        this.b.a(cls, aVar);
         return this;
     }
 
@@ -111,7 +109,7 @@ public class Registry {
 
     @NonNull
     public <Model, Data> Registry a(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull o<Model, Data> oVar) {
-        this.f9922a.a(cls, cls2, oVar);
+        this.f6572a.a(cls, cls2, oVar);
         return this;
     }
 
@@ -145,7 +143,7 @@ public class Registry {
 
     @NonNull
     public <X> com.kwad.sdk.glide.load.a<X> a(@NonNull X x) {
-        com.kwad.sdk.glide.load.a<X> a2 = this.f9923b.a(x.getClass());
+        com.kwad.sdk.glide.load.a<X> a2 = this.b.a(x.getClass());
         if (a2 != null) {
             return a2;
         }
@@ -217,7 +215,7 @@ public class Registry {
         List<Class<?>> a2 = this.h.a(cls, cls2, cls3);
         if (a2 == null) {
             ArrayList arrayList = new ArrayList();
-            for (Class<?> cls4 : this.f9922a.a((Class<?>) cls)) {
+            for (Class<?> cls4 : this.f6572a.a((Class<?>) cls)) {
                 for (Class cls5 : this.c.b(cls4, cls2)) {
                     if (!this.f.b(cls5, cls3).isEmpty() && !arrayList.contains(cls5)) {
                         arrayList.add(cls5);
@@ -232,7 +230,7 @@ public class Registry {
 
     @NonNull
     public <Model> List<n<Model, ?>> c(@NonNull Model model) {
-        List<n<Model, ?>> a2 = this.f9922a.a((p) model);
+        List<n<Model, ?>> a2 = this.f6572a.a((p) model);
         if (a2.isEmpty()) {
             throw new NoModelLoaderAvailableException(model);
         }

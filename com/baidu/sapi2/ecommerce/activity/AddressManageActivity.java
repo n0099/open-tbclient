@@ -26,7 +26,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AddressManageActivity extends SlideActiviy {
     private static final String ADDRESS_MANAGE_ACTIVITY = "AddressManageActivity";
     private static final String CREATE_EXTRA = "create_extra";
@@ -332,8 +332,8 @@ public class AddressManageActivity extends SlideActiviy {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
-                            jSONObject.put("name", aVar.f4068a);
-                            jSONObject.put("phone", aVar.f4069b);
+                            jSONObject.put("name", aVar.f2815a);
+                            jSONObject.put("phone", aVar.b);
                         } catch (Exception e) {
                             Log.e(e);
                         }

@@ -7,8 +7,8 @@ import tbclient.ForumRule;
 import tbclient.PbContent;
 /* loaded from: classes2.dex */
 public class c implements n {
-    public static BdUniqueId jvB = BdUniqueId.gen();
-    private boolean jvC;
+    public static BdUniqueId jxk = BdUniqueId.gen();
+    private boolean jxl;
     private List<PbContent> mContent;
     private String mTitle;
 
@@ -16,19 +16,19 @@ public class c implements n {
         if (forumRule != null) {
             this.mTitle = forumRule.title;
             this.mContent = forumRule.content;
-            this.jvC = forumRule.status.intValue() == 1;
+            this.jxl = forumRule.status.intValue() == 1;
         }
     }
 
-    public String cHn() {
+    public String cHt() {
         return this.mTitle;
     }
 
-    public void KA(String str) {
+    public void KJ(String str) {
         this.mTitle = str;
     }
 
-    public List<PbContent> cHo() {
+    public List<PbContent> cHu() {
         return this.mContent;
     }
 
@@ -36,16 +36,16 @@ public class c implements n {
         this.mContent = list;
     }
 
-    public boolean cHp() {
-        return this.jvC;
+    public boolean cHv() {
+        return this.jxl;
     }
 
     public void rj(boolean z) {
-        this.jvC = z;
+        this.jxl = z;
     }
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return jvB;
+        return jxk;
     }
 }

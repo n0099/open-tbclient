@@ -21,7 +21,7 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends com.baidu.swan.apps.network.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -49,29 +49,29 @@ public class a extends com.baidu.swan.apps.network.a {
         if (TextUtils.isEmpty(optString2)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "callbackKey is empty");
             return false;
-        } else if (!eVar.aIX().isLogin(context)) {
+        } else if (!eVar.aJa().isLogin(context)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in");
             return false;
         } else {
-            final String kP = com.baidu.swan.apps.api.module.network.c.kP(eVar.id);
-            JSONObject kR = kR(kP);
-            com.baidu.swan.bdprivate.a.a.a(eVar.aIE(), new com.baidu.swan.apps.ao.e.b<Bundle>() { // from class: com.baidu.swan.bdprivate.extensions.a.a.1
+            final String kW = com.baidu.swan.apps.api.module.network.c.kW(eVar.id);
+            JSONObject kY = kY(kW);
+            com.baidu.swan.bdprivate.a.a.a(eVar.aIH(), new com.baidu.swan.apps.ao.e.b<Bundle>() { // from class: com.baidu.swan.bdprivate.extensions.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: B */
-                public void L(Bundle bundle) {
+                public void N(Bundle bundle) {
                     if (bundle != null && !TextUtils.isEmpty(bundle.getString("dev"))) {
                         String string = bundle.getString("dev");
                         if (a.DEBUG) {
                             Log.d("FaceResultVerifyAction", "stoken=" + string);
                         }
-                        a.this.a(optString2, string, kP, optString, callbackHandler, eVar);
+                        a.this.a(optString2, string, kW, optString, callbackHandler, eVar);
                         return;
                     }
                     callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(1001, "stoken is null").toString());
                 }
             }, "dev");
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(kR, 0));
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(kY, 0));
             return true;
         }
     }
@@ -121,10 +121,10 @@ public class a extends com.baidu.swan.apps.network.a {
             }
         });
         aVar.tag = request.tag();
-        aVar.etH = true;
-        aVar.etI = true;
-        aVar.etJ = true;
-        com.baidu.swan.a.c.a.bbY().b(aVar);
+        aVar.evi = true;
+        aVar.evj = true;
+        aVar.evk = true;
+        com.baidu.swan.a.c.a.bca().b(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -186,7 +186,7 @@ public class a extends com.baidu.swan.apps.network.a {
             return null;
         }
         HttpUrl.Builder addPathSegments = parse.newBuilder().addPathSegments("ma/authentication/facecheck");
-        for (Map.Entry<String, String> entry : com.baidu.swan.apps.i.b.alz().cMI.entrySet()) {
+        for (Map.Entry<String, String> entry : com.baidu.swan.apps.i.b.alC().cOi.entrySet()) {
             addPathSegments.addQueryParameter(entry.getKey(), entry.getValue());
         }
         HttpUrl build = addPathSegments.build();

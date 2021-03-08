@@ -13,27 +13,27 @@ import org.json.JSONObject;
 public final class ba {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f5796a = ba.class.getSimpleName() + "#";
-    private static aw<bh> pnh = new aw<bh>() { // from class: com.bytedance.embedapplog.ba.1
+    private static final String f3911a = ba.class.getSimpleName() + "#";
+    private static aw<bh> ppq = new aw<bh>() { // from class: com.bytedance.embedapplog.ba.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.bytedance.embedapplog.aw
-        /* renamed from: O */
-        public bh M(Object... objArr) {
+        /* renamed from: N */
+        public bh L(Object... objArr) {
             return new bh((Context) objArr[0]);
         }
     };
 
     @AnyThread
     public static void a(@NonNull Context context) {
-        pnh.b(context).a();
+        ppq.b(context).a();
     }
 
     @WorkerThread
     public static String c(SharedPreferences sharedPreferences) {
         long elapsedRealtime = SystemClock.elapsedRealtime();
         String c = ay.c(sharedPreferences);
-        bb.b("TrackerDr", f5796a + "getCdid takes " + (SystemClock.elapsedRealtime() - elapsedRealtime) + " ms");
+        bb.b("TrackerDr", f3911a + "getCdid takes " + (SystemClock.elapsedRealtime() - elapsedRealtime) + " ms");
         return c;
     }
 
@@ -41,8 +41,8 @@ public final class ba {
     @WorkerThread
     public static Map<String, String> a(@NonNull Context context, @NonNull SharedPreferences sharedPreferences) {
         long elapsedRealtime = SystemClock.elapsedRealtime();
-        Map<String, String> ig = pnh.b(context).ig(100L);
-        bb.b("TrackerDr", f5796a + "getOaid takes " + (SystemClock.elapsedRealtime() - elapsedRealtime) + " ms");
+        Map<String, String> ig = ppq.b(context).ig(100L);
+        bb.b("TrackerDr", f3911a + "getOaid takes " + (SystemClock.elapsedRealtime() - elapsedRealtime) + " ms");
         return ig;
     }
 

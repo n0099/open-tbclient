@@ -1,7 +1,7 @@
 package io.flutter.embedding.engine.plugins.activity;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public interface ActivityAware {
     void onAttachedToActivity(@NonNull ActivityPluginBinding activityPluginBinding);
 

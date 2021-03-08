@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
     private boolean hasMore;
     private int liveCount;
@@ -41,7 +41,7 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                     c cVar = new c();
                     cb cbVar = new cb();
                     cbVar.parserJson(optJSONObject2);
-                    cVar.eJQ = cbVar;
+                    cVar.eLr = cbVar;
                     this.liveList.add(cVar);
                 }
             }
@@ -55,7 +55,7 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                     c cVar2 = new c();
                     cb cbVar2 = new cb();
                     cbVar2.parserJson(optJSONObject3);
-                    cVar2.eJQ = cbVar2;
+                    cVar2.eLr = cbVar2;
                     this.recommandList.add(cVar2);
                 }
             }

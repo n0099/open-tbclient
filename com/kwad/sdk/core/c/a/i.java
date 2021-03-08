@@ -10,8 +10,8 @@ public class i implements com.kwad.sdk.core.c<l.b> {
     @Override // com.kwad.sdk.core.c
     public JSONObject a(l.b bVar) {
         JSONObject jSONObject = new JSONObject();
-        com.kwad.sdk.utils.o.a(jSONObject, "appName", bVar.f9602a);
-        com.kwad.sdk.utils.o.a(jSONObject, PushClientConstants.TAG_PKG_NAME, bVar.f9603b);
+        com.kwad.sdk.utils.o.a(jSONObject, "appName", bVar.f6358a);
+        com.kwad.sdk.utils.o.a(jSONObject, PushClientConstants.TAG_PKG_NAME, bVar.b);
         com.kwad.sdk.utils.o.a(jSONObject, "version", bVar.c);
         com.kwad.sdk.utils.o.a(jSONObject, "versionCode", bVar.d);
         com.kwad.sdk.utils.o.a(jSONObject, "appSize", bVar.e);
@@ -28,8 +28,8 @@ public class i implements com.kwad.sdk.core.c<l.b> {
         if (jSONObject == null) {
             return;
         }
-        bVar.f9602a = jSONObject.optString("appName");
-        bVar.f9603b = jSONObject.optString(PushClientConstants.TAG_PKG_NAME);
+        bVar.f6358a = jSONObject.optString("appName");
+        bVar.b = jSONObject.optString(PushClientConstants.TAG_PKG_NAME);
         bVar.c = jSONObject.optString("version");
         bVar.d = jSONObject.optInt("versionCode");
         bVar.e = jSONObject.optLong("appSize");

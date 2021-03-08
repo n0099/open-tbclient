@@ -1,6 +1,6 @@
 package com.baidu.live.liveroom.d;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c {
-    public Object brD;
-    public short brE;
+    public Object btd;
+    public short bte;
 }

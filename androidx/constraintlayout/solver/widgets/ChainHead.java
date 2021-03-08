@@ -2,7 +2,7 @@ package androidx.constraintlayout.solver.widgets;
 
 import androidx.constraintlayout.solver.widgets.ConstraintWidget;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class ChainHead {
     private boolean mDefined;
     protected ConstraintWidget mFirst;

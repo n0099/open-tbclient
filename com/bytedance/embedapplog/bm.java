@@ -10,17 +10,17 @@ import com.bytedance.embedapplog.bi;
 public final class bm implements bi {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f5807a = a("cGVyc2lzdC5zeXMuaWRlbnRpZmllcmlkLnN1cHBvcnRlZA==");
-    private static final aw<Boolean> pnh = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bm.1
+    private static final String f3918a = a("cGVyc2lzdC5zeXMuaWRlbnRpZmllcmlkLnN1cHBvcnRlZA==");
+    private static final aw<Boolean> ppq = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bm.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.bytedance.embedapplog.aw
-        /* renamed from: N */
-        public Boolean M(Object... objArr) {
-            return Boolean.valueOf("1".equals(bm.b(bm.f5807a, "0")));
+        /* renamed from: M */
+        public Boolean L(Object... objArr) {
+            return Boolean.valueOf("1".equals(bm.b(bm.f3918a, "0")));
         }
     };
-    private com.bytedance.a.b pnt;
+    private com.bytedance.a.b ppD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bm(Context context) {
@@ -29,8 +29,8 @@ public final class bm implements bi {
         } catch (Throwable th) {
         }
         try {
-            this.pnt = new com.bytedance.a.b();
-            this.pnt.hO(context);
+            this.ppD = new com.bytedance.a.b();
+            this.ppD.hN(context);
         } catch (Throwable th2) {
             bb.b("OaidVivo", Log.getStackTraceString(th2));
         }
@@ -38,7 +38,7 @@ public final class bm implements bi {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean a() {
-        return pnh.b(new Object[0]).booleanValue();
+        return ppq.b(new Object[0]).booleanValue();
     }
 
     @Override // com.bytedance.embedapplog.bi
@@ -47,11 +47,11 @@ public final class bm implements bi {
     }
 
     @Override // com.bytedance.embedapplog.bi
-    public bi.a hS(Context context) {
-        if (this.pnt == null) {
+    public bi.a hR(Context context) {
+        if (this.ppD == null) {
             return null;
         }
-        return this.pnt.hQ(context);
+        return this.ppD.hP(context);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

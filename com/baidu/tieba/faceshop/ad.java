@@ -12,15 +12,15 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ad {
-    private ab iXI = ab.czN();
+    private ab iZr = ab.czT();
     private Handler mUIHandler = new Handler(Looper.getMainLooper());
 
     public void dc(List<CollectEmotionData> list) {
-        ab.czN().qk(true);
-        List<CollectEmotionData> JG = i.cyL().JG(TbadkCoreApplication.getCurrentAccountForEmotion());
-        for (CollectEmotionData collectEmotionData : JG) {
+        ab.czT().qk(true);
+        List<CollectEmotionData> JP = i.cyR().JP(TbadkCoreApplication.getCurrentAccountForEmotion());
+        for (CollectEmotionData collectEmotionData : JP) {
             String aN = ab.aN(collectEmotionData.pid, false);
             ImageFileInfo imageFileInfo = new ImageFileInfo();
             imageFileInfo.setFilePath(aN);
@@ -32,14 +32,14 @@ public class ad {
             BdLog.e("NewFaceSyncUtil Cloud data:" + it.next().pkgId);
         }
         BdLog.e("NewFaceSyncUtil MergeCollectFace Called localList:");
-        Iterator<CollectEmotionData> it2 = JG.iterator();
+        Iterator<CollectEmotionData> it2 = JP.iterator();
         while (it2.hasNext()) {
             BdLog.e("NewFaceSyncUtil Local data:" + it2.next().pkgId);
         }
-        u(list, JG);
+        t(list, JP);
     }
 
-    private void u(final List<CollectEmotionData> list, List<CollectEmotionData> list2) {
+    private void t(final List<CollectEmotionData> list, List<CollectEmotionData> list2) {
         ArrayList arrayList = new ArrayList();
         final Map<String, CollectEmotionData> de = de(list2);
         Map<String, CollectEmotionData> de2 = de(list);
@@ -49,7 +49,7 @@ public class ad {
             }
         }
         if (!arrayList.isEmpty()) {
-            this.iXI.d(arrayList, false, new ab.c() { // from class: com.baidu.tieba.faceshop.ad.1
+            this.iZr.d(arrayList, false, new ab.c() { // from class: com.baidu.tieba.faceshop.ad.1
                 @Override // com.baidu.tieba.faceshop.ab.c
                 public void S(int i, int i2, int i3) {
                     ad.this.a(list, de);
@@ -83,7 +83,7 @@ public class ad {
             this.mUIHandler.post(new Runnable() { // from class: com.baidu.tieba.faceshop.ad.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    ad.this.iXI.a(arrayList2, false, new ab.c() { // from class: com.baidu.tieba.faceshop.ad.2.1
+                    ad.this.iZr.a(arrayList2, false, new ab.c() { // from class: com.baidu.tieba.faceshop.ad.2.1
                         @Override // com.baidu.tieba.faceshop.ab.c
                         public void S(int i, int i2, int i3) {
                             ad.this.dd(list);
@@ -98,14 +98,14 @@ public class ad {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dd(List<CollectEmotionData> list) {
-        this.iXI.c(list, false, new ab.c() { // from class: com.baidu.tieba.faceshop.ad.3
+        this.iZr.c(list, false, new ab.c() { // from class: com.baidu.tieba.faceshop.ad.3
             @Override // com.baidu.tieba.faceshop.ab.c
             public void S(int i, int i2, int i3) {
                 if (i2 > 0) {
                     BdLog.e("NewFaceSyncUtil setCollectUpdateTime reSortLocalFace Called:" + System.currentTimeMillis());
                     com.baidu.tieba.newfaceshop.d.hn(System.currentTimeMillis());
                 }
-                com.baidu.tieba.newfaceshop.d.diw().us(false);
+                com.baidu.tieba.newfaceshop.d.diF().us(false);
             }
         });
     }

@@ -9,18 +9,18 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes5.dex */
 public class JobScheduler {
     private final Executor mExecutor;
-    private final a pMB;
-    private final int pME;
-    private final Runnable pMC = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.1
+    private final a pOG;
+    private final int pOJ;
+    private final Runnable pOH = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.1
         @Override // java.lang.Runnable
         public void run() {
-            JobScheduler.this.ezK();
+            JobScheduler.this.ezT();
         }
     };
-    private final Runnable pMD = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.2
+    private final Runnable pOI = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.2
         @Override // java.lang.Runnable
         public void run() {
-            JobScheduler.this.ezJ();
+            JobScheduler.this.ezS();
         }
     };
     @GuardedBy("this")
@@ -28,11 +28,11 @@ public class JobScheduler {
     @GuardedBy("this")
     int mStatus = 0;
     @GuardedBy("this")
-    JobState pMF = JobState.IDLE;
+    JobState pOK = JobState.IDLE;
     @GuardedBy("this")
-    long pMG = 0;
+    long pOL = 0;
     @GuardedBy("this")
-    long pMH = 0;
+    long pOM = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
@@ -51,23 +51,23 @@ public class JobScheduler {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public static class b {
-        private static ScheduledExecutorService pMK;
+        private static ScheduledExecutorService pOP;
 
-        static ScheduledExecutorService ezN() {
-            if (pMK == null) {
-                pMK = Executors.newSingleThreadScheduledExecutor();
+        static ScheduledExecutorService ezW() {
+            if (pOP == null) {
+                pOP = Executors.newSingleThreadScheduledExecutor();
             }
-            return pMK;
+            return pOP;
         }
     }
 
     public JobScheduler(Executor executor, a aVar, int i) {
         this.mExecutor = executor;
-        this.pMB = aVar;
-        this.pME = i;
+        this.pOG = aVar;
+        this.pOJ = i;
     }
 
-    public void ezH() {
+    public void ezQ() {
         com.facebook.imagepipeline.f.e eVar;
         synchronized (this) {
             eVar = this.mEncodedImage;
@@ -91,21 +91,21 @@ public class JobScheduler {
         return true;
     }
 
-    public boolean ezI() {
+    public boolean ezR() {
         boolean z = false;
         long uptimeMillis = SystemClock.uptimeMillis();
         long j = 0;
         synchronized (this) {
             if (f(this.mEncodedImage, this.mStatus)) {
-                switch (this.pMF) {
+                switch (this.pOK) {
                     case IDLE:
-                        j = Math.max(this.pMH + this.pME, uptimeMillis);
-                        this.pMG = uptimeMillis;
-                        this.pMF = JobState.QUEUED;
+                        j = Math.max(this.pOM + this.pOJ, uptimeMillis);
+                        this.pOL = uptimeMillis;
+                        this.pOK = JobState.QUEUED;
                         z = true;
                         break;
                     case RUNNING:
-                        this.pMF = JobState.RUNNING_AND_PENDING;
+                        this.pOK = JobState.RUNNING_AND_PENDING;
                         break;
                 }
                 if (z) {
@@ -119,19 +119,19 @@ public class JobScheduler {
 
     private void iP(long j) {
         if (j > 0) {
-            b.ezN().schedule(this.pMD, j, TimeUnit.MILLISECONDS);
+            b.ezW().schedule(this.pOI, j, TimeUnit.MILLISECONDS);
         } else {
-            this.pMD.run();
+            this.pOI.run();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ezJ() {
-        this.mExecutor.execute(this.pMC);
+    public void ezS() {
+        this.mExecutor.execute(this.pOH);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ezK() {
+    public void ezT() {
         com.facebook.imagepipeline.f.e eVar;
         int i;
         long uptimeMillis = SystemClock.uptimeMillis();
@@ -140,31 +140,31 @@ public class JobScheduler {
             i = this.mStatus;
             this.mEncodedImage = null;
             this.mStatus = 0;
-            this.pMF = JobState.RUNNING;
-            this.pMH = uptimeMillis;
+            this.pOK = JobState.RUNNING;
+            this.pOM = uptimeMillis;
         }
         try {
             if (f(eVar, i)) {
-                this.pMB.d(eVar, i);
+                this.pOG.d(eVar, i);
             }
         } finally {
             com.facebook.imagepipeline.f.e.e(eVar);
-            ezL();
+            ezU();
         }
     }
 
-    private void ezL() {
+    private void ezU() {
         long uptimeMillis = SystemClock.uptimeMillis();
         long j = 0;
         boolean z = false;
         synchronized (this) {
-            if (this.pMF == JobState.RUNNING_AND_PENDING) {
-                j = Math.max(this.pMH + this.pME, uptimeMillis);
+            if (this.pOK == JobState.RUNNING_AND_PENDING) {
+                j = Math.max(this.pOM + this.pOJ, uptimeMillis);
                 z = true;
-                this.pMG = uptimeMillis;
-                this.pMF = JobState.QUEUED;
+                this.pOL = uptimeMillis;
+                this.pOK = JobState.QUEUED;
             } else {
-                this.pMF = JobState.IDLE;
+                this.pOK = JobState.IDLE;
             }
         }
         if (z) {
@@ -173,10 +173,10 @@ public class JobScheduler {
     }
 
     private static boolean f(com.facebook.imagepipeline.f.e eVar, int i) {
-        return com.facebook.imagepipeline.producers.b.Qk(i) || com.facebook.imagepipeline.producers.b.ed(i, 4) || com.facebook.imagepipeline.f.e.f(eVar);
+        return com.facebook.imagepipeline.producers.b.Qo(i) || com.facebook.imagepipeline.producers.b.ed(i, 4) || com.facebook.imagepipeline.f.e.f(eVar);
     }
 
-    public synchronized long ezM() {
-        return this.pMH - this.pMG;
+    public synchronized long ezV() {
+        return this.pOM - this.pOL;
     }
 }

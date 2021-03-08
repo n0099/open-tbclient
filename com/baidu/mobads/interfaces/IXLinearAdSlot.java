@@ -5,7 +5,7 @@ import android.widget.RelativeLayout;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface IXLinearAdSlot extends IXAdProd {
     void addEventListener(String str, IOAdEventListener iOAdEventListener);
 

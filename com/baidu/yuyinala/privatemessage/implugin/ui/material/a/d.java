@@ -7,9 +7,9 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d extends Dialog {
-    private Animation peF;
+    private Animation pgK;
 
     public d(Context context) {
         super(context, a.i.CustomProgressDialog);
@@ -22,11 +22,11 @@ public class d extends Dialog {
     @Override // android.app.Dialog, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         ImageView imageView = (ImageView) findViewById(a.f.loadingImageView);
-        this.peF = new RotateAnimation(0.0f, 359.0f, 1, 0.5f, 1, 0.5f);
-        this.peF.setRepeatMode(-1);
-        this.peF.setRepeatCount(-1);
-        this.peF.setDuration(1500L);
-        imageView.startAnimation(this.peF);
+        this.pgK = new RotateAnimation(0.0f, 359.0f, 1, 0.5f, 1, 0.5f);
+        this.pgK.setRepeatMode(-1);
+        this.pgK.setRepeatCount(-1);
+        this.pgK.setDuration(1500L);
+        imageView.startAnimation(this.pgK);
     }
 
     public void setMessage(String str) {

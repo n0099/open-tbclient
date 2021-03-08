@@ -4,7 +4,7 @@ import android.os.Build;
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static Object a(Class<?> cls, Class<?>[] clsArr, Object[] objArr) {
         try {
@@ -77,7 +77,7 @@ public class c {
         return i != -1;
     }
 
-    public static b hq() {
+    public static b hx() {
         int i = Build.VERSION.SDK_INT;
         return i >= 26 ? new d() : i >= 23 ? new f() : i >= 14 ? new a() : new e();
     }

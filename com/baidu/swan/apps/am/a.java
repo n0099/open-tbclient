@@ -1,18 +1,18 @@
 package com.baidu.swan.apps.am;
 
 import android.text.TextUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class a {
-    private static String dOn;
+    private static String dPO;
 
-    public static String tI(String str) {
-        return String.format("%s %s", str, aNl());
+    public static String tP(String str) {
+        return String.format("%s %s", str, aNo());
     }
 
-    public static String aNl() {
-        if (TextUtils.isEmpty(dOn)) {
-            dOn = b.aNl();
+    public static String aNo() {
+        if (TextUtils.isEmpty(dPO)) {
+            dPO = b.aNo();
         }
-        return dOn;
+        return dPO;
     }
 }

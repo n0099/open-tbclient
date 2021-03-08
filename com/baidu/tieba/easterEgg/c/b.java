@@ -13,33 +13,33 @@ import com.baidu.tieba.easterEgg.c;
 import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends k {
-    private Gson eIH;
-    private c iFI;
-    private HashMap<String, String> iFJ;
-    private SparseArray<String> iFK;
+    private Gson eKi;
+    private c iHr;
+    private HashMap<String, String> iHs;
+    private SparseArray<String> iHt;
 
     public b(int i) {
         super(i);
-        this.eIH = new Gson();
-        cuF();
+        this.eKi = new Gson();
+        cuL();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.b.f
     /* renamed from: d */
     public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        String str = this.iFK.get(socketMessage.getCmd());
-        if (str != null && this.iFJ != null && this.iFJ.get(str) != null && this.iFI != null) {
-            this.iFI.aE(str, this.eIH.toJson(this.iFJ.get(str)), this.eIH.toJson(this.eIH.toJson(socketMessage.getData())));
+        String str = this.iHt.get(socketMessage.getCmd());
+        if (str != null && this.iHs != null && this.iHs.get(str) != null && this.iHr != null) {
+            this.iHr.aE(str, this.eKi.toJson(this.iHs.get(str)), this.eKi.toJson(this.eKi.toJson(socketMessage.getData())));
         }
         return socketMessage;
     }
 
-    private void cuF() {
+    private void cuL() {
         int i;
-        this.iFK = new SparseArray<>();
+        this.iHt = new SparseArray<>();
         ArrayList<HttpMessageTask> findHttpTasks = MessageManager.getInstance().findHttpTasks();
         if (!y.isEmpty(findHttpTasks)) {
             for (int i2 = 0; i2 < findHttpTasks.size(); i2++) {
@@ -49,7 +49,7 @@ public class b extends k {
                     String str = split[1];
                     String str2 = split[0];
                     if (!au.isEmpty(str) && str.contains("=") && (i = com.baidu.adp.lib.f.b.toInt(str.split("[=]")[1], 0)) != 0) {
-                        this.iFK.put(i, str2.replace(TbConfig.SERVER_ADDRESS, ""));
+                        this.iHt.put(i, str2.replace(TbConfig.SERVER_ADDRESS, ""));
                     }
                 }
             }
@@ -57,10 +57,10 @@ public class b extends k {
     }
 
     public void G(HashMap<String, String> hashMap) {
-        this.iFJ = hashMap;
+        this.iHs = hashMap;
     }
 
     public void a(c cVar) {
-        this.iFI = cVar;
+        this.iHr = cVar;
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class h {
     private String mUa;
     private String mVersionName;

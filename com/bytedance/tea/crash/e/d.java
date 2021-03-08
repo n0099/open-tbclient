@@ -13,10 +13,10 @@ import org.json.JSONObject;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f7646a;
+    private Context f5174a;
 
     public d(Context context) {
-        this.f7646a = context;
+        this.f5174a = context;
     }
 
     public void a(boolean z) {
@@ -28,12 +28,12 @@ public final class d {
 
     private void a() {
         try {
-            SharedPreferences sharedPreferences = this.f7646a.getSharedPreferences("npth", 0);
+            SharedPreferences sharedPreferences = this.f5174a.getSharedPreferences("npth", 0);
             long j = sharedPreferences.getLong("history_time", -1L);
             if (j < 0) {
                 sharedPreferences.edit().putLong("history_time", System.currentTimeMillis()).apply();
             } else if (System.currentTimeMillis() - j > 86400000) {
-                com.bytedance.tea.crash.g.d.a(com.bytedance.tea.crash.g.h.b(this.f7646a));
+                com.bytedance.tea.crash.g.d.a(com.bytedance.tea.crash.g.h.b(this.f5174a));
                 sharedPreferences.edit().putLong("history_time", System.currentTimeMillis()).apply();
             }
         } catch (Exception e) {
@@ -42,22 +42,22 @@ public final class d {
     }
 
     private void b() {
-        File[] k = k(com.bytedance.tea.crash.g.h.a(this.f7646a), ".npth");
+        File[] k = k(com.bytedance.tea.crash.g.h.a(this.f5174a), ".npth");
         if (k != null) {
             Arrays.sort(k, Collections.reverseOrder());
             for (int i = 0; i < k.length && i < 50; i++) {
                 File file = k[i];
                 try {
-                    if (com.bytedance.tea.crash.b.a.erd().a(file.getAbsolutePath())) {
+                    if (com.bytedance.tea.crash.b.a.erm().a(file.getAbsolutePath())) {
                         com.bytedance.tea.crash.g.d.a(file);
                     } else {
-                        com.bytedance.tea.crash.c.c Zf = com.bytedance.tea.crash.g.d.Zf(file.getAbsolutePath());
-                        if (Zf != null && Zf.b() != null) {
-                            JSONObject b2 = Zf.b();
-                            A(file.getName(), b2);
-                            Zf.b().put("upload_scene", "launch_scan");
-                            if (com.bytedance.tea.crash.upload.b.L(Zf.a(), b2.toString(), Zf.c()).a() && !com.bytedance.tea.crash.g.d.a(file)) {
-                                com.bytedance.tea.crash.b.a.erd().a(com.bytedance.tea.crash.b.a.a.Zd(file.getAbsolutePath()));
+                        com.bytedance.tea.crash.c.c Zm = com.bytedance.tea.crash.g.d.Zm(file.getAbsolutePath());
+                        if (Zm != null && Zm.b() != null) {
+                            JSONObject b = Zm.b();
+                            A(file.getName(), b);
+                            Zm.b().put("upload_scene", "launch_scan");
+                            if (com.bytedance.tea.crash.upload.b.L(Zm.a(), b.toString(), Zm.c()).a() && !com.bytedance.tea.crash.g.d.a(file)) {
+                                com.bytedance.tea.crash.b.a.erm().a(com.bytedance.tea.crash.b.a.a.Zk(file.getAbsolutePath()));
                             }
                         }
                     }

@@ -12,31 +12,31 @@ import com.baidu.tieba.pb.pb.main.PbFragment;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class a {
-    private com.baidu.tieba.pb.a.c fvK;
-    private PbFragment lYN;
-    private View mcb = null;
-    private View mcc = null;
-    private TextView mcd = null;
-    private View mce = null;
-    private View mcf = null;
-    private View mcg = null;
-    private Button lZI = null;
+    private com.baidu.tieba.pb.a.c fxj;
+    private PbFragment maS;
+    private View med = null;
+    private View mee = null;
+    private TextView mef = null;
+    private View meg = null;
+    private View meh = null;
+    private View mei = null;
+    private Button mbN = null;
 
     public a(PbFragment pbFragment, com.baidu.tieba.pb.a.c cVar) {
-        this.lYN = pbFragment;
-        this.fvK = cVar;
+        this.maS = pbFragment;
+        this.fxj = cVar;
         initView();
     }
 
     private void initView() {
-        this.mcb = LayoutInflater.from(this.lYN.getPageContext().getPageActivity()).inflate(R.layout.new_pb_header_item, (ViewGroup) null);
-        this.mcb.setOnTouchListener(this.fvK);
-        this.mcc = this.mcb.findViewById(R.id.pb_head_activity_join_number_container);
-        this.mcc.setVisibility(8);
-        this.mcd = (TextView) this.mcb.findViewById(R.id.pb_head_activity_join_number);
-        this.mce = this.mcb.findViewById(R.id.new_pb_header_item_line_above_livepost);
-        this.mcf = this.mcb.findViewById(R.id.new_pb_header_item_line_below_livepost);
-        this.mcb.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.pb.pb.main.a.a.1
+        this.med = LayoutInflater.from(this.maS.getPageContext().getPageActivity()).inflate(R.layout.new_pb_header_item, (ViewGroup) null);
+        this.med.setOnTouchListener(this.fxj);
+        this.mee = this.med.findViewById(R.id.pb_head_activity_join_number_container);
+        this.mee.setVisibility(8);
+        this.mef = (TextView) this.med.findViewById(R.id.pb_head_activity_join_number);
+        this.meg = this.med.findViewById(R.id.new_pb_header_item_line_above_livepost);
+        this.meh = this.med.findViewById(R.id.new_pb_header_item_line_below_livepost);
+        this.med.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.pb.pb.main.a.a.1
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
                 return false;
@@ -46,68 +46,68 @@ public class a {
 
     public boolean vT(boolean z) {
         boolean z2;
-        if (this.lZI != null && this.lZI.getVisibility() == 0) {
-            if (this.mce != null) {
-                this.mce.setVisibility(0);
+        if (this.mbN != null && this.mbN.getVisibility() == 0) {
+            if (this.meg != null) {
+                this.meg.setVisibility(0);
                 z2 = true;
             } else {
                 z2 = true;
             }
         } else {
-            if (this.mce != null) {
-                this.mce.setVisibility(8);
+            if (this.meg != null) {
+                this.meg.setVisibility(8);
             }
             z2 = false;
         }
-        if ((this.mcg == null || this.mcg.getVisibility() == 8) && z2 && z) {
-            this.mcf.setVisibility(0);
+        if ((this.mei == null || this.mei.getVisibility() == 8) && z2 && z) {
+            this.meh.setVisibility(0);
         } else {
-            this.mcf.setVisibility(8);
+            this.meh.setVisibility(8);
         }
         return z2;
     }
 
     public void e(com.baidu.tieba.pb.data.f fVar, boolean z) {
         boolean vT = vT(z);
-        if (fVar != null && fVar.getPage() != null && fVar.getPage().bmG() == 0 && z) {
+        if (fVar != null && fVar.getPage() != null && fVar.getPage().bmI() == 0 && z) {
             if (vT) {
-                this.mcf.setVisibility(0);
+                this.meh.setVisibility(0);
                 return;
             } else {
-                this.mcf.setVisibility(8);
+                this.meh.setVisibility(8);
                 return;
             }
         }
-        this.mcf.setVisibility(8);
+        this.meh.setVisibility(8);
     }
 
     public void B(com.baidu.tieba.pb.data.f fVar) {
-        ArrayList<com.baidu.tbadk.core.data.b> boa = fVar.dlg().boa();
-        if (boa != null && boa.size() > 0) {
-            this.mcd.setText(String.valueOf(boa.get(0).blB()));
-            this.mcc.setVisibility(0);
+        ArrayList<com.baidu.tbadk.core.data.b> boc = fVar.dlp().boc();
+        if (boc != null && boc.size() > 0) {
+            this.mef.setText(String.valueOf(boc.get(0).blD()));
+            this.mee.setVisibility(0);
         } else {
-            this.mcc.setVisibility(8);
+            this.mee.setVisibility(8);
         }
-        ap.setBackgroundResource(this.mcc, R.drawable.activity_join_num_bg);
-        ap.setViewTextColor(this.mcd, R.color.CAM_X0305, 1);
+        ap.setBackgroundResource(this.mee, R.drawable.activity_join_num_bg);
+        ap.setViewTextColor(this.mef, R.color.CAM_X0305, 1);
     }
 
     public void b(BdTypeListView bdTypeListView) {
-        bdTypeListView.addHeaderView(this.mcb);
+        bdTypeListView.addHeaderView(this.med);
     }
 
     public void c(BdTypeListView bdTypeListView) {
         if (bdTypeListView != null) {
-            bdTypeListView.removeHeaderView(this.mcb);
+            bdTypeListView.removeHeaderView(this.med);
         }
     }
 
     public void onChangeSkinType(int i) {
-        this.lYN.getBaseFragmentActivity().getLayoutMode().onModeChanged(this.mcb);
+        this.maS.getBaseFragmentActivity().getLayoutMode().onModeChanged(this.med);
     }
 
-    public View drW() {
-        return this.mcb;
+    public View dsf() {
+        return this.med;
     }
 }

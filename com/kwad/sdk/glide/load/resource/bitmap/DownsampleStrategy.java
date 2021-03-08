@@ -3,15 +3,13 @@ package com.kwad.sdk.glide.load.resource.bitmap;
 public abstract class DownsampleStrategy {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final DownsampleStrategy f10264a = new e();
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final DownsampleStrategy f10265b = new d();
+    public static final DownsampleStrategy f6781a = new e();
+    public static final DownsampleStrategy b = new d();
     public static final DownsampleStrategy c = new a();
     public static final DownsampleStrategy d = new b();
     public static final DownsampleStrategy e = new c();
     public static final DownsampleStrategy f = new f();
-    public static final DownsampleStrategy g = f10265b;
+    public static final DownsampleStrategy g = b;
     public static final com.kwad.sdk.glide.load.d<DownsampleStrategy> h = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.Downsampler.DownsampleStrategy", g);
 
     /* loaded from: classes3.dex */
@@ -65,7 +63,7 @@ public abstract class DownsampleStrategy {
 
         @Override // com.kwad.sdk.glide.load.resource.bitmap.DownsampleStrategy
         public float a(int i, int i2, int i3, int i4) {
-            return Math.min(1.0f, f10264a.a(i, i2, i3, i4));
+            return Math.min(1.0f, f6781a.a(i, i2, i3, i4));
         }
 
         @Override // com.kwad.sdk.glide.load.resource.bitmap.DownsampleStrategy

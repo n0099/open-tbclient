@@ -9,20 +9,18 @@ import java.util.HashMap;
 public class d extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static HashMap<String, RemoteCallbackList<ICommonPermissionListener>> f7354a = new HashMap<>();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static volatile d f7355b;
+    private static HashMap<String, RemoteCallbackList<ICommonPermissionListener>> f4886a = new HashMap<>();
+    private static volatile d b;
 
     public static d a() {
-        if (f7355b == null) {
+        if (b == null) {
             synchronized (d.class) {
-                if (f7355b == null) {
-                    f7355b = new d();
+                if (b == null) {
+                    b = new d();
                 }
             }
         }
-        return f7355b;
+        return b;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
@@ -31,14 +29,14 @@ public class d extends a {
             u.b("MultiProcess", "CommonPermissionListenerManagerImpl registerPermissionListener");
             RemoteCallbackList<ICommonPermissionListener> remoteCallbackList = new RemoteCallbackList<>();
             remoteCallbackList.register(iCommonPermissionListener);
-            f7354a.put(str, remoteCallbackList);
+            f4886a.put(str, remoteCallbackList);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
     public void broadcastPermissionListener(String str, String str2) throws RemoteException {
         u.b("MultiProcess", "00000 CommonPermissionListenerManagerImpl broadcastDialogListener: 00000" + String.valueOf(str) + ", " + str2);
-        RemoteCallbackList<ICommonPermissionListener> remove = f7354a.remove(str);
+        RemoteCallbackList<ICommonPermissionListener> remove = f4886a.remove(str);
         if (remove != null) {
             int beginBroadcast = remove.beginBroadcast();
             for (int i = 0; i < beginBroadcast; i++) {

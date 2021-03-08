@@ -4,20 +4,20 @@ import java.util.Collections;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public class ah {
-    public static final <T> Set<T> eLm() {
+    public static final <T> Set<T> eKU() {
         return EmptySet.INSTANCE;
     }
 
-    public static final <T> Set<T> U(T... tArr) {
-        kotlin.jvm.internal.p.o(tArr, "elements");
-        return tArr.length > 0 ? f.T(tArr) : ag.eLm();
+    public static final <T> Set<T> T(T... tArr) {
+        kotlin.jvm.internal.p.p(tArr, "elements");
+        return tArr.length > 0 ? f.S(tArr) : ag.eKU();
     }
 
-    public static final <T> Set<T> bT(T t) {
+    public static final <T> Set<T> bU(T t) {
         Set<T> singleton = Collections.singleton(t);
-        kotlin.jvm.internal.p.n(singleton, "java.util.Collections.singleton(element)");
+        kotlin.jvm.internal.p.o(singleton, "java.util.Collections.singleton(element)");
         return singleton;
     }
 }

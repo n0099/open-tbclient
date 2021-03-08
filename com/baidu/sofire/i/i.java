@@ -12,7 +12,7 @@ import java.net.URLEncoder;
 import java.util.Date;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class i {
     public static String a(Context context, String str, String str2, boolean z, boolean z2) throws Throwable {
         return b(context, str, str2, z, z2);
@@ -108,7 +108,7 @@ public final class i {
         try {
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
             long currentTimeMillis = System.currentTimeMillis();
-            long j = eVar.f5240a.getLong("pu_cl_fd", 0L);
+            long j = eVar.f3525a.getLong("pu_cl_fd", 0L);
             if (j == 0) {
                 j = System.currentTimeMillis();
                 eVar.g();
@@ -151,9 +151,9 @@ public final class i {
             int i3 = 0;
             for (int i4 = 0; i4 < 256; i4++) {
                 i2 = (i2 + (bArr2[i3] & 255) + (bArr3[i4] & 255)) & 255;
-                byte b2 = bArr3[i4];
+                byte b = bArr3[i4];
                 bArr3[i4] = bArr3[i2];
-                bArr3[i2] = b2;
+                bArr3[i2] = b;
                 i3 = (i3 + 1) % bArr2.length;
             }
         }
@@ -164,9 +164,9 @@ public final class i {
         while (i5 < bArr.length) {
             i7 = (i7 + 1) & 255;
             int i8 = ((bArr3[i7] & 255) + i6) & 255;
-            byte b3 = bArr3[i7];
+            byte b2 = bArr3[i7];
             bArr3[i7] = bArr3[i8];
-            bArr3[i8] = b3;
+            bArr3[i8] = b2;
             bArr4[i5] = (byte) (bArr3[((bArr3[i7] & 255) + (bArr3[i8] & 255)) & 255] ^ bArr[i5]);
             bArr4[i5] = (byte) (bArr4[i5] ^ 42);
             i5++;

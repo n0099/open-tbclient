@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.b;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class CompletableMerge extends a {
     final boolean delayErrors;
     final int maxConcurrency;
@@ -22,7 +22,7 @@ public final class CompletableMerge extends a {
         this.source.subscribe(new CompletableMergeSubscriber(cVar, this.maxConcurrency, this.delayErrors));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class CompletableMergeSubscriber extends AtomicInteger implements io.reactivex.disposables.b, j<e> {
         private static final long serialVersionUID = -2108443387387077490L;
         final c actual;
@@ -143,7 +143,7 @@ public final class CompletableMerge extends a {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public final class MergeInnerObserver extends AtomicReference<io.reactivex.disposables.b> implements c, io.reactivex.disposables.b {
             private static final long serialVersionUID = 251330541679988317L;
 

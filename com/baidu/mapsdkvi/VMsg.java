@@ -6,13 +6,11 @@ import android.os.Looper;
 import android.os.Message;
 /* loaded from: classes4.dex */
 public class VMsg {
-
-    /* renamed from: b  reason: collision with root package name */
-    private static Handler f3181b;
+    private static Handler b;
     private static HandlerThread c;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3180a = VMsg.class.getSimpleName();
+    private static final String f2297a = VMsg.class.getSimpleName();
     private static VMsg d = new VMsg();
 
     /* loaded from: classes4.dex */
@@ -35,8 +33,8 @@ public class VMsg {
     public static void destroy() {
         c.quit();
         c = null;
-        f3181b.removeCallbacksAndMessages(null);
-        f3181b = null;
+        b.removeCallbacksAndMessages(null);
+        b = null;
     }
 
     public static VMsg getInstance() {
@@ -46,13 +44,13 @@ public class VMsg {
     public static void init() {
         c = new HandlerThread("VIMsgThread");
         c.start();
-        f3181b = new a(c.getLooper());
+        b = new a(c.getLooper());
     }
 
     private static void postMessage(int i, int i2, int i3, long j) {
-        if (f3181b == null) {
+        if (b == null) {
             return;
         }
-        Message.obtain(f3181b, i, i2, i3, j == 0 ? null : Long.valueOf(j)).sendToTarget();
+        Message.obtain(b, i, i2, i3, j == 0 ? null : Long.valueOf(j)).sendToTarget();
     }
 }

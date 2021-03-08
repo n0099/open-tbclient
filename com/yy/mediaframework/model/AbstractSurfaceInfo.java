@@ -1,5 +1,5 @@
 package com.yy.mediaframework.model;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AbstractSurfaceInfo {
     public int mHeight;
     public int mWidth;

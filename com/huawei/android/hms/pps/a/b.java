@@ -3,21 +3,21 @@ package com.huawei.android.hms.pps.a;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public interface b extends IInterface {
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes4.dex */
     public static abstract class a {
 
         /* renamed from: com.huawei.android.hms.pps.a.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes15.dex */
-        public static class C1064a implements b {
+        /* loaded from: classes4.dex */
+        public static class C1081a implements b {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f7908a;
+            private IBinder f5292a;
 
-            public C1064a(IBinder iBinder) {
-                this.f7908a = iBinder;
+            public C1081a(IBinder iBinder) {
+                this.f5292a = iBinder;
             }
 
             @Override // com.huawei.android.hms.pps.a.b
@@ -26,7 +26,7 @@ public interface b extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
-                    this.f7908a.transact(1, obtain, obtain2, 0);
+                    this.f5292a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -37,7 +37,7 @@ public interface b extends IInterface {
 
             @Override // android.os.IInterface
             public final IBinder asBinder() {
-                return this.f7908a;
+                return this.f5292a;
             }
 
             @Override // com.huawei.android.hms.pps.a.b
@@ -46,7 +46,7 @@ public interface b extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
-                    this.f7908a.transact(2, obtain, obtain2, 0);
+                    this.f5292a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {

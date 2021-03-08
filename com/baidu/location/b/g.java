@@ -8,11 +8,11 @@ import android.os.Message;
 public class g extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f2609a;
+    final /* synthetic */ e f1955a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.f2609a = eVar;
+        this.f1955a = eVar;
     }
 
     @Override // android.os.Handler
@@ -20,16 +20,16 @@ public class g extends Handler {
         if (com.baidu.location.f.isServing) {
             switch (message.what) {
                 case 1:
-                    this.f2609a.e((Location) message.obj);
+                    this.f1955a.e((Location) message.obj);
                     return;
                 case 2:
                 default:
                     return;
                 case 3:
-                    this.f2609a.a("&og=1", (Location) message.obj);
+                    this.f1955a.a("&og=1", (Location) message.obj);
                     return;
                 case 4:
-                    this.f2609a.a("&og=2", (Location) message.obj);
+                    this.f1955a.a("&og=2", (Location) message.obj);
                     return;
             }
         }

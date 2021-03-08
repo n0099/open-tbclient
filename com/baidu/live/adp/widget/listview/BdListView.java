@@ -23,7 +23,7 @@ import com.baidu.live.adp.newwidget.imageview.IRefresh;
 import com.baidu.live.adp.widget.listview.BdListAdpter;
 import com.baidu.live.adp.widget.scrollview.BdOnAnimationOverListener;
 import java.security.InvalidParameterException;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BdListView extends ListView implements IListView<BdListView> {
     public static final byte KEYBOARD_STATE_HIDE = -2;
     public static final byte KEYBOARD_STATE_INIT = -1;
@@ -63,42 +63,42 @@ public class BdListView extends ListView implements IListView<BdListView> {
     private Runnable preLoadRunnable;
     private Runnable refreshRunnable;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface OnFooterClickListener {
         void onClick(View view);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface OnHeaderClickListener {
         void onClick(View view);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface OnKybdsChangeListener {
         void onKeyBoardStateChange(int i);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface OnScrollStopDelayedListener {
         void onScrollStop(int i, int i2);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface OnScrollToBottomListener {
         void onScrollToBottom();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface OnScrollToBottomListenerEx {
         void onScrollToBottom(BdListView bdListView);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface OnScrollToPullListener {
         void onScrollToPull(boolean z);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface OnScrollToTopListener {
         void onScrollToTop();
     }
@@ -1057,7 +1057,7 @@ public class BdListView extends ListView implements IListView<BdListView> {
         return this.mPullRefresh == null || this.mPullRefresh.mState == 3;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     private static class PullRefresh {
         public static final int DEFAULT_REFRESH_DURATION_TIME = 800;
         private static final int DONE = 3;

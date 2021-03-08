@@ -16,12 +16,12 @@ public class o extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int btn() {
+    public int btq() {
         return 0;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int bto() {
+    public int btr() {
         return 0;
     }
 
@@ -32,7 +32,7 @@ public class o extends a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.d.a
-    public com.baidu.adp.lib.Disk.ops.c Bq(String str) {
+    public com.baidu.adp.lib.Disk.ops.c Bx(String str) {
         return new com.baidu.adp.lib.Disk.ops.b(TbConfig.IMAGE_CACHE_DIR_NAME, str, DiskFileOperate.Action.READ);
     }
 
@@ -52,7 +52,7 @@ public class o extends a {
     public com.baidu.adp.widget.ImageView.a a(byte[] bArr, Object... objArr) {
         long currentTimeMillis = System.currentTimeMillis();
         Bitmap Bytes2NineBitmap = BitmapHelper.Bytes2NineBitmap(bArr, (Rect) objArr[0]);
-        com.baidu.adp.lib.e.a.e(Bytes2NineBitmap != null, System.currentTimeMillis() - currentTimeMillis);
+        com.baidu.adp.lib.e.a.f(Bytes2NineBitmap != null, System.currentTimeMillis() - currentTimeMillis);
         return new com.baidu.adp.widget.ImageView.a(Bytes2NineBitmap);
     }
 
@@ -69,12 +69,12 @@ public class o extends a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.d.a
-    public Bitmap f(Bitmap bitmap, int i, int i2) {
+    public Bitmap e(Bitmap bitmap, int i, int i2) {
         return bitmap;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int btp() {
+    public int bts() {
         return this.procType;
     }
 }

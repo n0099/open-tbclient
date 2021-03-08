@@ -2,13 +2,13 @@ package com.baidu.tieba.ala.live.guess.c;
 
 import android.content.res.Resources;
 import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    public static int P(float f) {
+    public static int T(float f) {
         return (int) (0.5f + (Resources.getSystem().getDisplayMetrics().density * f));
     }
 
-    public static boolean Hh(String str) {
+    public static boolean Hq(String str) {
         return Pattern.compile("^[-\\+]?[\\d]*$").matcher(str).matches();
     }
 

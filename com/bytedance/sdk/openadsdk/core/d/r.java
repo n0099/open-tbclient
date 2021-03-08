@@ -3,34 +3,74 @@ package com.bytedance.sdk.openadsdk.core.d;
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6527a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f6528b;
-    private int c;
+    private String f4406a;
+    private String b;
+    private String c;
     private String d;
+    private String e;
+    private String f;
+    private Long g;
 
-    public void a(int i) {
-        this.f6527a = i;
+    public String a() {
+        return this.f4406a;
     }
 
-    public void b(int i) {
-        this.f6528b = i;
-    }
-
-    public int a() {
-        return this.c;
-    }
-
-    public void c(int i) {
-        this.c = i;
+    public r a(String str) {
+        this.f4406a = str;
+        return this;
     }
 
     public String b() {
+        return this.b;
+    }
+
+    public r b(String str) {
+        this.b = str;
+        return this;
+    }
+
+    public String c() {
+        return this.c;
+    }
+
+    public r c(String str) {
+        this.c = str;
+        return this;
+    }
+
+    public String d() {
         return this.d;
     }
 
-    public void a(String str) {
+    public r d(String str) {
         this.d = str;
+        return this;
+    }
+
+    public String e() {
+        return this.e;
+    }
+
+    public r e(String str) {
+        this.e = str;
+        return this;
+    }
+
+    public String f() {
+        return this.f;
+    }
+
+    public r f(String str) {
+        this.f = str;
+        return this;
+    }
+
+    public Long g() {
+        return this.g;
+    }
+
+    public r a(Long l) {
+        this.g = l;
+        return this;
     }
 }

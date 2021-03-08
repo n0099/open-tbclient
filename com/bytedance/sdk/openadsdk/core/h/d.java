@@ -1,125 +1,119 @@
 package com.bytedance.sdk.openadsdk.core.h;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.Build;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.fsg.base.statistics.j;
+import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.utils.aj;
-import com.sina.weibo.sdk.statistic.LogBuilder;
-import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class d {
+public class d extends com.bytedance.sdk.openadsdk.j.g {
+    @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    String f6582a;
+    private static volatile d f4453a;
 
-    /* renamed from: b  reason: collision with root package name */
-    int f6583b;
-    JSONArray c;
-    List<String> d = new ArrayList();
-    long e;
-    volatile boolean f;
+    public static d a() {
+        if (f4453a == null) {
+            synchronized (f.class) {
+                if (f4453a == null) {
+                    f4453a = new d();
+                }
+            }
+        }
+        return f4453a;
+    }
 
     private d() {
     }
 
-    public static d a(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return null;
-        }
-        try {
-            d dVar = new d();
-            dVar.a(jSONObject.optString("host"));
-            dVar.a(jSONObject.optInt("ttl", 60));
-            dVar.a(jSONObject.optJSONArray("ips"));
-            dVar.a(jSONObject.optBoolean(" statsdnstime", false));
-            long optLong = jSONObject.optLong(LogBuilder.KEY_START_TIME, 0L);
-            if (optLong > 0) {
-                dVar.a(optLong);
-            } else {
-                dVar.a(System.currentTimeMillis());
+    public void b() {
+        com.bytedance.sdk.openadsdk.j.e.a(this, 1);
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        if (!e()) {
+            try {
+                wait(1000L);
+            } catch (Exception e) {
             }
-            return dVar;
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    public String a() {
-        return this.f6582a;
-    }
-
-    public void a(String str) {
-        this.f6582a = str;
-    }
-
-    public int b() {
-        return this.f6583b;
-    }
-
-    public void a(int i) {
-        this.f6583b = i;
-    }
-
-    public JSONArray c() {
-        return this.c;
-    }
-
-    public void a(JSONArray jSONArray) {
-        if (jSONArray != null) {
-            this.c = jSONArray;
-            for (int i = 0; i < jSONArray.length(); i++) {
-                try {
-                    String obj = jSONArray.get(i).toString();
-                    if (aj.l(obj)) {
-                        this.d.add(obj);
+            List<e> I = p.h().I();
+            if (I != null) {
+                for (int i = 0; i < I.size(); i++) {
+                    e eVar = I.get(i);
+                    if (eVar != null) {
+                        try {
+                            long currentTimeMillis = System.currentTimeMillis();
+                            if (eVar.b != null && eVar.c != null && currentTimeMillis - com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_push_time", eVar.c, 0L) > eVar.d * 1000) {
+                                com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_push_time", eVar.c, Long.valueOf(currentTimeMillis));
+                                Intent intent = new Intent();
+                                intent.setAction(eVar.f4454a);
+                                intent.setPackage(eVar.c);
+                                p.a().startService(intent);
+                                a(eVar, 1);
+                            }
+                        } catch (Throwable th) {
+                            a(eVar, 0);
+                        }
                     }
-                } catch (Exception e) {
                 }
             }
         }
     }
 
-    public boolean d() {
-        return System.currentTimeMillis() - f() > ((long) (b() * 1000));
+    public void a(e eVar, int i) {
+        com.bytedance.sdk.openadsdk.g.a.c cVar = new com.bytedance.sdk.openadsdk.g.a.c();
+        cVar.b(b(eVar, i));
+        cVar.a("wk_status");
+        cVar.e("3.4.0.1");
+        cVar.c(System.currentTimeMillis());
+        com.bytedance.sdk.openadsdk.g.a.a().m(cVar);
     }
 
-    public String e() {
-        if (this.d == null || this.d.size() == 0) {
-            return null;
-        }
-        int size = ((int) ((this.d.size() * Math.random()) + 0.5d)) - 1;
-        if (size < 0) {
-            size = 0;
-        }
-        return this.d.get(size);
-    }
-
-    public long f() {
-        return this.e;
-    }
-
-    public void a(long j) {
-        this.e = j;
-    }
-
-    public boolean g() {
-        return this.f;
-    }
-
-    public void a(boolean z) {
-        this.f = z;
-    }
-
-    public JSONObject h() {
+    private String b(e eVar, int i) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("host", a());
-            jSONObject.put("ttl", b());
-            jSONObject.put("ips", c());
-            jSONObject.put(LogBuilder.KEY_START_TIME, f());
-            jSONObject.put("statsdnstime", g());
-        } catch (Exception e) {
+            jSONObject.put("wk_status", i);
+            jSONObject.put("app_id", com.bytedance.sdk.openadsdk.core.i.d().f());
+            jSONObject.put("package_name", aj.e());
+            jSONObject.put("geo", d());
+            jSONObject.put("ad_sdk_version", "3.4.0.1");
+            jSONObject.put("os", 1);
+            jSONObject.put("os_version", Build.VERSION.RELEASE + "");
+            jSONObject.put(TableDefine.UserInfoColumns.COLUMN_IP, com.bytedance.sdk.openadsdk.utils.i.a(true));
+            jSONObject.put(j.c, aj.b());
+            jSONObject.put("vendor", Build.MANUFACTURER);
+            jSONObject.put("model", Build.MODEL);
+            jSONObject.put("ad_package_name", eVar.c);
+            jSONObject.put("action", eVar.f4454a);
+            jSONObject.put("service", eVar.b);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        return jSONObject;
+        return jSONObject.toString();
+    }
+
+    private JSONObject d() {
+        com.bytedance.sdk.openadsdk.utils.c a2 = com.bytedance.sdk.openadsdk.utils.d.a(p.a());
+        if (a2 != null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("latitude", a2.f5126a);
+                jSONObject.put("longitude", a2.b);
+                return jSONObject;
+            } catch (Exception e) {
+            }
+        }
+        return null;
+    }
+
+    private boolean e() {
+        return TextUtils.isEmpty(com.bytedance.sdk.openadsdk.core.i.d().f());
     }
 }

@@ -24,7 +24,7 @@ public interface h extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof h)) {
                 return (h) queryLocalInterface;
             }
-            return new C1242a(iBinder);
+            return new C1232a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -56,18 +56,18 @@ public interface h extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.d.h$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        private static class C1242a implements h {
+        private static class C1232a implements h {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f13114a;
+            private IBinder f7803a;
 
-            C1242a(IBinder iBinder) {
-                this.f13114a = iBinder;
+            C1232a(IBinder iBinder) {
+                this.f7803a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f13114a;
+                return this.f7803a;
             }
 
             @Override // com.ss.android.socialbase.downloader.d.h
@@ -79,7 +79,7 @@ public interface h extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadAidlFileProvider");
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    this.f13114a.transact(1, obtain, obtain2, 0);
+                    this.f7803a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
                         uri = (Uri) Uri.CREATOR.createFromParcel(obtain2);

@@ -5,7 +5,7 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonSerializer;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class JsonAdapterAnnotationTypeAdapterFactory implements TypeAdapterFactory {
     private final com.google.gson.internal.b constructorConstructor;
 
@@ -15,7 +15,7 @@ public final class JsonAdapterAnnotationTypeAdapterFactory implements TypeAdapte
 
     @Override // com.google.gson.TypeAdapterFactory
     public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
-        com.google.gson.a.b bVar = (com.google.gson.a.b) aVar.eBU().getAnnotation(com.google.gson.a.b.class);
+        com.google.gson.a.b bVar = (com.google.gson.a.b) aVar.eCa().getAnnotation(com.google.gson.a.b.class);
         if (bVar == null) {
             return null;
         }
@@ -25,17 +25,17 @@ public final class JsonAdapterAnnotationTypeAdapterFactory implements TypeAdapte
     /* JADX INFO: Access modifiers changed from: package-private */
     public TypeAdapter<?> a(com.google.gson.internal.b bVar, Gson gson, com.google.gson.b.a<?> aVar, com.google.gson.a.b bVar2) {
         TypeAdapter<?> treeTypeAdapter;
-        Object eBe = bVar.a(com.google.gson.b.a.C(bVar2.value())).eBe();
-        if (eBe instanceof TypeAdapter) {
-            treeTypeAdapter = (TypeAdapter) eBe;
-        } else if (eBe instanceof TypeAdapterFactory) {
-            treeTypeAdapter = ((TypeAdapterFactory) eBe).create(gson, aVar);
-        } else if ((eBe instanceof JsonSerializer) || (eBe instanceof JsonDeserializer)) {
-            treeTypeAdapter = new TreeTypeAdapter<>(eBe instanceof JsonSerializer ? (JsonSerializer) eBe : null, eBe instanceof JsonDeserializer ? (JsonDeserializer) eBe : null, gson, aVar, null);
+        Object eBk = bVar.a(com.google.gson.b.a.C(bVar2.value())).eBk();
+        if (eBk instanceof TypeAdapter) {
+            treeTypeAdapter = (TypeAdapter) eBk;
+        } else if (eBk instanceof TypeAdapterFactory) {
+            treeTypeAdapter = ((TypeAdapterFactory) eBk).create(gson, aVar);
+        } else if ((eBk instanceof JsonSerializer) || (eBk instanceof JsonDeserializer)) {
+            treeTypeAdapter = new TreeTypeAdapter<>(eBk instanceof JsonSerializer ? (JsonSerializer) eBk : null, eBk instanceof JsonDeserializer ? (JsonDeserializer) eBk : null, gson, aVar, null);
         } else {
-            throw new IllegalArgumentException("Invalid attempt to bind an instance of " + eBe.getClass().getName() + " as a @JsonAdapter for " + aVar.toString() + ". @JsonAdapter value must be a TypeAdapter, TypeAdapterFactory, JsonSerializer or JsonDeserializer.");
+            throw new IllegalArgumentException("Invalid attempt to bind an instance of " + eBk.getClass().getName() + " as a @JsonAdapter for " + aVar.toString() + ". @JsonAdapter value must be a TypeAdapter, TypeAdapterFactory, JsonSerializer or JsonDeserializer.");
         }
-        if (treeTypeAdapter != null && bVar2.eBb()) {
+        if (treeTypeAdapter != null && bVar2.eBh()) {
             return treeTypeAdapter.nullSafe();
         }
         return treeTypeAdapter;

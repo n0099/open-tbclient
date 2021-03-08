@@ -11,7 +11,7 @@ import android.view.WindowManager;
 import com.baidu.ar.constants.HttpConstants;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class StatusBarUtil {
     View actionBarView;
     boolean lightStatusBar;
@@ -157,7 +157,7 @@ public final class StatusBarUtil {
         return true;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class Builder {
         private View actionBarView;
         private boolean lightStatusBar = false;

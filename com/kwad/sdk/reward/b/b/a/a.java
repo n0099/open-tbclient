@@ -10,11 +10,9 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private InterfaceC1147a f10543a;
+    private InterfaceC1164a f6945a;
     @Nullable
-
-    /* renamed from: b  reason: collision with root package name */
-    private b f10544b;
+    private b b;
     private AdTemplate c;
     private AdInfo d;
     private int e;
@@ -24,7 +22,7 @@ public class a {
 
     /* renamed from: com.kwad.sdk.reward.b.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1147a {
+    public interface InterfaceC1164a {
         void a(boolean z);
     }
 
@@ -43,9 +41,9 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
-        if (this.f10543a != null) {
+        if (this.f6945a != null) {
             com.kwad.sdk.core.d.a.a("ActionBarControl", "showNativeActionBar");
-            this.f10543a.a(z);
+            this.f6945a.a(z);
         }
     }
 
@@ -60,16 +58,16 @@ public class a {
         if (c(i, i2)) {
             return;
         }
-        if (!com.kwad.sdk.core.response.b.b.o(this.c) || this.f10544b == null) {
+        if (!com.kwad.sdk.core.response.b.b.o(this.c) || this.b == null) {
             a(false);
-        } else if (this.f10544b.a()) {
+        } else if (this.b.a()) {
         } else {
             this.f.postDelayed(new Runnable() { // from class: com.kwad.sdk.reward.b.b.a.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     a.this.h = true;
                     com.kwad.sdk.core.d.a.a("ActionBarControl", "mHasOutTime");
-                    if (a.this.f10544b != null && a.this.f10544b.a()) {
+                    if (a.this.b != null && a.this.b.a()) {
                         com.kwad.sdk.core.d.a.a("ActionBarControl", "showWebActionBar success on " + a.this.g);
                         return;
                     }
@@ -81,13 +79,13 @@ public class a {
     }
 
     @MainThread
-    public void a(InterfaceC1147a interfaceC1147a) {
-        this.f10543a = interfaceC1147a;
+    public void a(InterfaceC1164a interfaceC1164a) {
+        this.f6945a = interfaceC1164a;
     }
 
     @MainThread
     public void a(b bVar) {
-        this.f10544b = bVar;
+        this.b = bVar;
     }
 
     public void b(int i, int i2) {
@@ -99,11 +97,11 @@ public class a {
         if (c(i, i2)) {
             return;
         }
-        if (!com.kwad.sdk.core.response.b.b.o(this.c) || this.f10544b == null) {
+        if (!com.kwad.sdk.core.response.b.b.o(this.c) || this.b == null) {
             a(true);
             return;
         }
         com.kwad.sdk.core.d.a.a("ActionBarControl", "showWebActionBar success in " + this.g);
-        this.f10544b.a();
+        this.b.a();
     }
 }

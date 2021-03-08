@@ -13,27 +13,27 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
-    public static final String cWz = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "zeus" + File.separator + "libs";
-    private static final String cWA = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "libs";
-    public static final String cWB = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
+    public static final String cXZ = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "zeus" + File.separator + "libs";
+    private static final String cYa = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "libs";
+    public static final String cYb = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
 
     public static f fs(boolean z) {
         boolean z2 = true;
         if (z) {
             return f.im(SoLoader.load(AppRuntime.getAppContext(), "v8.engine"));
         }
-        if (arG()) {
-            arF();
-            boolean o = d.o("zeusv8", cWA, true);
-            if (!d.o("arcore_sdk_c", cWz, false) || !d.o("arcore_sdk_jni", cWz, false) || !d.o("c++_shared", cWz, false) || !d.o("v8.engine", cWz, false)) {
+        if (arJ()) {
+            arI();
+            boolean o = d.o("zeusv8", cYa, true);
+            if (!d.o("arcore_sdk_c", cXZ, false) || !d.o("arcore_sdk_jni", cXZ, false) || !d.o("c++_shared", cXZ, false) || !d.o("v8.engine", cXZ, false)) {
                 z2 = false;
             }
             return f.v(o, z2);
         }
-        d.o("zeusv8", cWB, true);
-        return f.im(d.o("v8.engine", cWB, true));
+        d.o("zeusv8", cYb, true);
+        return f.im(d.o("v8.engine", cYb, true));
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [152=5, 153=4, 154=4, 156=4, 157=4, 158=4, 161=4] */
@@ -42,7 +42,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static void arF() {
+    private static void arI() {
         Throwable th;
         FileLock fileLock;
         FileChannel fileChannel;
@@ -50,11 +50,11 @@ public class a {
         FileInputStream fileInputStream;
         Exception exc;
         FileOutputStream fileOutputStream2;
-        File file = new File(cWz + File.separator + GlobalConstants.LIB_ZEUS_V8);
+        File file = new File(cXZ + File.separator + GlobalConstants.LIB_ZEUS_V8);
         if (!file.exists() || file.length() <= 0) {
             return;
         }
-        File file2 = new File(cWA);
+        File file2 = new File(cYa);
         if (!file2.exists()) {
             file2.mkdirs();
         }
@@ -203,7 +203,7 @@ public class a {
         }
     }
 
-    public static boolean arG() {
+    public static boolean arJ() {
         return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("swan_full_install", true);
     }
 }

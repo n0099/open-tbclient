@@ -15,37 +15,37 @@ import com.baidu.tieba.screenlocknotify.d;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ScreenLockHeaderView extends LinearLayout {
-    private EditText cBd;
+    private EditText cCD;
     View mLine;
-    TextView ncO;
-    View ncP;
-    View ncQ;
-    TextView ncR;
-    TextView ncS;
-    TextView ncT;
-    private d ncU;
-    private TextView ncV;
-    private RelativeLayout ncW;
+    TextView neT;
+    View neU;
+    View neV;
+    TextView neW;
+    TextView neX;
+    TextView neY;
+    private d neZ;
+    private TextView nfa;
+    private RelativeLayout nfb;
 
     public ScreenLockHeaderView(Context context) {
         super(context);
         LayoutInflater.from(getContext()).inflate(R.layout.screenlock_show_item_header, (ViewGroup) this, true);
-        this.ncO = (TextView) findViewById(R.id.friend_name_show1);
-        this.ncP = findViewById(R.id.friend_name_layout);
-        this.ncQ = findViewById(R.id.msg_content_layout);
-        this.ncR = (TextView) findViewById(R.id.last_msg_time_show1);
-        this.ncS = (TextView) findViewById(R.id.one_msg_content_show1);
-        this.ncT = (TextView) findViewById(R.id.unread_msg_count_show1);
+        this.neT = (TextView) findViewById(R.id.friend_name_show1);
+        this.neU = findViewById(R.id.friend_name_layout);
+        this.neV = findViewById(R.id.msg_content_layout);
+        this.neW = (TextView) findViewById(R.id.last_msg_time_show1);
+        this.neX = (TextView) findViewById(R.id.one_msg_content_show1);
+        this.neY = (TextView) findViewById(R.id.unread_msg_count_show1);
         this.mLine = findViewById(R.id.line);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setBackgroundResource(R.drawable.screen_notify_item_background);
         setOrientation(1);
-        this.ncW = (RelativeLayout) findViewById(R.id.screenlock_input_layout);
-        this.ncV = (TextView) findViewById(R.id.screenlock_send_button);
-        this.cBd = (EditText) findViewById(R.id.screenlock_edit_view);
-        this.ncW.setVisibility(8);
+        this.nfb = (RelativeLayout) findViewById(R.id.screenlock_input_layout);
+        this.nfa = (TextView) findViewById(R.id.screenlock_send_button);
+        this.cCD = (EditText) findViewById(R.id.screenlock_edit_view);
+        this.nfb.setVisibility(8);
     }
 
     public ScreenLockHeaderView(Context context, AttributeSet attributeSet) {
@@ -57,20 +57,20 @@ public class ScreenLockHeaderView extends LinearLayout {
     }
 
     public void f(d dVar) {
-        this.ncU = dVar;
-        this.ncO.setText(dVar.groupName);
-        this.ncR.setText(hC(dVar.lastTime));
-        this.ncS.setText(dVar.content);
-        this.ncT.setText(Iq(dVar.ncL));
+        this.neZ = dVar;
+        this.neT.setText(dVar.groupName);
+        this.neW.setText(hC(dVar.lastTime));
+        this.neX.setText(dVar.content);
+        this.neY.setText(Iu(dVar.neQ));
     }
 
     public void xL(boolean z) {
         if (z) {
-            this.ncW.setVisibility(0);
+            this.nfb.setVisibility(0);
             this.mLine.setVisibility(8);
             return;
         }
-        this.ncW.setVisibility(8);
+        this.nfb.setVisibility(8);
         this.mLine.setVisibility(0);
     }
 
@@ -78,28 +78,28 @@ public class ScreenLockHeaderView extends LinearLayout {
         return new SimpleDateFormat("HH:mm", Locale.CHINA).format(new Date(j));
     }
 
-    public String Iq(int i) {
+    public String Iu(int i) {
         return i < 100 ? "" + i : "99+";
     }
 
     public String getInputMsg() {
-        if (this.cBd != null) {
-            return k.charSequence2String(this.cBd.getText(), null);
+        if (this.cCD != null) {
+            return k.charSequence2String(this.cCD.getText(), null);
         }
         return null;
     }
 
     public View getEditText() {
-        return this.cBd;
+        return this.cCD;
     }
 
     public d getData() {
-        return this.ncU;
+        return this.neZ;
     }
 
     public void setUIClickListener(View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
-        this.ncV.setOnClickListener(onClickListener);
-        this.ncP.setOnClickListener(onClickListener2);
-        this.ncQ.setOnClickListener(onClickListener2);
+        this.nfa.setOnClickListener(onClickListener);
+        this.neU.setOnClickListener(onClickListener2);
+        this.neV.setOnClickListener(onClickListener2);
     }
 }

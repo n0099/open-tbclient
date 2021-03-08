@@ -1,14 +1,14 @@
 package com.bytedance.sdk.openadsdk.component.reward;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public final class R {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public static final class anim {
         public static int tt_dislike_animation_dismiss = com.bytedance.sdk.openadsdk.adhost.R.anim.tt_dislike_animation_dismiss;
         public static int tt_dislike_animation_show = com.bytedance.sdk.openadsdk.adhost.R.anim.tt_dislike_animation_show;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public static final class color {
         public static int tt_app_detail_bg = com.bytedance.sdk.openadsdk.adhost.R.color.tt_app_detail_bg;
         public static int tt_app_detail_line_bg = com.bytedance.sdk.openadsdk.adhost.R.color.tt_app_detail_line_bg;
@@ -17,6 +17,7 @@ public final class R {
         public static int tt_cancle_bg = com.bytedance.sdk.openadsdk.adhost.R.color.tt_cancle_bg;
         public static int tt_common_download_bg = com.bytedance.sdk.openadsdk.adhost.R.color.tt_common_download_bg;
         public static int tt_common_download_btn_bg = com.bytedance.sdk.openadsdk.adhost.R.color.tt_common_download_btn_bg;
+        public static int tt_dislike_dialog_background = com.bytedance.sdk.openadsdk.adhost.R.color.tt_dislike_dialog_background;
         public static int tt_dislike_transparent = com.bytedance.sdk.openadsdk.adhost.R.color.tt_dislike_transparent;
         public static int tt_divider = com.bytedance.sdk.openadsdk.adhost.R.color.tt_divider;
         public static int tt_download_app_name = com.bytedance.sdk.openadsdk.adhost.R.color.tt_download_app_name;
@@ -69,7 +70,7 @@ public final class R {
         public static int tt_white = com.bytedance.sdk.openadsdk.adhost.R.color.tt_white;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public static final class dimen {
         public static int tt_video_container_maxheight = com.bytedance.sdk.openadsdk.adhost.R.dimen.tt_video_container_maxheight;
         public static int tt_video_container_minheight = com.bytedance.sdk.openadsdk.adhost.R.dimen.tt_video_container_minheight;
@@ -77,7 +78,7 @@ public final class R {
         public static int tt_video_cover_padding_vertical = com.bytedance.sdk.openadsdk.adhost.R.dimen.tt_video_cover_padding_vertical;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public static final class drawable {
         public static int tt_ad_backup_bk = com.bytedance.sdk.openadsdk.adhost.R.drawable.tt_ad_backup_bk;
         public static int tt_ad_backup_bk2 = com.bytedance.sdk.openadsdk.adhost.R.drawable.tt_ad_backup_bk2;
@@ -88,6 +89,7 @@ public final class R {
         public static int tt_ad_logo_background = com.bytedance.sdk.openadsdk.adhost.R.drawable.tt_ad_logo_background;
         public static int tt_ad_logo_reward_full = com.bytedance.sdk.openadsdk.adhost.R.drawable.tt_ad_logo_reward_full;
         public static int tt_ad_logo_small = com.bytedance.sdk.openadsdk.adhost.R.drawable.tt_ad_logo_small;
+        public static int tt_ad_logo_small_rectangle = com.bytedance.sdk.openadsdk.adhost.R.drawable.tt_ad_logo_small_rectangle;
         public static int tt_ad_skip_btn_bg = com.bytedance.sdk.openadsdk.adhost.R.drawable.tt_ad_skip_btn_bg;
         public static int tt_app_detail_back_btn = com.bytedance.sdk.openadsdk.adhost.R.drawable.tt_app_detail_back_btn;
         public static int tt_app_detail_bg = com.bytedance.sdk.openadsdk.adhost.R.drawable.tt_app_detail_bg;
@@ -110,6 +112,7 @@ public final class R {
         public static int tt_dislike_bottom_seletor = com.bytedance.sdk.openadsdk.adhost.R.drawable.tt_dislike_bottom_seletor;
         public static int tt_dislike_cancle_bg_selector = com.bytedance.sdk.openadsdk.adhost.R.drawable.tt_dislike_cancle_bg_selector;
         public static int tt_dislike_dialog_bg = com.bytedance.sdk.openadsdk.adhost.R.drawable.tt_dislike_dialog_bg;
+        public static int tt_dislike_flowlayout_tv_bg = com.bytedance.sdk.openadsdk.adhost.R.drawable.tt_dislike_flowlayout_tv_bg;
         public static int tt_dislike_icon = com.bytedance.sdk.openadsdk.adhost.R.drawable.tt_dislike_icon;
         public static int tt_dislike_icon2 = com.bytedance.sdk.openadsdk.adhost.R.drawable.tt_dislike_icon2;
         public static int tt_dislike_middle_seletor = com.bytedance.sdk.openadsdk.adhost.R.drawable.tt_dislike_middle_seletor;
@@ -169,6 +172,7 @@ public final class R {
         public static int tt_shrink_fullscreen = com.bytedance.sdk.openadsdk.adhost.R.drawable.tt_shrink_fullscreen;
         public static int tt_shrink_video = com.bytedance.sdk.openadsdk.adhost.R.drawable.tt_shrink_video;
         public static int tt_skip_text_bg = com.bytedance.sdk.openadsdk.adhost.R.drawable.tt_skip_text_bg;
+        public static int tt_splash_ad_logo = com.bytedance.sdk.openadsdk.adhost.R.drawable.tt_splash_ad_logo;
         public static int tt_splash_mute = com.bytedance.sdk.openadsdk.adhost.R.drawable.tt_splash_mute;
         public static int tt_splash_unmute = com.bytedance.sdk.openadsdk.adhost.R.drawable.tt_splash_unmute;
         public static int tt_star_empty_bg = com.bytedance.sdk.openadsdk.adhost.R.drawable.tt_star_empty_bg;
@@ -191,8 +195,10 @@ public final class R {
         public static int tt_white_lefterbackicon_titlebar_press = com.bytedance.sdk.openadsdk.adhost.R.drawable.tt_white_lefterbackicon_titlebar_press;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public static final class id {
+        public static int tt_ad_container = com.bytedance.sdk.openadsdk.adhost.R.id.tt_ad_container;
+        public static int tt_ad_content_layout = com.bytedance.sdk.openadsdk.adhost.R.id.tt_ad_content_layout;
         public static int tt_ad_logo = com.bytedance.sdk.openadsdk.adhost.R.id.tt_ad_logo;
         public static int tt_app_detail_back_tv = com.bytedance.sdk.openadsdk.adhost.R.id.tt_app_detail_back_tv;
         public static int tt_app_developer_tv = com.bytedance.sdk.openadsdk.adhost.R.id.tt_app_developer_tv;
@@ -242,6 +248,7 @@ public final class R {
         public static int tt_comment_content = com.bytedance.sdk.openadsdk.adhost.R.id.tt_comment_content;
         public static int tt_comment_number = com.bytedance.sdk.openadsdk.adhost.R.id.tt_comment_number;
         public static int tt_comment_vertical = com.bytedance.sdk.openadsdk.adhost.R.id.tt_comment_vertical;
+        public static int tt_dislike_dialog_linearlayout = com.bytedance.sdk.openadsdk.adhost.R.id.tt_dislike_dialog_linearlayout;
         public static int tt_dislike_header_back = com.bytedance.sdk.openadsdk.adhost.R.id.tt_dislike_header_back;
         public static int tt_dislike_header_tv = com.bytedance.sdk.openadsdk.adhost.R.id.tt_dislike_header_tv;
         public static int tt_dislike_line1 = com.bytedance.sdk.openadsdk.adhost.R.id.tt_dislike_line1;
@@ -275,6 +282,7 @@ public final class R {
         public static int tt_item_tv = com.bytedance.sdk.openadsdk.adhost.R.id.tt_item_tv;
         public static int tt_item_tv_son = com.bytedance.sdk.openadsdk.adhost.R.id.tt_item_tv_son;
         public static int tt_message = com.bytedance.sdk.openadsdk.adhost.R.id.tt_message;
+        public static int tt_middle_page_layout = com.bytedance.sdk.openadsdk.adhost.R.id.tt_middle_page_layout;
         public static int tt_native_video_container = com.bytedance.sdk.openadsdk.adhost.R.id.tt_native_video_container;
         public static int tt_native_video_frame = com.bytedance.sdk.openadsdk.adhost.R.id.tt_native_video_frame;
         public static int tt_native_video_img_cover = com.bytedance.sdk.openadsdk.adhost.R.id.tt_native_video_img_cover;
@@ -310,6 +318,7 @@ public final class R {
         public static int tt_reward_root = com.bytedance.sdk.openadsdk.adhost.R.id.tt_reward_root;
         public static int tt_rl_download = com.bytedance.sdk.openadsdk.adhost.R.id.tt_rl_download;
         public static int tt_root_view = com.bytedance.sdk.openadsdk.adhost.R.id.tt_root_view;
+        public static int tt_scroll_view = com.bytedance.sdk.openadsdk.adhost.R.id.tt_scroll_view;
         public static int tt_splash_ad_gif = com.bytedance.sdk.openadsdk.adhost.R.id.tt_splash_ad_gif;
         public static int tt_splash_express_container = com.bytedance.sdk.openadsdk.adhost.R.id.tt_splash_express_container;
         public static int tt_splash_skip_btn = com.bytedance.sdk.openadsdk.adhost.R.id.tt_splash_skip_btn;
@@ -376,18 +385,20 @@ public final class R {
         public static int tt_video_traffic_tip_layout = com.bytedance.sdk.openadsdk.adhost.R.id.tt_video_traffic_tip_layout;
         public static int tt_video_traffic_tip_layout_viewStub = com.bytedance.sdk.openadsdk.adhost.R.id.tt_video_traffic_tip_layout_viewStub;
         public static int tt_video_traffic_tip_tv = com.bytedance.sdk.openadsdk.adhost.R.id.tt_video_traffic_tip_tv;
+        public static int web_frame = com.bytedance.sdk.openadsdk.adhost.R.id.web_frame;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public static final class integer {
         public static int tt_video_progress_max = com.bytedance.sdk.openadsdk.adhost.R.integer.tt_video_progress_max;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public static final class layout {
         public static int tt_activity_full_video = com.bytedance.sdk.openadsdk.adhost.R.layout.tt_activity_full_video;
         public static int tt_activity_full_video_new_bar_3_style = com.bytedance.sdk.openadsdk.adhost.R.layout.tt_activity_full_video_new_bar_3_style;
         public static int tt_activity_full_video_newstyle = com.bytedance.sdk.openadsdk.adhost.R.layout.tt_activity_full_video_newstyle;
+        public static int tt_activity_middle_page = com.bytedance.sdk.openadsdk.adhost.R.layout.tt_activity_middle_page;
         public static int tt_activity_reward_and_full_video_bar = com.bytedance.sdk.openadsdk.adhost.R.layout.tt_activity_reward_and_full_video_bar;
         public static int tt_activity_reward_and_full_video_new_bar = com.bytedance.sdk.openadsdk.adhost.R.layout.tt_activity_reward_and_full_video_new_bar;
         public static int tt_activity_reward_video_newstyle = com.bytedance.sdk.openadsdk.adhost.R.layout.tt_activity_reward_video_newstyle;
@@ -395,6 +406,7 @@ public final class R {
         public static int tt_activity_rewardvideo_new_bar_3_style = com.bytedance.sdk.openadsdk.adhost.R.layout.tt_activity_rewardvideo_new_bar_3_style;
         public static int tt_activity_ttlandingpage = com.bytedance.sdk.openadsdk.adhost.R.layout.tt_activity_ttlandingpage;
         public static int tt_activity_ttlandingpage_playable = com.bytedance.sdk.openadsdk.adhost.R.layout.tt_activity_ttlandingpage_playable;
+        public static int tt_activity_video_scroll_landingpage = com.bytedance.sdk.openadsdk.adhost.R.layout.tt_activity_video_scroll_landingpage;
         public static int tt_activity_videolandingpage = com.bytedance.sdk.openadsdk.adhost.R.layout.tt_activity_videolandingpage;
         public static int tt_app_detail_dialog = com.bytedance.sdk.openadsdk.adhost.R.layout.tt_app_detail_dialog;
         public static int tt_app_detail_full_dialog = com.bytedance.sdk.openadsdk.adhost.R.layout.tt_app_detail_full_dialog;
@@ -433,6 +445,7 @@ public final class R {
         public static int tt_native_video_ad_view = com.bytedance.sdk.openadsdk.adhost.R.layout.tt_native_video_ad_view;
         public static int tt_native_video_img_cover_layout = com.bytedance.sdk.openadsdk.adhost.R.layout.tt_native_video_img_cover_layout;
         public static int tt_playable_loading_layout = com.bytedance.sdk.openadsdk.adhost.R.layout.tt_playable_loading_layout;
+        public static int tt_playable_view_layout = com.bytedance.sdk.openadsdk.adhost.R.layout.tt_playable_view_layout;
         public static int tt_splash_view = com.bytedance.sdk.openadsdk.adhost.R.layout.tt_splash_view;
         public static int tt_top_full_1 = com.bytedance.sdk.openadsdk.adhost.R.layout.tt_top_full_1;
         public static int tt_top_reward_1 = com.bytedance.sdk.openadsdk.adhost.R.layout.tt_top_reward_1;
@@ -445,8 +458,9 @@ public final class R {
         public static int tt_video_traffic_tips_layout = com.bytedance.sdk.openadsdk.adhost.R.layout.tt_video_traffic_tips_layout;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public static final class string {
+        public static int app_name = com.bytedance.sdk.openadsdk.adhost.R.string.app_name;
         public static int tt_00_00 = com.bytedance.sdk.openadsdk.adhost.R.string.tt_00_00;
         public static int tt_ad = com.bytedance.sdk.openadsdk.adhost.R.string.tt_ad;
         public static int tt_ad_logo_txt = com.bytedance.sdk.openadsdk.adhost.R.string.tt_ad_logo_txt;
@@ -489,6 +503,7 @@ public final class R {
         public static int tt_video_bytesize_MB = com.bytedance.sdk.openadsdk.adhost.R.string.tt_video_bytesize_MB;
         public static int tt_video_continue_play = com.bytedance.sdk.openadsdk.adhost.R.string.tt_video_continue_play;
         public static int tt_video_dial_phone = com.bytedance.sdk.openadsdk.adhost.R.string.tt_video_dial_phone;
+        public static int tt_video_dial_replay = com.bytedance.sdk.openadsdk.adhost.R.string.tt_video_dial_replay;
         public static int tt_video_download_apk = com.bytedance.sdk.openadsdk.adhost.R.string.tt_video_download_apk;
         public static int tt_video_mobile_go_detail = com.bytedance.sdk.openadsdk.adhost.R.string.tt_video_mobile_go_detail;
         public static int tt_video_retry_des_txt = com.bytedance.sdk.openadsdk.adhost.R.string.tt_video_retry_des_txt;
@@ -497,7 +512,7 @@ public final class R {
         public static int tt_will_play = com.bytedance.sdk.openadsdk.adhost.R.string.tt_will_play;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public static final class style {
         public static int DialogFullscreen = com.bytedance.sdk.openadsdk.adhost.R.style.DialogFullscreen;
         public static int EditTextStyle = com.bytedance.sdk.openadsdk.adhost.R.style.EditTextStyle;

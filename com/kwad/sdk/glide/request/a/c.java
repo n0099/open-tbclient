@@ -7,10 +7,8 @@ import androidx.annotation.Nullable;
 public abstract class c<T> implements j<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f10340a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final int f10341b;
+    private final int f6824a;
+    private final int b;
     @Nullable
     private com.kwad.sdk.glide.request.c c;
 
@@ -22,13 +20,13 @@ public abstract class c<T> implements j<T> {
         if (!com.kwad.sdk.glide.g.k.a(i, i2)) {
             throw new IllegalArgumentException("Width and height must both be > 0 or Target#SIZE_ORIGINAL, but given width: " + i + " and height: " + i2);
         }
-        this.f10340a = i;
-        this.f10341b = i2;
+        this.f6824a = i;
+        this.b = i2;
     }
 
     @Override // com.kwad.sdk.glide.request.a.j
     public final void a(@NonNull i iVar) {
-        iVar.a(this.f10340a, this.f10341b);
+        iVar.a(this.f6824a, this.b);
     }
 
     @Override // com.kwad.sdk.glide.request.a.j

@@ -12,17 +12,17 @@ import android.view.WindowManager;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ad {
-    public static boolean aOa() {
+    public static boolean aOd() {
         Context appContext = AppRuntime.getAppContext();
-        if (dI(appContext)) {
+        if (dH(appContext)) {
             return false;
         }
-        return dH(appContext);
+        return dG(appContext);
     }
 
-    private static boolean dH(Context context) {
+    private static boolean dG(Context context) {
         boolean z;
         int i;
         Resources resources = context.getResources();
@@ -50,14 +50,14 @@ public class ad {
         return z;
     }
 
-    public static int aOb() {
-        if (!aOa()) {
+    public static int aOe() {
+        if (!aOd()) {
             return 0;
         }
         return ah.b(AppRuntime.getAppContext().getResources(), ah.isScreenPortrait() ? "navigation_bar_height" : "navigation_bar_height_landscape");
     }
 
-    public static boolean dI(Context context) {
+    public static boolean dH(Context context) {
         boolean z = true;
         String str = Build.BRAND;
         try {
@@ -97,7 +97,7 @@ public class ad {
         }
     }
 
-    public static Pair<Integer, Integer> aOc() {
+    public static Pair<Integer, Integer> aOf() {
         Context appContext = AppRuntime.getAppContext();
         WindowManager windowManager = (WindowManager) appContext.getSystemService("window");
         if (windowManager == null) {
@@ -109,8 +109,8 @@ public class ad {
         return new Pair<>(Integer.valueOf(displayMetrics.widthPixels), Integer.valueOf(displayMetrics.heightPixels));
     }
 
-    public static Pair<Integer, Integer> aOd() {
-        Pair<Integer, Integer> aOc = aOc();
-        return new Pair<>(Integer.valueOf(((Integer) aOc.first).intValue()), Integer.valueOf(((Integer) aOc.second).intValue() - aOb()));
+    public static Pair<Integer, Integer> aOg() {
+        Pair<Integer, Integer> aOf = aOf();
+        return new Pair<>(Integer.valueOf(((Integer) aOf.first).intValue()), Integer.valueOf(((Integer) aOf.second).intValue() - aOe()));
     }
 }

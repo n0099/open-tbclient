@@ -14,12 +14,12 @@ import com.baidu.tieba.R;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.SmartApp;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRecordViewHolder> {
+    private View.OnLongClickListener mBd;
     private Context mContext;
     private List<SmartApp> mDataList;
     private View.OnClickListener mOnItemClickListener;
-    private View.OnLongClickListener mzb;
 
     public SmartAppBrowseHistoryAdapter(Context context) {
         this.mContext = context;
@@ -29,7 +29,7 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
         this.mDataList = list;
     }
 
-    public SmartApp Qw(String str) {
+    public SmartApp QC(String str) {
         if (y.isEmpty(this.mDataList)) {
             return null;
         }
@@ -49,17 +49,17 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
     }
 
     public void d(View.OnLongClickListener onLongClickListener) {
-        this.mzb = onLongClickListener;
+        this.mBd = onLongClickListener;
     }
 
-    private SmartApp GU(int i) {
+    private SmartApp GX(int i) {
         return (SmartApp) y.getItem(this.mDataList, i);
     }
 
     public void a(SmartApp smartApp) {
-        SmartApp Qw = Qw(smartApp.id);
-        if (Qw != null && this.mDataList != null) {
-            y.add(this.mDataList, 0, Qw);
+        SmartApp QC = QC(smartApp.id);
+        if (QC != null && this.mDataList != null) {
+            y.add(this.mDataList, 0, QC);
         }
     }
 
@@ -74,11 +74,11 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(HistoryRecordViewHolder historyRecordViewHolder, int i) {
-        SmartApp GU;
-        if (historyRecordViewHolder != null && (GU = GU(i)) != null) {
-            historyRecordViewHolder.b(GU);
+        SmartApp GX;
+        if (historyRecordViewHolder != null && (GX = GX(i)) != null) {
+            historyRecordViewHolder.b(GX);
             historyRecordViewHolder.setOnClickListener(this.mOnItemClickListener);
-            historyRecordViewHolder.setOnLongClickListener(this.mzb);
+            historyRecordViewHolder.setOnLongClickListener(this.mBd);
             historyRecordViewHolder.onChangeSkinType();
         }
     }
@@ -88,28 +88,28 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
         return y.getCount(this.mDataList);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class HistoryRecordViewHolder extends RecyclerView.ViewHolder {
-        private HeadImageView kTN;
+        private HeadImageView kVP;
+        private SmartApp mBe;
         private TextView mName;
         private View mRootView;
-        private SmartApp mzc;
 
         public HistoryRecordViewHolder(View view) {
             super(view);
             this.mRootView = view;
-            this.kTN = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
-            this.kTN.setIsRound(true);
-            this.kTN.setPlaceHolder(1);
+            this.kVP = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
+            this.kVP.setIsRound(true);
+            this.kVP.setPlaceHolder(1);
             this.mName = (TextView) view.findViewById(R.id.tv_smart_app_history_record_item_name);
         }
 
         public void b(SmartApp smartApp) {
-            this.mzc = smartApp;
+            this.mBe = smartApp;
             this.mRootView.setTag(smartApp);
             if (!au.isEmpty(smartApp.avatar)) {
-                this.kTN.setPlaceHolder(1);
-                this.kTN.startLoad(smartApp.avatar, 10, false, false);
+                this.kVP.setPlaceHolder(1);
+                this.kVP.startLoad(smartApp.avatar, 10, false, false);
             }
             if (!au.isEmpty(smartApp.name)) {
                 this.mName.setText(smartApp.name);

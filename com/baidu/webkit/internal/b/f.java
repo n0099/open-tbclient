@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public final class f extends j {
     /* JADX WARN: Removed duplicated region for block: B:26:0x0078  */
     @Override // com.baidu.webkit.internal.b.j

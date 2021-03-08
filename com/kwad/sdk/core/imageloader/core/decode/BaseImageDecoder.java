@@ -128,7 +128,7 @@ public class BaseImageDecoder implements ImageDecoder {
         } catch (IOException e) {
             L.w("Can't read EXIF tags from file [%s]", str);
         }
-        switch (new ExifInterface(ImageDownloader.Scheme.FILE.crop(str)).getAttributeInt("Orientation", 1)) {
+        switch (new ExifInterface(ImageDownloader.Scheme.FILE.crop(str)).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1)) {
             case 1:
                 z = false;
                 i = 0;

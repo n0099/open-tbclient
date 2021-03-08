@@ -18,7 +18,7 @@ import okhttp3.internal.connection.RealConnection;
 import okhttp3.internal.connection.RouteDatabase;
 import okhttp3.internal.connection.StreamAllocation;
 import okhttp3.internal.platform.Platform;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class ConnectionPool {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final Executor executor;

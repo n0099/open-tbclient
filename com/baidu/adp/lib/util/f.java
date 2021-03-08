@@ -2,6 +2,7 @@ package com.baidu.adp.lib.util;
 
 import android.os.Environment;
 import android.os.StatFs;
+import com.fun.ad.sdk.FunAdSdk;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -12,7 +13,7 @@ import java.io.OutputStream;
 import java.nio.channels.FileChannel;
 /* loaded from: classes.dex */
 public class f {
-    private static String APP_DIR = "baidu";
+    private static String APP_DIR = FunAdSdk.PLATFORM_BAIDU;
     public static final File EXTERNAL_STORAGE_DIRECTORY = Environment.getExternalStorageDirectory();
     private static final char SYSTEM_SEPARATOR = File.separatorChar;
 

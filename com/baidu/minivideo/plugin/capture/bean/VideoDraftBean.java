@@ -296,7 +296,7 @@ public class VideoDraftBean implements Jsonable, Serializable, Cloneable, Compar
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public VideoDraftBean m23clone() {
+    public VideoDraftBean m24clone() {
         try {
             return (VideoDraftBean) super.clone();
         } catch (CloneNotSupportedException e) {

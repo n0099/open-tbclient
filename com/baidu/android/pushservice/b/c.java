@@ -12,10 +12,8 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1185a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f1186b;
+    private String f1084a;
+    private String b;
     private int c;
     private ArrayList<e> d;
     private ArrayList<f> e;
@@ -28,17 +26,15 @@ public class c {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f1187a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f1188b;
+        public int f1085a;
+        public int b;
 
         public a() {
         }
     }
 
     public c(Context context, String str) {
-        this.f1185a = str;
+        this.f1084a = str;
         a(context, str);
     }
 
@@ -140,12 +136,12 @@ public class c {
 
     public void a(int i, int i2) {
         this.h = new a();
-        this.h.f1187a = i;
-        this.h.f1188b = i2;
+        this.h.f1085a = i;
+        this.h.b = i2;
     }
 
     public void a(String str) {
-        this.f1186b = str;
+        this.b = str;
     }
 
     public void a(ArrayList<e> arrayList) {
@@ -153,7 +149,7 @@ public class c {
     }
 
     public String b() {
-        return this.f1186b;
+        return this.b;
     }
 
     public void b(int i) {
@@ -197,6 +193,6 @@ public class c {
     }
 
     public String toString() {
-        return this.f1185a;
+        return this.f1084a;
     }
 }

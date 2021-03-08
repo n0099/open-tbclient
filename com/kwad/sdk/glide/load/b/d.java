@@ -17,10 +17,10 @@ public class d implements n<File, ByteBuffer> {
     public static final class a implements com.kwad.sdk.glide.load.a.d<ByteBuffer> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final File f10078a;
+        private final File f6669a;
 
         a(File file) {
-            this.f10078a = file;
+            this.f6669a = file;
         }
 
         @Override // com.kwad.sdk.glide.load.a.d
@@ -32,7 +32,7 @@ public class d implements n<File, ByteBuffer> {
         @Override // com.kwad.sdk.glide.load.a.d
         public void a(@NonNull Priority priority, @NonNull d.a<? super ByteBuffer> aVar) {
             try {
-                aVar.a((d.a<? super ByteBuffer>) com.kwad.sdk.glide.g.a.a(this.f10078a));
+                aVar.a((d.a<? super ByteBuffer>) com.kwad.sdk.glide.g.a.a(this.f6669a));
             } catch (IOException e) {
                 if (Log.isLoggable("ByteBufferFileLoader", 3)) {
                     Log.d("ByteBufferFileLoader", "Failed to obtain ByteBuffer for file", e);

@@ -6,26 +6,26 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.h;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaGameFrsLiveGameCardView extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.c> {
-    private TbPageContext gWP;
-    private a gWQ;
+    private TbPageContext gYy;
+    private a gYz;
 
     public AlaGameFrsLiveGameCardView(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.gWP = tbPageContext;
+        this.gYy = tbPageContext;
         initView();
     }
 
     private void initView() {
-        this.gWQ = new a(this.gWP);
-        ((ViewGroup) getView()).addView(this.gWQ.getView());
+        this.gYz = new a(this.gYy);
+        ((ViewGroup) getView()).addView(this.gYz.getView());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.gWQ != null) {
-            this.gWQ.onChangeSkinType(tbPageContext, i);
+        if (this.gYz != null) {
+            this.gYz.onChangeSkinType(tbPageContext, i);
         }
     }
 
@@ -37,8 +37,8 @@ public class AlaGameFrsLiveGameCardView extends com.baidu.tieba.card.b<com.baidu
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.frsgamelive.b.c cVar) {
-        if (cVar != null && cVar.eJQ != null && this.gWQ != null) {
-            this.gWQ.a(cVar.eJQ);
+        if (cVar != null && cVar.eLr != null && this.gYz != null) {
+            this.gYz.a(cVar.eLr);
         }
     }
 
@@ -47,18 +47,18 @@ public class AlaGameFrsLiveGameCardView extends com.baidu.tieba.card.b<com.baidu
     }
 
     public void c(h hVar) {
-        if (this.gWQ != null) {
-            this.gWQ.d(hVar);
+        if (this.gYz != null) {
+            this.gYz.d(hVar);
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class AlaGameFrsGameViewHolder extends TypeAdapter.ViewHolder {
-        public AlaGameFrsLiveGameCardView gWR;
+        public AlaGameFrsLiveGameCardView gYA;
 
         public AlaGameFrsGameViewHolder(AlaGameFrsLiveGameCardView alaGameFrsLiveGameCardView) {
             super(alaGameFrsLiveGameCardView.getView());
-            this.gWR = alaGameFrsLiveGameCardView;
+            this.gYA = alaGameFrsLiveGameCardView;
         }
     }
 }

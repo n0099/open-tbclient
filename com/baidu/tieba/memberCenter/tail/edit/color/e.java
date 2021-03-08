@@ -4,15 +4,15 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.ListAdapter;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class e {
-    private GridView lsK;
+    private GridView luN;
 
     public e(ViewGroup viewGroup) {
-        this.lsK = (GridView) viewGroup.findViewById(R.id.tail_edit_color_gridview);
+        this.luN = (GridView) viewGroup.findViewById(R.id.tail_edit_color_gridview);
     }
 
     public void a(a aVar) {
-        this.lsK.setAdapter((ListAdapter) aVar);
+        this.luN.setAdapter((ListAdapter) aVar);
     }
 }

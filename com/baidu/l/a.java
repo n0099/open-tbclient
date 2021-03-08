@@ -1,9 +1,9 @@
 package com.baidu.l;
 
 import android.os.Build;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public class a {
-    public static boolean adh() {
+    public static boolean adk() {
         return Build.VERSION.SDK_INT >= 23;
     }
 }

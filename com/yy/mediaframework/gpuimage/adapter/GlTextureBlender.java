@@ -22,7 +22,7 @@ import com.yy.mediaframework.utils.YMFLog;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GlTextureBlender {
     private static final String TAG = "GlTextureBlender";
     Drawable2d.Prefab mDrawable2d;

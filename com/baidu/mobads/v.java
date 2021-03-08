@@ -11,14 +11,12 @@ import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class v implements XAdView.Listener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f3516a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ XAdView f3517b;
+    final /* synthetic */ Context f2501a;
+    final /* synthetic */ XAdView b;
     final /* synthetic */ String c;
     final /* synthetic */ boolean d;
     final /* synthetic */ int e;
@@ -28,8 +26,8 @@ public class v implements XAdView.Listener {
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(SplashAd splashAd, Context context, XAdView xAdView, String str, boolean z, int i, RequestParameters requestParameters) {
         this.g = splashAd;
-        this.f3516a = context;
-        this.f3517b = xAdView;
+        this.f2501a = context;
+        this.b = xAdView;
         this.c = str;
         this.d = z;
         this.e = i;
@@ -40,9 +38,9 @@ public class v implements XAdView.Listener {
     public void onWindowVisibilityChanged(int i) {
         com.baidu.mobads.production.f.a aVar;
         com.baidu.mobads.production.f.a aVar2;
-        aVar = this.g.f3285a;
+        aVar = this.g.f2354a;
         if (aVar != null) {
-            aVar2 = this.g.f3285a;
+            aVar2 = this.g.f2354a;
             aVar2.b(i);
         }
     }
@@ -51,9 +49,9 @@ public class v implements XAdView.Listener {
     public void onWindowFocusChanged(boolean z) {
         com.baidu.mobads.production.f.a aVar;
         com.baidu.mobads.production.f.a aVar2;
-        aVar = this.g.f3285a;
+        aVar = this.g.f2354a;
         if (aVar != null) {
-            aVar2 = this.g.f3285a;
+            aVar2 = this.g.f2354a;
             aVar2.a(z);
         }
     }
@@ -87,7 +85,7 @@ public class v implements XAdView.Listener {
         RequestParameters requestParameters4;
         RequestParameters requestParameters5;
         RequestParameters requestParameters6;
-        aVar = this.g.f3285a;
+        aVar = this.g.f2354a;
         if (aVar == null) {
             com.baidu.mobads.utils.h commonUtils = XAdSDKFoundationFacade.getInstance().getCommonUtils();
             context = this.g.d;
@@ -112,38 +110,38 @@ public class v implements XAdView.Listener {
                             splashAdListener.onAdDismissed();
                         }
                         SplashAd splashAd = this.g;
-                        Context context2 = this.f3516a;
-                        XAdView xAdView = this.f3517b;
+                        Context context2 = this.f2501a;
+                        XAdView xAdView = this.b;
                         String str = this.c;
                         boolean z = this.d;
-                        i5 = this.g.f3286b;
-                        splashAd.f3285a = new com.baidu.mobads.production.f.a(context2, xAdView, str, z, i4, i3, i5, this.e);
-                        aVar2 = this.g.f3285a;
+                        i5 = this.g.b;
+                        splashAd.f2354a = new com.baidu.mobads.production.f.a(context2, xAdView, str, z, i4, i3, i5, this.e);
+                        aVar2 = this.g.f2354a;
                         hashMap = this.g.i;
                         aVar2.a(hashMap);
-                        aVar3 = this.g.f3285a;
+                        aVar3 = this.g.f2354a;
                         aVar3.A = false;
                         if (this.f != null) {
-                            aVar10 = this.g.f3285a;
+                            aVar10 = this.g.f2354a;
                             aVar10.a(this.f);
                         }
-                        aVar4 = this.g.f3285a;
+                        aVar4 = this.g.f2354a;
                         iOAdEventListener = this.g.k;
                         aVar4.addEventListener("AdUserClick", iOAdEventListener);
-                        aVar5 = this.g.f3285a;
+                        aVar5 = this.g.f2354a;
                         iOAdEventListener2 = this.g.k;
                         aVar5.addEventListener(IXAdEvent.AD_LOADED, iOAdEventListener2);
-                        aVar6 = this.g.f3285a;
+                        aVar6 = this.g.f2354a;
                         iOAdEventListener3 = this.g.k;
                         aVar6.addEventListener(IXAdEvent.AD_STARTED, iOAdEventListener3);
-                        aVar7 = this.g.f3285a;
+                        aVar7 = this.g.f2354a;
                         iOAdEventListener4 = this.g.k;
                         aVar7.addEventListener(IXAdEvent.AD_STOPPED, iOAdEventListener4);
-                        aVar8 = this.g.f3285a;
+                        aVar8 = this.g.f2354a;
                         iOAdEventListener5 = this.g.k;
                         aVar8.addEventListener(IXAdEvent.AD_ERROR, iOAdEventListener5);
                         j.a().a(1002);
-                        aVar9 = this.g.f3285a;
+                        aVar9 = this.g.f2354a;
                         aVar9.request();
                         return;
                     }
@@ -164,9 +162,9 @@ public class v implements XAdView.Listener {
     public void onDetachedFromWindow() {
         com.baidu.mobads.production.f.a aVar;
         com.baidu.mobads.production.f.a aVar2;
-        aVar = this.g.f3285a;
+        aVar = this.g.f2354a;
         if (aVar != null) {
-            aVar2 = this.g.f3285a;
+            aVar2 = this.g.f2354a;
             aVar2.o();
         }
     }
@@ -175,9 +173,9 @@ public class v implements XAdView.Listener {
     public void onAttachedToWindow() {
         com.baidu.mobads.production.f.a aVar;
         com.baidu.mobads.production.f.a aVar2;
-        aVar = this.g.f3285a;
+        aVar = this.g.f2354a;
         if (aVar != null) {
-            aVar2 = this.g.f3285a;
+            aVar2 = this.g.f2354a;
             aVar2.n();
         }
     }

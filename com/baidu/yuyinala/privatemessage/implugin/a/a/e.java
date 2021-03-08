@@ -8,15 +8,15 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.messages.SignleGraphicTextMsg;
 import com.baidu.yuyinala.privatemessage.model.message.SingleGraphicTextMsgExt;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class e {
     private Context mContext;
-    public View oYA;
-    public ProgressBar oYB;
-    public TextView oYt;
-    public ImageView oYw;
-    public ImageView oYy;
-    public ImageView oYz;
+    public TextView paA;
+    public ImageView paD;
+    public ImageView paF;
+    public ImageView paG;
+    public View paH;
+    public ProgressBar paI;
 
     public abstract View getContentView();
 
@@ -24,29 +24,29 @@ public abstract class e {
 
     public void d(ChatMsg chatMsg) {
         if (chatMsg.isMsgSendSuccess()) {
-            this.oYA.setVisibility(4);
+            this.paH.setVisibility(4);
             return;
         }
-        this.oYA.setVisibility(0);
+        this.paH.setVisibility(0);
         if (chatMsg.getStatus() == 2) {
-            this.oYz.setVisibility(0);
-            this.oYB.setVisibility(8);
+            this.paG.setVisibility(0);
+            this.paI.setVisibility(8);
         } else if (chatMsg.getStatus() == 1) {
-            this.oYz.setVisibility(8);
+            this.paG.setVisibility(8);
             SingleGraphicTextMsgExt singleGraphicTextMsgExt = null;
             if (chatMsg instanceof SignleGraphicTextMsg) {
                 singleGraphicTextMsgExt = new SingleGraphicTextMsgExt((SignleGraphicTextMsg) chatMsg);
             }
-            if (chatMsg.getMsgType() == 1 || (singleGraphicTextMsgExt != null && singleGraphicTextMsgExt.emL() == SingleGraphicTextMsgExt.SingleGraphicTextType.VIDEOSHARE)) {
+            if (chatMsg.getMsgType() == 1 || (singleGraphicTextMsgExt != null && singleGraphicTextMsgExt.emV() == SingleGraphicTextMsgExt.SingleGraphicTextType.VIDEOSHARE)) {
                 if (chatMsg.isReSend()) {
-                    this.oYB.setVisibility(0);
+                    this.paI.setVisibility(0);
                     return;
                 } else {
-                    this.oYB.setVisibility(8);
+                    this.paI.setVisibility(8);
                     return;
                 }
             }
-            this.oYB.setVisibility(0);
+            this.paI.setVisibility(0);
         }
     }
 

@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class CommonUtil {
     public static int calcListMean(List<Integer> list) {
         int i;
@@ -123,7 +123,7 @@ public class CommonUtil {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class Size {
         private int height;
         private int width;

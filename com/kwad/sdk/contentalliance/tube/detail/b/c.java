@@ -12,9 +12,7 @@ import com.kwad.sdk.utils.ao;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c extends com.kwad.sdk.contentalliance.tube.detail.a.a {
-
-    /* renamed from: b  reason: collision with root package name */
-    private WarpLinearLayout f8939b;
+    private WarpLinearLayout b;
     private b.a c = new b.a() { // from class: com.kwad.sdk.contentalliance.tube.detail.b.c.1
         @Override // com.kwad.sdk.contentalliance.tube.b.a
         public void a(boolean z) {
@@ -26,8 +24,8 @@ public class c extends com.kwad.sdk.contentalliance.tube.detail.a.a {
 
         @Override // com.kwad.sdk.contentalliance.tube.b.a
         public void a(boolean z, @NonNull AdResultData adResultData) {
-            if (c.this.f8924a.f8926b.mTubeInfo != null) {
-                c.this.a(c.this.f8924a.f8926b.mTubeInfo.tagList);
+            if (c.this.f5945a.b.mTubeInfo != null) {
+                c.this.a(c.this.f5945a.b.mTubeInfo.tagList);
             }
         }
 
@@ -48,31 +46,31 @@ public class c extends com.kwad.sdk.contentalliance.tube.detail.a.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(List<String> list) {
-        this.f8939b.removeAllViews();
+        this.b.removeAllViews();
         if (list == null || list.isEmpty()) {
-            this.f8939b.setVisibility(8);
+            this.b.setVisibility(8);
             return;
         }
         for (String str : list) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.rightMargin = ao.a(o(), 8.0f);
-            this.f8939b.addView(a(str), layoutParams);
+            this.b.addView(a(str), layoutParams);
         }
-        this.f8939b.setVisibility(0);
+        this.b.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.contentalliance.tube.detail.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f8924a.d.add(this.c);
+        this.f5945a.d.add(this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f8924a.d.remove(this.c);
+        this.f5945a.d.remove(this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -80,6 +78,6 @@ public class c extends com.kwad.sdk.contentalliance.tube.detail.a.a {
     public void c() {
         super.c();
         com.kwad.sdk.core.d.a.a("TubeHeaderTagListPresenter", "TubeHeaderTagListPresenter onCreate");
-        this.f8939b = (WarpLinearLayout) b(R.id.ksad_tube_tag_list_container);
+        this.b = (WarpLinearLayout) b(R.id.ksad_tube_tag_list_container);
     }
 }

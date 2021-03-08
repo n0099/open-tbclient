@@ -2,24 +2,24 @@ package com.baidu.swan.apps.ao;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class aq {
-    private final Queue<Runnable> dDT = new ArrayDeque();
-    private Runnable dPB = null;
-    private boolean dPC = false;
+    private final Queue<Runnable> dFu = new ArrayDeque();
+    private Runnable dRc = null;
+    private boolean dRd = false;
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x0013, code lost:
-        if (aOF() != false) goto L9;
+        if (aOI() != false) goto L9;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized boolean l(Runnable runnable) {
+    public synchronized boolean k(Runnable runnable) {
         boolean z = true;
         synchronized (this) {
             boolean z2 = runnable == null;
             if (!z2) {
-                this.dDT.offer(runnable);
+                this.dFu.offer(runnable);
             }
             if (!z2) {
             }
@@ -28,34 +28,34 @@ public class aq {
         return z;
     }
 
-    public synchronized boolean aOC() {
-        boolean aOE;
-        aOE = aOE();
-        this.dPC = true;
-        return aOE;
+    public synchronized boolean aOF() {
+        boolean aOH;
+        aOH = aOH();
+        this.dRd = true;
+        return aOH;
     }
 
-    public synchronized void aOD() {
-        this.dPC = false;
-        aOF();
+    public synchronized void aOG() {
+        this.dRd = false;
+        aOI();
     }
 
-    private boolean aOE() {
-        return !this.dPC && this.dPB == null;
+    private boolean aOH() {
+        return !this.dRd && this.dRc == null;
     }
 
-    private synchronized boolean aOF() {
-        boolean aOE;
-        aOE = aOE();
-        if (aOE) {
-            while (!this.dDT.isEmpty()) {
-                this.dPB = this.dDT.poll();
-                if (this.dPB != null) {
-                    this.dPB.run();
+    private synchronized boolean aOI() {
+        boolean aOH;
+        aOH = aOH();
+        if (aOH) {
+            while (!this.dFu.isEmpty()) {
+                this.dRc = this.dFu.poll();
+                if (this.dRc != null) {
+                    this.dRc.run();
                 }
             }
-            this.dPB = null;
+            this.dRc = null;
         }
-        return aOE;
+        return aOH;
     }
 }

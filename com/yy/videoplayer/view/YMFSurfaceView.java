@@ -13,7 +13,7 @@ import com.yy.videoplayer.decoder.YLightweightVideoViewExt;
 import com.yy.videoplayer.decoder.YYVideoLibMgr;
 import com.yy.videoplayer.utils.YMFLog;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFSurfaceView extends SurfaceView implements SurfaceHolder.Callback2, YLightweightVideoViewExt {
     private static final String TAG = "YMFSurfaceView";
     private int mHeight;

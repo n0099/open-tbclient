@@ -31,17 +31,17 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes.dex */
 public class t {
-    public static List<String> mRK;
-    private static final String[] mRL = {"baiduboxapp", "taobao", LogConfig.LIVE_SHARE_HK_WEIXIN_FRIEND, "alipays"};
-    private static volatile boolean mRM = false;
+    public static List<String> mTQ;
+    private static final String[] mTR = {"baiduboxapp", "taobao", LogConfig.LIVE_SHARE_HK_WEIXIN_FRIEND, "alipays"};
+    private static volatile boolean mTS = false;
 
     public static final boolean a(Context context, AdvertAppInfo advertAppInfo, int i, DownloadStaticsData downloadStaticsData) {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.eLu;
-        if (StringUtils.isNull(str) && advertAppInfo.eLC != null) {
-            str = advertAppInfo.eLC.userName;
+        String str = advertAppInfo.eMV;
+        if (StringUtils.isNull(str) && advertAppInfo.eNd != null) {
+            str = advertAppInfo.eNd.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -53,17 +53,17 @@ public class t {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.bAU().b(advertAppInfo);
-        String str2 = advertAppInfo.eLu;
+        com.baidu.tbadk.distribute.a.bAX().b(advertAppInfo);
+        String str2 = advertAppInfo.eMV;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.e.dDA().a(advertAppInfo.eLw, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.RD(advertAppInfo.eLw).intValue(), null, true, false, true, advertAppInfo.eLC.userPortrait, downloadStaticsData, advertAppInfo.eLC.userName);
+        com.baidu.tieba.recapp.download.e.dDI().a(advertAppInfo.eMX, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.RJ(advertAppInfo.eMX).intValue(), null, true, false, true, advertAppInfo.eNd.userPortrait, downloadStaticsData, advertAppInfo.eNd.userName);
         return true;
     }
 
     public static final void i(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.e.dDA().F(advertAppInfo.apkUrl, advertAppInfo.eLw, true);
+        com.baidu.tieba.recapp.download.e.dDI().F(advertAppInfo.apkUrl, advertAppInfo.eMX, true);
     }
 
     @Deprecated
@@ -82,17 +82,17 @@ public class t {
         }
     }
 
-    public static boolean Rt(@NonNull String str) {
+    public static boolean Rz(@NonNull String str) {
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         if (TextUtils.isEmpty(str)) {
             com.baidu.adp.lib.util.l.showToast(inst, R.string.download_error);
             return false;
         }
-        File Ro = b.Ro(str);
-        if (b.af(Ro)) {
+        File Ru = b.Ru(str);
+        if (b.af(Ru)) {
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(UtilHelper.getUriFromFile(Ro, intent, inst), "application/vnd.android.package-archive");
+            intent.setDataAndType(UtilHelper.getUriFromFile(Ru, intent, inst), "application/vnd.android.package-archive");
             intent.addFlags(268435456);
             inst.startActivity(intent);
             return true;
@@ -127,7 +127,7 @@ public class t {
         }
     }
 
-    public static boolean Ru(String str) {
+    public static boolean RA(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -138,7 +138,7 @@ public class t {
         }
     }
 
-    public static boolean at(Activity activity) {
+    public static boolean au(Activity activity) {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }
@@ -205,11 +205,11 @@ public class t {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        s.dDt().sendFRS(z, str, str2, str3, list, str4);
+        s.dDB().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        s.dDt().a(z, str, str2, str3, str4, list, str5);
+        s.dDB().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int a(TbPageContext tbPageContext, String str, String str2, String str3) {
@@ -256,14 +256,14 @@ public class t {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (com.baidu.tieba.lego.card.c.a.isEmpty(mRK)) {
-            mRK = com.baidu.tbadk.coreExtra.data.g.bwh();
-            if (mRK == null) {
-                mRK = new ArrayList();
+        if (com.baidu.tieba.lego.card.c.a.isEmpty(mTQ)) {
+            mTQ = com.baidu.tbadk.coreExtra.data.g.bwk();
+            if (mTQ == null) {
+                mTQ = new ArrayList();
             }
-            mRK.addAll(Arrays.asList(mRL));
+            mTQ.addAll(Arrays.asList(mTR));
         }
-        for (String str2 : mRK) {
+        for (String str2 : mTQ) {
             if (str.startsWith(str2)) {
                 return f(context, Uri.parse(str)) == 1000;
             }
@@ -273,15 +273,15 @@ public class t {
 
     private static boolean c(@NonNull Context context, String str, Bundle bundle) {
         String[] strArr = {str};
-        j dDq = s.dDt().dDq();
-        if (dDq == null) {
+        j dDy = s.dDB().dDy();
+        if (dDy == null) {
             return false;
         }
-        if (dDq.EA(str)) {
-            dDq.a(context, strArr, true, bundle);
+        if (dDy.EH(str)) {
+            dDy.a(context, strArr, true, bundle);
             return true;
         }
-        return dDq.a(context, strArr, bundle);
+        return dDy.a(context, strArr, bundle);
     }
 
     public static int a(Context context, String str, AdvertAppInfo advertAppInfo) {
@@ -291,12 +291,12 @@ public class t {
         if (str.startsWith("tieba://deeplink?")) {
             int c = c(Uri.parse(str), context);
             if (c != 1000) {
-                s.dDt().a(advertAppInfo, context);
+                s.dDB().a(advertAppInfo, context);
                 return c;
             }
             return 1000;
         }
-        s.dDt().a(advertAppInfo, context);
+        s.dDB().a(advertAppInfo, context);
         return 1;
     }
 
@@ -307,11 +307,14 @@ public class t {
         return c(Uri.parse(str), context);
     }
 
-    public static boolean Rv(String str) {
-        return !TextUtils.isEmpty(str) && str.startsWith("tieba://deeplink?");
+    public static boolean RB(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        return str.startsWith("tieba://deeplink?");
     }
 
-    public static String Rw(String str) {
+    public static String RC(String str) {
         if (!TextUtils.isEmpty(str) && str.startsWith("tieba://deeplink?")) {
             return Uri.parse(str).getQueryParameter("wap");
         }
@@ -319,7 +322,7 @@ public class t {
     }
 
     public static boolean b(AdvertAppInfo advertAppInfo, String str) {
-        if (advertAppInfo == null || !advertAppInfo.blE() || TextUtils.isEmpty(str) || !Ru(advertAppInfo.eLw) || str.startsWith("tieba://deeplink?")) {
+        if (advertAppInfo == null || !advertAppInfo.blG() || TextUtils.isEmpty(str) || !RA(advertAppInfo.eMX) || str.startsWith("tieba://deeplink?")) {
             return false;
         }
         return j(advertAppInfo);
@@ -331,7 +334,7 @@ public class t {
         if (advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.eLw;
+        String str = advertAppInfo.eMX;
         if (TextUtils.isEmpty(str) || (bb = bb((context = TbadkCoreApplication.getInst().getContext()), str)) == null) {
             return false;
         }
@@ -343,7 +346,7 @@ public class t {
         }
     }
 
-    public static boolean HL(int i) {
+    public static boolean HO(int i) {
         switch (i) {
             case 1000:
             case 1001:
@@ -358,9 +361,9 @@ public class t {
         }
     }
 
-    public static void dDu() {
-        if (!com.baidu.tieba.a.bJg().bJj() && !mRM) {
-            mRM = true;
+    public static void dDC() {
+        if (!com.baidu.tieba.a.bJk().bJn() && !mTS) {
+            mTS = true;
             for (String str : new String[]{"com.baidu.tieba.recapp.RecAppStatic", "com.baidu.tieba.lego.activity.LegoListActivityStatic"}) {
                 try {
                     Class.forName(str);
@@ -370,9 +373,9 @@ public class t {
         }
     }
 
-    public static boolean Rx(String str) {
+    public static boolean RD(String str) {
         if (bd(TbadkCoreApplication.getInst(), str)) {
-            return Rt(str);
+            return Rz(str);
         }
         return false;
     }

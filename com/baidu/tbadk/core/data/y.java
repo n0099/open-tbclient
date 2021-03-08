@@ -4,46 +4,46 @@ import tbclient.FrsPage.ForumBookInfo;
 /* loaded from: classes.dex */
 public class y {
     private String author;
-    private int eMC;
-    private String eNa;
-    private String eNb;
-    private String eNc;
-    private String eNd;
-    private String eNe;
-    private String eNf;
-    private String eNg;
-    private long eNh;
-    private long eNi;
-    private long eNj;
-    private long eNk;
-    private long eNl;
-    private long eNm;
+    private String eOB;
+    private String eOC;
+    private String eOD;
+    private String eOE;
+    private String eOF;
+    private String eOG;
+    private String eOH;
+    private long eOI;
+    private long eOJ;
+    private long eOK;
+    private long eOL;
+    private long eOM;
+    private long eON;
+    private int eOd;
 
-    public String blT() {
-        return this.eNa;
+    public String blV() {
+        return this.eOB;
     }
 
-    public int blU() {
-        return this.eMC;
+    public int blW() {
+        return this.eOd;
     }
 
     public void a(ForumBookInfo forumBookInfo) {
         if (forumBookInfo != null) {
-            this.eNa = forumBookInfo.book_id;
-            this.eMC = forumBookInfo.book_type.intValue();
-            this.eNb = forumBookInfo.book_title;
-            this.eNc = forumBookInfo.book_cover;
+            this.eOB = forumBookInfo.book_id;
+            this.eOd = forumBookInfo.book_type.intValue();
+            this.eOC = forumBookInfo.book_title;
+            this.eOD = forumBookInfo.book_cover;
             this.author = forumBookInfo.author;
-            this.eNd = forumBookInfo.forum_pic;
-            this.eNe = forumBookInfo.show_chapter_id;
-            this.eNf = forumBookInfo.show_chapter_no;
-            this.eNg = forumBookInfo.show_chapter_title;
-            this.eNh = forumBookInfo.history_page_id.longValue();
-            this.eNi = forumBookInfo.history_paragraph_id.longValue();
-            this.eNj = forumBookInfo.history_word_id.longValue();
-            this.eNk = forumBookInfo.history_percent.longValue();
-            this.eNl = forumBookInfo.show_page_id.longValue();
-            this.eNm = forumBookInfo.show_paragraph_id.longValue();
+            this.eOE = forumBookInfo.forum_pic;
+            this.eOF = forumBookInfo.show_chapter_id;
+            this.eOG = forumBookInfo.show_chapter_no;
+            this.eOH = forumBookInfo.show_chapter_title;
+            this.eOI = forumBookInfo.history_page_id.longValue();
+            this.eOJ = forumBookInfo.history_paragraph_id.longValue();
+            this.eOK = forumBookInfo.history_word_id.longValue();
+            this.eOL = forumBookInfo.history_percent.longValue();
+            this.eOM = forumBookInfo.show_page_id.longValue();
+            this.eON = forumBookInfo.show_paragraph_id.longValue();
         }
     }
 }

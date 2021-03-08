@@ -5,7 +5,7 @@ import com.baidu.mobads.interfaces.IXAdInstanceInfo;
 import com.baidu.mobads.interfaces.IXAdResource;
 import com.baidu.mobads.interfaces.IXNonLinearAdSlot;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a extends b {
     private String f;
 
@@ -16,6 +16,6 @@ public class a extends b {
     }
 
     public void a() {
-        XAdSDKFoundationFacade.getInstance().getCommonUtils().browserOutside(this.f3306a, this.f);
+        XAdSDKFoundationFacade.getInstance().getCommonUtils().browserOutside(this.f2366a, this.f);
     }
 }

@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ShimPluginRegistry implements PluginRegistry {
     private static final String TAG = "ShimPluginRegistry";
     private final FlutterEngine flutterEngine;
@@ -45,7 +45,7 @@ public class ShimPluginRegistry implements PluginRegistry {
         return (T) this.pluginMap.get(str);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static class ShimRegistrarAggregate implements FlutterPlugin, ActivityAware {
         private ActivityPluginBinding activityPluginBinding;
         private FlutterPlugin.FlutterPluginBinding flutterPluginBinding;
