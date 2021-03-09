@@ -591,9 +591,8 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
         bVar.setScaleLevel(1.0f / this.mCurrentScaled);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class a extends Scroller {
+    private class a extends Scroller {
         int mOldValueX;
         int mOldValueY;
 

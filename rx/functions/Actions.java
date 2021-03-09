@@ -47,9 +47,8 @@ public final class Actions {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
-    public enum NotImplemented implements rx.functions.b<Throwable> {
+    enum NotImplemented implements rx.functions.b<Throwable> {
         INSTANCE;
 
         /* JADX DEBUG: Method merged with bridge method */
