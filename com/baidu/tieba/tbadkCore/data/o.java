@@ -135,7 +135,7 @@ public class o extends PostData {
         if (!com.baidu.tbadk.core.k.bkV().isShowImages() && this.nyZ != null && this.nyZ.legoCard != null && !this.nyZ.legoCard.isNoPicAd()) {
             return AdvertAppInfo.eMG;
         }
-        if (com.baidu.tbadk.a.d.biW()) {
+        if (com.baidu.tbadk.a.d.biW() && this.nza) {
             return AdvertAppInfo.eMG;
         }
         if (dNE() == 1001 || dNE() == -1001) {
